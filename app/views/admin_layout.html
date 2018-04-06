@@ -1,0 +1,140 @@
+{% block top_of_page %}{% endblock %}
+
+{% from "back-link/macro.njk"     import govukBackLink %}
+{% from "breadcrumbs/macro.njk"   import govukBreadcrumbs %}
+{% from "button/macro.njk"        import govukButton %}
+{% from "checkboxes/macro.njk"    import govukCheckboxes %}
+{% from "date-input/macro.njk"    import govukDateInput %}
+{% from "details/macro.njk"       import govukDetails %}
+{% from "error-message/macro.njk" import govukErrorMessage %}
+{% from "error-summary/macro.njk" import govukErrorSummary %}
+{% from "fieldset/macro.njk"      import govukFieldset %}
+{% from "file-upload/macro.njk"   import govukFileUpload %}
+{% from "input/macro.njk"         import govukInput %}
+{% from "label/macro.njk"         import govukLabel %}
+{% from "panel/macro.njk"         import govukPanel %}
+{% from "phase-banner/macro.njk"  import govukPhaseBanner %}
+{% from "radios/macro.njk"        import govukRadios %}
+{% from "select/macro.njk"        import govukSelect %}
+{% from "skip-link/macro.njk"     import govukSkipLink %}
+{% from "table/macro.njk"         import govukTable %}
+{% from "tag/macro.njk"           import govukTag %}
+{% from "textarea/macro.njk"      import govukTextarea %}
+{% from "warning-text/macro.njk"  import govukWarningText %}
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lte-ie8" lang="{{ html_lang|default('en') }}"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="{{ html_lang|default('en') }}"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block page_title %}GOV.UK - The best place to find government services and information{% endblock %}</title>
+
+    <!--[if gt IE 8]><!--><link href="{{ asset_path }}stylesheets/govuk-template.css?0.22.3" media="screen" rel="stylesheet" /><!--<![endif]-->
+    <!--[if IE 6]><link href="{{ asset_path }}stylesheets/govuk-template-ie6.css?0.22.3" media="screen" rel="stylesheet" /><![endif]-->
+    <!--[if IE 7]><link href="{{ asset_path }}stylesheets/govuk-template-ie7.css?0.22.3" media="screen" rel="stylesheet" /><![endif]-->
+    <!--[if IE 8]><link href="{{ asset_path }}stylesheets/govuk-template-ie8.css?0.22.3" media="screen" rel="stylesheet" /><![endif]-->
+    <link href="{{ asset_path }}stylesheets/govuk-template-print.css?0.22.3" media="print" rel="stylesheet" />
+
+    <!--[if IE 8]><link href="{{ asset_path }}stylesheets/fonts-ie8.css?0.22.3" media="all" rel="stylesheet" /><![endif]-->
+    <!--[if gte IE 9]><!--><link href="{{ asset_path }}stylesheets/fonts.css?0.22.3" media="all" rel="stylesheet" /><!--<![endif]-->
+    <!--[if lt IE 9]><script src="{{ asset_path }}javascripts/ie.js?0.22.3"></script><![endif]-->
+
+    <link rel="shortcut icon" href="{{ asset_path }}images/favicon.ico?0.22.3" type="image/x-icon" />
+    
+    <link rel="mask-icon" href="{{ asset_path }}images/gov.uk_logotype_crown.svg?0.22.3" color="#0b0c0c">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset_path }}images/apple-touch-icon-180x180.png?0.22.3">
+    <link rel="apple-touch-icon" sizes="167x167" href="{{ asset_path }}images/apple-touch-icon-167x167.png?0.22.3">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset_path }}images/apple-touch-icon-152x152.png?0.22.3">
+    <link rel="apple-touch-icon" href="{{ asset_path }}images/apple-touch-icon.png?0.22.3">
+
+    
+    <meta name="theme-color" content="#0b0c0c" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="{{ asset_path }}images/opengraph-image.png?0.22.3">
+    
+    {% include "includes/head.html" %}
+
+    {% block head %}{% endblock %}
+  </head>
+
+  <body class="{% block body_classes %}{% endblock %}">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    {% block body_start %}
+      <div class="govuk-o-width-container">
+        {{ govukPhaseBanner({
+          "tag": {
+            "text": "beta"
+          },
+          "html": 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+        }) }}
+      </div>
+    {% endblock %}
+
+    <div id="skiplink-container">
+      <div>
+        <a href="#content" class="skiplink">{{ skip_link_message|default('Skip to main content') }}</a>
+      </div>
+    </div>
+
+    {% block header %}
+      <header role="banner" class="admin-header">
+        <div class="admin-header__wrapper govuk-o-width-container">
+          <div class="admin-header__logo">Judicial UI</div>
+          <div class="admin-header__account">Adam Silver</div>
+        </div>
+      </header>
+      <nav>
+        <ul class="govuk-o-width-container">
+          <li><a href="/v1/dashboard">Case list</a></li>
+          <li><a href="/v1/dashboard">Item</a></li>
+          <li><a href="/v1/dashboard">Item</a></li>
+        </ul>
+      </nav>
+    {% endblock %}
+
+    {% block after_header %}{% endblock %}
+
+    {% block content %}{% endblock %}
+
+    <!-- <footer class="group js-footer" id="footer" role="contentinfo">
+
+      <div class="footer-wrapper">
+        {% block footer_top %}{% endblock %}
+
+        <div class="footer-meta">
+          <div class="footer-meta-inner">
+            {% block footer_support_links %}{% endblock %}
+
+            <div class="open-government-licence">
+              <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
+              
+                {% block licence_message %}<p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>{% endblock %}
+              
+            </div>
+          </div>
+
+          <div class="copyright">
+            <a href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/">{{ crown_copyright_message|default('&copy; Crown copyright')|safe }}</a>
+          </div>
+        </div>
+      </div>
+    </footer> -->
+
+    <div id="global-app-error" class="app-error hidden"></div>
+
+    <script src="{{ asset_path }}javascripts/govuk-template.js?0.22.3"></script>
+
+    {% block body_end %}
+      {% block scripts %}
+        {% include "includes/scripts.html" %}
+        {% block page_scripts %}{% endblock %}
+      {% endblock %}
+      <!-- GOV.UK Prototype kit {{releaseVersion}} -->
+    {% endblock %}
+    
+    <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
+  </body>
+</html>
+
