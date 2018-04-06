@@ -1,35 +1,24 @@
-{% extends "admin_layout.html" %}
+{% extends "v1/layouts/base.html" %}
+
+{% set casenav = "summary" %}
 
 {% block page_title %}
   Dashboard
 {% endblock %}
 
-{% block head %}
-  {% include "includes/head.html" %}
-{% endblock %}
-
-
 {% block content %}
+
+<div class="case-header">
+  <div class="govuk-o-width-container">
+    SC123/16/12321 Alan Jones vs DWP
+  </div>
+</div>
+
+{% include "v1/includes/case-nav.html" %}
 
 <div class="govuk-o-width-container">
   <main role="main" class="govuk-o-main-wrapper">
-
-        {{ govukBackLink({
-          "text": "Back",
-          "href": "/v1/dashboard"
-        }) }}
-
-        <h1 class="govuk-heading-xl">
-          Case 1234
-        </h1>
-    
-        
-
-        {{ govukButton({
-          "text": "Get new case",
-          "href": "/v1/get-new-case/"
-        }) }}
-
+    <h1 class="govuk-heading-xl"> Summary </h1>
   </main>
 </div>
 

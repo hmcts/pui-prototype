@@ -1,13 +1,10 @@
-{% extends "admin_layout.html" %}
+{% extends "v1/layouts/base.html" %}
+
+{% set nav = "dashboard" %}
 
 {% block page_title %}
   Dashboard
 {% endblock %}
-
-{% block head %}
-  {% include "includes/head.html" %}
-{% endblock %}
-
 
 {% block content %}
 
@@ -148,12 +145,4 @@
   </main>
 </div>
 
-{% endblock %}
-
-{% block body_end %}
-  {% block scripts %}
-    {% include "includes/scripts.html" %}
-    {% block page_scripts %}{% endblock %}
-  {% endblock %}
-  <!-- GOV.UK Prototype kit {{releaseVersion}} -->
 {% endblock %}
