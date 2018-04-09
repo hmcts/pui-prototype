@@ -4,8 +4,28 @@
   <header role="banner" class="admin-header">
     <div class="admin-header__wrapper govuk-o-width-container">
       <div class="admin-header__logo">Judicial UI</div>
-      <div class="admin-header__account">Adam Silver</div>
+      <div class="admin-header__account">
+        <nav class="primary-nav">
+          <ul>
+            <li>
+              <a {{ "active" if nav == 'dashboard' }} href="/v1/dashboard" >Dashboard</a>
+            </li>
+            <li>
+              <a {{ "active" if nav == 'account' }} href="/v1/account" >Account <span aria-hidden="true">▾</span></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
+	<div class="govuk-o-width-container">
+    {{ govukPhaseBanner({
+      "tag": {
+        "text": "beta"
+      },
+      "html": 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </div>  
+
   {% include "v1/includes/nav.html" %}
 {% endblock %}

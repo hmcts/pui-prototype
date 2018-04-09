@@ -12,9 +12,9 @@
   <main role="main" class="govuk-o-main-wrapper">
 
         <h1 class="govuk-heading-xl">
-          Case list
+          Dashboard
         </h1>
-    
+
         {{ govukTable({
           "caption": "Your cases",
           "captionSize": 'govuk-!-f-36',
@@ -141,6 +141,135 @@
           "text": "Get new case",
           "href": "/v1/get-new-case/"
         }) }}
+
+        <h2 class="govuk-heading-l">
+          Your hearings
+        </h2>
+
+        {{ govukTable({
+          "caption": "Your cases",
+          "captionSize": 'govuk-!-f-36',
+          "head": [
+            {
+              "text": "Case number"
+            },
+            {
+              "text": "Parties"
+            },
+            {
+              "text": "Type"
+            },
+            {
+              "text": "Status"
+            },
+            {
+              "text": "Initiation date"
+            },
+            {
+              "text": "Last action date"
+            },
+            {
+              "text": "Size of case file"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "html": '<a href="/v1/case">SC123/16/12321</a>'
+              },
+              {
+                "text": "Alan Jones vs DWP"
+              },
+              {
+                "text": "PIP"
+              }, 
+              {
+                "html": '<a href="/v1/case">DWP response</a>'
+              },
+              {
+                "text": '17 Feb 2018'
+              },
+              {
+                "text": '18 Feb 2018'
+              },
+              {
+                "text": '4 documents (7 pages)'
+              }
+            ],
+            [
+              {
+                "html": '<a href="/v1/case">SC123/16/12321</a>'
+              },
+              {
+                "text": "Alan Jones vs DWP"
+              },
+              {
+                "text": "PIP"
+              }, 
+              {
+                "html": '<a href="/v1/case">DWP response</a>'
+              },
+              {
+                "text": '17 Feb 2018'
+              },
+              {
+                "text": '18 Feb 2018'
+              },
+              {
+                "text": '4 documents (7 pages)'
+              }
+            ],
+            [
+              {
+                "html": '<a href="/v1/case">SC123/16/12321</a>'
+              },
+              {
+                "text": "Alan Jones vs DWP"
+              },
+              {
+                "text": "PIP"
+              }, 
+              {
+                "html": '<a href="/v1/case">DWP response</a>'
+              },
+              {
+                "text": '17 Feb 2018'
+              },
+              {
+                "text": '18 Feb 2018'
+              },
+              {
+                "text": '4 documents (7 pages)'
+              }
+            ],
+            [
+              {
+                "html": '<a href="/v1/case">SC123/16/12321</a>'
+              },
+              {
+                "text": "Alan Jones vs DWP"
+              },
+              {
+                "text": "PIP"
+              }, 
+              {
+                "html": '<a href="/v1/case">DWP response</a>'
+              },
+              {
+                "text": '17 Feb 2018'
+              },
+              {
+                "text": '18 Feb 2018'
+              },
+              {
+                "text": '4 documents (7 pages)'
+              }
+            ]
+          ]
+        }) }}
+
+
+
 
   </main>
 </div>

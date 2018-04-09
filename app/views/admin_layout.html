@@ -62,14 +62,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
     {% block body_start %}
-      <div class="govuk-o-width-container">
-        {{ govukPhaseBanner({
-          "tag": {
-            "text": "beta"
-          },
-          "html": 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-        }) }}
-      </div>
+      
     {% endblock %}
 
     <div id="skiplink-container">
@@ -78,9 +71,15 @@
       </div>
     </div>
 
+    
+
     {% block header %}{% endblock %}
 
-    {% block after_header %}{% endblock %}
+    {% block after_header %}
+      
+
+
+    {% endblock %}
 
     {% block content %}{% endblock %}
 
