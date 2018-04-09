@@ -103,6 +103,20 @@ $path: "/public/images/";
   background-color: #0074B4;
   padding: 10px;
   color: #fff;
+  overflow: hidden;
+}
+
+.case-header__title {
+  float: left;
+}
+
+.case-header__actions {
+  float: right;
+}
+
+.case-header__actions a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .case-nav {
@@ -125,12 +139,3 @@ $path: "/public/images/";
     text-decoration: none;
   }
 }
-
-
-
-
-
-
-
-
-
