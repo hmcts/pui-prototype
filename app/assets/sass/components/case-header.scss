@@ -1,0 +1,24 @@
+.case-header {
+  background-color: #0074B4;
+  padding: 10px;
+  color: #fff;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.case-header__title {
+  float: left;
+}
+
+.case-header__parties {
+  font-weight: bold;
+}
+
+.case-header__actions {
+  float: right;
+}
+
+.case-header__actions a {
+  text-decoration: none;
+  color: #fff;
+}

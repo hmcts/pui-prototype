@@ -1,5 +1,7 @@
 {% extends "v1/layouts/base.html" %}
 
+{% from "macros/alerts.html" import successAlert %}
+
 {% set casenav = "summary" %}
 
 {% block page_title %}
@@ -8,14 +10,19 @@
 
 {% block content %}
 
-
-
-
-
 <div class="govuk-o-width-container">
   <main role="main" class="govuk-o-main-wrapper">
 
 		{% include "v1/includes/case-header.html" %}
+
+		{% if success %}
+
+			{% call successAlert() -%}
+				Case added to your case list
+			{%- endcall %}
+
+		{% endif %}
+
 		{% include "v1/includes/case-nav.html" %}
 
     <h1 class="govuk-heading-xl"> Summary </h1>

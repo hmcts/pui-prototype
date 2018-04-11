@@ -9,6 +9,10 @@ $path: "/public/images/";
 @import 'patterns/check-your-answers';
 @import 'patterns/related-items';
 
+// Components that aren't in Frontend
+@import 'components/success';
+@import 'components/case-header';
+
 .code {
   color: $govuk-text-colour;
   background-color: $govuk-grey-4;
@@ -72,6 +76,7 @@ $path: "/public/images/";
 .admin-header__logo {
   float: left;
   color: #fff;
+  font-weight: bold;
 }
 
 .admin-header__account {
@@ -99,25 +104,6 @@ $path: "/public/images/";
   }
 }
 
-.case-header {
-  background-color: #0074B4;
-  padding: 10px;
-  color: #fff;
-  overflow: hidden;
-}
-
-.case-header__title {
-  float: left;
-}
-
-.case-header__actions {
-  float: right;
-}
-
-.case-header__actions a {
-  text-decoration: none;
-  color: #fff;
-}
 
 .case-nav {
   padding-top: 10px;

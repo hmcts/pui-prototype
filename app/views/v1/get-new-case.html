@@ -1,0 +1,47 @@
+{% extends "v1/layouts/base.html" %}
+
+{% block page_title %}
+  Get new case
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-o-width-container">
+  <main role="main" class="govuk-o-main-wrapper">
+
+        <form action="/v1/get-new-case" method="post">
+
+          {{ govukBackLink({
+            "text": "Back",
+            "href": "/v1/dashboard"
+          }) }}
+
+          {{ govukRadios({
+            "idPrefix": "type",
+            "name": "type",
+            "classes": "govuk-c-radio__item--inline",
+            "fieldset": {
+              "legendHtml": '<h1 class="govuk-heading-xl">Case type</h1>',
+              "legendHintText": "You're able to work on Tribunal (Social Security) and Civil cases"
+            },
+            "items": [
+              {
+                "value": "tribunal",
+                "text": "Tribunal (Social Security)"
+              },
+              {
+                "value": "civil",
+                "text": "Civil"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            "text": "Continue"
+          }) }}
+        </form>
+
+  </main>
+</div>
+
+{% endblock %}
