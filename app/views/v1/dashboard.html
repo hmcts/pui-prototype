@@ -7,292 +7,288 @@
 {% endblock %}
 
 {% block content %}
+  <div class="jui-o-width-container">
+    <main role="main" class="govuk-o-main-wrapper">
+      <h1 class="govuk-heading-xl">
+        Dashboard
+      </h1>
 
-<div class="govuk-o-width-container">
-  <main role="main" class="govuk-o-main-wrapper">
-
-        <h1 class="govuk-heading-xl">
-          Dashboard
-        </h1>
-
-        {{ govukTable({
-          "caption": "Your cases",
-          "captionSize": 'govuk-!-f-36',
-          "head": [
+      {{ govukTable({
+        "caption": "Your cases",
+        "captionSize": 'govuk-!-f-36',
+        "head": [
+          {
+            "text": "Case number"
+          },
+          {
+            "text": "Parties"
+          },
+          {
+            "text": "Type"
+          },
+          {
+            "text": "Status"
+          },
+          {
+            "text": "Initiation date"
+          },
+          {
+            "text": "Last action date"
+          },
+          {
+            "text": "Case file size"
+          },
+          {
+            "text": ""
+          }
+        ],
+        "rows": [
+          [
             {
-              "text": "Case number"
+              "html": '<a href="/v1/case">SC123/16/12321</a>'
             },
             {
-              "text": "Parties"
+              "text": "Alan Jones vs DWP"
             },
             {
-              "text": "Type"
+              "text": "PIP"
+            }, 
+            {
+              "html": '<a href="/v1/case">DWP response</a>'
             },
             {
-              "text": "Status"
+              "text": '17 Feb 2018'
             },
             {
-              "text": "Initiation date"
+              "text": '18 Feb 2018'
             },
             {
-              "text": "Last action date"
+              "text": '4 documents (7 pages)'
             },
             {
-              "text": "Case file size"
-            },
-            {
-              "text": ""
+              "text": ''
             }
           ],
-          "rows": [
-            [
-              {
-                "html": '<a href="/v1/case">SC123/16/12321</a>'
-              },
-              {
-                "text": "Alan Jones vs DWP"
-              },
-              {
-                "text": "PIP"
-              }, 
-              {
-                "html": '<a href="/v1/case">DWP response</a>'
-              },
-              {
-                "text": '17 Feb 2018'
-              },
-              {
-                "text": '18 Feb 2018'
-              },
-              {
-                "text": '4 documents (7 pages)'
-              },
-              {
-                "text": ''
-              }
-            ],
-            [
-              {
-                "html": '<a href="/v1/case">SC123/16/12322</a>'
-              },
-              {
-                "text": "Alan Jones vs DWP"
-              },
-              {
-                "text": "PIP"
-              }, 
-              {
-                "html": '<a href="/v1/case">DWP response</a>'
-              },
-              {
-                "text": '17 Feb 2018'
-              },
-              {
-                "text": '18 Feb 2018'
-              },
-              {
-                "text": '4 documents (7 pages)'
-              },
-              {
-                "text": ''
-              }
-            ],
-            [
-              {
-                "html": '<a href="/v1/case">SC123/16/12323</a>'
-              },
-              {
-                "text": "Alan Jones vs DWP"
-              },
-              {
-                "text": "PIP"
-              }, 
-              {
-                "html": '<a href="/v1/case">DWP response</a>'
-              },
-              {
-                "text": '17 Feb 2018'
-              },
-              {
-                "text": '18 Feb 2018'
-              },
-              {
-                "text": '4 documents (7 pages)'
-              },
-              {
-                "text": 'Urgent'
-              }
-            ],
-            [
-              {
-                "html": '<a href="/v1/case">SC123/16/12325</a>'
-              },
-              {
-                "text": "Alan Jones vs DWP"
-              },
-              {
-                "text": "PIP"
-              }, 
-              {
-                "html": '<a href="/v1/case">DWP response</a>'
-              },
-              {
-                "text": '17 Feb 2018'
-              },
-              {
-                "text": '18 Feb 2018'
-              },
-              {
-                "text": '4 documents (7 pages)'
-              },
-              {
-                "text": ''
-              }
-            ]
-          ]
-        }) }}
-
-        {{ govukButton({
-          "text": "Get new case",
-          "href": "/v1/get-new-case"
-        }) }}
-        
-        <br><br>
-
-        <h2 class="govuk-heading-l">
-          Your hearings
-        </h2>
-    
-        {{ govukTable({
-          "caption": "20 March 2018",
-          "captionSize": 'govuk-!-f-27',
-          "head": [
+          [
             {
-              "text": "Start time"
+              "html": '<a href="/v1/case">SC123/16/12322</a>'
             },
             {
-              "text": "End time"
+              "text": "Warren Sutton vs DWP"
             },
             {
-              "text": "Subject"
+              "text": "PIP"
+            }, 
+            {
+              "html": '<a href="/v1/case">Party replied</a>'
             },
             {
-              "text": "Type"
+              "text": '15 Jan 2018'
             },
             {
-              "text": "Location"
+              "text": '18 Jan 2018'
             },
             {
-              "text": "Status"
+              "text": '4 documents (7 pages)'
+            },
+            {
+              "text": ''
             }
           ],
-          "rows": [
-            [
-              {
-                "text": "9am"
-              },
-              {
-                "text": "9:30am"
-              },
-              {
-                "html": '<a href="/v1/case">P Shaw vs DWP</a>'
-              }, 
-              {
-                "text": 'PIP'
-              },
-              {
-                "text": 'Fox court'
-              },
-              {
-                "text": 'Prepared'
-              }
-            ],
-            [
-              {
-                "text": "9:30am"
-              },
-              {
-                "text": "10am"
-              },
-              {
-                "html": '<a href="/v1/case">P Shaw vs DWP</a>'
-              }, 
-              {
-                "text": 'PIP'
-              },
-              {
-                "text": 'Fox court'
-              },
-              {
-                "text": ''
-              }
-            ],
-            [
-              {
-                "text": "10am"
-              },
-              {
-                "text": "11am"
-              },
-              {
-                "html": '<a href="/v1/case">P Shaw vs DWP</a>'
-              }, 
-              {
-                "text": 'PIP'
-              },
-              {
-                "text": 'Fox court'
-              },
-              {
-                "text": 'Prepared'
-              }
-            ],
-            [
-              {
-                "text": "11am"
-              },
-              {
-                "text": "12pm (midday)"
-              },
-              {
-                "html": '<a href="/v1/case">P Shaw vs DWP</a>'
-              }, 
-              {
-                "text": 'ESA'
-              },
-              {
-                "text": 'Fox court'
-              },
-              {
-                "text": ''
-              }
-            ],
-            [
-              {
-                "text": "2pm"
-              },
-              {
-                "text": "3.30pm"
-              },
-              {
-                "html": '<a href="/v1/case">U Patel vs DWP</a>'
-              }, 
-              {
-                "text": 'ESA'
-              },
-              {
-                "text": 'Fox court'
-              },
-              {
-                "text": ''
-              }
-            ]
+          [
+            {
+              "html": '<a href="/v1/case">SC123/16/12323</a>'
+            },
+            {
+              "text": "Rose Miller vs DWP"
+            },
+            {
+              "text": "PIP"
+            }, 
+            {
+              "html": '<a href="/v1/case">Hearing rejected</a>'
+            },
+            {
+              "text": '7 Feb 2018'
+            },
+            {
+              "text": '19 Feb 2018'
+            },
+            {
+              "text": '4 documents (7 pages)'
+            },
+            {
+              "text": 'Urgent'
+            }
+          ],
+          [
+            {
+              "html": '<a href="/v1/case">SC123/16/12325</a>'
+            },
+            {
+              "text": "Seri Lopez vs DWP"
+            },
+            {
+              "text": "PIP"
+            }, 
+            {
+              "html": '<a href="/v1/case">Deadline extension requested</a>'
+            },
+            {
+              "text": '1 Mar 2018'
+            },
+            {
+              "text": '2 Mar 2018'
+            },
+            {
+              "text": '4 documents (7 pages)'
+            },
+            {
+              "text": ''
+            }
           ]
-        }) }}
+        ]
+      }) }}
 
-        <a href="#">Previous</a> <a href="#">Next day</a>
+      {{ govukButton({
+        "text": "Get new case",
+        "href": "/v1/get-new-case"
+      }) }}
+      
+      <br><br>
 
-  </main>
-</div>
+      <h2 class="govuk-heading-l">
+        Your hearings
+      </h2>
 
+      {{ govukTable({
+        "caption": "20 March 2018",
+        "captionSize": 'govuk-!-f-27',
+        "head": [
+          {
+            "text": "Start time"
+          },
+          {
+            "text": "End time"
+          },
+          {
+            "text": "Subject"
+          },
+          {
+            "text": "Type"
+          },
+          {
+            "text": "Location"
+          },
+          {
+            "text": "Status"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "text": "9am"
+            },
+            {
+              "text": "9:30am"
+            },
+            {
+              "html": '<a href="/v1/case">P Shaw vs DWP</a>'
+            }, 
+            {
+              "text": 'PIP'
+            },
+            {
+              "text": 'Fox court'
+            },
+            {
+              "text": 'Prepared'
+            }
+          ],
+          [
+            {
+              "text": "9:30am"
+            },
+            {
+              "text": "10am"
+            },
+            {
+              "html": '<a href="/v1/case">P Shaw vs DWP</a>'
+            }, 
+            {
+              "text": 'PIP'
+            },
+            {
+              "text": 'Fox court'
+            },
+            {
+              "text": ''
+            }
+          ],
+          [
+            {
+              "text": "10am"
+            },
+            {
+              "text": "11am"
+            },
+            {
+              "html": '<a href="/v1/case">P Shaw vs DWP</a>'
+            }, 
+            {
+              "text": 'PIP'
+            },
+            {
+              "text": 'Fox court'
+            },
+            {
+              "text": 'Prepared'
+            }
+          ],
+          [
+            {
+              "text": "11am"
+            },
+            {
+              "text": "12pm (midday)"
+            },
+            {
+              "html": '<a href="/v1/case">P Shaw vs DWP</a>'
+            }, 
+            {
+              "text": 'ESA'
+            },
+            {
+              "text": 'Fox court'
+            },
+            {
+              "text": ''
+            }
+          ],
+          [
+            {
+              "text": "2pm"
+            },
+            {
+              "text": "3.30pm"
+            },
+            {
+              "html": '<a href="/v1/case">U Patel vs DWP</a>'
+            }, 
+            {
+              "text": 'ESA'
+            },
+            {
+              "text": 'Fox court'
+            },
+            {
+              "text": ''
+            }
+          ]
+        ]
+      }) }}
+
+      <a href="#">Previous</a> <a href="#">Next day</a>
+    </main>
+  </div>
 {% endblock %}

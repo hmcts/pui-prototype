@@ -4,10 +4,7 @@
   Get new case
 {% endblock %}
 
-{% block content %}
-
-<div class="govuk-o-width-container">
-  <main role="main" class="govuk-o-main-wrapper">
+{% block main %}
 
         <form action="/v1/get-new-case" method="post">
 
@@ -40,8 +37,5 @@
             "text": "Continue"
           }) }}
         </form>
-
-  </main>
-</div>
 
 {% endblock %}

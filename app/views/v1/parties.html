@@ -6,15 +6,17 @@
   Parties
 {% endblock %}
 
-{% block content %}
-  <div class="govuk-o-width-container">
-    <main role="main" class="govuk-o-main-wrapper">
+{% block after_header %}
+	{% include "v1/includes/case-header.html" %}
+{% endblock %}
 
-      {% include "v1/includes/case-header.html" %}
+{% block content %}
+	<div class="jui-o-width-container">
+    <main role="main" class="govuk-o-main-wrapper">
       {% include "v1/includes/case-nav.html" %}
+      
 
       <h1 class="govuk-heading-xl"> Parties </h1>
-    </main>
-  </div>
-
+		</main>
+	</div>
 {% endblock %}
