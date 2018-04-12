@@ -17,6 +17,61 @@
       
 
       <h1 class="govuk-heading-xl"> Parties </h1>
+
+			<div class="govuk-o-grid">
+			  <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+			    {{ govukTable({
+		        "caption": "Appelant",
+		        "captionSize": 'govuk-!-f-36',
+		        "firstCellIsHeader": true,
+		        "rows": [
+		          [
+		            {
+		              "text": "Name"
+		            },
+		            {
+		              "text": 'Alan Jones'
+		            }
+		          ],
+		          [
+		            {
+		              "text": "Other"
+		            },
+		            {
+		              "text": 'Other'
+		            }
+		          ]
+		        ]
+		      }) }}
+			  </div>
+			  <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+			    {{ govukTable({
+		        "caption": "Respondent",
+		        "captionSize": 'govuk-!-f-36',
+		        "firstCellIsHeader": true,
+		        "rows": [
+		          [
+		            {
+		              "text": "Name"
+		            },
+		            {
+		              "text": 'Alan Jones'
+		            }
+		          ],
+		          [
+		            {
+		              "text": "Other"
+		            },
+		            {
+		              "text": 'Other'
+		            }
+		          ]
+		        ]
+		      }) }}
+			  </div>
+			</div>
+
+
 		</main>
 	</div>
 {% endblock %}
