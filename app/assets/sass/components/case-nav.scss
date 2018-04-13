@@ -1,0 +1,20 @@
+.case-nav {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    font-size: 16px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .active {
+    font-weight: bold;
+    text-decoration: none;
+  }
+}

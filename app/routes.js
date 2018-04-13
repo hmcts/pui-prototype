@@ -14,7 +14,7 @@ router.post('/v1/get-new-case', function (req, res) {
 })
 
 router.get('/v1/case', function (req, res) {
-	res.render('v1/case', { success: req.session.success })
+	res.render('v1/case/index', { success: req.session.success })
 	req.session.success = null;
 })
 

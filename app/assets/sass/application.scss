@@ -10,8 +10,11 @@ $path: "/public/images/";
 @import 'patterns/related-items';
 
 // Components that aren't in Frontend
+@import 'components/admin-header';
 @import 'components/success';
 @import 'components/case-header';
+@import 'components/case-nav';
+@import 'components/primary-nav';
 
 .code {
   color: $govuk-text-colour;
@@ -99,65 +102,5 @@ $jui-gutter-half: $govuk-gutter / 2;
   @include jui-width-container;
 }
 
-.admin-header {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  background-color: $govuk-black;
-  overflow: hidden;
-}
 
-.admin-header__logo {
-  float: left;
-  color: #fff;
-  font-weight: bold;
-}
 
-.admin-header__account {
-  float: right;
-  color: #fff;
-}
-
-.primary-nav {
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  li {
-    font-size: 16px;
-    display: inline-block;
-    margin-right: 10px;
-  }
-
-  li:last-child {
-    margin-right: 0;
-  }
-
-  a:link,
-  a:visited {
-    color: #fff;
-    text-decoration: none;
-  }
-}
-
-.case-nav {
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-  ul {
-    padding: 0;
-    list-style: none;
-  }
-
-  li {
-    font-size: 16px;
-    display: inline-block;
-    margin-right: 10px;
-  }
-
-  .active {
-    font-weight: bold;
-    text-decoration: none;
-  }
-}

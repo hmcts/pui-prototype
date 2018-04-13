@@ -1,0 +1,23 @@
+.primary-nav {
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    font-size: 16px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+
+  a:link,
+  a:visited {
+    color: #fff;
+    text-decoration: none;
+  }
+}
