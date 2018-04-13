@@ -3,6 +3,7 @@
 {% block header %}
   <header role="banner" class="admin-header">
     <div class="admin-header__wrapper jui-o-width-container">
+      
       <div class="admin-header__logo">Judicial UI</div>
       <div class="admin-header__account">
         <nav class="primary-nav">
@@ -11,10 +12,11 @@
               <a {{ "active" if nav == 'dashboard' }} href="/v1/dashboard" >Dashboard</a>
             </li>
             <li>
-              <a {{ "active" if nav == 'account' }} href="/v1/account" >Account <span aria-hidden="true">▾</span></a>
+              <a {{ "active" if nav == 'account' }} href="/v1/account" >Account <span aria-hidden="true">&#x25BC;</span></a>
             </li>
           </ul>
         </nav>
+      
       </div>
     </div>
   </header>

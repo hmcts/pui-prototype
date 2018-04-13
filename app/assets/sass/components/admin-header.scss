@@ -1,8 +1,10 @@
 .admin-header {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 10px 0;
   background-color: $govuk-black;
-  overflow: hidden;
+}
+
+.admin-header__wrapper {
+	@include govuk-h-clearfix;
 }
 
 .admin-header__logo {

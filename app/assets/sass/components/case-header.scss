@@ -1,8 +1,11 @@
 .case-header {
   background-color: #0074B4;
-  padding: 10px;
+  padding: 10px 0;
   color: #fff;
-  overflow: hidden;
+}
+
+.case-header__wrapper {
+	@include govuk-h-clearfix;
 }
 
 .case-header__title {
@@ -20,4 +23,67 @@
 .case-header__actions a {
   text-decoration: none;
   color: #fff;
+}
+
+.menu {
+	position: relative;
+	display: inline-block;
+}
+
+.menu [type=button] {
+	border-radius: 0;
+	appearance: none;
+	-webkit-appearance: none;
+	background: none;
+	border: none;
+	color: #fff;
+	font-size: 16px;
+	padding: 0;
+}
+
+.menu [type=button] span {
+	font-size: 0.9em;
+	position: relative;
+	top: 0em;
+	left: 2px;
+	line-height: 0;
+}
+
+.menu [role=menuitem] {
+	display: block;
+	text-align: left;
+	width: 100%;
+	color: #222;
+	border-radius: 0;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 15px;
+	@include govuk-font-regular-16;
+	&:focus {
+		position: relative; 
+		z-index: 10;
+	}
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.menu [role=menu] {
+	width: 10em;
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+
+.js-enabled .menu [role=menu] {
+	position: absolute;
+	right: 0;
+	top: 34px;
+}
+
+.menu [aria-expanded="true"] + [role=menu] {
+	display: block;
+}
+
+.menu [aria-expanded="false"] + [role=menu] {
+	display: none;
 }
