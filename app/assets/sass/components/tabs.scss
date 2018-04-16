@@ -1,0 +1,45 @@
+.tabs {
+  > ul {
+    margin: 0;
+    padding: 0;
+    float: left;
+  }
+
+  > ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: relative;
+    bottom: -1px;
+  }
+
+  > ul li a {
+    display: block;
+    padding: 10px 15px;
+    background-color: #dee0e2;
+    border: 1px solid transparent;
+    float: left;
+    margin: 6px 6px 6px 0;
+    text-decoration: none;
+    @include govuk-font-regular-19;
+
+    &[aria-selected=true] {
+      background-color: #fff;
+      border-bottom: 0;
+      border-color: #ccc;
+      color: #0b0c0c;
+      margin-bottom: 0;
+      margin-top: 0;
+      padding-top: 16px;
+      padding-bottom: 17px;
+    }
+  }
+
+  &__panel {
+    border-top: 1px solid #bfc1c3;
+    clear: both;
+    overflow: hidden;
+  }
+
+}

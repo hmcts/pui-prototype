@@ -60,7 +60,7 @@
 	padding: 10px 15px;
 	@include govuk-font-regular-16;
 	&:focus {
-		position: relative; 
+		position: relative;
 		z-index: 10;
 	}
 	&:last-child {
@@ -72,6 +72,10 @@
 	width: 10em;
 	background-color: #fff;
 	border: 1px solid #ccc;
+}
+
+.js-enabled .menu [role=menu] {
+	display: none;
 }
 
 .js-enabled .menu [role=menu] {
