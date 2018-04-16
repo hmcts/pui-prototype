@@ -14,7 +14,7 @@
 	<div class="jui-o-width-container">
     <main role="main" class="govuk-o-main-wrapper">
       {% include "v1/includes/case-nav.html" %}
-      
+
 
       <h1 class="govuk-heading-xl"> Parties </h1>
 
@@ -102,50 +102,50 @@
 		        "firstCellIsHeader": true,
 		        "rows": [
 		        	[
-		            { 
-									'text': 'Name' 
+		            {
+									'text': 'Name'
 								},
-								{ 
-									'text': 'Department for Work and Pensions' 
+								{
+									'text': 'Department for Work and Pensions'
 								}
 		          ],
 		          [
-		            { 
-									'text': 'Decision maker' 
+		            {
+									'text': 'Decision maker'
 								},
-								{ 
-									'text': 'Denise Okenwe' 
+								{
+									'text': 'Denise Okenwe'
 								}
 		          ],
 		          [
-								{ 
-									'text': 'Presenting officer' 
+								{
+									'text': 'Presenting officer'
 								},
-								{ 
-									'text': 'Claire Potter' 
+								{
+									'text': 'Claire Potter'
 								}
 		          ],
 		          [
-								{ 
-									'text': 'DWP office' 
+								{
+									'text': 'DWP office'
 								},
-								{ 
-									'text': '3' 
+								{
+									'text': '3'
 								}
 		          ],
 		          [
-								{ 
-									'text': 'Email' 
+								{
+									'text': 'Email'
 								},
-								{ 
-									'text': 'dwp@dwp.com' 
+								{
+									'text': 'dwp@dwp.com'
 								}
 		          ],
 		          [
-								{ 
-									'text': 'Phone' 
+								{
+									'text': 'Phone'
 								},
-								{ 
+								{
 									'text': '01838 787 637'
 								}
 		          ]
@@ -153,8 +153,10 @@
 		      }) }}
 			  </div>
 			</div>
-
-
 		</main>
 	</div>
+{% endblock %}
+
+{% block page_scripts %}
+  {% include "v1/includes/global-scripts.html" %}
 {% endblock %}
