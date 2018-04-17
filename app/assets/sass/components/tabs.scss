@@ -42,4 +42,8 @@
     overflow: hidden;
   }
 
+  &__panel:focus {
+    outline: 3px solid #ffbf47;
+  }
+
 }

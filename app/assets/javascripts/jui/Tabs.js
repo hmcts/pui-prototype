@@ -1,6 +1,6 @@
 function Tabs(container) {
 	this.container = container;
-	this.keys = { left: 37, right: 39 };
+	this.keys = { left: 37, right: 39, down: 40 };
 	this.cssActive = "active";
 	this.cssHide = "hidden";
 	this.tabs = container.find("> ul a");
@@ -15,6 +15,7 @@ function Tabs(container) {
 
 	// setup state
 	this.tabs.attr('tabindex', '-1');
+	this.panels.attr('tabindex', '-1');
 	this.panels.addClass("hidden");
 
 	// if there's a tab that matches the hash
@@ -31,6 +32,10 @@ function Tabs(container) {
 };
 
 Tabs.prototype.onHashChange = function (e) {
+	if(this.changingHash) {
+		this.changingHash = false;
+		return;
+	}
 	var tab = this.getTab(window.location.hash);
 	var currentTab = this.getCurrentTab();
 	if(tab.length) {
@@ -62,6 +67,13 @@ Tabs.prototype.setupHtml = function() {
 	this.container.find('> ul li').attr('role', 'presentation');
 	this.tabs.attr('role', 'tab');
 	this.panels.attr('role', 'tabpanel');
+	this.tabs.each($.proxy(function(i, tab) {
+		var href = this.getHref($(tab));
+		tab.id = 'tab_'+href.slice(1);
+	}, this));
+	this.panels.each($.proxy(function(i, panel) {
+		$(panel).attr('aria-labelledby', this.tabs[i].id);
+	}, this));
 };
 
 Tabs.prototype.onTabClick = function(e) {
@@ -77,7 +89,8 @@ Tabs.prototype.createHistoryEntry = function(tab) {
 	var panel = this.getPanel(tab)[0];
 	var id = panel.id;
 	panel.id = "";
-	history.pushState(this.getHref(tab), null, this.getHref(tab));
+	this.changingHash = true;
+	window.location.hash = this.getHref(tab).slice(1);
 	panel.id = id;
 };
 
@@ -89,7 +102,15 @@ Tabs.prototype.onTabKeydown = function(e) {
 		case this.keys.right:
 			this.activateNextTab();
 			break;
+		case this.keys.down:
+			this.focusCurrentTab();
+			e.preventDefault();
+			break;
 	}
+};
+
+Tabs.prototype.focusCurrentTab = function() {
+	this.getPanel(this.getCurrentTab()).focus();
 };
 
 Tabs.prototype.activateNextTab = function() {
@@ -111,7 +132,6 @@ Tabs.prototype.activatePreviousTab = function() {
 		this.showTab(previousTab);
 		previousTab.focus();
 		this.createHistoryEntry(previousTab);
-		previousTab.focus();
 	}
 };
 
