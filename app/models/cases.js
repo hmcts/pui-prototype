@@ -17,19 +17,72 @@ var cases = [
     "events":  [
       {
         id: 1,
-        "date": "17 February 2018",
-        "time": "2:10pm",
-        "event": "Application for divorce submitted",
+        "date": "27 February 2018",
+        "time": "1:01pm",
+        "event": "Application for decree nisi received",
+        "actionBy": "Petitioner (D. Francis)",
         "files": [
           {
             id: 1,
-            "fileName": "Petition for divorce",
-            "fileType": "PDF"
+            "name": "Application for decree nisi",
+            "type": "PDF",
+            "size": "123KB",
+            "pages": "3 pages"
+          }
+        ]
+      },
+      {
+        id: 2,
+        "date": "24 February 2018",
+        "time": "3:22pm",
+        "event": "Acknowledgement of service by the court",
+        "actionBy": "Respondent (S. Francis)",
+        "files": [
+          {
+            id: 1,
+            "name": "Aknowledgement of service",
+            "type": "PDF",
+            "size": "123KB",
+            "pages": "3 pages"
+          }
+        ]
+      },
+      {
+        id: 3,
+        "date": "18 February 2018",
+        "time": "1:32pm",
+        "event": "Court issues petition to the respondent",
+        "actionBy": "Court",
+        "files": [
+          {
+            id: 1,
+            "name": "Petition for divorce",
+            "type": "PDF",
+            "size": "123KB",
+            "pages": "3 pages"
+          }
+        ]
+      },
+      {
+        id: 4,
+        "date": "16 February 2018",
+        "time": "2:10pm",
+        "event": "Application for divorce submitted",
+        "actionBy": "Petitioner (D . Francis)",
+        "files": [
+          {
+            id: 1,
+            "name": "Petition for divorce",
+            "type": "PDF",
+            "size": "123KB",
+            "pages": "3 pages"
           },
           {
             id: 2,
-            "fileName": "Marriage certificate",
-            "fileType": "PDF"
+            "name": "Marriage certificate",
+            "type": "PDF",
+            "size": "123KB",
+            "pages": "3 pages"
           }
         ]
       }

@@ -40,17 +40,69 @@
           </ul>
         </div>
 
-        <div>
+
+
+        <div class="jui-c-timeline">
+
+          <div class="jui-c-timeline__item">
+            
+            <div class="jui-c-timeline__header">
+              <time datetime="2018-02-24">24 February 2018</time>
+            </div>
+
+            <div class="jui-c-timeline__body">
+              
+              <div class="jui-c-timeline__event">
+
+                <h4 class="jui-c-timeline__title">Application for divorce submitted<span class="jui-c-timeline__byline"> by Petitioner (D. Francis)</span></h4>     
+
+
+                <div class="jui-c-timeline__title">
+                  <h4>Application for divorce submitted <span class="jui-c-timeline__byline"> by Petitioner (D. Francis)</span></h4>
+                </div>
+
+
+                <div class="jui-c-document">
+                  <a class="jui-c-document__link" href="#">
+                    <span class="jui-c-document__icon"></span>
+                    <span class="jui-c-document__title">Petition for divorce</span>
+                    <span class="jui-c-document__meta">PDF, 315KB, 4 pages</span>
+                  </a>
+                </div>
+
+                <div class="jui-c-document">
+                  <a class="jui-c-document__link" href="#">
+                    <span class="jui-c-document__icon"></span>
+                    <span class="jui-c-document__title">Marriage certificate</span>
+                    <span class="jui-c-document__meta">PDF, 128KB, 1 pages</span>
+                  </a>
+                </div>
+
+              </div>   
+
+            </div>
+            
+          </div>
+
+        </div>
+
+
+        <!--div>
           <h2 class="govuk-heading-m">Timeline of events</h2>
           <p>Below is the most recent events that have happended on this case.<br>You can view a <a href="#">full timeline</a> of events.</p>
-          <ul>
+          <div>
           {% for events in cases.events -%}
-            <li>{{events.id}}</li>
-            <li>{{events.date}}</li>
-            <li>{{events.event}}</li>
+            <div>{{events.date}}</div>
+            <div>{{events.time}}</div>
+            <div>{{events.actionBy}}</div>
+            <div><b>{{events.event}}</b></div>
+            {% for file in events.files -%}
+              <div><a href="#">{{file.name}}</a></div>
+            {% endfor %} 
           {% endfor %}
-          </ul>
-        </div>
+          </div>
+
+        </div-->
 
       </div>
 
