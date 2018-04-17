@@ -12,7 +12,7 @@
 
     <h1 class="govuk-heading-xl">Dashboard</h1>
 
-    <p class="govuk-body govuk-!-mb-r6">Welcome, {{user.name}}</p>
+    <p class="govuk-body govuk-!-mb-r6">Welcome, {%if user.role === "Judge"%}Judge {% endif %}{{user.name}}</p>
 
     <!-- my cases -->
     <h1 class="govuk-heading-m">Cases I’m working on</h1>
