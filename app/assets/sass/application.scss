@@ -1,28 +1,31 @@
 // Path to assets for use with the file-url function
-// in the govuk frontend toolkit's url-helpers partial
+// in the govuk frontend toolkit"s url-helpers partial
 $path: "/public/images/";
 
-//Import GOV.UK Frontend
+// Import GOV.UK Frontend
 @import "@govuk-frontend/all/all";
 
-// Patterns that aren't in Frontend
-@import 'patterns/check-your-answers';
-@import 'patterns/related-items';
+// Import JUI styles
+@import "jui/all";
 
-// Components that aren't in Frontend
-@import 'components/admin-header';
-@import 'components/success';
-@import 'components/case-header';
-@import 'components/case-nav';
-@import 'components/primary-nav';
-@import 'components/tabs';
+// Patterns that aren"t in Frontend
+@import "patterns/check-your-answers";
+@import "patterns/related-items";
+
+// Components that aren"t in Frontend
+@import "components/admin-header";
+@import "components/success";
+@import "components/case-header";
+@import "components/case-nav";
+@import "components/primary-nav";
+@import "components/tabs";
 
 .code {
   color: $govuk-text-colour;
   background-color: $govuk-grey-4;
 
   text-shadow: 0 1px $govuk-white;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 14px;
   direction: ltr;
   text-align: left;
@@ -65,8 +68,8 @@ $path: "/public/images/";
 }
 
 // Take a look at in app/assets/sass/patterns/ to see which files are imported.
-// @import 'patterns/check-your-answers';
-// @import 'patterns/task-list';
+// @import "patterns/check-your-answers";
+// @import "patterns/task-list";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
@@ -102,6 +105,3 @@ $jui-gutter-half: $govuk-gutter / 2;
 .jui-o-width-container {
   @include jui-width-container;
 }
-
-
-

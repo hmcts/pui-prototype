@@ -1,0 +1,28 @@
+/* ==========================================================================
+   #DOCUMENTS
+   ========================================================================== */
+
+   .jui-c-document {
+
+    &:not(:first-child) {
+      margin-top: $govuk-spacing-scale-2;
+    }
+  
+  }
+  
+  
+  .jui-c-document__link {
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  
+  .jui-c-document__title {
+    display: block;
+    text-decoration: underline;
+  }
+  
+  .jui-c-document__meta {
+    color: $govuk-text-colour;
+    display: block;
+  }

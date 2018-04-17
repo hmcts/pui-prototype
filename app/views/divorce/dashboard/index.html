@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<div class="jui-o-width-container">
+  
+  <main role="main" class="govuk-o-main-wrapper">
+
+    <h1 class="govuk-heading-xl">Dashboard</h1>
+
+    <p class="govuk-body govuk-!-mb-r6">Welcome, {%if user.role === "Judge"%}Judge {% endif %}{{user.name}}</p>
+
+    <!-- my cases -->
+    <h1 class="govuk-heading-m">Cases I’m working on</h1>
+
+    <table class="govuk-c-table">
+      <thead class="govuk-c-table__head">
+        <tr class="govuk-c-table__row">
+          <th class="govuk-c-table__header" scope="col">Case number</th>
+          <th class="govuk-c-table__header" scope="col">Parties</th>
+          <th class="govuk-c-table__header" scope="col">Type</th>
+          <th class="govuk-c-table__header" scope="col">Status</th>
+          <th class="govuk-c-table__header" scope="col">Date</th>
+          <th class="govuk-c-table__header" scope="col">Docs</th>
+          <th class="govuk-c-table__header" scope="col">Last action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-c-table__body">
+        {% for case in cases -%}
+        <tr class="govuk-c-table__row">
+          <th class="govuk-c-table__header" scope="row"><a href="/divorce/case/{{case.number}}/">{{case.number}}</a></th>
+          <td class="govuk-c-table__cell ">{{case.parties}}</td>
+          <td class="govuk-c-table__cell ">{{case.type}}</td>
+          <td class="govuk-c-table__cell ">{{case.status}}</td>
+          <td class="govuk-c-table__cell ">{{case.applicationDate}}</td>
+          <td class="govuk-c-table__cell ">{{case.documents}}</td>
+          <td class="govuk-c-table__cell ">{{case.lastAction}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <a class="govuk-c-button" href="#" role="button">Get new case</a>
+
+  </main>
+
+</div>
+
+{% endblock %}
