@@ -1,0 +1,48 @@
+/* ==========================================================================
+   #FOOTER
+   ========================================================================== */
+
+$color-footer-link: rgb(69, 74, 76); // No colour variable defined by GDS!
+
+
+.jui-c-footer {
+  background-color: $govuk-grey-3;
+  padding-top: $govuk-spacing-scale-7;
+  padding-bottom: $govuk-spacing-scale-7;
+}
+
+
+.jui-c-footer__heading {
+  margin-bottom: $govuk-spacing-scale-2;
+}
+
+.jui-c-footer__list {
+  color: $color-footer-link; 
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    color: $color-footer-link;
+
+    &:hover {
+      color: $govuk-black;
+    }
+
+  }
+
+}
+
+
+/* Style variants
+   ========================================================================== */
+
+.jui-c-footer__list--inline {
+  
+  li {
+    display: inline;
+    margin-right: $govuk-spacing-scale-3;
+  }
+  
+}

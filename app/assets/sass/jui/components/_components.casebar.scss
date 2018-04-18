@@ -1,0 +1,22 @@
+/* ==========================================================================
+   #CASEBAR
+   ========================================================================== */
+
+.jui-c-casebar {
+  @include govuk-h-clearfix;
+  background-color: $govuk-link-colour;
+  color: $govuk-white;
+  padding-top: $govuk-spacing-scale-3;
+  padding-bottom: $govuk-spacing-scale-3;
+}
+
+
+.jui-c-casebar__details {
+  float: left;
+}
+
+
+.jui-c-casebar__title {
+  font-weight: bold !important;
+  margin-left: $govuk-spacing-scale-3;
+}
