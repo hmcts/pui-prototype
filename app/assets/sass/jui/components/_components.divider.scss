@@ -1,5 +1,11 @@
 /* ==========================================================================
-   #ELEMENTS
+   #DIVIDER
    ========================================================================== */
 
-@import "elements.base";
+.jui-c-divider {
+  background-color: $govuk-grey-2;
+  border: 0 none;
+  margin: $govuk-spacing-scale-6 0;
+  height: 1px;
+  padding: 0;
+}

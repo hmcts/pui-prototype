@@ -1,5 +1,7 @@
 /* ==========================================================================
-   #ELEMENTS
+   #BASE
    ========================================================================== */
 
-@import "elements.base";
+a:focus {
+  color: $govuk-black !important; // Override focus colour of links
+}

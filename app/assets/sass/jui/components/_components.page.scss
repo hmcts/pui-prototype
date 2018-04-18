@@ -1,0 +1,76 @@
+/* ==========================================================================
+   #PAGE
+   ========================================================================== */
+
+.jui-c-page-heading {
+  @include govuk-h-clearfix;
+  border-bottom: 5px solid $govuk-black;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+
+  > * {
+    margin-bottom: 0;
+  }
+
+}
+
+
+/* ==========================================================================
+   #SUMMARY
+   ========================================================================== */
+
+
+.jui-c-summary {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+
+.jui-c-summary__block {
+  background-color: $govuk-grey-4;
+  padding: 20px;
+}
+
+
+.jui-c-summary__list,
+.jui-c-summary__term,
+.jui-c-summary__description {
+  margin: 0; 
+  padding: 0;
+}
+
+
+.jui-c-summary__term {
+  border-top: 1px solid $govuk-grey-2;
+  color: $govuk-grey-1;
+  float: left;
+  overflow: hidden;
+  padding-top: $govuk-spacing-scale-2;
+  padding-bottom: $govuk-spacing-scale-2;
+
+  // Only supported in IE9+ (we need to decide what browsers were supporting)
+  &:first-of-type {
+    border-top: 0;
+  }
+
+  &::after {
+    content: ":";
+  }
+
+}
+
+
+.jui-c-summary__description {
+  border-top: 1px solid $govuk-grey-2;
+  font-weight: bold;
+  padding-top: $govuk-spacing-scale-2;
+  padding-bottom: $govuk-spacing-scale-2;
+  text-align: right;
+
+  // Only supported in IE9+ (we need to decide what browsers were supporting)
+  &:first-of-type {
+    border-top: 0;
+  }
+
+}
