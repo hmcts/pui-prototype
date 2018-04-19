@@ -2,7 +2,7 @@
    #CASEBAR
    ========================================================================== */
 
-.jui-c-casebar {
+.jui-casebar {
   @include govuk-h-clearfix;
   background-color: $govuk-link-colour;
   color: $govuk-white;
@@ -11,12 +11,29 @@
 }
 
 
-.jui-c-casebar__details {
-  float: left;
+@include mq($until: tablet) {
+
+  .jui-casebar__options {
+    margin-top: $govuk-spacing-scale-2;
+  }
+
 }
 
 
-.jui-c-casebar__title {
-  font-weight: bold !important;
-  margin-left: $govuk-spacing-scale-3;
+@include mq($from: tablet) {
+
+  .jui-casebar__details {
+    float: left;
+  }
+
+  .jui-casebar__options {
+    float: right;
+  }
+
+}
+
+
+.jui-casebar__title {
+  font-weight: bold;
+  margin-left: $govuk-spacing-scale-2;
 }

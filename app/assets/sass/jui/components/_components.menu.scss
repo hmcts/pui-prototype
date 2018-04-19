@@ -1,0 +1,93 @@
+/* ==========================================================================
+   #MENU
+   ========================================================================== */
+
+.jui-menu {
+  color: $govuk-white;
+}
+
+
+.jui-menu__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+.jui-menu__link {
+  font-weight: bold;
+  text-decoration: none;
+
+  &:link,
+  &:visited,
+  &:active {
+    color: inherit;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+}
+
+
+/* Style variants
+   ========================================================================== */
+
+.jui-menu--admin {
+  margin-top: 3px;
+
+  .jui-menu__item {
+    display: inline-block;
+    margin-right: $govuk-spacing-scale-2;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+  }
+
+}
+
+
+.jui-menu--case {
+
+  .jui-menu__toggle {
+    background-color: transparent;
+    border: 0 none;
+    color: inherit;  
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+}
+
+
+/* Javascript enabled
+   ========================================================================== */
+
+// .js-enabled {
+
+//   .jui-menu__toggle {
+//     cursor: pointer;
+//     padding-right: $govuk-spacing-scale-3;
+//     position: relative;
+
+//     &::after {
+//       content: "";
+//       display: block;
+//       border-style: solid;
+//       border-color: transparent;
+//       border-top-color: currentColor;
+//       border-width: 8px 5px 0 5px;
+//       height: 0;
+//       margin-top: -4px;
+//       position: absolute;
+//       top: 50%; right: 0;
+//       width: 0;
+//     }
+
+//   }
+
+// }

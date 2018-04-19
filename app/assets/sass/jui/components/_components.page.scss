@@ -2,7 +2,7 @@
    #PAGE
    ========================================================================== */
 
-.jui-c-page-heading {
+.jui-page-heading {
   @include govuk-h-clearfix;
   border-bottom: 5px solid $govuk-black;
   padding-bottom: 10px;
@@ -20,28 +20,28 @@
    ========================================================================== */
 
 
-.jui-c-summary {
+.jui-summary {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
 }
 
 
-.jui-c-summary__block {
+.jui-summary__block {
   background-color: $govuk-grey-4;
   padding: 20px;
 }
 
 
-.jui-c-summary__list,
-.jui-c-summary__term,
-.jui-c-summary__description {
+.jui-summary__list,
+.jui-summary__term,
+.jui-summary__description {
   margin: 0; 
   padding: 0;
 }
 
 
-.jui-c-summary__term {
+.jui-summary__term {
   border-top: 1px solid $govuk-grey-2;
   color: $govuk-grey-1;
   float: left;
@@ -61,7 +61,7 @@
 }
 
 
-.jui-c-summary__description {
+.jui-summary__description {
   border-top: 1px solid $govuk-grey-2;
   font-weight: bold;
   padding-top: $govuk-spacing-scale-2;

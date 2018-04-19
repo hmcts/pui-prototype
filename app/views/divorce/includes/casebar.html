@@ -1,9 +1,22 @@
-<div class="jui-c-casebar">
+<div class="jui-casebar">
   
-  <div class="jui-o-width-container">
+  <div class="jui-width-container">
     
     <div class="jui-casebar__details">
-      {{cases.id}}<span class="jui-c-casebar__title"> {{cases.parties}}</span>
+      {{cases.id}}<span class="jui-casebar__title"> {{cases.parties}}</span>
+    </div>
+
+    <div class="jui-casebar__options">
+      
+      <nav class="jui-menu jui-menu--case">
+        Case options
+        <ul class="jui-menu__list">
+          <li class="jui-menu__item"><a class="jui-menu__link" href="#">Make decision</a></li>
+          <li class="jui-menu__item"><a class="jui-menu__link" href="#">Mark as prepared</a></li>
+          <li class="jui-menu__item"><a class="jui-menu__link" href="#">Reassign</a></li>
+        </ul>
+      </nav>
+
     </div>
 
   </div> 

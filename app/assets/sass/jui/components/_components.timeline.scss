@@ -2,7 +2,7 @@
    #TIMELINE
    ========================================================================== */
 
-.jui-c-timeline__item {
+.jui-timeline__item {
   border: 1px solid $govuk-border-colour;
   position: relative;
   width: 100%;
@@ -25,13 +25,13 @@
 }
 
 
-.jui-c-timeline__header {
+.jui-timeline__header {
   background-color: $govuk-grey-4;
   border-bottom: 1px solid $govuk-border-colour;
   padding: 10px;
 }
 
 
-.jui-c-timeline__body {
+.jui-timeline__body {
   padding: 10px;
 }

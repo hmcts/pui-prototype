@@ -2,40 +2,36 @@
 {% extends "divorce/layouts/layout.html" %}
 
 {% block page_title %}
-  GOV.UK prototype kit
+  Summary - Judicial UI prototype
 {% endblock %}
 
 {% block content %}
 
 {% include "divorce/includes/casebar.html" %}
 
-<div class="jui-o-width-container">
-
-  <a href="/divorce/dashboard/" class="govuk-c-back-link">Back</a>
+<div class="jui-width-container">
 
   <main role="main" class="govuk-o-main-wrapper">
 
-    <div class="jui-c-page-heading">
-      <h1 class="govuk-heading-l">Summary</h1>
-    </div>
+    <h1 class="govuk-heading-l">Summary</h1>
 
     <div class="govuk-o-grid">
         
       <div class="govuk-o-grid__item govuk-o-grid__item--one-half">
         
-        <div class="jui-c-summary__block">
+        <div class="jui-summary__block">
           
           <h2 class="govuk-heading-s">Case details</h2>
 
-          <dl class="jui-c-summary__list">
-            <dt class="jui-c-summary__term">Case number</dt>
-            <dd class="jui-c-summary__description">{% if cases.urgent === true %}Urgent {% endif %}{{cases.id}}</dd>
-            <dt class="jui-c-summary__term">Case type</dt>
-            <dd class="jui-c-summary__description">{{cases.type}}</dd>
-            <dt class="jui-c-summary__term">Case status</dt>
-            <dd class="jui-c-summary__description">{{cases.status}}</dd>
-            <dt class="jui-c-summary__term">Reason for divorce</dt>
-            <dd class="jui-c-summary__description">{{cases.reason}}</dd>
+          <dl class="jui-summary__list">
+            <dt class="jui-summary__term">Case number</dt>
+            <dd class="jui-summary__description">{% if cases.urgent === true %}Urgent {% endif %}{{cases.id}}</dd>
+            <dt class="jui-summary__term">Case type</dt>
+            <dd class="jui-summary__description">{{cases.type}}</dd>
+            <dt class="jui-summary__term">Case status</dt>
+            <dd class="jui-summary__description">{{cases.status}}</dd>
+            <dt class="jui-summary__term">Reason for divorce</dt>
+            <dd class="jui-summary__description">{{cases.reason}}</dd>
           </dl>
 
         </div>
@@ -44,15 +40,15 @@
 
       <div class="govuk-o-grid__item govuk-o-grid__item--one-half">
 
-        <div class="jui-c-summary__block">
+        <div class="jui-summary__block">
           
           <h2 class="govuk-heading-s">Representitives</h2>
 
-          <dl class="jui-c-summary__list">
-            <dt class="jui-c-summary__term">Petitioner</dt>
-            <dd class="jui-c-summary__description">{{cases.petitioner}}</dd>
-            <dt class="jui-c-summary__term">Respondent</dt>
-            <dd class="jui-c-summary__description">{{cases.respondent}}</dd>
+          <dl class="jui-summary__list">
+            <dt class="jui-summary__term">Petitioner</dt>
+            <dd class="jui-summary__description">{{cases.petitioner}}</dd>
+            <dt class="jui-summary__term">Respondent</dt>
+            <dd class="jui-summary__description">{{cases.respondent}}</dd>
           </dl>
 
         </div>
@@ -65,29 +61,29 @@
 
     <p>Below is the most recent events that have happend on this case.<br>You can view a <a href="#">full timeline</a> of events.</p>
 
-    <div class="jui-c-timeline">
+    <div class="jui-timeline">
 
       {% for events in cases.events -%}
-      <div class="jui-c-timeline__item">
+      <div class="jui-timeline__item">
         
-        <div class="jui-c-timeline__header">
+        <div class="jui-timeline__header">
           <time datetime="">{{events.date}}</time>
         </div>
 
-        <div class="jui-c-timeline__body">
+        <div class="jui-timeline__body">
           
-          <div class="jui-c-timeline__event">
+          <div class="jui-timeline__event">
 
-            <div class="jui-c-timeline__title">
-              <h4>Application for divorce submitted <span class="jui-c-timeline__byline"> by {{events.actionBy}}</span></h4>
+            <div class="jui-timeline__title">
+              <h4>Application for divorce submitted <span class="jui-timeline__byline"> by {{events.actionBy}}</span></h4>
             </div>
 
             {% for file in events.files -%}
-            <div class="jui-c-document">
-              <a class="jui-c-document__link" href="{{file.url}}">
-                <span class="jui-c-document__icon"></span>
-                <span class="jui-c-document__title">{{file.name}}</span>
-                <span class="jui-c-document__meta">{{file.type}}, {{file.size}}, {{file.pages}}</span>
+            <div class="jui-document">
+              <a class="jui-document__link" href="{{file.url}}">
+                <span class="jui-document__icon"></span>
+                <span class="jui-document__title">{{file.name}}</span>
+                <span class="jui-document__meta">{{file.type}}, {{file.size}}, {{file.pages}}</span>
               </a>
             </div>
             {% endfor %}

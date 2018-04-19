@@ -5,18 +5,19 @@
 $color-footer-link: rgb(69, 74, 76); // No colour variable defined by GDS!
 
 
-.jui-c-footer {
+.jui-footer {
   background-color: $govuk-grey-3;
   padding-top: $govuk-spacing-scale-7;
   padding-bottom: $govuk-spacing-scale-7;
 }
 
 
-.jui-c-footer__heading {
+.jui-footer__heading {
+  @include govuk-font-bold-19;
   margin-bottom: $govuk-spacing-scale-2;
 }
 
-.jui-c-footer__list {
+.jui-footer__list {
   color: $color-footer-link; 
   font-size: 16px;
   margin: 0;
@@ -38,7 +39,7 @@ $color-footer-link: rgb(69, 74, 76); // No colour variable defined by GDS!
 /* Style variants
    ========================================================================== */
 
-.jui-c-footer__list--inline {
+.jui-footer__list--inline {
   
   li {
     display: inline;
