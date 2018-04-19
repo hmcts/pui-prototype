@@ -16,89 +16,113 @@
       {% include "v1/includes/case-nav.html" %}
 
 
-      <h1 class="govuk-heading-xl"> Parties </h1>
+      <h1 class="govuk-heading-l"> Parties </h1>
 
 			<div class="govuk-o-grid">
 			  <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
-			    {{ govukTable({
-		        "caption": "Appellant",
-		        "captionSize": 'govuk-!-f-36',
-		        "firstCellIsHeader": true,
-		        "rows": [
-		          [
-		            {
-		              "text": "Name"
-		            },
-		            {
-		              "text": 'Alan Jones'
-		            }
-		          ],
-		          [
-		            {
-		              "text": "Date of birth"
-		            },
-		            {
-		              "text": '07 June 1981'
-		            }
-		          ],
-		          [
-		            {
-		              "text": "National Insurance number"
-		            },
-		            {
-		              "text": 'JT 03 70 79 D'
-		            }
-		          ],
-		          [
-		            {
-		              "text": "Address"
-		            },
-		            {
-		              "html": '24 Park Road<br>
-		              Lewisham<br>
-		              London<br>
-		              E11 4PR'
-		           	}
-		          ],
-		          [
-		            {
-		              "text": "Phone"
-		            },
-		            {
-		              "text": '07787 557967'
-		           	}
-		          ],
-		          [
-		            {
-		              "text": "Email"
-		            },
-		            {
-		              "text": 'ajones@gmail.com'
-		           	}
-		          ],
-		          [
-		            {
-		              "text": "Representative"
-		            },
-		            {
-		              "text": 'None'
-		           	}
-		          ],
-		          [
-		            {
-		              "text": "Considerations"
-		            },
-		            {
-		              "text": 'Needs hearing loop'
-		           	}
-		          ]
-		        ]
-		      }) }}
+
 			  </div>
 			  <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
-			    {{ govukTable({
+
+			  </div>
+			</div>
+
+			<div class="tabs">
+        <ul>
+            <li><a href="#a">Appellant</a></li>
+            <li><a href="#c">Respondent</a></li>
+        </ul>
+        <div class="tabs__panel" id="a">
+					<br>
+					<br>
+					<div class="govuk-o-grid">
+						<div class="govuk-o-grid__item govuk-o-grid__item--one-half">
+								{{ govukTable({
+									"caption": "Appellant",
+									"captionSize": 'govuk-!-f-24',
+									"firstCellIsHeader": true,
+									"rows": [
+										[
+											{
+												"text": "Name"
+											},
+											{
+												"text": 'Alan Jones'
+											}
+										],
+										[
+											{
+												"text": "Date of birth"
+											},
+											{
+												"text": '07 June 1981'
+											}
+										],
+										[
+											{
+												"text": "National Insurance number"
+											},
+											{
+												"text": 'JT 03 70 79 D'
+											}
+										],
+										[
+											{
+												"text": "Address"
+											},
+											{
+												"html": '24 Park Road<br>
+												Lewisham<br>
+												London<br>
+												E11 4PR'
+											 }
+										],
+										[
+											{
+												"text": "Phone"
+											},
+											{
+												"text": '07787 557967'
+											 }
+										],
+										[
+											{
+												"text": "Email"
+											},
+											{
+												"text": 'ajones@gmail.com'
+											 }
+										],
+										[
+											{
+												"text": "Representative"
+											},
+											{
+												"text": 'None'
+											 }
+										],
+										[
+											{
+												"text": "Considerations"
+											},
+											{
+												"text": 'Needs hearing loop'
+											 }
+										]
+									]
+								}) }}
+						</div>
+					</div>
+
+        </div>
+        <div class="tabs__panel" id="c">
+						<br>
+						<br>
+						<div class="govuk-o-grid">
+								<div class="govuk-o-grid__item govuk-o-grid__item--one-half">
+          {{ govukTable({
 		        "caption": "Respondent",
-		        "captionSize": 'govuk-!-f-36',
+		        "captionSize": 'govuk-!-f-24',
 		        "firstCellIsHeader": true,
 		        "rows": [
 		        	[
@@ -150,13 +174,18 @@
 								}
 		          ]
 		        ]
-		      }) }}
-			  </div>
+					}) }}
+					</div>
+					</div>
+        </div>
 			</div>
 		</main>
 	</div>
 {% endblock %}
 
 {% block page_scripts %}
-  {% include "v1/includes/global-scripts.html" %}
+	{% include "v1/includes/global-scripts.html" %}
+	<script>
+    new Tabs($('.tabs'));
+  </script>
 {% endblock %}
