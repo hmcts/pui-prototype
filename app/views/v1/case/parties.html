@@ -16,89 +16,113 @@
       {% include "v1/includes/case-nav.html" %}
 
 
-      <h1 class="govuk-heading-xl"> Parties </h1>
+      <h1 class="govuk-heading-l"> Parties </h1>
 
 			<div class="govuk-o-grid">
 			  <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
-			    {{ govukTable({
-		        "caption": "Appellant",
-		        "captionSize": 'govuk-!-f-36',
-		        "firstCellIsHeader": true,
-		        "rows": [
-		          [
-		            {
-		              "text": "Name"
-		            },
-		            {
-		              "text": 'Alan Jones'
-		            }
-		          ],
-		          [
-		            {
-		              "text": "Date of birth"
-		            },
-		            {
-		              "text": '07 June 1981'
-		            }
-		          ],
-		          [
-		            {
-		              "text": "National Insurance number"
-		            },
-		            {
-		              "text": 'JT 03 70 79 D'
-		            }
-		          ],
-		          [
-		            {
-		              "text": "Address"
-		            },
-		            {
-		              "html": '24 Park Road<br>
-		              Lewisham<br>
-		              London<br>
-		              E11 4PR'
-		           	}
-		          ],
-		          [
-		            {
-		              "text": "Phone"
-		            },
-		            {
-		              "text": '07787 557967'
-		           	}
-		          ],
-		          [
-		            {
-		              "text": "Email"
-		            },
-		            {
-		              "text": 'ajones@gmail.com'
-		           	}
-		          ],
-		          [
-		            {
-		              "text": "Representative"
-		            },
-		            {
-		              "text": 'None'
-		           	}
-		          ],
-		          [
-		            {
-		              "text": "Considerations"
-		            },
-		            {
-		              "text": 'Needs hearing loop'
-		           	}
-		          ]
-		        ]
-		      }) }}
+
 			  </div>
 			  <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
-			    {{ govukTable({
+
+			  </div>
+			</div>
+
+			<div class="tabs">
+        <ul>
+            <li><a href="#a">Appellant</a></li>
+            <li><a href="#c">Respondent</a></li>
+        </ul>
+        <div class="tabs__panel" id="a">
+					<br>
+					<br>
+					<div class="govuk-o-grid">
+						<div class="govuk-o-grid__item govuk-o-grid__item--one-half">
+								{{ govukTable({
+									"caption": "Appellant",
+									"captionSize": 'govuk-!-f-24',
+									"firstCellIsHeader": true,
+									"rows": [
+										[
+											{
+												"text": "Name"
+											},
+											{
+												"text": 'Alan Jones'
+											}
+										],
+										[
+											{
+												"text": "Date of birth"
+											},
+											{
+												"text": '07 June 1981'
+											}
+										],
+										[
+											{
+												"text": "National Insurance number"
+											},
+											{
+												"text": 'JT 03 70 79 D'
+											}
+										],
+										[
+											{
+												"text": "Address"
+											},
+											{
+												"html": '24 Park Road<br>
+												Lewisham<br>
+												London<br>
+												E11 4PR'
+											 }
+										],
+										[
+											{
+												"text": "Phone"
+											},
+											{
+												"text": '07787 557967'
+											 }
+										],
+										[
+											{
+												"text": "Email"
+											},
+											{
+												"text": 'ajones@gmail.com'
+											 }
+										],
+										[
+											{
+												"text": "Representative"
+											},
+											{
+												"text": 'None'
+											 }
+										],
+										[
+											{
+												"text": "Considerations"
+											},
+											{
+												"text": 'Needs hearing loop'
+											 }
+										]
+									]
+								}) }}
+						</div>
+					</div>
+
+        </div>
+        <div class="tabs__panel" id="c">
+						<br>
+						<br>
+						<div class="govuk-o-grid">
+								<div class="govuk-o-grid__item govuk-o-grid__item--one-half">
+          {{ govukTable({
 		        "caption": "Respondent",
-		        "captionSize": 'govuk-!-f-36',
+		        "captionSize": 'govuk-!-f-24',
 		        "firstCellIsHeader": true,
 		        "rows": [
 		        	[
@@ -150,57 +174,9 @@
 								}
 		          ]
 		        ]
-		      }) }}
-			  </div>
-			</div>
-
-			<div class="tabs">
-        <ul>
-            <li><a href="#a">Before you start</a></li>
-            <li><a href="#b">Need to know</a></li>
-            <li><a href="#c">Ways to apply</a></li>
-        </ul>
-        <div class="tabs__panel" id="a">
-          <div class="govuk-prose-scope govuk-!-mt-r6">
-            <h2>Before you start</h2>
-            <p>To get your first provisional driving licence online for a car, motorcycle or moped you must:</p>
-            <ul class="list list-bullet">
-              <li>be a resident of Great Britain – there’s a different service in <a href="">Northern Ireland</a></li>
-              <li>meet the minimum age requirement</li>
-              <li>meet the <a href="">minimum eyesight requirement</a></li>
-              <li>not be prevented from driving for any reason</li>
-              <li>pay £50 by MasterCard, Visa, Electron, Maestro or Delta debit or credit card</li>
-              <li>have a valid <abbr title="United Kngdom">UK</abbr> passport or <a href="">other form of identity</a></li>
-              <li>have your National Insurance number if known</li>
-              <li>provide addresses where you’ve lived for the last 3 years</li>
-            </ul>
-            <button>I'm a button</button>
-          </div>
-        </div>
-        <div class="tabs__panel" id="b">
-          <div class="govuk-prose-scope govuk-!-mt-r6">
-
-            <h2>Need to know</h2>
-              <ul class="list list-bullet">
-               <li>proof of identification required</li>
-               <li>3 years of address details required</li>
-               <li>debit or credit card required</li>
-             </ul>
-            </div>
-        </div>
-        <div class="tabs__panel" id="c">
-          <div class="govuk-prose-scope govuk-!-mt-r6">
-              <h2>Ways to apply</h2>
-              <p>You can apply by post by completing a D1 application form, which you can get from the <a href=""><abbr title="Driver and Vehicle Licensing Agency">DVLA</abbr> form ordering service</a> or from a Post Office.</p>
-             <p>You&rsquo;ll also need to include:</p>
-             <ul class="list list-bullet">
-               <li>original documentation confirming your identity</li>
-               <li>a colour <a href="">passport&ndash;style photograph</a></li>
-               <li>the fee of &pound;50 by cheque or postal order payable to <abbr title="Driver and Vehicle Licensing Agency">DVLA</abbr> (do not send cash)</li>
-             </ul>
-             <p>Send your completed application and payment to <abbr title="Driver and Vehicle Licensing Agency">DVLA</abbr>, Swansea, SA99 1AD.</p>
-             <p>If you&rsquo;re including non&ndash;<abbr title="United Kingdom">UK</abbr> identity documents send your application and payment to <abbr title="Driver and Vehicle Licensing Agency">DVLA</abbr>, Swansea, SA99 1AF.</p>
-          </div>
+					}) }}
+					</div>
+					</div>
         </div>
 			</div>
 		</main>

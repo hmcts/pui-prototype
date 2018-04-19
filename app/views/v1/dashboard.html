@@ -9,13 +9,14 @@
 {% block content %}
   <div class="jui-o-width-container">
     <main role="main" class="govuk-o-main-wrapper">
-      <h1 class="govuk-heading-xl">
+      <h1 class="govuk-heading-l">
         Dashboard
       </h1>
 
       {{ govukTable({
+        "classes": "govuk-!-f-16",
         "caption": "Your cases",
-        "captionSize": 'govuk-!-f-36',
+        "captionSize": 'govuk-!-f-27',
         "head": [
           {
             "text": "Case number"
@@ -37,9 +38,6 @@
           },
           {
             "text": "Case file size"
-          },
-          {
-            "text": ""
           }
         ],
         "rows": [
@@ -54,7 +52,7 @@
               "text": "PIP"
             },
             {
-              "html": '<a href="/v1/case">DWP response</a>'
+              "html": '<a href="/v1/case">DWP responded</a>'
             },
             {
               "text": '17 Feb 2018'
@@ -63,7 +61,7 @@
               "text": '18 Feb 2018'
             },
             {
-              "text": '4 documents (7 pages)'
+              "text": '2 documents (7 pages)'
             },
             {
               "text": ''
@@ -89,12 +87,8 @@
               "text": '18 Jan 2018'
             },
             {
-              "text": '4 documents (7 pages)'
-            },
-            {
-              "text": ''
-            }
-          ],
+              "text": '43 documents (17 pages)'
+            }],
           [
             {
               "html": '<a href="/v1/case">SC123/16/12323</a>'
@@ -115,10 +109,7 @@
               "text": '19 Feb 2018'
             },
             {
-              "text": '4 documents (7 pages)'
-            },
-            {
-              "text": 'Urgent'
+              "text": '1 documents (3 pages)'
             }
           ],
           [
@@ -141,12 +132,8 @@
               "text": '2 Mar 2018'
             },
             {
-              "text": '4 documents (7 pages)'
-            },
-            {
-              "text": ''
-            }
-          ]
+              "text": '4 documents (8 pages)'
+            }]
         ]
       }) }}
 
@@ -155,14 +142,11 @@
         "href": "/v1/get-new-case"
       }) }}
 
-      <br><br>
 
-      <h2 class="govuk-heading-l">
-        Your hearings
-      </h2>
 
       {{ govukTable({
-        "caption": "20 March 2018",
+        "classes": "govuk-!-f-16",
+        "caption": "Your hearings 20 March 2018",
         "captionSize": 'govuk-!-f-27',
         "head": [
           {
