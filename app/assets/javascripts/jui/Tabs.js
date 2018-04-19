@@ -1,7 +1,6 @@
 function Tabs(container) {
 	this.container = container;
 	this.keys = { left: 37, right: 39, down: 40 };
-	this.cssActive = "active";
 	this.cssHide = "hidden";
 	this.tabs = container.find("> ul a");
 	this.panels = container.find(".tabs__panel");
