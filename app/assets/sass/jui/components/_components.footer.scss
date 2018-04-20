@@ -18,8 +18,8 @@ $color-footer-link: rgb(69, 74, 76); // No colour variable defined by GDS!
 }
 
 .jui-footer__list {
+  @include govuk-font-regular-16;
   color: $color-footer-link; 
-  font-size: 16px;
   margin: 0;
   padding: 0;
   list-style: none;
