@@ -17,41 +17,53 @@
 
     <div class="govuk-o-grid">
         
-      <div class="govuk-o-grid__item govuk-o-grid__item--one-half">
+      <div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
         
-        <div class="jui-summary__block">
-          
-          <h2 class="govuk-heading-s">Case details</h2>
+        <table class="govuk-c-table">
 
-          <dl class="jui-summary__list">
-            <dt class="jui-summary__term">Case number</dt>
-            <dd class="jui-summary__description">{% if cases.urgent === true %}Urgent {% endif %}{{cases.id}}</dd>
-            <dt class="jui-summary__term">Case type</dt>
-            <dd class="jui-summary__description">{{cases.type}}</dd>
-            <dt class="jui-summary__term">Case status</dt>
-            <dd class="jui-summary__description">{{cases.status}}</dd>
-            <dt class="jui-summary__term">Reason for divorce</dt>
-            <dd class="jui-summary__description">{{cases.reason}}</dd>
-          </dl>
+          <caption class="govuk-c-table__caption  govuk-!-f-24  govuk-!-mb-r2">Case details</caption>
 
-        </div>
+          <tbody class="govuk-c-table__body">
+            <tr class="govuk-c-table__row">
+              <th class="govuk-c-table__header" scope="row">Case number</th>
+              <td class="govuk-c-table__cell ">{{cases.id}}</td>
+            </tr>
+            <tr class="govuk-c-table__row">
+              <th class="govuk-c-table__header" scope="row">Case type</th>
+              <td class="govuk-c-table__cell ">{{cases.type}}</td>
+            </tr>
+            <tr class="govuk-c-table__row">
+              <th class="govuk-c-table__header" scope="row">Case status</th>
+              <td class="govuk-c-table__cell ">{{cases.status}}</td>
+            </tr>
+            <tr class="govuk-c-table__row">
+              <th class="govuk-c-table__header" scope="row">Reason for divorce</th>
+              <td class="govuk-c-table__cell ">{{cases.reason}}</td>
+            </tr>
+          </tbody>
+
+        </table>
 
       </div>
 
-      <div class="govuk-o-grid__item govuk-o-grid__item--one-half">
+      <div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
 
-        <div class="jui-summary__block">
-          
-          <h2 class="govuk-heading-s">Representitives</h2>
+        <table class="govuk-c-table">
 
-          <dl class="jui-summary__list">
-            <dt class="jui-summary__term">Petitioner</dt>
-            <dd class="jui-summary__description">{{cases.petitioner}}</dd>
-            <dt class="jui-summary__term">Respondent</dt>
-            <dd class="jui-summary__description">{{cases.respondent}}</dd>
-          </dl>
+          <caption class="govuk-c-table__caption  govuk-!-f-24  govuk-!-mb-r2">Representitives</caption>
 
-        </div>
+          <tbody class="govuk-c-table__body">
+            <tr class="govuk-c-table__row">
+              <th class="govuk-c-table__header" scope="row">Petitioner</th>
+              <td class="govuk-c-table__cell">{{cases.petitioner}}</td>
+            </tr>
+            <tr class="govuk-c-table__row">
+              <th class="govuk-c-table__header" scope="row">Respondent</th>
+              <td class="govuk-c-table__cell">{{cases.respondent}}</td>
+            </tr>
+          </tbody>
+
+        </table>
 
       </div>
       
