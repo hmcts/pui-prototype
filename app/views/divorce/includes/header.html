@@ -6,16 +6,18 @@
       <a href="/">Judicial UI</a>
     </div>
 
+    {%- if user %}
     <div class="jui-header__account">
 
       <nav class="jui-menu  jui-menu--admin">        
         <ul class="jui-menu__list">
           {% if pageID != "Dashboard" %}<li class="jui-menu__item"><a class="jui-menu__link" href="/divorce/v1/dashboard">Dashboard</a></li>{% endif %}
-          <li class="jui-menu__item"><a class="jui-menu__link" href="/divorce/v1/">Signout</a></li>
+          <li class="jui-menu__item"><a class="jui-menu__link" href="/signout">Signout</a></li>
         </ul>        
       </nav>
 
     </div>
+    {% endif %}
 
   </div>
 

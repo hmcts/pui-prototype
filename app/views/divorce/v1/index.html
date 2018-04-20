@@ -12,17 +12,34 @@
 
       <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds">
 
-        <h1 class="govuk-heading-l">Divorce</h1>
+        <h1 class="govuk-heading-l">Divorce prototype</h1>
 
-        {{user.name}}
+        <form method="post">
 
-        <h2 class="govuk-heading-m">What type of user are you?</h2>
-        
-        <ul class="govuk-list  govuk-list--bullet">
-        {% for users in users -%}
-          <li>I am a <a href="/divorce/load-user/{{users.id}}">{{users.role}}</a></li>
-        {% endfor %}
-        </ul>
+          {{ govukRadios({
+            "idPrefix": "user",
+            "name": "user",
+            "fieldset": {
+              "legendHtml": '<h2 class="govuk-heading-m">What type of user are you?</h2>',
+              "legendHintText": "Choosing a user type will adjust your viewing experience."
+            },
+            "items": [
+              {
+                "value": "1",
+                "text": "I am a Legal Adviser"
+              },
+              {
+                "value": "2",
+                "text": "I am a Judge"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            "text": "Submit"
+          }) }}
+
+        </form>
 
       </div>
 
