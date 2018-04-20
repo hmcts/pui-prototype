@@ -1,13 +1,11 @@
-{% extends "v1/layouts/base.html" %}
+{% extends "cor/layouts/base.html" %}
 
-{% block page_title %}
-  Get new case
-{% endblock %}
+{% block page_title %}Get new case{% endblock %}
 
 {% block content %}
   <div class="jui-width-container">
-    <main role="main" class="govuk-o-main-wrapper">
 
+    <main role="main" class="govuk-o-main-wrapper">
 
       <form action="/v1/get-new-case" method="post">
 
@@ -39,8 +37,11 @@
         {{ govukButton({
           "text": "Continue"
         }) }}
+        
       </form>
+
     </main>
+
   </div>
 
 {% endblock %}

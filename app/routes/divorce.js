@@ -6,8 +6,8 @@ const userEngine = require('../models/users');
 const caseEngine = require('../models/cases');
 
 
-router.get('/divorce', function (req, res) {
-	res.render('divorce/index', {
+router.get('/divorce/v1', function (req, res) {
+	res.render('divorce/v1/index', {
 		users: userEngine.getUsersEntries()
 	});
 });
@@ -15,16 +15,16 @@ router.get('/divorce', function (req, res) {
 
 router.get('/divorce/load-user/:id/', function(req, res) {
 	req.session.userID = req.params.id;
-	res.redirect('/divorce/dashboard');
+	res.redirect('/divorce/v1/dashboard');
 });
 
 
-router.get('/divorce/dashboard', function(req, res) {
+router.get('/divorce/v1/dashboard', function(req, res) {
 
 	var user  = userEngine.getUsersEntry(req.session.userID);
 	var cases = caseEngine.getCases();
 
-	res.render('divorce/dashboard/index', {
+	res.render('divorce/v1/dashboard/index', {
 		user: user,
 		cases: caseEngine.getCases().filter(function(c) {
 			return c.userID == req.session.userID;
@@ -34,12 +34,12 @@ router.get('/divorce/dashboard', function(req, res) {
 });
 
 
-router.get('/divorce/case/:id', function(req, res) {
+router.get('/divorce/v1/case/:id', function(req, res) {
 
 	var user  = userEngine.getUsersEntry(req.session.userID);
 	var cases = caseEngine.getCasesEntry(req.params.id);
 
-	res.render('divorce/case/index', {
+	res.render('divorce/v1/case/index', {
 		user: user,
 		cases: cases
 	});

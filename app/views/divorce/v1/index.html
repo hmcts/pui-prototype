@@ -10,14 +10,17 @@
 
     <div class="govuk-o-grid">
 
-      <div class="govuk-o-grid__item govuk-o-grid__item--two-thirds">
+      <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds">
 
-        <h1 class="govuk-heading-l">Judicial UI prototype</h1>
+        <h1 class="govuk-heading-l">Divorce</h1>
 
-        <h2 class="govuk-heading-m">Users</h2>
-        <ul class="govuk-list govuk-list--bullet">
+        {{user.name}}
+
+        <h2 class="govuk-heading-m">What type of user are you?</h2>
+        
+        <ul class="govuk-list  govuk-list--bullet">
         {% for users in users -%}
-          <li><a href="/divorce/load-user/{{users.id}}">{{users.name}}</a> ({{users.role}})</li>
+          <li>I am a <a href="/divorce/load-user/{{users.id}}">{{users.role}}</a></li>
         {% endfor %}
         </ul>
 

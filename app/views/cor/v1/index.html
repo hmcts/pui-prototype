@@ -1,0 +1,33 @@
+{% extends "cor/layouts/base.html" %}
+
+{% block page_title %}Continous Online Resolution{% endblock %}
+
+{% block content %}
+
+<div class="jui-width-container">
+
+  <main role="main" class="govuk-o-main-wrapper">
+
+    <div class="govuk-o-grid">
+
+      <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds">
+
+        <h1 class="govuk-heading-l">Continous Online Resolution</h1>
+
+        <h2 class="govuk-heading-m">What type of user are you?</h2>
+        
+        <ul class="govuk-list  govuk-list--bullet">
+        {% for users in users -%}
+          <li>I am a <a href="/cor/load-user/{{users.id}}">{{users.role}}</a></li>
+        {% endfor %}
+        </ul>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+{% endblock %}

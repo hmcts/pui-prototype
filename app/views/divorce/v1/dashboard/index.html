@@ -1,5 +1,7 @@
 {% extends "divorce/layouts/layout.html" %}
 
+{% set pageID = "Dashboard" %}
+
 {% block page_title %}Dashboard - Judicial UI prototype{% endblock %}
 
 {% block content %}
@@ -14,6 +16,7 @@
     <h1 class="govuk-heading-m">Cases I’m working on</h1>
 
     <table class="govuk-c-table">
+      
       <thead class="govuk-c-table__head">
         <tr class="govuk-c-table__row">
           <th class="govuk-c-table__header" scope="col">Case number</th>
@@ -25,10 +28,11 @@
           <th class="govuk-c-table__header" scope="col">Last action</th>
         </tr>
       </thead>
+
       <tbody class="govuk-c-table__body">
         {% for case in cases -%}
         <tr class="govuk-c-table__row">
-          <th class="govuk-c-table__header" scope="row"><a href="/divorce/case/{{case.number}}/">{{case.number}}</a></th>
+          <th class="govuk-c-table__header" scope="row"><a href="/divorce/v1/case/{{case.number}}">{{case.number}}</a></th>
           <td class="govuk-c-table__cell ">{{case.parties}}</td>
           <td class="govuk-c-table__cell ">{{case.type}}</td>
           <td class="govuk-c-table__cell ">{{case.status}}</td>
@@ -38,6 +42,7 @@
         </tr>
         {% endfor %}
       </tbody>
+
     </table>
 
     <a class="govuk-c-button" href="#" role="button">Get new case</a>

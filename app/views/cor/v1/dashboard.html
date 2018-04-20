@@ -1,22 +1,21 @@
-{% extends "v1/layouts/base.html" %}
+{% extends "cor/layouts/base.html" %}
 
-{% set nav = "dashboard" %}
+{% set pageID = "Dashboard" %}
 
-{% block page_title %}
-  Dashboard
-{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
 
 {% block content %}
+
   <div class="jui-width-container">
-    <main role="main" class="govuk-o-main-wrapper">
-      <h1 class="govuk-heading-l">
-        Dashboard
-      </h1>
+
+    <main class="govuk-o-main-wrapper" role="main">
+      
+      <h1 class="govuk-heading-l">Dashboard</h1>
 
       {{ govukTable({
         "classes": "govuk-!-f-16",
         "caption": "Your cases",
-        "captionSize": 'govuk-!-f-27',
+        "captionSize": "govuk-!-f-27",
         "head": [
           {
             "text": "Case number"
@@ -43,7 +42,7 @@
         "rows": [
           [
             {
-              "html": '<a href="/v1/case">SC123/16/12321</a>'
+              "html": '<a href="/cor/v1/case">SC123/16/12321</a>'
             },
             {
               "text": "Alan Jones vs DWP"
@@ -52,7 +51,7 @@
               "text": "PIP"
             },
             {
-              "html": '<a href="/v1/case">DWP responded</a>'
+              "html": '<a href="/cor/v1/case">DWP responded</a>'
             },
             {
               "text": '17 Feb 2018'
@@ -69,7 +68,7 @@
           ],
           [
             {
-              "html": '<a href="/v1/case">SC123/16/12322</a>'
+              "html": '<a href="/cor/v1/case">SC123/16/12322</a>'
             },
             {
               "text": "Warren Sutton vs DWP"
@@ -78,7 +77,7 @@
               "text": "PIP"
             },
             {
-              "html": '<a href="/v1/case">Party replied</a>'
+              "html": '<a href="/cor/v1/case">Party replied</a>'
             },
             {
               "text": '15 Jan 2018'
@@ -91,7 +90,7 @@
             }],
           [
             {
-              "html": '<a href="/v1/case">SC123/16/12323</a>'
+              "html": '<a href="/cor/v1/case">SC123/16/12323</a>'
             },
             {
               "text": "Rose Miller vs DWP"
@@ -100,7 +99,7 @@
               "text": "PIP"
             },
             {
-              "html": '<a href="/v1/case">Hearing rejected</a>'
+              "html": '<a href="/cor/v1/case">Hearing rejected</a>'
             },
             {
               "text": '7 Feb 2018'
@@ -114,7 +113,7 @@
           ],
           [
             {
-              "html": '<a href="/v1/case">SC123/16/12325</a>'
+              "html": '<a href="/cor/v1/case">SC123/16/12325</a>'
             },
             {
               "text": "Seri Lopez vs DWP"
@@ -123,7 +122,7 @@
               "text": "PIP"
             },
             {
-              "html": '<a href="/v1/case">Deadline extension requested</a>'
+              "html": '<a href="/cor/v1/case">Deadline extension requested</a>'
             },
             {
               "text": '1 Mar 2018'
@@ -177,7 +176,7 @@
               "text": "9:30am"
             },
             {
-              "html": '<a href="/v1/case">P Shaw vs DWP</a>'
+              "html": '<a href="/cor/v1/case">P Shaw vs DWP</a>'
             },
             {
               "text": 'PIP'
@@ -197,7 +196,7 @@
               "text": "10am"
             },
             {
-              "html": '<a href="/v1/case">P Shaw vs DWP</a>'
+              "html": '<a href="/cor/v1/case">P Shaw vs DWP</a>'
             },
             {
               "text": 'PIP'
@@ -217,7 +216,7 @@
               "text": "11am"
             },
             {
-              "html": '<a href="/v1/case">P Shaw vs DWP</a>'
+              "html": '<a href="/cor/v1/case">P Shaw vs DWP</a>'
             },
             {
               "text": 'PIP'
@@ -237,7 +236,7 @@
               "text": "12pm (midday)"
             },
             {
-              "html": '<a href="/v1/case">P Shaw vs DWP</a>'
+              "html": '<a href="/cor/v1/case">P Shaw vs DWP</a>'
             },
             {
               "text": 'ESA'
@@ -257,7 +256,7 @@
               "text": "3.30pm"
             },
             {
-              "html": '<a href="/v1/case">U Patel vs DWP</a>'
+              "html": '<a href="/cor/v1/case">U Patel vs DWP</a>'
             },
             {
               "text": 'ESA'
@@ -273,6 +272,9 @@
       }) }}
 
       <a href="#">Previous</a> <a href="#">Next day</a>
+
     </main>
+
   </div>
+
 {% endblock %}

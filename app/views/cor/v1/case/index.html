@@ -1,4 +1,4 @@
-{% extends "v1/layouts/base.html" %}
+{% extends "cor/layouts/base.html" %}
 
 {% from "macros/alerts.html" import successAlert %}
 
@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block after_header %}
-	{% include "v1/includes/case-header.html" %}
+	{% include "cor/includes/case-header.html" %}
 {% endblock %}
 
 
@@ -24,7 +24,7 @@
 
 			{% endif %}
 
-			{% include "v1/includes/case-nav.html" %}
+			{% include "cor/includes/case-nav.html" %}
 
     	<h1 class="govuk-heading-l"> Summary </h1>
 
@@ -40,7 +40,7 @@
               "text": "Parties"
             },
             {
-              "html": '<a href="/v1/parties">Alan Jones vs DWP</a>'
+              "html": '<a href="case/parties">Alan Jones vs DWP</a>'
             }
           ],
           [
@@ -120,5 +120,5 @@
 {% endblock%}
 
 {% block page_scripts %}
-  {% include "v1/includes/global-scripts.html" %}
+  {% include "cor/includes/global-scripts.html" %}
 {% endblock %}

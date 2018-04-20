@@ -1,4 +1,4 @@
-{% extends "v1/layouts/base.html" %}
+{% extends "cor/layouts/base.html" %}
 
 {% set casenav = "parties" %}
 
@@ -7,13 +7,13 @@
 {% endblock %}
 
 {% block after_header %}
-	{% include "v1/includes/case-header.html" %}
+	{% include "cor/includes/case-header.html" %}
 {% endblock %}
 
 {% block content %}
 	<div class="jui-width-container">
     <main role="main" class="govuk-o-main-wrapper">
-      {% include "v1/includes/case-nav.html" %}
+      {% include "cor/includes/case-nav.html" %}
 
 
       <h1 class="govuk-heading-l"> Parties </h1>
@@ -184,7 +184,7 @@
 {% endblock %}
 
 {% block page_scripts %}
-	{% include "v1/includes/global-scripts.html" %}
+	{% include "cor/includes/global-scripts.html" %}
 	<script>
     new Tabs($('.tabs'));
   </script>
