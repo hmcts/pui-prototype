@@ -1,0 +1,23 @@
+{% extends "divorce/layouts/layout.html" %}
+
+{% set pageID = "Timeline" %}
+
+{% block page_title %}Timeline - Judicial UI prototype{% endblock %}
+
+{% block content %}
+
+{% include "divorce/includes/casebar.html" %}
+
+<div class="jui-width-container">
+
+  <main role="main" class="govuk-o-main-wrapper">
+
+    {% include "divorce/includes/casenav.html" %}
+
+    <h1 class="govuk-heading-l">Timeline</h1>
+
+  </main>
+
+</div>
+
+{% endblock %}

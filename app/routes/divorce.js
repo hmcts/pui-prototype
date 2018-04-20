@@ -6,7 +6,7 @@ const userEngine = require('../models/users');
 const caseEngine = require('../models/cases');
 
 
-router.get('/divorce/v1', function (req, res) {
+router.get('/divorce/v1', function(req, res) {
 	res.render('divorce/v1/index', {
 		users: userEngine.getUsersEntries()
 	});
@@ -40,6 +40,32 @@ router.get('/divorce/v1/case/:id', function(req, res) {
 	var cases = caseEngine.getCasesEntry(req.params.id);
 
 	res.render('divorce/v1/case/index', {
+		user: user,
+		cases: cases
+	});
+
+});
+
+
+router.get('/divorce/v1/case/:id/casefile', function(req, res) {
+
+	var user  = userEngine.getUsersEntry(req.session.userID);
+	var cases = caseEngine.getCasesEntry(req.params.id);
+
+	res.render('divorce/v1/case/casefile', {
+		user: user,
+		cases: cases
+	});
+
+});
+
+
+router.get('/divorce/v1/case/:id/timeline', function(req, res) {
+
+	var user  = userEngine.getUsersEntry(req.session.userID);
+	var cases = caseEngine.getCasesEntry(req.params.id);
+
+	res.render('divorce/v1/case/timeline', {
 		user: user,
 		cases: cases
 	});
