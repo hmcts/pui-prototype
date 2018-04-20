@@ -6,15 +6,20 @@ const userEngine = require('../models/users');
 const caseEngine = require('../models/cases');
 
 
-router.get('/divorce/v1', function(req, res) {
-	res.render('divorce/v1/index', {
-		users: userEngine.getUsersEntries()
-	});
+router.use(function(req, res, next) {
+	res.locals.user = req.session.userID;
+	next();
 });
 
 
-router.get('/divorce/load-user/:id/', function(req, res) {
-	req.session.userID = req.params.id;
+router.get('/divorce/v1', function(req, res) {
+	req.session.destroy();
+	res.render('divorce/v1/index');
+});
+
+
+router.post('/divorce/v1', function(req, res) {
+	req.session.userID = req.param('user'); // Store post value into session
 	res.redirect('/divorce/v1/dashboard');
 });
 
@@ -70,6 +75,12 @@ router.get('/divorce/v1/case/:id/timeline', function(req, res) {
 		cases: cases
 	});
 
+});
+
+
+router.get('/signout', function (req, res) {
+	req.session.destroy();
+	res.redirect('/divorce/v1');
 });
 
 

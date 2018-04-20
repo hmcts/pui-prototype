@@ -7,6 +7,7 @@ router.use('/', require('./routes/cor'));
 
 
 router.get('/', function (req, res) {
+	req.session.destroy();
 	res.render('index');
 });
 
