@@ -15,9 +15,18 @@
     <main role="main" class="govuk-o-main-wrapper">
       {% include "cor/includes/case-nav.html" %}
 
+      <h1 class="govuk-heading-l"> Direction orders </h1>
 
-      <h1 class="govuk-heading-xl"> Directions </h1>
+      <p class="govuk-body">To create a new direction order first create a new direction.</p>
 
+      {{ govukButton({
+        "text": "Create direction",
+        "href": "/cor/v1/case/create-direction"
+      }) }}
+
+      <h2 class="govuk-heading-m"> In progress direction orders </h1>
+
+      <h2 class="govuk-heading-m"> Completed direction orders </h1>
 
 
 
