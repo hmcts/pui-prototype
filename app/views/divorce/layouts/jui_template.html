@@ -73,9 +73,17 @@
 
     {% block footer %}{% endblock %}
 
+    <div id="global-app-error" class="app-error hidden"></div>
+
     <script src="{{ asset_path }}javascripts/govuk-template.js"></script>
 
-    {% block body_end %}{% endblock %}
+    {% block body_end %}
+      {% block scripts %}
+        {% include "includes/scripts.html" %}
+        {% block page_scripts %}{% endblock %}
+      {% endblock %}
+      <!-- GOV.UK Prototype kit {{releaseVersion}} -->
+    {% endblock %}
 
     <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
 

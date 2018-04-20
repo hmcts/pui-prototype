@@ -1,5 +1,5 @@
 /* ==========================================================================
-   #CASE MENU
+   #CASE NAV
    ========================================================================== */
 
 .jui-casenav {
@@ -7,7 +7,7 @@
   margin-bottom: $govuk-spacing-scale-8;
 }
 
-.jui-casenav__items {
+.jui-casenav__list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -25,12 +25,68 @@
 }
 
 
-// https://tink.uk/using-the-aria-current-attribute/
 .jui-casenav__link[aria-current] {
   color: $govuk-black;
   text-decoration: none;
 }
 
+
+/* ==========================================================================
+   #OPTIONS NAV
+   ========================================================================== */
+
+.jui-optionsnav {
+  color: $govuk-white;
+}
+
+
+.jui-optionsnav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.jui-optionsnav__item {
+  display: inline-block;
+  margin-right: $govuk-spacing-scale-2;
+  
+  &:last-child {
+    margin-right: 0;
+  }
+
+}
+
+
+.jui-optionsnav__link {
+  font-weight: bold;
+  white-space: nowrap;
+
+  @include mq($from: tablet) {
+    text-decoration: none;
+  }
+
+  &:link,
+  &:visited,
+  &:active {
+    color: inherit;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+}
+
+
+.jui-optionsnav__toggle {
+  background-color: transparent;
+  border: 0 none;
+  color: inherit;  
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
 
 
 
@@ -38,19 +94,31 @@
    #MENU
    ========================================================================== */
 
-.jui-menu {
+.jui-nav {
   color: $govuk-white;
+  margin-top: 3px;
 }
 
 
-.jui-menu__list {
+.jui-nav__list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 
-.jui-menu__link {
+.jui-nav__item {
+  display: inline-block;
+  margin-right: $govuk-spacing-scale-2;
+
+  &:last-child {
+    margin-right: 0;
+  }
+  
+}
+
+
+.jui-nav__link {
   font-weight: bold;
   text-decoration: none;
 
@@ -67,47 +135,31 @@
 }
 
 
-/* Style variants
-   ========================================================================== */
-
-.jui-menu--admin {
-  margin-top: 3px;
-
-  .jui-menu__item {
-    display: inline-block;
-    margin-right: $govuk-spacing-scale-2;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-  }
-
-}
-
-
-.jui-menu--case {
-
-  .jui-menu__toggle {
-    background-color: transparent;
-    border: 0 none;
-    color: inherit;  
-    font-size: inherit;
-    margin: 0;
-    padding: 0;
-  }
-
-}
-
-
 /* Javascript enabled
    ========================================================================== */
 
 .js-enabled {
 
+
   @include mq($from: tablet) {
 
-    .jui-menu__toggle {
+    .jui-optionsnav {
+      position: relative;
+    }
+
+
+    .jui-optionsnav__item {
+      display: block;
+      margin-right: 0;
+    }
+
+
+    .jui-optionsnav__link {
+      display: block;
+    }
+
+
+    .jui-optionsnav__toggle {
       cursor: pointer;
       padding-right: $govuk-spacing-scale-3;
       position: relative;
@@ -128,6 +180,18 @@
 
     }
 
+
+    .jui-optionsnav__list {
+      //display: none;
+      background-color: $govuk-black;
+      padding: 20px;
+      position: absolute;
+      right: 0;
+      top: 44px;
+    }
+
+
   }
+
 
 }
