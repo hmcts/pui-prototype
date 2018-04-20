@@ -1,0 +1,67 @@
+{% extends "cor/layouts/base.html" %}
+
+{% block page_title %}Create new direction {% endblock %}
+
+{% block after_header %}
+	{% include "cor/includes/case-header.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="jui-width-container">
+
+    <main role="main" class="govuk-o-main-wrapper">
+
+      <form action="/v1/get-new-case" method="post">
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "/cor/v1/case/directions"
+        }) }}
+
+        {{ govukRadios({
+          "idPrefix": "party",
+          "name": "party",
+          "fieldset": {
+            "legendHtml": '<h2 class="govuk-heading-m">Party</h2>'
+          },
+          "items": [
+            {
+              "value": "party1",
+              "text": "Party 1"
+            },
+            {
+              "value": "party2",
+              "text": "Party 2"
+            }
+          ]
+        }) }}
+
+        {{ govukRadios({
+          "idPrefix": "type",
+          "name": "type",
+          "fieldset": {
+            "legendHtml": '<h2 class="govuk-heading-m">Type</h2>'
+          },
+          "items": [
+            {
+              "value": "party1",
+              "text": "Request document"
+            },
+            {
+              "value": "party2",
+              "text": "Confirm statement"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </main>
+
+  </div>
+
+{% endblock %}
