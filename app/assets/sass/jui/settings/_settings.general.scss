@@ -11,7 +11,7 @@ $jui-gutter-half: $govuk-gutter / 2;
   margin-right: auto;
   max-width: $jui-page-width;
 
-  @include govuk-ie-lte(8) {
+  @include govuk-if-ie8 {
     width: $jui-page-width;
   }
 

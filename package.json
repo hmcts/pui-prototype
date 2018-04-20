@@ -12,11 +12,11 @@
     "test": "gulp test && npm run lint"
   },
   "dependencies": {
-    "@govuk-frontend/all": "0.0.26-alpha",
+    "@govuk-frontend/all": "0.0.28-alpha",
     "basic-auth": "^1.0.3",
     "basic-auth-connect": "^1.0.0",
     "body-parser": "^1.14.1",
-    "browser-sync": "^2.11.1",
+    "browser-sync": "^2.23.7",
     "cross-spawn": "^5.0.0",
     "dotenv": "^4.0.0",
     "express": "4.15.2",
