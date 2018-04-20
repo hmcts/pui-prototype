@@ -1,0 +1,7 @@
+<nav class="jui-casenav">
+  <ul class="jui-casenav__items">
+    <li class="jui-casenav__item"><a class="jui-casenav__link" href="/divorce/v1/case/{{cases.number}}"{%if pageID == "Summary" %} aria-current="page"{% endif %}>Summary</a></li>
+    <li class="jui-casenav__item"><a class="jui-casenav__link" href="/divorce/v1/case/{{cases.number}}/casefile"{%if pageID == "Casefile" %} aria-current="page"{% endif %}>Case file</a></li>
+    <li class="jui-casenav__item"><a class="jui-casenav__link" href="/divorce/v1/case/{{cases.number}}/timeline"{%if pageID == "Timeline" %} aria-current="page"{% endif %}>Timeline</a></li>
+  </ul>
+</nav>

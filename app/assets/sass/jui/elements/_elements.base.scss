@@ -2,6 +2,10 @@
    #BASE
    ========================================================================== */
 
-a:focus {
+a:not(.govuk-c-button):focus {
   color: $govuk-black !important; // Override focus colour of links
+}
+
+.govuk-c-button:focus {
+  color: $govuk-white !important; // Fixes GDS bug on focus of buttons
 }

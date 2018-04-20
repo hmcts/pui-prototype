@@ -25,10 +25,4 @@ router.post('/cor/v1/get-new-case', function (req, res) {
 });
 
 
-router.get('/cor/v1/case', function (req, res) {
-	res.render('cor/v1/case/index', { success: req.session.success });
-	req.session.success = null;
-});
-
-
 module.exports = router;

@@ -1,5 +1,6 @@
-{# {% extends "layout.html" %} #}
 {% extends "divorce/layouts/layout.html" %}
+
+{% set pageID = "Summary" %}
 
 {% block page_title %}Summary - Judicial UI prototype{% endblock %}
 
@@ -10,6 +11,8 @@
 <div class="jui-width-container">
 
   <main role="main" class="govuk-o-main-wrapper">
+
+    {% include "divorce/includes/casenav.html" %}
 
     <h1 class="govuk-heading-l">Summary</h1>
 
@@ -67,9 +70,9 @@
       
     </div>
 
-    <h2 class="govuk-heading-m">Timeline of events</h2>
+    <h2 class="govuk-heading-m">Recent events</h2>
 
-    <p>Below is the most recent events that have happend on this case.<br>You can view a <a href="#">full timeline</a> of events.</p>
+    <!--p>Below is the most recent events that have happend on this case.<br>You can view a <a href="#">full timeline</a> of events.</p-->
 
     <div class="jui-timeline">
 

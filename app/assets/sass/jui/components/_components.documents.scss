@@ -2,28 +2,28 @@
    #DOCUMENTS
    ========================================================================== */
 
-   .jui-document {
+.jui-document {
 
-    &:not(:first-child) {
-      margin-top: $govuk-spacing-scale-2;
-    }
-  
+  &:not(:first-child) {
+    margin-top: $govuk-spacing-scale-2;
   }
-  
-  
-  .jui-document__link {
-    text-decoration: none;
-    display: inline-block;
-  }
-  
-  
-  .jui-document__title {
-    display: block;
-    text-decoration: underline;
-  }
-  
-  
-  .jui-document__meta {
-    color: $govuk-text-colour;
-    display: block;
-  }
+
+}
+
+
+.jui-document__link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+
+.jui-document__title {
+  display: block;
+  text-decoration: underline;
+}
+
+
+.jui-document__meta {
+  color: $govuk-text-colour;
+  display: block;
+}
