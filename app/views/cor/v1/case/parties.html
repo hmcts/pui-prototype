@@ -38,8 +38,9 @@
 					<div class="govuk-o-grid">
 						<div class="govuk-o-grid__item govuk-o-grid__item--one-half">
 								{{ govukTable({
+									"classes": 'govuk-!-f-16',
 									"caption": "Appellant",
-									"captionSize": 'govuk-!-f-24',
+									"captionClasses": 'govuk-!-f-24',
 									"firstCellIsHeader": true,
 									"rows": [
 										[
@@ -120,62 +121,63 @@
 						<br>
 						<div class="govuk-o-grid">
 								<div class="govuk-o-grid__item govuk-o-grid__item--one-half">
-          {{ govukTable({
-		        "caption": "Respondent",
-		        "captionSize": 'govuk-!-f-24',
-		        "firstCellIsHeader": true,
-		        "rows": [
-		        	[
-		            {
-									'text': 'Name'
-								},
-								{
-									'text': 'Department for Work and Pensions'
-								}
-		          ],
-		          [
-		            {
-									'text': 'Decision maker'
-								},
-								{
-									'text': 'Denise Okenwe'
-								}
-		          ],
-		          [
-								{
-									'text': 'Presenting officer'
-								},
-								{
-									'text': 'Claire Potter'
-								}
-		          ],
-		          [
-								{
-									'text': 'DWP office'
-								},
-								{
-									'text': '3'
-								}
-		          ],
-		          [
-								{
-									'text': 'Email'
-								},
-								{
-									'text': 'dwp@dwp.com'
-								}
-		          ],
-		          [
-								{
-									'text': 'Phone'
-								},
-								{
-									'text': '01838 787 637'
-								}
-		          ]
-		        ]
-					}) }}
-					</div>
+							{{ govukTable({
+								"classes": 'govuk-!-f-16',
+								"caption": "Respondent",
+								"captionClasses": 'govuk-!-f-24',
+								"firstCellIsHeader": true,
+								"rows": [
+									[
+										{
+											'text': 'Name'
+										},
+										{
+											'text': 'Department for Work and Pensions'
+										}
+									],
+									[
+										{
+											'text': 'Decision maker'
+										},
+										{
+											'text': 'Denise Okenwe'
+										}
+									],
+									[
+										{
+											'text': 'Presenting officer'
+										},
+										{
+											'text': 'Claire Potter'
+										}
+									],
+									[
+										{
+											'text': 'DWP office'
+										},
+										{
+											'text': '3'
+										}
+									],
+									[
+										{
+											'text': 'Email'
+										},
+										{
+											'text': 'dwp@dwp.com'
+										}
+									],
+									[
+										{
+											'text': 'Phone'
+										},
+										{
+											'text': '01838 787 637'
+										}
+									]
+								]
+							}) }}
+						</div>
 					</div>
         </div>
 			</div>
