@@ -1,0 +1,22 @@
+/* ==========================================================================
+   #STATUSES
+   ========================================================================== */
+
+// <span class="jui-status  jui-status--urgent">Urgent</span>
+
+.jui-status {
+  @include govuk-font-regular-14;
+  border: 2px solid $govuk-blue;
+  color: $govuk-blue;
+  font-weight: bold;
+  padding: 0 $govuk-spacing-scale-1;
+  text-transform: uppercase;
+  vertical-align: middle;
+
+  text-decoration: none !important;
+}
+
+.jui-status--urgent {
+  border-color: $govuk-red; 
+  color: $govuk-red;
+}

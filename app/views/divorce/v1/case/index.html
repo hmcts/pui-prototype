@@ -27,7 +27,7 @@
           <tbody class="govuk-c-table__body">
             <tr class="govuk-c-table__row">
               <th class="govuk-c-table__header" scope="row">Case number</th>
-              <td class="govuk-c-table__cell ">{{cases.id}}</td>
+              <td class="govuk-c-table__cell ">{{cases.id}} {% if cases.urgent %} <span class="jui-status  jui-status--urgent">Urgent</span>{% endif %}</td>
             </tr>
             <tr class="govuk-c-table__row">
               <th class="govuk-c-table__header" scope="row">Case type</th>
