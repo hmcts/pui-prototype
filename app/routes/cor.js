@@ -54,8 +54,9 @@ router.get('/cor/v1/case/directions', function (req, res) {
 		pageObject.draftOrder = {
 			directions: req.session.draftDirections.map(function(direction) {
 				var cells = [];
+
 				cells.push({
-					"html": direction.subject
+					"html": '<a href="/cor/v1/case/directions?id='+direction.id+'">'+direction.subject+'</a>'
 				});
 				cells.push({
 					"html": direction.party
