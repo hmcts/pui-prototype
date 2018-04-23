@@ -1,0 +1,60 @@
+{% extends "divorce/layouts/layout.html" %}
+
+{% set pageID = "Make decision" %}
+
+{% block page_title %}Make decision - Judicial UI prototype{% endblock %}
+
+{% block content %}
+
+{% include "divorce/includes/casebar.html" %}
+
+<div class="jui-width-container">
+
+  {{ govukBackLink({
+    "text": "Back",
+    "href": "./"
+  }) }}
+
+  <main role="main" class="govuk-o-main-wrapper">
+
+    <h1 class="govuk-heading-xl">Make a decision</h1>
+
+    <h2 class="govuk-heading-m">Are you satisfied that</h2>
+
+    <p class="govuk-body"><b>David Francis</b> is entitled to a decree nisi of <b>divorce</b> for reason of <b>adultery</b>.</p>
+
+    <form method="post">
+
+      {{ govukRadios({
+        "idPrefix": "user",
+        "name": "user",
+        "fieldset": {
+          "legendHtml": '',
+          "legendHintText": ""
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        "text": "Continue",
+        "classes": "govuk-!-mb-r3"
+      }) }}
+
+    </form>
+
+    <a href="#">Cancel</a>
+
+  </main>
+
+</div>
+
+{% endblock %}

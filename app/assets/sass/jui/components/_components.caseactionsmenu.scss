@@ -111,6 +111,7 @@
     padding: 20px;
     position: absolute;
     top: 39px;
+    z-index: 1; // Sits above other content
 
     @include mq($from: tablet) {
       right: 0;
