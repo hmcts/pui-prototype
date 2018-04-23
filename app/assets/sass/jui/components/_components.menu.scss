@@ -60,11 +60,8 @@
 
 .jui-optionsnav__link {
   font-weight: bold;
+  text-decoration: none;
   white-space: nowrap;
-
-  @include mq($from: tablet) {
-    text-decoration: none;
-  }
 
   &:link,
   &:visited,
@@ -141,55 +138,67 @@
 .js-enabled {
 
 
-  @include mq($from: tablet) {
-
-    .jui-optionsnav {
-      position: relative;
-    }
+  .jui-optionsnav {
+    position: relative;
+  }
 
 
-    .jui-optionsnav__item {
+  .jui-optionsnav__item {
+    display: block;
+    margin-right: 0;
+  }
+
+
+  .jui-optionsnav__link {
+    display: block;
+  }
+
+
+  .jui-optionsnav__toggle {
+    cursor: pointer;
+    padding-right: $govuk-spacing-scale-3;
+    position: relative;
+
+    &::after {
+      content: "";
       display: block;
-      margin-right: 0;
+      border-style: solid;
+      border-color: transparent;
+      border-top-color: currentColor;
+      border-width: 8px 5px 0 5px;
+      height: 0;
+      margin-top: -4px;
+      position: absolute;
+      top: 50%; right: 0;
+      width: 0;
     }
 
-
-    .jui-optionsnav__link {
-      display: block;
-    }
-
-
-    .jui-optionsnav__toggle {
-      cursor: pointer;
-      padding-right: $govuk-spacing-scale-3;
-      position: relative;
-
+    &[aria-expanded=true] {
+      
       &::after {
-        content: "";
-        display: block;
-        border-style: solid;
-        border-color: transparent;
-        border-top-color: currentColor;
-        border-width: 8px 5px 0 5px;
-        height: 0;
-        margin-top: -4px;
-        position: absolute;
-        top: 50%; right: 0;
-        width: 0;
+        border-bottom-color: currentColor;
+        border-width: 0 5px 8px 5px;
       }
 
     }
 
+  }
 
-    .jui-optionsnav__list {
-      //display: none;
-      background-color: $govuk-black;
-      padding: 20px;
-      position: absolute;
+
+  .jui-optionsnav__list {
+    display: none;
+    background-color: $govuk-black;
+    padding: 20px;
+    position: absolute;
+    top: 39px;
+
+    @include mq($from: tablet) {
       right: 0;
-      top: 44px;
     }
 
+    &[aria-hidden=false] {
+      display: block;
+    }
 
   }
 
