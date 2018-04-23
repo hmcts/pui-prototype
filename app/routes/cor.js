@@ -37,6 +37,7 @@ router.post('/cor/v1/case/create-direction', function (req, res) {
 
 	// Add posted direction to drafts
 	req.session.draftDirections.push({
+		id: require('uuid/v4')(),
 		party: req.session.data.party,
 		type: req.session.data.type,
 		subject: req.session.data.subject,

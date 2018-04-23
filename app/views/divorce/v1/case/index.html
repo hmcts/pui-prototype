@@ -72,8 +72,6 @@
 
     <h2 class="govuk-heading-m">Recent events</h2>
 
-    <!--p>Below is the most recent events that have happend on this case.<br>You can view a <a href="#">full timeline</a> of events.</p-->
-
     <div class="jui-timeline">
 
       {% for events in cases.events -%}
@@ -94,7 +92,6 @@
             {% for file in events.files -%}
             <div class="jui-document">
               <a class="jui-document__link" href="{{file.url}}">
-                <span class="jui-document__icon"></span>
                 <span class="jui-document__title">{{file.name}}</span>
                 <span class="jui-document__meta">{{file.type}}, {{file.size}}, {{file.pages}}</span>
               </a>
