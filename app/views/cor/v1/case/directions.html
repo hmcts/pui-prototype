@@ -15,20 +15,123 @@
     <main role="main" class="govuk-o-main-wrapper">
       {% include "cor/includes/case-nav.html" %}
 
-      <h1 class="govuk-heading-l"> Direction orders </h1>
+      <h1 class="govuk-heading-l"> Directions </h1>
 
-      <p class="govuk-body">To create a new direction order first create a new direction.</p>
+      <h2 class="govuk-heading-m">Draft orders</h2>
 
-      {{ govukButton({
-        "text": "Create direction",
-        "href": "/cor/v1/case/create-direction"
-      }) }}
+      {% if draftOrder %}
+        <div class="jui-direction-order">
+          <h3 class="govuk-heading-s">Draft direction order (not sent)</h3>
 
-      <h2 class="govuk-heading-m"> In progress direction orders </h1>
+          {{ govukTable({
+            "classes": "govuk-!-f-16",
+            "head": [
+              {
+                "text": "Subject"
+              },
+              {
+                "text": "Party"
+              },
+              {
+                "text": "Due date"
+              }
+            ],
+            "rows": draftOrder.directions
+          }) }}
 
-      <h2 class="govuk-heading-m"> Completed direction orders </h1>
+          {% for direction in draftOrder.directions %}
+            <p>{{direction.subject}}</p>
+          {% endfor %}
+
+          {{ govukButton({
+            "text": "Create direction",
+            "href": "/cor/v1/case/create-direction"
+          }) }}
+          <br>
+          {{ govukButton({
+            "text": "Preview order",
+            "href": "/cor/v1/case/preview-direction-order"
+          }) }}
+        </div>
+      {% else %}
+        <p class="govuk-body">No draft directions</p>
+        {{ govukButton({
+          "text": "Create direction",
+          "href": "/cor/v1/case/create-direction"
+        }) }}
+      {% endif %}
 
 
+
+      <h2 class="govuk-heading-m">In progress directions</h2>
+
+      <div class="jui-direction-order">
+
+        <h3 class="govuk-heading-s">Direction order sent on 19/05/2018</h3>
+        <p><a href="#" download>Direction order - 19-05-2018.pdf</a></p>
+
+        {{ govukTable({
+          "classes": "govuk-!-f-16",
+          "head": [
+            {
+              "text": "Subject"
+            },
+            {
+              "text": "Party"
+            },
+            {
+              "text": "Status"
+            },
+            {
+              "text": "Due date"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "html": '<a href="/cor/v1/case/edit-direction">Provide photo evidence of your walking stick</a>'
+              },
+              {
+                "text": "Alan Jones"
+              },
+              {
+                "html": "Waiting on"
+              },
+              {
+                "text": "30 May 2018"
+              }
+            ],
+            [
+              {
+                "html": '<a href="/cor/v1/case/edit-direction">Provide the doctor\'s letter relating to your back pain</a>'
+              },
+              {
+                "text": "Alan Jones"
+              },
+              {
+                "html": '<strong class="govuk-c-tag"> Complete </strong>'
+              },
+              {
+                "text": "29 May 2018"
+              }
+            ],
+            [
+              {
+                "html": '<a href="/cor/v1/case/edit-direction">Provide the medical records (dated 16/04/2017) referred to in the MRN</a>'
+              },
+              {
+                "text": "DWP"
+              },
+              {
+                "html": "Waiting on"
+              },
+              {
+                "text": "30 May 2018"
+              }
+            ]
+          ]
+        }) }}
+      </div>
 
 		</main>
 	</div>

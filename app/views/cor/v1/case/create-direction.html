@@ -11,7 +11,7 @@
 
     <main role="main" class="govuk-o-main-wrapper">
 
-      <form action="/v1/get-new-case" method="post">
+      <form action="/cor/v1/case/create-direction" method="post">
 
         {{ govukBackLink({
           "text": "Back",
@@ -26,12 +26,12 @@
           },
           "items": [
             {
-              "value": "party1",
-              "text": "Party 1"
+              "value": "Alan Jones",
+              "text": "Alan Jones"
             },
             {
-              "value": "party2",
-              "text": "Party 2"
+              "value": "DWP",
+              "text": "DWP"
             }
           ]
         }) }}
@@ -44,18 +44,47 @@
           },
           "items": [
             {
-              "value": "party1",
-              "text": "Request document"
+              "value": "Document request",
+              "text": "Document request"
             },
             {
-              "value": "party2",
-              "text": "Confirm statement"
+              "value": "Statement confirmation",
+              "text": "Statement confirmation"
             }
           ]
         }) }}
 
+        {{ govukInput({
+          "label": {
+            "html": '<h2 class="govuk-heading-m">Subject</h2>'
+          },
+          "id": "subject",
+          "name": "subject",
+          "classes": "govuk-c-input--width-30"
+        }) }}
+
+        {{ govukTextarea({
+          "name": "message",
+          "id": "message",
+          "classes": "govuk-c-input--width-30",
+          "label": {
+            "html": '<h2 class="govuk-heading-m">Message</h2>'
+          }
+        }) }}
+
+        {{ govukInput({
+          "label": {
+            "html": '<h2 class="govuk-heading-m">Due date</h2>'
+          },
+          "id": "dueDate",
+          "name": "dueDate",
+          "classes": "govuk-c-input--width-10"
+        }) }}
+
+
+
         {{ govukButton({
-          "text": "Continue"
+          "text": "Create direction"
         }) }}
 
       </form>

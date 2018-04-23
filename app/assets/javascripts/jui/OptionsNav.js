@@ -19,7 +19,7 @@ OptionsNav.prototype.showNav = function() {
 
 
 OptionsNav.prototype.onToggleClick = function() {
-	
+
 	if(this.toggle.attr('aria-expanded') == 'false') {
 		this.showNav();
 	} else {
