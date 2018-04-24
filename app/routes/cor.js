@@ -6,7 +6,6 @@ const userEngine = require('../models/users');
 const caseEngine = require('../models/cases');
 
 // Prototype setup
-
 router.get('/cor/v1', function (req, res) {
 	res.render('cor/v1/index', {
 		users: userEngine.getUsersEntries()
@@ -19,7 +18,6 @@ router.get('/cor/load-user/:id/', function(req, res) {
 });
 
 // Application routes v1
-
 router.post('/cor/v1/get-new-case', function (req, res) {
 	req.session.success = true;
 	res.redirect('/cor/v1/case');
@@ -47,6 +45,14 @@ router.post('/cor/v1/case/create-direction', function (req, res) {
 	res.redirect('/cor/v1/case/directions');
 });
 
+router.post('/cor/v1/case/create-direction-order', function (req, res) {
+
+	req.session.draftDirections = null;
+	req.session.directionOrderSuccess = true;
+
+	res.redirect('/cor/v1/case/directions');
+});
+
 router.get('/cor/v1/case/directions', function (req, res) {
 	var pageObject = {};
 
@@ -68,7 +74,14 @@ router.get('/cor/v1/case/directions', function (req, res) {
 			})
 		};
 	}
+
+	if(req.session.directionOrderSuccess) {
+		pageObject.directionOrderSuccess = true;
+	}
+
 	res.render('cor/v1/case/directions', pageObject);
+
+	req.session.directionOrderSuccess = false;
 });
 
 module.exports = router;

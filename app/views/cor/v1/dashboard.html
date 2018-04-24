@@ -14,8 +14,9 @@
 
       {{ govukTable({
         "classes": "govuk-!-f-16",
-        "caption": "Your cases",
-        "captionClasses": "govuk-!-f-24",
+        "caption": 'Your cases',
+        "captionClasses": "govuk-heading-m",
+        "firstCellIsHeader": true,
         "head": [
           {
             "text": "Case number"
@@ -42,7 +43,7 @@
         "rows": [
           [
             {
-              "html": '<a href="/cor/v1/case">SC123/16/12321</a>'
+              "html": '<a href="/cor/v1/case">SC123/16/12321</a> <span class="jui-status  jui-status--urgent">Urgent</span>'
             },
             {
               "text": "Alan Jones vs DWP"
@@ -141,12 +142,10 @@
         "href": "/cor/v1/get-new-case"
       }) }}
 
-
-
       {{ govukTable({
         "classes": "govuk-!-f-16",
         "caption": "Your hearings 20 March 2018",
-        "captionClasses": 'govuk-!-f-24',
+        "captionClasses": 'govuk-heading-m',
         "head": [
           {
             "text": "Start time"
