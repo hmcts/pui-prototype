@@ -2,13 +2,8 @@
    #DOCUMENTS
    ========================================================================== */
 
-// Image path should be a variable
-
 .jui-document {
   @include govuk-h-clearfix;
-  background-image: url(#{$jui-assets-path}icon-document.svg);
-  background-repeat: no-repeat;
-  background-size: 31px 40px;
 
   &:not(:first-child) {
     margin-top: $govuk-spacing-scale-2;
@@ -18,6 +13,9 @@
 
 
 .jui-document__link {
+  background-image: url(#{$jui-assets-path}icon-document.svg);
+  background-repeat: no-repeat;
+  background-size: 31px 40px;
   float: left;
   min-height: 40px; // Icon height
   padding-left: 41px; // Icon width + 10px
