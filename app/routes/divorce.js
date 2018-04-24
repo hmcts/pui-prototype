@@ -1,9 +1,8 @@
-const express = require('express');
-const router  = express.Router();
+var express = require('express');
+var router  = express.Router();
 
-
-const userEngine = require('../models/users');
-const caseEngine = require('../models/cases');
+var userEngine = require('../models/users');
+var caseEngine = require('../models/cases');
 
 
 router.use(function(req, res, next) {
@@ -84,6 +83,43 @@ router.get('/divorce/v1/case/:id/make-decision', function(req, res) {
 	var cases = caseEngine.getCasesEntry(req.params.id);
 
 	res.render('divorce/v1/case/make-decision', {
+		user: user,
+		cases: cases
+	});
+
+});
+
+
+router.post('/divorce/v1/case/:id/make-decision', function(req, res) {
+
+	if (req.param('satisifed') == 'no') {
+		res.redirect('provide-reason');
+	} else {
+		res.redirect('costs-order');
+	}
+	
+});
+
+
+router.get('/divorce/v1/case/:id/provide-reason', function(req, res) {
+
+	var user  = userEngine.getUsersEntry(req.session.userID);
+	var cases = caseEngine.getCasesEntry(req.params.id);
+
+	res.render('divorce/v1/case/provide-reason', {
+		user: user,
+		cases: cases
+	});
+
+});
+
+
+router.get('/divorce/v1/case/:id/costs-order', function(req, res) {
+
+	var user  = userEngine.getUsersEntry(req.session.userID);
+	var cases = caseEngine.getCasesEntry(req.params.id);
+
+	res.render('divorce/v1/case/costs-order', {
 		user: user,
 		cases: cases
 	});

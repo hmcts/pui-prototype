@@ -17,43 +17,51 @@
 
   <main role="main" class="govuk-o-main-wrapper">
 
-    <h1 class="govuk-heading-xl">Make a decision</h1>
+    <div class="govuk-o-grid">
+        
+      <div class="govuk-o-grid__item  govuk-o-grid__item--two-thiurds">
 
-    <h2 class="govuk-heading-m">Are you satisfied that</h2>
+        <h1 class="govuk-heading-xl">Make a decision</h1>
 
-    <p class="govuk-body"><b>David Francis</b> is entitled to a decree nisi of <b>divorce</b> for reason of <b>adultery</b>.</p>
+        <h2 class="govuk-heading-m">Are you satisfied that</h2>
 
-    <form method="post">
+        <p class="govuk-body">David Francis is entitled to a decree nisi of divorce for reason of adultery.</p>
 
-      {{ govukRadios({
-        "idPrefix": "user",
-        "name": "user",
-        "fieldset": {
-          "legendHtml": '',
-          "legendHintText": ""
-        },
-        "items": [
-          {
-            "value": "yes",
-            "text": "Yes"
-          },
-          {
-            "value": "no",
-            "text": "No"
-          }
-        ]
-      }) }}
+        <form method="post">
 
-      {{ govukButton({
-        "text": "Continue",
-        "classes": "govuk-!-mb-r3"
-      }) }}
+          {{ govukRadios({
+            "idPrefix": "satisfied",
+            "name": "satisifed",
+            "fieldset": {
+              "legendHtml": "",
+              "legendHintText": ""
+            },
+            "items": [
+              {
+                "value": "yes",
+                "html": "Yes<span class=\"visually-hidden\">, I am satisfied</span>"
+              },
+              {
+                "value": "no",
+                "html": "No<span class=\"visually-hidden\">, I am not satisfied</span>"
+              }
+            ]
+          }) }}
 
-    </form>
+          {{ govukButton({
+            "text": "Continue",
+            "classes": "govuk-!-mb-r0"
+          }) }}
 
-    <a href="#">Cancel</a>
+        </form>
 
-  </main>
+        <p><a href="./">Cancel</a></p>
+
+      </main>
+
+    </div>
+
+  </div>
 
 </div>
 
