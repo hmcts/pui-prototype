@@ -7,13 +7,13 @@
 {% endblock %}
 
 {% block after_header %}
-	{% include "cor/includes/case-header.html" %}
+	{% include "cor/includes/casebar.html" %}
 {% endblock %}
 
 {% block content %}
 	<div class="jui-width-container">
     <main role="main" class="govuk-o-main-wrapper">
-      {% include "cor/includes/case-nav.html" %}
+      {% include "cor/includes/casenav.html" %}
 
       <h1 class="govuk-heading-l"> Directions </h1>
 
@@ -45,19 +45,19 @@
 
           {{ govukButton({
             "text": "Create direction",
-            "href": "/cor/v1/case/create-direction"
+            "href": "/cor/v1/case/"+case.id+"/create-direction"
           }) }}
           <br>
           {{ govukButton({
             "text": "Preview order",
-            "href": "/cor/v1/case/create-direction-order"
+            "href": "/cor/v1/case/"+case.id+"/create-direction-order"
           }) }}
         </div>
       {% else %}
         <p class="govuk-body">No draft directions</p>
         {{ govukButton({
           "text": "Create direction",
-          "href": "/cor/v1/case/create-direction"
+          "href": "/cor/v1/case/"+case.id+"/create-direction"
         }) }}
       {% endif %}
 

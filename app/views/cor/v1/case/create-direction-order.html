@@ -3,7 +3,7 @@
 {% block page_title %}Create new direction {% endblock %}
 
 {% block after_header %}
-	{% include "cor/includes/case-header.html" %}
+	{% include "cor/includes/casebar.html" %}
 {% endblock %}
 
 {% block content %}
@@ -11,11 +11,11 @@
 
     <main role="main" class="govuk-o-main-wrapper">
 
-      <form action="/cor/v1/case/create-direction-order" method="post">
+      <form action="/cor/v1/case/{{case.id}}/create-direction-order" method="post">
 
         {{ govukBackLink({
           "text": "Back",
-          "href": "/cor/v1/case/directions"
+          "href": "/cor/v1/case/"+case.id+"/directions"
         }) }}
 
         <h1 class="govuk-heading-l">Preview direction order</h1>

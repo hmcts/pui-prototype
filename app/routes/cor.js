@@ -70,13 +70,40 @@ router.get('/cor/v1/case/:id/parties', function(req, res) {
 });
 
 router.get('/cor/v1/case/:id/directions', function(req, res) {
+	var pageObject = {};
+	pageObject.case = caseEngine.getCase(req.params.id);
+
+	if(req.session.draftDirections && req.session.draftDirections.length) {
+		pageObject.draftOrder = {
+			directions: req.session.draftDirections.map(function(direction) {
+				var cells = [];
+				cells.push({
+					"html": '<a href="/cor/v1/case/directions?id='+direction.id+'">'+direction.subject+'</a>'
+				});
+				cells.push({ "html": direction.party });
+				cells.push({ "html": direction.dueDate });
+				return cells;
+			})
+		};
+	}
+
+	if(req.session.directionOrderSuccess) {
+		pageObject.directionOrderSuccess = true;
+	}
+
+	res.render('cor/v1/case/directions', pageObject);
+
+	req.session.directionOrderSuccess = false;
+});
+
+router.get('/cor/v1/case/:id/create-direction', function(req, res) {
 	var pageObject = {
 		"case": caseEngine.getCase(req.params.id)
 	};
-	res.render('cor/v1/case/directions', pageObject);
+	res.render('cor/v1/case/create-direction', pageObject);
 });
 
-router.post('/cor/v1/case/create-direction', function (req, res) {
+router.post('/cor/v1/case/:id/create-direction', function (req, res) {
 	if(!req.session.draftDirections) {
 		req.session.draftDirections = [];
 	}
@@ -90,46 +117,20 @@ router.post('/cor/v1/case/create-direction', function (req, res) {
 		dueDate: req.session.data.dueDate
 	});
 
-	res.redirect('/cor/v1/case/directions');
+	res.redirect('/cor/v1/case/'+req.params.id+'/directions');
 });
 
-router.post('/cor/v1/case/create-direction-order', function (req, res) {
+router.get('/cor/v1/case/:id/create-direction-order', function (req, res) {
+	var pageObject = {
+		"case": caseEngine.getCase(req.params.id)
+	};
+	res.render('cor/v1/case/create-direction-order', pageObject);
+});
 
+router.post('/cor/v1/case/:id/create-direction-order', function (req, res) {
 	req.session.draftDirections = null;
 	req.session.directionOrderSuccess = true;
-
-	res.redirect('/cor/v1/case/directions');
-});
-
-router.get('/cor/v1/case/directions', function (req, res) {
-	var pageObject = {};
-
-	if(req.session.draftDirections && req.session.draftDirections.length) {
-		pageObject.draftOrder = {
-			directions: req.session.draftDirections.map(function(direction) {
-				var cells = [];
-
-				cells.push({
-					"html": '<a href="/cor/v1/case/directions?id='+direction.id+'">'+direction.subject+'</a>'
-				});
-				cells.push({
-					"html": direction.party
-				});
-				cells.push({
-					"html": direction.dueDate
-				});
-				return cells;
-			})
-		};
-	}
-
-	if(req.session.directionOrderSuccess) {
-		pageObject.directionOrderSuccess = true;
-	}
-
-	res.render('cor/v1/case/directions', pageObject);
-
-	req.session.directionOrderSuccess = false;
+	res.redirect('/cor/v1/case/'+req.params.id+'/directions');
 });
 
 module.exports = router;
