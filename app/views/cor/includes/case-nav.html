@@ -1,12 +1,12 @@
 <nav class="case-nav">
   <ul>
-    <li><a class="{{ "active" if casenav == 'summary' }}" href="/cor/v1/case/{{caseId}}">Summary</a></li>
-    <li><a class="{{ "active" if casenav == 'parties' }}" href="/cor/v1/case/{{caseId}}/parties">Parties</a></li>
-    <li><a class="{{ "active" if casenav == 'documents' }}" href="/cor/v1/case/{{caseId}}/documents">Case file</a></li>
-    <li><a class="{{ "active" if casenav == 'questions' }}" href="/cor/v1/case/{{caseId}}/">Questions</a></li>
-    <li><a class="{{ "active" if casenav == 'directions' }}" href="/cor/v1/case/{{caseId}}/directions">Directions</a></li>
-    <li><a class="{{ "active" if casenav == 'notes' }}" href="/cor/v1/case/{{caseId}}/notes">Notes</a></li>
-    <li><a class="{{ "active" if casenav == 'timeline' }}" href="/cor/v1/case/{{caseId}}/timeline">Timeline</a></li>
+    <li><a class="{{ "active" if casenav == 'summary' }}" href="/cor/v1/case/{{case.id}}">Summary</a></li>
+    <li><a class="{{ "active" if casenav == 'parties' }}" href="/cor/v1/case/{{case.id}}/parties">Parties</a></li>
+    <li><a class="{{ "active" if casenav == 'documents' }}" href="/cor/v1/case/{{case.id}}/documents">Case file</a></li>
+    <li><a class="{{ "active" if casenav == 'questions' }}" href="/cor/v1/case/{{case.id}}/">Questions</a></li>
+    <li><a class="{{ "active" if casenav == 'directions' }}" href="/cor/v1/case/{{case.id}}/directions">Directions</a></li>
+    <li><a class="{{ "active" if casenav == 'notes' }}" href="/cor/v1/case/{{case.id}}/notes">Notes</a></li>
+    <li><a class="{{ "active" if casenav == 'timeline' }}" href="/cor/v1/case/{{case.id}}/timeline">Timeline</a></li>
     <li><a class="{{ "active" if casenav == 'casecomms' }}" href="/cor/v1/case/">Case comms.</a></li>
   </ul>
 </nav>

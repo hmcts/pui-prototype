@@ -486,3 +486,9 @@ exports.getCasesEntry = function(id) {
     if(cases[i].id == id) return cases[i];
   }
 };
+
+exports.getCase = function(caseId) {
+  return cases.filter(function(c) {
+    return c.id == caseId;
+  })[0] || null;
+}

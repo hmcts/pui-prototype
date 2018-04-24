@@ -1,16 +1,27 @@
-<div class="case-header">
-	<div class="case-header__wrapper jui-width-container">
-	  <div class="case-header__title">
-	  	SC123/16/12321 <span class="case-header__parties">Alan Jones vs DWP</span>
-	  </div>
-	  <div class="case-header__actions">
-			<div class="menu">
-				<div role="menu">
-					<input type="submit" name="delete" value="Make decision" role="menuitem"> 
-					<input type="submit" name="archive" value="Mark as prepared" role="menuitem"> 
-					<input type="submit" name="spam" value="Reassign" role="menuitem"> 
-				</div>
-			</div>
-	  </div>
-	</div>
+<div class="jui-casebar">
+
+  <div class="jui-width-container">
+
+    <div class="jui-casebar__details">
+      {{case.id}}<span class="jui-casebar__title"> {{case.parties}}</span>
+    </div>
+
+    <div class="jui-casebar__options">
+
+      <nav class="jui-caseactionsmenu">
+
+        <button class="jui-caseactionsmenu__toggle" aria-haspopup="true" aria-expanded="false">Case actions</button>
+
+        <ul class="jui-caseactionsmenu__list  js-hidden">
+          <li class="jui-caseactionsmenu__item"><a class="jui-caseactionsmenu__link" href="/divorce/v1/case/{{caseId}}/make-decision">Make decision</a></li>
+          <li class="jui-caseactionsmenu__item"><a class="jui-caseactionsmenu__link" href="#">Mark as prepared</a></li>
+          <li class="jui-caseactionsmenu__item"><a class="jui-caseactionsmenu__link" href="#">Reassign</a></li>
+        </ul>
+
+      </nav>
+
+    </div>
+
+  </div>
+
 </div>

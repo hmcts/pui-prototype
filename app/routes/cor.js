@@ -5,6 +5,7 @@ const router  = express.Router();
 const userEngine = require('../models/users');
 const caseEngine = require('../models/cases');
 
+
 // Prototype setup
 router.get('/cor/v1', function (req, res) {
 	res.render('cor/v1/index', {
@@ -55,7 +56,7 @@ router.post('/cor/v1/get-new-case', function (req, res) {
 router.get('/cor/v1/case/:id', function (req, res) {
 	var pageObject = {
 		success: req.session.success,
-		caseId: req.params.id
+		"case": caseEngine.getCase(req.params.id)
 	};
 	res.render('cor/v1/case/index', pageObject);
 	req.session.success = null;
@@ -63,14 +64,14 @@ router.get('/cor/v1/case/:id', function (req, res) {
 
 router.get('/cor/v1/case/:id/parties', function(req, res) {
 	var pageObject = {
-		caseId: req.params.id
+		"case": caseEngine.getCase(req.params.id)
 	};
 	res.render('cor/v1/case/parties', pageObject);
 });
 
 router.get('/cor/v1/case/:id/directions', function(req, res) {
 	var pageObject = {
-		caseId: req.params.id
+		"case": caseEngine.getCase(req.params.id)
 	};
 	res.render('cor/v1/case/directions', pageObject);
 });
