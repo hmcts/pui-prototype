@@ -17,15 +17,62 @@ router.get('/cor/load-user/:id/', function(req, res) {
 	res.redirect('/cor/v1/dashboard');
 });
 
+router.get('/cor/v1/dashboard', function(req, res) {
+	var user  = userEngine.getUsersEntry(req.session.userID);
+	var caseRows = caseEngine
+		.getCases()
+		.filter(function(c) {
+			return c.userID == req.session.userID;
+		})
+		.map(function(c) {
+			var cells = [];
+			cells.push({
+				"html": '<a href="/cor/v1/case/' + c.id + '">'+ c.id +'</a>' + (c.urgent ? '<span class="jui-status  jui-status--urgent">Urgent</span>' : '')
+			});
+			cells.push({ "html": c.parties });
+			cells.push({ "html": c.type	});
+			cells.push({ "html": c.status	});
+			cells.push({ "html": c.applicationDate	});
+			cells.push({ "html": c.lastAction	});
+			cells.push({ "html": c.fileSize	});
+			return cells;
+		});
+
+	var pageObject = {
+		caseRows: caseRows
+	};
+
+	res.render('cor/v1/dashboard', pageObject);
+
+});
+
 // Application routes v1
 router.post('/cor/v1/get-new-case', function (req, res) {
 	req.session.success = true;
 	res.redirect('/cor/v1/case');
 });
 
-router.get('/cor/v1/case', function (req, res) {
-	res.render('cor/v1/case/index', { success: req.session.success });
+router.get('/cor/v1/case/:id', function (req, res) {
+	var pageObject = {
+		success: req.session.success,
+		caseId: req.params.id
+	};
+	res.render('cor/v1/case/index', pageObject);
 	req.session.success = null;
+});
+
+router.get('/cor/v1/case/:id/parties', function(req, res) {
+	var pageObject = {
+		caseId: req.params.id
+	};
+	res.render('cor/v1/case/parties', pageObject);
+});
+
+router.get('/cor/v1/case/:id/directions', function(req, res) {
+	var pageObject = {
+		caseId: req.params.id
+	};
+	res.render('cor/v1/case/directions', pageObject);
 });
 
 router.post('/cor/v1/case/create-direction', function (req, res) {
