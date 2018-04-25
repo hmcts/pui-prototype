@@ -12,40 +12,27 @@
 
     <h1 class="govuk-heading-l">Dashboard</h1>
 
-    <!-- my cases -->
-    <h1 class="govuk-heading-m">Your cases</h1>
+    {{ govukTable({
+        "classes": "govuk-!-f-16",
+        "caption": "Your cases",
+        "captionClasses": "govuk-heading-m",
+        "firstCellIsHeader": true,
+        "head": [
+          {"text": "Case number"},
+          {"text": "Parties"},
+          {"text": "Type"},
+          {"text": "Status"},
+          {"text": "Date"},
+          {"text": "Docs"},
+          {"text": "Last action"}
+        ],
+        "rows": caseList
+      }) }}
 
-    <table class="govuk-c-table  govuk-!-f-16">
-      
-      <thead class="govuk-c-table__head">
-        <tr class="govuk-c-table__row">
-          <th class="govuk-c-table__header" scope="col">Case number</th>
-          <th class="govuk-c-table__header" scope="col">Parties</th>
-          <th class="govuk-c-table__header" scope="col">Type</th>
-          <th class="govuk-c-table__header" scope="col">Status</th>
-          <th class="govuk-c-table__header" scope="col">Date</th>
-          <th class="govuk-c-table__header" scope="col">Docs</th>
-          <th class="govuk-c-table__header" scope="col">Last action</th>
-        </tr>
-      </thead>
-
-      <tbody class="govuk-c-table__body">
-        {% for case in cases -%}
-        <tr class="govuk-c-table__row">
-          <th class="govuk-c-table__header" scope="row"><a href="/divorce/v1/case/{{case.number}}">{{case.number}}</a> {% if case.urgent %} <span class="jui-status  jui-status--urgent">Urgent</span>{% endif %}</th>
-          <td class="govuk-c-table__cell ">{{case.parties}}</td>
-          <td class="govuk-c-table__cell ">{{case.type}}</td>
-          <td class="govuk-c-table__cell ">{{case.status}}</td>
-          <td class="govuk-c-table__cell ">{{case.applicationDate}}</td>
-          <td class="govuk-c-table__cell ">{{case.documents}}</td>
-          <td class="govuk-c-table__cell ">{{case.lastAction}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-
-    </table>
-
-    <a class="govuk-c-button" href="#" role="button">Get new case</a>
+      {{ govukButton({
+        "text": "Get new case",
+        "href": "/cor/v1/get-new-case"
+      }) }}
 
   </main>
 
