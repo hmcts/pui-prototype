@@ -3,7 +3,7 @@
   <div class="jui-width-container">
     
     <div class="jui-casebar__details">
-      {{cases.id}}<span class="jui-casebar__title"> {{cases.parties}}</span>
+      {{case.id}}<span class="jui-casebar__title"> {{case.parties}}</span>
     </div>
 
     <div class="jui-casebar__options">
@@ -13,7 +13,7 @@
         <button class="jui-caseactionsmenu__toggle" aria-haspopup="true" aria-expanded="false">Case actions</button>
 
         <ul class="jui-caseactionsmenu__list  js-hidden">
-          <li class="jui-caseactionsmenu__item"><a class="jui-caseactionsmenu__link" href="/divorce/v1/case/{{cases.number}}/make-decision">Make decision</a></li>
+          <li class="jui-caseactionsmenu__item"><a class="jui-caseactionsmenu__link" href="/divorce/v1/case/{{case.number}}/make-decision">Make decision</a></li>
           <li class="jui-caseactionsmenu__item"><a class="jui-caseactionsmenu__link" href="#">Mark as prepared</a></li>
           <li class="jui-caseactionsmenu__item"><a class="jui-caseactionsmenu__link" href="#">Reassign</a></li>
         </ul>
