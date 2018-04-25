@@ -106,8 +106,8 @@ var cases = [
     "applicationDate": "16 Feb 2018",
     "documents": "2 Docs",
     "lastAction": "16 Feb 2018",
-    "petitioner": "-",
-    "respondent": "-",
+    "petitioner": "",
+    "respondent": "",
     "events":  [
       {
         id: 2,

@@ -20,51 +20,25 @@
         
       <div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
         
-        <table class="govuk-c-table  govuk-!-f-16">
-
-          <caption class="govuk-c-table__caption  govuk-!-f-24  govuk-!-mb-r2">Case details</caption>
-
-          <tbody class="govuk-c-table__body">
-            <tr class="govuk-c-table__row">
-              <th class="govuk-c-table__header" scope="row">Case number</th>
-              <td class="govuk-c-table__cell ">{{case.id}} {% if case.urgent %} <span class="jui-status  jui-status--urgent">Urgent</span>{% endif %}</td>
-            </tr>
-            <tr class="govuk-c-table__row">
-              <th class="govuk-c-table__header" scope="row">Case type</th>
-              <td class="govuk-c-table__cell ">{{case.type}}</td>
-            </tr>
-            <tr class="govuk-c-table__row">
-              <th class="govuk-c-table__header" scope="row">Case status</th>
-              <td class="govuk-c-table__cell ">{{case.status}}</td>
-            </tr>
-            <tr class="govuk-c-table__row">
-              <th class="govuk-c-table__header" scope="row">Reason for divorce</th>
-              <td class="govuk-c-table__cell ">{{case.reason}}</td>
-            </tr>
-          </tbody>
-
-        </table>
+        {{ govukTable({
+          "classes": "govuk-!-f-16",
+          "caption": "Case details",
+          "captionClasses": "govuk-!-f-24  govuk-!-mb-r2",
+          "firstCellIsHeader": true,
+          "rows": detailsRows
+        }) }}
 
       </div>
 
       <div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
 
-        <table class="govuk-c-table  govuk-!-f-16">
-
-          <caption class="govuk-c-table__caption  govuk-!-f-24  govuk-!-mb-r2">Representitives</caption>
-
-          <tbody class="govuk-c-table__body">
-            <tr class="govuk-c-table__row">
-              <th class="govuk-c-table__header" scope="row">Petitioner</th>
-              <td class="govuk-c-table__cell">{{case.petitioner}}</td>
-            </tr>
-            <tr class="govuk-c-table__row">
-              <th class="govuk-c-table__header" scope="row">Respondent</th>
-              <td class="govuk-c-table__cell">{{case.respondent}}</td>
-            </tr>
-          </tbody>
-
-        </table>
+        {{ govukTable({
+          "classes": "govuk-!-f-16",
+          "caption": "Representatives",
+          "captionClasses": "govuk-!-f-24  govuk-!-mb-r2",
+          "firstCellIsHeader": true,
+          "rows": representativesRows
+        }) }}
 
       </div>
       
