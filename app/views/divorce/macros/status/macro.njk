@@ -1,0 +1,12 @@
+{% macro juiStatus(params) %}
+  {%- include "./template.njk" -%}
+{% endmacro %}
+
+{# How to use #}
+
+{# {{ juiStatus(
+  {
+    "text": "Urgent",
+    "classes": "jui-status--urgent"
+  })
+}} #}
