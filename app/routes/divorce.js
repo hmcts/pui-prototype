@@ -35,14 +35,15 @@ router.get('/divorce/v1/dashboard', function(req, res) {
 		.map(function(c) {
 			var cells = [];
 			cells.push({
-				'html': '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent">Urgent</span>' : '')
+				html : '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>'
 			});
-			cells.push({ 'html' : c.parties });
-			cells.push({ 'html' : c.type });
-			cells.push({ 'html' : c.status });
-			cells.push({ 'html' : c.applicationDate	});
-			cells.push({ 'html' : c.documents });
-			cells.push({ 'html' : c.lastAction });
+			cells.push({ html : c.parties });
+			cells.push({ html : c.type });
+			cells.push({ html : c.status });
+			cells.push({ html : c.applicationDate	});
+			cells.push({ html : c.documents });
+			cells.push({ html : c.lastAction });
+			cells.push({ html : (c.urgent ? ' <span class="jui-status  jui-status--urgent">Urgent</span>' : '') });
 			return cells;
 		});
 
@@ -66,23 +67,23 @@ router.get('/divorce/v1/case/:id', function(req, res) {
 	// Case details
 	pageObject.detailsRows.push([
 		{ html: 'Case number' }, 
-		{ html: pageObject.case.number + (pageObject.case.urgent ? ' <span class="jui-status  jui-status--urgent">Urgent</span>' : '') }]
-	);
+		{ html: pageObject.case.number }
+	]);
 
 	pageObject.detailsRows.push([
 		{ html: 'Case type' }, 
-		{ html: pageObject.case.type }]
-	);
+		{ html: pageObject.case.type }
+	]);
 
 	pageObject.detailsRows.push([
 		{ html: 'Case status' }, 
-		{ html: pageObject.case.status }]
-	);
+		{ html: pageObject.case.status }
+	]);
 
 	pageObject.detailsRows.push([
 		{ html: 'Reason for divorce' }, 
-		{ html: pageObject.case.reason }]
-	);
+		{ html: pageObject.case.reason }
+	]);
 
 	// Representatives
 	pageObject.representativesRows.push([
