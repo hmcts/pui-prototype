@@ -182,8 +182,8 @@ var cases = [
     "applicationDate": "16 Feb 2018",
     "documents": "2 Docs",
     "lastAction": "16 Feb 2018",
-    "petitioner": "-",
-    "respondent": "-",
+    "petitioner": "",
+    "respondent": "",
     "events":  [
       {
         id: 2,
@@ -258,8 +258,8 @@ var cases = [
     "applicationDate": "16 Feb 2018",
     "documents": "3 Docs",
     "lastAction": "16 Feb 2018",
-    "petitioner": "-",
-    "respondent": "-",
+    "petitioner": "",
+    "respondent": "",
     "events":  [
       {
         id: 2,
@@ -334,8 +334,8 @@ var cases = [
     "applicationDate": "16 Feb 2018",
     "documents": "4 Docs",
     "lastAction": "16 Feb 2018",
-    "petitioner": "-",
-    "respondent": "-",
+    "petitioner": "",
+    "respondent": "",
     "events":  [
       {
         id: 2,
@@ -410,8 +410,8 @@ var cases = [
     "applicationDate": "16 Feb 2018",
     "documents": "2 Docs",
     "lastAction": "16 Feb 2018",
-    "petitioner": "-",
-    "respondent": "-",
+    "petitioner": "",
+    "respondent": "",
     "events":  [
       {
         id: 2,
