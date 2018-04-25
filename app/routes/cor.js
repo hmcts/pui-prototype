@@ -78,7 +78,7 @@ router.get('/cor/v1/case/:id/directions', function(req, res) {
 			directions: req.session.draftDirections.map(function(direction) {
 				var cells = [];
 				cells.push({
-					"html": '<a href="/cor/v1/case/directions?id='+direction.id+'">'+direction.subject+'</a>'
+					"html": '<a href="/cor/v1/case/directions?id='+direction.id+'">'+direction.message+'</a>'
 				});
 				cells.push({ "html": direction.party });
 				cells.push({ "html": direction.dueDate });
@@ -113,7 +113,7 @@ router.post('/cor/v1/case/:id/create-direction', function (req, res) {
 		id: require('uuid/v4')(),
 		party: req.session.data.party,
 		type: req.session.data.type,
-		subject: req.session.data.subject,
+		message: req.session.data.message,
 		dueDate: req.session.data.dueDate
 	});
 
