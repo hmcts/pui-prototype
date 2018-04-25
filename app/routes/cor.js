@@ -56,8 +56,16 @@ router.post('/cor/v1/get-new-case', function (req, res) {
 router.get('/cor/v1/case/:id', function (req, res) {
 	var pageObject = {
 		success: req.session.success,
-		"case": caseEngine.getCase(req.params.id)
+		"case": caseEngine.getCase(req.params.id),
+		detailsRows: [],
+		panelRows: []
 	};
+	pageObject.detailsRows.push([{ html: 'Parties' }, {html: pageObject.case.parties}]);
+	pageObject.detailsRows.push([{ html: 'Case number' }, {html: pageObject.case.id}]);
+	pageObject.detailsRows.push([{ html: 'Case type' }, {html: pageObject.case.type}]);
+	pageObject.detailsRows.push([{ html: 'Tribunal centre' }, {html: pageObject.case.tribunalCentre}]);
+	pageObject.detailsRows.push([{ html: 'Additional requirements' }, {html: pageObject.case.additionalRequirments}]);
+
 	res.render('cor/v1/case/index', pageObject);
 	req.session.success = null;
 });
@@ -78,7 +86,7 @@ router.get('/cor/v1/case/:id/directions', function(req, res) {
 			directions: req.session.draftDirections.map(function(direction) {
 				var cells = [];
 				cells.push({
-					"html": '<a href="/cor/v1/case/directions?id='+direction.id+'">'+direction.subject+'</a>'
+					"html": '<a href="/cor/v1/case/directions?id='+direction.id+'">'+direction.message+'</a>'
 				});
 				cells.push({ "html": direction.party });
 				cells.push({ "html": direction.dueDate });
@@ -113,7 +121,7 @@ router.post('/cor/v1/case/:id/create-direction', function (req, res) {
 		id: require('uuid/v4')(),
 		party: req.session.data.party,
 		type: req.session.data.type,
-		subject: req.session.data.subject,
+		message: req.session.data.message,
 		dueDate: req.session.data.dueDate
 	});
 
