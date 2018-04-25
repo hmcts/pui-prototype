@@ -56,8 +56,16 @@ router.post('/cor/v1/get-new-case', function (req, res) {
 router.get('/cor/v1/case/:id', function (req, res) {
 	var pageObject = {
 		success: req.session.success,
-		"case": caseEngine.getCase(req.params.id)
+		"case": caseEngine.getCase(req.params.id),
+		detailsRows: [],
+		panelRows: []
 	};
+	pageObject.detailsRows.push([{ html: 'Parties' }, {html: pageObject.case.parties}]);
+	pageObject.detailsRows.push([{ html: 'Case number' }, {html: pageObject.case.id}]);
+	pageObject.detailsRows.push([{ html: 'Case type' }, {html: pageObject.case.type}]);
+	pageObject.detailsRows.push([{ html: 'Tribunal centre' }, {html: pageObject.case.tribunalCentre}]);
+	pageObject.detailsRows.push([{ html: 'Additional requirements' }, {html: pageObject.case.additionalRequirments}]);
+
 	res.render('cor/v1/case/index', pageObject);
 	req.session.success = null;
 });
