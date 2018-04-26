@@ -67,7 +67,7 @@
 
             {% for file in events.files -%}
             <div class="jui-document">
-              <a class="jui-document__link" href="/divorce/v1/case/{{case.number}}/casefile">
+              <a class="jui-document__link" href="/divorce/v1/case/{{case.id}}/casefile">
                 <span class="jui-document__title">{{file.name}}</span>
                 <span class="jui-document__meta">{{file.type}}, {{file.size}}, {{file.pages}}</span>
               </a>
