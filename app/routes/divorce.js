@@ -18,14 +18,14 @@ router.get('/divorce/v1', function(req, res) {
 
 
 router.post('/divorce/v1', function(req, res) {
-	req.session.userID = req.param('user'); // Store post value into session
+	req.session.userID = req.param('user');
 	res.redirect('/divorce/v1/dashboard');
 });
 
 
 router.get('/divorce/v1/dashboard', function(req, res) {
 
-	var user  = userEngine.getUsersEntry(req.session.userID);
+	var user = userEngine.getUsersEntry(req.session.userID);
 
 	var caseList = caseEngine
 		.getCases()
@@ -35,14 +35,15 @@ router.get('/divorce/v1/dashboard', function(req, res) {
 		.map(function(c) {
 			var cells = [];
 			cells.push({
-				'html': '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent">Urgent</span>' : '')
+				html : '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>'
 			});
-			cells.push({ 'html' : c.parties });
-			cells.push({ 'html' : c.type	});
-			cells.push({ 'html' : c.status	});
-			cells.push({ 'html' : c.applicationDate	});
-			cells.push({ 'html' : c.documents });
-			cells.push({ 'html' : c.lastAction	});
+			cells.push({ html : c.parties });
+			cells.push({ html : c.type });
+			cells.push({ html : c.status });
+			cells.push({ html : c.applicationDate	});
+			cells.push({ html : c.documents });
+			cells.push({ html : c.lastAction });
+			cells.push({ html : (c.urgent ? ' <span class="jui-status  jui-status--urgent">Urgent</span>' : '') });
 			return cells;
 		});
 
@@ -58,8 +59,42 @@ router.get('/divorce/v1/dashboard', function(req, res) {
 router.get('/divorce/v1/case/:id', function(req, res) {
 
 	var pageObject = {
-		'case': caseEngine.getCase(req.params.id)
+		'case': caseEngine.getCase(req.params.id),
+		detailsRows: [],
+		representativesRows: []
 	};
+
+	// Case details
+	pageObject.detailsRows.push([
+		{ html: 'Case number' }, 
+		{ html: pageObject.case.number }
+	]);
+
+	pageObject.detailsRows.push([
+		{ html: 'Case type' }, 
+		{ html: pageObject.case.type }
+	]);
+
+	pageObject.detailsRows.push([
+		{ html: 'Case status' }, 
+		{ html: pageObject.case.status }
+	]);
+
+	pageObject.detailsRows.push([
+		{ html: 'Reason for divorce' }, 
+		{ html: pageObject.case.reason }
+	]);
+
+	// Representatives
+	pageObject.representativesRows.push([
+		{ html: 'Petitioner' }, 
+		{ html: pageObject.case.petitioner ? pageObject.case.petitioner : 'Unrepresented' }
+	]);
+
+	pageObject.representativesRows.push([
+		{ html: 'Respondent' }, 
+		{ html: pageObject.case.respondent ? pageObject.case.respondent : 'Unrepresented' }
+	]);
 
 	res.render('divorce/v1/case/index', pageObject);
 

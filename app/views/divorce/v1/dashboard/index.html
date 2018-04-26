@@ -1,5 +1,7 @@
 {% extends "divorce/layouts/layout.html" %}
 
+{% from "divorce/macros/status/macro.njk" import juiStatus %}
+
 {% set pageID = "Dashboard" %}
 
 {% block page_title %}Dashboard - Judicial UI prototype{% endblock %}
@@ -24,13 +26,15 @@
           {"text": "Status"},
           {"text": "Date"},
           {"text": "Docs"},
-          {"text": "Last action"}
+          {"text": "Last action"},
+          {"text": ""}
         ],
         "rows": caseList
       }) }}
 
       {{ govukButton({
-        "text": "Get new case"
+        "text": "Get new case",
+        "href": "./get-new-case"
       }) }}
 
   </main>
