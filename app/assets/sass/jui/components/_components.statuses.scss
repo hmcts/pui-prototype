@@ -2,7 +2,10 @@
    #STATUSES
    ========================================================================== */
 
-// <span class="jui-status  jui-status--urgent">Urgent</span>
+/* 
+ * <span class="jui-status  jui-status--urgent">Urgent</span>
+ * <span class="jui-status  jui-status--new">Urgent</span>
+ */
 
 .jui-status {
   @include govuk-font-regular-14;
@@ -17,4 +20,9 @@
 .jui-status--urgent {
   border-color: $govuk-red; 
   color: $govuk-red;
+}
+
+.jui-status--new {
+  border-color: $govuk-turquoise;
+  color: $govuk-turquoise;
 }
