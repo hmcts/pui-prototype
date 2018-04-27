@@ -2,6 +2,8 @@
 
 {% from "divorce/macros/status/macro.njk" import juiStatus %}
 
+{% from "macros/alerts.html" import successAlert %}
+
 {% set pageID = "Dashboard" %}
 
 {% block page_title %}Dashboard - Judicial UI prototype{% endblock %}
@@ -9,10 +11,21 @@
 {% block content %}
 
 <div class="jui-width-container">
-  
+
   <main role="main" class="govuk-o-main-wrapper">
 
+    {% if success %}
+
+				{% call successAlert() -%}
+					Cases added to your list
+				{%- endcall %}
+
+			{% endif %}
+
     <h1 class="govuk-heading-l">Dashboard</h1>
+
+
+
 
     {{ govukTable({
         "classes": "govuk-!-f-16",

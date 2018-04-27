@@ -38,6 +38,23 @@ router.post('/divorce/v1', function(req, res) {
 	res.redirect('/divorce/v1/dashboard');
 });
 
+router.post('/divorce/v1/get-new-case', function (req, res) {
+	req.session.success = true;
+
+	var newCases = caseEngine
+		.getCases()
+		.filter(function(c) {
+			return c.userID == req.session.userID;
+		})
+
+	newCases = newCases.slice(newCases.length-3, newCases.length-1);
+
+	req.session.newCases = newCases;
+	req.session.new = true;
+
+	res.redirect('/divorce/v1/dashboard');
+});
+
 
 router.get('/divorce/v1/dashboard', function(req, res) {
 
@@ -50,7 +67,7 @@ router.get('/divorce/v1/dashboard', function(req, res) {
 		})
 		.map(function(c) {
 			var cells = [];
-			
+
 			cells.push({
 				html : '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent">Urgent</span> ' : '')
 			});
@@ -68,11 +85,44 @@ router.get('/divorce/v1/dashboard', function(req, res) {
 			return cells;
 		});
 
+	if(req.session.newCases) {
+		var newCases = req.session.newCases
+		.map(function(c) {
+			var cells = [];
+
+			cells.push({
+				html : '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>' + (req.session.new ? ' <span class="jui-status jui-status--new">New</span> ' : '')
+			});
+
+			cells.push({ html: c.parties.map(function(party) {
+					return party.firstName + ' ' + party.lastName;
+				}).join(' vs ')
+			});
+
+			cells.push({ html: c.type });
+			cells.push({ html: c.status });
+			cells.push({ html: c.applicationDate	});
+			cells.push({ html: c.documents });
+			cells.push({ html: c.lastAction });
+			return cells;
+		});
+
+		Array.prototype.injectArray = function( idx, arr ) {
+				return this.slice( 0, idx ).concat( arr ).concat( this.slice( idx ) );
+		};
+
+		caseList = caseList.injectArray(1, newCases);
+	}
+
 		var pageObject = {
-			caseList: caseList
+			caseList: caseList,
+			success: req.session.success
 		};
 
 		res.render('divorce/v1/dashboard/index', pageObject);
+
+		req.session.new = false;
+		req.session.success = false;
 
 });
 
@@ -90,33 +140,33 @@ router.get('/divorce/v1/case/:id', function(req, res) {
 
 	// Case details
 	pageObject.detailsRows.push([
-		{ html: 'Case number' }, 
+		{ html: 'Case number' },
 		{ html: c.id }
 	]);
 
 	pageObject.detailsRows.push([
-		{ html: 'Case type' }, 
+		{ html: 'Case type' },
 		{ html: c.type }
 	]);
 
 	pageObject.detailsRows.push([
-		{ html: 'Case status' }, 
+		{ html: 'Case status' },
 		{ html: c.status }
 	]);
 
 	pageObject.detailsRows.push([
-		{ html: 'Reason for divorce' }, 
+		{ html: 'Reason for divorce' },
 		{ html: c.reason }
 	]);
 
 	// Representatives
 	pageObject.representativesRows.push([
-		{ html: 'Petitioner' }, 
+		{ html: 'Petitioner' },
 		{ html: c.petitioner ? c.petitioner : 'Unrepresented' }
 	]);
 
 	pageObject.representativesRows.push([
-		{ html: 'Respondent' }, 
+		{ html: 'Respondent' },
 		{ html: c.respondent ? c.respondent : 'Unrepresented' }
 	]);
 
@@ -168,7 +218,7 @@ router.post('/divorce/v1/case/:id/make-decision', function(req, res) {
 	} else {
 		res.redirect('costs-order');
 	}
-	
+
 });
 
 
@@ -200,6 +250,5 @@ router.get('/signout', function (req, res) {
 	req.session.destroy();
 	res.redirect('/divorce/v1');
 });
-
 
 module.exports = router;
