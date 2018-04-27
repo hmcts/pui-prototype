@@ -5,6 +5,22 @@ var userEngine = require('../models/users');
 var caseEngine = require('../models/cases');
 
 
+function getCaseObject(id) {
+
+	var c = caseEngine.getCase(id);
+
+	var caseBarObject = {
+		parties: c.parties.map(function(party) {
+			return party.firstName + ' ' + party.lastName;
+		}).join(' vs '),
+		id: c.id
+	};
+
+	return caseBarObject;
+
+}
+
+
 router.use(function(req, res, next) {
 	res.locals.user = req.session.userID;
 	next();
@@ -34,16 +50,21 @@ router.get('/divorce/v1/dashboard', function(req, res) {
 		})
 		.map(function(c) {
 			var cells = [];
+			
 			cells.push({
-				html : '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>'
+				html : '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent">Urgent</span> ' : '')
 			});
-			cells.push({ html : c.parties });
-			cells.push({ html : c.type });
-			cells.push({ html : c.status });
-			cells.push({ html : c.applicationDate	});
-			cells.push({ html : c.documents });
-			cells.push({ html : c.lastAction });
-			cells.push({ html : (c.urgent ? ' <span class="jui-status  jui-status--urgent">Urgent</span>' : '') });
+
+			cells.push({ html: c.parties.map(function(party) {
+					return party.firstName + ' ' + party.lastName;
+				}).join(' vs ')
+			});
+
+			cells.push({ html: c.type });
+			cells.push({ html: c.status });
+			cells.push({ html: c.applicationDate	});
+			cells.push({ html: c.documents });
+			cells.push({ html: c.lastAction });
 			return cells;
 		});
 
@@ -60,40 +81,43 @@ router.get('/divorce/v1/case/:id', function(req, res) {
 
 	var pageObject = {
 		'case': caseEngine.getCase(req.params.id),
+		casebar: getCaseObject(req.params.id),
 		detailsRows: [],
 		representativesRows: []
 	};
 
+	var c = caseEngine.getCase(req.params.id);
+
 	// Case details
 	pageObject.detailsRows.push([
 		{ html: 'Case number' }, 
-		{ html: pageObject.case.number }
+		{ html: c.id }
 	]);
 
 	pageObject.detailsRows.push([
 		{ html: 'Case type' }, 
-		{ html: pageObject.case.type }
+		{ html: c.type }
 	]);
 
 	pageObject.detailsRows.push([
 		{ html: 'Case status' }, 
-		{ html: pageObject.case.status }
+		{ html: c.status }
 	]);
 
 	pageObject.detailsRows.push([
 		{ html: 'Reason for divorce' }, 
-		{ html: pageObject.case.reason }
+		{ html: c.reason }
 	]);
 
 	// Representatives
 	pageObject.representativesRows.push([
 		{ html: 'Petitioner' }, 
-		{ html: pageObject.case.petitioner ? pageObject.case.petitioner : 'Unrepresented' }
+		{ html: c.petitioner ? c.petitioner : 'Unrepresented' }
 	]);
 
 	pageObject.representativesRows.push([
 		{ html: 'Respondent' }, 
-		{ html: pageObject.case.respondent ? pageObject.case.respondent : 'Unrepresented' }
+		{ html: c.respondent ? c.respondent : 'Unrepresented' }
 	]);
 
 	res.render('divorce/v1/case/index', pageObject);
@@ -104,7 +128,8 @@ router.get('/divorce/v1/case/:id', function(req, res) {
 router.get('/divorce/v1/case/:id/casefile', function(req, res) {
 
 	var pageObject = {
-		'case': caseEngine.getCase(req.params.id)
+		'case': caseEngine.getCase(req.params.id),
+		casebar: getCaseObject(req.params.id),
 	};
 
 	res.render('divorce/v1/case/casefile', pageObject);
@@ -115,7 +140,8 @@ router.get('/divorce/v1/case/:id/casefile', function(req, res) {
 router.get('/divorce/v1/case/:id/timeline', function(req, res) {
 
 	var pageObject = {
-		'case': caseEngine.getCase(req.params.id)
+		'case': caseEngine.getCase(req.params.id),
+		casebar: getCaseObject(req.params.id),
 	};
 
 	res.render('divorce/v1/case/timeline', pageObject);
@@ -126,7 +152,8 @@ router.get('/divorce/v1/case/:id/timeline', function(req, res) {
 router.get('/divorce/v1/case/:id/make-decision', function(req, res) {
 
 	var pageObject = {
-		'case': caseEngine.getCase(req.params.id)
+		'case': caseEngine.getCase(req.params.id),
+		casebar: getCaseObject(req.params.id),
 	};
 
 	res.render('divorce/v1/case/make-decision', pageObject);
@@ -148,7 +175,8 @@ router.post('/divorce/v1/case/:id/make-decision', function(req, res) {
 router.get('/divorce/v1/case/:id/provide-reason', function(req, res) {
 
 	var pageObject = {
-		'case': caseEngine.getCase(req.params.id)
+		'case': caseEngine.getCase(req.params.id),
+		casebar: getCaseObject(req.params.id),
 	};
 
 	res.render('divorce/v1/case/provide-reason', pageObject);
@@ -159,7 +187,8 @@ router.get('/divorce/v1/case/:id/provide-reason', function(req, res) {
 router.get('/divorce/v1/case/:id/costs-order', function(req, res) {
 
 	var pageObject = {
-		'case': caseEngine.getCase(req.params.id)
+		'case': caseEngine.getCase(req.params.id),
+		casebar: getCaseObject(req.params.id),
 	};
 
 	res.render('divorce/v1/case/costs-order', pageObject);

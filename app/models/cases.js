@@ -3,16 +3,34 @@ var cases = [
   {
     id: 'BV18D00150',
     userID: 1,
-    number: 'BV18D00150',
-    parties: 'D. Francis vs S. Francis',
+    parties: [
+      {
+        type: "Petitioner",
+        firstName: "D",
+        lastName: "Francis",
+        representative: {
+          name: "Clive Walters",
+          role: "Solicitor",
+          company: "Chadwick and Walters"
+        }
+      },
+      {
+        type: "Respondent",
+        firstName: "S",
+        lastName: "Francis",
+        representative: {
+          name: "David Jones",
+          role: "Solicitor",
+          company: "Chadwick and Walters"
+        }
+      }
+    ],
     type: 'Divorce',
     status: 'Consider decree nisi',
     reason: 'Adultery',
     applicationDate: '16 Feb 2018',
     documents: '5 Docs',
     lastAction: '16 Feb 2018',
-    petitioner: 'Clive Walters',
-    respondent: 'David Jones',
     urgent: true,
     events:  [
       {
@@ -98,8 +116,28 @@ var cases = [
   {
     id: 'BV18D00151',
     userID: 1,
-    number: 'BV18D00151',
-    parties: 'W. Sutton vs F. Sutton',
+    parties: [
+      {
+        type: "Petitioner",
+        firstName: "W",
+        lastName: "Sutton",
+        representative: {
+          name: "",
+          role: "",
+          company: ""
+        }
+      },
+      {
+        type: "Respondent",
+        firstName: "F",
+        lastName: "Sutton",
+        representative: {
+          name: "",
+          role: "",
+          company: ""
+        }
+      }
+    ],
     type: 'Financial Remedy',
     status: 'Draft concent order',
     reason: 'Adultery',
@@ -174,8 +212,28 @@ var cases = [
   {
     id: 'BV18D00152',
     userID: 1,
-    number: 'BV18D00152',
-    parties: 'R. Miller vs D. Miller',
+    parties: [
+      {
+        type: "Petitioner",
+        firstName: "R",
+        lastName: "Miller",
+        representative: {
+          name: "",
+          role: "",
+          company: ""
+        }
+      },
+      {
+        type: "Respondent",
+        firstName: "D",
+        lastName: "Miller",
+        representative: {
+          name: "",
+          role: "",
+          company: ""
+        }
+      }
+    ],
     type: 'Financial Remedy',
     status: 'Draft concent order',
     reason: 'Adultery',
@@ -250,8 +308,28 @@ var cases = [
   {
     id: 'BV18D00153',
     userID: 1,
-    number: 'BV18D00153',
-    parties: 'T. Jones vs V. Jones',
+    parties: [
+      {
+        type: "Petitioner",
+        firstName: "T",
+        lastName: "Jones",
+        representative: {
+          name: "",
+          role: "",
+          company: ""
+        }
+      },
+      {
+        type: "Respondent",
+        firstName: "V",
+        lastName: "Jones",
+        representative: {
+          name: "",
+          role: "",
+          company: ""
+        }
+      }
+    ],
     type: 'Divorce',
     status: 'Consider decree nisi',
     reason: 'Adultery',
@@ -326,8 +404,28 @@ var cases = [
   {
     id: 'BV18D00154',
     userID: 1,
-    number: 'BV18D00154',
-    parties: 'E. Skinner vs P. Skinner',
+    parties: [
+      {
+        type: "Petitioner",
+        firstName: "E",
+        lastName: "Skinner",
+        representative: {
+          name: "",
+          role: "",
+          company: ""
+        }
+      },
+      {
+        type: "Respondent",
+        firstName: "P",
+        lastName: "Skinner",
+        representative: {
+          name: "",
+          role: "",
+          company: ""
+        }
+      }
+    ],
     type: 'Financial Remedy',
     status: 'Consider decree nisi',
     reason: 'Adultery',
@@ -402,8 +500,28 @@ var cases = [
   {
     id: '654MC345',
     userID: 2,
-    number: '654MC345',
-    parties: 'H. Parker vs H. Parker',
+    parties: [
+      {
+        type: "Petitioner",
+        firstName: "H",
+        lastName: "Parker",
+        representative: {
+          name: "",
+          role: "",
+          company: ""
+        }
+      },
+      {
+        type: "Respondent",
+        firstName: "H",
+        lastName: "Parker",
+        representative: {
+          name: "",
+          role: "",
+          company: ""
+        }
+      }
+    ],
     type: 'Civil Money Claims',
     status: 'Small claims',
     reason: 'Adultery',
