@@ -141,7 +141,7 @@ router.get('/divorce/v1/case/:id', function(req, res) {
 	// Case details
 	pageObject.detailsRows.push([
 		{ html: 'Case number' },
-		{ html: c.id }
+		{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent">Urgent</span> ' : '') }
 	]);
 
 	pageObject.detailsRows.push([

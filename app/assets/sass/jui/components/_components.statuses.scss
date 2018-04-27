@@ -1,10 +1,10 @@
 /* ==========================================================================
-   #STATUSES
+   #STATUS
    ========================================================================== */
 
 /* 
+ * <span class="jui-status  jui-status--new">New</span>
  * <span class="jui-status  jui-status--urgent">Urgent</span>
- * <span class="jui-status  jui-status--new">Urgent</span>
  */
 
 .jui-status {
@@ -12,17 +12,20 @@
   border: 2px solid $govuk-blue;
   color: $govuk-blue;
   font-weight: bold;
+  margin-left: $govuk-spacing-scale-1;
   padding: 0 $govuk-spacing-scale-1;
   text-transform: uppercase;
   vertical-align: middle;
 }
+
 
 .jui-status--urgent {
   border-color: $govuk-red; 
   color: $govuk-red;
 }
 
+
 .jui-status--new {
-  border-color: $govuk-turquoise;
-  color: $govuk-turquoise;
+  border-color: $govuk-button-colour;
+  color: $govuk-button-colour;
 }

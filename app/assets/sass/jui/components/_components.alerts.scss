@@ -2,8 +2,37 @@
    #ALERTS
    ========================================================================== */
 
+/* 
+ * <div class="jui-alert  jui-alert--success" role="status" aria-live="polite">      
+ *  <span class="jui-alert__icon  jui-alert__icon--success">Success!</span>
+ *  <span class="jui-alert__text"> 2 new cases have been assigned to you</span>
+ * </div>
+ */
+
 .jui-alert {
-  border: 3px solid $govuk-turquoise;
-  font-weight: bold;
-  padding: $govuk-spacing-scale-2;
+  border: 5px solid $govuk-button-colour;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.jui-alert__icon {
+  display: inline-block;
+  height: 44px;
+  text-indent: -9999px;
+  vertical-align: middle;
+  width: 44px;
+}
+
+
+.jui-alert__icon--success {
+  background-image: url(#{$jui-assets-path}icon-success.svg);
+  background-repeat: no-repeat;
+  background-size: 44px 44px;
+}
+
+
+.jui-alert__text {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
 }
