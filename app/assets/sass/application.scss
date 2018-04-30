@@ -66,3 +66,17 @@ $path: "/public/images/";
 .govuk-prose-scope pre + h4 {
   @include govuk-responsive-padding($govuk-spacing-responsive-4, "top");
 }
+
+.doc-wrapper {
+  position: sticky;
+  top: 0;
+  // padding-left: 60px;
+  // padding-right: 60px;
+  z-index: 99;
+  background-color: #fff;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
+}
