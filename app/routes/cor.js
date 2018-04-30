@@ -77,6 +77,13 @@ router.get('/cor/v1/case/:id/parties', function(req, res) {
 	res.render('cor/v1/case/parties', pageObject);
 });
 
+router.get('/cor/v1/case/:id/documents', function(req, res) {
+	var pageObject = {
+		"case": caseEngine.getCase(req.params.id)
+	};
+	res.render('cor/v1/case/documents', pageObject);
+});
+
 router.get('/cor/v1/case/:id/directions', function(req, res) {
 	var pageObject = {};
 	pageObject.case = caseEngine.getCase(req.params.id);
