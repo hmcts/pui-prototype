@@ -2,20 +2,16 @@
    #ALERTS
    ========================================================================== */
 
-/* 
- * <div class="jui-alert  jui-alert--success" role="status" aria-live="polite">      
- *  <span class="jui-alert__icon  jui-alert__icon--success">Success!</span>
- *  <span class="jui-alert__text"> 2 new cases have been assigned to you</span>
- * </div>
- */
-
 .jui-alert {
-  border: 5px solid $govuk-button-colour;
-  margin-bottom: 50px;
+  border: 5px solid $govuk-blue;
+  margin-bottom: $govuk-spacing-scale-6;
   position: relative;
 }
 
+
 .jui-alert__icon {
+  background-repeat: no-repeat;
+  background-size: 44px 44px;
   display: inline-block;
   height: 44px;
   text-indent: -9999px;
@@ -24,15 +20,26 @@
 }
 
 
-.jui-alert__icon--success {
-  background-image: url(#{$jui-assets-path}icon-success.svg);
-  background-repeat: no-repeat;
-  background-size: 44px 44px;
+.jui-alert__icon + .jui-alert__text {
+  padding-left: 0;
 }
 
 
 .jui-alert__text {
   display: inline-block;
-  padding: 10px;
+  padding: $govuk-spacing-scale-2;
   vertical-align: top;
+}
+
+
+/* Style variants
+   ========================================================================== */
+
+.jui-alert--success {
+  border-color: $govuk-button-colour;
+}
+
+
+.jui-alert__icon--success {
+  background-image: url(#{$jui-assets-path}icon-success.svg);
 }

@@ -1,6 +1,7 @@
 {% extends "divorce/layouts/layout.html" %}
 
 {% from "divorce/macros/status/macro.njk" import juiStatus %}
+{% from "divorce/macros/alert/macro.njk"  import juiAlert %}
 
 {% from "macros/alerts.html" import successAlert %}
 
@@ -15,9 +16,15 @@
   <main role="main" class="govuk-o-main-wrapper">
 
     {% if success %}
-    <div class="jui-alert  jui-alert--success" role="status" aria-live="polite">      
-      <span class="jui-alert__icon  jui-alert__icon--success">Success!</span><span class="jui-alert__text"> 2 new cases have been assigned to you</span>
-    </div>
+      {{ juiAlert(
+        {
+          "icon": true,
+          "iconClasses": "jui-alert__icon--success",
+          "iconText": "Success!",
+          "alertText": "2 new cases have been assigned to you",
+          "alertClasses": "jui-alert--success"
+        })
+      }}
     {% endif %}
 
     <h1 class="govuk-heading-l">Dashboard</h1>

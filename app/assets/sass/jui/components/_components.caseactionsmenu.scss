@@ -108,7 +108,7 @@
 
   .jui-caseactionsmenu__list {
     background-color: $govuk-black;
-    padding: 20px;
+    padding: $govuk-spacing-scale-4;
     position: absolute;
     top: 39px;
     z-index: 1; // Sits above other content
