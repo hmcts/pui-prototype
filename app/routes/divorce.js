@@ -38,6 +38,7 @@ router.post('/divorce/v1', function(req, res) {
 	res.redirect('/divorce/v1/dashboard');
 });
 
+
 router.post('/divorce/v1/get-new-case', function (req, res) {
 	req.session.success = true;
 
@@ -69,7 +70,7 @@ router.get('/divorce/v1/dashboard', function(req, res) {
 			var cells = [];
 
 			cells.push({
-				html : '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent">Urgent</span> ' : '')
+				html : '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '')
 			});
 
 			cells.push({ html: c.parties.map(function(party) {
@@ -91,7 +92,7 @@ router.get('/divorce/v1/dashboard', function(req, res) {
 			var cells = [];
 
 			cells.push({
-				html : '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>' + (req.session.new ? ' <span class="jui-status jui-status--new">New</span> ' : '')
+				html : '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>' + (req.session.new ? ' <span class="jui-status  jui-status--new  govuk-!-ml-r1">New</span> ' : '')
 			});
 
 			cells.push({ html: c.parties.map(function(party) {
@@ -141,7 +142,7 @@ router.get('/divorce/v1/case/:id', function(req, res) {
 	// Case details
 	pageObject.detailsRows.push([
 		{ html: 'Case number' },
-		{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent">Urgent</span> ' : '') }
+		{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }
 	]);
 
 	pageObject.detailsRows.push([
@@ -250,5 +251,6 @@ router.get('/signout', function (req, res) {
 	req.session.destroy();
 	res.redirect('/divorce/v1');
 });
+
 
 module.exports = router;
