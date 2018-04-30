@@ -3,7 +3,7 @@
 {% from "divorce/macros/status/macro.njk" import juiStatus %}
 {% from "divorce/macros/alert/macro.njk"  import juiAlert %}
 
-{% block page_title %}Judicial UI prototype{% endblock %}
+{% block page_title %}Playground - Judicial UI prototype{% endblock %}
 
 {% block content %}
 
@@ -15,7 +15,7 @@
 
       <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds">
 
-        <h1 class="govuk-heading-l">Macros</h1>
+        <h1 class="govuk-heading-l">Playground</h1>
 
         <div class="govuk-!-mb-r5">
 
@@ -40,7 +40,7 @@
           {{ juiStatus(
             {
               "text": "Urgent",
-              "classes": "jui-status--urgent"
+              "classes": "jui-status--urgent  govuk-!-mr-r2"
             })
           }}
 
