@@ -46,7 +46,7 @@ router.post('/divorce/v1/get-new-case', function (req, res) {
 		.getCases()
 		.filter(function(c) {
 			return c.userID == req.session.userID;
-		})
+		});
 
 	newCases = newCases.slice(newCases.length-3, newCases.length-1);
 
@@ -139,7 +139,7 @@ router.get('/divorce/v1/case/:id', function(req, res) {
 
 	var c = caseEngine.getCase(req.params.id);
 
-	// Case details
+	// Consistent properties (case details)
 	pageObject.detailsRows.push([
 		{ html: 'Case number' },
 		{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }
@@ -155,10 +155,21 @@ router.get('/divorce/v1/case/:id', function(req, res) {
 		{ html: c.status }
 	]);
 
-	pageObject.detailsRows.push([
-		{ html: 'Reason for divorce' },
-		{ html: c.reason }
-	]);
+	if (c.type === 'Civil Money Claims') {
+
+		pageObject.detailsRows.push([
+			{ html: 'Court' },
+			{ html: c.court }
+		]);
+
+	} else if (c.type === 'Divorce') {
+
+		pageObject.detailsRows.push([
+			{ html: 'Reason for divorce' },
+			{ html: c.reason }
+		]);
+
+	}
 
 	// Representatives
 	pageObject.representativesRows.push([

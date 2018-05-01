@@ -28,9 +28,9 @@ var cases = [
     type: 'Divorce',
     status: 'Consider decree nisi',
     reason: 'Adultery',
-    applicationDate: '16 Feb 2018',
-    documents: '5 Docs',
-    lastAction: '16 Feb 2018',
+    applicationDate: '11 Jan 2018',
+    documents: '6 Docs (8 pages)',
+    lastAction: '22 Jan 2018',
     urgent: true,
     events:  [
       {
@@ -141,8 +141,8 @@ var cases = [
     type: 'Financial Remedy',
     status: 'Draft concent order',
     reason: 'Adultery',
-    applicationDate: '16 Feb 2018',
-    documents: '2 Docs',
+    applicationDate: '23 Jan 2018',
+    documents: '2 Docs (2 pages)',
     lastAction: '16 Feb 2018',
     petitioner: '',
     respondent: '',
@@ -237,8 +237,8 @@ var cases = [
     type: 'Financial Remedy',
     status: 'Draft concent order',
     reason: 'Adultery',
-    applicationDate: '16 Feb 2018',
-    documents: '2 Docs',
+    applicationDate: '23 Jan 2018',
+    documents: '2 Docs (2 pages)',
     lastAction: '16 Feb 2018',
     petitioner: '',
     respondent: '',
@@ -333,8 +333,8 @@ var cases = [
     type: 'Divorce',
     status: 'Consider decree nisi',
     reason: 'Adultery',
-    applicationDate: '16 Feb 2018',
-    documents: '3 Docs',
+    applicationDate: '23 Jan 2018',
+    documents: '3 Docs (8 pages)',
     lastAction: '16 Feb 2018',
     petitioner: '',
     respondent: '',
@@ -430,7 +430,7 @@ var cases = [
     status: 'Consider decree nisi',
     reason: 'Adultery',
     applicationDate: '16 Feb 2018',
-    documents: '4 Docs',
+    documents: '4 Docs (8 pages)',
     lastAction: '16 Feb 2018',
     petitioner: '',
     respondent: '',
@@ -498,95 +498,75 @@ var cases = [
   },
 
   {
-    id: '654MC345',
-    userID: 2,
+    id: '000LR095',
+    userID: 1,
     parties: [
       {
-        type: "Petitioner",
-        firstName: "H",
-        lastName: "Parker",
-        representative: {
-          name: "",
-          role: "",
-          company: ""
+        type: "Claimant",
+        title: "Mrs",
+        firstName: "Jan",
+        lastName: "Clark",
+        dateOfBirth: "31 January 1970",
+        telephone: "07824999612",
+        email: "jan.clark@gmail.com",
+        address: {
+          addressLine1: "101 Regents Road",
+          addressLine2: "Shiplake",
+          TownCity: "Henley on Thames",
+          Postcode: "RG9 4BW"
+        },
+        correspondenceAddress: {
+          addressLine1: "45 Commercial Road",
+          addressLine2: "",
+          TownCity: "London",
+          postCode: "W1D 5HF"
         }
       },
       {
-        type: "Respondent",
-        firstName: "H",
-        lastName: "Parker",
-        representative: {
-          name: "",
-          role: "",
-          company: ""
+        type: "Defendant",
+        title: "Mrs",
+        firstName: "Mary",
+        lastName: "Richards",
+        dateOfBirth: "11 October 1972",
+        telephone: "07324459619",
+        email: "mary.richards@gmail.com",
+        address: {
+          addressLine1: "24 Acacia Drive",
+          addressLine2: "",
+          TownCity: "London",
+          Postcode: "SW1 H9A"
+        },
+        correspondenceAddress: {
+          addressLine1: "45 Commercial Road",
+          addressLine2: "",
+          TownCity: "London",
+          postCode: "W1D 5HF"
         }
       }
     ],
     type: 'Civil Money Claims',
+    court: "Edmonton County Court",
     status: 'Small claims',
-    reason: 'Adultery',
-    applicationDate: '16 Feb 2018',
-    documents: '2 Docs',
-    lastAction: '16 Feb 2018',
-    petitioner: '',
-    respondent: '',
+    applicationDate: '18 October 2017',
+    documents: '1 Doc (2 pages)',
+    lastAction: '1 May 2018',
     events:  [
       {
-        id: 2,
-        date: '24 February 2018',
-        time: '3:22pm',
-        event: 'Acknowledgement of service by the court',
-        actionBy: 'Respondent (F. Sutton)',
+        id: 1,
+        date: '18 October 2017',
+        time: '3:25pm',
+        event: 'Claim issued',
+        actionBy: 'Claimant (Jan Clark)',
         files: [
           {
             id: 1,
-            name: 'Aknowledgement of service',
+            name: 'Claim form',
+            fileName: 'n1-eng.pdf',
+            originalSrc: 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/688390/n1-eng.pdf',
             url: '#',
             type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          }
-        ]
-      },
-      {
-        id: 3,
-        date: '18 February 2018',
-        time: '1:32pm',
-        event: 'Court issues petition to the respondent',
-        actionBy: 'Court',
-        files: [
-          {
-            id: 1,
-            name: 'Petition for divorce',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          }
-        ]
-      },
-      {
-        id: 4,
-        date: '16 February 2018',
-        time: '2:10pm',
-        event: 'Application for divorce submitted',
-        actionBy: 'Petitioner (W . Sutton)',
-        files: [
-          {
-            id: 1,
-            name: 'Petition for divorce',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          },
-          {
-            id: 2,
-            name: 'Marriage certificate',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
+            size: '86KB',
+            pages: '2 pages'
           }
         ]
       }
