@@ -4,10 +4,20 @@ var users = [
     id: 1,
     name: 'Martin Smith',
     role: 'Legal Adviser',
-    juristictions: [{
-      id: 1,
-      name: 'Divorce'
-    }]
+    juristictions: [
+      {
+        id: 1,
+        name: 'Divorce'
+      },
+      {
+        id: 2,
+        name: 'Financial Remedy'
+      },
+      {
+        id: 3,
+        name: 'Civil Money Claims'
+      }
+    ]
   },
 
   {
@@ -17,7 +27,6 @@ var users = [
   }
 
 ];
-
 
 
 exports.getUsersEntries = function() {
