@@ -1,14 +1,10 @@
 .tabs {
   [role=tablist] {
-    // float: left;
     margin: 0;
     padding: 0;
   }
 
   [role=tablist] li {
-    // margin: 0;
-    // padding: 0;
-    // float: left;
     list-style: none;
     @include mq(tablet) {
       position: relative;
@@ -46,13 +42,13 @@
     }
   }
 
-  &__panel {
+  [role=tabpanel] {
     border-top: 1px solid #bfc1c3;
     clear: both;
     overflow: hidden;
   }
 
-  &__panel:focus {
+  [role=tabpanel]:focus {
     outline: 3px solid #ffbf47;
   }
 

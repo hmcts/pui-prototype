@@ -161,6 +161,7 @@ Tabs.prototype.getCurrentTab = function() {
 };
 
 // this is because IE doesn't always return the actual value but a relative full path
+// should be a utility function most prob
 // http://labs.thesedays.com/blog/2010/01/08/getting-the-href-value-with-jquery-in-ie/
 Tabs.prototype.getHref = function(tab) {
 	var href = tab.attr("href");
