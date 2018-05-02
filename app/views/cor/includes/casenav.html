@@ -1,28 +1,28 @@
 <nav class="jui-casenav">
   <ul class="jui-casenav__list">
     <li class="jui-casenav__item">
-      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenav == 'summary'}} href="/cor/v1/case/{{case.id}}">Summary</a>
+      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenavId == 'summary'}} href="/cor/v1/case/{{casenav.id}}">Summary</a>
     </li>
     <li class="jui-casenav__item">
-      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenav == 'parties'}} href="/cor/v1/case/{{case.id}}/parties">Parties</a>
+      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenavId == 'parties'}} href="/cor/v1/case/{{casenav.id}}/parties">Parties</a>
     </li>
     <li class="jui-casenav__item">
-      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenav == 'documents'}} href="/cor/v1/case/{{case.id}}/documents">Case file</a>
+      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenavId == 'documents'}} href="/cor/v1/case/{{casenav.id}}/documents">Case file</a>
     </li>
     <li class="jui-casenav__item">
-      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenav == 'questions'}} href="/cor/v1/case/{{case.id}}/">Questions</a>
+      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenavId == 'questions'}} href="/cor/v1/case/{{casenav.id}}/">Questions</a>
     </li>
     <li class="jui-casenav__item">
-      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenav == 'directions'}} href="/cor/v1/case/{{case.id}}/directions">Directions</a>
+      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenavId == 'directions'}} href="/cor/v1/case/{{casenav.id}}/directions">Directions</a>
     </li>
     <li class="jui-casenav__item">
-      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenav == 'notes'}} href="/cor/v1/case/{{case.id}}/notes">Notes</a>
+      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenavId == 'notes'}} href="/cor/v1/case/{{casenav.id}}/notes">Notes</a>
     </li>
     <li class="jui-casenav__item">
-      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenav == 'timeline'}} href="/cor/v1/case/{{case.id}}/timeline">Timeline</a>
+      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenavId == 'timeline'}} href="/cor/v1/case/{{casenav.id}}/timeline">Timeline</a>
     </li>
     <li class="jui-casenav__item">
-      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenav == 'casecomms'}} href="/cor/v1/case/">Case comms.</a>
+      <a class="jui-casenav__link" {{ 'aria-current="page"' if casenavId == 'casecomms'}} href="/cor/v1/case/">Case comms.</a>
     </li>
   </ul>
 </nav>

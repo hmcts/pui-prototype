@@ -53,18 +53,41 @@ router.post('/cor/v1/get-new-case', function (req, res) {
 	res.redirect('/cor/v1/case');
 });
 
+function getCaseNavObject(caseId) {
+	return {
+		id: caseId
+	};
+}
+
+function getCaseBarObject(caseId) {
+	return {
+		parties: getPartiesLine(caseId),
+		id: caseId
+	};
+}
+
+function getPartiesLine(caseId) {
+	return caseEngine.getCase(caseId).parties.map(function(party) {
+		return party.firstName + ' ' + party.lastName;
+	}).join(' vs ')
+}
+
 router.get('/cor/v1/case/:id', function (req, res) {
 	var pageObject = {
 		success: req.session.success,
-		"case": caseEngine.getCase(req.params.id),
+		casebar: getCaseBarObject(req.params.id),
+		casenav: getCaseNavObject(req.params.id),
 		detailsRows: [],
 		panelRows: []
 	};
-	pageObject.detailsRows.push([{ html: 'Parties' }, {html: pageObject.case.parties}]);
-	pageObject.detailsRows.push([{ html: 'Case number' }, {html: pageObject.case.id}]);
-	pageObject.detailsRows.push([{ html: 'Case type' }, {html: pageObject.case.type}]);
-	pageObject.detailsRows.push([{ html: 'Tribunal centre' }, {html: pageObject.case.tribunalCentre}]);
-	pageObject.detailsRows.push([{ html: 'Additional requirements' }, {html: pageObject.case.additionalRequirments}]);
+
+	var caseObj = caseEngine.getCase(req.params.id);
+
+	pageObject.detailsRows.push([{ html: 'Parties' }, {html: getPartiesLine(caseObj.id)}]);
+	pageObject.detailsRows.push([{ html: 'Case number' }, {html: caseObj.id}]);
+	pageObject.detailsRows.push([{ html: 'Case type' }, {html: caseObj.id.type}]);
+	pageObject.detailsRows.push([{ html: 'Tribunal centre' }, {html: caseObj.id.tribunalCentre}]);
+	pageObject.detailsRows.push([{ html: 'Additional requirements' }, {html: caseObj.id.additionalRequirments}]);
 
 	res.render('cor/v1/case/index', pageObject);
 	req.session.success = null;
@@ -72,21 +95,25 @@ router.get('/cor/v1/case/:id', function (req, res) {
 
 router.get('/cor/v1/case/:id/parties', function(req, res) {
 	var pageObject = {
-		"case": caseEngine.getCase(req.params.id)
+		casebar: getCaseBarObject(req.params.id),
+		casenav: getCaseNavObject(req.params.id)
 	};
 	res.render('cor/v1/case/parties', pageObject);
 });
 
 router.get('/cor/v1/case/:id/documents', function(req, res) {
 	var pageObject = {
-		"case": caseEngine.getCase(req.params.id)
+		casebar: getCaseBarObject(req.params.id),
+		casenav: getCaseNavObject(req.params.id)
 	};
 	res.render('cor/v1/case/documents', pageObject);
 });
 
 router.get('/cor/v1/case/:id/directions', function(req, res) {
-	var pageObject = {};
-	pageObject.case = caseEngine.getCase(req.params.id);
+	var pageObject = {
+		casebar: getCaseBarObject(req.params.id),
+		casenav: getCaseNavObject(req.params.id)
+	};
 
 	if(req.session.draftDirections && req.session.draftDirections.length) {
 		pageObject.draftOrder = {
@@ -113,7 +140,8 @@ router.get('/cor/v1/case/:id/directions', function(req, res) {
 
 router.get('/cor/v1/case/:id/create-direction', function(req, res) {
 	var pageObject = {
-		"case": caseEngine.getCase(req.params.id)
+		casebar: getCaseBarObject(req.params.id),
+		casenav: getCaseNavObject(req.params.id)
 	};
 	res.render('cor/v1/case/create-direction', pageObject);
 });
@@ -137,7 +165,8 @@ router.post('/cor/v1/case/:id/create-direction', function (req, res) {
 
 router.get('/cor/v1/case/:id/create-direction-order', function (req, res) {
 	var pageObject = {
-		"case": caseEngine.getCase(req.params.id)
+		casebar: getCaseBarObject(req.params.id),
+		casenav: getCaseNavObject(req.params.id)
 	};
 	res.render('cor/v1/case/create-direction-order', pageObject);
 });
