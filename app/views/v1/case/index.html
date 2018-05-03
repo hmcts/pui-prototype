@@ -1,4 +1,4 @@
-{% extends "divorce/layouts/layout.html" %}
+{% extends "layouts/layout.html" %}
 
 {% set pageID = "Summary" %}
 
@@ -6,13 +6,13 @@
 
 {% block content %}
 
-{% include "divorce/includes/casebar.html" %}
+{% include "v1/includes/casebar.html" %}
 
 <div class="jui-width-container">
 
   <main role="main" class="govuk-o-main-wrapper">
 
-    {% include "divorce/includes/casenav.html" %}
+    {% include "v1/includes/casenav.html" %}
 
     <h1 class="govuk-heading-l">Summary</h1>
 
@@ -67,7 +67,7 @@
 
             {% for file in events.files -%}
             <div class="jui-document">
-              <a class="jui-document__link" href="/divorce/v1/case/{{case.id}}/casefile">
+              <a class="jui-document__link" href="/v1/case/{{case.id}}/casefile">
                 <span class="jui-document__title">{{file.name}}</span>
                 <span class="jui-document__meta">{{file.type}}, {{file.size}}, {{file.pages}}</span>
               </a>

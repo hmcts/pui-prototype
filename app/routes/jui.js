@@ -27,37 +27,19 @@ router.use(function(req, res, next) {
 });
 
 
-router.get('/divorce/v1', function(req, res) {
+router.get('/v1', function(req, res) {
 	req.session.destroy();
-	res.render('divorce/v1/index');
+	res.render('v1/index');
 });
 
 
-router.post('/divorce/v1', function(req, res) {
+router.post('/v1', function(req, res) {
 	req.session.userID = req.param('user');
-	res.redirect('/divorce/v1/dashboard');
+	res.redirect('v1/dashboard');
 });
 
 
-router.post('/divorce/v1/get-new-case', function (req, res) {
-	req.session.success = true;
-
-	var newCases = caseEngine
-		.getCases()
-		.filter(function(c) {
-			return c.userID == req.session.userID;
-		});
-
-	newCases = newCases.slice(newCases.length-3, newCases.length-1);
-
-	req.session.newCases = newCases;
-	req.session.new = true;
-
-	res.redirect('/divorce/v1/dashboard');
-});
-
-
-router.get('/divorce/v1/dashboard', function(req, res) {
+router.get('/v1/dashboard', function(req, res) {
 
 	var user = userEngine.getUsersEntry(req.session.userID);
 
@@ -70,7 +52,7 @@ router.get('/divorce/v1/dashboard', function(req, res) {
 			var cells = [];
 
 			cells.push({
-				html : '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '')
+				html : '<a href="/v1/case/' + c.id + '">'+ c.id +'</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '')
 			});
 
 			cells.push({ html: c.parties.map(function(party) {
@@ -92,7 +74,7 @@ router.get('/divorce/v1/dashboard', function(req, res) {
 			var cells = [];
 
 			cells.push({
-				html : '<a href="/divorce/v1/case/' + c.id + '">'+ c.id +'</a>' + (req.session.new ? ' <span class="jui-status  jui-status--new  govuk-!-ml-r1">New</span> ' : '')
+				html : '<a href="/v1/case/' + c.id + '">'+ c.id +'</a>' + (req.session.new ? ' <span class="jui-status  jui-status--new  govuk-!-ml-r1">New</span> ' : '')
 			});
 
 			cells.push({ html: c.parties.map(function(party) {
@@ -115,20 +97,40 @@ router.get('/divorce/v1/dashboard', function(req, res) {
 		caseList = caseList.injectArray(1, newCases);
 	}
 
-		var pageObject = {
-			caseList: caseList,
-			success: req.session.success
-		};
+	var pageObject = {
+		caseList: caseList,
+		success: req.session.success
+	};
 
-		res.render('divorce/v1/dashboard/index', pageObject);
+	res.render('v1/dashboard/index', pageObject);
 
-		req.session.new = false;
-		req.session.success = false;
+	req.session.new = false;
+	req.session.success = false;
 
 });
 
 
-router.get('/divorce/v1/case/:id', function(req, res) {
+router.post('/v1/get-new-case', function (req, res) {
+	
+	req.session.success = true;
+
+	var newCases = caseEngine
+	.getCases()
+	.filter(function(c) {
+		return c.userID == req.session.userID;
+	});
+
+	newCases = newCases.slice(newCases.length-3, newCases.length-1);
+
+	req.session.newCases = newCases;
+	req.session.new = true;
+
+	res.redirect('/v1/dashboard');
+
+});
+
+
+router.get('/v1/case/:id', function(req, res) {
 
 	var pageObject = {
 		'case': caseEngine.getCase(req.params.id),
@@ -182,48 +184,48 @@ router.get('/divorce/v1/case/:id', function(req, res) {
 		{ html: c.respondent ? c.respondent : 'Unrepresented' }
 	]);
 
-	res.render('divorce/v1/case/index', pageObject);
+	res.render('v1/case/index', pageObject);
 
 });
 
 
-router.get('/divorce/v1/case/:id/casefile', function(req, res) {
+router.get('/v1/case/:id/casefile', function(req, res) {
 
 	var pageObject = {
 		'case': caseEngine.getCase(req.params.id),
 		casebar: getCaseObject(req.params.id),
 	};
 
-	res.render('divorce/v1/case/casefile', pageObject);
+	res.render('v1/case/casefile', pageObject);
 
 });
 
 
-router.get('/divorce/v1/case/:id/timeline', function(req, res) {
+router.get('/v1/case/:id/timeline', function(req, res) {
 
 	var pageObject = {
 		'case': caseEngine.getCase(req.params.id),
 		casebar: getCaseObject(req.params.id),
 	};
 
-	res.render('divorce/v1/case/timeline', pageObject);
+	res.render('v1/case/timeline', pageObject);
 
 });
 
 
-router.get('/divorce/v1/case/:id/make-decision', function(req, res) {
+router.get('/v1/case/:id/make-decision', function(req, res) {
 
 	var pageObject = {
 		'case': caseEngine.getCase(req.params.id),
 		casebar: getCaseObject(req.params.id),
 	};
 
-	res.render('divorce/v1/case/make-decision', pageObject);
+	res.render('v1/case/make-decision', pageObject);
 
 });
 
 
-router.post('/divorce/v1/case/:id/make-decision', function(req, res) {
+router.post('/v1/case/:id/make-decision', function(req, res) {
 
 	if (req.param('satisifed') == 'no') {
 		res.redirect('provide-reason');
@@ -234,33 +236,33 @@ router.post('/divorce/v1/case/:id/make-decision', function(req, res) {
 });
 
 
-router.get('/divorce/v1/case/:id/provide-reason', function(req, res) {
+router.get('/v1/case/:id/provide-reason', function(req, res) {
 
 	var pageObject = {
 		'case': caseEngine.getCase(req.params.id),
 		casebar: getCaseObject(req.params.id),
 	};
 
-	res.render('divorce/v1/case/provide-reason', pageObject);
+	res.render('v1/case/provide-reason', pageObject);
 
 });
 
 
-router.get('/divorce/v1/case/:id/costs-order', function(req, res) {
+router.get('/v1/case/:id/costs-order', function(req, res) {
 
 	var pageObject = {
 		'case': caseEngine.getCase(req.params.id),
 		casebar: getCaseObject(req.params.id),
 	};
 
-	res.render('divorce/v1/case/costs-order', pageObject);
+	res.render('v1/case/costs-order', pageObject);
 
 });
 
 
 router.get('/signout', function (req, res) {
 	req.session.destroy();
-	res.redirect('/divorce/v1');
+	res.redirect('/');
 });
 
 

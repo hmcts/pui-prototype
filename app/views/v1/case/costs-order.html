@@ -1,18 +1,18 @@
-{% extends "divorce/layouts/layout.html" %}
+{% extends "layouts/layout.html" %}
 
-{% set pageID = "Costys order" %}
+{% set pageID = "Costs order" %}
 
 {% block page_title %}Costs order - Judicial UI prototype{% endblock %}
 
 {% block content %}
 
-{% include "divorce/includes/casebar.html" %}
+{% include "v1/includes/casebar.html" %}
 
 <div class="jui-width-container">
 
   {{ govukBackLink({
     "text": "Back",
-    "href": "./"
+    "href": "./make-decision"
   }) }}
 
   <main role="main" class="govuk-o-main-wrapper">
