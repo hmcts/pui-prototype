@@ -4,29 +4,43 @@ function Tabs(container) {
 	this.cssHide = "hidden";
 	this.tabs = container.find(".tabs__tab");
 	this.panels = container.find(".tabs__panel");
+	this.setupResponsiveChecks();
+};
 
-	// events
-	this.tabs.on("click", $.proxy(this, 'onTabClick'));
-	this.tabs.on('keydown', $.proxy(this, 'onTabKeydown'));
-	$(window).on('hashchange', $.proxy(this, 'onHashChange'));
+Tabs.prototype.setupResponsiveChecks = function() {
+	this.mql = window.matchMedia('(min-width: 40.0625em)');
+	this.mql.addListener($.proxy(this, 'checkMode'));
+	this.checkMode(this.mql);
+};
 
-	this.setupHtml();
-
-	// setup state
-	this.tabs.attr('tabindex', '-1');
-	this.panels.addClass("hidden");
-
-	// if there's a tab that matches the hash
-	var tab = this.getTab(window.location.hash);
-	if(tab.length) {
-		this.highlightTab(tab);
-		this.showPanel(tab);
+Tabs.prototype.checkMode = function(mql) {
+	if(this.mql.matches) {
+		this.enableBigMode();
 	} else {
-		// or show the first
-		var firstTab = this.tabs.first();
-		this.highlightTab(firstTab);
-		this.showPanel(firstTab);
+		this.enableSmallMode();
 	}
+};
+
+Tabs.prototype.enableSmallMode = function() {
+	if(this.events) {
+		this.container.off('click', '[role=tab]', this.events.onTabClick);
+		this.container.off('keydown', '[role=tab]', this.events.onTabKeydown);
+		$(window).off('hashchange', this.events.onHashChange);
+	}
+	this.teardownHtml();
+	this.events = null;
+};
+
+Tabs.prototype.enableBigMode = function() {
+	this.events = {
+		onTabClick: $.proxy(this, 'onTabClick'),
+		onTabKeydown: $.proxy(this, 'onTabKeydown'),
+		onHashChange: $.proxy(this, 'onHashChange')
+	};
+	this.container.on('click', '[role=tab]', this.events.onTabClick);
+	this.container.on('keydown', '[role=tab]', this.events.onTabKeydown);
+	$(window).on('hashchange', this.events.onHashChange);
+	this.setupHtml();
 };
 
 Tabs.prototype.onHashChange = function (e) {
@@ -39,10 +53,12 @@ Tabs.prototype.onHashChange = function (e) {
 	if(tab.length) {
 		this.hideTab(currentTab);
 		this.showTab(tab);
+		tab.focus();
 	} else {
 		var firstTab = this.tabs.first();
 		this.hideTab(currentTab);
 		this.showTab(firstTab);
+		firstTab.focus();
 	}
 };
 
@@ -73,6 +89,39 @@ Tabs.prototype.setupHtml = function() {
 	this.panels.each($.proxy(function(i, panel) {
 		$(panel).attr('aria-labelledby', this.tabs[i].id);
 	}, this));
+
+	// setup state
+	this.tabs.attr('tabindex', '-1');
+	this.panels.addClass(this.cssHide);
+
+	// if there's a tab that matches the hash
+	var tab = this.getTab(window.location.hash);
+	if(tab.length) {
+		this.highlightTab(tab);
+		this.showPanel(tab);
+	} else {
+		// or show the first
+		var firstTab = this.tabs.first();
+		this.highlightTab(firstTab);
+		this.showPanel(firstTab);
+	}
+};
+
+Tabs.prototype.teardownHtml = function() {
+	this.container.find('.tabs__list').removeAttr('role');
+	this.container.find('.tabs__list-item').removeAttr('role');
+	this.tabs.removeAttr('role');
+	this.panels.removeAttr('role');
+	this.tabs.each($.proxy(function(i, tab) {
+		tab.id = '';
+		$(tab).removeAttr('aria-controls');
+	}, this));
+	this.panels.each($.proxy(function(i, panel) {
+		$(panel).removeAttr('aria-labelledby');
+	}, this));
+	this.tabs.removeAttr('tabindex');
+	this.tabs.removeAttr('aria-selected');
+	this.panels.removeClass(this.cssHide);
 };
 
 Tabs.prototype.onTabClick = function(e) {

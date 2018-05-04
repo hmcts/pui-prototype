@@ -12,12 +12,7 @@ Menu.prototype.createToggleButton = function() {
 	this.menuButton.on('click', $.proxy(this, 'onMenuButtonClick'));
 	this.menuButton.on('keydown', $.proxy(this, 'onMenuKeyDown'));
 	this.container.prepend(this.menuButton);
-	
-};
 
-Menu.prototype.enableBigMode = function() {
-	this.menuButton.detach();
-	this.showMenu();
 };
 
 Menu.prototype.hideMenu = function() {
