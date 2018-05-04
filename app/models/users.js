@@ -38,3 +38,7 @@ exports.getUsersEntry = function(id) {
     if(users[i].id == id) return users[i];
   }
 };
+
+exports.getUser = function(id) {
+  return users.filter(user => user.id == id)[0];
+};

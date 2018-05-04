@@ -22,7 +22,7 @@ function getCaseObject(id) {
 
 
 router.use(function(req, res, next) {
-	res.locals.user = req.session.userID;
+	res.locals.user = req.session.user;
 	next();
 });
 
@@ -32,21 +32,16 @@ router.get('/v1', function(req, res) {
 	res.render('v1/index');
 });
 
-
 router.post('/v1', function(req, res) {
-	req.session.userID = req.param('user');
+	req.session.user = userEngine.getUser(parseInt(req.body.user, 10))
 	res.redirect('/v1/dashboard');
 });
 
-
 router.get('/v1/dashboard', function(req, res) {
-
-	var user = userEngine.getUsersEntry(req.session.userID);
-
 	var caseList = caseEngine
 		.getCases()
 		.filter(function(c) {
-			return c.userID == req.session.userID;
+			return c.userID == req.session.user.id;
 		})
 		.map(function(c) {
 			var cells = [];
@@ -106,12 +101,11 @@ router.get('/v1/dashboard', function(req, res) {
 
 	req.session.new = false;
 	req.session.success = false;
-
 });
 
 
 router.post('/v1/get-new-case', function (req, res) {
-	
+
 	req.session.success = true;
 
 	var newCases = caseEngine
@@ -129,19 +123,16 @@ router.post('/v1/get-new-case', function (req, res) {
 
 });
 
-
-router.get('/v1/case/:id', function(req, res) {
+function viewDivorceCase(req, res) {
+	var c = caseEngine.getCase(req.params.id);
 
 	var pageObject = {
-		'case': caseEngine.getCase(req.params.id),
-		casebar: getCaseObject(req.params.id),
+		'case': caseEngine.getCase(c.id),
+		casebar: getCaseObject(c.id),
 		detailsRows: [],
 		representativesRows: []
 	};
 
-	var c = caseEngine.getCase(req.params.id);
-
-	// Consistent properties (case details)
 	pageObject.detailsRows.push([
 		{ html: 'Case number' },
 		{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }
@@ -157,23 +148,11 @@ router.get('/v1/case/:id', function(req, res) {
 		{ html: c.status }
 	]);
 
-	if (c.type === 'Civil Money Claims') {
+	pageObject.detailsRows.push([
+		{ html: 'Reason for divorce' },
+		{ html: c.reason }
+	]);
 
-		pageObject.detailsRows.push([
-			{ html: 'Court' },
-			{ html: c.court }
-		]);
-
-	} else if (c.type === 'Divorce') {
-
-		pageObject.detailsRows.push([
-			{ html: 'Reason for divorce' },
-			{ html: c.reason }
-		]);
-
-	}
-
-	// Representatives
 	pageObject.representativesRows.push([
 		{ html: 'Petitioner' },
 		{ html: c.petitioner ? c.petitioner : 'Unrepresented' }
@@ -184,7 +163,19 @@ router.get('/v1/case/:id', function(req, res) {
 		{ html: c.respondent ? c.respondent : 'Unrepresented' }
 	]);
 
-	res.render('v1/case/index', pageObject);
+	res.render('v1/case/divorce/summary', pageObject);
+}
+
+router.get('/v1/case/:id', function(req, res) {
+	var c = caseEngine.getCase(req.params.id);
+
+	switch(c.type) {
+		case 'Divorce':
+			viewDivorceCase(req, res);
+			break;
+		default:
+			res.redirect('/');
+	}
 
 });
 
