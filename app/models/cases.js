@@ -571,6 +571,121 @@ var cases = [
         ]
       }
     ]
+  },
+  {
+    id: 'CO18D00150',
+    userID: 1,
+    type: 'Continuous online resolution',
+    status: 'Unknown',
+    applicationDate: '11 Jan 2018',
+    documents: '6 Docs (8 pages)',
+    lastAction: '22 Jan 2018',
+    urgent: false,
+    benefit: 'PIP',
+    tribunalCentre: 'Fox Court',
+    requirements: 'Hearing loop required',
+    parties: [
+      {
+        type: "Appellant",
+        firstName: "Alan",
+        lastName: "Jones",
+        representative: null
+      },
+      {
+        type: "Respondent",
+        org: 'DWP',
+        office: '3',
+        email: 'dwp@dwp.com',
+        phone: '01838 787 637',
+        decisionMaker: {
+          firstName: 'Denise',
+          lastName: 'Okenwe'
+        },
+        presentingOfficer: {
+          firstName: 'Claire',
+          lastName: 'Potter'
+        }
+      }
+    ],
+    events:  [
+      {
+        id: 1,
+        date: '27 February 2018',
+        time: '1:01pm',
+        event: 'Application for decree nisi received',
+        actionBy: 'Petitioner (D. Francis)',
+        files: [
+          {
+            id: 1,
+            name: 'Application for decree nisi',
+            url: '#',
+            type: 'PDF',
+            size: '123KB',
+            pages: '3 pages'
+          }
+        ]
+      },
+      {
+        id: 2,
+        date: '24 February 2018',
+        time: '3:22pm',
+        event: 'Acknowledgement of service by the court',
+        actionBy: 'Respondent (S. Francis)',
+        files: [
+          {
+            id: 1,
+            name: 'Aknowledgement of service',
+            url: '#',
+            type: 'PDF',
+            size: '123KB',
+            pages: '3 pages'
+          }
+        ]
+      },
+      {
+        id: 3,
+        date: '18 February 2018',
+        time: '1:32pm',
+        event: 'Court issues petition to the respondent',
+        actionBy: 'Court',
+        files: [
+          {
+            id: 1,
+            name: 'Petition for divorce',
+            url: '#',
+            type: 'PDF',
+            size: '123KB',
+            pages: '3 pages'
+          }
+        ]
+      },
+      {
+        id: 4,
+        date: '16 February 2018',
+        time: '2:10pm',
+        event: 'Application for divorce submitted',
+        actionBy: 'Petitioner (D . Francis)',
+        files: [
+          {
+            id: 1,
+            name: 'Petition for divorce',
+            url: '#',
+            type: 'PDF',
+            size: '123KB',
+            pages: '3 pages'
+          },
+          {
+            id: 2,
+            name: 'Marriage certificate',
+            url: '#',
+            type: 'PDF',
+            size: '123KB',
+            pages: '3 pages'
+          }
+        ]
+      }
+    ]
+
   }
 
 ];

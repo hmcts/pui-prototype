@@ -20,12 +20,51 @@ function getCaseObject(id) {
 
 }
 
+function getCaseNavObject(caseId) {
+	var c = caseEngine.getCase(caseId);
+
+	switch(c.type) {
+		case 'Continuous online resolution':
+			return {
+				id: caseId,
+				parties: true,
+				questions: true,
+				directions: true
+			}
+		case 'Divorce':
+			return {
+				id: caseId
+			}
+	}
+}
+
+function getCaseBarObject(caseId) {
+	return {
+		parties: getPartiesLine(caseId),
+		id: caseId
+	};
+}
+
+function getPartiesLine(caseId) {
+	return caseEngine.getCase(caseId).parties.map(function(party) {
+
+		if(party.org) {
+			return party.org;
+		} else {
+			return party.firstName + ' ' + party.lastName
+		}
+	}).join(' vs ')
+}
 
 router.use(function(req, res, next) {
 	res.locals.user = req.session.user;
 	next();
 });
 
+router.get('/signout', function (req, res) {
+	req.session.destroy();
+	res.redirect('/');
+});
 
 router.get('/v1', function(req, res) {
 	req.session.destroy();
@@ -50,11 +89,7 @@ router.get('/v1/dashboard', function(req, res) {
 				html : '<a href="/v1/case/' + c.id + '">'+ c.id +'</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '')
 			});
 
-			cells.push({ html: c.parties.map(function(party) {
-					return party.firstName + ' ' + party.lastName;
-				}).join(' vs ')
-			});
-
+			cells.push({ html: getPartiesLine(c.id)	});
 			cells.push({ html: c.type });
 			cells.push({ html: c.status });
 			cells.push({ html: c.applicationDate	});
@@ -123,12 +158,12 @@ router.post('/v1/get-new-case', function (req, res) {
 
 });
 
-function viewDivorceCase(req, res) {
+function viewDivorceCaseSummary(req, res) {
 	var c = caseEngine.getCase(req.params.id);
 
 	var pageObject = {
-		'case': caseEngine.getCase(c.id),
-		casebar: getCaseObject(c.id),
+		casebar: getCaseBarObject(c.id),
+		casenav: getCaseNavObject(c.id),
 		detailsRows: [],
 		representativesRows: []
 	};
@@ -166,12 +201,35 @@ function viewDivorceCase(req, res) {
 	res.render('v1/case/divorce/summary', pageObject);
 }
 
+function viewCorCaseSummary(req, res) {
+	var c = caseEngine.getCase(req.params.id);
+
+	var pageObject = {
+		success: req.session.success,
+		casebar: getCaseBarObject(c.id),
+		casenav: getCaseNavObject(c.id),
+		detailsRows: [],
+		panelRows: []
+	};
+
+	pageObject.detailsRows.push([{ html: 'Parties' }, {html: getPartiesLine(c.id)}]);
+	pageObject.detailsRows.push([{ html: 'Case number' }, {html: c.id}]);
+	pageObject.detailsRows.push([{ html: 'Case type' }, {html: c.benefit}]);
+	pageObject.detailsRows.push([{ html: 'Tribunal centre' }, {html: c.tribunalCentre}]);
+	pageObject.detailsRows.push([{ html: 'Additional requirements' }, {html: c.requirements}]);
+
+	res.render('v1/case/cor/summary', pageObject);
+}
+
 router.get('/v1/case/:id', function(req, res) {
 	var c = caseEngine.getCase(req.params.id);
 
 	switch(c.type) {
 		case 'Divorce':
-			viewDivorceCase(req, res);
+			viewDivorceCaseSummary(req, res);
+			break;
+		case 'Continuous online resolution':
+			viewCorCaseSummary(req, res);
 			break;
 		default:
 			res.redirect('/');
@@ -179,82 +237,61 @@ router.get('/v1/case/:id', function(req, res) {
 
 });
 
+router.get('/v1/case/:id/parties', function(req, res) {
+	var pageObject = {
+		casebar: getCaseBarObject(req.params.id),
+		casenav: getCaseNavObject(req.params.id)
+	};
+	res.render('v1/case/parties', pageObject);
+});
 
 router.get('/v1/case/:id/casefile', function(req, res) {
-
 	var pageObject = {
-		'case': caseEngine.getCase(req.params.id),
-		casebar: getCaseObject(req.params.id),
+		casebar: getCaseBarObject(req.params.id),
+		casenav: getCaseNavObject(req.params.id)
 	};
-
 	res.render('v1/case/casefile', pageObject);
-
 });
 
 
 router.get('/v1/case/:id/timeline', function(req, res) {
-
 	var pageObject = {
-		'case': caseEngine.getCase(req.params.id),
-		casebar: getCaseObject(req.params.id),
+		casebar: getCaseBarObject(req.params.id),
+		casenav: getCaseNavObject(req.params.id)
 	};
-
 	res.render('v1/case/timeline', pageObject);
-
 });
-
 
 router.get('/v1/case/:id/make-decision', function(req, res) {
-
 	var pageObject = {
-		'case': caseEngine.getCase(req.params.id),
-		casebar: getCaseObject(req.params.id),
+		casebar: getCaseBarObject(req.params.id),
+		casenav: getCaseNavObject(req.params.id)
 	};
-
 	res.render('v1/case/make-decision', pageObject);
-
 });
 
-
 router.post('/v1/case/:id/make-decision', function(req, res) {
-
 	if (req.param('satisifed') == 'no') {
 		res.redirect('provide-reason');
 	} else {
 		res.redirect('costs-order');
 	}
-
 });
-
 
 router.get('/v1/case/:id/provide-reason', function(req, res) {
-
 	var pageObject = {
-		'case': caseEngine.getCase(req.params.id),
-		casebar: getCaseObject(req.params.id),
+		casebar: getCaseBarObject(req.params.id),
+		casenav: getCaseNavObject(req.params.id)
 	};
-
 	res.render('v1/case/provide-reason', pageObject);
-
 });
-
 
 router.get('/v1/case/:id/costs-order', function(req, res) {
-
 	var pageObject = {
-		'case': caseEngine.getCase(req.params.id),
-		casebar: getCaseObject(req.params.id),
+		casebar: getCaseBarObject(req.params.id),
+		casenav: getCaseNavObject(req.params.id)
 	};
-
 	res.render('v1/case/costs-order', pageObject);
-
 });
-
-
-router.get('/signout', function (req, res) {
-	req.session.destroy();
-	res.redirect('/');
-});
-
 
 module.exports = router;
