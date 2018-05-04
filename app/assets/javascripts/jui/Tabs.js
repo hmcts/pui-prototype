@@ -1,6 +1,6 @@
 function Tabs(container) {
 	this.container = container;
-	this.keys = { left: 37, right: 39, down: 40 };
+	this.keys = { left: 37, right: 39, up: 38, down: 40 };
 	this.cssHide = "hidden";
 	this.tabs = container.find(".tabs__tab");
 	this.panels = container.find(".tabs__panel");
@@ -14,7 +14,6 @@ function Tabs(container) {
 
 	// setup state
 	this.tabs.attr('tabindex', '-1');
-	this.panels.attr('tabindex', '-1');
 	this.panels.addClass("hidden");
 
 	// if there's a tab that matches the hash
@@ -62,13 +61,14 @@ Tabs.prototype.getTab = function(hash) {
 };
 
 Tabs.prototype.setupHtml = function() {
-	this.container.find('> ul').attr('role', 'tablist');
-	this.container.find('> ul li').attr('role', 'presentation');
+	this.container.find('.tabs__list').attr('role', 'tablist');
+	this.container.find('.tabs__list-item').attr('role', 'presentation');
 	this.tabs.attr('role', 'tab');
 	this.panels.attr('role', 'tabpanel');
 	this.tabs.each($.proxy(function(i, tab) {
-		var href = this.getHref($(tab));
-		tab.id = 'tab_'+href.slice(1);
+		var panelId = this.getHref($(tab)).slice(1);
+		tab.id = 'tab_' + panelId;
+		$(tab).attr('aria-controls', panelId);
 	}, this));
 	this.panels.each($.proxy(function(i, panel) {
 		$(panel).attr('aria-labelledby', this.tabs[i].id);
@@ -96,20 +96,16 @@ Tabs.prototype.createHistoryEntry = function(tab) {
 Tabs.prototype.onTabKeydown = function(e) {
 	switch(e.keyCode) {
 		case this.keys.left:
+		case this.keys.up:
 			this.activatePreviousTab();
+			e.preventDefault();
 			break;
 		case this.keys.right:
-			this.activateNextTab();
-			break;
 		case this.keys.down:
-			this.focusCurrentTab();
+			this.activateNextTab();
 			e.preventDefault();
 			break;
 	}
-};
-
-Tabs.prototype.focusCurrentTab = function() {
-	this.getPanel(this.getCurrentTab()).focus();
 };
 
 Tabs.prototype.activateNextTab = function() {

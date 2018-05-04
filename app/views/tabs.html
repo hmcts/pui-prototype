@@ -11,10 +11,10 @@
   <main role="main" class="govuk-o-main-wrapper">
     <h1 class="govuk-heading-xl">Tabs</h1>
     <div class="tabs">
-      <ul>
-        <li><a class="tabs__tab" href="#beforeYouStart">Before you start</a></li>
-        <li><a class="tabs__tab"href="#needToKnow">Need to know</a></li>
-        <li><a class="tabs__tab" href="#waysToApply">Ways to apply</a></li>
+      <ul class="tabs__list">
+        <li class="tabs__list-item"><a class="tabs__tab" href="#beforeYouStart">Before you start</a></li>
+        <li class="tabs__list-item"><a class="tabs__tab" href="#needToKnow">Need to know</a></li>
+        <li class="tabs__list-item"><a class="tabs__tab" href="#waysToApply">Ways to apply</a></li>
       </ul>
 
       <div class="tabs__panel" id="beforeYouStart">
@@ -70,6 +70,7 @@
 {% endblock %}
 
 {% block page_scripts %}
+  <script src="/public/javascripts/jui/Tabs.js"></script>
 	<script>
     new Tabs($('.tabs'));
   </script>

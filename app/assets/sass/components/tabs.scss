@@ -19,6 +19,7 @@
     text-decoration: none;
     border: 1px solid #dee0e2;
     border-bottom: 0;
+    color: $govuk-text-colour;
 
     @include mq(tablet) {
       border: 1px solid transparent;
