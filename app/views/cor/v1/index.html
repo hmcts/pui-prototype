@@ -1,10 +1,17 @@
-{% extends "cor/layouts/base.html" %}
+{% extends "layouts/layout.html" %}
 
-{% block page_title %}Continous Online Resolution{% endblock %}
+{% set pageID = "Casefile" %}
+
+{% block page_title %}Type of user - Judicial UI prototype{% endblock %}
 
 {% block content %}
 
 <div class="jui-width-container">
+
+  {{ govukBackLink({
+    "text": "Back",
+    "href": "/"
+  }) }}
 
   <main role="main" class="govuk-o-main-wrapper">
 
@@ -12,15 +19,32 @@
 
       <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds">
 
-        <h1 class="govuk-heading-l">Continous Online Resolution</h1>
+        <form method="post">
 
-        <h2 class="govuk-heading-m">What type of user are you?</h2>
-        
-        <ul class="govuk-list  govuk-list--bullet">
-        {% for users in users -%}
-          <li>I am a <a href="/cor/load-user/{{users.id}}">{{users.role}}</a></li>
-        {% endfor %}
-        </ul>
+          {{ govukRadios({
+            "idPrefix": "user",
+            "name": "user",
+            "fieldset": {
+              "legendHtml": '<h1 class="govuk-heading-l">What type of user are you?</h1>',
+              "legendHintText": "Choosing a user type will adjust your viewing experience."
+            },
+            "items": [
+              {
+                "value": "1",
+                "text": "I am a Legal Adviser"
+              },
+              {
+                "value": "2",
+                "text": "I am a Judge"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            "text": "Submit"
+          }) }}
+
+        </form>
 
       </div>
 

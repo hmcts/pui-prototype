@@ -35,7 +35,7 @@ router.get('/v1', function(req, res) {
 
 router.post('/v1', function(req, res) {
 	req.session.userID = req.param('user');
-	res.redirect('v1/dashboard');
+	res.redirect('/v1/dashboard');
 });
 
 
