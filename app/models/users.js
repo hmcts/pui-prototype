@@ -23,7 +23,25 @@ var users = [
   {
     id: 2,
     name: 'Jeremy Bennett',
-    role: 'Judge'
+    role: 'Judge',
+    juristictions: [
+      {
+        id: 1,
+        name: 'Divorce'
+      },
+      {
+        id: 2,
+        name: 'Financial Remedy'
+      },
+      {
+        id: 3,
+        name: 'Civil Money Claims'
+      },
+      {
+        id: 4,
+        name: 'Continous Online Resolution'
+      }
+    ]
   }
 
 ];

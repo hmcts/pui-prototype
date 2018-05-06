@@ -1,6 +1,7 @@
 var express = require('express');
 var router  = express.Router();
 
+
 var userEngine = require('../models/users');
 var caseEngine = require('../models/cases');
 
@@ -20,23 +21,39 @@ function getCaseObject(id) {
 
 }
 
+
 function getCaseNavObject(caseId) {
+	
 	var c = caseEngine.getCase(caseId);
 
 	switch(c.type) {
-		case 'Continuous online resolution':
+		
+		case 'Continuous Online Resolution':
 			return {
 				id: caseId,
 				parties: true,
 				questions: true,
 				directions: true
-			}
+			};
+
 		case 'Divorce':
 			return {
 				id: caseId
-			}
+			};
+
+		case 'Financial Remedy':
+			return {
+				id: caseId
+			};
+
+		case 'Civil Money Claims':
+			return {
+				id: caseId
+			};
+
 	}
 }
+
 
 function getCaseBarObject(caseId) {
 	return {
@@ -45,38 +62,48 @@ function getCaseBarObject(caseId) {
 	};
 }
 
+
 function getPartiesLine(caseId) {
+	
 	return caseEngine.getCase(caseId).parties.map(function(party) {
 
 		if(party.org) {
 			return party.org;
 		} else {
-			return party.firstName + ' ' + party.lastName
+			return party.firstName + ' ' + party.lastName;
 		}
-	}).join(' vs ')
+		
+	}).join(' vs ');
+
 }
+
 
 router.use(function(req, res, next) {
 	res.locals.user = req.session.user;
 	next();
 });
 
+
 router.get('/signout', function (req, res) {
 	req.session.destroy();
 	res.redirect('/');
 });
+
 
 router.get('/v1', function(req, res) {
 	req.session.destroy();
 	res.render('v1/index');
 });
 
+
 router.post('/v1', function(req, res) {
-	req.session.user = userEngine.getUser(parseInt(req.body.user, 10))
+	req.session.user = userEngine.getUser(parseInt(req.body.user, 10));
 	res.redirect('/v1/dashboard');
 });
 
+
 router.get('/v1/dashboard', function(req, res) {
+	
 	var caseList = caseEngine
 		.getCases()
 		.filter(function(c) {
@@ -86,7 +113,7 @@ router.get('/v1/dashboard', function(req, res) {
 			var cells = [];
 
 			cells.push({
-				html : '<a href="/v1/case/' + c.id + '">'+ c.id +'</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '')
+				html : '<a href="/v1/case/' + c.id + '">'+ c.id + '</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '')
 			});
 
 			cells.push({ html: getPartiesLine(c.id)	});
@@ -95,12 +122,15 @@ router.get('/v1/dashboard', function(req, res) {
 			cells.push({ html: c.applicationDate	});
 			cells.push({ html: c.documents });
 			cells.push({ html: c.lastAction });
+
 			return cells;
+
 		});
 
 	if(req.session.newCases) {
 		var newCases = req.session.newCases
 		.map(function(c) {
+			
 			var cells = [];
 
 			cells.push({
@@ -117,11 +147,13 @@ router.get('/v1/dashboard', function(req, res) {
 			cells.push({ html: c.applicationDate	});
 			cells.push({ html: c.documents });
 			cells.push({ html: c.lastAction });
+
 			return cells;
+
 		});
 
 		Array.prototype.injectArray = function( idx, arr ) {
-				return this.slice( 0, idx ).concat( arr ).concat( this.slice( idx ) );
+			return this.slice( 0, idx ).concat( arr ).concat( this.slice( idx ) );
 		};
 
 		caseList = caseList.injectArray(1, newCases);
@@ -136,6 +168,7 @@ router.get('/v1/dashboard', function(req, res) {
 
 	req.session.new = false;
 	req.session.success = false;
+
 });
 
 
@@ -158,7 +191,10 @@ router.post('/v1/get-new-case', function (req, res) {
 
 });
 
+
+// Divorce summary
 function viewDivorceCaseSummary(req, res) {
+
 	var c = caseEngine.getCase(req.params.id);
 
 	var pageObject = {
@@ -168,40 +204,105 @@ function viewDivorceCaseSummary(req, res) {
 		representativesRows: []
 	};
 
-	pageObject.detailsRows.push([
-		{ html: 'Case number' },
-		{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }
-	]);
-
-	pageObject.detailsRows.push([
-		{ html: 'Case type' },
-		{ html: c.type }
-	]);
-
-	pageObject.detailsRows.push([
-		{ html: 'Case status' },
-		{ html: c.status }
-	]);
-
-	pageObject.detailsRows.push([
-		{ html: 'Reason for divorce' },
-		{ html: c.reason }
-	]);
-
-	pageObject.representativesRows.push([
-		{ html: 'Petitioner' },
-		{ html: c.petitioner ? c.petitioner : 'Unrepresented' }
-	]);
-
-	pageObject.representativesRows.push([
-		{ html: 'Respondent' },
-		{ html: c.respondent ? c.respondent : 'Unrepresented' }
-	]);
+	pageObject.detailsRows.push([{ html: 'Case number' },	{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }]);
+	pageObject.detailsRows.push([{ html: 'Case type' },	{ html: c.type }]);
+	pageObject.detailsRows.push([{ html: 'Case status' },	{ html: c.status }]);
+	pageObject.detailsRows.push([	{ html: 'Reason for divorce' },	{ html: c.reason }]);
+	pageObject.representativesRows.push([	{ html: 'Petitioner' },	{ html: c.petitioner ? c.petitioner : 'Unrepresented' }]);
+	pageObject.representativesRows.push([{ html: 'Respondent' }, { html: c.respondent ? c.respondent : 'Unrepresented' }]);
 
 	res.render('v1/case/divorce/summary', pageObject);
+
 }
 
-function viewCorCaseSummary(req, res) {
+
+// Public Law summary
+function viewPublicLawCaseSummary(req, res) {
+
+	var c = caseEngine.getCase(req.params.id);
+
+	var pageObject = {
+		casebar: getCaseBarObject(c.id),
+		casenav: getCaseNavObject(c.id),
+		detailsRows: [],
+		partiesRepresentativesRows: []
+	};
+
+	// Case details
+	pageObject.detailsRows.push([{ html: 'Parties' }, {html: getPartiesLine(c.id)}]);
+	pageObject.detailsRows.push([{ html: 'Case number' },	{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }]);
+	pageObject.detailsRows.push([{ html: 'Case type' },	{ html: c.type }]);
+	pageObject.detailsRows.push([{ html: 'Case status' },	{ html: c.status }]);
+	pageObject.detailsRows.push([{ html: 'Court' },	{ html: c.court }]);
+
+	// Parties and representatives
+	pageObject.partiesRepresentativesRows.push([{ html: 'Father' }, { html: c.father ? c.father : 'Unrepresented' }]);
+	pageObject.partiesRepresentativesRows.push([{ html: 'Mother' }, { html: c.mother ? c.mother : 'Unrepresented' }]);
+	pageObject.partiesRepresentativesRows.push([{ html: 'Local authority' }, { html: c.localAuthority }]);
+	pageObject.partiesRepresentativesRows.push([{ html: 'Cafcass' }, { html: c.cafcass }]);
+	pageObject.partiesRepresentativesRows.push([{ html: 'Children' }, { html: c.children }]);
+
+	res.render('v1/case/public-law/summary', pageObject);
+
+}
+
+
+// Civil Money Claims summary
+function viewCivilMoneyClaimsCaseSummary(req, res) {
+
+	var c = caseEngine.getCase(req.params.id);
+
+	var pageObject = {
+		casebar: getCaseBarObject(c.id),
+		casenav: getCaseNavObject(c.id),
+		detailsRows: [],
+		representativesRows: []
+	};
+
+	// Case details
+	pageObject.detailsRows.push([{ html: 'Parties' }, {html: getPartiesLine(c.id)}]);
+	pageObject.detailsRows.push([{ html: 'Case number' },	{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }]);
+	pageObject.detailsRows.push([{ html: 'Case type' },	{ html: c.type }]);
+	pageObject.detailsRows.push([{ html: 'Case status' },	{ html: c.status }]);
+	pageObject.detailsRows.push([{ html: 'Court' },	{ html: c.court }]);
+
+	// Panel
+	pageObject.representativesRows.push([{ html: 'Claimant' }, { html: c.claimant ? c.claimant : '(Unrepresented)' }]);
+	pageObject.representativesRows.push([{ html: 'Defendant' }, { html: c.defendant ? c.defendant : '(Unrepresented)' }]);
+
+	res.render('v1/case/civil-money-claims/summary', pageObject);
+
+}
+
+
+// Financial Remedy summary
+function viewFinancialRemedyCaseSummary(req, res) {
+
+	var c = caseEngine.getCase(req.params.id);
+
+	var pageObject = {
+		casebar: getCaseBarObject(c.id),
+		casenav: getCaseNavObject(c.id),
+		detailsRows: [],
+		representativesRows: []
+	};
+
+	pageObject.detailsRows.push([{ html: 'Case number' },	{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }]);
+	pageObject.detailsRows.push([{ html: 'Case type' },	{ html: c.type }]);
+	pageObject.detailsRows.push([{ html: 'Case status' },	{ html: c.status }]);
+	pageObject.detailsRows.push([	{ html: 'Reason for divorce' },	{ html: c.reason }]);
+
+	pageObject.representativesRows.push([{ html: 'Petitioner' },	{ html: c.petitioner ? c.petitioner : 'Unrepresented' }]);
+	pageObject.representativesRows.push([{ html: 'Respondent' }, { html: c.respondent ? c.respondent : 'Unrepresented' }]);
+
+	res.render('v1/case/financial-remedy/summary', pageObject);
+
+}
+
+
+// Continous Online Resolution summary
+function viewContinousOnlineResolutionCaseSummary(req, res) {
+	
 	var c = caseEngine.getCase(req.params.id);
 
 	var pageObject = {
@@ -218,24 +319,43 @@ function viewCorCaseSummary(req, res) {
 	pageObject.detailsRows.push([{ html: 'Tribunal centre' }, {html: c.tribunalCentre}]);
 	pageObject.detailsRows.push([{ html: 'Additional requirements' }, {html: c.requirements}]);
 
-	res.render('v1/case/cor/summary', pageObject);
+	res.render('v1/case/continous-online-resolution/summary', pageObject);
+
 }
 
 router.get('/v1/case/:id', function(req, res) {
+	
 	var c = caseEngine.getCase(req.params.id);
 
 	switch(c.type) {
+		
 		case 'Divorce':
 			viewDivorceCaseSummary(req, res);
 			break;
-		case 'Continuous online resolution':
-			viewCorCaseSummary(req, res);
+	
+		case 'Financial Remedy':
+			viewFinancialRemedyCaseSummary(req, res);
 			break;
+		
+		case 'Continuous Online Resolution':
+			viewContinousOnlineResolutionCaseSummary(req, res);
+			break;
+
+		case 'Civil Money Claims':
+			viewCivilMoneyClaimsCaseSummary(req, res);
+			break;
+
+		case 'Public Law':
+			viewPublicLawCaseSummary(req, res);
+			break;
+
 		default:
 			res.redirect('/');
+
 	}
 
 });
+
 
 router.get('/v1/case/:id/parties', function(req, res) {
 	var pageObject = {
@@ -244,6 +364,7 @@ router.get('/v1/case/:id/parties', function(req, res) {
 	};
 	res.render('v1/case/parties', pageObject);
 });
+
 
 router.get('/v1/case/:id/casefile', function(req, res) {
 	var pageObject = {
@@ -262,6 +383,7 @@ router.get('/v1/case/:id/timeline', function(req, res) {
 	res.render('v1/case/timeline', pageObject);
 });
 
+
 router.get('/v1/case/:id/make-decision', function(req, res) {
 	var pageObject = {
 		casebar: getCaseBarObject(req.params.id),
@@ -269,6 +391,7 @@ router.get('/v1/case/:id/make-decision', function(req, res) {
 	};
 	res.render('v1/case/make-decision', pageObject);
 });
+
 
 router.post('/v1/case/:id/make-decision', function(req, res) {
 	if (req.param('satisifed') == 'no') {
@@ -278,6 +401,7 @@ router.post('/v1/case/:id/make-decision', function(req, res) {
 	}
 });
 
+
 router.get('/v1/case/:id/provide-reason', function(req, res) {
 	var pageObject = {
 		casebar: getCaseBarObject(req.params.id),
@@ -286,6 +410,7 @@ router.get('/v1/case/:id/provide-reason', function(req, res) {
 	res.render('v1/case/provide-reason', pageObject);
 });
 
+
 router.get('/v1/case/:id/costs-order', function(req, res) {
 	var pageObject = {
 		casebar: getCaseBarObject(req.params.id),
@@ -293,5 +418,6 @@ router.get('/v1/case/:id/costs-order', function(req, res) {
 	};
 	res.render('v1/case/costs-order', pageObject);
 });
+
 
 module.exports = router;

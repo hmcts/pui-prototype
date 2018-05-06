@@ -3,36 +3,36 @@ var cases = [
   {
     id: 'BV18D00150',
     userID: 1,
+    type: 'Divorce',
     parties: [
       {
-        type: "Petitioner",
-        firstName: "D",
-        lastName: "Francis",
+        type: 'Petitioner',
+        firstName: 'David',
+        lastName: 'Francis',
         representative: {
-          name: "Clive Walters",
-          role: "Solicitor",
-          company: "Chadwick and Walters"
+          name: 'Clive Walters',
+          role: 'Solicitor',
+          company: 'Chadwick and Walters'
         }
       },
       {
-        type: "Respondent",
-        firstName: "S",
-        lastName: "Francis",
+        type: 'Respondent',
+        firstName: 'Susan',
+        lastName: 'Francis',
         representative: {
-          name: "David Jones",
-          role: "Solicitor",
-          company: "Chadwick and Walters"
+          name: 'David Jones',
+          role: 'Solicitor',
+          company: 'Chadwick and Walters'
         }
       }
     ],
-    type: 'Divorce',
     status: 'Consider decree nisi',
     reason: 'Adultery',
     applicationDate: '11 Jan 2018',
     documents: '6 Docs (8 pages)',
     lastAction: '22 Jan 2018',
     urgent: true,
-    events:  [
+    events: [
       {
         id: 1,
         date: '27 February 2018',
@@ -116,29 +116,29 @@ var cases = [
   {
     id: 'BV18D00151',
     userID: 1,
+    type: 'Financial Remedy',
     parties: [
       {
-        type: "Petitioner",
-        firstName: "W",
-        lastName: "Sutton",
+        type: 'Petitioner',
+        firstName: 'William',
+        lastName: 'Sutton',
         representative: {
-          name: "",
-          role: "",
-          company: ""
+          name: '',
+          role: '',
+          company: ''
         }
       },
       {
-        type: "Respondent",
-        firstName: "F",
-        lastName: "Sutton",
+        type: 'Respondent',
+        firstName: 'Fran',
+        lastName: 'Sutton',
         representative: {
-          name: "",
-          role: "",
-          company: ""
+          name: '',
+          role: '',
+          company: ''
         }
       }
     ],
-    type: 'Financial Remedy',
     status: 'Draft concent order',
     reason: 'Adultery',
     applicationDate: '23 Jan 2018',
@@ -146,7 +146,7 @@ var cases = [
     lastAction: '16 Feb 2018',
     petitioner: '',
     respondent: '',
-    events:  [
+    events: [
       {
         id: 2,
         date: '24 February 2018',
@@ -212,29 +212,29 @@ var cases = [
   {
     id: 'BV18D00152',
     userID: 1,
+    type: 'Financial Remedy',
     parties: [
       {
-        type: "Petitioner",
-        firstName: "R",
-        lastName: "Miller",
+        type: 'Petitioner',
+        firstName: 'Rowena',
+        lastName: 'Miller',
         representative: {
-          name: "",
-          role: "",
-          company: ""
+          name: '',
+          role: '',
+          company: ''
         }
       },
       {
-        type: "Respondent",
-        firstName: "D",
-        lastName: "Miller",
+        type: 'Respondent',
+        firstName: 'David',
+        lastName: 'Miller',
         representative: {
-          name: "",
-          role: "",
-          company: ""
+          name: '',
+          role: '',
+          company: ''
         }
       }
     ],
-    type: 'Financial Remedy',
     status: 'Draft concent order',
     reason: 'Adultery',
     applicationDate: '23 Jan 2018',
@@ -242,7 +242,7 @@ var cases = [
     lastAction: '16 Feb 2018',
     petitioner: '',
     respondent: '',
-    events:  [
+    events: [
       {
         id: 2,
         date: '24 February 2018',
@@ -308,29 +308,29 @@ var cases = [
   {
     id: 'BV18D00153',
     userID: 1,
+    type: 'Divorce',
     parties: [
       {
-        type: "Petitioner",
-        firstName: "T",
-        lastName: "Jones",
+        type: 'Petitioner',
+        firstName: 'Thomas',
+        lastName: 'Jones',
         representative: {
-          name: "",
-          role: "",
-          company: ""
+          name: '',
+          role: '',
+          company: ''
         }
       },
       {
-        type: "Respondent",
-        firstName: "V",
-        lastName: "Jones",
+        type: 'Respondent',
+        firstName: 'Victoria',
+        lastName: 'Jones',
         representative: {
-          name: "",
-          role: "",
-          company: ""
+          name: '',
+          role: '',
+          company: ''
         }
       }
     ],
-    type: 'Divorce',
     status: 'Consider decree nisi',
     reason: 'Adultery',
     applicationDate: '23 Jan 2018',
@@ -338,7 +338,7 @@ var cases = [
     lastAction: '16 Feb 2018',
     petitioner: '',
     respondent: '',
-    events:  [
+    events: [
       {
         id: 2,
         date: '24 February 2018',
@@ -404,29 +404,29 @@ var cases = [
   {
     id: 'BV18D00154',
     userID: 1,
+    type: 'Financial Remedy',
     parties: [
       {
-        type: "Petitioner",
-        firstName: "E",
-        lastName: "Skinner",
+        type: 'Petitioner',
+        firstName: 'Edwina',
+        lastName: 'Skinner',
         representative: {
-          name: "",
-          role: "",
-          company: ""
+          name: '',
+          role: '',
+          company: ''
         }
       },
       {
-        type: "Respondent",
-        firstName: "P",
-        lastName: "Skinner",
+        type: 'Respondent',
+        firstName: 'Paul',
+        lastName: 'Skinner',
         representative: {
-          name: "",
-          role: "",
-          company: ""
+          name: '',
+          role: '',
+          company: ''
         }
       }
     ],
-    type: 'Financial Remedy',
     status: 'Consider decree nisi',
     reason: 'Adultery',
     applicationDate: '16 Feb 2018',
@@ -434,7 +434,7 @@ var cases = [
     lastAction: '16 Feb 2018',
     petitioner: '',
     respondent: '',
-    events:  [
+    events: [
       {
         id: 2,
         date: '24 February 2018',
@@ -500,57 +500,59 @@ var cases = [
   {
     id: '000LR095',
     userID: 1,
+    type: 'Civil Money Claims',
     parties: [
       {
-        type: "Claimant",
-        title: "Mrs",
-        firstName: "Jan",
-        lastName: "Clark",
-        dateOfBirth: "31 January 1970",
-        telephone: "07824999612",
-        email: "jan.clark@gmail.com",
+        type: 'Claimant',
+        title: 'Mrs',
+        firstName: 'Jan',
+        lastName: 'Clark',
+        dateOfBirth: '31 January 1970',
+        telephone: '07824999612',
+        email: 'jan.clark@gmail.com',
         address: {
-          addressLine1: "101 Regents Road",
-          addressLine2: "Shiplake",
-          TownCity: "Henley on Thames",
-          Postcode: "RG9 4BW"
+          addressLine1: '101 Regents Road',
+          addressLine2: 'Shiplake',
+          TownCity: 'Henley on Thames',
+          Postcode: 'RG9 4BW'
         },
         correspondenceAddress: {
-          addressLine1: "45 Commercial Road",
-          addressLine2: "",
-          TownCity: "London",
-          postCode: "W1D 5HF"
+          addressLine1: '45 Commercial Road',
+          addressLine2: '',
+          TownCity: 'London',
+          postCode: 'W1D 5HF'
         }
       },
       {
-        type: "Defendant",
-        title: "Mrs",
-        firstName: "Mary",
-        lastName: "Richards",
-        dateOfBirth: "11 October 1972",
-        telephone: "07324459619",
-        email: "mary.richards@gmail.com",
+        type: 'Defendant',
+        title: 'Mrs',
+        firstName: 'Mary',
+        lastName: 'Richards',
+        dateOfBirth: '11 October 1972',
+        telephone: '07324459619',
+        email: 'mary.richards@gmail.com',
         address: {
-          addressLine1: "24 Acacia Drive",
-          addressLine2: "",
-          TownCity: "London",
-          Postcode: "SW1 H9A"
+          addressLine1: '24 Acacia Drive',
+          addressLine2: '',
+          TownCity: 'London',
+          Postcode: 'SW1 H9A'
         },
         correspondenceAddress: {
-          addressLine1: "45 Commercial Road",
-          addressLine2: "",
-          TownCity: "London",
-          postCode: "W1D 5HF"
+          addressLine1: '45 Commercial Road',
+          addressLine2: '',
+          TownCity: 'London',
+          postCode: 'W1D 5HF'
         }
       }
     ],
-    type: 'Civil Money Claims',
-    court: "Edmonton County Court",
-    status: 'Small claims',
-    applicationDate: '18 October 2017',
+    claimant: 'Jan Clark (Unrepresented)',
+    defendant: 'Mary Richards represented by Tim Dalton',
+    court: 'Edmonton County Court',
+    status: 'Box work request',
+    applicationDate: '18 Oct 2017',
     documents: '1 Doc (2 pages)',
     lastAction: '1 May 2018',
-    events:  [
+    events: [
       {
         id: 1,
         date: '18 October 2017',
@@ -572,27 +574,20 @@ var cases = [
       }
     ]
   },
+
   {
     id: 'CO18D00150',
     userID: 1,
-    type: 'Continuous online resolution',
-    status: 'Unknown',
-    applicationDate: '11 Jan 2018',
-    documents: '6 Docs (8 pages)',
-    lastAction: '22 Jan 2018',
-    urgent: false,
-    benefit: 'PIP',
-    tribunalCentre: 'Fox Court',
-    requirements: 'Hearing loop required',
+    type: 'Continuous Online Resolution',
     parties: [
       {
-        type: "Appellant",
-        firstName: "Alan",
-        lastName: "Jones",
+        type: 'Appellant',
+        firstName: 'Alan',
+        lastName: 'Jones',
         representative: null
       },
       {
-        type: "Respondent",
+        type: 'Respondent',
         org: 'DWP',
         office: '3',
         email: 'dwp@dwp.com',
@@ -607,7 +602,15 @@ var cases = [
         }
       }
     ],
-    events:  [
+    status: 'Unknown',
+    applicationDate: '11 Jan 2018',
+    documents: '6 Docs (8 pages)',
+    lastAction: '22 Jan 2018',
+    urgent: false,
+    benefit: 'PIP',
+    tribunalCentre: 'Fox Court',
+    requirements: 'Hearing loop required',
+    events: [
       {
         id: 1,
         date: '27 February 2018',
@@ -685,8 +688,37 @@ var cases = [
         ]
       }
     ]
+  },
 
-  }
+  {
+    id: 'LU17C87541',
+    userID: 1,
+    type: 'Public Law',
+    parties: [
+      {
+        type: 'Father',
+        title: 'Mr',
+        firstName: 'Brian',
+        lastName: 'Martins'
+      },
+      {
+        type: 'Mother',
+        title: 'Mrs',
+        firstName: 'Jane',
+        lastName: 'Martins'
+      }
+    ],
+    status: 'Unknown',
+    father: 'Brian Martins represented by John Charles',
+    mother: 'Jane Martins represented by Tim Dalton',
+    localAuthority: 'Jeremy Saunders',
+    cafcass: 'Sarah Dalton represented by Michelle Higgins',
+    children: 'Jane (7yrs), Mark (3mths)',
+    court: 'Luton County Court and Family Court',
+    applicationDate: '10 Feb 2018',
+    documents: '3 Doc (18 pages)',
+    lastAction: '24 Feb 2018'
+  },
 
 ];
 
