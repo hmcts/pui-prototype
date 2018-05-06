@@ -1,9 +1,9 @@
 function Tabs(container) {
 	this.container = container;
 	this.keys = { left: 37, right: 39, up: 38, down: 40 };
-	this.cssHide = "hidden";
-	this.tabs = container.find(".tabs__tab");
-	this.panels = container.find(".tabs__panel");
+	this.cssHide = 'js-hidden';
+	this.tabs = container.find('.govuk-tabs__tab');
+	this.panels = container.find('.govuk-tabs__panel');
 	this.setupResponsiveChecks();
 };
 
@@ -77,8 +77,8 @@ Tabs.prototype.getTab = function(hash) {
 };
 
 Tabs.prototype.setupHtml = function() {
-	this.container.find('.tabs__list').attr('role', 'tablist');
-	this.container.find('.tabs__list-item').attr('role', 'presentation');
+	this.container.find('.govuk-tabs__list').attr('role', 'tablist');
+	this.container.find('.govuk-tabs__list-item').attr('role', 'presentation');
 	this.tabs.attr('role', 'tab');
 	this.panels.attr('role', 'tabpanel');
 	this.tabs.each($.proxy(function(i, tab) {
@@ -108,8 +108,8 @@ Tabs.prototype.setupHtml = function() {
 };
 
 Tabs.prototype.teardownHtml = function() {
-	this.container.find('.tabs__list').removeAttr('role');
-	this.container.find('.tabs__list-item').removeAttr('role');
+	this.container.find('.govuk-tabs__list').removeAttr('role');
+	this.container.find('.govuk-tabs__list-item').removeAttr('role');
 	this.tabs.removeAttr('role');
 	this.panels.removeAttr('role');
 	this.tabs.each($.proxy(function(i, tab) {
@@ -136,7 +136,7 @@ Tabs.prototype.onTabClick = function(e) {
 Tabs.prototype.createHistoryEntry = function(tab) {
 	var panel = this.getPanel(tab)[0];
 	var id = panel.id;
-	panel.id = "";
+	panel.id = '';
 	this.changingHash = true;
 	window.location.hash = this.getHref(tab).slice(1);
 	panel.id = id;
@@ -202,13 +202,13 @@ Tabs.prototype.highlightTab = function(tab) {
 };
 
 Tabs.prototype.getCurrentTab = function() {
-	return this.container.find("[role=tab][aria-selected=true]");
+	return this.container.find('[role=tab][aria-selected=true]');
 };
 
 // this is because IE doesn't always return the actual value but a relative full path
 // should be a utility function most prob
 // http://labs.thesedays.com/blog/2010/01/08/getting-the-href-value-with-jquery-in-ie/
 Tabs.prototype.getHref = function(tab) {
-	var href = tab.attr("href");
-	return href.slice(href.indexOf("#"), href.length);
+	var href = tab.attr('href');
+	return href.slice(href.indexOf('#'), href.length);
 };

@@ -2,7 +2,7 @@
    #BASE
    ========================================================================== */
 
-a:not(.govuk-c-button):focus {
+a:not(#logo):focus {
   color: $govuk-black !important; // Override focus colour of links
 }
 
