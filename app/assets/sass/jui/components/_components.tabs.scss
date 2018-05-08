@@ -15,11 +15,6 @@
   display: block;
   padding-top: $govuk-spacing-scale-2;
   padding-bottom: $govuk-spacing-scale-2;
-
-  &:visited {
-    color: $govuk-link-colour; // No 'visited state' for tabs
-  }
-
 }
 
 
