@@ -73,7 +73,7 @@ router.get('/v1/dashboard', function(req, res) {
 
 			cells.push({ html: c.type });
 			cells.push({ html: c.status });
-			cells.push({ html: c.applicationDate	});
+			cells.push({ html: c.applicationDate });
 			cells.push({ html: c.documents });
 			cells.push({ html: c.lastAction });
 
@@ -99,6 +99,7 @@ router.get('/v1/dashboard', function(req, res) {
 	req.session.success = false;
 
 });
+
 
 router.post('/v1/get-new-case', function (req, res) {
 
@@ -162,6 +163,7 @@ router.get('/v1/case/:id/parties', function(req, res) {
 	res.render('v1/case/parties', pageObject);
 });
 
+
 router.get('/v1/case/:id/casefile', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
@@ -179,6 +181,7 @@ router.get('/v1/case/:id/timeline', function(req, res) {
 	res.render('v1/case/timeline', pageObject);
 });
 
+
 router.get('/v1/case/:id/directions', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
@@ -193,6 +196,7 @@ router.get('/v1/case/:id/directions', function(req, res) {
 	res.render('v1/case/continuous-online-resolution/directions/index', pageObject);
 });
 
+
 router.get('/v1/case/:id/make-decision', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
@@ -200,6 +204,7 @@ router.get('/v1/case/:id/make-decision', function(req, res) {
 	};
 	res.render('v1/case/make-decision', pageObject);
 });
+
 
 router.post('/v1/case/:id/make-decision', function(req, res) {
 	if (req.param('satisifed') == 'no') {
@@ -226,5 +231,14 @@ router.get('/v1/case/:id/costs-order', function(req, res) {
 	};
 	res.render('v1/case/costs-order', pageObject);
 });
+
+
+router.get('/v1/case/:id/confirmation', function(req, res) {
+	var pageObject = {
+		casenav: helpers.getCaseNavObject(req.params.id)
+	};
+	res.render('v1/case/confirmation', pageObject);
+});
+
 
 module.exports = router;

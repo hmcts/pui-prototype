@@ -1,0 +1,54 @@
+/* ==========================================================================
+   #PANEL
+   ========================================================================== */
+
+.jui-panel {
+  @include govuk-font-regular-19;
+  border: 5px solid transparent;
+  box-sizing: border-box;
+  margin-bottom: $govuk-spacing-scale-6;
+  padding: $govuk-spacing-scale-6 - $govuk-border-width;
+  position: relative;
+}
+
+
+.jui-panel__title {
+  @include govuk-font-bold-36;
+}
+
+
+.jui-panel__details {
+  margin: 0;
+  padding: 0;
+
+  dt {
+    font-weight: bold;
+    margin-bottom: $govuk-spacing-scale-1;
+  }
+
+  dd {
+    @include govuk-font-regular-16;
+    margin-left: $govuk-spacing-scale-4;
+    margin-bottom: $govuk-spacing-scale-4;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+}
+
+
+/* Style variants
+   ========================================================================== */
+
+.jui-panel--information {
+  border-color: $govuk-blue;
+ }
+
+
+.jui-panel--confirmation {
+  border-color: $govuk-button-colour;
+  text-align: center;
+}

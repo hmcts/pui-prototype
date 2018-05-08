@@ -1,6 +1,7 @@
 var userEngine = require('../models/users');
 var caseEngine = require('../models/cases');
 
+
 function getPartiesLine(caseId) {
 
 	return caseEngine.getCase(caseId).parties.map(function(party) {
@@ -14,6 +15,7 @@ function getPartiesLine(caseId) {
 	}).join(' vs ');
 
 }
+
 
 function getCaseObject(id) {
 	var c = caseEngine.getCase(id);
@@ -45,21 +47,31 @@ function getCaseNavObject(caseId) {
 
 		case 'Divorce':
 			return {
-				id: caseId
+				id: caseId,
+				parties: true
 			};
 
 		case 'Financial Remedy':
 			return {
-				id: caseId
+				id: caseId,
+				parties: true
 			};
 
 		case 'Civil Money Claims':
 			return {
-				id: caseId
+				id: caseId,
+				parties: true
+			};
+
+		case 'Public Law':
+			return {
+				id: caseId,
+				parties: true
 			};
 
 	}
 }
+
 
 function getCaseBarObject(caseId) {
 	return {
@@ -68,7 +80,8 @@ function getCaseBarObject(caseId) {
 	};
 }
 
+
 exports.getCaseBarObject = getCaseBarObject;
 exports.getCaseNavObject = getCaseNavObject;
-exports.getCaseObject = getCaseObject;
-exports.getPartiesLine = getPartiesLine;
+exports.getCaseObject    = getCaseObject;
+exports.getPartiesLine   = getPartiesLine;

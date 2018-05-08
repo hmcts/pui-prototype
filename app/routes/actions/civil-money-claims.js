@@ -1,6 +1,6 @@
 var userEngine = require('../../models/users');
 var caseEngine = require('../../models/cases');
-var helpers = require('../helpers');
+var helpers    = require('../helpers');
 
 function viewCaseSummary(req, res) {
 

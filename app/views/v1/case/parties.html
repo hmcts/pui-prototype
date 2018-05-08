@@ -2,189 +2,126 @@
 
 {% set casenavId = "parties" %}
 
-{% block page_title %}
-  Parties
-{% endblock %}
+{% block page_title %}Parties - Judicial UI prototype{% endblock %}
 
 {% block content %}
+
   {% include "v1/includes/casebar.html" %}
+
 	<div class="jui-width-container">
-    <main role="main" class="govuk-o-main-wrapper">
+
+    <main class="govuk-o-main-wrapper" role="main">
+
       {% include "v1/includes/casenav.html" %}
 
+      <h1 class="govuk-heading-l">Parties</h1>
 
-      <h1 class="govuk-heading-l"> Parties </h1>
+				<div class="govuk-tabs  govuk-tabs-js">
+				
+				<ul class="govuk-tabs__list">
+					<li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#petitioner">Petitioner</a></li>
+					<li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#respondent">Respondent</a></li>
+				</ul>
 
-			<div class="govuk-o-grid">
-			  <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+				<section class="govuk-tabs__panel  js-hidden" id="petitioner">
 
-			  </div>
-			  <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
-
-			  </div>
-			</div>
-
-			<div class="tabs">
-        <ul>
-            <li><a href="#a">Appellant</a></li>
-            <li><a href="#c">Respondent</a></li>
-        </ul>
-        <div class="tabs__panel" id="a">
-					<br>
-					<br>
 					<div class="govuk-o-grid">
-						<div class="govuk-o-grid__item govuk-o-grid__item--one-half">
-								{{ govukTable({
-									"classes": 'govuk-!-f-16',
-									"caption": "Appellant",
-									"captionClasses": 'govuk-!-f-24',
-									"firstCellIsHeader": true,
-									"rows": [
-										[
-											{
-												"text": "Name"
-											},
-											{
-												"text": 'Alan Jones'
-											}
-										],
-										[
-											{
-												"text": "Date of birth"
-											},
-											{
-												"text": '07 June 1981'
-											}
-										],
-										[
-											{
-												"text": "National Insurance number"
-											},
-											{
-												"text": 'JT 03 70 79 D'
-											}
-										],
-										[
-											{
-												"text": "Address"
-											},
-											{
-												"html": '24 Park Road<br>
-												Lewisham<br>
-												London<br>
-												E11 4PR'
-											 }
-										],
-										[
-											{
-												"text": "Phone"
-											},
-											{
-												"text": '07787 557967'
-											 }
-										],
-										[
-											{
-												"text": "Email"
-											},
-											{
-												"text": 'ajones@gmail.com'
-											 }
-										],
-										[
-											{
-												"text": "Representative"
-											},
-											{
-												"text": 'None'
-											 }
-										],
-										[
-											{
-												"text": "Considerations"
-											},
-											{
-												"text": 'Needs hearing loop'
-											 }
-										]
-									]
-								}) }}
-						</div>
-					</div>
 
-        </div>
-        <div class="tabs__panel" id="c">
-						<br>
-						<br>
-						<div class="govuk-o-grid">
-								<div class="govuk-o-grid__item govuk-o-grid__item--one-half">
+						<div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
+
+							<h2 class="gov-heading-s  govuk-!-mb-r2  govuk-!-mt-r6">Petitioner</h2>
+
 							{{ govukTable({
 								"classes": 'govuk-!-f-16',
-								"caption": "Respondent",
-								"captionClasses": 'govuk-!-f-24',
 								"firstCellIsHeader": true,
 								"rows": [
 									[
-										{
-											'text': 'Name'
-										},
-										{
-											'text': 'Department for Work and Pensions'
-										}
+										{"text": "Full name"},
+										{"text": "David Francis"}
 									],
 									[
-										{
-											'text': 'Decision maker'
-										},
-										{
-											'text': 'Denise Okenwe'
-										}
+										{"text": "Date of birth"},
+										{"text": "7 June 1981"}
 									],
 									[
-										{
-											'text': 'Presenting officer'
-										},
-										{
-											'text': 'Claire Potter'
-										}
+										{"text": "Address"},
+										{"html": '24 Park Road<br>Lewisham<br>London<br>E11 4PR'}
 									],
 									[
-										{
-											'text': 'DWP office'
-										},
-										{
-											'text': '3'
-										}
+										{"text": "Phone"},
+										{"text": '07787 557 967'}
 									],
 									[
-										{
-											'text': 'Email'
-										},
-										{
-											'text': 'dwp@dwp.com'
-										}
+										{"text": "Email"},
+										{"text": 'david.francis@gmail.com'}
 									],
 									[
-										{
-											'text': 'Phone'
-										},
-										{
-											'text': '01838 787 637'
-										}
+										{"text": "Representative"},
+										{"text": 'Unrepresented'}
 									]
 								]
 							}) }}
+
 						</div>
+					
 					</div>
-        </div>
+
+				</section>
+
+				<section class="govuk-tabs__panel  js-hidden" id="respondent">
+
+					<div class="govuk-o-grid">
+
+						<div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
+
+							<h2 class="gov-heading-s  govuk-!-mb-r2  govuk-!-mt-r6">Respondent</h2>
+
+							{{ govukTable({
+								"classes": 'govuk-!-f-16',
+								"firstCellIsHeader": true,
+								"rows": [
+									[
+										{"text": "Full name"},
+										{"text": "Susan Francis"}
+									],
+									[
+										{"text": "Date of birth"},
+										{"text": "16 April 1979"}
+									],
+									[
+										{"text": "Address"},
+										{"html": '89 London Road<br>Hinckley<br>London<br>LE10 1HH'}
+									],
+									[
+										{"text": "Phone"},
+										{"text": '07700 900 772'}
+									],
+									[
+										{"text": "Email"},
+										{"text": 'susan.francis@gmail.com'}
+									],
+									[
+										{"text": "Representative"},
+										{"text": 'Unrepresented'}
+									]
+								]
+							}) }}
+
+						</div>
+
+					</div>
+
+				</section>
+				
 			</div>
+
 		</main>
+
 	</div>
+	
 {% endblock %}
 
 {% block page_scripts %}
 	{% include "includes/scripts.html" %}
-	<script>
-    new Tabs($('.tabs'));
-  </script>
+	<script>new Tabs($('.govuk-tabs'));</script>
 {% endblock %}
