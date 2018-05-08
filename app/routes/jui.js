@@ -112,125 +112,12 @@ router.post('/v1/get-new-case', function (req, res) {
 
 	newCases = newCases.slice(newCases.length-3, newCases.length-1);
 
-
-
 	req.session.newCases = newCases;
 	req.session.new = true;
 
 	res.redirect('/v1/dashboard');
 
 });
-
-
-// Divorce summary
-function viewDivorceCaseSummary(req, res) {
-
-	var c = caseEngine.getCase(req.params.id);
-
-	var pageObject = {
-		casebar: helpers.getCaseBarObject(c.id),
-		casenav: helpers.getCaseNavObject(c.id),
-		detailsRows: [],
-		representativesRows: []
-	};
-
-	pageObject.detailsRows.push([{ html: 'Case number' },	{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }]);
-	pageObject.detailsRows.push([{ html: 'Case type' },	{ html: c.type }]);
-	pageObject.detailsRows.push([{ html: 'Case status' },	{ html: c.status }]);
-	pageObject.detailsRows.push([	{ html: 'Reason for divorce' },	{ html: c.reason }]);
-	pageObject.representativesRows.push([	{ html: 'Petitioner' },	{ html: c.petitioner ? c.petitioner : 'Unrepresented' }]);
-	pageObject.representativesRows.push([{ html: 'Respondent' }, { html: c.respondent ? c.respondent : 'Unrepresented' }]);
-
-	res.render('v1/case/divorce/summary', pageObject);
-
-}
-
-
-// Public Law summary
-function viewPublicLawCaseSummary(req, res) {
-
-	var c = caseEngine.getCase(req.params.id);
-
-	var pageObject = {
-		casebar: helpers.getCaseBarObject(c.id),
-		casenav: helpers.getCaseNavObject(c.id),
-		detailsRows: [],
-		partiesRepresentativesRows: []
-	};
-
-	// Case details
-	pageObject.detailsRows.push([{ html: 'Parties' }, {html: helpers.getPartiesLine(c.id)}]);
-	pageObject.detailsRows.push([{ html: 'Case number' },	{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }]);
-	pageObject.detailsRows.push([{ html: 'Case type' },	{ html: c.type }]);
-	pageObject.detailsRows.push([{ html: 'Case status' },	{ html: c.status }]);
-	pageObject.detailsRows.push([{ html: 'Court' },	{ html: c.court }]);
-
-	// Parties and representatives
-	pageObject.partiesRepresentativesRows.push([{ html: 'Father' }, { html: c.father ? c.father : 'Unrepresented' }]);
-	pageObject.partiesRepresentativesRows.push([{ html: 'Mother' }, { html: c.mother ? c.mother : 'Unrepresented' }]);
-	pageObject.partiesRepresentativesRows.push([{ html: 'Local authority' }, { html: c.localAuthority }]);
-	pageObject.partiesRepresentativesRows.push([{ html: 'Cafcass' }, { html: c.cafcass }]);
-	pageObject.partiesRepresentativesRows.push([{ html: 'Children' }, { html: c.children }]);
-
-	res.render('v1/case/public-law/summary', pageObject);
-
-}
-
-
-// Civil Money Claims summary
-function viewCivilMoneyClaimsCaseSummary(req, res) {
-
-	var c = caseEngine.getCase(req.params.id);
-
-	var pageObject = {
-		casebar: helpers.getCaseBarObject(c.id),
-		casenav: helpers.getCaseNavObject(c.id),
-		detailsRows: [],
-		representativesRows: []
-	};
-
-	// Case details
-	pageObject.detailsRows.push([{ html: 'Parties' }, {html: helpers.getPartiesLine(c.id)}]);
-	pageObject.detailsRows.push([{ html: 'Case number' },	{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }]);
-	pageObject.detailsRows.push([{ html: 'Case type' },	{ html: c.type }]);
-	pageObject.detailsRows.push([{ html: 'Case status' },	{ html: c.status }]);
-	pageObject.detailsRows.push([{ html: 'Court' },	{ html: c.court }]);
-
-	// Panel
-	pageObject.representativesRows.push([{ html: 'Claimant' }, { html: c.claimant ? c.claimant : '(Unrepresented)' }]);
-	pageObject.representativesRows.push([{ html: 'Defendant' }, { html: c.defendant ? c.defendant : '(Unrepresented)' }]);
-
-	res.render('v1/case/civil-money-claims/summary', pageObject);
-
-}
-
-
-// Financial Remedy summary
-function viewFinancialRemedyCaseSummary(req, res) {
-
-	var c = caseEngine.getCase(req.params.id);
-
-	var pageObject = {
-		casebar: helpers.getCaseBarObject(c.id),
-		casenav: helpers.getCaseNavObject(c.id),
-		detailsRows: [],
-		representativesRows: []
-	};
-
-	pageObject.detailsRows.push([{ html: 'Case number' },	{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }]);
-	pageObject.detailsRows.push([{ html: 'Case type' },	{ html: c.type }]);
-	pageObject.detailsRows.push([{ html: 'Case status' },	{ html: c.status }]);
-	pageObject.detailsRows.push([	{ html: 'Reason for divorce' },	{ html: c.reason }]);
-
-	pageObject.representativesRows.push([{ html: 'Petitioner' },	{ html: c.petitioner ? c.petitioner : 'Unrepresented' }]);
-	pageObject.representativesRows.push([{ html: 'Respondent' }, { html: c.respondent ? c.respondent : 'Unrepresented' }]);
-
-	res.render('v1/case/financial-remedy/summary', pageObject);
-
-}
-
-
-// Continous Online Resolution summary
 
 
 router.get('/v1/case/:id', function(req, res) {
@@ -240,11 +127,11 @@ router.get('/v1/case/:id', function(req, res) {
 	switch(c.type) {
 
 		case 'Divorce':
-			viewDivorceCaseSummary(req, res);
+			require('./actions/divorce').viewCaseSummary(req, res);
 			break;
 
 		case 'Financial Remedy':
-			viewFinancialRemedyCaseSummary(req, res);
+			require('./actions/financial-remedy').viewCaseSummary(req, res);
 			break;
 
 		case 'Continuous Online Resolution':
@@ -252,11 +139,11 @@ router.get('/v1/case/:id', function(req, res) {
 			break;
 
 		case 'Civil Money Claims':
-			viewCivilMoneyClaimsCaseSummary(req, res);
+			require('./actions/civil-money-claims').viewCaseSummary(req, res);
 			break;
 
 		case 'Public Law':
-			viewPublicLawCaseSummary(req, res);
+			require('./actions/public-law').viewCaseSummary(req, res);
 			break;
 
 		default:
