@@ -1,7 +1,7 @@
 /* ==========================================================================
    #TABS
    
-   Tabs won’t enhance in IE9 (we can use flex and box-shadow)
+   Tabs won’t enhance in IE9 (so we can use flex and box-shadow)
    ========================================================================== */
 
 .govuk-tabs__list {
@@ -10,12 +10,16 @@
   padding: 0;
 }
 
-
 .govuk-tabs__tab {
   @include govuk-font-regular-19;
   display: block;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: $govuk-spacing-scale-2;
+  padding-bottom: $govuk-spacing-scale-2;
+
+  &:visited {
+    color: $govuk-link-colour; // No 'visited state' for tabs
+  }
+
 }
 
 
@@ -31,8 +35,8 @@
   background-color: $govuk-grey-3;
   color: $govuk-black;
   margin-right: 6px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: $govuk-spacing-scale-3;
+  padding-right: $govuk-spacing-scale-3;
   text-align: center;
   text-decoration: none;
 
@@ -62,7 +66,6 @@
 /* Style variants
    ========================================================================== */
 
-// Dark borders
 .govuk-tabs--dark {
 
   .govuk-tabs__list[role=tablist] {
@@ -75,7 +78,6 @@
 
 }
 
-// Thick borders
 .govuk-tabs--thick-border {
 
   .govuk-tabs__list[role=tablist] {
