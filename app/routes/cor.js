@@ -1,22 +1,28 @@
-const express = require('express');
-const router  = express.Router();
+var express = require('express');
+var router  = express.Router();
 
 
-const userEngine = require('../models/users');
-const caseEngine = require('../models/cases');
+var userEngine = require('../models/users');
+var caseEngine = require('../models/cases');
 
 
-// Prototype setup
-router.get('/cor/v1', function (req, res) {
-	res.render('cor/v1/index', {
-		users: userEngine.getUsersEntries()
-	});
+router.use(function(req, res, next) {
+	res.locals.user = req.session.userID;
+	next();
 });
 
-router.get('/cor/load-user/:id/', function(req, res) {
-	req.session.userID = req.params.id;
+
+router.get('/cor/v1', function (req, res) {
+	req.session.destroy();
+	res.render('cor/v1/index');
+});
+
+
+router.post('/cor/v1', function(req, res) {
+	req.session.userID = req.param('user');
 	res.redirect('/cor/v1/dashboard');
 });
+
 
 router.get('/cor/v1/dashboard', function(req, res) {
 	var user  = userEngine.getUsersEntry(req.session.userID);
@@ -43,11 +49,11 @@ router.get('/cor/v1/dashboard', function(req, res) {
 		caseRows: caseRows
 	};
 
-	res.render('cor/v1/dashboard', pageObject);
+	res.render('cor/v1/dashboard/index', pageObject);
 
 });
 
-// Application routes v1
+
 router.post('/cor/v1/get-new-case', function (req, res) {
 	req.session.success = true;
 	res.redirect('/cor/v1/case');

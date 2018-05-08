@@ -1,0 +1,23 @@
+{% extends "layouts/layout.html" %}
+
+{% set casenavId = "timeline" %}
+
+{% block page_title %}Timeline - Judicial UI prototype{% endblock %}
+
+{% block content %}
+
+{% include "v1/includes/casebar.html" %}
+
+<div class="jui-width-container">
+
+  <main role="main" class="govuk-o-main-wrapper">
+
+    {% include "v1/includes/casenav.html" %}
+
+    <h1 class="govuk-heading-l">Timeline</h1>
+
+  </main>
+
+</div>
+
+{% endblock %}
