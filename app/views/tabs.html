@@ -20,7 +20,7 @@
 
       <section class="govuk-tabs__panel  js-hidden" id="beforeYouStart">
         
-        <div class="govuk-prose-scope govuk-!-pt-r6">
+        <div class="govuk-prose-scope  govuk-!-pt-r6">
           
           <h2>Before you start</h2>
 
@@ -89,11 +89,6 @@
 {% endblock %}
 
 {% block page_scripts %}
-
-  <script src="/public/javascripts/jui/Tabs.js"></script>
-	
-  <script>
-    new Tabs($('.govuk-tabs'));
-  </script>
-
+  <script src="/public/javascripts/jui/Tabs.js"></script>	
+  <script>new Tabs($('.govuk-tabs'));</script>
 {% endblock %}
