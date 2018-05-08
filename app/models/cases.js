@@ -1,6 +1,37 @@
 var cases = [
 
   {
+    id: 'LU17C87541',
+    userID: 1,
+    type: 'Public Law',
+    urgent: true,
+    parties: [
+      {
+        type: 'Father',
+        title: 'Mr',
+        firstName: 'Brian',
+        lastName: 'Martins'
+      },
+      {
+        type: 'Mother',
+        title: 'Mrs',
+        firstName: 'Jane',
+        lastName: 'Martins'
+      }
+    ],
+    status: 'Unknown',
+    father: 'Brian Martins represented by John Charles',
+    mother: 'Jane Martins represented by Tim Dalton',
+    localAuthority: 'Jeremy Saunders',
+    cafcass: 'Sarah Dalton represented by Michelle Higgins',
+    children: 'Jane (7yrs), Mark (3mths)',
+    court: 'Luton County Court and Family Court',
+    applicationDate: '10 Feb 2018',
+    documents: '3 Doc (18 pages)',
+    lastAction: '24 Feb 2018'
+  },
+
+  {
     id: 'BV18D00150',
     userID: 1,
     type: 'Divorce',
@@ -31,7 +62,6 @@ var cases = [
     applicationDate: '11 Jan 2018',
     documents: '6 Docs (8 pages)',
     lastAction: '22 Jan 2018',
-    urgent: true,
     events: [
       {
         id: 1,
@@ -688,37 +718,7 @@ var cases = [
         ]
       }
     ]
-  },
-
-  {
-    id: 'LU17C87541',
-    userID: 1,
-    type: 'Public Law',
-    parties: [
-      {
-        type: 'Father',
-        title: 'Mr',
-        firstName: 'Brian',
-        lastName: 'Martins'
-      },
-      {
-        type: 'Mother',
-        title: 'Mrs',
-        firstName: 'Jane',
-        lastName: 'Martins'
-      }
-    ],
-    status: 'Unknown',
-    father: 'Brian Martins represented by John Charles',
-    mother: 'Jane Martins represented by Tim Dalton',
-    localAuthority: 'Jeremy Saunders',
-    cafcass: 'Sarah Dalton represented by Michelle Higgins',
-    children: 'Jane (7yrs), Mark (3mths)',
-    court: 'Luton County Court and Family Court',
-    applicationDate: '10 Feb 2018',
-    documents: '3 Doc (18 pages)',
-    lastAction: '24 Feb 2018'
-  },
+  }
 
 ];
 
