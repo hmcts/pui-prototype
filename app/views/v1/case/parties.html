@@ -1,0 +1,190 @@
+{% extends "layouts/layout.html" %}
+
+{% set casenavId = "parties" %}
+
+{% block page_title %}
+  Parties
+{% endblock %}
+
+{% block content %}
+  {% include "v1/includes/casebar.html" %}
+	<div class="jui-width-container">
+    <main role="main" class="govuk-o-main-wrapper">
+      {% include "v1/includes/casenav.html" %}
+
+
+      <h1 class="govuk-heading-l"> Parties </h1>
+
+			<div class="govuk-o-grid">
+			  <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+
+			  </div>
+			  <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+
+			  </div>
+			</div>
+
+			<div class="tabs">
+        <ul>
+            <li><a href="#a">Appellant</a></li>
+            <li><a href="#c">Respondent</a></li>
+        </ul>
+        <div class="tabs__panel" id="a">
+					<br>
+					<br>
+					<div class="govuk-o-grid">
+						<div class="govuk-o-grid__item govuk-o-grid__item--one-half">
+								{{ govukTable({
+									"classes": 'govuk-!-f-16',
+									"caption": "Appellant",
+									"captionClasses": 'govuk-!-f-24',
+									"firstCellIsHeader": true,
+									"rows": [
+										[
+											{
+												"text": "Name"
+											},
+											{
+												"text": 'Alan Jones'
+											}
+										],
+										[
+											{
+												"text": "Date of birth"
+											},
+											{
+												"text": '07 June 1981'
+											}
+										],
+										[
+											{
+												"text": "National Insurance number"
+											},
+											{
+												"text": 'JT 03 70 79 D'
+											}
+										],
+										[
+											{
+												"text": "Address"
+											},
+											{
+												"html": '24 Park Road<br>
+												Lewisham<br>
+												London<br>
+												E11 4PR'
+											 }
+										],
+										[
+											{
+												"text": "Phone"
+											},
+											{
+												"text": '07787 557967'
+											 }
+										],
+										[
+											{
+												"text": "Email"
+											},
+											{
+												"text": 'ajones@gmail.com'
+											 }
+										],
+										[
+											{
+												"text": "Representative"
+											},
+											{
+												"text": 'None'
+											 }
+										],
+										[
+											{
+												"text": "Considerations"
+											},
+											{
+												"text": 'Needs hearing loop'
+											 }
+										]
+									]
+								}) }}
+						</div>
+					</div>
+
+        </div>
+        <div class="tabs__panel" id="c">
+						<br>
+						<br>
+						<div class="govuk-o-grid">
+								<div class="govuk-o-grid__item govuk-o-grid__item--one-half">
+							{{ govukTable({
+								"classes": 'govuk-!-f-16',
+								"caption": "Respondent",
+								"captionClasses": 'govuk-!-f-24',
+								"firstCellIsHeader": true,
+								"rows": [
+									[
+										{
+											'text': 'Name'
+										},
+										{
+											'text': 'Department for Work and Pensions'
+										}
+									],
+									[
+										{
+											'text': 'Decision maker'
+										},
+										{
+											'text': 'Denise Okenwe'
+										}
+									],
+									[
+										{
+											'text': 'Presenting officer'
+										},
+										{
+											'text': 'Claire Potter'
+										}
+									],
+									[
+										{
+											'text': 'DWP office'
+										},
+										{
+											'text': '3'
+										}
+									],
+									[
+										{
+											'text': 'Email'
+										},
+										{
+											'text': 'dwp@dwp.com'
+										}
+									],
+									[
+										{
+											'text': 'Phone'
+										},
+										{
+											'text': '01838 787 637'
+										}
+									]
+								]
+							}) }}
+						</div>
+					</div>
+        </div>
+			</div>
+		</main>
+	</div>
+{% endblock %}
+
+{% block page_scripts %}
+	{% include "includes/scripts.html" %}
+	<script>
+    new Tabs($('.tabs'));
+  </script>
+{% endblock %}

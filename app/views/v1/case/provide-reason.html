@@ -1,0 +1,78 @@
+{% extends "layouts/layout.html" %}
+
+{% set pageID = "Make decision" %}
+
+{% block page_title %}Make decision - Judicial UI prototype{% endblock %}
+
+{% block content %}
+
+{% include "v1/includes/casebar.html" %}
+
+<div class="jui-width-container">
+
+  {{ govukBackLink({
+    "text": "Back",
+    "href": "./"
+  }) }}
+
+  <main role="main" class="govuk-o-main-wrapper">
+
+    <div class="govuk-o-grid">
+        
+      <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds">
+
+        <form method="post">
+
+          {{ govukCheckboxes({
+            "idPrefix": "reason",
+            "name": "reason",
+            "fieldset": {
+              "legendHtml": '<h1 class="govuk-heading-xl">Provide a reason</h1>',
+              "legendHintText": "Choose at least one of the following"
+            },
+            "items": [
+              {
+                "value": "1",
+                "html": "<b>Petitioner did not provide enough information</b> <p class=\"govuk-body-s govuk-!-mb-r1\">The petitioner did not provide enough information to establish that the court has jurisdiction to deal with the case.</p>"
+              },
+              {
+                "value": "2",
+                "html": "<b>Statement of case gives insufficient detail</b> <p class=\"govuk-body-s govuk-!-mb-r1\">The Statement of Case in the petition gives insufficient detail of the fact relied on. If the petitioner wishes to proceed on this fact further details must be provided and the petition will need to be amended and re-served.</p>"
+              },
+              {
+                "value": "3",
+                "html": "<b>There have been previous proceedings</b> <p class=\"govuk-body-s govuk-!-mb-r1\">There have been previous proceedings in respect of the marriage.</p>"
+              },
+              {
+                "value": "4",
+                "html": "<b>Marriage certificate quality not acceptable</b> <p class=\"govuk-body-s govuk-!-mb-r1\">The marriage certificate is not accepatable as the image or quality is in question.</p>"
+              },
+              {
+                "value": "5",
+                "html": "<b>Marriage certificate translation not acceptable</b> <p class=\"govuk-body-s govuk-!-mb-r1\">The translation of the marriage certificate is not acceptable.</p>"
+              },
+              {
+                "value": "6",
+                "html": "<b>Provide additional information</b>"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            "text": "Preview order",
+            "classes": "govuk-!-mb-r0"
+          }) }}
+
+        </form>
+
+        <p><a href="./">Cancel</a></p>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+{% endblock %}

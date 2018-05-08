@@ -1,0 +1,85 @@
+{% extends "layouts/layout.html" %}
+
+{% set pageID = "Costs order" %}
+
+{% block page_title %}Costs order - Judicial UI prototype{% endblock %}
+
+{% block content %}
+
+{% include "v1/includes/casebar.html" %}
+
+<div class="jui-width-container">
+
+  {{ govukBackLink({
+    "text": "Back",
+    "href": "./make-decision"
+  }) }}
+
+  <main role="main" class="govuk-o-main-wrapper">
+
+    <div class="govuk-o-grid">
+        
+      <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds">
+
+        <h1 class="govuk-heading-xl">Costs order</h1>
+
+        <div class="jui-panel  jui-panel--information">
+          
+          <dl>
+            <dt>Divorce patition</dt>
+            <dd>The applicant is also applying to the court to claim the costs of the divorce from the respondent.</dd>
+            <dt>Acknowledgement of service</dt>
+            <dd>I think we should pay equal amounts for the divorce as we both want it to happen.</dd>
+            <dt>Application for Decree nisi</dt>
+            <dd>I will accept the amount my wife has suggested</dd>
+          </dl>
+
+        </div>
+
+        <form method="post">
+
+          {{ govukRadios({
+            "idPrefix": "changed-name",
+            "name": "changed-name",
+            "fieldset": {
+              "legendHtml": '<h1 class="govuk-heading-l">Costs order decision</h1>',
+              "legendHintText": ""
+            },
+            "items": [
+              {
+                "value": "1",
+                "text": "An order that the Respondent shall pay the costs of the Petitioner"
+              },
+              {
+                "value": "2",
+                "text": "A financial order in terms agreed between the parties and approved by the court"
+              },
+              {
+                "value": "3",
+                "text": "No order for costs"
+              },
+              {
+                "value": "4",
+                "text": "Other"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            "text": "Submit",
+            "classes": "govuk-!-mb-r0"
+          }) }}
+
+        </form>
+
+        <p><a href="./">Cancel</a></p>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+{% endblock %}

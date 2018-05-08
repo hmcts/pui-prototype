@@ -1,0 +1,90 @@
+{% extends "layouts/layout.html" %}
+
+{% set pageID = "Summary" %}
+
+{% block page_title %}Summary - Judicial UI prototype{% endblock %}
+
+{% block content %}
+
+{% include "v1/includes/casebar.html" %}
+
+<div class="jui-width-container">
+
+  <main role="main" class="govuk-o-main-wrapper">
+
+    {% include "v1/includes/casenav.html" %}
+
+    <h1 class="govuk-heading-l">Summary</h1>
+
+    <div class="govuk-o-grid">
+        
+      <div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
+        
+        <h2 class="gov-heading-s  govuk-!-mb-r2">Case details</h2>
+
+        {{ govukTable({
+          "classes": "govuk-!-f-16  govuk-!-mb-r7",
+          "firstCellIsHeader": true,
+          "rows": detailsRows
+        }) }}
+
+      </div>
+
+      <div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
+
+        <h2 class="gov-heading-s  govuk-!-mb-r2">Representatives</h2>
+
+        {{ govukTable({
+          "classes": "govuk-!-f-16  govuk-!-mb-r7",
+          "firstCellIsHeader": true,
+          "rows": representativesRows
+        }) }}
+
+      </div>
+      
+    </div>
+
+    <h2 class="govuk-heading-m">Recent events</h2>
+
+    <p class="govuk-body">Below is the most recent events that have happened on this case.<br>You can view a <a href="/divorce/v1/case/{{cases.number}}/timeline">full timeline of events</a>.</p>
+
+    <div class="jui-timeline">
+
+      {% for events in case.events -%}
+      <div class="jui-timeline__item">
+        
+        <div class="jui-timeline__header">
+          <time datetime="">{{events.date}}</time>
+        </div>
+
+        <div class="jui-timeline__body">
+          
+          <div class="jui-timeline__event">
+
+            <div class="jui-timeline__title">
+              <h4>Application for divorce submitted <span class="jui-timeline__byline"> by {{events.actionBy}}</span></h4>
+            </div>
+
+            {% for file in events.files -%}
+            <div class="jui-document">
+              <a class="jui-document__link" href="/v1/case/{{case.id}}/casefile">
+                <span class="jui-document__title">{{file.name}}</span>
+                <span class="jui-document__meta">{{file.type}}, {{file.size}}, {{file.pages}}</span>
+              </a>
+            </div>
+            {% endfor %}
+
+          </div>
+
+        </div>
+        
+      </div>
+      {% endfor %}
+
+    </div>
+
+  </main>
+
+</div>
+
+{% endblock %}
