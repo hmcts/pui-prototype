@@ -1,0 +1,93 @@
+{% extends "cor/layouts/base.html" %}
+
+{% block page_title %}Create new direction {% endblock %}
+
+{% block after_header %}
+	{% include "cor/includes/casebar.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="jui-width-container">
+
+    <main role="main" class="govuk-o-main-wrapper">
+
+      <form action="/cor/v1/case/{{case.id}}/create-direction" method="post">
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "/cor/v1/case/"+case.id+"/directions"
+        }) }}
+
+        <h1 class="govuk-heading-l">Create direction</h1>
+
+        {{ govukRadios({
+          "idPrefix": "party",
+          "name": "party",
+          "fieldset": {
+            "legendHtml": 'Party'
+          },
+          "items": [
+            {
+              "value": "Alan Jones",
+              "text": "Alan Jones"
+            },
+            {
+              "value": "DWP",
+              "text": "DWP"
+            }
+          ]
+        }) }}
+
+        {{ govukRadios({
+          "idPrefix": "type",
+          "name": "type",
+          "fieldset": {
+            "legendHtml": 'Type'
+          },
+          "items": [
+            {
+              "value": "Document request",
+              "text": "Document request"
+            },
+            {
+              "value": "Statement confirmation",
+              "text": "Statement confirmation"
+            }
+          ]
+        }) }}
+
+        {{ govukTextarea({
+          "name": "message",
+          "id": "message",
+          "classes": "govuk-c-input--width-30",
+          "label": {
+            "html": 'Direction'
+          }
+        }) }}
+
+        {{ govukInput({
+          "label": {
+            "html": 'Due date'
+          },
+          "id": "dueDate",
+          "name": "dueDate",
+          "classes": "govuk-c-input--width-10"
+        }) }}
+
+
+
+        {{ govukButton({
+          "text": "Create direction"
+        }) }}
+
+      </form>
+
+    </main>
+
+  </div>
+
+{% endblock %}
+
+{% block page_scripts %}
+  {% include "cor/includes/global-scripts.html" %}
+{% endblock %}
