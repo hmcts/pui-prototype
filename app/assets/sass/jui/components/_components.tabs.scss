@@ -1,7 +1,5 @@
 /* ==========================================================================
    #TABS
-   
-   Tabs won’t enhance in IE9 (so we can use flex and box-shadow)
    ========================================================================== */
 
 .govuk-tabs__list {
@@ -21,54 +19,55 @@
 /* Enhanced with Match Media JS
    ========================================================================== */
 
-.govuk-tabs__list[role=tablist] {
-  border-bottom: 1px solid $govuk-border-colour;
-  display: flex;
-}
+@include mq($from: tablet) {
 
-.govuk-tabs__tab[role=tab] {
-  background-color: $govuk-grey-3;
-  color: $govuk-black;
-  margin-right: 6px;
-  padding-left: $govuk-spacing-scale-3;
-  padding-right: $govuk-spacing-scale-3;
-  text-align: center;
-  text-decoration: none;
+  .govuk-tabs-js {
 
-  &:focus {
-    background-color: $govuk-focus-colour;
-    box-shadow: inset 0 0 0 6px $govuk-focus-colour;
-    outline: none;
-  }
+    .govuk-tabs__list {
+      @include govuk-h-clearfix;
+      border-bottom: 1px solid $govuk-border-colour;
+    }
 
-}
+    .govuk-tabs__tab {
+      background-color: $govuk-grey-3;
+      color: $govuk-black;
+      float: left;
+      margin-right: 6px;
+      padding-left: $govuk-spacing-scale-3;
+      padding-right: $govuk-spacing-scale-3;
+      text-align: center;
+      text-decoration: none;
 
-.govuk-tabs__tab[aria-selected=true] {
-  background-color: $govuk-white;
-  border: 1px solid $govuk-border-colour;
-  border-bottom: 0;
-  margin-bottom: -1px;
-  margin-top: -7px;
-  padding: 16px 14px 17px;
+      &:focus {
+        background-color: $govuk-focus-colour;
+        box-shadow: inset 0 0 0 6px $govuk-focus-colour;
+        outline: none;
+      }
 
-  &:focus {
-   background-color: transparent;
-  }
+    }
 
-}
+    .govuk-tabs__panel--bordered {
+      border: 1px solid $govuk-border-colour;
+      border-top: 0;
+      padding-left: $govuk-spacing-scale-4;
+      padding-right: $govuk-spacing-scale-4;
+      padding-bottom: $govuk-spacing-scale-2;
+    }
 
+    .govuk-tabs__tab[aria-selected=true] {
+      background-color: $govuk-white;
+      border: 1px solid $govuk-border-colour;
+      border-bottom: 0;
+      margin-bottom: -1px;
+      margin-top: -7px;
+      padding: 16px 14px 17px;
 
-/* Style variants
-   ========================================================================== */
+      &:focus {
+        background-color: transparent;
+      }
 
-.govuk-tabs--dark {
+    }
 
-  .govuk-tabs__list[role=tablist] {
-    border-color: $govuk-black;
-  }
-
-  .govuk-tabs__tab[aria-selected=true] {
-    border-color: $govuk-black;
   }
 
 }
