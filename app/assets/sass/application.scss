@@ -12,13 +12,6 @@ $path: "/public/images/";
 @import "patterns/check-your-answers";
 @import "patterns/related-items";
 
-// Components that aren"t in Frontend
-@import "components/admin-header";
-@import "components/success";
-@import "components/case-header";
-@import "components/case-nav";
-@import "components/primary-nav";
-
 .code {
   color: $govuk-text-colour;
   background-color: $govuk-grey-4;
