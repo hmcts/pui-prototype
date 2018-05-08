@@ -15,61 +15,38 @@
 
   <main role="main" class="govuk-o-main-wrapper">
 
-    <div class="govuk-o-grid">
+    <form method="post">
+      {{ govukRadios({
+        "idPrefix": "user",
+        "name": "user",
+        "fieldset": {
+          "legendHtml": '<h1 class="govuk-heading-xl">Get new case</h1>',
+          "legendHintText": "You're ticketed for the following case types"
+        },
+        "items": [
+          {
+            "value": "1",
+            "text": "Divorce"
+          },
+          {
+            "value": "2",
+            "text": "Financial Remedy"
+          },
+          {
+            "value": "3",
+            "text": "Civil Money Claims"
+          }
+        ]
+      }) }}
 
-      <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds">
+      {{ govukButton({
+        "text": "Get new cases",
+        "classes": "govuk-!-mb-r0",
+        "element": "button"
+      }) }}
 
-        <h1 class="govuk-heading-xl">Get new case</h1>
-
-        <p class="govuk-body-m">You are ticketed for</p>
-
-        <ul class="govuk-list govuk-list--bullet  govuk-!-mb-r6">
-          <li>Divorce</li>
-          <li>Financial Remedy</li>
-          <li>Civil Money Claims</li>
-        </ul>
-
-        <form method="post">
-
-          {{ govukRadios({
-            "idPrefix": "user",
-            "name": "user",
-            "fieldset": {
-              "legendHtml": '<h2 class="govuk-heading-m">Type of case</h2>',
-              "legendHintText": "Choose the type of cases you want."
-            },
-            "items": [
-              {
-                "value": "1",
-                "text": "Divorce"
-              },
-              {
-                "value": "2",
-                "text": "Financial Remedy"
-              },
-              {
-                "value": "3",
-                "text": "Civil Money Claims"
-              }
-            ]
-          }) }}
-
-          {{ govukButton({
-            "text": "Get new cases",
-            "classes": "govuk-!-mb-r0",
-            "element": "button"
-          }) }}
-
-        </form>
-
-        <p><a href="./dashboard/">Cancel</a></p>
-
-      </div>
-
-    </div>
-
+    </form>
   </main>
-
 </div>
 
 {% endblock %}

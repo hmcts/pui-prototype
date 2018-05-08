@@ -56,7 +56,6 @@ router.get('/v1/dashboard', function(req, res) {
 
 		});
 
-	console.log(req.session.newCases);
 	if(req.session.newCases) {
 		var newCases = req.session.newCases
 		.map(function(c) {
