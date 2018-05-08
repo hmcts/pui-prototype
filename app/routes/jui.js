@@ -308,7 +308,7 @@ router.get('/v1/case/:id/directions', function(req, res) {
 
 router.get('/v1/case/:id/make-decision', function(req, res) {
 	var pageObject = {
-		casebar: helpers.helpers.getCaseBarObject(req.params.id),
+		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
 	res.render('v1/case/make-decision', pageObject);
