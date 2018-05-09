@@ -1,6 +1,6 @@
 var userEngine = require('../../models/users');
 var caseEngine = require('../../models/cases');
-var helpers = require('../helpers');
+var helpers    = require('../helpers');
 
 function viewCaseSummary(req, res) {
 
@@ -14,6 +14,7 @@ function viewCaseSummary(req, res) {
 		panelRows: []
 	};
 
+	// Case details
 	pageObject.detailsRows.push([{ html: 'Parties' }, {html: helpers.getPartiesLine(c.id)}]);
 	pageObject.detailsRows.push([{ html: 'Case number' }, {html: c.id}]);
 	pageObject.detailsRows.push([{ html: 'Case type' }, {html: c.benefit}]);
