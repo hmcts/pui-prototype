@@ -1,9 +1,33 @@
+var caseTypeMap = {
+  divorce: {
+    id: 1,
+    label: 'Divorce'
+  },
+  financialRemedy: {
+    id: 2,
+    label: 'Financial Remedy'
+  },
+  continuousOnlineResolution: {
+    id: 3,
+    label: 'Continuous Online Resolution'
+  },
+  publicLaw: {
+    id: 4,
+    label: 'Public Law'
+  },
+  civilMoneyClaims: {
+    id: 5,
+    label: 'Civil Money Claims'
+  }
+};
+
 var cases = [
 
   {
     id: 'LU17C87541',
     userID: 1,
     type: 'Public Law',
+    typeId: caseTypeMap.publicLaw.id,
     urgent: true,
     parties: [
       {
@@ -35,6 +59,7 @@ var cases = [
     id: 'BV18D00150',
     userID: 1,
     type: 'Divorce',
+    typeId: caseTypeMap.divorce.id,
     parties: [
       {
         type: 'Petitioner',
@@ -147,6 +172,7 @@ var cases = [
     id: 'BV18D00151',
     userID: 1,
     type: 'Financial Remedy',
+    typeId: caseTypeMap.financialRemedy.id,
     parties: [
       {
         type: 'Petitioner',
@@ -243,6 +269,7 @@ var cases = [
     id: 'BV18D00152',
     userID: 1,
     type: 'Financial Remedy',
+    typeId: caseTypeMap.financialRemedy.id,
     parties: [
       {
         type: 'Petitioner',
@@ -339,6 +366,7 @@ var cases = [
     id: 'BV18D00153',
     userID: 1,
     type: 'Divorce',
+    typeId: caseTypeMap.divorce.id,
     parties: [
       {
         type: 'Petitioner',
@@ -435,6 +463,7 @@ var cases = [
     id: 'BV18D00154',
     userID: 1,
     type: 'Financial Remedy',
+    typeId: caseTypeMap.financialRemedy.id,
     parties: [
       {
         type: 'Petitioner',
@@ -531,6 +560,7 @@ var cases = [
     id: '000LR095',
     userID: 1,
     type: 'Civil Money Claims',
+    typeId: caseTypeMap.civilMoneyClaims.id,
     parties: [
       {
         type: 'Claimant',
@@ -609,6 +639,7 @@ var cases = [
     id: 'CO18D00150',
     userID: 1,
     type: 'Continuous Online Resolution',
+    typeId: caseTypeMap.continuousOnlineResolution.id,
     parties: [
       {
         type: 'Appellant',
@@ -737,3 +768,7 @@ exports.getCase = function(caseId) {
     return c.id == caseId;
   })[0] || null;
 };
+
+exports.getCaseTypes = function() {
+  return caseTypeMap;
+}

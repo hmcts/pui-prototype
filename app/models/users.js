@@ -42,6 +42,18 @@ var users = [
         name: 'Continous Online Resolution'
       }
     ]
+  },
+
+  {
+    id: 3,
+    name: 'Angela ',
+    role: 'Legal Advisor',
+    juristictions: [
+      {
+        id: 1,
+        name: 'Divorce'
+      }
+    ]
   }
 
 ];

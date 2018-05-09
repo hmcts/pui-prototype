@@ -22,22 +22,31 @@
         <form method="post">
 
           {{ govukRadios({
-            "idPrefix": "user",
-            "name": "user",
+            "idPrefix": "role",
+            "name": "role",
             "fieldset": {
-              "legendHtml": '<h1 class="govuk-heading-l">What type of user are you?</h1>',
+              "legendHtml": '<h1 class="govuk-heading-l">What is your role?</h1>',
               "legendHintText": "Choosing a user type will adjust your viewing experience."
             },
             "items": [
               {
                 "value": "1",
-                "text": "I am a Legal Adviser"
+                "text": "Legal Adviser"
               },
               {
                 "value": "2",
-                "text": "I am a Judge"
+                "text": "Judge"
               }
             ]
+          }) }}
+
+          {{ govukCheckboxes({
+            "idPrefix": "services",
+            "name": "services",
+            "fieldset": {
+              "legendHtml": '<h1 class="govuk-heading-l">What do you work on?</h1>'
+            },
+            "items": services
           }) }}
 
           {{ govukButton({

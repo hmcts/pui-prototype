@@ -21,25 +21,41 @@ router.get('/signout', function (req, res) {
 
 router.get('/v1', function(req, res) {
 	req.session.destroy();
-	res.render('v1/index');
+
+	var pageObject = {}
+
+	pageObject.services = [];
+	Object.keys(caseEngine.getCaseTypes()).forEach(function(key) {
+		pageObject.services.push({
+			value: caseEngine.getCaseTypes()[key].id,
+			text: caseEngine.getCaseTypes()[key].label
+		});
+	});
+
+	res.render('v1/index', pageObject);
 });
 
 
 router.post('/v1', function(req, res) {
-	req.session.user = userEngine.getUser(parseInt(req.body.user, 10));
+	// load user
+	req.session.user = userEngine.getUser(parseInt(req.body.role, 10));
+
+	req.session.cases = caseEngine
+		.getCases()
+		.filter(function(c) {
+			var services = req.body.services.map(function(service) {
+				return parseInt(service, 10);
+			});
+			return services.indexOf(c.typeId) > -1;
+		});
+
 	res.redirect('/v1/dashboard');
 });
 
-
 router.get('/v1/dashboard', function(req, res) {
-
-	var caseList = caseEngine
-		.getCases()
-		.filter(function(c) {
-			return c.userID == req.session.user.id;
-		})
+	var caseList = req.session.cases
 		.map(function(c) {
-			
+
 			var cells = [];
 
 			cells.push({
@@ -204,7 +220,7 @@ router.get('/v1/case/:id/directions', function(req, res) {
 
 // Divorce service specific
 router.get('/v1/case/:id/make-decision', function(req, res) {
-	
+
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
