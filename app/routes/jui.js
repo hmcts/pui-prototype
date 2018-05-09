@@ -197,12 +197,17 @@ router.get('/v1/case/:id/directions', function(req, res) {
 });
 
 
+
+// Divorce service specific
 router.get('/v1/case/:id/make-decision', function(req, res) {
+	
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
-	res.render('v1/case/make-decision', pageObject);
+
+	res.render('v1/case/divorce/make-decision', pageObject);
+
 });
 
 
@@ -215,21 +220,45 @@ router.post('/v1/case/:id/make-decision', function(req, res) {
 });
 
 
+// No option route
 router.get('/v1/case/:id/provide-reason', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
-	res.render('v1/case/provide-reason', pageObject);
+	res.render('v1/case/divorce/provide-reason', pageObject);
 });
 
 
+router.post('/v1/case/:id/provide-reason', function(req, res) {
+	res.redirect('generate-order');
+});
+
+
+router.get('/v1/case/:id/generate-order', function(req, res) {
+	var pageObject = {
+		casebar: helpers.getCaseBarObject(req.params.id),
+		casenav: helpers.getCaseNavObject(req.params.id)
+	};
+	res.render('v1/case/divorce/generate-order', pageObject);
+});
+
+router.post('/v1/case/:id/generate-order', function(req, res) {
+	res.redirect('confirmation');
+});
+
+
+// Yes option route
 router.get('/v1/case/:id/costs-order', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
-	res.render('v1/case/costs-order', pageObject);
+	res.render('v1/case/divorce/costs-order', pageObject);
+});
+
+router.post('/v1/case/:id/costs-order', function(req, res) {
+	res.redirect('confirmation');
 });
 
 
@@ -237,7 +266,7 @@ router.get('/v1/case/:id/confirmation', function(req, res) {
 	var pageObject = {
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
-	res.render('v1/case/confirmation', pageObject);
+	res.render('v1/case/divorce/confirmation', pageObject);
 });
 
 

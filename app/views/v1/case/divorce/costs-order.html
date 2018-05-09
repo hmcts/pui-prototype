@@ -23,7 +23,6 @@
 
         <h1 class="govuk-heading-xl">Costs order</h1>
 
-
         {{ juiPanel({
           "classes": "jui-panel--information",
           "details": [
@@ -42,14 +41,13 @@
           ]
         }) }}
 
-
         <form method="post">
 
           {{ govukRadios({
             "idPrefix": "changed-name",
             "name": "changed-name",
             "fieldset": {
-              "legendHtml": '<h1 class="govuk-heading-l">Costs order decision</h1>',
+              "legendHtml": "<h1 class=\"govuk-heading-l\">Costs order decision</h1>",
               "legendHintText": ""
             },
             "items": [
