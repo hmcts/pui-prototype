@@ -23,18 +23,25 @@
 
         <h1 class="govuk-heading-xl">Costs order</h1>
 
-        <div class="jui-panel  jui-panel--information" role="status" aria-live="polite">
-          
-          <dl class="jui-panel__details">
-            <dt>Divorce petition</dt>
-            <dd>The applicant is also applying to the court to claim the costs of the divorce from the respondent.</dd>
-            <dt>Acknowledgement of service</dt>
-            <dd>I think we should pay equal amounts for the divorce as we both want it to happen.</dd>
-            <dt>Application for Decree nisi</dt>
-            <dd>I will accept the amount my wife has suggested</dd>
-          </dl>
 
-        </div>
+        {{ juiPanel({
+          "classes": "jui-panel--information",
+          "details": [
+            {
+              "title": "Divorce petition",
+              "description": "The applicant is also applying to the court to claim the costs of the divorce from the respondent."
+            },
+            {
+              "title": "Acknowledgement of service",
+              "description": "I think we should pay equal amounts for the divorce as we both want it to happen."
+            },
+            {
+              "title": "Application for Decree nisi",
+              "description": "I will accept the amount my wife has suggested."
+            }
+          ]
+        }) }}
+
 
         <form method="post">
 
