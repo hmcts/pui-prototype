@@ -21,7 +21,11 @@
 
 @include mq($from: tablet) {
 
-  .govuk-tabs--js {
+  .js-tabs-enabled {
+
+    .govuk-tabs {
+      margin-bottom: $govuk-spacing-scale-9;
+    }
 
     .govuk-tabs__list {
       @include govuk-h-clearfix;

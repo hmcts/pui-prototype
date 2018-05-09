@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 
+{% block body_start %}
+<script>document.body.className = ((document.body.className) ? document.body.className + ' js-tabs-enabled' : 'js-tabs-enabled');</script>
+{% endblock %}
+
 {% block page_title %}Tabs for GDS{% endblock %}
 
 {% block content %}
@@ -10,7 +14,7 @@
 
     <h1 class="govuk-heading-xl">Tabs</h1>
 
-    <div class="govuk-tabs  govuk-tabs--js">
+    <div class="govuk-tabs">
 
       <ul class="govuk-tabs__list">
         <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#beforeYouStart">Before you start</a></li>
@@ -82,6 +86,68 @@
 
     </div>
 
+    <div class="govuk-tabs">
+
+        <ul class="govuk-tabs__list">
+          <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#less">Less</a></li>
+          <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#but">But</a></li>
+          <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#better">Better</a></li>
+        </ul>
+
+        <section class="govuk-tabs__panel govuk-tabs__panel--bordered  js-hidden" id="less">
+
+          <div class="govuk-prose-scope  govuk-!-pt-r6">
+
+            <h2>Less</h2>
+
+            <p>To get your first provisional driving licence online for a car, motorcycle or moped you must:</p>
+
+            <ul>
+              <li>be a resident of Great Britain &ndash; there&rsquo;s a different service in <a href="">Northern Ireland</a></li>
+              <li>meet the minimum age requirement</li>
+              <li>meet the <a href="">minimum eyesight requirement</a></li>
+              <li>not be prevented from driving for any reason</li>
+            </ul>
+
+          </div>
+
+        </section>
+
+        <section class="govuk-tabs__panel govuk-tabs__panel--bordered js-hidden" id="but">
+
+          <div class="govuk-prose-scope  govuk-!-pt-r6">
+
+            <h2>But</h2>
+
+            <ul>
+              <li>proof of identification required</li>
+              <li>3 years of address details required</li>
+            </ul>
+          </div>
+
+        </section>
+
+        <section class="govuk-tabs__panel govuk-tabs__panel--bordered  js-hidden" id="better">
+
+          <div class="govuk-prose-scope  govuk-!-pt-r6">
+
+            <h2>Better</h2>
+
+            <p>You can apply by post by completing a D1 application form, which you can get from the <a href="">DVLA form ordering service</a> or from a Post Office.</p>
+
+            <p>You&rsquo;ll also need to include:</p>
+
+            <ul>
+              <li>original documentation confirming your identity</li>
+              <li>a colour <a href="">passport&ndash;style photograph</a></li>
+            </ul>
+
+          </div>
+
+        </section>
+
+      </div>
+
   </main>
 
 </div>
@@ -92,10 +158,11 @@
   <script src="/public/javascripts/jui/Tabs.js"></script>
   <script>
     if(Tabs) {
-      new Tabs($('.govuk-tabs'));
+      new Tabs($('.govuk-tabs').eq(0));
+      new Tabs($('.govuk-tabs').eq(1));
     } else {
-      $('.govuk-tabs--js .js-hidden').removeClass('js-hidden');
-      $('.govuk-tabs--js').removeClass('govuk-tabs--js');
+      $('.govuk-tabs .js-hidden').removeClass('js-hidden');
+      $('.js-tabs-enabled').removeClass('js-tabs-enabled');
     }
   </script>
 {% endblock %}

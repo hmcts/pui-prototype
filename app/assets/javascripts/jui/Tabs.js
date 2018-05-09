@@ -45,6 +45,10 @@ if(typeof window.matchMedia == 'function') {
 	};
 
 	Tabs.prototype.onHashChange = function (e) {
+		var hash = window.location.hash;
+		if(!this.hasTab(hash)) {
+			return;
+		}
 		if(this.changingHash) {
 			this.changingHash = false;
 			return;
@@ -61,6 +65,10 @@ if(typeof window.matchMedia == 'function') {
 			this.showTab(firstTab);
 			firstTab.focus();
 		}
+	};
+
+	Tabs.prototype.hasTab = function(hash) {
+		return this.container.find(hash).length;
 	};
 
 	Tabs.prototype.hideTab = function (tab) {

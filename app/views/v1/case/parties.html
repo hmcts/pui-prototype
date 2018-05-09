@@ -4,6 +4,10 @@
 
 {% block page_title %}Parties - Judicial UI prototype{% endblock %}
 
+{% block body_start %}
+<script>document.body.className = ((document.body.className) ? document.body.className + ' js-tabs-enabled' : 'js-tabs-enabled');</script>
+{% endblock %}
+
 {% block content %}
 
   {% include "v1/includes/casebar.html" %}
@@ -16,8 +20,8 @@
 
       <h1 class="govuk-heading-l">Parties</h1>
 
-				<div class="govuk-tabs  govuk-tabs-js">
-				
+				<div class="govuk-tabs">
+
 				<ul class="govuk-tabs__list">
 					<li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#petitioner">Petitioner</a></li>
 					<li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#respondent">Respondent</a></li>
@@ -63,7 +67,7 @@
 							}) }}
 
 						</div>
-					
+
 					</div>
 
 				</section>
@@ -112,16 +116,23 @@
 					</div>
 
 				</section>
-				
+
 			</div>
 
 		</main>
 
 	</div>
-	
+
 {% endblock %}
 
 {% block page_scripts %}
 	{% include "includes/scripts.html" %}
-	<script>new Tabs($('.govuk-tabs'));</script>
+  <script>
+    if(Tabs) {
+      new Tabs($('.govuk-tabs'));
+    } else {
+      $('.govuk-tabs .js-hidden').removeClass('js-hidden');
+      $('.js-tabs-enabled').removeClass('js-tabs-enabled');
+    }
+  </script>
 {% endblock %}
