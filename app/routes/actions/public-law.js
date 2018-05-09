@@ -14,7 +14,7 @@ function viewCaseSummary(req, res) {
 	};
 
 	// Case details
-	pageObject.detailsRows.push([{ html: 'Parties' }, {html: helpers.getPartiesLine(c.id)}]);
+	pageObject.detailsRows.push([{ html: 'Parties' }, { html: helpers.getPartiesLine(c.id) }]);
 	pageObject.detailsRows.push([{ html: 'Case number' },	{ html: c.id + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }]);
 	pageObject.detailsRows.push([{ html: 'Case type' },	{ html: c.type }]);
 	pageObject.detailsRows.push([{ html: 'Case status' },	{ html: c.status }]);

@@ -39,6 +39,7 @@ router.get('/v1/dashboard', function(req, res) {
 			return c.userID == req.session.user.id;
 		})
 		.map(function(c) {
+			
 			var cells = [];
 
 			cells.push({
@@ -48,7 +49,7 @@ router.get('/v1/dashboard', function(req, res) {
 			cells.push({ html: helpers.getPartiesLine(c.id)	});
 			cells.push({ html: c.type });
 			cells.push({ html: c.status });
-			cells.push({ html: c.applicationDate	});
+			cells.push({ html: c.applicationDate });
 			cells.push({ html: c.documents });
 			cells.push({ html: c.lastAction });
 
@@ -57,7 +58,9 @@ router.get('/v1/dashboard', function(req, res) {
 		});
 
 	if(req.session.newCases) {
+
 		var newCases = req.session.newCases
+
 		.map(function(c) {
 
 			var cells = [];
@@ -86,6 +89,7 @@ router.get('/v1/dashboard', function(req, res) {
 		};
 
 		caseList = caseList.injectArray(1, newCases);
+
 	}
 
 	var pageObject = {
