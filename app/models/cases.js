@@ -215,7 +215,7 @@ var cases = [
             name: 'Aknowledgement of service',
             url: '#',
             type: 'PDF',
-            size: '123KB',
+            size: '75KB',
             pages: '3 pages'
           }
         ]
@@ -232,8 +232,8 @@ var cases = [
             name: 'Petition for divorce',
             url: '#',
             type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
+            size: '45KB',
+            pages: '1 page'
           }
         ]
       },
