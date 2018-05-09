@@ -23,6 +23,10 @@
 
   .js-tabs-enabled {
 
+    .govuk-tabs {
+      margin-bottom: $govuk-spacing-scale-9;
+    }
+
     .govuk-tabs__list {
       @include govuk-h-clearfix;
       border-bottom: 1px solid $govuk-border-colour;
