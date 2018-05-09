@@ -2,7 +2,7 @@
 
 {% set pageID = "Casefile" %}
 
-{% block page_title %}Type of user - Judicial UI prototype{% endblock %}
+{% block page_title %}Your options - Judicial UI prototype{% endblock %}
 
 {% block content %}
 
@@ -19,14 +19,16 @@
 
       <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds">
 
+        <h1 class="govuk-heading-xl">Your options</h1>
+
         <form method="post">
 
           {{ govukRadios({
             "idPrefix": "role",
             "name": "role",
             "fieldset": {
-              "legendHtml": '<h1 class="govuk-heading-l">What is your role?</h1>',
-              "legendHintText": "Choosing a user type will adjust your viewing experience."
+              "legendHtml": "<h1 class=\"govuk-heading-m\">What is your role?</h1>",
+              "legendHintText": "Choose a suitable user type."
             },
             "items": [
               {
@@ -43,14 +45,17 @@
           {{ govukCheckboxes({
             "idPrefix": "services",
             "name": "services",
+            "classes": "govuk-!-mb-r4",
             "fieldset": {
-              "legendHtml": '<h1 class="govuk-heading-l">What do you work on?</h1>'
+              "legendHtml": "<h1 class=\"govuk-heading-m\">What juristictions do you work on?</h1>",
+              "legendHintText": "Select all options that are relevant to you."
             },
             "items": services
           }) }}
 
           {{ govukButton({
-            "text": "Submit"
+            "text": "Start",
+            "classes": "govuk-c-button--start"
           }) }}
 
         </form>
