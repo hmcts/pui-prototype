@@ -21,7 +21,7 @@
 
 @include mq($from: tablet) {
 
-  .govuk-tabs--js {
+  .js-tabs-enabled {
 
     .govuk-tabs__list {
       @include govuk-h-clearfix;
