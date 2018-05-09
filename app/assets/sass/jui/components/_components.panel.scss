@@ -14,6 +14,12 @@
 
 .jui-panel__title {
   @include govuk-font-bold-36;
+  margin-bottom: $govuk-spacing-scale-3;
+}
+
+
+.jui-panel__body {
+  @include govuk-font-regular-24;
 }
 
 
@@ -28,7 +34,7 @@
 
   dd {
     @include govuk-font-regular-16;
-    margin-left: $govuk-spacing-scale-4;
+    margin-left: 0;
     margin-bottom: $govuk-spacing-scale-4;
 
     &:last-child {
@@ -49,6 +55,7 @@
 
 
 .jui-panel--confirmation {
-  border-color: $govuk-button-colour;
+  border-color: $govuk-green;
+  color: $govuk-green;
   text-align: center;
 }
