@@ -13,6 +13,10 @@
 @import "components.menu";
 @import "components.caseactionsmenu";
 @import "components.panel";
-@import "components.tabs";
 @import "components.casefile";
 @import "components.direction-order";
+
+// Tab variations
+@import "components.tabs";
+@import "components.tabbed-nav";
+@import "components.tabbed-panel";

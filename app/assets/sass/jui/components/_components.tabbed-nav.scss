@@ -1,0 +1,65 @@
+/* ==========================================================================
+   #TABBED NAVIGATION
+   Requires work (simplify with mixins)
+   ========================================================================== */
+
+.govuk-tabs--nav {
+
+  @include mq($from: tablet) {
+
+    .govuk-tabs__list {
+      @include govuk-h-clearfix;
+      border-bottom: 1px solid $govuk-border-colour;
+    }
+
+    .govuk-tabs__list-item {
+      margin-left: 0;
+
+        &::before {
+          content: none;
+        }
+
+    }
+
+    .govuk-tabs__title {
+      @include govuk-h-visually-hidden;
+    }
+
+    .govuk-tabs__tab {
+      background-color: $govuk-grey-3;
+      float: left;
+      margin-right: $govuk-spacing-scale-1;
+      padding-left: $govuk-spacing-scale-3;
+      padding-right: $govuk-spacing-scale-3;
+      text-align: center;
+      text-decoration: none;
+
+      &:focus {
+        background-color: $govuk-focus-colour;
+        box-shadow: inset 0 0 0 3px $govuk-focus-colour;
+        outline: none;
+      }
+
+      &[aria-current=true] {
+        background-color: $govuk-white;
+        border: 1px solid $govuk-border-colour;
+        border-bottom: 0;
+        color: $govuk-black;
+        margin-bottom: -1px;
+        margin-top: - $govuk-spacing-scale-1;
+        padding-top: $govuk-spacing-scale-3 - 1px;
+        padding-right: $govuk-spacing-scale-3 - 1px;
+        padding-left: $govuk-spacing-scale-3 - 1px;
+        padding-bottom: $govuk-spacing-scale-3 + 1px;
+
+        &:focus {
+          background-color: transparent;
+        } 
+  
+      }
+
+    }
+
+  }
+
+}

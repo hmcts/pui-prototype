@@ -14,91 +14,48 @@
 
     <h1 class="govuk-heading-xl">Tabs</h1>
 
-    <div class="govuk-tabs">
 
-      <ul class="govuk-tabs__list">
-        <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#beforeYouStart">Before you start</a></li>
-        <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#needToKnow">Need to know</a></li>
-        <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#waysToApply">Ways to apply</a></li>
-      </ul>
+    <!-- Tabbed navigation -->
+    <div class="govuk-!-mb-r9">
 
-      <section class="govuk-tabs__panel  js-hidden" id="beforeYouStart">
+      <div class="govuk-tabs govuk-tabs--nav">
 
-        <div class="govuk-prose-scope  govuk-!-pt-r6">
+        <nav role="navigation">
 
-          <h2>Before you start</h2>
+          <h2 class="govuk-tabs__title">Contents</h2>
 
-          <p>To get your first provisional driving licence online for a car, motorcycle or moped you must:</p>
-
-          <ul>
-            <li>be a resident of Great Britain &ndash; there&rsquo;s a different service in <a href="">Northern Ireland</a></li>
-            <li>meet the minimum age requirement</li>
-            <li>meet the <a href="">minimum eyesight requirement</a></li>
-            <li>not be prevented from driving for any reason</li>
-            <li>pay &pound;50 by MasterCard, Visa, Electron, Maestro or Delta debit or credit card</li>
-            <li>have a valid UK passport or <a href="">other form of identity</a></li>
-            <li>have your National Insurance number if known</li>
-            <li>provide addresses where you&rsquo;ve lived for the last 3 years</li>
+          <ul class="govuk-tabs__list">
+            <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="/tabs">Parties</a></li>
+            <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="/tabs" aria-current="true">Parties</a></li>
+            <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="/tabs">Case file</a></li>
+            <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="/tabs">Timeline</a></li>
           </ul>
 
-        </div>
+        </nav>
 
-      </section>
-
-      <section class="govuk-tabs__panel js-hidden" id="needToKnow">
-
-        <div class="govuk-prose-scope  govuk-!-pt-r6">
-
-          <h2>Need to know</h2>
-
-          <ul>
-            <li>proof of identification required</li>
-            <li>3 years of address details required</li>
-            <li>debit or credit card required</li>
-          </ul>
-        </div>
-
-      </section>
-
-      <section class="govuk-tabs__panel  js-hidden" id="waysToApply">
-
-        <div class="govuk-prose-scope  govuk-!-pt-r6">
-
-          <h2>Ways to apply</h2>
-
-          <p>You can apply by post by completing a D1 application form, which you can get from the <a href="">DVLA form ordering service</a> or from a Post Office.</p>
-
-          <p>You&rsquo;ll also need to include:</p>
-
-          <ul>
-            <li>original documentation confirming your identity</li>
-            <li>a colour <a href="">passport&ndash;style photograph</a></li>
-            <li>the fee of &pound;50 by cheque or postal order payable to DVLA (do not send cash)</li>
-          </ul>
-
-          <p>Send your completed application and payment to DVLA, Swansea, SA99 1AD.</p>
-
-          <p>If you&rsquo;re including non&ndash;UK identity documents send your application and payment to DVLA, Swansea, SA99 1AF.</p>
-
-        </div>
-
-      </section>
+      </div>
 
     </div>
 
-    <div class="govuk-tabs">
+
+    <!-- Tabbed panel -->
+    <div class="govuk-!-mb-r9">
+
+      <div class="govuk-tabs govuk-tabs--panel">
+
+        <h2 class="govuk-tabs__title">Contents</h2>
 
         <ul class="govuk-tabs__list">
-          <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#less">Less</a></li>
-          <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#but">But</a></li>
-          <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#better">Better</a></li>
+          <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#waysToApply">Before you start</a></li>
+          <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#needToKnow">Need to know</a></li>
+          <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#beforeYouStart">Ways to apply</a></li>
         </ul>
 
-        <section class="govuk-tabs__panel govuk-tabs__panel--bordered  js-hidden" id="less">
+        <section class="govuk-tabs__panel  js-hidden" id="beforeYouStart">
 
           <div class="govuk-prose-scope  govuk-!-pt-r6">
 
-            <h2>Less</h2>
+            <h2>Before you start</h2>
 
             <p>To get your first provisional driving licence online for a car, motorcycle or moped you must:</p>
 
@@ -107,31 +64,36 @@
               <li>meet the minimum age requirement</li>
               <li>meet the <a href="">minimum eyesight requirement</a></li>
               <li>not be prevented from driving for any reason</li>
+              <li>pay &pound;50 by MasterCard, Visa, Electron, Maestro or Delta debit or credit card</li>
+              <li>have a valid UK passport or <a href="">other form of identity</a></li>
+              <li>have your National Insurance number if known</li>
+              <li>provide addresses where you&rsquo;ve lived for the last 3 years</li>
             </ul>
 
           </div>
 
         </section>
 
-        <section class="govuk-tabs__panel govuk-tabs__panel--bordered js-hidden" id="but">
+        <section class="govuk-tabs__panel  js-hidden" id="needToKnow">
 
           <div class="govuk-prose-scope  govuk-!-pt-r6">
 
-            <h2>But</h2>
+            <h2>Need to know</h2>
 
             <ul>
               <li>proof of identification required</li>
               <li>3 years of address details required</li>
+              <li>debit or credit card required</li>
             </ul>
           </div>
 
         </section>
 
-        <section class="govuk-tabs__panel govuk-tabs__panel--bordered  js-hidden" id="better">
+        <section class="govuk-tabs__panel  js-hidden" id="waysToApply">
 
           <div class="govuk-prose-scope  govuk-!-pt-r6">
 
-            <h2>Better</h2>
+            <h2>Ways to apply</h2>
 
             <p>You can apply by post by completing a D1 application form, which you can get from the <a href="">DVLA form ordering service</a> or from a Post Office.</p>
 
@@ -140,13 +102,21 @@
             <ul>
               <li>original documentation confirming your identity</li>
               <li>a colour <a href="">passport&ndash;style photograph</a></li>
+              <li>the fee of &pound;50 by cheque or postal order payable to DVLA (do not send cash)</li>
             </ul>
+
+            <p>Send your completed application and payment to DVLA, Swansea, SA99 1AD.</p>
+
+            <p>If you&rsquo;re including non&ndash;UK identity documents send your application and payment to DVLA, Swansea, SA99 1AF.</p>
 
           </div>
 
         </section>
 
       </div>
+
+    </div>
+
 
   </main>
 
@@ -158,10 +128,9 @@
   <script src="/public/javascripts/jui/Tabs.js"></script>
   <script>
     if(Tabs) {
-      new Tabs($('.govuk-tabs').eq(0));
-      new Tabs($('.govuk-tabs').eq(1));
+      new Tabs($('.govuk-tabs--panel').eq(0));
     } else {
-      $('.govuk-tabs .js-hidden').removeClass('js-hidden');
+      $('.govuk-tabs--panel .js-hidden').removeClass('js-hidden');
       $('.js-tabs-enabled').removeClass('js-tabs-enabled');
     }
   </script>
