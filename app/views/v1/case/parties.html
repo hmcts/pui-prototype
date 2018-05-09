@@ -20,7 +20,9 @@
 
       <h1 class="govuk-heading-l">Parties</h1>
 
-				<div class="govuk-tabs">
+			<div class="govuk-tabs  govuk-tabs--panel  govuk-!-mb-r6">
+
+				<h2 class="govuk-tabs__title">Contents</h2>
 
 				<ul class="govuk-tabs__list">
 					<li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#petitioner">Petitioner</a></li>
@@ -129,9 +131,9 @@
 	{% include "includes/scripts.html" %}
   <script>
     if(Tabs) {
-      new Tabs($('.govuk-tabs'));
+      new Tabs($('.govuk-tabs--panel').eq(0));
     } else {
-      $('.govuk-tabs .js-hidden').removeClass('js-hidden');
+      $('.govuk-tabs--panel .js-hidden').removeClass('js-hidden');
       $('.js-tabs-enabled').removeClass('js-tabs-enabled');
     }
   </script>
