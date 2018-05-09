@@ -1,5 +1,5 @@
-if(typeof window.matchMedia === 'function') {
-	function Tabs(container) {
+if(typeof window.matchMedia == 'function') {
+	var Tabs = function(container) {
 		this.container = container;
 		this.keys = { left: 37, right: 39, up: 38, down: 40 };
 		this.cssHide = 'js-hidden';
@@ -93,6 +93,7 @@ if(typeof window.matchMedia === 'function') {
 
 		// setup state
 		this.tabs.attr('tabindex', '-1');
+		this.panels.addClass(this.cssHide);
 
 		// if there's a tab that matches the hash
 		var tab = this.getTab(window.location.hash);
