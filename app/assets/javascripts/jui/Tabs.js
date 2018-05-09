@@ -134,7 +134,6 @@ if(typeof window.matchMedia == 'function') {
 	};
 
 	Tabs.prototype.onTabClick = function(e) {
-		console.log('tab clicked');
 		e.preventDefault();
 		var newTab = $(e.target);
 		var currentTab = this.getCurrentTab();
