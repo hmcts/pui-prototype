@@ -1,0 +1,70 @@
+/* ==========================================================================
+   #CASEFILE
+   This is just for demo purposes only. Not for production usage!
+   ========================================================================== */
+
+.jui-casefile {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.jui-casefile-files {
+  background-color: $govuk-grey-4;
+  box-sizing: border-box;
+  padding: 30px;
+  width: 300px;
+}
+
+
+.jui-casefile-page {
+  background-color: $govuk-grey-4;
+  box-sizing: border-box;
+  padding: 30px;
+  width: 900px;
+}
+
+
+.jui-casefile-page-head {
+  height: 74px;
+  margin-bottom: 40px;
+}
+
+
+.jui-casefile-page-content {
+  box-shadow: 0 4px 6px 0 rgba($govuk-black, .10);
+  background: $govuk-white;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 50px;
+  width: 100%;
+}
+
+
+.jui-casefile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    font-weight: bold;
+    margin-bottom: 5px;    
+  }
+
+  a {
+    &[aria-current] {
+      color: $govuk-black;
+    }
+  }
+
+  ul {
+    margin: 20px 0 20px 20px;
+    padding: 0;
+
+    li {
+      font-weight: normal;
+    }
+
+  }
+
+}
