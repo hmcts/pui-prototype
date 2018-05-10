@@ -3,8 +3,8 @@ if(typeof window.matchMedia == 'function') {
 		this.container = container;
 		this.keys = { left: 37, right: 39, up: 38, down: 40 };
 		this.cssHide = 'js-hidden';
-		this.tabs = container.find('.govuk-tabs__tab');
-		this.panels = container.find('.govuk-tabs__panel');
+		this.tabs = container.find('.govuk-tabbed-panel__tab');
+		this.panels = container.find('.govuk-tabbed-panel__content');
 		this.setupResponsiveChecks();
 	};
 
@@ -86,8 +86,8 @@ if(typeof window.matchMedia == 'function') {
 	};
 
 	Tabs.prototype.setupHtml = function() {
-		this.container.find('.govuk-tabs__list').attr('role', 'tablist');
-		this.container.find('.govuk-tabs__list-item').attr('role', 'presentation');
+		this.container.find('.govuk-tabbed-panel__list').attr('role', 'tablist');
+		this.container.find('.govuk-tabbed-panel__list-item').attr('role', 'presentation');
 		this.tabs.attr('role', 'tab');
 		this.panels.attr('role', 'tabpanel');
 		this.tabs.each($.proxy(function(i, tab) {
@@ -117,8 +117,8 @@ if(typeof window.matchMedia == 'function') {
 	};
 
 	Tabs.prototype.teardownHtml = function() {
-		this.container.find('.govuk-tabs__list').removeAttr('role');
-		this.container.find('.govuk-tabs__list-item').removeAttr('role');
+		this.container.find('.govuk-tabbed-panel__list').removeAttr('role');
+		this.container.find('.govuk-tabbed-panel__list-item').removeAttr('role');
 		this.tabs.removeAttr('role');
 		this.panels.removeAttr('role');
 		this.tabs.each($.proxy(function(i, tab) {

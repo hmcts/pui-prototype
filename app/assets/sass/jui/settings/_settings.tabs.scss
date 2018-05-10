@@ -1,0 +1,108 @@
+/* ==========================================================================
+   #TABS MIXINS
+   ========================================================================== */
+
+
+// DEFAULT
+@mixin tabs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+@mixin tabs-list-item {
+  margin-left: $govuk-spacing-scale-5;
+
+  &::before {
+    content: "— ";
+    margin-left: - $govuk-spacing-scale-5;
+    padding-right: $govuk-spacing-scale-1;
+  }
+
+}
+
+
+@mixin tabs-title {
+  @include govuk-font-regular-16;
+  margin-bottom: $govuk-spacing-scale-1;
+}
+
+
+@mixin tabs-tab {
+  @include govuk-font-regular-19;
+  display: inline-block;
+  padding-top: $govuk-spacing-scale-2;
+  padding-bottom: $govuk-spacing-scale-2;
+
+  &[aria-current=true] {
+    color: $govuk-black;
+    text-decoration: none;
+  }
+
+}
+
+
+@mixin tabs-content {
+  border: 1px solid $govuk-border-colour;
+  border-top: 0;
+  padding-left: $govuk-spacing-scale-4;
+  padding-right: $govuk-spacing-scale-4;
+  padding-bottom: $govuk-spacing-scale-2;
+}
+
+
+// ENHANCED
+@mixin tabs-enhanced-list {
+  @include govuk-h-clearfix;
+  border-bottom: 1px solid $govuk-border-colour;
+}
+
+
+@mixin tabs-enhanced-list-item {
+  margin-left: 0;
+          
+  &::before {
+    content: none;
+  }
+
+}
+
+
+@mixin tabs-enhanced-tab {
+  background-color: $govuk-grey-3;
+  float: left;
+  margin-right: $govuk-spacing-scale-1;
+  padding-left: $govuk-spacing-scale-4;
+  padding-right: $govuk-spacing-scale-4;
+  text-align: center;
+  text-decoration: none;
+
+  &:focus {
+    background-color: $govuk-focus-colour;
+    box-shadow: inset 0 0 0 3px $govuk-focus-colour;
+    outline: none;
+  }
+
+}
+
+
+@mixin tabs-enhanced-tab-selected {
+  background-color: $govuk-white;
+  border: 1px solid $govuk-border-colour;
+  border-bottom: 0;
+  color: $govuk-black;
+  margin-bottom: -1px;
+  margin-top: - $govuk-spacing-scale-1;
+
+  // 1px is compensation for border (otherwise we get a 1px shift)
+  padding-top: $govuk-spacing-scale-3 - 1px;
+  padding-right: $govuk-spacing-scale-4 - 1px;
+  padding-left: $govuk-spacing-scale-4 - 1px;
+  padding-bottom: $govuk-spacing-scale-3 + 1px;
+
+  &:focus {
+    background-color: transparent;
+  }
+
+}
