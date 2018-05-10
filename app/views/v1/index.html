@@ -37,7 +37,10 @@
               },
               {
                 "value": "2",
-                "text": "Judge"
+                "text": "Judge",
+                "conditional": {
+                  "html": "yeah"
+                }
               }
             ]
           }) }}
@@ -68,4 +71,11 @@
 
 </div>
 
+{% endblock %}
+
+{% block page_scripts %}
+  <script src="/public/javascripts/jui/RadiosReveal.js"></script>
+  <script>
+    new RadiosReveal($('.govuk-c-radios').eq(0));
+  </script>
 {% endblock %}

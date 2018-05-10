@@ -72,3 +72,29 @@ $path: "/public/images/";
   // right: 0;
   // bottom: 0;
 }
+
+$govuk-radios-size: $govuk-spacing-scale-7;
+$govuk-radios-label-padding-left-right: $govuk-spacing-scale-3;
+
+$conditional-border-width: $govuk-border-width-mobile;
+// Calculate the amount of padding needed to keep the border centered against the radios.
+$conditional-border-padding: ($govuk-radios-size / 2) - ($conditional-border-width / 2);
+// Move the border centered with the radios
+$conditional-margin-left: $conditional-border-padding;
+// Move the contents of the conditional inline with the label
+$conditional-padding-left: $conditional-border-padding + $govuk-radios-label-padding-left-right;
+
+.govuk-c-radios__conditional {
+  @include govuk-responsive-margin($govuk-spacing-responsive-4, "bottom");
+  margin-left: $conditional-margin-left;
+  padding-left: $conditional-padding-left;
+  border-left: $conditional-border-width solid $govuk-border-colour;
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
