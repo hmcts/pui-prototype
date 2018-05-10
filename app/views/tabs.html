@@ -18,20 +18,16 @@
     <!-- Tabbed navigation -->
     <div class="govuk-!-mb-r9">
 
-      <div class="govuk-tabs govuk-tabs--nav">
+      <div class="govuk-tabbed-nav">
 
-        <nav role="navigation">
+        <h2 class="govuk-tabbed-nav__title">Contents</h2>
 
-          <h2 class="govuk-tabs__title">Contents</h2>
-
-          <ul class="govuk-tabs__list">
-            <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="/tabs">Parties</a></li>
-            <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="/tabs" aria-current="true">Parties</a></li>
-            <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="/tabs">Case file</a></li>
-            <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="/tabs">Timeline</a></li>
-          </ul>
-
-        </nav>
+        <ul class="govuk-tabbed-nav__list">
+          <li class="govuk-tabbed-nav__list-item"><a class="govuk-tabbed-nav__tab" href="/tabs">Parties</a></li>
+          <li class="govuk-tabbed-nav__list-item"><a class="govuk-tabbed-nav__tab" href="/tabs" aria-current="true">Parties</a></li>
+          <li class="govuk-tabbed-nav__list-item"><a class="govuk-tabbed-nav__tab" href="/tabs">Case file</a></li>
+          <li class="govuk-tabbed-nav__list-item"><a class="govuk-tabbed-nav__tab" href="/tabs">Timeline</a></li>
+        </ul>
 
       </div>
 
@@ -41,17 +37,17 @@
     <!-- Tabbed panel -->
     <div class="govuk-!-mb-r9">
 
-      <div class="govuk-tabs govuk-tabs--panel">
+      <div class="govuk-tabbed-panel">
 
-        <h2 class="govuk-tabs__title">Contents</h2>
+        <h2 class="govuk-tabbed-panel__title">Contents</h2>
 
-        <ul class="govuk-tabs__list">
-          <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#waysToApply">Before you start</a></li>
-          <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#needToKnow">Need to know</a></li>
-          <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#beforeYouStart">Ways to apply</a></li>
+        <ul class="govuk-tabbed-panel__list">
+          <li class="govuk-tabbed-panel__list-item"><a class="govuk-tabbed-panel__tab" href="#waysToApply">Before you start</a></li>
+          <li class="govuk-tabbed-panel__list-item"><a class="govuk-tabbed-panel__tab" href="#needToKnow">Need to know</a></li>
+          <li class="govuk-tabbed-panel__list-item"><a class="govuk-tabbed-panel__tab" href="#beforeYouStart">Ways to apply</a></li>
         </ul>
 
-        <section class="govuk-tabs__panel  js-hidden" id="beforeYouStart">
+        <section class="govuk-tabbed-panel__content  js-hidden" id="beforeYouStart">
 
           <div class="govuk-prose-scope  govuk-!-pt-r6">
 
@@ -74,7 +70,7 @@
 
         </section>
 
-        <section class="govuk-tabs__panel  js-hidden" id="needToKnow">
+        <section class="govuk-tabbed-panel__content  js-hidden" id="needToKnow">
 
           <div class="govuk-prose-scope  govuk-!-pt-r6">
 
@@ -89,7 +85,7 @@
 
         </section>
 
-        <section class="govuk-tabs__panel  js-hidden" id="waysToApply">
+        <section class="govuk-tabbed-panel__content  js-hidden" id="waysToApply">
 
           <div class="govuk-prose-scope  govuk-!-pt-r6">
 
@@ -128,9 +124,9 @@
   <script src="/public/javascripts/jui/Tabs.js"></script>
   <script>
     if(Tabs) {
-      new Tabs($('.govuk-tabs--panel').eq(0));
+      new Tabs($('.govuk-tabbed-panel').eq(0));
     } else {
-      $('.govuk-tabs--panel .js-hidden').removeClass('js-hidden');
+      $('.govuk-tabbed-panel .js-hidden').removeClass('js-hidden');
       $('.js-tabs-enabled').removeClass('js-tabs-enabled');
     }
   </script>

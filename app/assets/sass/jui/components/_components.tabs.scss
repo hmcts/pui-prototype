@@ -1,42 +1,107 @@
 /* ==========================================================================
    #TABS
-   Requires work (simplify with mixins)
+
+   1. Tabbed navigation (clicking a tab takes you to a whole new page)
+   2. Tabbed panels
    ========================================================================== */
 
-.govuk-tabs__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+
+// 1. Tabbed navigation
+.govuk-tabbed-nav__list {
+  @include tabs-list;
+
+  @include mq($from: tablet) {
+    @include tabs-enhanced-list;
+  }
+
 }
 
+.govuk-tabbed-nav__list-item {
+  @include tabs-list-item;
 
-.govuk-tabs__list-item {
-  margin-left: $govuk-spacing-scale-5;
+  @include mq($from: tablet) {
+    @include tabs-enhanced-list-item;
+  }
 
-  &::before {
-    content: "— ";
-    margin-left: - $govuk-spacing-scale-5;
-    padding-right: $govuk-spacing-scale-1;
+}
+
+.govuk-tabbed-nav__title {
+  @include tabs-title;
+
+  @include mq($from: tablet) {
+    display: none;
+  }
+
+}
+
+.govuk-tabbed-nav__tab {
+  @include tabs-tab;
+
+  @include mq($from: tablet) {
+    @include tabs-enhanced-tab;
+
+    &[aria-current=true] {
+      @include tabs-enhanced-tab-selected;
+    }
+
   }
 
 }
 
 
-.govuk-tabs__title {
-  @include govuk-font-regular-16;
-  margin-bottom: $govuk-spacing-scale-1;
+// 2. Tabbed panel
+.govuk-tabbed-panel__list {
+  @include tabs-list;
+}
+
+.govuk-tabbed-panel__title {
+  @include tabs-title;
+}
+
+.govuk-tabbed-panel__list {
+  @include tabs-list;
+}
+
+.govuk-tabbed-panel__list-item {
+  @include tabs-list-item;
+}
+
+.govuk-tabbed-panel__tab {
+  @include tabs-tab;
 }
 
 
-.govuk-tabs__tab {
-  @include govuk-font-regular-19;
-  display: inline-block;
-  padding-top: $govuk-spacing-scale-2;
-  padding-bottom: $govuk-spacing-scale-2;
+// JavaScript enabled
+.js-tabs-enabled .govuk-tabbed-panel {
 
-  &[aria-current=true] {
-    color: $govuk-black;
-    text-decoration: none;
+  @include mq($from: tablet) {
+
+    .govuk-tabbed-panel__list {
+      @include tabs-enhanced-list;
+    }
+
+    .govuk-tabbed-panel__list-item {
+      @include tabs-enhanced-list-item;
+    }
+
+    .govuk-tabbed-panel__title {
+      display: none;    
+    }
+
+    .govuk-tabbed-panel__tab {
+      @include tabs-enhanced-tab;
+      color: $govuk-black;
+
+      &[aria-selected=true] {
+        @include tabs-enhanced-tab-selected;
+      }
+
+    }
+
+    .govuk-tabbed-panel__content {
+      @include tabs-content;
+    }
+
   }
 
 }
