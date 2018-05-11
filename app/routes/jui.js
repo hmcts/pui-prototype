@@ -22,7 +22,7 @@ router.get('/signout', function (req, res) {
 router.get('/v1', function(req, res) {
 	req.session.destroy();
 
-	var pageObject = {}
+	var pageObject = {};
 
 	pageObject.services = [];
 	Object.keys(caseEngine.getCaseTypes()).forEach(function(key) {
@@ -232,11 +232,13 @@ router.get('/v1/case/:id/make-decision', function(req, res) {
 
 
 router.post('/v1/case/:id/make-decision', function(req, res) {
-	if (req.param('satisifed') == 'no') {
+	
+	if (req.body.satisfied === 'no') {
 		res.redirect('provide-reason');
 	} else {
 		res.redirect('costs-order');
 	}
+
 });
 
 
