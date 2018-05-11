@@ -284,6 +284,15 @@ router.post('/v1/case/:id/costs-order', function(req, res) {
 });
 
 
+router.get('/v1/case/:id/check-your-answers', function(req, res) {
+	var pageObject = {
+		casebar: helpers.getCaseBarObject(req.params.id),
+		casenav: helpers.getCaseNavObject(req.params.id)
+	};
+	res.render('v1/case/divorce/check-your-answers', pageObject);
+});
+
+
 router.get('/v1/case/:id/confirmation', function(req, res) {
 	var pageObject = {
 		casenav: helpers.getCaseNavObject(req.params.id)
