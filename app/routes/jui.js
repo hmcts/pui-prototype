@@ -193,6 +193,15 @@ router.get('/v1/case/:id/casefile', function(req, res) {
 });
 
 
+router.get('/v1/case/:id/casefile/b', function(req, res) {
+	var pageObject = {
+		casebar: helpers.getCaseBarObject(req.params.id),
+		casenav: helpers.getCaseNavObject(req.params.id)
+	};
+	res.render('v1/case/casefileB.html', pageObject);
+});
+
+
 router.get('/v1/case/:id/timeline', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),

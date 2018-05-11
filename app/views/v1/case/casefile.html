@@ -21,14 +21,15 @@
       <div class="jui-casefile-files">
 
         <ul class="jui-casefile-list">
-          <li><a href="#" aria-current="true">A. Applicant</a>
-            <ul>
-              <li><a href="#" aria-current="true">Application for decree nisi</a></li>
-              <li><a href="#">Petition for divorce</a></li>
-              <li><a href="#">Marriage certificate</a></li>
+          <li><a href="/v1/case/{{casenav.id}}/casefile" aria-current="true">A. Key facts</a></li>
+          <li><a href="/v1/case/{{casenav.id}}/casefile/b">B. Applicant</a>
+            <ul class="hidden">
+              <li><a href="">Application for decree nisi</a></li>
+              <li><a href="">Petition for divorce</a></li>
+              <li><a href="">Marriage certificate</a></li>
             </ul>
           </li>
-          <li><a href="#">B. Respondent</a></li>
+          <li><a href="">C. Respondent</a></li>
         </ul>
 
       </div>
@@ -43,39 +44,129 @@
 
           <div class="jui-casefile-page-body">
 
-            <h2 class="govuk-heading-l">Application for decree nisi</h2>
+            <h2 class="govuk-heading-l">Key facts</h2>
 
-            <p class="govuk-body">David Francis is applying to the court for a decree of divorce from Susan Francis.</p>
+            {{ govukTable({
+              "firstCellIsHeader": true,
+              "caption": "1. Petitioner details",
+              "captionClasses": "govuk-heading-s",
+              "classes": "govuk-!-f-16  govuk-!-mb-r8  jui-table  jui-table--fixed",
+              "rows": [
+                [
+                  {"text": "Full name"},
+                  {"text": "David Francis"}
+                ],
+                [
+                  {"text": "Date of birth"},
+                  {"text": "7 June 1981"}
+                ],
+                [
+                  {"text": "Address"},
+                  {"html": "24 Park Road<br>Lewisham<br>London<br>E11 4PR"}
+                ]
+              ]
+            }) }}
 
-            <h4>Issued</h4>
-            <p class="govuk-!-mt-r0">18 February 2018</p>
+            {{ govukTable({
+              "firstCellIsHeader": true,
+              "caption": "2. Respondent details",
+              "captionClasses": "govuk-heading-s",
+              "classes": "govuk-!-f-16  govuk-!-mb-r8  jui-table  jui-table--fixed",
+              "rows": [
+                [
+                  {"text": "Full name"},
+                  {"text": "Susan Francis"}
+                ],
+                [
+                  {"text": "Date of birth"},
+                  {"text": "16 April 1979"}
+                ],
+                [
+                  {"text": "Address"},
+                  {"html": "89 London Road<br>Hinckley<br>London<br>LE10 1HH"}
+                ]
+              ]
+            }) }}
 
-            <h4>Case number</h4>
-            <p class="govuk-!-mt-r0">BV18D00150</p>
 
-            <h4>Petitioner</h4>
-            <p class="govuk-!-mt-r0">David Francis</p>
+            {{ govukTable({
+              "firstCellIsHeader": true,
+              "caption": "3. Facts relied upon",
+              "captionClasses": "govuk-heading-s",
+              "classes": "govuk-!-f-16  govuk-!-mb-r8  jui-table  jui-table--fixed",
+              "rows": [
+                [
+                  {"text": "Reason for divorce"},
+                  {"text": "Separated for 2 years and consent"}
+                ],
+                [
+                  {"text": "Length of separation"},
+                  {"text": "2 years 3 months"}
+                ],
+                [
+                  {"text": "Date of petition"},
+                  {"html": "3 April 2018<br>Changes since petition (none)"}
+                ],
+                [
+                  {"text": "Date of marriage"},
+                  {"text": "1 January 2014 (4 years 3 months)"}
+                ],
+                [
+                  {"text": "Place of marriage"},
+                  {"html": "<a href=\"\">London, England, United Kingdom</a>"}
+                ]
+              ]
+            }) }}
 
-            <h4>Respondent</h4>
-            <p class="govuk-!-mt-r0">Susan Francis</p>
 
-            <h3 class="govuk-heading-m  govuk-!-mt-r6">About the marriage</h3>
+            {{ govukTable({
+              "firstCellIsHeader": true,
+              "caption": "4. Service and Respondent’s response",
+              "captionClasses": "govuk-heading-s",
+              "classes": "govuk-!-f-16  govuk-!-mb-r8  jui-table  jui-table--fixed",
+              "rows": [
+                [
+                  {"text": "Acknowledged by Respondent"},
+                  {"text": "Yes"}
+                ],
+                [
+                  {"text": "Intention to Defend"},
+                  {"text": "No"}
+                ],
+                [
+                  {"text": "Consent to divorce"},
+                  {"text": "Yes"}
+                ],
+                [
+                  {"text": "Jurisdiction response"},
+                  {"html": "England and Wales (both habitually resident)<br>Respondent agrees (yes)"}
+                ]
+              ]
+            }) }}
 
-            <h4>Who the marriage is between</h4>
-            <p class="govuk-!-mt-r0">David Francis and Susan Francis (as shown on the marriage certificate)</p>
 
-            <h4>Where the marriage took place</h4>
-            <p class="govuk-!-mt-r0">London, United Kingdom</p>
+            {{ govukTable({
+              "firstCellIsHeader": true,
+              "caption": "5. Other details",
+              "captionClasses": "govuk-heading-s",
+              "classes": "govuk-!-f-16  jui-table  jui-table--fixed",
+              "rows": [
+                [
+                  {"text": "Address last lived"},
+                  {"html": "24 Park Road<br>Lewisham<br>London<br>E11 4PR"}
+                ],
+                [
+                  {"text": "Date of application for decree nisi"},
+                  {"html": "5 May 2018"}
+                ],
+                [
+                  {"text": "Changes since petition"},
+                  {"html": "None"}
+                ]
+              ]
+            }) }}
 
-            <h4>Date of marriage</h4>
-            <p class="govuk-!-mt-r0">1 January 2000</p>
-
-            <h3 class="govuk-heading-m  govuk-!-mt-r6">Why the court can deal with the case (jurisdiction)</h3>
-
-            <p>The applicant and respondent are habitually resident in England and Wales.</p>
-
-            <h4>Other court cases that could affect juristiction</h4>            
-            <p class="govuk-!-mt-r0">There are no other ongoing, completed or abandoned court cases related to the marriage, property or children.</p>
+            </div>
 
           </div>
 

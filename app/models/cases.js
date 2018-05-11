@@ -83,7 +83,7 @@ var cases = [
       }
     ],
     status: 'Consider decree nisi',
-    reason: 'Adultery',
+    reason: 'Separated for 2 years and consent',
     applicationDate: '11 Jan 2018',
     documents: '6 Docs (8 pages)',
     lastAction: '22 Jan 2018',
@@ -196,7 +196,7 @@ var cases = [
       }
     ],
     status: 'Draft concent order',
-    reason: 'Adultery',
+    reason: 'Separated for 2 years and consent',
     applicationDate: '23 Jan 2018',
     documents: '2 Docs (2 pages)',
     lastAction: '16 Feb 2018',
@@ -293,7 +293,7 @@ var cases = [
       }
     ],
     status: 'Draft concent order',
-    reason: 'Adultery',
+    reason: 'Separated for 2 years and consent',
     applicationDate: '23 Jan 2018',
     documents: '2 Docs (2 pages)',
     lastAction: '16 Feb 2018',
@@ -390,7 +390,7 @@ var cases = [
       }
     ],
     status: 'Consider decree nisi',
-    reason: 'Adultery',
+    reason: 'Separated for 2 years and consent',
     applicationDate: '23 Jan 2018',
     documents: '3 Docs (8 pages)',
     lastAction: '16 Feb 2018',
@@ -487,7 +487,7 @@ var cases = [
       }
     ],
     status: 'Consider decree nisi',
-    reason: 'Adultery',
+    reason: 'Separated for 2 years and consent',
     applicationDate: '16 Feb 2018',
     documents: '4 Docs (8 pages)',
     lastAction: '16 Feb 2018',
