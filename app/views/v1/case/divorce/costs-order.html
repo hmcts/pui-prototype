@@ -18,7 +18,7 @@
   <main role="main" class="govuk-o-main-wrapper">
 
     <div class="govuk-o-grid">
-        
+
       <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds">
 
         <h1 class="govuk-heading-xl">Costs order</h1>
@@ -43,21 +43,59 @@
 
         <form method="post">
 
+          {% set sub1 %}
+            {{ govukRadios({
+              "idPrefix": "sub1",
+              "name": "sub1",
+              "fieldset": {
+                "legendHtml": "<h2 class=\"govuk-heading-l\">Choose option</h2>"
+              },
+              "items": [
+                {
+                  "value": "1",
+                  "text": "Agreed to",
+                  "conditional": {
+                    "html": "yeah"
+                  }
+                },
+                {
+                  "value": "2",
+                  "text": "Limited to",
+                  "conditional": {
+                    "html": "yeah"
+                  }
+                },
+                {
+                  "value": "3",
+                  "text": "To be subject to detailed assessment if not agreed",
+                  "conditional": {
+                    "html": "yeah"
+                  }
+                }
+              ]
+            }) }}
+          {% endset %}
+
           {{ govukRadios({
             "idPrefix": "costs-order-decision",
             "name": "costs-order-decision",
             "fieldset": {
-              "legendHtml": "<h1 class=\"govuk-heading-l\">Costs order decision</h1>",
-              "legendHintText": ""
+              "legendHtml": "<h2 class=\"govuk-heading-l\">Costs order decision</h2>"
             },
             "items": [
               {
                 "value": "1",
-                "text": "An order that the Respondent shall pay the costs of the Petitioner"
+                "text": "An order that the Respondent shall pay the costs of the Petitioner",
+                "conditional": {
+                  "html": sub1
+                }
               },
               {
                 "value": "2",
-                "text": "A financial order in terms agreed between the parties and approved by the court"
+                "text": "A financial order in terms agreed between the parties and approved by the court",
+                "conditional": {
+                  "html": "yeah"
+                }
               },
               {
                 "value": "3",
@@ -87,4 +125,10 @@
 
 </div>
 
+{% endblock %}
+
+{% block page_scripts %}
+  <script>
+    new RadiosReveal($('.govuk-c-radios'));
+  </script>
 {% endblock %}
