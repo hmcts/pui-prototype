@@ -6,29 +6,55 @@
 
 {% block content %}
 
+{% include "v1/includes/casebar.html" %}
+
 <div class="jui-width-container">
 
-  <main role="main" class="govuk-o-main-wrapper">
+  {{ govukBackLink({
+    "text": "Back",
+    "href": ""
+  }) }}
 
-    <div class="jui-panel  jui-panel--confirmation" role="status" aria-live="polite">      
-      <h1 class="jui-panel__title">Decision submitted</h1>
-      <div class="jui-panel__body">Case number<br><strong>BV18D00150</strong></div>
-    </div>
+  <main role="main" class="govuk-o-main-wrapper">
 
     <div class="govuk-o-grid">
         
       <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds">
 
+        <h1 class="govuk-heading-xl">Check your answers before sending your costs order decision</h1>
+
+        <h2 class="govuk-heading-m">Costs order decision</h2>
+
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-mb-r8">
+
+          <div class="govuk-check-your-answers__contents">
+            <dt class="govuk-check-your-answers__question">Decision</dt>
+            <dd class="govuk-check-your-answers__answer">An order that the Respondent shall pay the costs of the Petitioner.</dd>
+            <dd class="govuk-check-your-answers__change"><a href="#">Change</a></dd>
+          </div>
+
+          <div class="govuk-check-your-answers__contents">
+            <dt class="govuk-check-your-answers__question">Limited to</dt>
+            <dd class="govuk-check-your-answers__answer">50% (as percentage)</dd>
+            <dd class="govuk-check-your-answers__change"><a href="#">Change</a></dd>
+          </div>
+
+        </dl>
+
+        <h2 class="govuk-heading-m">Now submit your costs order decision</h2>
+
+        <p class="govuk-body">By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
         {{ govukButton({
-          "text": "Back to dashboard",
-          "href": "/v1/dashboard"
+          "text": "Accept and submit costs order",
+          "href": ""
         }) }}
 
-      </main>
+      </div>
 
     </div>
 
-  </div>
+  </main>
 
 </div>
 
