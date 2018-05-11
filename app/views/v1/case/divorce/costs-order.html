@@ -46,6 +46,7 @@
 
           <!-- Pounds or percentages -->
           {% set poundsPercentages %}
+            
             {{ govukInput({
               "label": {
                 "text": "In pounds"
@@ -54,6 +55,16 @@
               id: "in-pounds",
               name: "in-pounds"
             }) }}
+
+            {{ govukInput({
+              "label": {
+                "text": "Or as a percentage"
+              },
+              classes: "govuk-c-input--width-10",
+              id: "in-percentages",
+              name: "in-percentages"
+            }) }}
+
           {% endset %}
 
 
@@ -114,10 +125,7 @@
                 },
                 {
                   "value": "3",
-                  "text": "To be subject to detailed assessment if not agreed",
-                  "conditional": {
-                    "html": "yeah"
-                  }
+                  "text": "To be subject to detailed assessment if not agreed"
                 }
               ]
             }) }}
