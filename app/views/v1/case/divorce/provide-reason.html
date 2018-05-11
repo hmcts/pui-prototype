@@ -18,10 +18,22 @@
   <main role="main" class="govuk-o-main-wrapper">
 
     <div class="govuk-o-grid">
-        
+
       <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds">
 
         <form method="post">
+
+
+          {% set sub1 %}
+            {{ govukTextarea({
+              "name": "additionalInformation",
+              "id": "additionalInformation",
+              "classes": "govuk-c-input--width-30",
+              "label": {
+                "html": 'Additional information'
+              }
+            }) }}
+          {% endset %}
 
           {{ govukCheckboxes({
             "idPrefix": "reason",
@@ -53,7 +65,10 @@
               },
               {
                 "value": "Provide additional information",
-                "html": "<span class=\"govuk-heading-s govuk-!-mb-r1\">Provide additional information</span>"
+                "html": "<span class=\"govuk-heading-s govuk-!-mb-r1\">Provide additional information</span>",
+                "conditional": {
+                  "html": sub1
+                }
               }
             ]
           }) }}
@@ -76,4 +91,10 @@
 
 </div>
 
+{% endblock %}
+
+{% block page_scripts %}
+  <script>
+    new CheckboxesReveal($('.govuk-c-checkboxes'));
+  </script>
 {% endblock %}
