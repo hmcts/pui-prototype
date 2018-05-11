@@ -84,7 +84,8 @@ $conditional-margin-left: $conditional-border-padding;
 // Move the contents of the conditional inline with the label
 $conditional-padding-left: $conditional-border-padding + $govuk-radios-label-padding-left-right;
 
-.govuk-c-radios__conditional {
+.govuk-c-radios__conditional,
+.govuk-c-checkboxes__conditional {
   @include govuk-responsive-margin($govuk-spacing-responsive-4, "bottom");
   margin-left: $conditional-margin-left;
   padding-left: $conditional-padding-left;
