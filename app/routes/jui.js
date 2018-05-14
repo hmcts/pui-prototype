@@ -21,20 +21,14 @@ router.get('/signout', function (req, res) {
 
 router.get('/v1', function(req, res) {
 	req.session.destroy();
-
 	var pageObject = {};
-
-	pageObject.services = [];
-	Object.keys(caseEngine.getCaseTypes()).forEach(function(key) {
-		pageObject.services.push({
-			value: caseEngine.getCaseTypes()[key].id,
-			text: caseEngine.getCaseTypes()[key].label
-		});
-	});
-
+	var caseTypes = caseEngine.getCaseTypes();
+	pageObject.services = Object.keys(caseTypes).map(key => ({
+		value: caseTypes[key].id,
+		text: caseTypes[key].label
+	}));
 	res.render('v1/index', pageObject);
 });
-
 
 router.post('/v1', function(req, res) {
 	// load user
@@ -42,12 +36,7 @@ router.post('/v1', function(req, res) {
 
 	req.session.cases = caseEngine
 		.getCases()
-		.filter(function(c) {
-			var services = req.body.services.map(function(service) {
-				return parseInt(service, 10);
-			});
-			return services.indexOf(c.typeId) > -1;
-		});
+		.filter(c => req.body.services.map(service => parseInt(service, 10)).indexOf(c.typeId) > -1);
 
 	res.redirect('/v1/dashboard');
 });
@@ -127,9 +116,7 @@ router.post('/v1/get-new-case', function (req, res) {
 
 	var newCases = caseEngine
 	.getCases()
-	.filter(function(c) {
-		return c.userID == req.session.userID;
-	});
+	.filter(c => (c.userID == req.session.userID));
 
 	newCases = newCases.slice(newCases.length-3, newCases.length-1);
 
@@ -241,7 +228,7 @@ router.get('/v1/case/:id/make-decision', function(req, res) {
 
 
 router.post('/v1/case/:id/make-decision', function(req, res) {
-	
+
 	if (req.body.satisfied === 'no') {
 		res.redirect('provide-reason');
 	} else {
