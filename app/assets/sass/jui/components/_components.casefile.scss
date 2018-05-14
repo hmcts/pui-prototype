@@ -12,7 +12,6 @@
 .jui-casefile-files {
   background-color: $govuk-grey-4;
   box-sizing: border-box;
-  padding: $govuk-spacing-scale-6;
   padding: 0 $govuk-spacing-scale-6 $govuk-spacing-scale-6;
   width: 300px;
 }
@@ -74,11 +73,7 @@
 
   li {
     font-weight: bold;
-<<<<<<< HEAD
     margin-bottom: $govuk-spacing-scale-1; 
-=======
-    margin-bottom: 5px;
->>>>>>> c911848e33705c6363b244da08938c913416fe4b
   }
 
   a[aria-current] {
