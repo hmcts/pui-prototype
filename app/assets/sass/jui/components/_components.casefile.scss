@@ -12,7 +12,7 @@
 .jui-casefile-files {
   background-color: $govuk-grey-4;
   box-sizing: border-box;
-  padding: 30px;
+  padding: $govuk-spacing-scale-6;
   width: 300px;
 }
 
@@ -20,46 +20,45 @@
 .jui-casefile-page {
   background-color: $govuk-grey-4;
   box-sizing: border-box;
-  padding: 30px;
+  padding: $govuk-spacing-scale-6;
   width: 900px;
 }
 
 
 .jui-casefile-page-head {
   height: 74px;
-  margin-bottom: 40px;
+  margin-bottom: $govuk-spacing-scale-7;
 }
 
 
 .jui-casefile-page-content {
-  box-shadow: 0 4px 6px 0 rgba($govuk-black, .10);
   background: $govuk-white;
+  box-shadow: 0 4px 6px 0 rgba($govuk-black, .10);
   box-sizing: border-box;
-  padding: 50px;
-  width: 100%;
+  margin-top: $govuk-spacing-scale-4;
+  padding: $govuk-spacing-scale-8;
   position: relative;
-  margin-top: 20px;
+  width: 100%;
 
   &:first-child {
     margin-top: 0;
   }
 
 
-  // For demo purposes only
   &[data-page]::before,
   &[data-page]::after {
+    color: $govuk-secondary-text-colour;
     content: attr(data-page);
-    position: absolute; right: 20px;
-    z-index: 9999;
     line-height: 1;
+    position: absolute; right: $govuk-spacing-scale-4;
   }
 
   &[data-page]::after {
-    bottom: 20px;
+    bottom: $govuk-spacing-scale-4;
   }
 
   &[data-page]::before {
-    top: 20px;
+    top: $govuk-spacing-scale-4;
   }
 
 }
@@ -72,17 +71,15 @@
 
   li {
     font-weight: bold;
-    margin-bottom: 5px;    
+    margin-bottom: $govuk-spacing-scale-1; 
   }
 
-  a {
-    &[aria-current] {
-      color: $govuk-black;
-    }
+  a[aria-current] {
+    color: $govuk-black;
   }
 
   ul {
-    margin: 20px 0 20px 20px;
+    margin: $govuk-spacing-scale-4 0 $govuk-spacing-scale-4 $govuk-spacing-scale-4;
     padding: 0;
 
     li {
