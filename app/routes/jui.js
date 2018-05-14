@@ -116,9 +116,7 @@ router.post('/v1/get-new-case', function (req, res) {
 
 	var newCases = caseEngine
 	.getCases()
-	.filter(function(c) {
-		return c.userID == req.session.userID;
-	});
+	.filter(c => (c.userID == req.session.userID));
 
 	newCases = newCases.slice(newCases.length-3, newCases.length-1);
 
