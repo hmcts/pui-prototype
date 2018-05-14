@@ -35,9 +35,33 @@
   box-shadow: 0 4px 6px 0 rgba($govuk-black, .10);
   background: $govuk-white;
   box-sizing: border-box;
-  height: 100%;
   padding: 50px;
   width: 100%;
+  position: relative;
+  margin-top: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+
+  // For demo purposes only
+  &[data-page]::before,
+  &[data-page]::after {
+    content: attr(data-page);
+    position: absolute; right: 20px;
+    z-index: 9999;
+    line-height: 1;
+  }
+
+  &[data-page]::after {
+    bottom: 20px;
+  }
+
+  &[data-page]::before {
+    top: 20px;
+  }
+
 }
 
 
