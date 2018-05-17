@@ -11,6 +11,7 @@ $path: "/public/images/";
 // Patterns that aren"t in Frontend
 @import "patterns/check-your-answers";
 @import "patterns/related-items";
+@import "adam/adam.scss";
 
 .code {
   color: $govuk-text-colour;
