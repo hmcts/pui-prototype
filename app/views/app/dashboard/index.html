@@ -1,0 +1,53 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set pageID = "Dashboard" %}
+
+{% block page_title %}Dashboard - Judicial UI prototype{% endblock %}
+
+{% block content %}
+
+<div class="jui-width-container">
+
+  <main role="main" class="govuk-o-main-wrapper">
+
+    {% if success %}
+      {{ juiAlert(
+        {
+          "icon": true,
+          "iconClasses": "jui-alert__icon--success",
+          "iconText": "Success!",
+          "alertText": "2 new cases have been assigned to you",
+          "alertClasses": "jui-alert--success"
+        })
+      }}
+    {% endif %}
+
+    <h1 class="govuk-heading-l">Dashboard</h1>
+
+    {{ govukTable({
+        "classes": "govuk-!-f-16",
+        "caption": "Your cases",
+        "captionClasses": "govuk-heading-m",
+        "firstCellIsHeader": true,
+        "head": [
+          {"text": "Case number"},
+          {"text": "Parties"},
+          {"text": "Type"},
+          {"text": "Status"},
+          {"text": "Date"},
+          {"text": "Docs"},
+          {"text": "Last action"}
+        ],
+        "rows": caseList
+      }) }}
+
+      {{ govukButton({
+        "text": "Get new case",
+        "href": "./get-new-case"
+      }) }}
+
+  </main>
+
+</div>
+
+{% endblock %}

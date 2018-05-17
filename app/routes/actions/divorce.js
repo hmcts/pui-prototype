@@ -18,12 +18,12 @@ function viewCaseSummary(req, res) {
 	pageObject.detailsRows.push([{ html: 'Case type' },	{ html: c.type }]);
 	pageObject.detailsRows.push([{ html: 'Case status' },	{ html: c.status }]);
 	pageObject.detailsRows.push([{ html: 'Reason for divorce' }, { html: c.reason }]);
-	
+
 	// Representatives
 	pageObject.representativesRows.push([{ html: 'Petitioner' }, { html: c.petitioner ? c.petitioner : 'Unrepresented' }]);
 	pageObject.representativesRows.push([{ html: 'Respondent' }, { html: c.respondent ? c.respondent : 'Unrepresented' }]);
 
-	res.render('v1/case/divorce/summary', pageObject);
+	res.render('app/case/divorce/summary', pageObject);
 
 }
 

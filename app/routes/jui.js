@@ -19,7 +19,7 @@ router.get('/signout', function (req, res) {
 });
 
 
-router.get('/v1', function(req, res) {
+router.get('/setup', function(req, res) {
 	req.session.destroy();
 	var pageObject = {};
 	var caseTypes = caseEngine.getCaseTypes();
@@ -27,10 +27,10 @@ router.get('/v1', function(req, res) {
 		value: caseTypes[key].id,
 		text: caseTypes[key].label
 	}));
-	res.render('v1/index', pageObject);
+	res.render('setup', pageObject);
 });
 
-router.post('/v1', function(req, res) {
+router.post('/setup', function(req, res) {
 	// load user
 	req.session.user = userEngine.getUser(parseInt(req.body.role, 10));
 
@@ -38,17 +38,17 @@ router.post('/v1', function(req, res) {
 		.getCases()
 		.filter(c => req.body.services.map(service => parseInt(service, 10)).indexOf(c.typeId) > -1);
 
-	res.redirect('/v1/dashboard');
+	res.redirect('/app/dashboard');
 });
 
-router.get('/v1/dashboard', function(req, res) {
+router.get('/app/dashboard', function(req, res) {
 	var caseList = req.session.cases
 		.map(function(c) {
 
 			var cells = [];
 
 			cells.push({
-				html : '<a href="/v1/case/' + c.id + '">'+ c.id + '</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '')
+				html : '<a href="/app/case/' + c.id + '">'+ c.id + '</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '')
 			});
 
 			cells.push({ html: helpers.getPartiesLine(c.id)	});
@@ -71,7 +71,7 @@ router.get('/v1/dashboard', function(req, res) {
 			var cells = [];
 
 			cells.push({
-				html : '<a href="/v1/case/' + c.id + '">'+ c.id +'</a>' + (req.session.new ? ' <span class="jui-status  jui-status--new  govuk-!-ml-r1">New</span> ' : '')
+				html : '<a href="/app/case/' + c.id + '">'+ c.id +'</a>' + (req.session.new ? ' <span class="jui-status  jui-status--new  govuk-!-ml-r1">New</span> ' : '')
 			});
 
 			cells.push({ html: c.parties.map(function(party) {
@@ -102,7 +102,7 @@ router.get('/v1/dashboard', function(req, res) {
 		success: req.session.success
 	};
 
-	res.render('v1/dashboard/index', pageObject);
+	res.render('app/dashboard/index', pageObject);
 
 	req.session.new = false;
 	req.session.success = false;
@@ -110,7 +110,7 @@ router.get('/v1/dashboard', function(req, res) {
 });
 
 
-router.post('/v1/get-new-case', function (req, res) {
+router.post('/app/get-new-case', function (req, res) {
 
 	req.session.success = true;
 
@@ -123,12 +123,12 @@ router.post('/v1/get-new-case', function (req, res) {
 	req.session.newCases = newCases;
 	req.session.new = true;
 
-	res.redirect('/v1/dashboard');
+	res.redirect('/app/dashboard');
 
 });
 
 
-router.get('/v1/case/:id', function(req, res) {
+router.get('/app/case/:id', function(req, res) {
 
 	var c = caseEngine.getCase(req.params.id);
 
@@ -162,72 +162,72 @@ router.get('/v1/case/:id', function(req, res) {
 });
 
 
-router.get('/v1/case/:id/parties', function(req, res) {
+router.get('/app/case/:id/parties', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
-	res.render('v1/case/parties', pageObject);
+	res.render('app/case/parties', pageObject);
 });
 
 
-router.get('/v1/case/:id/casefile', function(req, res) {
+router.get('/app/case/:id/casefile', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
-	res.render('v1/case/casefile', pageObject);
+	res.render('app/case/casefile', pageObject);
 });
 
 
-router.get('/v1/case/:id/casefile/b', function(req, res) {
+router.get('/app/case/:id/casefile/b', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
-	res.render('v1/case/casefileB.html', pageObject);
+	res.render('app/case/casefileB.html', pageObject);
 });
 
 
-router.get('/v1/case/:id/timeline', function(req, res) {
+router.get('/app/case/:id/timeline', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
-	res.render('v1/case/timeline', pageObject);
+	res.render('app/case/timeline', pageObject);
 });
 
 
-router.get('/v1/case/:id/directions', function(req, res) {
+router.get('/app/case/:id/directions', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id),
 		createDirectionLink: {
-			href: '/v1/case/' + req.params.id + '/directions/create-direction'
+			href: '/app/case/' + req.params.id + '/directions/create-direction'
 		},
 		createDirectionOrderLink: {
-			href: '/v1/case/' + req.params.id + '/directions/create-direction-order'
+			href: '/app/case/' + req.params.id + '/directions/create-direction-order'
 		}
 	};
-	res.render('v1/case/continuous-online-resolution/directions/index', pageObject);
+	res.render('app/case/continuous-online-resolution/directions/index', pageObject);
 });
 
 
 
 // Divorce service specific
-router.get('/v1/case/:id/make-decision', function(req, res) {
+router.get('/app/case/:id/make-decision', function(req, res) {
 
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
 
-	res.render('v1/case/divorce/make-decision', pageObject);
+	res.render('app/case/divorce/make-decision', pageObject);
 
 });
 
 
-router.post('/v1/case/:id/make-decision', function(req, res) {
+router.post('/app/case/:id/make-decision', function(req, res) {
 
 	if (req.body.satisfied === 'no') {
 		res.redirect('provide-reason');
@@ -239,61 +239,61 @@ router.post('/v1/case/:id/make-decision', function(req, res) {
 
 
 // No option route
-router.get('/v1/case/:id/provide-reason', function(req, res) {
+router.get('/app/case/:id/provide-reason', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
-	res.render('v1/case/divorce/provide-reason', pageObject);
+	res.render('app/case/divorce/provide-reason', pageObject);
 });
 
 
-router.post('/v1/case/:id/provide-reason', function(req, res) {
+router.post('/app/case/:id/provide-reason', function(req, res) {
 	res.redirect('generate-order');
 });
 
 
-router.get('/v1/case/:id/generate-order', function(req, res) {
+router.get('/app/case/:id/generate-order', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
-	res.render('v1/case/divorce/generate-order', pageObject);
+	res.render('app/case/divorce/generate-order', pageObject);
 });
 
-router.post('/v1/case/:id/generate-order', function(req, res) {
+router.post('/app/case/:id/generate-order', function(req, res) {
 	res.redirect('confirmation');
 });
 
 
 // Yes option route
-router.get('/v1/case/:id/costs-order', function(req, res) {
+router.get('/app/case/:id/costs-order', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
-	res.render('v1/case/divorce/costs-order', pageObject);
+	res.render('app/case/divorce/costs-order', pageObject);
 });
 
-router.post('/v1/case/:id/costs-order', function(req, res) {
+router.post('/app/case/:id/costs-order', function(req, res) {
 	res.redirect('confirmation');
 });
 
 
-router.get('/v1/case/:id/check-your-answers', function(req, res) {
+router.get('/app/case/:id/check-your-answers', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(req.params.id),
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
-	res.render('v1/case/divorce/check-your-answers', pageObject);
+	res.render('app/case/divorce/check-your-answers', pageObject);
 });
 
 
-router.get('/v1/case/:id/confirmation', function(req, res) {
+router.get('/app/case/:id/confirmation', function(req, res) {
 	var pageObject = {
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
-	res.render('v1/case/divorce/confirmation', pageObject);
+	res.render('app/case/divorce/confirmation', pageObject);
 });
 
 

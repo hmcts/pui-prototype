@@ -24,7 +24,7 @@ function viewCaseSummary(req, res) {
 	pageObject.representativesRows.push([{ html: 'Claimant' }, { html: c.claimant ? c.claimant : '(Unrepresented)' }]);
 	pageObject.representativesRows.push([{ html: 'Defendant' }, { html: c.defendant ? c.defendant : '(Unrepresented)' }]);
 
-	res.render('v1/case/civil-money-claims/summary', pageObject);
+	res.render('app/case/civil-money-claims/summary', pageObject);
 
 }
 

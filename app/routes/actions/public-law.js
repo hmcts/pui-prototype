@@ -27,7 +27,7 @@ function viewCaseSummary(req, res) {
 	pageObject.partiesRepresentativesRows.push([{ html: 'Cafcass' }, { html: c.cafcass }]);
 	pageObject.partiesRepresentativesRows.push([{ html: 'Children' }, { html: c.children }]);
 
-	res.render('v1/case/public-law/summary', pageObject);
+	res.render('app/case/public-law/summary', pageObject);
 
 }
 

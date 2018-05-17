@@ -1,0 +1,146 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set casenavId = "timeline" %}
+
+{% block page_title %}Timeline - Judicial UI prototype{% endblock %}
+
+{% block content %}
+
+{% include "includes/casebar.html" %}
+
+<div class="jui-width-container">
+
+  <main role="main" class="govuk-o-main-wrapper">
+
+    {% include "includes/casenav.html" %}
+
+    <h1 class="govuk-heading-l">Timeline</h1>
+
+    <div class="jui-timeline  govuk-!-mb-r6">
+
+      <!-- 1 -->
+      <div class="jui-timeline__item">
+
+        <div class="jui-timeline__header">
+          <time datetime="27-02-2017">27 February 2018</time>
+        </div>
+
+        <div class="jui-timeline__body">
+
+          <div class="jui-timeline__event">
+
+            <div class="jui-timeline__title">
+              <h4>Application for decree nisi received</h4>
+            </div>
+
+            <div class="jui-document">
+              <a class="jui-document__link" href="/v1/case/{{includes/casebar.id}}/casefile">
+                <span class="jui-document__title">Application for decree nisi</span>
+                <span class="jui-document__meta">PDF, 123KB, 3 pages</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- 2 -->
+      <div class="jui-timeline__item">
+
+        <div class="jui-timeline__header">
+          <time datetime="24-02-2017">24 February 2018</time>
+        </div>
+
+        <div class="jui-timeline__body">
+
+          <div class="jui-timeline__event">
+
+            <div class="jui-timeline__title">
+              <h4>Acknowledgement of service by the court</h4>
+            </div>
+
+            <div class="jui-document">
+              <a class="jui-document__link" href="/v1/case/{{includes/casebar.id}}/casefile">
+                <span class="jui-document__title">Aknowledgement of service</span>
+                <span class="jui-document__meta">PDF, 123KB, 3 pages</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- 3 -->
+      <div class="jui-timeline__item">
+
+        <div class="jui-timeline__header">
+          <time datetime="18-02-2017">18 February 2018</time>
+        </div>
+
+        <div class="jui-timeline__body">
+
+          <div class="jui-timeline__event">
+
+            <div class="jui-timeline__title">
+              <h4>Court issues petition to the respondent</h4>
+            </div>
+
+            <div class="jui-document">
+              <a class="jui-document__link" href="/v1/case/{{includes/casebar.id}}/casefile">
+                <span class="jui-document__title">Petition for divorce</span>
+                <span class="jui-document__meta">PDF, 123KB, 3 pages</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- 4 -->
+      <div class="jui-timeline__item">
+
+        <div class="jui-timeline__header">
+          <time datetime="16-02-2017">16 February 2018</time>
+        </div>
+
+        <div class="jui-timeline__body">
+
+          <div class="jui-timeline__event">
+
+            <div class="jui-timeline__title">
+              <h4>Application for divorce submitted</h4>
+            </div>
+
+            <div class="jui-document">
+              <a class="jui-document__link" href="/v1/case/{{includes/casebar.id}}/casefile">
+                <span class="jui-document__title">Petition for divorce</span>
+                <span class="jui-document__meta">PDF, 123KB, 3 pages</span>
+              </a>
+            </div>
+
+            <div class="jui-document">
+              <a class="jui-document__link" href="/v1/case/{{includes/casebar.id}}/casefile">
+                <span class="jui-document__title">Marriage certificate</span>
+                <span class="jui-document__meta">PDF, 123KB, 3 pages</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+{% endblock %}

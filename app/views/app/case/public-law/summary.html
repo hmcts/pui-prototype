@@ -1,0 +1,50 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set casenavId = "summary" %}
+
+{% block page_title %}Case summary - Public Law{% endblock %}
+
+{% block content %}
+
+{% include "includes/casebar.html" %}
+
+<div class="jui-width-container">
+
+  <main role="main" class="govuk-o-main-wrapper">
+
+    {% include "includes/casenav.html" %}
+
+    <h1 class="govuk-heading-l">Summary</h1>
+
+    <div class="govuk-o-grid">
+
+      <div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
+
+        <h2 class="gov-heading-s  govuk-!-mb-r2">Case details</h2>
+
+        {{ govukTable({
+          "classes": "govuk-!-f-16  govuk-!-mb-r7",
+          "firstCellIsHeader": true,
+          "rows": detailsRows
+        }) }}
+
+      </div>
+
+      <div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
+
+        <h2 class="gov-heading-s  govuk-!-mb-r2">Parties and representatives</h2>
+
+        {{ govukTable({
+          "classes": "govuk-!-f-16  govuk-!-mb-r7",
+          "firstCellIsHeader": true,
+          "rows": partiesRepresentativesRows
+        }) }}
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+{% endblock%}

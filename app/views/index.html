@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layouts/service/base.html" %}
 
 {% block page_title %}
   Judicial UI prototypes
@@ -14,11 +14,12 @@
 
       <div class="govuk-o-grid__item govuk-o-grid__item--two-thirds">
 
-        <h1 class="govuk-heading-l">Judicial UI prototypes</h1>
+        <h1 class="govuk-heading-l">Judicial case manager</h1>
 
-        <ul class="govuk-list govuk-list--bullet">
-          <li><a href="/v1">Version 1</a></li>
-        </ul>
+        {{ govukButton({
+          "text": "Setup",
+          "href": "/setup"
+        }) }}
 
       </div>
 

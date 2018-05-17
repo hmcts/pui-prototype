@@ -23,7 +23,7 @@ function viewCaseSummary(req, res) {
 	pageObject.representativesRows.push([{ html: 'Petitioner' }, { html: c.petitioner ? c.petitioner : 'Unrepresented' }]);
 	pageObject.representativesRows.push([{ html: 'Respondent' }, { html: c.respondent ? c.respondent : 'Unrepresented' }]);
 
-	res.render('v1/case/financial-remedy/summary', pageObject);
+	res.render('app/case/financial-remedy/summary', pageObject);
 
 }
 
