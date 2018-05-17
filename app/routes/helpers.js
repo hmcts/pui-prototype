@@ -80,8 +80,12 @@ function getCaseBarObject(caseId) {
 	};
 }
 
+function getCase(cases, caseId) {
+	return cases.filter(c => c.id == caseId)[0];
+}
 
 exports.getCaseBarObject = getCaseBarObject;
 exports.getCaseNavObject = getCaseNavObject;
 exports.getCaseObject    = getCaseObject;
 exports.getPartiesLine   = getPartiesLine;
+exports.getCase = getCase;

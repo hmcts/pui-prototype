@@ -6,6 +6,13 @@ var caseEngine = require('../models/cases');
 
 var helpers = require('./helpers');
 
+router.use(function(req, res, next) {
+	if(!req.session.cases) {
+		req.session.cases = caseEngine.getCases();
+	}
+	next();
+});
+
 
 router.use(function(req, res, next) {
 	res.locals.user = req.session.user;
@@ -31,18 +38,17 @@ router.get('/setup', function(req, res) {
 });
 
 router.post('/setup', function(req, res) {
-	// load user
+	// store user
 	req.session.user = userEngine.getUser(parseInt(req.body.role, 10));
 
-	req.session.cases = caseEngine
-		.getCases()
-		.filter(c => req.body.services.map(service => parseInt(service, 10)).indexOf(c.typeId) > -1);
-
+	// store service lines
+	req.session.services = req.body.services;
 	res.redirect('/app/dashboard');
 });
 
 router.get('/app/dashboard', function(req, res) {
 	var caseList = req.session.cases
+		.filter(c => req.session.services.map(service => parseInt(service, 10)).indexOf(c.typeId) > -1)
 		.map(function(c) {
 
 			var cells = [];
@@ -114,8 +120,7 @@ router.post('/app/get-new-case', function (req, res) {
 
 	req.session.success = true;
 
-	var newCases = caseEngine
-	.getCases()
+	var newCases = req.session.cases
 	.filter(c => (c.userID == req.session.userID));
 
 	newCases = newCases.slice(newCases.length-3, newCases.length-1);
@@ -130,7 +135,7 @@ router.post('/app/get-new-case', function (req, res) {
 
 router.get('/app/case/:id', function(req, res) {
 
-	var c = caseEngine.getCase(req.params.id);
+	var c = req.session.cases.filter(c => c.id == req.params.id)[0];
 
 	switch(c.type) {
 

@@ -4,7 +4,7 @@ var helpers    = require('../helpers');
 
 function viewCaseSummary(req, res) {
 
-	var c = caseEngine.getCase(req.params.id);
+	var c = helpers.getCase(req.session.cases, req.params.id);
 
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(c.id),
