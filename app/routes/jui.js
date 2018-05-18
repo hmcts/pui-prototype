@@ -1,7 +1,6 @@
 var express = require('express');
 var router  = express.Router();
 
-const users = require('../data/users');
 const caseTypes = require('../data/case-types');
 const helpers = require('./helpers');
 
@@ -28,9 +27,6 @@ router.get('/setup', function(req, res) {
 });
 
 router.post('/setup', function(req, res) {
-	// store user
-	req.session.user = users.filter(user => user.id == parseInt(req.body.role, 10))[0];
-
 	// store service lines
 	req.session.services = req.body.services;
 	res.redirect('/app/dashboard');
@@ -107,19 +103,8 @@ router.get('/app/dashboard', function(req, res) {
 
 
 router.post('/app/get-new-case', function (req, res) {
-
 	req.session.success = true;
-
-	var newCases = req.session.cases
-	.filter(c => (c.userID == req.session.userID));
-
-	newCases = newCases.slice(newCases.length-3, newCases.length-1);
-
-	req.session.newCases = newCases;
-	req.session.new = true;
-
 	res.redirect('/app/dashboard');
-
 });
 
 router.get('/app/case/:id', function(req, res) {

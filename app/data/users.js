@@ -2,57 +2,19 @@ module.exports = [
   {
     id: 1,
     name: 'Martin Smith',
-    role: 'Legal Adviser',
-    juristictions: [
-      {
-        id: 1,
-        name: 'Divorce'
-      },
-      {
-        id: 2,
-        name: 'Financial Remedy'
-      },
-      {
-        id: 3,
-        name: 'Civil Money Claims'
-      }
-    ]
+    role: 'Legal Adviser'
   },
 
   {
     id: 2,
     name: 'Jeremy Bennett',
-    role: 'Judge',
-    juristictions: [
-      {
-        id: 1,
-        name: 'Divorce'
-      },
-      {
-        id: 2,
-        name: 'Financial Remedy'
-      },
-      {
-        id: 3,
-        name: 'Civil Money Claims'
-      },
-      {
-        id: 4,
-        name: 'Continous Online Resolution'
-      }
-    ]
+    role: 'Judge'
   },
 
   {
     id: 3,
     name: 'Angela ',
-    role: 'Legal Advisor',
-    juristictions: [
-      {
-        id: 1,
-        name: 'Divorce'
-      }
-    ]
+    role: 'Legal Advisor'
   }
 
 ];
