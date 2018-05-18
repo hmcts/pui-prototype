@@ -3,13 +3,11 @@ var router  = express.Router();
 
 const users = require('../data/users');
 const caseTypes = require('../data/case-types');
-const cases = require('../data/cases');
-
-var helpers = require('./helpers');
+const helpers = require('./helpers');
 
 router.use(function(req, res, next) {
 	if(!req.session.cases) {
-		req.session.cases = cases.getCases();
+		req.session.cases = require('../data/cases');
 	}
 	next();
 });
@@ -49,7 +47,7 @@ router.get('/app/dashboard', function(req, res) {
 				html : '<a href="/app/case/' + c.id + '">'+ c.id + '</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '')
 			});
 
-			cells.push({ html: helpers.getPartiesLine(c.id)	});
+			cells.push({ html: helpers.getPartiesLine(c)	});
 			cells.push({ html: c.type });
 			cells.push({ html: c.status });
 			cells.push({ html: c.applicationDate });
@@ -124,81 +122,72 @@ router.post('/app/get-new-case', function (req, res) {
 
 });
 
-
 router.get('/app/case/:id', function(req, res) {
+	var _case = req.session.cases.filter(c => c.id == req.params.id)[0];
 
-	var c = req.session.cases.filter(c => c.id == req.params.id)[0];
-
-	switch(c.type) {
-
+	switch(_case.type) {
 		case 'Divorce':
 			require('./actions/divorce').viewCaseSummary(req, res);
 			break;
-
 		case 'Financial Remedy':
 			require('./actions/financial-remedy').viewCaseSummary(req, res);
 			break;
-
 		case 'Continuous Online Resolution':
 			require('./actions/continuous-online-resolution').viewCaseSummary(req, res);
 			break;
-
 		case 'Civil Money Claims':
 			require('./actions/civil-money-claims').viewCaseSummary(req, res);
 			break;
-
 		case 'Public Law':
 			require('./actions/public-law').viewCaseSummary(req, res);
 			break;
-
 		default:
 			res.redirect('/');
 
 	}
-
 });
 
-
 router.get('/app/case/:id/parties', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
-		casebar: helpers.getCaseBarObject(req.params.id),
-		casenav: helpers.getCaseNavObject(req.params.id)
+		casebar: helpers.getCaseBarObject(_case),
+		casenav: helpers.getCaseNavObject(_case)
 	};
 	res.render('app/case/parties', pageObject);
 });
 
-
 router.get('/app/case/:id/casefile', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
-		casebar: helpers.getCaseBarObject(req.params.id),
-		casenav: helpers.getCaseNavObject(req.params.id)
+		casebar: helpers.getCaseBarObject(_case),
+		casenav: helpers.getCaseNavObject(_case)
 	};
 	res.render('app/case/casefile', pageObject);
 });
 
-
 router.get('/app/case/:id/casefile/b', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
-		casebar: helpers.getCaseBarObject(req.params.id),
-		casenav: helpers.getCaseNavObject(req.params.id)
+		casebar: helpers.getCaseBarObject(_case),
+		casenav: helpers.getCaseNavObject(_case)
 	};
 	res.render('app/case/casefileB.html', pageObject);
 });
 
-
 router.get('/app/case/:id/timeline', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
-		casebar: helpers.getCaseBarObject(req.params.id),
-		casenav: helpers.getCaseNavObject(req.params.id)
+		casebar: helpers.getCaseBarObject(_case),
+		casenav: helpers.getCaseNavObject(_case)
 	};
 	res.render('app/case/timeline', pageObject);
 });
 
-
 router.get('/app/case/:id/directions', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
-		casebar: helpers.getCaseBarObject(req.params.id),
-		casenav: helpers.getCaseNavObject(req.params.id),
+		casebar: helpers.getCaseBarObject(_case),
+		casenav: helpers.getCaseNavObject(_case),
 		createDirectionLink: {
 			href: '/app/case/' + req.params.id + '/directions/create-direction'
 		},
@@ -209,20 +198,14 @@ router.get('/app/case/:id/directions', function(req, res) {
 	res.render('app/case/continuous-online-resolution/directions/index', pageObject);
 });
 
-
-
 // Divorce service specific
 router.get('/app/case/:id/make-decision', function(req, res) {
-
+	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
-		casebar: helpers.getCaseBarObject(req.params.id),
-		casenav: helpers.getCaseNavObject(req.params.id)
+		casebar: helpers.getCaseBarObject(_case)
 	};
-
 	res.render('app/case/divorce/make-decision', pageObject);
-
 });
-
 
 router.post('/app/case/:id/make-decision', function(req, res) {
 
@@ -237,9 +220,9 @@ router.post('/app/case/:id/make-decision', function(req, res) {
 
 // No option route
 router.get('/app/case/:id/provide-reason', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
-		casebar: helpers.getCaseBarObject(req.params.id),
-		casenav: helpers.getCaseNavObject(req.params.id)
+		casebar: helpers.getCaseBarObject(_case)
 	};
 	res.render('app/case/divorce/provide-reason', pageObject);
 });
@@ -251,9 +234,9 @@ router.post('/app/case/:id/provide-reason', function(req, res) {
 
 
 router.get('/app/case/:id/generate-order', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
-		casebar: helpers.getCaseBarObject(req.params.id),
-		casenav: helpers.getCaseNavObject(req.params.id)
+		casebar: helpers.getCaseBarObject(_case)
 	};
 	res.render('app/case/divorce/generate-order', pageObject);
 });
@@ -265,9 +248,9 @@ router.post('/app/case/:id/generate-order', function(req, res) {
 
 // Yes option route
 router.get('/app/case/:id/costs-order', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
-		casebar: helpers.getCaseBarObject(req.params.id),
-		casenav: helpers.getCaseNavObject(req.params.id)
+		casebar: helpers.getCaseBarObject(_case)
 	};
 	res.render('app/case/divorce/costs-order', pageObject);
 });
@@ -278,9 +261,9 @@ router.post('/app/case/:id/costs-order', function(req, res) {
 
 
 router.get('/app/case/:id/check-your-answers', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
-		casebar: helpers.getCaseBarObject(req.params.id),
-		casenav: helpers.getCaseNavObject(req.params.id)
+		casebar: helpers.getCaseBarObject(_case)
 	};
 	res.render('app/case/divorce/check-your-answers', pageObject);
 });

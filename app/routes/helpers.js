@@ -1,9 +1,5 @@
-var caseEngine = require('../data/cases');
-
-function getPartiesLine(caseId) {
-
-	return caseEngine.getCase(caseId).parties.map(function(party) {
-
+function getPartiesLine(_case) {
+	return _case.parties.map(function(party) {
 		if(party.org) {
 			return party.org;
 		} else {
@@ -11,68 +7,44 @@ function getPartiesLine(caseId) {
 		}
 
 	}).join(' vs ');
-
 }
 
-function getCaseObject(id) {
-	var c = caseEngine.getCase(id);
-
-	var caseBarObject = {
-		parties: c.parties.map(function(party) {
-			return party.firstName + ' ' + party.lastName;
-		}).join(' vs '),
-		id: c.id
-	};
-
-	return caseBarObject;
-}
-
-function getCaseNavObject(caseId) {
-
-	var c = caseEngine.getCase(caseId);
-
-	switch(c.type) {
-
+function getCaseNavObject(_case) {
+	switch(_case.type) {
 		case 'Continuous Online Resolution':
 			return {
-				id: caseId,
+				id: _case.id,
 				parties: true,
 				questions: true,
 				directions: true
 			};
-
 		case 'Divorce':
 			return {
-				id: caseId,
+				id: _case.id,
 				parties: true
 			};
-
 		case 'Financial Remedy':
 			return {
-				id: caseId,
+				id: _case.id,
 				parties: true
 			};
-
 		case 'Civil Money Claims':
 			return {
-				id: caseId,
+				id: _case.id,
 				parties: true
 			};
-
 		case 'Public Law':
 			return {
-				id: caseId,
+				id: _case.id,
 				parties: true
 			};
-
 	}
 }
 
-
-function getCaseBarObject(caseId) {
+function getCaseBarObject(_case) {
 	return {
-		parties: getPartiesLine(caseId),
-		id: caseId
+		parties: getPartiesLine(_case),
+		id: _case.id
 	};
 }
 
@@ -82,6 +54,5 @@ function getCase(cases, caseId) {
 
 exports.getCaseBarObject = getCaseBarObject;
 exports.getCaseNavObject = getCaseNavObject;
-exports.getCaseObject    = getCaseObject;
 exports.getPartiesLine   = getPartiesLine;
 exports.getCase = getCase;

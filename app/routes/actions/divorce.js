@@ -1,5 +1,3 @@
-var userEngine = require('../../data/users');
-var caseEngine = require('../../data/cases');
 var helpers    = require('../helpers');
 
 function viewCaseSummary(req, res) {
@@ -7,8 +5,8 @@ function viewCaseSummary(req, res) {
 	var c = helpers.getCase(req.session.cases, req.params.id);
 
 	var pageObject = {
-		casebar: helpers.getCaseBarObject(c.id),
-		casenav: helpers.getCaseNavObject(c.id),
+		casebar: helpers.getCaseBarObject(c),
+		casenav: helpers.getCaseNavObject(c),
 		detailsRows: [],
 		representativesRows: []
 	};

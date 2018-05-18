@@ -1,6 +1,6 @@
 var caseTypes = require('./case-types');
 
-var cases = [
+module.exports = [
 
   {
     id: 'LU17C87541',
@@ -731,19 +731,3 @@ var cases = [
   }
 
 ];
-
-exports.getCases = function() {
-  return cases;
-};
-
-exports.getCasesEntry = function(id) {
-  for(var i=0; i < cases.length; i++) {
-    if(cases[i].id == id) return cases[i];
-  }
-};
-
-exports.getCase = function(caseId) {
-  return cases.filter(function(c) {
-    return c.id == caseId;
-  })[0] || null;
-};
