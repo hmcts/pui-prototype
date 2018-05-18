@@ -1,45 +1,37 @@
 var express = require('express');
 var router  = express.Router();
 
-var userData = require('../data/users');
-var caseTypesData = require('../data/case-types');
-var caseData = require('../data/cases');
+const users = require('../data/users');
+const caseTypes = require('../data/case-types');
+const cases = require('../data/cases');
 
 var helpers = require('./helpers');
 
 router.use(function(req, res, next) {
 	if(!req.session.cases) {
-		req.session.cases = caseData.getCases();
+		req.session.cases = cases.getCases();
 	}
 	next();
 });
-
-
-router.use(function(req, res, next) {
-	res.locals.user = req.session.user;
-	next();
-});
-
 
 router.get('/signout', function (req, res) {
 	req.session.destroy();
 	res.redirect('/');
 });
 
-
 router.get('/setup', function(req, res) {
 	req.session.destroy();
 	var pageObject = {};
-	pageObject.services = Object.keys(caseTypesData).map(key => ({
-		value: caseTypesData[key].id,
-		text: caseTypesData[key].label
+	pageObject.services = Object.keys(caseTypes).map(key => ({
+		value: caseTypes[key].id,
+		text: caseTypes[key].label
 	}));
 	res.render('setup', pageObject);
 });
 
 router.post('/setup', function(req, res) {
 	// store user
-	req.session.user = userData.filter(user => user.id == parseInt(req.body.role, 10))[0];
+	req.session.user = users.filter(user => user.id == parseInt(req.body.role, 10))[0];
 
 	// store service lines
 	req.session.services = req.body.services;

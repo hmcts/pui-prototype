@@ -1,5 +1,4 @@
-var users = [
-
+module.exports = [
   {
     id: 1,
     name: 'Martin Smith',
