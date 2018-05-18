@@ -1,6 +1,4 @@
-var userEngine = require('../models/users');
-var caseEngine = require('../models/cases');
-
+var caseEngine = require('../data/cases');
 
 function getPartiesLine(caseId) {
 
@@ -16,7 +14,6 @@ function getPartiesLine(caseId) {
 
 }
 
-
 function getCaseObject(id) {
 	var c = caseEngine.getCase(id);
 
@@ -29,7 +26,6 @@ function getCaseObject(id) {
 
 	return caseBarObject;
 }
-
 
 function getCaseNavObject(caseId) {
 

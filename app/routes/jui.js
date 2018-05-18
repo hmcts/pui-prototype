@@ -1,8 +1,8 @@
 var express = require('express');
 var router  = express.Router();
 
-var userEngine = require('../models/users');
-var caseEngine = require('../models/cases');
+var userData = require('../data/users');
+var caseEngine = require('../data/cases');
 
 var helpers = require('./helpers');
 
@@ -39,7 +39,7 @@ router.get('/setup', function(req, res) {
 
 router.post('/setup', function(req, res) {
 	// store user
-	req.session.user = userEngine.getUser(parseInt(req.body.role, 10));
+	req.session.user = userData.getUser(parseInt(req.body.role, 10));
 
 	// store service lines
 	req.session.services = req.body.services;
