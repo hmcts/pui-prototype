@@ -39,7 +39,7 @@ router.get('/setup', function(req, res) {
 
 router.post('/setup', function(req, res) {
 	// store user
-	req.session.user = userData.getUser(parseInt(req.body.role, 10));
+	req.session.user = userData.filter(user => user.id == parseInt(req.body.role, 10))[0];
 
 	// store service lines
 	req.session.services = req.body.services;

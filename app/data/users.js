@@ -57,18 +57,3 @@ var users = [
   }
 
 ];
-
-
-exports.getUsersEntries = function() {
-  return users;
-};
-
-exports.getUsersEntry = function(id) {
-  for(var i=0; i < users.length; i++) {
-    if(users[i].id == id) return users[i];
-  }
-};
-
-exports.getUser = function(id) {
-  return users.filter(user => user.id == id)[0];
-};
