@@ -2,13 +2,14 @@ var express = require('express');
 var router  = express.Router();
 
 var userData = require('../data/users');
-var caseEngine = require('../data/cases');
+var caseTypesData = require('../data/case-types');
+var caseData = require('../data/cases');
 
 var helpers = require('./helpers');
 
 router.use(function(req, res, next) {
 	if(!req.session.cases) {
-		req.session.cases = caseEngine.getCases();
+		req.session.cases = caseData.getCases();
 	}
 	next();
 });
@@ -29,10 +30,9 @@ router.get('/signout', function (req, res) {
 router.get('/setup', function(req, res) {
 	req.session.destroy();
 	var pageObject = {};
-	var caseTypes = caseEngine.getCaseTypes();
-	pageObject.services = Object.keys(caseTypes).map(key => ({
-		value: caseTypes[key].id,
-		text: caseTypes[key].label
+	pageObject.services = Object.keys(caseTypesData).map(key => ({
+		value: caseTypesData[key].id,
+		text: caseTypesData[key].label
 	}));
 	res.render('setup', pageObject);
 });
