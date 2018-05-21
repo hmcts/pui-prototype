@@ -28,10 +28,10 @@
 .jui-timeline__header {
   background-color: $govuk-grey-4;
   border-bottom: 1px solid $govuk-border-colour;
-  padding: 10px;
+  padding: $govuk-spacing-scale-2;
 }
 
 
 .jui-timeline__body {
-  padding: 10px;
+  padding: $govuk-spacing-scale-2;
 }
