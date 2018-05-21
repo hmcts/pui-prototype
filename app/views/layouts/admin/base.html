@@ -18,11 +18,15 @@
 {%- from "tag/macro.njk" import govukTag %}
 {%- from "textarea/macro.njk" import govukTextarea %}
 {%- from "warning-text/macro.njk" import govukWarningText %}
-{%- from "macros/status/macro.njk" import juiStatus %}
-{%- from "macros/alert/macro.njk" import juiAlert %}
-{%- from "macros/panel/macro.njk" import juiPanel %}
-{%- from "macros/radios/macro.njk"  import govukRadios %}
-{%- from "macros/checkboxes/macro.njk"  import govukCheckboxes %}
+
+<!-- Temp override until GDS do this work -->
+{%- from "macros/radios/macro.njk" import govukRadios %}
+{%- from "macros/checkboxes/macro.njk" import govukCheckboxes %}
+
+<!-- JUI specific -->
+{%- from "jui/status/macro.njk" import juiStatus %}
+{%- from "jui/alert/macro.njk" import juiAlert %}
+{%- from "jui/panel/macro.njk" import juiPanel %}
 
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="{{ html_lang|default('en') }}"><![endif]-->

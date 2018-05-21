@@ -15,8 +15,7 @@ gulp.task('sass', function () {
   return gulp.src(config.paths.assets + '/sass/*.scss')
   .pipe(sourcemaps.init())
   .pipe(sass({outputStyle: 'expanded',
-    includePaths: [/* 'govuk_modules/govuk_frontend_toolkit/stylesheets', */
-      'app/components/',
+    includePaths: [
       'node_modules/govuk_template_jinja/assets/stylesheets',
       'node_modules']}).on('error', sass.logError))
   .pipe(sourcemaps.write())
@@ -27,7 +26,7 @@ gulp.task('sass-documentation', function () {
   return gulp.src(config.paths.docsAssets + '/sass/*.scss')
   .pipe(sourcemaps.init())
   .pipe(sass({outputStyle: 'expanded',
-    includePaths: [/* 'govuk_modules/govuk_frontend_toolkit/stylesheets', */
+    includePaths: [
       'node_modules/govuk_template_jinja/assets/stylesheets',
       'node_modules']}).on('error', sass.logError))
   .pipe(sourcemaps.write())
