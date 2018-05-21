@@ -45,20 +45,12 @@
   }
 
 
-  &[data-page]::before,
   &[data-page]::after {
     color: $govuk-secondary-text-colour;
     content: attr(data-page);
     line-height: 1;
     position: absolute; right: $govuk-spacing-scale-4;
-  }
-
-  &[data-page]::after {
     bottom: $govuk-spacing-scale-4;
-  }
-
-  &[data-page]::before {
-    top: $govuk-spacing-scale-4;
   }
 
 }
