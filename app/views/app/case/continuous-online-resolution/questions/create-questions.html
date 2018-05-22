@@ -1,0 +1,30 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set casenavId = "questions" %}
+
+{% block page_title %}Create questions - Continous Online Resolution{% endblock %}
+
+{% block content %}
+  {% include "includes/casebar.html" %}
+
+	<div class="jui-width-container">
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "./"
+    }) }}
+
+    <main role="main" class="govuk-o-main-wrapper">
+
+      <h1 class="govuk-heading-xl">Create questions</h1>
+
+      <div class="govuk-o-grid">
+
+        <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds"></div>
+
+      </div>
+
+		</main>
+
+	</div>
+{% endblock %}

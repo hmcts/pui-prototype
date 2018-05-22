@@ -1,0 +1,27 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set casenavId = "questions" %}
+
+{% block page_title %}Questions - Continous Online Resolution{% endblock %}
+
+{% block content %}
+  {% include "includes/casebar.html" %}
+
+	<div class="jui-width-container">
+
+    <main role="main" class="govuk-o-main-wrapper">
+      {% include "includes/casenav.html" %}
+
+      <h1 class="govuk-heading-l">Questions</h1>
+
+      <p class="govuk-body">No questions have been asked.</p>
+
+      {{ govukButton({
+        "text": "Create questions",
+        "href": createQuestionsLink.href
+      }) }}
+
+		</main>
+
+	</div>
+{% endblock %}

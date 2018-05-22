@@ -168,6 +168,32 @@ router.get('/app/case/:id/timeline', function(req, res) {
 	res.render('app/case/timeline', pageObject);
 });
 
+
+
+// COR Questions
+router.get('/app/case/:id/questions', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
+	var pageObject = {
+		casebar: helpers.getCaseBarObject(_case),
+		casenav: helpers.getCaseNavObject(_case),
+		createQuestionsLink: {
+			href: '/app/case/' + req.params.id + '/questions/create-questions'
+		}
+	};
+	res.render('app/case/continuous-online-resolution/questions/index', pageObject);
+});
+
+
+router.get('/app/case/:id/questions/create-questions', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
+	var pageObject = {
+		casebar: helpers.getCaseBarObject(_case),
+		casenav: helpers.getCaseNavObject(_case)
+	};
+	res.render('app/case/continuous-online-resolution/questions/create-questions', pageObject);
+});
+
+
 router.get('/app/case/:id/directions', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
@@ -182,6 +208,7 @@ router.get('/app/case/:id/directions', function(req, res) {
 	};
 	res.render('app/case/continuous-online-resolution/directions/index', pageObject);
 });
+
 
 // Divorce service specific
 router.get('/app/case/:id/make-decision', function(req, res) {
