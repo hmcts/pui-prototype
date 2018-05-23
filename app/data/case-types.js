@@ -7,9 +7,9 @@ module.exports = {
     id: 2,
     label: 'Financial Remedy'
   },
-  continuousOnlineResolution: {
+  sscs: {
     id: 3,
-    label: 'Continuous Online Resolution'
+    label: 'SSCS'
   },
   publicLaw: {
     id: 4,

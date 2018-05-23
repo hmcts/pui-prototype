@@ -617,8 +617,8 @@ module.exports = [
   {
     id: 'CO18D00150',
     userID: 1,
-    type: 'Continuous Online Resolution',
-    typeId: caseTypes.continuousOnlineResolution.id,
+    type: 'SSCS',
+    typeId: caseTypes.sscs.id,
     parties: [
       {
         type: 'Appellant',

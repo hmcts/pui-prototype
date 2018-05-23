@@ -11,7 +11,7 @@ function getPartiesLine(_case) {
 
 function getCaseNavObject(_case) {
 	switch(_case.type) {
-		case 'Continuous Online Resolution':
+		case 'SSCS':
 			return {
 				id: _case.id,
 				parties: true,

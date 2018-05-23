@@ -18,7 +18,7 @@ function viewCaseSummary(req, res) {
 	pageObject.detailsRows.push([{ html: 'Tribunal centre' }, {html: _case.tribunalCentre}]);
 	pageObject.detailsRows.push([{ html: 'Additional requirements' }, {html: _case.requirements}]);
 
-	res.render('app/case/continuous-online-resolution/summary', pageObject);
+	res.render('app/case/sscs/summary', pageObject);
 }
 
 exports.viewCaseSummary = viewCaseSummary;

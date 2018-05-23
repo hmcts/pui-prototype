@@ -117,8 +117,8 @@ router.get('/app/case/:id', function(req, res) {
 		case 'Financial Remedy':
 			require('./actions/financial-remedy').viewCaseSummary(req, res);
 			break;
-		case 'Continuous Online Resolution':
-			require('./actions/continuous-online-resolution').viewCaseSummary(req, res);
+		case 'SSCS':
+			require('./actions/sscs').viewCaseSummary(req, res);
 			break;
 		case 'Civil Money Claims':
 			require('./actions/civil-money-claims').viewCaseSummary(req, res);
@@ -180,7 +180,7 @@ router.get('/app/case/:id/questions', function(req, res) {
 			href: '/app/case/' + req.params.id + '/questions/create-questions'
 		}
 	};
-	res.render('app/case/continuous-online-resolution/questions/index', pageObject);
+	res.render('app/case/sscs/questions/index', pageObject);
 });
 
 
@@ -190,7 +190,7 @@ router.get('/app/case/:id/questions/create-questions', function(req, res) {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case)
 	};
-	res.render('app/case/continuous-online-resolution/questions/create-questions', pageObject);
+	res.render('app/case/sscs/questions/create-questions', pageObject);
 });
 
 
@@ -206,7 +206,7 @@ router.get('/app/case/:id/directions', function(req, res) {
 			href: '/app/case/' + req.params.id + '/directions/create-direction-order'
 		}
 	};
-	res.render('app/case/continuous-online-resolution/directions/index', pageObject);
+	res.render('app/case/sscs/directions/index', pageObject);
 });
 
 
