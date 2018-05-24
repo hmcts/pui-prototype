@@ -20,106 +20,107 @@
 
       <h1 class="govuk-heading-l">Parties</h1>
 
-			<div class="govuk-tabbed-panel  govuk-!-mb-r6">
+			{% set petitionerHtml %}
+			<div class="govuk-o-grid">
 
-				<h2 class="govuk-tabbed-panel__title">Contents</h2>
+				<div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
 
-				<ul class="govuk-tabbed-panel__list">
-					<li class="govuk-tabbed-panel__list-item"><a class="govuk-tabbed-panel__tab" href="#petitioner">Petitioner</a></li>
-					<li class="govuk-tabbed-panel__list-item"><a class="govuk-tabbed-panel__tab" href="#respondent">Respondent</a></li>
-				</ul>
+					<h2 class="gov-heading-s  govuk-!-mb-r2  govuk-!-mt-r6">Petitioner</h2>
 
-				<section class="govuk-tabbed-panel__content  js-hidden" id="petitioner">
+					{{ govukTable({
+						"classes": "jui-table  govuk-!-f-16",
+						"firstCellIsHeader": true,
+						"rows": [
+							[
+								{"text": "Full name"},
+								{"text": "David Francis"}
+							],
+							[
+								{"text": "Date of birth"},
+								{"text": "7 June 1981"}
+							],
+							[
+								{"text": "Address"},
+								{"html": "24 Park Road<br>Lewisham<br>London<br>E11 4PR"}
+							],
+							[
+								{"text": "Phone"},
+								{"text": "07787 557 967"}
+							],
+							[
+								{"text": "Email"},
+								{"text": "david.francis@gmail.com"}
+							],
+							[
+								{"text": "Representative"},
+								{"text": "Unrepresented"}
+							]
+						]
+					}) }}
 
-					<div class="govuk-o-grid">
-
-						<div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
-
-							<h2 class="gov-heading-s  govuk-!-mb-r2  govuk-!-mt-r6">Petitioner</h2>
-
-							{{ govukTable({
-								"classes": "jui-table  govuk-!-f-16",
-								"firstCellIsHeader": true,
-								"rows": [
-									[
-										{"text": "Full name"},
-										{"text": "David Francis"}
-									],
-									[
-										{"text": "Date of birth"},
-										{"text": "7 June 1981"}
-									],
-									[
-										{"text": "Address"},
-										{"html": "24 Park Road<br>Lewisham<br>London<br>E11 4PR"}
-									],
-									[
-										{"text": "Phone"},
-										{"text": "07787 557 967"}
-									],
-									[
-										{"text": "Email"},
-										{"text": "david.francis@gmail.com"}
-									],
-									[
-										{"text": "Representative"},
-										{"text": "Unrepresented"}
-									]
-								]
-							}) }}
-
-						</div>
-
-					</div>
-
-				</section>
-
-				<section class="govuk-tabbed-panel__content  js-hidden" id="respondent">
-
-					<div class="govuk-o-grid">
-
-						<div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
-
-							<h2 class="gov-heading-s  govuk-!-mb-r2  govuk-!-mt-r6">Respondent</h2>
-
-							{{ govukTable({
-								"classes": "jui-table  govuk-!-f-16",
-								"firstCellIsHeader": true,
-								"rows": [
-									[
-										{"text": "Full name"},
-										{"text": "Susan Francis"}
-									],
-									[
-										{"text": "Date of birth"},
-										{"text": "16 April 1979"}
-									],
-									[
-										{"text": "Address"},
-										{"html": "89 London Road<br>Hinckley<br>London<br>LE10 1HH"}
-									],
-									[
-										{"text": "Phone"},
-										{"text": "07700 900 772"}
-									],
-									[
-										{"text": "Email"},
-										{"text": "susan.francis@gmail.com"}
-									],
-									[
-										{"text": "Representative"},
-										{"text": "Unrepresented"}
-									]
-								]
-							}) }}
-
-						</div>
-
-					</div>
-
-				</section>
+				</div>
 
 			</div>
+      {% endset %}
+
+      {% set respondentHtml %}
+			<div class="govuk-o-grid">
+
+				<div class="govuk-o-grid__item  govuk-o-grid__item--one-half">
+
+					<h2 class="gov-heading-s  govuk-!-mb-r2  govuk-!-mt-r6">Respondent</h2>
+
+					{{ govukTable({
+						"classes": "jui-table  govuk-!-f-16",
+						"firstCellIsHeader": true,
+						"rows": [
+							[
+								{"text": "Full name"},
+								{"text": "Susan Francis"}
+							],
+							[
+								{"text": "Date of birth"},
+								{"text": "16 April 1979"}
+							],
+							[
+								{"text": "Address"},
+								{"html": "89 London Road<br>Hinckley<br>London<br>LE10 1HH"}
+							],
+							[
+								{"text": "Phone"},
+								{"text": "07700 900 772"}
+							],
+							[
+								{"text": "Email"},
+								{"text": "susan.francis@gmail.com"}
+							],
+							[
+								{"text": "Representative"},
+								{"text": "Unrepresented"}
+							]
+						]
+					}) }}
+
+				</div>
+
+			</div>
+      {% endset %}
+
+      {{govukTabbedPanel({
+        tabs: [{
+          id: 'petitioner',
+          label: 'Petitioner',
+          panel: {
+            html: petitionerHtml
+          }
+        }, {
+          id: 'respondent',
+          label: 'Respondent',
+          panel: {
+            html: respondentHtml
+          }
+        }]
+      })}}
 
 		</main>
 
