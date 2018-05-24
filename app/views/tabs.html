@@ -123,10 +123,10 @@
 {% endblock %}
 
 {% block page_scripts %}
-  <script src="/public/javascripts/jui/Tabs.js"></script>
+  <script src="/public/javascripts/tabbed-panel/TabbedPanel.js"></script>
   <script>
-    if(Tabs) {
-      new Tabs($('.govuk-tabbed-panel').eq(0));
+    if(TabbedPanel) {
+      new TabbedPanel($('.govuk-tabbed-panel').eq(0));
     } else {
       $('.govuk-tabbed-panel .js-hidden').removeClass('js-hidden');
       $('.js-tabs-enabled').removeClass('js-tabs-enabled');

@@ -1,5 +1,5 @@
 if(typeof window.matchMedia == 'function') {
-	var Tabs = function(container) {
+	var TabbedPanel = function(container) {
 		this.container = container;
 		this.keys = { left: 37, right: 39, up: 38, down: 40 };
 		this.cssHide = 'js-hidden';
@@ -8,13 +8,13 @@ if(typeof window.matchMedia == 'function') {
 		this.setupResponsiveChecks();
 	};
 
-	Tabs.prototype.setupResponsiveChecks = function() {
+	TabbedPanel.prototype.setupResponsiveChecks = function() {
 		this.mql = window.matchMedia('(min-width: 40.0625em)');
 		this.mql.addListener($.proxy(this, 'checkMode'));
 		this.checkMode(this.mql);
 	};
 
-	Tabs.prototype.checkMode = function(mql) {
+	TabbedPanel.prototype.checkMode = function(mql) {
 		if(this.mql.matches) {
 			this.enableBigMode();
 		} else {
@@ -22,7 +22,7 @@ if(typeof window.matchMedia == 'function') {
 		}
 	};
 
-	Tabs.prototype.enableSmallMode = function() {
+	TabbedPanel.prototype.enableSmallMode = function() {
 		if(this.events) {
 			this.container.off('click', '[role=tab]', this.events.onTabClick);
 			this.container.off('keydown', '[role=tab]', this.events.onTabKeydown);
@@ -32,7 +32,7 @@ if(typeof window.matchMedia == 'function') {
 		this.events = null;
 	};
 
-	Tabs.prototype.enableBigMode = function() {
+	TabbedPanel.prototype.enableBigMode = function() {
 		this.events = {
 			onTabClick: $.proxy(this, 'onTabClick'),
 			onTabKeydown: $.proxy(this, 'onTabKeydown'),
@@ -44,7 +44,7 @@ if(typeof window.matchMedia == 'function') {
 		this.setupHtml();
 	};
 
-	Tabs.prototype.onHashChange = function (e) {
+	TabbedPanel.prototype.onHashChange = function (e) {
 		var hash = window.location.hash;
 		if(!this.hasTab(hash)) {
 			return;
@@ -67,25 +67,25 @@ if(typeof window.matchMedia == 'function') {
 		}
 	};
 
-	Tabs.prototype.hasTab = function(hash) {
+	TabbedPanel.prototype.hasTab = function(hash) {
 		return this.container.find(hash).length;
 	};
 
-	Tabs.prototype.hideTab = function (tab) {
+	TabbedPanel.prototype.hideTab = function (tab) {
 		this.unhighlightTab(tab);
 		this.hidePanel(tab);
 	};
 
-	Tabs.prototype.showTab = function (tab) {
+	TabbedPanel.prototype.showTab = function (tab) {
 		this.highlightTab(tab);
 		this.showPanel(tab);
 	};
 
-	Tabs.prototype.getTab = function(hash) {
+	TabbedPanel.prototype.getTab = function(hash) {
 		return this.tabs.filter('a[href="' + hash +'"]');
 	};
 
-	Tabs.prototype.setupHtml = function() {
+	TabbedPanel.prototype.setupHtml = function() {
 		this.container.find('.govuk-tabbed-panel__list').attr('role', 'tablist');
 		this.container.find('.govuk-tabbed-panel__list-item').attr('role', 'presentation');
 		this.tabs.attr('role', 'tab');
@@ -116,7 +116,7 @@ if(typeof window.matchMedia == 'function') {
 		}
 	};
 
-	Tabs.prototype.teardownHtml = function() {
+	TabbedPanel.prototype.teardownHtml = function() {
 		this.container.find('.govuk-tabbed-panel__list').removeAttr('role');
 		this.container.find('.govuk-tabbed-panel__list-item').removeAttr('role');
 		this.tabs.removeAttr('role');
@@ -133,7 +133,7 @@ if(typeof window.matchMedia == 'function') {
 		this.panels.removeClass(this.cssHide);
 	};
 
-	Tabs.prototype.onTabClick = function(e) {
+	TabbedPanel.prototype.onTabClick = function(e) {
 		e.preventDefault();
 		var newTab = $(e.target);
 		var currentTab = this.getCurrentTab();
@@ -142,7 +142,7 @@ if(typeof window.matchMedia == 'function') {
 		this.createHistoryEntry(newTab);
 	};
 
-	Tabs.prototype.createHistoryEntry = function(tab) {
+	TabbedPanel.prototype.createHistoryEntry = function(tab) {
 		var panel = this.getPanel(tab)[0];
 		var id = panel.id;
 		panel.id = '';
@@ -151,7 +151,7 @@ if(typeof window.matchMedia == 'function') {
 		panel.id = id;
 	};
 
-	Tabs.prototype.onTabKeydown = function(e) {
+	TabbedPanel.prototype.onTabKeydown = function(e) {
 		switch(e.keyCode) {
 			case this.keys.left:
 			case this.keys.up:
@@ -166,7 +166,7 @@ if(typeof window.matchMedia == 'function') {
 		}
 	};
 
-	Tabs.prototype.activateNextTab = function() {
+	TabbedPanel.prototype.activateNextTab = function() {
 		var currentTab = this.getCurrentTab();
 		var nextTab = currentTab.parent().next().find('[role=tab]');
 		if(nextTab[0]) {
@@ -177,7 +177,7 @@ if(typeof window.matchMedia == 'function') {
 		}
 	};
 
-	Tabs.prototype.activatePreviousTab = function() {
+	TabbedPanel.prototype.activatePreviousTab = function() {
 		var currentTab = this.getCurrentTab();
 		var previousTab = currentTab.parent().prev().find('[role=tab]');
 		if(previousTab[0]) {
@@ -188,36 +188,36 @@ if(typeof window.matchMedia == 'function') {
 		}
 	};
 
-	Tabs.prototype.getPanel = function(tab) {
+	TabbedPanel.prototype.getPanel = function(tab) {
 		return $(this.getHref(tab));
 	};
 
-	Tabs.prototype.showPanel = function(tab) {
+	TabbedPanel.prototype.showPanel = function(tab) {
 		$(this.getHref(tab)).removeClass(this.cssHide);
 	};
 
-	Tabs.prototype.hidePanel = function(tab) {
+	TabbedPanel.prototype.hidePanel = function(tab) {
 		$(this.getHref(tab)).addClass(this.cssHide);
 	};
 
-	Tabs.prototype.unhighlightTab = function(tab) {
+	TabbedPanel.prototype.unhighlightTab = function(tab) {
 		tab.attr('aria-selected', 'false');
 		tab.attr('tabindex', '-1');
 	};
 
-	Tabs.prototype.highlightTab = function(tab) {
+	TabbedPanel.prototype.highlightTab = function(tab) {
 		tab.attr('aria-selected', 'true');
 		tab.attr('tabindex', '0');
 	};
 
-	Tabs.prototype.getCurrentTab = function() {
+	TabbedPanel.prototype.getCurrentTab = function() {
 		return this.container.find('[role=tab][aria-selected=true]');
 	};
 
 	// this is because IE doesn't always return the actual value but a relative full path
 	// should be a utility function most prob
 	// http://labs.thesedays.com/blog/2010/01/08/getting-the-href-value-with-jquery-in-ie/
-	Tabs.prototype.getHref = function(tab) {
+	TabbedPanel.prototype.getHref = function(tab) {
 		var href = tab.attr('href');
 		return href.slice(href.indexOf('#'), href.length);
 	};
