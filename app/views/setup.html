@@ -21,24 +21,6 @@
 
         <form method="post" action="/setup">
 
-          {{ govukRadios({
-            "idPrefix": "role",
-            "name": "role",
-            "fieldset": {
-              "legendHtml": "<h2 class=\"govuk-heading-m\">Role</h2>"
-            },
-            "items": [
-              {
-                "value": "1",
-                "text": "Legal Adviser"
-              },
-              {
-                "value": "2",
-                "text": "Judge"
-              }
-            ]
-          }) }}
-
           {{ govukCheckboxes({
             "idPrefix": "services",
             "name": "services",

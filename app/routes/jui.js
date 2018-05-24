@@ -21,7 +21,8 @@ router.get('/setup', function(req, res) {
 	var pageObject = {};
 	pageObject.services = Object.keys(caseTypes).map(key => ({
 		value: caseTypes[key].id,
-		text: caseTypes[key].label
+		text: caseTypes[key].label,
+		checked: true
 	}));
 	res.render('setup', pageObject);
 });
