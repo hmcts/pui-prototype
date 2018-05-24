@@ -1,4 +1,21 @@
-var helpers    = require('../helpers');
+var helpers = require('../helpers');
+
+function getCaseActions(_case) {
+	return [
+		{
+			href: `/app/case/${_case.id}/make-decision`,
+			text: 'Make decision'
+		},
+		{
+			href: `/app/case/${_case.id}/mark-as-prepared`,
+			text: 'Mark as prepared'
+		},
+		{
+			href: `/app/case/${_case.id}/reassign`,
+			text: 'Reassign'
+		}
+	]
+}
 
 function viewCaseSummary(req, res) {
 
@@ -6,6 +23,7 @@ function viewCaseSummary(req, res) {
 
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(c),
+		caseActions: getCaseActions(c),
 		casenav: helpers.getCaseNavObject(c),
 		detailsRows: [],
 		representativesRows: []
@@ -25,4 +43,14 @@ function viewCaseSummary(req, res) {
 
 }
 
+function viewMakeDecision(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
+	var pageObject = {
+		casebar: helpers.getCaseBarObject(_case),
+		caseActions: getCaseActions(_case)
+	};
+	res.render('app/case/sscs/make-decision', pageObject);
+}
+
 exports.viewCaseSummary = viewCaseSummary;
+exports.viewMakeDecision = viewMakeDecision;

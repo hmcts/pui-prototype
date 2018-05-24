@@ -1,11 +1,25 @@
 var helpers = require('../helpers');
 
+function getCaseActions(_case) {
+	return [
+		{
+			href: `/app/case/${_case.id}/make-decision`,
+			text: 'Make decision'
+		},
+		{
+			href: `/app/case/${_case.id}/list-for-hearing`,
+			text: 'List for hearing'
+		}
+	]
+}
+
 function viewCaseSummary(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
 	var pageObject = {
 		success: req.session.success,
 		casebar: helpers.getCaseBarObject(_case),
+		caseActions: getCaseActions(_case),
 		casenav: helpers.getCaseNavObject(_case),
 		detailsRows: [],
 		panelRows: []
@@ -21,4 +35,14 @@ function viewCaseSummary(req, res) {
 	res.render('app/case/sscs/summary', pageObject);
 }
 
+function viewMakeDecision(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
+	var pageObject = {
+		casebar: helpers.getCaseBarObject(_case),
+		caseActions: getCaseActions(_case)
+	};
+	res.render('app/case/divorce/make-decision', pageObject);
+}
+
 exports.viewCaseSummary = viewCaseSummary;
+exports.viewMakeDecision = viewMakeDecision;

@@ -8,17 +8,9 @@
 
     <div class="jui-casebar__options">
 
-      <nav class="jui-caseactionsmenu">
-
-        <button class="jui-caseactionsmenu__toggle" aria-haspopup="true" aria-expanded="false">Case actions</button>
-
-        <ul class="jui-caseactionsmenu__list js-hidden">
-          <li class="jui-caseactionsmenu__item"><a class="jui-caseactionsmenu__link" href="/app/case/{{casenav.id}}/make-decision">Make decision</a></li>
-          <li class="jui-caseactionsmenu__item"><a class="jui-caseactionsmenu__link" href="#">Mark as prepared</a></li>
-          <li class="jui-caseactionsmenu__item"><a class="jui-caseactionsmenu__link" href="#">Reassign</a></li>
-        </ul>
-
-      </nav>
+      {{juiCaseActions({
+        actions: caseActions
+      })}}
 
     </div>
 

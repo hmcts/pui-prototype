@@ -212,11 +212,18 @@ router.get('/app/case/:id/directions', function(req, res) {
 
 // Divorce service specific
 router.get('/app/case/:id/make-decision', function(req, res) {
-	var _case = helpers.getCase(req.session.cases, req.params.id);
-	var pageObject = {
-		casebar: helpers.getCaseBarObject(_case)
-	};
-	res.render('app/case/divorce/make-decision', pageObject);
+	var _case = req.session.cases.filter(c => c.id == req.params.id)[0];
+
+	switch(_case.type) {
+		case 'Divorce':
+			require('./actions/divorce').viewMakeDecision(req, res);
+			break;
+		case 'SSCS':
+			require('./actions/sscs').viewMakeDecision(req, res);
+			break;
+		default:
+			res.redirect('/');
+	}
 });
 
 router.post('/app/case/:id/make-decision', function(req, res) {
