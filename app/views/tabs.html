@@ -39,79 +39,81 @@
     <!-- Tabbed panel -->
     <div class="govuk-!-mb-r9">
 
-      <div class="govuk-tabbed-panel">
+      {% set beforeYouStartPanelHtml %}
+        <div class="govuk-prose-scope  govuk-!-pt-r6">
 
-        <h2 class="govuk-tabbed-panel__title">Contents</h2>
+          <h2>Before you start</h2>
 
-        <ul class="govuk-tabbed-panel__list">
-          <li class="govuk-tabbed-panel__list-item"><a class="govuk-tabbed-panel__tab" href="#beforeYouStart">Before you start</a></li>
-          <li class="govuk-tabbed-panel__list-item"><a class="govuk-tabbed-panel__tab" href="#needToKnow">Need to know</a></li>
-          <li class="govuk-tabbed-panel__list-item"><a class="govuk-tabbed-panel__tab" href="#waysToApply">Ways to apply</a></li>
-        </ul>
+          <p>To get your first provisional driving licence online for a car, motorcycle or moped you must:</p>
 
-        <section class="govuk-tabbed-panel__content  js-hidden" id="beforeYouStart">
+          <ul>
+            <li>be a resident of Great Britain &ndash; there&rsquo;s a different service in <a href="">Northern Ireland</a></li>
+            <li>meet the minimum age requirement</li>
+            <li>meet the <a href="">minimum eyesight requirement</a></li>
+            <li>not be prevented from driving for any reason</li>
+            <li>pay &pound;50 by MasterCard, Visa, Electron, Maestro or Delta debit or credit card</li>
+            <li>have a valid UK passport or <a href="">other form of identity</a></li>
+            <li>have your National Insurance number if known</li>
+            <li>provide addresses where you&rsquo;ve lived for the last 3 years</li>
+          </ul>
 
-          <div class="govuk-prose-scope  govuk-!-pt-r6">
+        </div>
+      {% endset %}
 
-            <h2>Before you start</h2>
+      {% set needToKnowPanelHtml %}
+        <div class="govuk-prose-scope  govuk-!-pt-r6">
+          <h2>Need to know</h2>
+          <ul>
+            <li>proof of identification required</li>
+            <li>3 years of address details required</li>
+            <li>debit or credit card required</li>
+          </ul>
+        </div>
+      {% endset %}
 
-            <p>To get your first provisional driving licence online for a car, motorcycle or moped you must:</p>
+      {% set waysToApplyPanelHtml %}
+        <div class="govuk-prose-scope  govuk-!-pt-r6">
 
-            <ul>
-              <li>be a resident of Great Britain &ndash; there&rsquo;s a different service in <a href="">Northern Ireland</a></li>
-              <li>meet the minimum age requirement</li>
-              <li>meet the <a href="">minimum eyesight requirement</a></li>
-              <li>not be prevented from driving for any reason</li>
-              <li>pay &pound;50 by MasterCard, Visa, Electron, Maestro or Delta debit or credit card</li>
-              <li>have a valid UK passport or <a href="">other form of identity</a></li>
-              <li>have your National Insurance number if known</li>
-              <li>provide addresses where you&rsquo;ve lived for the last 3 years</li>
-            </ul>
+          <h2>Ways to apply</h2>
 
-          </div>
+          <p>You can apply by post by completing a D1 application form, which you can get from the <a href="">DVLA form ordering service</a> or from a Post Office.</p>
 
-        </section>
+          <p>You&rsquo;ll also need to include:</p>
 
-        <section class="govuk-tabbed-panel__content  js-hidden" id="needToKnow">
+          <ul>
+            <li>original documentation confirming your identity</li>
+            <li>a colour <a href="">passport&ndash;style photograph</a></li>
+            <li>the fee of &pound;50 by cheque or postal order payable to DVLA (do not send cash)</li>
+          </ul>
 
-          <div class="govuk-prose-scope  govuk-!-pt-r6">
+          <p>Send your completed application and payment to DVLA, Swansea, SA99 1AD.</p>
 
-            <h2>Need to know</h2>
+          <p>If you&rsquo;re including non&ndash;UK identity documents send your application and payment to DVLA, Swansea, SA99 1AF.</p>
 
-            <ul>
-              <li>proof of identification required</li>
-              <li>3 years of address details required</li>
-              <li>debit or credit card required</li>
-            </ul>
-          </div>
+        </div>
+      {% endset %}
 
-        </section>
-
-        <section class="govuk-tabbed-panel__content  js-hidden" id="waysToApply">
-
-          <div class="govuk-prose-scope  govuk-!-pt-r6">
-
-            <h2>Ways to apply</h2>
-
-            <p>You can apply by post by completing a D1 application form, which you can get from the <a href="">DVLA form ordering service</a> or from a Post Office.</p>
-
-            <p>You&rsquo;ll also need to include:</p>
-
-            <ul>
-              <li>original documentation confirming your identity</li>
-              <li>a colour <a href="">passport&ndash;style photograph</a></li>
-              <li>the fee of &pound;50 by cheque or postal order payable to DVLA (do not send cash)</li>
-            </ul>
-
-            <p>Send your completed application and payment to DVLA, Swansea, SA99 1AD.</p>
-
-            <p>If you&rsquo;re including non&ndash;UK identity documents send your application and payment to DVLA, Swansea, SA99 1AF.</p>
-
-          </div>
-
-        </section>
-
-      </div>
+      {{govukTabbedPanel({
+        tabs: [{
+          id: 'beforeYouStart',
+          label: 'Before you start',
+          panel: {
+            html: beforeYouStartPanelHtml
+          }
+        }, {
+          id: 'needToKnow',
+          label: 'Need to know',
+          panel: {
+            html: needToKnowPanelHtml
+          }
+        }, {
+          id: 'waysToApply',
+          label: 'Ways to apply',
+          panel: {
+            html: waysToApplyPanelHtml
+          }
+        }]
+      })}}
 
     </div>
 
