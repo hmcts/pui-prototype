@@ -18,11 +18,31 @@
 
       <h1 class="govuk-heading-xl">Create questions</h1>
 
-      <div class="govuk-o-grid">
+      <form method="post" action="/app/case/{{_case.id}}/questions/create-questions">
 
-        <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds"></div>
+        {{ govukInput({
+          "label": {
+            "html": 'Subject'
+          },
+          "id": "subject",
+          "name": "subject",
+          "classes": "govuk-c-input--width-30"
+        }) }}
 
-      </div>
+        {{ govukTextarea({
+          "name": "question",
+          "id": "question",
+          "classes": "govuk-c-input--width-30",
+          "label": {
+            "html": 'Question'
+          }
+        }) }}
+
+        {{ govukButton({
+          "text": "Save questions"
+        }) }}
+
+      </form>
 
 		</main>
 

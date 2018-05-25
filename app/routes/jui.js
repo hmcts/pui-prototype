@@ -185,8 +185,14 @@ router.get('/app/case/:id/questions', function(req, res) {
 		casenav: helpers.getCaseNavObject(_case),
 		createQuestionsLink: {
 			href: '/app/case/' + req.params.id + '/questions/create-questions'
-		}
+		},
+		rounds: _case.rounds
 	};
+
+	if(req.flash('success') == 'question added') {
+		pageObject.success = 'Question added';
+	}
+
 	res.render('app/case/sscs/questions/index', pageObject);
 });
 
@@ -195,12 +201,45 @@ router.get('/app/case/:id/questions/create-questions', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
-		casenav: helpers.getCaseNavObject(_case)
+		casenav: helpers.getCaseNavObject(_case),
+		_case: _case
 	};
 	res.render('app/case/sscs/questions/create-questions.html', pageObject);
 });
 
+router.post('/app/case/:id/questions/create-questions', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
+	console.log(_case);
+	console.log(req.body);
 
+
+	var draftRound = _case.rounds.filter(r => r.sentDate == null)[0];
+
+	if(!draftRound) {
+		draftRound = {
+			id: require('uuid/v1')(),
+			sentDate: null,
+			questions: []
+		};
+		_case.rounds.push(draftRound);
+	}
+
+	draftRound.questions.push({
+		subject: req.body.subject,
+		body: req.body.question,
+		status: 'draft',
+		id: require('uuid/v1')()
+	});
+
+	_case.rounds.filter(r => r.sentDate == null)[0]
+
+
+	req.flash('success', 'question added');
+
+	res.redirect(`/app/case/${_case.id}/questions`);
+});
+
+// Directions
 
 router.get('/app/case/:id/directions', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
