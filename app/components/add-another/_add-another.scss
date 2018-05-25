@@ -1,0 +1,9 @@
+.jui-add-another__item {
+  border-bottom: 1px solid $govuk-border-colour;
+  margin-bottom: $govuk-spacing-scale-9;
+}
+
+.jui-add-another__item:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+}

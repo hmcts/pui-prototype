@@ -16,35 +16,58 @@
 
     <main role="main" class="govuk-o-main-wrapper">
 
-      <h1 class="govuk-heading-xl">Create questions</h1>
+      <div class="jui-add-another">
+        <h1 tabindex="-1" class="govuk-heading-xl jui-add-another__heading">Create questions</h1>
 
-      <form method="post" action="/app/case/{{_case.id}}/questions/create-questions">
+        <form method="post" action="/app/case/{{_case.id}}/questions/create-questions">
 
-        {{ govukInput({
-          "label": {
-            "html": 'Subject'
-          },
-          "id": "subject",
-          "name": "subject",
-          "classes": "govuk-c-input--width-30"
-        }) }}
+          <fieldset class="jui-add-another__item">
+              <legend class="govuk-heading-m">Question</legend>
+              {{ govukInput({
+                "label": {
+                  "html": 'Subject'
+                },
+                "id": "questions[0][subject]",
+                "name": "questions[0][subject]",
+                "classes": "govuk-c-input--width-30",
+                "attributes": {
+                  'data-name': 'questions[%index%][subject]',
+                  'data-id': 'questions[%index%][subject]'
+                }
+              }) }}
 
-        {{ govukTextarea({
-          "name": "question",
-          "id": "question",
-          "classes": "govuk-c-input--width-30",
-          "label": {
-            "html": 'Question'
-          }
-        }) }}
+              {{ govukTextarea({
+                "name": "questions[0][question]",
+                "id": "questions[0][question]",
+                "classes": "govuk-c-input--width-30",
+                "attributes": {
+                  'data-name': 'questions[%index%][question]',
+                  'data-id': 'questions[%index%][question]'
+                },
+                "label": {
+                  "html": 'Question'
+                }
+              }) }}
+            </fieldset>
 
-        {{ govukButton({
-          "text": "Save questions"
-        }) }}
+            {{ govukButton({
+              "text": "Add another",
+              "classes": 'jui-add-another__add-button'
+            }) }}
 
-      </form>
+            <br>
 
+            {{ govukButton({
+              "text": "Save questions"
+            }) }}
+        </form>
+      </div>
 		</main>
-
 	</div>
+{% endblock %}
+
+{% block page_scripts %}
+  <script>
+    new AddAnother($('.jui-add-another'));
+  </script>
 {% endblock %}

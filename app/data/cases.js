@@ -626,6 +626,7 @@ module.exports = [
         id: 123,
         subject: '',
         body: '',
+        attachments: [],
         response: {}
       }]
     }*/],
