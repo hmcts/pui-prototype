@@ -619,6 +619,16 @@ module.exports = [
     userID: 1,
     type: 'SSCS',
     typeId: caseTypes.sscs.id,
+    rounds: [/*{
+      id: require('uuid/v1')(),
+      sentDate: null,
+      questions: [{
+        id: 123,
+        subject: '',
+        body: '',
+        response: {}
+      }]
+    }*/],
     parties: [
       {
         type: 'Appellant',

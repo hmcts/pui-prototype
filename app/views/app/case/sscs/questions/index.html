@@ -12,16 +12,53 @@
     <main role="main" class="govuk-o-main-wrapper">
       {% include "includes/casenav.html" %}
 
+      {% if success %}
+        {{ juiAlert(
+          {
+            "icon": true,
+            "iconClasses": "jui-alert__icon--success",
+            "iconText": "Success!",
+            "alertText": success,
+            "alertClasses": "jui-alert--success"
+          })
+        }}
+      {% endif %}
+
       <h1 class="govuk-heading-l">Questions</h1>
 
-      <h2 class="govuk-heading-m">Round 1</h2>
 
-      <p class="govuk-body">No questions have been asked.</p>
+      {% if rounds.length > 0 %}
 
-      {{ govukButton({
-        "text": "Create questions",
-        "href": createQuestionsLink.href
-      }) }}
+        {% for round in rounds %}
+          <h2 class="govuk-heading-m">Round {{loop.index}}</h2>
+
+          {% if round.questions %}
+            {% for question in round.questions %}
+              <p>Subject: {{question.subject}}</p>
+              <p>Body: {{question.body}}</p>
+            {% endfor %}
+
+            {{ govukButton({
+              "text": "Create more questions",
+              "href": createQuestionsLink.href
+            }) }}
+          {% else %}
+            <p class="govuk-body">No questions yet.</p>
+            {{ govukButton({
+              "text": "Create questions",
+              "href": createQuestionsLink.href
+            }) }}
+          {% endif %}
+
+        {% endfor %}
+      {% else %}
+        <h2 class="govuk-heading-m">Round 1</h2>
+        <p class="govuk-body">No rounds yet.</p>
+        {{ govukButton({
+          "text": "Create questions",
+          "href": createQuestionsLink.href
+        }) }}
+      {% endif %}
 
 		</main>
 
