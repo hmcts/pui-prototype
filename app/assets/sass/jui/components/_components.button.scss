@@ -1,0 +1,16 @@
+/* ==========================================================================
+   #CASEBAR
+   ========================================================================== */
+
+.govuk-button--secondary {
+  background-color: $govuk-grey-3;
+  box-shadow: 0 2px 0 rgba($govuk-grey-1, .7); // 70%
+}
+
+.govuk-button--secondary:link {
+  color: $govuk-black;
+}
+
+.govuk-button--secondary:hover {
+  background-color: $govuk-grey-2;
+}

@@ -13,7 +13,19 @@
       
       {% include "includes/casenav.html" %}
 
+      {% if success %}
+        {{ juiAlert(
+          {
+            "icon": true,
+            "iconClasses": "jui-alert__icon--success",
+            "iconText": "Success!",
+            "alertText": success,
+            "alertClasses": "jui-alert--success"
+          })
+        }}
+      {% endif %}
 
+      <h1 class="govuk-heading-l">Questions</h1>
 
       <h2 class="govuk-heading-m">Round 1 (in draft ready to be sent)</h2>
 
@@ -40,20 +52,22 @@
       </div>
 
 
+      <div>
+        {{ govukButton({
+          "text": "Add more questions",
+          "href": "#",
+          "classes": "govuk-button--secondary govuk-!-mb-r4"
+        }) }}
+      </div>
 
-      {% if success %}
-        {{ juiAlert(
-          {
-            "icon": true,
-            "iconClasses": "jui-alert__icon--success",
-            "iconText": "Success!",
-            "alertText": success,
-            "alertClasses": "jui-alert--success"
-          })
-        }}
-      {% endif %}
 
-      <h1 class="govuk-heading-l">Questions</h1>
+      <div>
+        {{ govukButton({
+          "text": "Send questions",
+          "href": createQuestionsLink.href
+        }) }}
+      </div>
+
 
       {% if rounds.length > 0 %}
 
