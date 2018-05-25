@@ -1,5 +1,6 @@
-@import "status/style";
-@import "information-panel/style";
-@import "alert/style";
+@import "status/status";
+@import "information-panel/information-panel";
+@import "alert/alert";
 @import "case-actions/case-actions";
 @import "tabbed-panel/tabbed-panel";
+@import "questions/questions";
