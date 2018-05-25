@@ -10,6 +10,7 @@ const express = require('express')
 const favicon = require('serve-favicon')
 const nunjucks = require('nunjucks')
 const session = require('express-session')
+const flash = require('connect-flash');
 
 // Local dependencies
 const config = require('./app/config.js')
@@ -139,6 +140,8 @@ app.use(session({
   saveUninitialized: false,
   secret: crypto.randomBytes(64).toString('hex')
 }))
+
+app.use(flash());
 
 // Automatically store all data users enter
 if (useAutoStoreData === 'true') {

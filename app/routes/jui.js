@@ -30,6 +30,7 @@ router.get('/setup', function(req, res) {
 router.post('/setup', function(req, res) {
 	// store service lines
 	req.session.services = req.body.services;
+	req.flash('success', 'prototype setup');
 	res.redirect('/app/dashboard');
 });
 
@@ -55,16 +56,18 @@ router.get('/app/dashboard', function(req, res) {
 
 		});
 
-	if(req.session.newCases) {
 
-		var newCases = req.session.newCases
+	var successFlash = req.flash('success')[0];
 
-		.map(function(c) {
+	if(successFlash == 'cases added') {
+
+		var newCases = req.session.cases
+			.map(function(c) {
 
 			var cells = [];
 
 			cells.push({
-				html : '<a href="/app/case/' + c.id + '">'+ c.id +'</a>' + (req.session.new ? ' <span class="jui-status  jui-status--new  govuk-!-ml-r1">New</span> ' : '')
+				html : '<a href="/app/case/' + c.id + '">'+ c.id +'</a>' + ' <span class="jui-status  jui-status--new  govuk-!-ml-r1">New</span>'
 			});
 
 			cells.push({ html: c.parties.map(function(party) {
@@ -91,20 +94,23 @@ router.get('/app/dashboard', function(req, res) {
 	}
 
 	var pageObject = {
-		caseList: caseList,
-		success: req.session.success
+		caseList: caseList
 	};
 
+	switch(successFlash) {
+		case 'prototype setup':
+			pageObject.success = 'Prototype setup';
+			break;
+		case 'cases added':
+			pageObject.success = 'Cases added';
+			break;
+	}
 	res.render('app/dashboard/index', pageObject);
-
-	req.session.new = false;
-	req.session.success = false;
-
 });
 
 
 router.post('/app/get-new-case', function (req, res) {
-	req.session.success = true;
+	req.flash('success', 'cases added');
 	res.redirect('/app/dashboard');
 });
 
