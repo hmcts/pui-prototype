@@ -64,12 +64,12 @@
       <div>
         {{ govukButton({
           "text": "Send questions",
-          "href": createQuestionsLink.href
+          "href": "#"
         }) }}
       </div>
 
 
-      {% if rounds.length > 0 %}
+      {# {% if rounds.length > 0 %}
 
         {% for round in rounds %}
           <h2 class="govuk-heading-m">Round {{loop.index}}</h2>
@@ -100,7 +100,7 @@
           "text": "Create questions",
           "href": createQuestionsLink.href
         }) }}
-      {% endif %}
+      {% endif %} #}
 
 		</main>
 

@@ -2,41 +2,37 @@
    #CASE ACTIONS MENU
    ========================================================================== */
 
-   .jui-case-actions {
-    color: $govuk-white;
+.jui-case-actions {
+  color: $govuk-white;
+}
+
+
+.jui-case-actions__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.jui-case-actions__item {
+  display: inline-block;
+  margin-right: $govuk-spacing-scale-2;
+
+  &:last-child {
+    margin-right: 0;
   }
 
+}
 
-  .jui-case-actions__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+
+.jui-case-actions__link {
+  text-decoration: underline;
+  white-space: nowrap;
+
+  &:link,
+  &:visited,
+  &:active {
+    color: inherit;
   }
 
-
-  .jui-case-actions__item {
-    display: inline-block;
-    margin-right: $govuk-spacing-scale-2;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-  }
-
-  .jui-case-actions__link {
-    font-weight: bold;
-    text-decoration: none;
-    white-space: nowrap;
-
-    &:link,
-    &:visited,
-    &:active {
-      color: inherit;
-    }
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-  }
+}

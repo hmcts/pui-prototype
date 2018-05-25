@@ -17,30 +17,35 @@
 
   <main role="main" class="govuk-main-wrapper">
 
-    <div class="govuk-grid">
+    <div class="govuk-grid-row">
 
-      <div class="govuk-grid__item  govuk-grid__item--two-thirds">
+      <div class="govuk-grid-column-two-thirds">
 
         <form method="post">
 
-
-          {% set sub1 %}
-            {{ govukTextarea({
-              "name": "additionalInformation",
-              "id": "additionalInformation",
-              "classes": "govuk-input--width-30",
-              "label": {
-                "html": 'Additional information'
-              }
-            }) }}
-          {% endset %}
+          {% set additionalInformation %}
+          {{ govukTextarea({
+            "id": "additional-information",
+            "name": "additionalInformation",
+            "classes": "govuk-input--width-30",
+            "label": {
+              "text": "Additional information"
+            }
+          }) }}
+          {% endset -%}
 
           {{ govukCheckboxes({
             "idPrefix": "reason",
             "name": "reason",
             "fieldset": {
-              "legendHtml": "<h1 class=\"govuk-heading-xl\">Provide a reason</h1>",
-              "legendHintText": "Choose at least one of the following"
+              "legend": {
+                "text": 'Provide a reason',
+                "isPageHeading": true,
+                "classes": 'govuk-fieldset__legend--xl'
+              }
+            },
+            "hint": {
+              "text": "Choose at least one of the following"
             },
             "items": [
               {
@@ -67,7 +72,7 @@
                 "value": "Provide additional information",
                 "html": "<span class=\"govuk-heading-s govuk-!-mb-r1\">Provide additional information</span>",
                 "conditional": {
-                  "html": sub1
+                  "html": additionalInformation
                 }
               }
             ]
@@ -88,10 +93,4 @@
 
 </div>
 
-{% endblock %}
-
-{% block page_scripts %}
-  <script>
-    new CheckboxesReveal($('.govuk-checkboxes'));
-  </script>
 {% endblock %}

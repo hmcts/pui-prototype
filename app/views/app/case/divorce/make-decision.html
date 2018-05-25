@@ -17,15 +17,11 @@
 
   <main role="main" class="govuk-main-wrapper">
 
-    <div class="govuk-grid">
+    <div class="govuk-grid-row">
 
-      <div class="govuk-grid__item  govuk-grid__item--two-thirds">
+      <div class="govuk-grid-column-one-half">
 
         <h1 class="govuk-heading-xl">Make a decision</h1>
-
-        <h2 class="govuk-heading-m">Are you satisfied that</h2>
-
-        <p class="govuk-body">David Francis is entitled to a decree nisi of divorce for reason of adultery.</p>
 
         <form method="post">
 
@@ -34,8 +30,10 @@
             "name": "satisfied",
             "classes": "govuk-radios--inline",
             "fieldset": {
-              "legendHtml": "",
-              "legendHintText": ""
+              "legend": {
+                "html": "Are you satisfied that <p class=\"govuk-body govuk-!-mt-r4  govuk-!-mb-r0\">David Francis is entitled to a decree nisi of divorce for reason of adultery.</p>",
+                "classes": "govuk-fieldset__legend--m"
+              }
             },
             "items": [
               {

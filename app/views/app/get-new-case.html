@@ -16,12 +16,19 @@
   <main role="main" class="govuk-main-wrapper">
 
     <form method="post">
+
       {{ govukRadios({
-        "idPrefix": "user",
-        "name": "user",
+        "idPrefix": "get-next-case",
+        "name": "getNextCase",
         "fieldset": {
-          "legendHtml": "<h1 class=\"govuk-heading-xl\">Get new case</h1>",
-          "legendHintText": "You’re ticketed for the following case types"
+          "legend": {
+            "text": "Get new case",
+            "isPageHeading": true,
+            "classes": "govuk-fieldset__legend--xl"
+          }
+        },
+        "hint": {
+          "text": "You’re ticketed for the following case types"
         },
         "items": [
           {
@@ -40,7 +47,7 @@
       }) }}
 
       {{ govukButton({
-        "text": "Get new cases",
+        "text": "Get new case",
         "element": "button"
       }) }}
 
