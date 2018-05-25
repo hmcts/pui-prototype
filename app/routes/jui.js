@@ -209,10 +209,6 @@ router.get('/app/case/:id/questions/create-questions', function(req, res) {
 
 router.post('/app/case/:id/questions/create-questions', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
-	console.log(_case);
-	console.log(req.body);
-
-
 	var draftRound = _case.rounds.filter(r => r.sentDate == null)[0];
 
 	if(!draftRound) {
@@ -224,15 +220,13 @@ router.post('/app/case/:id/questions/create-questions', function(req, res) {
 		_case.rounds.push(draftRound);
 	}
 
-	draftRound.questions.push({
-		subject: req.body.subject,
-		body: req.body.question,
-		status: 'draft',
-		id: require('uuid/v1')()
+	req.body.questions.forEach(question => {
+		draftRound.questions.push({
+			subject: question.subject,
+			body: question.question,
+			id: require('uuid/v1')()
+		});
 	});
-
-	_case.rounds.filter(r => r.sentDate == null)[0]
-
 
 	req.flash('success', 'question added');
 

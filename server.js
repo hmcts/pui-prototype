@@ -67,7 +67,7 @@ var appViews = [path.join(__dirname, '/app/views/'),
   path.join(__dirname, '/lib/'),
   path.join(__dirname, '/app/components/'),
   path.join(__dirname, '/node_modules/govuk_template_jinja/views/layouts'),
-  path.join(__dirname, '/node_modules/@govuk-frontend/')]
+  path.join(__dirname, '/node_modules/@govuk-frontend/frontend/components')]
 
 var nunjucksAppEnv = nunjucks.configure(appViews, {
   autoescape: true,

@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .jui-casebar {
-  @include govuk-h-clearfix;
+  @include govuk-clearfix;
   background-color: $govuk-blue;
   color: $govuk-white;
   padding-top: $govuk-spacing-scale-3;

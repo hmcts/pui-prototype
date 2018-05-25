@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .jui-document {
-  @include govuk-h-clearfix;
+  @include govuk-clearfix;
 
   &:not(:first-child) {
     margin-top: $govuk-spacing-scale-2;

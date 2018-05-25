@@ -49,7 +49,7 @@ function viewMakeDecision(req, res) {
 		casebar: helpers.getCaseBarObject(_case),
 		caseActions: getCaseActions(_case)
 	};
-	res.render('app/case/sscs/make-decision', pageObject);
+	res.render('app/case/divorce/make-decision', pageObject);
 }
 
 exports.viewCaseSummary = viewCaseSummary;
