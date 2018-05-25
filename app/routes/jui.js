@@ -176,7 +176,8 @@ router.get('/app/case/:id/timeline', function(req, res) {
 
 
 
-// COR Questions
+
+// Questions
 router.get('/app/case/:id/questions', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
@@ -186,7 +187,7 @@ router.get('/app/case/:id/questions', function(req, res) {
 			href: '/app/case/' + req.params.id + '/questions/create-questions'
 		}
 	};
-	res.render('app/case/questions/index', pageObject);
+	res.render('app/case/sscs/questions/index', pageObject);
 });
 
 
@@ -196,8 +197,9 @@ router.get('/app/case/:id/questions/create-questions', function(req, res) {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case)
 	};
-	res.render('app/case/questions/create-questions', pageObject);
+	res.render('app/case/sscs/questions/create-questions.html', pageObject);
 });
+
 
 
 router.get('/app/case/:id/directions', function(req, res) {
