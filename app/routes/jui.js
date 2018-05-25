@@ -108,7 +108,6 @@ router.get('/app/dashboard', function(req, res) {
 	res.render('app/dashboard/index', pageObject);
 });
 
-
 router.post('/app/get-new-case', function (req, res) {
 	req.flash('success', 'cases added');
 	res.redirect('/app/dashboard');
@@ -187,7 +186,7 @@ router.get('/app/case/:id/questions', function(req, res) {
 			href: '/app/case/' + req.params.id + '/questions/create-questions'
 		}
 	};
-	res.render('app/case/sscs/questions/index', pageObject);
+	res.render('app/case/questions/index', pageObject);
 });
 
 
@@ -197,7 +196,7 @@ router.get('/app/case/:id/questions/create-questions', function(req, res) {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case)
 	};
-	res.render('app/case/sscs/questions/create-questions', pageObject);
+	res.render('app/case/questions/create-questions', pageObject);
 });
 
 
@@ -213,9 +212,18 @@ router.get('/app/case/:id/directions', function(req, res) {
 			href: '/app/case/' + req.params.id + '/directions/create-direction-order'
 		}
 	};
-	res.render('app/case/sscs/directions/index', pageObject);
+	res.render('app/case/directions/index', pageObject);
 });
 
+router.get('/app/case/:id/directions/create-direction', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
+	var pageObject = {
+		casebar: helpers.getCaseBarObject(_case),
+		casenav: helpers.getCaseNavObject(_case),
+		caseId: _case.id
+	};
+	res.render('app/case/directions/create-direction', pageObject);
+});
 
 // Divorce service specific
 router.get('/app/case/:id/make-decision', function(req, res) {
