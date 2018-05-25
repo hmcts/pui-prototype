@@ -50,9 +50,14 @@
 
 
 .jui-questions__attachment {
+  background-image: url(#{$jui-assets-path}icon-attachment.svg);
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: 0 50%;
   color: $govuk-secondary-text-colour;
   display: block;
-  
+  padding-left: 30px;
+
   @include mq($until: tablet) {
     margin-top: $govuk-spacing-scale-2;
   }
@@ -63,7 +68,3 @@
   }
 
 }
-  
-  
-  /* Style variants
-     ========================================================================== */
