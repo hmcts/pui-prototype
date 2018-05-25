@@ -2,10 +2,67 @@
    #QUESTIONS
    ========================================================================== */
 
-  .jui-questions__item {
-    padding-top: 20px;
-    padding-bottom: 20px;
+
+.jui-questions {
+  max-width: 800px;
+}
+
+
+.jui-questions__item {
+  border-bottom: 1px solid $govuk-border-colour;
+  padding-top: $govuk-spacing-scale-4;
+  padding-bottom: $govuk-spacing-scale-4;
+  position: relative;
+
+  &:first-child {
+    border-top: 1px solid $govuk-border-colour;
   }
+
+}
+
+
+.jui-questions__subject {
+  margin-bottom: 0;
+  margin-right: $govuk-spacing-scale-4;
+
+  a {
+    margin-right: $govuk-spacing-scale-2;
+  }
+
+}
+
+
+.jui-questions__author {
+  font-weight: bold;
+}
+
+
+.jui-questions__meta {
+  color: $govuk-secondary-text-colour;
+  display: block;
+  margin-top: $govuk-spacing-scale-2;
+
+  @include mq($from: tablet) {
+    margin-bottom: 0;
+  }
+
+}
+
+
+.jui-questions__attachment {
+  color: $govuk-secondary-text-colour;
+  display: block;
+  
+  @include mq($until: tablet) {
+    margin-top: $govuk-spacing-scale-2;
+  }
+
+  @include mq($from: tablet) {
+    position: absolute; top: 20px; right: 0;
+    margin-top: 2px;
+  }
+
+}
   
   
   /* Style variants
