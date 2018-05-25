@@ -1,9 +1,21 @@
 .jui-add-another__item {
   border-bottom: 1px solid $govuk-border-colour;
   margin-bottom: $govuk-spacing-scale-9;
+  padding: 0;
+  position: relative;
+}
+
+.jui-add-another__item legend {
+  padding: 0;
 }
 
 .jui-add-another__item:last-of-type {
   border-bottom: none;
   margin-bottom: 0;
+}
+
+.jui-add-another__remove-button {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
