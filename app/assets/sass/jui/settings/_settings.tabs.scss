@@ -54,14 +54,14 @@
 
 // ENHANCED
 @mixin tabs-enhanced-list {
-  @include govuk-h-clearfix;
+  @include govuk-clearfix;
   border-bottom: 1px solid $govuk-border-colour;
 }
 
 
 @mixin tabs-enhanced-list-item {
   margin-left: 0;
-          
+
   &::before {
     content: none;
   }

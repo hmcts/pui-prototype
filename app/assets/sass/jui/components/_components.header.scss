@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .jui-header {
-  @include govuk-h-clearfix;
+  @include govuk-clearfix;
   background-color: $govuk-black;
   padding-top: $govuk-spacing-scale-3;
   padding-bottom: $govuk-spacing-scale-3;

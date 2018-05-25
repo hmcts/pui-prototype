@@ -9,7 +9,7 @@
 {% block content %}
   <div class="jui-width-container">
 
-    <main role="main" class="govuk-o-main-wrapper">
+    <main role="main" class="govuk-main-wrapper">
 
       <form action="/cor/v1/case/{{case.id}}/create-direction-order" method="post">
 
@@ -23,7 +23,7 @@
         {{ govukTextarea({
           "name": "message",
           "id": "message",
-          "classes": "govuk-c-input--width-30",
+          "classes": "govuk-input--width-30",
           "label": {
             "html": '<h2 class="govuk-heading-m">Message</h2>'
           }

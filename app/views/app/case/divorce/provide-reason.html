@@ -15,11 +15,11 @@
     "href": "./"
   }) }}
 
-  <main role="main" class="govuk-o-main-wrapper">
+  <main role="main" class="govuk-main-wrapper">
 
-    <div class="govuk-o-grid">
+    <div class="govuk-grid">
 
-      <div class="govuk-o-grid__item  govuk-o-grid__item--two-thirds">
+      <div class="govuk-grid__item  govuk-grid__item--two-thirds">
 
         <form method="post">
 
@@ -28,7 +28,7 @@
             {{ govukTextarea({
               "name": "additionalInformation",
               "id": "additionalInformation",
-              "classes": "govuk-c-input--width-30",
+              "classes": "govuk-input--width-30",
               "label": {
                 "html": 'Additional information'
               }
@@ -92,6 +92,6 @@
 
 {% block page_scripts %}
   <script>
-    new CheckboxesReveal($('.govuk-c-checkboxes'));
+    new CheckboxesReveal($('.govuk-checkboxes'));
   </script>
 {% endblock %}

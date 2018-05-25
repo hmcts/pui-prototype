@@ -7,7 +7,7 @@
 
   <div class="jui-width-container">
 
-    <main role="main" class="govuk-o-main-wrapper">
+    <main role="main" class="govuk-main-wrapper">
 
       <form action="/app/case/{{caseId}}/create-direction" method="post">
 
@@ -57,7 +57,7 @@
         {{ govukTextarea({
           "name": "message",
           "id": "message",
-          "classes": "govuk-c-input--width-30",
+          "classes": "govuk-input--width-30",
           "label": {
             "html": 'Direction'
           }
@@ -69,7 +69,7 @@
           },
           "id": "dueDate",
           "name": "dueDate",
-          "classes": "govuk-c-input--width-10"
+          "classes": "govuk-input--width-10"
         }) }}
 
 
