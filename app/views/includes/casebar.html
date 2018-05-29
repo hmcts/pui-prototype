@@ -6,6 +6,7 @@
       {{casebar.id}}<span class="jui-casebar__title"> {{casebar.parties}}</span>
     </div>
 
+    {% if caseActions %}
     <div class="jui-casebar__options">
 
       {{juiCaseActions({
@@ -13,6 +14,7 @@
       })}}
 
     </div>
+    {% endif %}
 
   </div>
 
