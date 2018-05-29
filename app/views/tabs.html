@@ -17,26 +17,7 @@
     <h1 class="govuk-heading-xl">Tabs</h1>
 
 
-    <!-- Tabbed navigation -->
-    <div class="govuk-!-mb-r9">
-
-      <div class="govuk-tabbed-nav">
-
-        <h2 class="govuk-tabbed-nav__title">Contents</h2>
-
-        <ul class="govuk-tabbed-nav__list">
-          <li class="govuk-tabbed-nav__list-item"><a class="govuk-tabbed-nav__tab" href="/tabs">Parties</a></li>
-          <li class="govuk-tabbed-nav__list-item"><a class="govuk-tabbed-nav__tab" href="/tabs" aria-current="true">Parties</a></li>
-          <li class="govuk-tabbed-nav__list-item"><a class="govuk-tabbed-nav__tab" href="/tabs">Case file</a></li>
-          <li class="govuk-tabbed-nav__list-item"><a class="govuk-tabbed-nav__tab" href="/tabs">Timeline</a></li>
-        </ul>
-
-      </div>
-
-    </div>
-
-
-    <!-- Tabbed panel -->
+     <!-- Tabbed panel -->
     <div class="govuk-!-mb-r9">
 
       {% set beforeYouStartPanelHtml %}
@@ -93,7 +74,7 @@
         </div>
       {% endset %}
 
-      {{govukTabbedPanel({
+      {{govukTabs({
         tabs: [{
           id: 'beforeYouStart',
           label: 'Before you start',
@@ -125,12 +106,12 @@
 {% endblock %}
 
 {% block page_scripts %}
-  <script src="/public/javascripts/tabbed-panel/TabbedPanel.js"></script>
+  <script src="/public/javascripts/tabs/Tabs.js"></script>
   <script>
-    if(TabbedPanel) {
-      new TabbedPanel($('.govuk-tabbed-panel').eq(0));
+    if(Tabs) {
+      new Tabs($('.govuk-tabs').eq(0));
     } else {
-      $('.govuk-tabbed-panel .js-hidden').removeClass('js-hidden');
+      $('.govuk-tabs .js-hidden').removeClass('js-hidden');
       $('.js-tabs-enabled').removeClass('js-tabs-enabled');
     }
   </script>
