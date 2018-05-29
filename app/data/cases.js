@@ -5,7 +5,6 @@ module.exports = [
   {
     id: 'LU17C87541',
     userID: 1,
-    type: 'Public Law',
     typeId: caseTypes.publicLaw.id,
     urgent: true,
     parties: [
@@ -37,7 +36,6 @@ module.exports = [
   {
     id: 'BV18D00150',
     userID: 1,
-    type: 'Divorce',
     typeId: caseTypes.divorce.id,
     parties: [
       {
@@ -150,7 +148,6 @@ module.exports = [
   {
     id: 'BV18D00151',
     userID: 1,
-    type: 'Financial Remedy',
     typeId: caseTypes.financialRemedy.id,
     parties: [
       {
@@ -247,7 +244,6 @@ module.exports = [
   {
     id: 'BV18D00152',
     userID: 1,
-    type: 'Financial Remedy',
     typeId: caseTypes.financialRemedy.id,
     parties: [
       {
@@ -344,7 +340,6 @@ module.exports = [
   {
     id: 'BV18D00153',
     userID: 1,
-    type: 'Divorce',
     typeId: caseTypes.divorce.id,
     parties: [
       {
@@ -441,7 +436,6 @@ module.exports = [
   {
     id: 'BV18D00154',
     userID: 1,
-    type: 'Financial Remedy',
     typeId: caseTypes.financialRemedy.id,
     parties: [
       {
@@ -538,7 +532,6 @@ module.exports = [
   {
     id: '000LR095',
     userID: 1,
-    type: 'Civil Money Claims',
     typeId: caseTypes.civilMoneyClaims.id,
     parties: [
       {
@@ -617,7 +610,6 @@ module.exports = [
   {
     id: 'CO18D00150',
     userID: 1,
-    type: 'SSCS',
     typeId: caseTypes.sscs.id,
     rounds: [/*{
       id: require('uuid/v1')(),

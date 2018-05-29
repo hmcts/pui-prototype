@@ -1,3 +1,5 @@
+var caseTypes = require('../data/case-types');
+
 function getPartiesLine(_case) {
 	return _case.parties.map(function(party) {
 		if(party.org) {
@@ -9,31 +11,26 @@ function getPartiesLine(_case) {
 	}).join(' vs ');
 }
 
+function getCaseType(_case) {
+	var caseType = '';
+	Object.keys(caseTypes).forEach(function(key) {
+		if(caseTypes[key].id == _case.typeId) {
+			caseType = caseTypes[key].label;
+		}
+	});
+	return caseType;
+}
+
 function getCaseNavObject(_case) {
-	switch(_case.type) {
-		case 'SSCS':
+	switch(_case.typeId) {
+		case 'sscs':
 			return {
 				id: _case.id,
 				parties: true,
 				questions: true,
 				directions: true
 			};
-		case 'Divorce':
-			return {
-				id: _case.id,
-				parties: true
-			};
-		case 'Financial Remedy':
-			return {
-				id: _case.id,
-				parties: true
-			};
-		case 'Civil Money Claims':
-			return {
-				id: _case.id,
-				parties: true
-			};
-		case 'Public Law':
+		case 'divorce':
 			return {
 				id: _case.id,
 				parties: true
@@ -56,3 +53,4 @@ exports.getCaseBarObject = getCaseBarObject;
 exports.getCaseNavObject = getCaseNavObject;
 exports.getPartiesLine   = getPartiesLine;
 exports.getCase = getCase;
+exports.getCaseType = getCaseType;

@@ -1,22 +1,22 @@
 module.exports = {
   divorce: {
-    id: 1,
+    id: 'divorce',
     label: 'Divorce'
   },
   financialRemedy: {
-    id: 2,
+    id: 'financial-remedy',
     label: 'Financial Remedy'
   },
   sscs: {
-    id: 3,
+    id: 'sscs',
     label: 'SSCS'
   },
   publicLaw: {
-    id: 4,
+    id: 'public-law',
     label: 'Public Law'
   },
   civilMoneyClaims: {
-    id: 5,
+    id: 'civil-money-claims',
     label: 'Civil Money Claims'
   }
 };
