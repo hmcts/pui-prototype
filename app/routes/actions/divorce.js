@@ -52,5 +52,26 @@ function viewMakeDecision(req, res) {
 	res.render('app/case/divorce/make-decision', pageObject);
 }
 
+function viewParties(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
+	var pageObject = {
+		casebar: helpers.getCaseBarObject(_case),
+		caseActions: getCaseActions(_case),
+		casenav: helpers.getCaseNavObject(_case)
+	};
+	res.render('app/case/divorce/parties', pageObject);
+}
+
+function viewCostsOrder(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
+	var pageObject = {
+		casebar: helpers.getCaseBarObject(_case),
+		caseActions: getCaseActions(_case)
+	};
+	res.render('app/case/divorce/costs-order', pageObject);
+}
+
 exports.viewCaseSummary = viewCaseSummary;
 exports.viewMakeDecision = viewMakeDecision;
+exports.viewParties = viewParties;
+exports.viewCostsOrder = viewCostsOrder;
