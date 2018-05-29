@@ -19,7 +19,7 @@
   </ul>
 
   {% for tab in params.tabs %}
-    <section class="govuk-tabs__content js-hidden" id="{{tab.id}}">
+    <section class="govuk-tabs__panel js-hidden" id="{{tab.id}}">
       {{tab.panel.html | safe }}
     </section>
   {% endfor %}

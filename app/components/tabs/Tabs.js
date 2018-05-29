@@ -4,7 +4,7 @@ if(typeof window.matchMedia == 'function') {
 		this.keys = { left: 37, right: 39, up: 38, down: 40 };
 		this.cssHide = 'js-hidden';
 		this.tabs = container.find('.govuk-tabs__tab');
-		this.panels = container.find('.govuk-tabs__content');
+		this.panels = container.find('.govuk-tabs__panel');
 		this.setupResponsiveChecks();
 	};
 
