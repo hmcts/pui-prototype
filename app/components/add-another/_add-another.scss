@@ -1,21 +1,29 @@
+/* ==========================================================================
+   #ADD ANOTHER
+   ========================================================================== */
+
 .jui-add-another__item {
-  border-bottom: 1px solid $govuk-border-colour;
-  margin-bottom: $govuk-spacing-scale-9;
+  margin: 0;
+  margin-top: $govuk-spacing-scale-6;
   padding: 0;
   position: relative;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
 }
+
 
 .jui-add-another__item legend {
-  padding: 0;
+  float: left;
+  padding: 4px 0;
+  width: 100%;
 }
 
-.jui-add-another__item:last-of-type {
-  border-bottom: none;
-  margin-bottom: 0;
-}
 
 .jui-add-another__remove-button {
   position: absolute;
-  top: 0;
   right: 0;
+  top: 0;
 }

@@ -29,9 +29,9 @@
 
       <h2 class="govuk-heading-m">Round 1 (in draft ready to be sent)</h2>
 
-      <p>Due by <b><time datetime="27-03-2018">27 Mar 2018</time></b></p>
+      <!--p>Due by <b><time datetime="27-03-2018">27 Mar 2018</time></b></p-->
 
-      <div class="jui-questions  govuk-!-mb-r5">
+      <div class="jui-questions  govuk-!-mb-r6">
 
         <div class="jui-questions__item">
           <h3 class="jui-questions__subject"><a href="">1. How do you do your shopping?</a></h3>
@@ -51,23 +51,18 @@
 
       </div>
 
+      {{ govukButton({
+        "text": "Add more questions",
+        "href": createQuestionsLink.href,
+        "classes": "govuk-button--secondary govuk-!-mb-r4"
+      }) }}
 
-      <div>
-        {{ govukButton({
-          "text": "Add more questions",
-          "href": "#",
-          "classes": "govuk-button--secondary govuk-!-mb-r4"
-        }) }}
-      </div>
+      <br>
 
-
-      <div>
-        {{ govukButton({
-          "text": "Send questions",
-          "href": "#"
-        }) }}
-      </div>
-
+      {{ govukButton({
+        "text": "Send questions",
+        "href": "#"
+      }) }}
 
       {# {% if rounds.length > 0 %}
 

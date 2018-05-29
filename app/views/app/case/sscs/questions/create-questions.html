@@ -16,53 +16,66 @@
 
     <main role="main" class="govuk-main-wrapper">
 
-      <div class="jui-add-another">
-        <h1 tabindex="-1" class="govuk-heading-xl jui-add-another__heading">Create questions</h1>
+      <div class="govuk-grid-row">
 
-        <form method="post" action="/app/case/{{_case.id}}/questions/create-questions">
+        <div class="govuk-grid-column-two-thirds">
 
-          <fieldset class="jui-add-another__item">
-              <legend class="govuk-heading-m">Question</legend>
-              {{ govukInput({
-                "label": {
-                  "html": 'Subject'
-                },
-                "id": "questions[0][subject]",
-                "name": "questions[0][subject]",
-                "classes": "govuk-input--width-30",
-                "attributes": {
-                  'data-name': 'questions[%index%][subject]',
-                  'data-id': 'questions[%index%][subject]'
-                }
+          <div class="jui-add-another">
+            
+            <h1 class="govuk-heading-xl jui-add-another__heading" tabindex="-1">Create questions</h1>
+
+            <form method="post" action="/app/case/{{_case.id}}/questions/create-questions">
+
+              <fieldset class="jui-add-another__item">
+
+                <legend class="govuk-heading-m">Question</legend>
+
+                {{ govukInput({
+                  "label": {
+                    "html": "Subject"
+                  },
+                  "id": "questions[0][subject]",
+                  "name": "questions[0][subject]",
+                  "attributes": {
+                    "data-name": "questions[%index%][subject]",
+                    "data-id": "questions[%index%][subject]"
+                  }
+                }) }}
+
+                {{ govukTextarea({
+                  "name": "questions[0][question]",
+                  "id": "questions[0][question]",
+                  "attributes": {
+                    "data-name": "questions[%index%][question]",
+                    "data-id": "questions[%index%][question]"
+                  },
+                  "label": {
+                    "html": "Question"
+                  }
+                }) }}
+              </fieldset>
+
+              {{ govukButton({
+                "text": "Add another question",
+                "classes": "govuk-button--secondary govuk-!-mb-r4 jui-add-another__add-button"
               }) }}
 
-              {{ govukTextarea({
-                "name": "questions[0][question]",
-                "id": "questions[0][question]",
-                "classes": "govuk-input--width-30",
-                "attributes": {
-                  'data-name': 'questions[%index%][question]',
-                  'data-id': 'questions[%index%][question]'
-                },
-                "label": {
-                  "html": 'Question'
-                }
+              <br>
+
+              {{ govukButton({
+                "text": "Save questions"
               }) }}
-            </fieldset>
 
-            {{ govukButton({
-              "text": "Add another",
-              "classes": 'jui-add-another__add-button'
-            }) }}
+            </form>
 
-            <br>
+          </div>
 
-            {{ govukButton({
-              "text": "Save questions"
-            }) }}
-        </form>
+        </div>
+
       </div>
+
 		</main>
+
 	</div>
 {% endblock %}
 
