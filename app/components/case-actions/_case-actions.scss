@@ -2,11 +2,6 @@
    #CASE ACTIONS MENU
    ========================================================================== */
 
-.jui-case-actions {
-  color: $govuk-white;
-}
-
-
 .jui-case-actions__list {
   list-style: none;
   margin: 0;
@@ -15,8 +10,8 @@
 
 
 .jui-case-actions__item {
-  display: inline-block;
   margin-right: $govuk-spacing-scale-2;
+  float: left;
 
   &:last-child {
     margin-right: 0;
@@ -26,13 +21,15 @@
 
 
 .jui-case-actions__link {
-  text-decoration: underline;
-  white-space: nowrap;
+  background-color: $govuk-grey-4;
+  display: block;
+  padding: $govuk-spacing-scale-1 $govuk-spacing-scale-2;
+  text-decoration: none;
 
   &:link,
   &:visited,
   &:active {
-    color: inherit;
+    color: $govuk-text-colour;
   }
 
 }
