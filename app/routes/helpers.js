@@ -26,15 +26,44 @@ function getCaseNavObject(_case) {
 		case 'sscs':
 			return {
 				id: _case.id,
-				parties: true,
-				questions: true,
-				directions: true
+				questions: true
 			};
 		case 'divorce':
 			return {
 				id: _case.id,
 				parties: true
 			};
+	}
+}
+
+function getCaseActions(_case) {
+	switch(_case.typeId) {
+		case 'sscs':
+		return [
+			{
+				href: `/app/case/${_case.id}/make-decision`,
+				text: 'Make decision'
+			},
+			{
+				href: `/app/case/${_case.id}/list-for-hearing`,
+				text: 'List for hearing'
+			}
+		];
+		case 'divorce':
+			return [
+				{
+					href: `/app/case/${_case.id}/make-decision`,
+					text: 'Make decision'
+				},
+				{
+					href: `/app/case/${_case.id}/mark-as-prepared`,
+					text: 'Mark as prepared'
+				},
+				{
+					href: `/app/case/${_case.id}/reassign`,
+					text: 'Reassign'
+				}
+			];
 	}
 }
 
@@ -54,3 +83,4 @@ exports.getCaseNavObject = getCaseNavObject;
 exports.getPartiesLine   = getPartiesLine;
 exports.getCase = getCase;
 exports.getCaseType = getCaseType;
+exports.getCaseActions = getCaseActions;

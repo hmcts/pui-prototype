@@ -1,5 +1,4 @@
 var helpers = require('../helpers');
-var divorceHelpers = require('../helpers/divorce');
 
 function viewCaseSummary(req, res) {
 
@@ -7,7 +6,7 @@ function viewCaseSummary(req, res) {
 
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(c),
-		caseActions: divorceHelpers.getCaseActions(c),
+		caseActions: helpers.getCaseActions(c),
 		casenav: helpers.getCaseNavObject(c),
 		detailsRows: [],
 		representativesRows: []
@@ -31,7 +30,7 @@ function viewMakeDecision(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
-		caseActions: divorceHelpers.getCaseActions(_case)
+		caseActions: helpers.getCaseActions(_case)
 	};
 	res.render('app/case/divorce/make-decision', pageObject);
 }
@@ -40,7 +39,7 @@ function viewParties(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
-		caseActions: divorceHelpers.getCaseActions(_case),
+		caseActions: helpers.getCaseActions(_case),
 		casenav: helpers.getCaseNavObject(_case)
 	};
 	res.render('app/case/divorce/parties', pageObject);
@@ -50,7 +49,7 @@ function viewCostsOrder(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
-		caseActions: divorceHelpers.getCaseActions(_case)
+		caseActions: helpers.getCaseActions(_case)
 	};
 	res.render('app/case/divorce/costs-order', pageObject);
 }

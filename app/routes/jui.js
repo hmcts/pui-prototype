@@ -22,7 +22,7 @@ router.get('/setup', function(req, res) {
 	pageObject.services = Object.keys(caseTypes).map(key => ({
 		value: caseTypes[key].id,
 		text: caseTypes[key].label,
-		checked: true
+		checked: caseTypes[key].label === 'SSCS'
 	}));
 	res.render('setup', pageObject);
 });
@@ -127,7 +127,8 @@ router.get('/app/case/:id/casefile', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
-		casenav: helpers.getCaseNavObject(_case)
+		casenav: helpers.getCaseNavObject(_case),
+		caseActions: helpers.getCaseActions(_case)
 	};
 	res.render('app/case/casefile', pageObject);
 });
@@ -136,7 +137,8 @@ router.get('/app/case/:id/casefile/b', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
-		casenav: helpers.getCaseNavObject(_case)
+		casenav: helpers.getCaseNavObject(_case),
+		caseActions: helpers.getCaseActions(_case)
 	};
 	res.render('app/case/casefileB.html', pageObject);
 });
@@ -145,7 +147,8 @@ router.get('/app/case/:id/timeline', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
-		casenav: helpers.getCaseNavObject(_case)
+		casenav: helpers.getCaseNavObject(_case),
+		caseActions: helpers.getCaseActions(_case)
 	};
 	res.render('app/case/timeline', pageObject);
 });

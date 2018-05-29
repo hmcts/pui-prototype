@@ -3,7 +3,7 @@ module.exports = {
     id: 'divorce',
     label: 'Divorce'
   },
-  financialRemedy: {
+  'financial-remedy': {
     id: 'financial-remedy',
     label: 'Financial Remedy'
   },
@@ -11,11 +11,11 @@ module.exports = {
     id: 'sscs',
     label: 'SSCS'
   },
-  publicLaw: {
+  'public-law': {
     id: 'public-law',
     label: 'Public Law'
   },
-  civilMoneyClaims: {
+  'civil-money-claims': {
     id: 'civil-money-claims',
     label: 'Civil Money Claims'
   }

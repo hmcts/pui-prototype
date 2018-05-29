@@ -7,6 +7,7 @@ router.get('/app/case/:id/questions', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
+		caseActions: helpers.getCaseActions(_case),
 		createQuestionsLink: {
 			href: '/app/case/' + req.params.id + '/questions/create-questions'
 		},
@@ -25,6 +26,7 @@ router.get('/app/case/:id/questions/create-questions', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
+		caseActions: helpers.getCaseActions(_case),
 		_case: _case
 	};
 	res.render('app/case/questions/create-questions.html', pageObject);

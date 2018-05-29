@@ -5,7 +5,7 @@ module.exports = [
   {
     id: 'LU17C87541',
     userID: 1,
-    typeId: caseTypes.publicLaw.id,
+    typeId: caseTypes['public-law'].id,
     urgent: true,
     parties: [
       {
@@ -148,7 +148,7 @@ module.exports = [
   {
     id: 'BV18D00151',
     userID: 1,
-    typeId: caseTypes.financialRemedy.id,
+    typeId: caseTypes['financial-remedy'].id,
     parties: [
       {
         type: 'Petitioner',
@@ -244,7 +244,7 @@ module.exports = [
   {
     id: 'BV18D00152',
     userID: 1,
-    typeId: caseTypes.financialRemedy.id,
+    typeId: caseTypes['financial-remedy'].id,
     parties: [
       {
         type: 'Petitioner',
@@ -436,7 +436,7 @@ module.exports = [
   {
     id: 'BV18D00154',
     userID: 1,
-    typeId: caseTypes.financialRemedy.id,
+    typeId: caseTypes['financial-remedy'].id,
     parties: [
       {
         type: 'Petitioner',
@@ -532,7 +532,7 @@ module.exports = [
   {
     id: '000LR095',
     userID: 1,
-    typeId: caseTypes.civilMoneyClaims.id,
+    typeId: caseTypes['civil-money-claims'].id,
     parties: [
       {
         type: 'Claimant',
