@@ -1,6 +1,7 @@
 var express = require('express');
 var router  = express.Router();
-const helpers = require('./helpers');
+var helpers = require('./helpers');
+
 
 router.get('/app/case/:id/questions', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
@@ -21,6 +22,7 @@ router.get('/app/case/:id/questions', function(req, res) {
 	res.render('app/case/questions/index', pageObject);
 });
 
+
 router.get('/app/case/:id/questions/create-questions', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
@@ -31,6 +33,7 @@ router.get('/app/case/:id/questions/create-questions', function(req, res) {
 	};
 	res.render('app/case/questions/create-questions.html', pageObject);
 });
+
 
 router.post('/app/case/:id/questions/create-questions', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
@@ -57,5 +60,20 @@ router.post('/app/case/:id/questions/create-questions', function(req, res) {
 
 	res.redirect(`/app/case/${_case.id}/questions`);
 });
+
+
+router.get('/app/case/:id/questions/question', function(req, res) {
+
+	var _case = helpers.getCase(req.session.cases, req.params.id);
+
+	var pageObject = {
+		casebar: helpers.getCaseBarObject(_case),
+		casenav: helpers.getCaseNavObject(_case),
+		caseActions: helpers.getCaseActions(_case)
+	};
+
+	res.render('app/case/questions/question', pageObject);
+});
+
 
 module.exports = router;
