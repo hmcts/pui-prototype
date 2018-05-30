@@ -2,7 +2,7 @@
 
 {% set casenavId = "questions" %}
 
-{% block page_title %}Question - Continous Online Resolution{% endblock %}
+{% block page_title %}How do you do your shopping? - Continous Online Resolution{% endblock %}
 
 {% block content %}
   {% include "includes/casebar.html" %}
@@ -82,8 +82,7 @@
 
             {{ govukInput({
               label: {
-                text: "Subject",
-                classes: "govuk-label--bold"
+                text: "Subject"
               },
               id: "subject",
               name: "subject",
@@ -92,8 +91,7 @@
 
             {{ govukTextarea({
               label: {
-                text: "Question",
-                classes: "govuk-label--bold"
+                text: "Question"
               },
               id: "question",
               name: "question"
