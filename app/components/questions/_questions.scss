@@ -3,8 +3,21 @@
    ========================================================================== */
 
 
+/* Placeholders
+========================================================================== */
+
+%jui-meta {
+  color: $govuk-secondary-text-colour;
+  display: block;
+  margin-top: $govuk-spacing-scale-2;
+}
+
+
+/* Questions
+========================================================================== */
+
 .jui-questions {
-  max-width: 800px;
+  max-width: 804px;
 }
 
 
@@ -38,14 +51,8 @@
 
 
 .jui-questions__meta {
-  color: $govuk-secondary-text-colour;
-  display: block;
-  margin-top: $govuk-spacing-scale-2;
-
-  @include mq($from: tablet) {
-    margin-bottom: 0;
-  }
-
+  @extend %jui-meta;
+  margin-bottom: 0;
 }
 
 
@@ -56,6 +63,7 @@
   background-position: 0 50%;
   color: $govuk-secondary-text-colour;
   display: block;
+  margin-bottom: 0;
   padding-left: 30px;
 
   @include mq($until: tablet) {
@@ -67,4 +75,22 @@
     margin-top: 2px;
   }
 
+}
+
+
+/* Question
+========================================================================== */
+
+.jui-question {
+  max-width: 804px;
+}
+
+
+.jui-question__meta {
+  @extend %jui-meta;
+}
+
+
+.jui-question__author {
+  font-weight: bold;
 }
