@@ -3,16 +3,6 @@
    ========================================================================== */
 
 
-/* Placeholders
-========================================================================== */
-
-%jui-meta {
-  color: $govuk-secondary-text-colour;
-  display: block;
-  margin-top: $govuk-spacing-scale-2;
-}
-
-
 /* Questions
 ========================================================================== */
 
@@ -34,14 +24,8 @@
 }
 
 
-.jui-questions__subject {
-  margin-bottom: 0;
-  margin-right: $govuk-spacing-scale-4;
-
-  a {
-    margin-right: $govuk-spacing-scale-2;
-  }
-
+.jui-questions__subject a {
+  margin-right: $govuk-spacing-scale-2;
 }
 
 
@@ -51,8 +35,13 @@
 
 
 .jui-questions__meta {
-  @extend %jui-meta;
+  color: $govuk-secondary-text-colour;
   margin-bottom: 0;
+
+  @include mq($from: tablet) {
+    margin-top: $govuk-spacing-scale-1;
+  }
+
 }
 
 
@@ -87,7 +76,13 @@
 
 
 .jui-question__meta {
-  @extend %jui-meta;
+  color: $govuk-secondary-text-colour;
+  margin-top: 0;
+
+  @include mq($from: tablet) {
+    margin-bottom: $govuk-spacing-scale-6;
+  }
+
 }
 
 
