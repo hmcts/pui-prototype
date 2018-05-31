@@ -1,6 +1,7 @@
 var express = require('express');
 var router  = express.Router();
 var helpers = require('./helpers');
+var moment = require('moment');
 
 
 router.get('/app/case/:id/questions', function(req, res) {
@@ -11,9 +12,26 @@ router.get('/app/case/:id/questions', function(req, res) {
 		caseActions: helpers.getCaseActions(_case),
 		createQuestionsLink: {
 			href: '/app/case/' + req.params.id + '/questions/create-questions'
-		},
-		rounds: _case.rounds
+		}
 	};
+
+	var sentRounds = _case.rounds.filter(round => round.sentDate !== null);
+
+	var draftRound = _case.rounds.filter(round => round.sentDate === null)[0] || {};
+	if(draftRound) {
+		// lets update the format of the date
+		draftRound.questions = draftRound.questions.map(function(question) {
+			question.dateAdded = moment(question.dateAdded).format('D MMM YYYY');
+			return question;
+		});
+
+		draftRound.number = sentRounds.length + 1;
+	}
+
+	pageObject.sentRounds = sentRounds;
+	pageObject.draftRound = draftRound;
+
+	//
 
 	if(req.flash('success') == 'question added') {
 		pageObject.success = 'Question added';
@@ -52,7 +70,9 @@ router.post('/app/case/:id/questions/create-questions', function(req, res) {
 		draftRound.questions.push({
 			subject: question.subject,
 			body: question.question,
-			id: require('uuid/v1')()
+			id: require('uuid/v1')(),
+			author: 'Judge Prita Shah',
+			dateAdded: new Date()
 		});
 	});
 
