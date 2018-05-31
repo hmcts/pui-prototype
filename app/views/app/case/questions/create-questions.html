@@ -21,14 +21,19 @@
         <div class="govuk-grid-column-two-thirds">
 
           <div class="jui-add-another">
-            
+
             <h1 class="govuk-heading-xl jui-add-another__heading" tabindex="-1">Create questions</h1>
 
             <form method="post" action="/app/case/{{_case.id}}/questions/create-questions">
 
-              <fieldset class="jui-add-another__item">
-
-                <legend class="govuk-heading-m">Question</legend>
+              {% call govukFieldset({
+                classes: 'jui-add-another__item',
+                legend: {
+                  text: "Question",
+                  classes: "govuk-fieldset__legend--m govuk-heading-m",
+                  isPageHeading: false
+                }
+              }) %}
 
                 {{ govukInput({
                   "label": {
@@ -53,7 +58,9 @@
                     "html": "Question"
                   }
                 }) }}
-              </fieldset>
+
+                {% endcall %}
+
 
               {{ govukButton({
                 "text": "Add another question",

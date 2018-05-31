@@ -615,11 +615,13 @@ module.exports = [
       id: require('uuid/v1')(),
       sentDate: null,
       questions: [{
-        id: 123,
-        subject: '',
-        body: '',
+        id: require('uuid/v1')(),
+        subject: 'The subject',
+        body: 'The body',
+        author: 'Judge Prita Shah',
+        dateAdded: new Date(),
         attachments: [],
-        response: {}
+        response: null
       }]
     }*/],
     parties: [

@@ -23,87 +23,90 @@
         <div class="govuk-grid-column-two-thirds">
 
 
-          <h1 class="govuk-heading-xl">How do you do your shopping?</h1>
-            
+          <h1 class="govuk-heading-xl">{{question.subject}}</h1>
 
           <div class="jui-question">
 
-            <p class="jui-question__meta">From <span class="jui-question__author">Judge Prita Shah</span>, added on <time datetime="2018-02-19">19 Feb 2018</time></p>
+            <p class="jui-question__meta">From <span class="jui-question__author">{{question.author}}</span>, added on <time datetime="2018-02-19">{{question.dateAdded}}</time></p>
 
             <div class="govuk-prose-scope">
 
-              <p>Your walk to the doctors. The DWP healthcare professional noted that you occassionally walk to the GP’s surgery. In 2017, please describre the journey, inluding:</p>
+              <p>{{question.body}}</p>
+
+              <!-- <p>Your walk to the doctors. The DWP healthcare professional noted that you occassionally walk to the GP’s surgery. In 2017, please describre the journey, inluding:</p>
 
               <ul class="govuk-bullet">
                 <li>how long it took</li>
                 <li>whether you needed to stop on the way, if so, for how long</li>
                 <li>if you used any aids to help you walk</li>
                 <li>if you did, what aids did you use</li>
-              </ul>
+              </ul> -->
 
             </div>
 
           </div>
 
+          {% if not question.response %}
 
-          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-
-          <h2 class="govuk-heading-m">Response</h2>
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 
-          <div class="jui-response">
+            <h2 class="govuk-heading-m">Response</h2>
 
-            <p class="jui-question__meta">From <span class="jui-question__author">Appellant</span>, received on <time datetime="2018-03-02">2 Mar 2018</time></p>
 
-            <div class="govuk-prose-scope">
+            <div class="jui-response">
 
-              <p>The GP is a little way away from me and it takes me quite a while to get there. I take my stick as I have a lot of trouble walking. I stop at the bench on the main road and then again at the bus stop near to the doctor. It takes me longer than half an hour to get there.</p> 
+              <p class="jui-question__meta">From <span class="jui-question__author">Appellant</span>, received on <time datetime="2018-03-02">2 Mar 2018</time></p>
 
-              <p>I am in pain throughout the trip.</p>
+              <div class="govuk-prose-scope">
+
+                <p>The GP is a little way away from me and it takes me quite a while to get there. I take my stick as I have a lot of trouble walking. I stop at the bench on the main road and then again at the bus stop near to the doctor. It takes me longer than half an hour to get there.</p>
+
+                <p>I am in pain throughout the trip.</p>
+
+              </div>
 
             </div>
 
-          </div>
+
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 
-          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+            <form method="post">
 
+              {% call govukFieldset({
+                legend: {
+                  text: "Add follow up question to round 2",
+                  classes: "govuk-fieldset__legend--m",
+                  isPageHeading: false
+                }
+              }) %}
 
-          <form method="post">
+              {{ govukInput({
+                label: {
+                  text: "Subject"
+                },
+                id: "subject",
+                name: "subject",
+                value: "How do you do your shopping?"
+              }) }}
 
-            {% call govukFieldset({
-              legend: {
-                text: "Add follow up question to round 2",
-                classes: "govuk-fieldset__legend--m",
-                isPageHeading: false
-              }
-            }) %}
+              {{ govukTextarea({
+                label: {
+                  text: "Question"
+                },
+                id: "question",
+                name: "question"
+              }) }}
 
-            {{ govukInput({
-              label: {
-                text: "Subject"
-              },
-              id: "subject",
-              name: "subject",
-              value: "How do you do your shopping?"
-            }) }}
+              {{ govukButton({
+                "text": "Add question"
+              }) }}
 
-            {{ govukTextarea({
-              label: {
-                text: "Question"
-              },
-              id: "question",
-              name: "question"
-            }) }}
+              {% endcall %}
 
-            {{ govukButton({
-              "text": "Add question"
-            }) }}
-
-            {% endcall %}
-
-          </form>
+            </form>
+          {% endif %}
 
 
         </div>

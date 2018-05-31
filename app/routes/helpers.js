@@ -78,9 +78,18 @@ function getCase(cases, caseId) {
 	return cases.filter(c => c.id == caseId)[0];
 }
 
+function getQuestion(_case, questionId) {
+	var question = null;
+	_case.rounds.forEach(function(round) {
+		question = round.questions.filter(q => q.id = questionId)[0] || null;
+	});
+	return question;
+}
+
 exports.getCaseBarObject = getCaseBarObject;
 exports.getCaseNavObject = getCaseNavObject;
 exports.getPartiesLine   = getPartiesLine;
 exports.getCase = getCase;
 exports.getCaseType = getCaseType;
 exports.getCaseActions = getCaseActions;
+exports.getQuestion = getQuestion;

@@ -1,6 +1,7 @@
 var express = require('express');
 var router  = express.Router();
 var helpers = require('./helpers');
+var moment = require('moment');
 
 
 router.get('/app/case/:id/questions', function(req, res) {
@@ -11,9 +12,28 @@ router.get('/app/case/:id/questions', function(req, res) {
 		caseActions: helpers.getCaseActions(_case),
 		createQuestionsLink: {
 			href: '/app/case/' + req.params.id + '/questions/create-questions'
-		},
-		rounds: _case.rounds
+		}
 	};
+
+	var sentRounds = _case.rounds.filter(round => round.sentDate !== null);
+
+	var draftRound = _case.rounds.filter(round => round.sentDate === null)[0] || {};
+	if(draftRound) {
+		// lets update the format of the date
+		if(draftRound.questions) {
+			draftRound.questions = draftRound.questions.map(function(question) {
+				question.dateAdded = moment(question.dateAdded).format('D MMM YYYY');
+				return question;
+			});
+		}
+
+		draftRound.number = sentRounds.length + 1;
+	}
+
+	pageObject.sentRounds = sentRounds;
+	pageObject.draftRound = draftRound;
+
+	//
 
 	if(req.flash('success') == 'question added') {
 		pageObject.success = 'Question added';
@@ -52,7 +72,9 @@ router.post('/app/case/:id/questions/create-questions', function(req, res) {
 		draftRound.questions.push({
 			subject: question.subject,
 			body: question.question,
-			id: require('uuid/v1')()
+			id: require('uuid/v1')(),
+			author: 'Judge Prita Shah',
+			dateAdded: new Date()
 		});
 	});
 
@@ -62,14 +84,15 @@ router.post('/app/case/:id/questions/create-questions', function(req, res) {
 });
 
 
-router.get('/app/case/:id/questions/question', function(req, res) {
+router.get('/app/case/:case_id/questions/:question_id', function(req, res) {
 
-	var _case = helpers.getCase(req.session.cases, req.params.id);
+	var _case = helpers.getCase(req.session.cases, req.params.case_id);
 
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
-		caseActions: helpers.getCaseActions(_case)
+		caseActions: helpers.getCaseActions(_case),
+		question: helpers.getQuestion(_case, req.params.question_id)
 	};
 
 	res.render('app/case/questions/question', pageObject);

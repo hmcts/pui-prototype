@@ -27,7 +27,53 @@
 
       <h1 class="govuk-heading-l">Questions</h1>
 
-      <h2 class="govuk-heading-m">Round 1 (in draft ready to be sent)</h2>
+      {% if draftRound %}
+        {% if draftRound.questions %}
+          <h2 class="govuk-heading-m">
+            Round {{draftRound.number}}
+            (in draft)
+          </h2>
+          <div class="jui-questions govuk-!-mb-r6">
+            {% for question in draftRound.questions %}
+              <div class="jui-questions__item">
+                <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a></h3>
+                <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="2018-04-19">{{question.dateAdded}}</time></p>
+              </div>
+            {% endfor %}
+          </div>
+
+          {{ govukButton({
+            "text": "Add more questions",
+            "href": createQuestionsLink.href,
+            "classes": "govuk-button--secondary govuk-!-mb-r4"
+          }) }}
+
+          <br>
+
+          {{ govukButton({
+            "text": "Send questions",
+            "href": "#"
+          }) }}
+        {% else %}
+          <h2 class="govuk-heading-m">
+            Round {{draftRound.number}}
+          </h2>
+          <p>No questions.</p>
+          {{ govukButton({
+            "text": "Create questions",
+            "href": createQuestionsLink.href
+          }) }}
+        {% endif %}
+      {% endif %}
+
+
+
+
+
+
+        <!--
+
+          <h2 class="govuk-heading-m">Round 1 (in draft ready to be sent)</h2>
 
       <div class="jui-questions govuk-!-mb-r6">
 
@@ -48,52 +94,7 @@
         </div>
 
       </div>
-
-      {{ govukButton({
-        "text": "Add more questions",
-        "href": createQuestionsLink.href,
-        "classes": "govuk-button--secondary govuk-!-mb-r4"
-      }) }}
-
-      <br>
-
-      {{ govukButton({
-        "text": "Send questions",
-        "href": "#"
-      }) }}
-
-      {# {% if rounds.length > 0 %}
-
-        {% for round in rounds %}
-          <h2 class="govuk-heading-m">Round {{loop.index}}</h2>
-
-          {% if round.questions %}
-            {% for question in round.questions %}
-              <p>Subject: {{question.subject}}</p>
-              <p>Body: {{question.body}}</p>
-            {% endfor %}
-
-            {{ govukButton({
-              "text": "Create more questions",
-              "href": createQuestionsLink.href
-            }) }}
-          {% else %}
-            <p class="govuk-body">No questions yet.</p>
-            {{ govukButton({
-              "text": "Create questions",
-              "href": createQuestionsLink.href
-            }) }}
-          {% endif %}
-
-        {% endfor %}
-      {% else %}
-        <h2 class="govuk-heading-m">Round 1</h2>
-        <p class="govuk-body">No rounds yet.</p>
-        {{ govukButton({
-          "text": "Create questions",
-          "href": createQuestionsLink.href
-        }) }}
-      {% endif %} #}
+    -->
 
 		</main>
 
