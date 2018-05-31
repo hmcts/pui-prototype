@@ -84,14 +84,15 @@ router.post('/app/case/:id/questions/create-questions', function(req, res) {
 });
 
 
-router.get('/app/case/:id/questions/question', function(req, res) {
+router.get('/app/case/:case_id/questions/:question_id', function(req, res) {
 
-	var _case = helpers.getCase(req.session.cases, req.params.id);
+	var _case = helpers.getCase(req.session.cases, req.params.case_id);
 
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
-		caseActions: helpers.getCaseActions(_case)
+		caseActions: helpers.getCaseActions(_case),
+		question: helpers.getQuestion(_case, req.params.question_id)
 	};
 
 	res.render('app/case/questions/question', pageObject);
