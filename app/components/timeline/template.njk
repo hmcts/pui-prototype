@@ -1,0 +1,23 @@
+<div class="jui-timeline">
+
+  {% for event in params.events %}
+  <div class="jui-timeline__item">
+
+    <div class="jui-timeline__header">
+      <time datetime="{{event.dateISO}}">{{event.date}}</time>
+    </div>
+
+    <div class="jui-timeline__content">
+
+      <div class="jui-timeline__event">
+        <h2>{{event.title}} by {{event.by}} at <time datetime="{{event.timeISO}}">{{event.time}}</time></h2>
+      </div>
+
+      {{event.documents.html | safe }}
+
+    </div>
+
+  </div>
+  {% endfor %}
+
+</div>

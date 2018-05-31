@@ -39,34 +39,52 @@
           "firstCellIsHeader": true,
           "rows": [
             [
-              {
-                "text": "Judge"
-              },
-              {
-                "html": 'Prita Shah'
-              }
+              {"text": "Judge"},
+              {"text": "Prita Shah"}
             ],
             [
-              {
-                "text": "Medical member"
-              },
-              {
-                "text": "Veronica George"
-              }
+              {"text": "Medical member"},
+              {"text": "Veronica George"}
             ],
             [
-              {
-                "text": "Disability qualified member"
-              },
-              {
-                "text": "Mike Parsens"
-              }
+              {"text": "Disability qualified member"},
+              {"text": "Mike Parsens"}
             ]
           ]
         }) }}
+
       </div>
 
     </div>
+
+    {{juiTimeline({
+      "events": [
+        {
+          "title": "DWP response recieved",
+          "by": "DWP",
+          "time": "2:45pm",
+          "timeISO": "2018-02-18T14:45",
+          "date": "18 Feb 2018",
+          "dateISO": "2018-02-18"
+        }, 
+        {
+          "title": "Appeal lodged",
+          "by": "Appellant",
+          "time": "11:17am",
+          "timeISO": "2018-02-17T11:17",
+          "date": "17 Feb 2018",
+          "dateISO": "2018-02-17"
+        }, 
+        {
+          "title": "MRN issued",
+          "by": "DWP",
+          "time": "12:53pm",
+          "timeISO": "2018-02-02T12:53",
+          "date": "2 Feb 2018",
+          "dateISO": "2018-02-02"
+        }
+      ]
+    })}}
 
   </main>
 
