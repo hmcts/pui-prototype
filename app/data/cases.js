@@ -611,7 +611,7 @@ module.exports = [
     id: 'CO18D00150',
     userID: 1,
     typeId: caseTypes.sscs.id,
-    rounds: [{
+    rounds: [/*{
       id: require('uuid/v1')(),
       sentDate: null,
       questions: [{
@@ -623,7 +623,7 @@ module.exports = [
         attachments: [],
         response: null
       }]
-    }],
+    }*/],
     parties: [
       {
         type: 'Appellant',

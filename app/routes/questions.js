@@ -20,10 +20,12 @@ router.get('/app/case/:id/questions', function(req, res) {
 	var draftRound = _case.rounds.filter(round => round.sentDate === null)[0] || {};
 	if(draftRound) {
 		// lets update the format of the date
-		draftRound.questions = draftRound.questions.map(function(question) {
-			question.dateAdded = moment(question.dateAdded).format('D MMM YYYY');
-			return question;
-		});
+		if(draftRound.questions) {
+			draftRound.questions = draftRound.questions.map(function(question) {
+				question.dateAdded = moment(question.dateAdded).format('D MMM YYYY');
+				return question;
+			});
+		}
 
 		draftRound.number = sentRounds.length + 1;
 	}

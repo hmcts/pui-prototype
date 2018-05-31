@@ -28,11 +28,11 @@
       <h1 class="govuk-heading-l">Questions</h1>
 
       {% if draftRound %}
-        <h2 class="govuk-heading-m">
-          Round {{draftRound.number}}
-          (in draft)
-        </h2>
         {% if draftRound.questions %}
+          <h2 class="govuk-heading-m">
+            Round {{draftRound.number}}
+            (in draft)
+          </h2>
           <div class="jui-questions govuk-!-mb-r6">
             {% for question in draftRound.questions %}
               <div class="jui-questions__item">
@@ -55,6 +55,9 @@
             "href": "#"
           }) }}
         {% else %}
+          <h2 class="govuk-heading-m">
+            Round {{draftRound.number}}
+          </h2>
           <p>No questions.</p>
           {{ govukButton({
             "text": "Create questions",
