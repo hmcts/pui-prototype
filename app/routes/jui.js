@@ -197,13 +197,13 @@ router.post('/app/case/:id/costs-order', function(req, res) {
 	res.redirect('confirmation');
 });
 
-router.get('/app/case/:id/check-your-answers', function(req, res) {
-	var _case = helpers.getCase(req.session.cases, req.params.id);
-	var pageObject = {
-		casebar: helpers.getCaseBarObject(_case)
-	};
-	res.render('app/case/divorce/check-your-answers', pageObject);
-});
+// router.get('/app/case/:id/check-your-answers', function(req, res) {
+// 	var _case = helpers.getCase(req.session.cases, req.params.id);
+// 	var pageObject = {
+// 		casebar: helpers.getCaseBarObject(_case)
+// 	};
+// 	res.render('app/case/divorce/check-your-answers', pageObject);
+// });
 
 
 router.get('/app/case/:id/confirmation', function(req, res) {
