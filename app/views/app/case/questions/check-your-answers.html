@@ -1,0 +1,54 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set pageID = "Confirmation" %}
+
+{% block page_title %}Check your answers - Judicial UI prototype{% endblock %}
+
+{% block content %}
+
+
+
+<div class="jui-width-container">
+
+  {{ govukBackLink({
+    "text": "Back",
+    "href": backLink.href
+  }) }}
+
+  <main role="main" class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Check your questions before sending</h1>
+
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-mb-r8">
+
+          {% for question in questions %}
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Question {{loop.index}}</dt>
+              <dd class="govuk-check-your-answers__answer">
+                Subject: {{question.subject}}
+                <br>Body: {{question.body}}
+              </dd>
+              <dd class="govuk-check-your-answers__change"><a href="#">Change</a></dd>
+            </div>
+          {% endfor %}
+        </dl>
+
+        <form method="post">
+          {{ govukButton({
+            "text": "Send questions"
+          }) }}
+        </form>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+{% endblock %}

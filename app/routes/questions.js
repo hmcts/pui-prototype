@@ -12,6 +12,9 @@ router.get('/app/case/:id/questions', function(req, res) {
 		caseActions: helpers.getCaseActions(_case),
 		createQuestionsLink: {
 			href: '/app/case/' + req.params.id + '/questions/create-questions'
+		},
+		sendQuestionsLink: {
+			href: `/app/case/${_case.id}/questions/check`
 		}
 	};
 
@@ -36,6 +39,18 @@ router.get('/app/case/:id/questions', function(req, res) {
 
 	res.render('app/case/questions/index', pageObject);
 });
+
+router.get('/app/case/:id/questions/check', (req, res) => {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
+	var pageObject = {
+		backLink: {
+			href: `/app/case/${_case.id}/questions/`
+		},
+		questions: _case.rounds.filter(round => round.dateSent === null)[0].questions
+	};
+
+	res.render('app/case/questions/check-your-answers', pageObject);
+})
 
 
 router.get('/app/case/:id/questions/create-questions', function(req, res) {
