@@ -611,19 +611,31 @@ module.exports = [
     id: 'CO18D00150',
     userID: 1,
     typeId: caseTypes.sscs.id,
-    rounds: [/*{
+    rounds: [{
       id: require('uuid/v1')(),
-      sentDate: null,
+      dateSent: null,
       questions: [{
         id: require('uuid/v1')(),
-        subject: 'The subject',
-        body: 'The body',
+        subject: 'How do you do your shopping',
+        body: 'Your walk to the doctors. The DWP healthcare professional noted that you occassionally walk to the GP’s surgery. In 2017, please describe the journey.',
         author: 'Judge Prita Shah',
         dateAdded: new Date(),
         attachments: [],
         response: null
       }]
-    }*/],
+    },{
+      id: require('uuid/v1')(),
+      dateSent: new Date(),
+      questions: [{
+        id: require('uuid/v1')(),
+        subject: 'How do you do your shopping',
+        body: 'Your walk to the doctors. The DWP healthcare professional noted that you occassionally walk to the GP’s surgery. In 2017, please describe the journey.',
+        author: 'Judge Prita Shah',
+        dateAdded: new Date(),
+        attachments: [],
+        response: null
+      }]
+    }],
     parties: [
       {
         type: 'Appellant',
