@@ -35,3 +35,33 @@
 .jui-timeline__content {
   padding: $govuk-spacing-scale-2;
 }
+
+
+.jui-timeline__event {
+  position: relative;
+
+  &:not(:first-child) {
+    margin-top: $govuk-spacing-scale-2;
+  }
+
+}
+
+
+.jui-timeline__title {
+  @include govuk-font-bold-16;
+  display: inline-block;
+}
+
+
+.jui-timeline__meta {
+  display: inline-block;
+  margin: 0;
+}
+
+
+.jui-timeline__meta-added {
+  color: $govuk-secondary-text-colour;
+  position: absolute; 
+  right: 0; 
+  top: 0;
+}

@@ -23,7 +23,7 @@
         <h2 class="gov-heading-s  govuk-!-mb-r2">Case details</h2>
 
         {{ govukTable({
-          "classes": "govuk-!-f-16  govuk-!-mb-r7",
+          "classes": "jui-table  jui-table--fixed  govuk-!-f-16  govuk-!-mb-r7",
           "firstCellIsHeader": true,
           "rows": detailsRows
         }) }}
@@ -35,7 +35,7 @@
         <h2 class="gov-heading-s  govuk-!-mb-r2">Panel members</h2>
 
         {{ govukTable({
-          "classes": "govuk-!-f-16  govuk-!-mb-r7",
+          "classes": "jui-table  jui-table--fixed  govuk-!-f-16  govuk-!-mb-r7",
           "firstCellIsHeader": true,
           "rows": [
             [
@@ -51,37 +51,32 @@
               {"text": "Mike Parsens"}
             ]
           ]
-        }) }}
+        })}}
 
       </div>
 
     </div>
 
+    <h2 class="gov-heading-s  govuk-!-mb-r2">Recent events</h2>
+
     {{juiTimeline({
+      "classes": "govuk-!-mb-r7",
+      "isPageSpecific": false,
       "events": [
         {
           "title": "DWP response recieved",
-          "by": "DWP",
-          "time": "2:45pm",
-          "timeISO": "2018-02-18T14:45",
-          "date": "18 Feb 2018",
-          "dateISO": "2018-02-18"
+          "dateAdded": "2018-02-18T11:17",
+          "addedBy": "DWP"
         }, 
         {
           "title": "Appeal lodged",
-          "by": "Appellant",
-          "time": "11:17am",
-          "timeISO": "2018-02-17T11:17",
-          "date": "17 Feb 2018",
-          "dateISO": "2018-02-17"
+          "dateAdded": "2018-02-17T11:17",
+          "addedBy": "Appellant"
         }, 
         {
           "title": "MRN issued",
-          "by": "DWP",
-          "time": "12:53pm",
-          "timeISO": "2018-02-02T12:53",
-          "date": "2 Feb 2018",
-          "dateISO": "2018-02-02"
+          "dateAdded": "2018-02-02T12:53",
+          "addedBy": "DWP"
         }
       ]
     })}}

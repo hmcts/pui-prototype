@@ -1,19 +1,25 @@
-<div class="jui-timeline">
+<div class="jui-timeline{% if params.classes %} {{ params.classes }}{% endif %}"> 
 
   {% for event in params.events %}
   <div class="jui-timeline__item">
 
     <div class="jui-timeline__header">
-      <time datetime="{{event.dateISO}}">{{event.date}}</time>
+      <time datetime="{{event.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{event.dateAdded | date('D MMM YYYY')}}</time>
     </div>
 
     <div class="jui-timeline__content">
 
       <div class="jui-timeline__event">
-        <h2>{{event.title}} by {{event.by}} at <time datetime="{{event.timeISO}}">{{event.time}}</time></h2>
-      </div>
+        
+        {%- if params.isPageSpecific %}
+          <h2 class="jui-timeline__title">{{event.title}}</h2>
+        {% else %}
+          <h3 class="jui-timeline__title">{{event.title}}</h3>
+        {% endif %}
 
-      {{event.documents.html | safe }}
+        <p class="jui-timeline__meta">by {{event.addedBy}} <time class="jui-timeline__meta-added" datetime="{{event.dateAdded | date('YYYY-MM-DDTHH:mm')}}"><span class="visually-hidden">added on</span> {{event.dateAdded | date('h:mma')}}</time></p>
+      
+      </div>
 
     </div>
 

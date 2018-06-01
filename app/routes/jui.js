@@ -1,8 +1,7 @@
 var express = require('express');
 var router  = express.Router();
-
-const caseTypes = require('../data/case-types');
-const helpers = require('./helpers');
+var caseTypes = require('../data/case-types');
+var helpers = require('./helpers');
 
 router.use(function(req, res, next) {
 	if(!req.session.cases) {
