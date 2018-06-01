@@ -2,7 +2,7 @@
 
 {% set casenavId = "questions" %}
 
-{% block page_title %}How do you do your shopping? - Continous Online Resolution{% endblock %}
+{% block page_title %}{{question.subject}} - Continous Online Resolution{% endblock %}
 
 {% block content %}
   {% include "includes/casebar.html" %}
@@ -32,15 +32,6 @@
             <div class="govuk-prose-scope">
 
               <p>{{question.body}}</p>
-
-              <!-- <p>Your walk to the doctors. The DWP healthcare professional noted that you occassionally walk to the GP’s surgery. In 2017, please describre the journey, inluding:</p>
-
-              <ul class="govuk-bullet">
-                <li>how long it took</li>
-                <li>whether you needed to stop on the way, if so, for how long</li>
-                <li>if you used any aids to help you walk</li>
-                <li>if you did, what aids did you use</li>
-              </ul> -->
 
             </div>
 
