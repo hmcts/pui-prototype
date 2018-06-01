@@ -15,9 +15,22 @@ router.get('/app/case/:id/questions', function(req, res) {
 		}
 	};
 
-	var sentRounds = _case.rounds.filter(round => round.sentDate !== null);
+	var sentRounds = _case.rounds.filter(round => round.dateSent !== null);
 
-	var draftRound = _case.rounds.filter(round => round.sentDate === null)[0] || {};
+	sentRounds.forEach((round, i) => {
+		round.number = i+1;
+		round.questions = round.questions.map(question => {
+			question.dateAdded = moment(question.dateAdded).format('D MMMM YYYY');
+			return question;
+		});
+	});
+
+	sentRounds = sentRounds.map(round => {
+		round.dateSent = moment(round.dateSent).format('D MMMM YYYY');
+		return round;
+	});
+
+	var draftRound = _case.rounds.filter(round => round.dateSent === null)[0] || {};
 	if(draftRound) {
 		// lets update the format of the date
 		if(draftRound.questions) {
@@ -57,12 +70,12 @@ router.get('/app/case/:id/questions/create-questions', function(req, res) {
 
 router.post('/app/case/:id/questions/create-questions', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
-	var draftRound = _case.rounds.filter(r => r.sentDate == null)[0];
+	var draftRound = _case.rounds.filter(r => r.dateSent == null)[0];
 
 	if(!draftRound) {
 		draftRound = {
 			id: require('uuid/v1')(),
-			sentDate: null,
+			dateSent: null,
 			questions: []
 		};
 		_case.rounds.push(draftRound);
