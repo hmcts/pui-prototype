@@ -8,7 +8,7 @@ function getPartiesLine(_case) {
 			return party.firstName + ' ' + party.lastName;
 		}
 
-	}).join(' vs ');
+	}).join(' versus ');
 }
 
 function getCaseType(_case) {

@@ -22,7 +22,7 @@ router.get('/app/case/:id/questions', function(req, res) {
 		// lets update the format of the date
 		if(draftRound.questions) {
 			draftRound.questions = draftRound.questions.map(function(question) {
-				question.dateAdded = moment(question.dateAdded).format('D MMM YYYY');
+				question.dateAdded = moment(question.dateAdded).format('D MMMM YYYY');
 				return question;
 			});
 		}
