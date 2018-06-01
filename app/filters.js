@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 module.exports = function (env) {
   /**
    * Instantiate object used to store the methods registered as a
@@ -5,7 +7,11 @@ module.exports = function (env) {
    * gov.uk core filters by creating filter methods of the same name.
    * @type {Object}
    */
-  var filters = {}
+  var filters = {
+    date: function(str, format) {
+      return moment(str).format(format || 'MM DDD YYYY');
+    }
+  }
 
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:

@@ -19,34 +19,16 @@ router.get('/app/case/:id/questions', function(req, res) {
 
 	sentRounds.forEach((round, i) => {
 		round.number = i+1;
-		round.questions = round.questions.map(question => {
-			question.dateAdded = moment(question.dateAdded).format('D MMMM YYYY');
-			return question;
-		});
-	});
-
-	sentRounds = sentRounds.map(round => {
-		round.dateSent = moment(round.dateSent).format('D MMMM YYYY');
-		return round;
 	});
 
 	var draftRound = _case.rounds.filter(round => round.dateSent === null)[0] || {};
 	if(draftRound) {
-		// lets update the format of the date
-		if(draftRound.questions) {
-			draftRound.questions = draftRound.questions.map(function(question) {
-				question.dateAdded = moment(question.dateAdded).format('D MMMM YYYY');
-				return question;
-			});
-		}
-
 		draftRound.number = sentRounds.length + 1;
 	}
 
 	pageObject.sentRounds = sentRounds;
 	pageObject.draftRound = draftRound;
 
-	//
 
 	if(req.flash('success') == 'question added') {
 		pageObject.success = 'Question added';
