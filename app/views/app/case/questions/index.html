@@ -36,8 +36,9 @@
           <div class="jui-questions govuk-!-mb-r6">
             {% for question in draftRound.questions %}
               <div class="jui-questions__item">
-                <h3 class="jui-questions__subject">{{question.id}}<a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a></h3>
-                <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="2018-04-19">{{question.dateAdded | date('D MMMM YYYY')}}</time></p>
+
+                <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a></h3>
+                <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="{{questions.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | date('D MMMM YYYY')}}</time></p>
               </div>
             {% endfor %}
           </div>
@@ -45,7 +46,7 @@
           {{ govukButton({
             "text": "Add more questions",
             "href": createQuestionsLink.href,
-            "classes": "govuk-button--secondary govuk-!-mb-r4"
+            "classes": "govuk-button--secondary  govuk-!-mb-r4"
           }) }}
 
           <br>
@@ -58,7 +59,7 @@
           <h2 class="govuk-heading-m">
             Round {{draftRound.number}}
           </h2>
-          <p>No questions.</p>
+          <p>No questions have been asked.</p>
           {{ govukButton({
             "text": "Create questions",
             "href": createQuestionsLink.href
@@ -67,20 +68,20 @@
       {% endif %}
 
       {% if sentRounds %}
-          {% for round in sentRounds %}
-            <h2 class="govuk-heading-m">
-              Round {{round.number}}
-              (sent on {{round.dateSent | date('D MMMM YYYY')}})
-            </h2>
-            <div class="jui-questions govuk-!-mb-r6">
-              {% for question in round.questions %}
-                <div class="jui-questions__item">
-                  <h3 class="jui-questions__subject">{{question.id}}<a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a></h3>
-                  <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="2018-04-19">{{question.dateAdded | date('D MMMM YYYY')}}</time></p>
-                </div>
-              {% endfor %}
-            </div>
-          {% endfor %}
+        {% for round in sentRounds %}
+          <h2 class="govuk-heading-m">
+            Round {{round.number}}
+            (sent on {{round.dateSent | date('D MMMM YYYY')}})
+          </h2>
+          <div class="jui-questions govuk-!-mb-r6">
+            {% for question in round.questions %}
+              <div class="jui-questions__item">
+                <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a></h3>
+                <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="{{questions.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | date('D MMMM YYYY')}}</time></p>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
       {% endif %}
 
         <!--
@@ -94,7 +95,7 @@
           <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/question">3. How you wash yourself?</a><span class="jui-status  jui-status--new">New</span></h3>
           <p class="jui-questions__meta">From <span class="jui-questions__author">Judge Prita Shah</span>, added on <time datetime="2018-04-20">20 Feb 2018</time></p>
         </div>
-    -->
+        -->
 
 		</main>
 
