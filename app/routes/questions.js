@@ -18,10 +18,22 @@ router.get('/app/case/:id/questions', function(req, res) {
 		}
 	};
 
+	_case.rounds.sort((a, b) => {
+		if(a.dateSent < b.datesent) {
+			return -1;
+		}
+		if(a.dateSent > b.datesent) {
+			return 1;
+		}
+		return 0;
+	});
+
+	_case.rounds.reverse();
+
 	var sentRounds = _case.rounds.filter(round => round.dateSent !== null);
 
 	sentRounds.forEach((round, i) => {
-		round.number = i+1;
+		round.number = sentRounds.length-i;
 	});
 
 	var draftRound = _case.rounds.filter(round => round.dateSent === null)[0] || {};
@@ -46,12 +58,21 @@ router.get('/app/case/:id/questions/check', (req, res) => {
 		backLink: {
 			href: `/app/case/${_case.id}/questions/`
 		},
-		questions: _case.rounds.filter(round => round.dateSent === null)[0].questions
+		questions: _case.rounds.filter(round => round.dateSent === null)[0].questions,
+		_case: _case
 	};
 
 	res.render('app/case/questions/check-your-answers', pageObject);
-})
+});
 
+router.post('/app/case/:id/questions/send', (req, res) => {
+	var _case = helpers.getCase(req.session.cases, req.params.id);
+
+	var round = _case.rounds.filter(round => round.dateSent === null)[0];
+	round.dateSent = new Date();
+
+	res.redirect(`/app/case/${_case.id}/questions`)
+});
 
 router.get('/app/case/:id/questions/create-questions', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);

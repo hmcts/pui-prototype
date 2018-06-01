@@ -37,7 +37,7 @@
           {% endfor %}
         </dl>
 
-        <form method="post">
+        <form method="post" action="/app/case/{{_case.id}}/questions/send">
           {{ govukButton({
             "text": "Send questions"
           }) }}
