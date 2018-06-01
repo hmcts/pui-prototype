@@ -1,4 +1,5 @@
 var caseTypes = require('./case-types');
+var uuid = require('uuid/v4');
 
 module.exports = [
 
@@ -612,10 +613,10 @@ module.exports = [
     userID: 1,
     typeId: caseTypes.sscs.id,
     rounds: [{
-      id: require('uuid/v1')(),
+      id: uuid(),
       dateSent: null,
       questions: [{
-        id: require('uuid/v1')(),
+        id: uuid(),
         subject: 'How do you do your shopping?',
         body: 'Your walk to the doctors. The DWP healthcare professional noted that you occassionally walk to the GP’s surgery. In 2017, please describe the journey.',
         author: 'Judge Prita Shah',
@@ -623,7 +624,7 @@ module.exports = [
         attachments: [],
         response: null
       }, {
-        id: require('uuid/v1')(),
+        id: uuid(),
         subject: 'How do you communicate?',
         body: 'Your walk to the doctors. The DWP healthcare professional noted that you occassionally walk to the GP’s surgery. In 2017, please describe the journey.',
         author: 'Judge Prita Shah',
@@ -632,10 +633,10 @@ module.exports = [
         response: null
       }]
     },{
-      id: require('uuid/v1')(),
+      id: uuid(),
       dateSent: new Date(),
       questions: [{
-        id: require('uuid/v1')(),
+        id: uuid(),
         subject: 'How do you do you manage to walk?',
         body: 'Your walk to the doctors. The DWP healthcare professional noted that you occassionally walk to the GP’s surgery. In 2017, please describe the journey.',
         author: 'Judge Prita Shah',

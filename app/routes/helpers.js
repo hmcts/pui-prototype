@@ -79,11 +79,17 @@ function getCase(cases, caseId) {
 }
 
 function getQuestion(_case, questionId) {
-	var question = null;
-	_case.rounds.forEach(function(round) {
-		question = round.questions.filter(q => q.id = questionId)[0] || null;
-	});
-	return question;
+	var q = null;
+
+	for(let round of _case.rounds) {
+		for(let question of round.questions) {
+			if(question.id === questionId) {
+				q = question;
+				break;
+			}
+		}
+	}
+	return q;
 }
 
 exports.getCaseBarObject = getCaseBarObject;

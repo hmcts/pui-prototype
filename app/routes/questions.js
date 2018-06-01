@@ -2,6 +2,7 @@ var express = require('express');
 var router  = express.Router();
 var helpers = require('./helpers');
 var moment = require('moment');
+var uuid = require('uuid/v4');
 
 
 router.get('/app/case/:id/questions', function(req, res) {
@@ -92,7 +93,7 @@ router.post('/app/case/:id/questions/create-questions', function(req, res) {
 
 	if(!draftRound) {
 		draftRound = {
-			id: require('uuid/v1')(),
+			id: uuid(),
 			dateSent: null,
 			questions: []
 		};
@@ -103,7 +104,7 @@ router.post('/app/case/:id/questions/create-questions', function(req, res) {
 		draftRound.questions.push({
 			subject: question.subject,
 			body: question.question,
-			id: require('uuid/v1')(),
+			id: uuid(),
 			author: 'Judge Prita Shah',
 			dateAdded: new Date()
 		});
