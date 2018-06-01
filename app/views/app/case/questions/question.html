@@ -27,7 +27,7 @@
 
           <div class="jui-question">
 
-            <p class="jui-question__meta">From <span class="jui-question__author">{{question.author}}</span>, added on <time datetime="2018-02-19">{{question.dateAdded}}</time></p>
+            <p class="jui-question__meta">From <span class="jui-question__author">{{question.author}}</span>, added on <time datetime="{{question.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | date('D MMMM YYYY')}}</time></p>
 
             <div class="govuk-prose-scope">
 
