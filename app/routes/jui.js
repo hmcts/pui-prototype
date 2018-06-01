@@ -70,9 +70,7 @@ router.get('/app/dashboard', function(req, res) {
 				html : '<a href="/app/case/' + c.id + '">'+ c.id +'</a>' + ' <span class="jui-status  jui-status--new  govuk-!-ml-r1">New</span>'
 			});
 
-			cells.push({ html: c.parties.map(function(party) {
-					return party.firstName + ' ' + party.lastName;
-				}).join(' vs ')
+			cells.push({ html: helpers.getPartiesLine(c)
 			});
 
 			cells.push({ html: c.type });
