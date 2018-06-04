@@ -14,21 +14,21 @@
 
       {% include "includes/casenav.html" %}
 
+      {% if success %}
+        {{ juiAlert(
+          {
+            "icon": true,
+            "iconClasses": "jui-alert__icon--success",
+            "iconText": "Success!",
+            "alertText": success,
+            "alertClasses": "jui-alert--success"
+          })
+        }}
+      {% endif %}
+
       <div class="govuk-grid-row">
 
         <div class="govuk-grid-column-two-thirds">
-
-          {% if success %}
-            {{ juiAlert(
-              {
-                "icon": true,
-                "iconClasses": "jui-alert__icon--success",
-                "iconText": "Success!",
-                "alertText": success,
-                "alertClasses": "jui-alert--success"
-              })
-            }}
-          {% endif %}
 
           <h1 class="govuk-heading-l">Questions</h1>
 
