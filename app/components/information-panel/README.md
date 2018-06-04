@@ -1,1 +1,1 @@
-# Panel
+# Information Panel
