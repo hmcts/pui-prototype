@@ -73,6 +73,7 @@
        
         {% for round in sentRounds %}
           <h2 class="govuk-heading-m">Round {{round.number}} (sent on {{round.dateSent | date('D MMMM YYYY')}})</h2>
+          <!--p>Due by <b>{{round.dateDue | date('D MMMM YYYY')}}</b>.</p-->
           <div class="jui-questions govuk-!-mb-r6">
             {% for question in round.questions %}
               <div class="jui-questions__item">
