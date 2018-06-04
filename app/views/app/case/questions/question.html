@@ -36,10 +36,22 @@
           </div>
 
           {% if isDraftQuestion %}
-            {{ govukButton({
-              text: "Edit question",
-              href: editQuestionLink.href
-            }) }}
+
+            <div class="jui-button-action  jui-button-action--inline  govuk-!-mt-r4">
+              {{ govukButton({
+                text: "Edit question",
+                href: editQuestionLink.href
+              }) }}
+            </div>
+
+            <div class="jui-button-action  jui-button-action--inline  govuk-!-mt-r4">
+              {{ govukButton({
+                classes: "govuk-button--secondary",
+                text: "Delete question",
+                href: deleteQuestionLink.href
+              }) }}
+            </div>
+
           {% endif %}
 
           {% if response %}
@@ -53,9 +65,7 @@
               <p class="jui-question__meta">From <span class="jui-question__author">{{response.author}}</span>, received on <time datetime="{{response.date | date('YYYY-MM-DDTHH:mm')}}">{{response.date | date('D MMMM YYYY')}}</time></p>
 
               <div class="govuk-prose-scope">
-
                 {{response.body | safe}}
-
               </div>
 
             </div>
@@ -96,6 +106,7 @@
               {% endcall %}
 
             </form>
+            
           {% endif %}
 
         </div>
