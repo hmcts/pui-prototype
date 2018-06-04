@@ -46,8 +46,18 @@ router.get('/app/case/:id/questions', function(req, res) {
 	pageObject.draftRound = draftRound;
 
 
-	if(req.flash('success') == 'question added') {
+	var successFlash = req.flash('success');
+
+	if(successFlash[0] == 'question added') {
 		pageObject.success = 'Question added';
+	}
+
+	if(successFlash[0] == 'questions sent') {
+		pageObject.success = 'Questions sent';
+	}
+
+	if(successFlash[0] == 'question deleted') {
+		pageObject.success = 'Question deleted';
 	}
 
 	res.render('app/case/questions/index', pageObject);
@@ -77,6 +87,8 @@ router.post('/app/case/:id/questions/send', (req, res) => {
 
 	var round = _case.rounds.filter(round => round.dateSent === null)[0];
 	round.dateSent = new Date();
+
+	req.flash('success', 'questions sent');
 
 	res.redirect(`/app/case/${_case.id}/questions`)
 });
@@ -176,6 +188,7 @@ router.post('/app/case/:case_id/questions/:question_id/edit', function(req, res)
 router.post('/app/case/:case_id/questions/:question_id/delete', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.case_id);
 	helpers.removeQuestion(_case, helpers.getQuestion(_case, req.params.question_id));
+	req.flash('success', 'question deleted');
 	res.redirect(`/app/case/${_case.id}/questions`);
 });
 
