@@ -11,13 +11,5 @@ module.exports = {
     id: 'sscs',
     label: 'SSCS'
   },
-  'public-law': {
-    id: 'public-law',
-    label: 'Public Law'
-  },
-  'civil-money-claims': {
-    id: 'civil-money-claims',
-    label: 'Civil Money Claims'
-  }
 };
 

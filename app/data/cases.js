@@ -2,38 +2,6 @@ var caseTypes = require('./case-types');
 var uuid = require('uuid/v4');
 
 module.exports = [
-
-  {
-    id: 'LU17C87541',
-    userID: 1,
-    typeId: caseTypes['public-law'].id,
-    urgent: true,
-    parties: [
-      {
-        type: 'Father',
-        title: 'Mr',
-        firstName: 'Brian',
-        lastName: 'Martins'
-      },
-      {
-        type: 'Mother',
-        title: 'Mrs',
-        firstName: 'Jane',
-        lastName: 'Martins'
-      }
-    ],
-    status: 'Unknown',
-    father: 'Brian Martins represented by John Charles',
-    mother: 'Jane Martins represented by Tim Dalton',
-    localAuthority: 'Jeremy Saunders',
-    cafcass: 'Sarah Dalton represented by Michelle Higgins',
-    children: 'Jane (7yrs), Mark (3mths)',
-    court: 'Luton County Court and Family Court',
-    applicationDate: '10 Feb 2018',
-    documents: '3 Doc (18 pages)',
-    lastAction: '24 Feb 2018'
-  },
-
   {
     id: 'BV18D00150',
     userID: 1,
@@ -524,84 +492,6 @@ module.exports = [
             type: 'PDF',
             size: '123KB',
             pages: '3 pages'
-          }
-        ]
-      }
-    ]
-  },
-
-  {
-    id: '000LR095',
-    userID: 1,
-    typeId: caseTypes['civil-money-claims'].id,
-    parties: [
-      {
-        type: 'Claimant',
-        title: 'Mrs',
-        firstName: 'Jan',
-        lastName: 'Clark',
-        dateOfBirth: '31 January 1970',
-        telephone: '07824999612',
-        email: 'jan.clark@gmail.com',
-        address: {
-          addressLine1: '101 Regents Road',
-          addressLine2: 'Shiplake',
-          TownCity: 'Henley on Thames',
-          Postcode: 'RG9 4BW'
-        },
-        correspondenceAddress: {
-          addressLine1: '45 Commercial Road',
-          addressLine2: '',
-          TownCity: 'London',
-          postCode: 'W1D 5HF'
-        }
-      },
-      {
-        type: 'Defendant',
-        title: 'Mrs',
-        firstName: 'Mary',
-        lastName: 'Richards',
-        dateOfBirth: '11 October 1972',
-        telephone: '07324459619',
-        email: 'mary.richards@gmail.com',
-        address: {
-          addressLine1: '24 Acacia Drive',
-          addressLine2: '',
-          TownCity: 'London',
-          Postcode: 'SW1 H9A'
-        },
-        correspondenceAddress: {
-          addressLine1: '45 Commercial Road',
-          addressLine2: '',
-          TownCity: 'London',
-          postCode: 'W1D 5HF'
-        }
-      }
-    ],
-    claimant: 'Jan Clark (Unrepresented)',
-    defendant: 'Mary Richards represented by Tim Dalton',
-    court: 'Edmonton County Court',
-    status: 'Box work request',
-    applicationDate: '18 Oct 2017',
-    documents: '1 Doc (2 pages)',
-    lastAction: '1 May 2018',
-    events: [
-      {
-        id: 1,
-        date: '18 October 2017',
-        time: '3:25pm',
-        event: 'Claim issued',
-        actionBy: 'Claimant (Jan Clark)',
-        files: [
-          {
-            id: 1,
-            name: 'Claim form',
-            fileName: 'n1-eng.pdf',
-            originalSrc: 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/688390/n1-eng.pdf',
-            url: '#',
-            type: 'PDF',
-            size: '86KB',
-            pages: '2 pages'
           }
         ]
       }
