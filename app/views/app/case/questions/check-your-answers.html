@@ -6,8 +6,6 @@
 
 {% block content %}
 
-
-
 <div class="jui-width-container">
 
   {{ govukBackLink({
@@ -23,16 +21,17 @@
 
         <h1 class="govuk-heading-xl">Check your questions before sending</h1>
 
-        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-mb-r8">
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-mb-r6">
 
           {% for question in questions %}
             <div class="govuk-check-your-answers__contents">
+              
               <dt class="govuk-check-your-answers__question">Question {{loop.index}}</dt>
-              <dd class="govuk-check-your-answers__answer">
-                Subject: {{question.subject}}
-                <br>Body: {{question.body}}
-              </dd>
-              <dd class="govuk-check-your-answers__change"><a href="#">Change</a></dd>
+              
+              <dd class="govuk-check-your-answers__answer"><b>{{question.subject}}</b> <br> {{question.body}}</dd>
+
+              <dd class="govuk-check-your-answers__change"><a href="#">Change <span class="visually-hidden">{{question.subject}}</span></a></dd>
+
             </div>
           {% endfor %}
         </dl>

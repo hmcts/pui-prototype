@@ -618,15 +618,15 @@ module.exports = [
       questions: [{
         id: uuid(),
         subject: 'How do you do your shopping?',
-        body: 'Your walk to the doctors. The DWP healthcare professional noted that you occassionally walk to the GP’s surgery. In 2017, please describe the journey.',
+        body: 'Explain how you do your shopping. Include information about how often you go to the shops, how you get there and how you get your food from the shops to your home.',
         author: 'Judge Prita Shah',
         dateAdded: new Date(),
         attachments: [],
         response: null
       }, {
         id: uuid(),
-        subject: 'How do you communicate?',
-        body: 'Your walk to the doctors. The DWP healthcare professional noted that you occassionally walk to the GP’s surgery. In 2017, please describe the journey.',
+        subject: 'How you prepare your food?',
+        body: 'Explain how you prepare your meals. Include information about the types of meals you eat, how you prepare them and whether there are any tasks in the kitchen you need assistance with.',
         author: 'Judge Prita Shah',
         dateAdded: new Date(),
         attachments: [],
@@ -637,15 +637,15 @@ module.exports = [
       dateSent: new Date(),
       questions: [{
         id: uuid(),
-        subject: 'How do you do you manage to walk?',
-        body: 'Your walk to the doctors. The DWP healthcare professional noted that you occassionally walk to the GP’s surgery. In 2017, please describe the journey.',
+        subject: 'How you wash yourself?',
+        body: 'Explain how you wash yourself. Include information about whether you usually bath or shower.',
         author: 'Judge Prita Shah',
         dateAdded: new Date(),
         attachments: [],
         response: {
           author: 'Appellant',
           date: new Date(),
-          body: '<p>The GP is a little way away from me and it takes me quite a while to get there. I take my stick as I have a lot of trouble walking. I stop at the bench on the main road and then again at the bus stop near to the doctor. It takes me longer than half an hour to get there.</p><p>I\'m in pain throughout the trip'
+          body: '<p>I have a walk-in bath and a shower but I don’t use the shower since the accident because I can’t put my arms above my head and it makes it painful.</p>'
         }
       }]
     }],
