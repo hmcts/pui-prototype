@@ -37,7 +37,14 @@
 
           </div>
 
-          {% if question.response %}
+          {% if isDraftQuestion %}
+            {{ govukButton({
+              text: "Edit question",
+              href: "/"
+            }) }}
+          {% endif %}
+
+          {% if response %}
 
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
@@ -47,11 +54,11 @@
 
             <div class="jui-response">
 
-              <p class="jui-question__meta">From <span class="jui-question__author">{{question.response.author}}</span>, received on <time datetime="2018-03-02">{{question.response.date | date('D MMMM YYYY')}}</time></p>
+              <p class="jui-question__meta">From <span class="jui-question__author">{{response.author}}</span>, received on <time datetime="2018-03-02">{{response.date | date('D MMMM YYYY')}}</time></p>
 
               <div class="govuk-prose-scope">
 
-                {{question.response.body | safe}}
+                {{response.body | safe}}
 
               </div>
 
@@ -96,7 +103,6 @@
 
             </form>
           {% endif %}
-
 
         </div>
 
