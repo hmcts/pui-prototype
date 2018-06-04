@@ -57,29 +57,37 @@
 
     </div>
 
-    <h2 class="gov-heading-s  govuk-!-mb-r2">Recent events</h2>
+    <div class="govuk-grid-row">
 
-    {{juiTimeline({
-      "classes": "govuk-!-mb-r7",
-      "isPageSpecific": false,
-      "events": [
-        {
-          "title": "DWP response recieved",
-          "dateAdded": "2018-02-18T11:17",
-          "addedBy": "DWP"
-        }, 
-        {
-          "title": "Appeal lodged",
-          "dateAdded": "2018-02-17T11:17",
-          "addedBy": "Appellant"
-        }, 
-        {
-          "title": "MRN issued",
-          "dateAdded": "2018-02-02T12:53",
-          "addedBy": "DWP"
-        }
-      ]
-    })}}
+      <div class="govuk-grid-column-two-thirds">
+
+        <h2 class="gov-heading-s  govuk-!-mb-r2">Recent events</h2>
+
+        {{juiTimeline({
+          "classes": "govuk-!-mb-r7",
+          "isPageSpecific": false,
+          "events": [
+            {
+              "title": "DWP response recieved",
+              "dateAdded": "2018-02-18T11:17",
+              "addedBy": "DWP"
+            }, 
+            {
+              "title": "Appeal lodged",
+              "dateAdded": "2018-02-17T11:17",
+              "addedBy": "Appellant"
+            }, 
+            {
+              "title": "MRN issued",
+              "dateAdded": "2018-02-02T12:53",
+              "addedBy": "DWP"
+            }
+          ]
+        })}}
+
+      </div>
+
+    </div>
 
   </main>
 

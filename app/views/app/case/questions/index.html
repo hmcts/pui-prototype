@@ -78,11 +78,28 @@
 
             {% for round in sentRounds %}
               <h2 class="govuk-heading-m">Round {{round.number}} (sent on {{round.dateSent | date('D MMMM YYYY')}})</h2>
+              <p>Due by <b>{{round.dateDue | date('D MMMM YYYY')}}</b>.</p>
               <div class="jui-questions govuk-!-mb-r6">
                 {% for question in round.questions %}
                   <div class="jui-questions__item">
-                    <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a> {% if question.response %}{{ juiStatus({"text": "Replied"}) }} {% endif %}</h3>
-                    <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="{{questions.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | date('D MMMM YYYY')}}</time></p>
+
+                    {% if question.response %}
+                    
+                      <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a> {{ juiStatus({"text": "Replied"}) }}</h3>
+                      <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.response.author}}</span>, received on <time datetime="{{question.response.date | date('YYYY-MM-DDTHH:mm')}}">{{question.response.date | date('D MMMM YYYY')}}</time></p>
+                    
+                    {% elif (now | date()) >= (round.dateDue | date()) %}
+
+                      <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a> {{ juiStatus({"classes": "jui-status--urgent", "text": "Expired"}) }}</h3>
+                      <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="{{question.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | date('D MMMM YYYY')}}</time></p>
+
+                    {% else %}
+
+                      <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a></h3>
+                      <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="{{questions.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | date('D MMMM YYYY')}}</time></p>
+
+                    {% endif %}
+
                   </div>
                 {% endfor %}
               </div>

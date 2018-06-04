@@ -137,8 +137,7 @@ router.post('/app/case/:id/questions/create-questions', function(req, res) {
 			body: question.question,
 			id: uuid(),
 			author: 'Judge Prita Shah',
-			dateAdded: new Date(),
-			new: true
+			dateAdded: new Date()
 		});
 	});
 

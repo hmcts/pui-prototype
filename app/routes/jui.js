@@ -52,7 +52,6 @@ router.get('/app/dashboard', function(req, res) {
 		cells.push({ html: helpers.getCaseType(c) });
 		cells.push({ html: c.status });
 		cells.push({ html: c.applicationDate });
-		cells.push({ html: c.documents });
 		cells.push({ html: c.lastAction });
 
 		return cells;

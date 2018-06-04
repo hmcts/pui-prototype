@@ -11,7 +11,7 @@ module.exports = function (env) {
     date: function(str, format) {
       return moment(str).format(format || 'MM DDD YYYY');
     }
-  }
+  };
 
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:
@@ -47,5 +47,5 @@ module.exports = function (env) {
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */
-  return filters
-}
+  return filters;
+};

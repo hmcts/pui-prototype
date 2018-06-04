@@ -1,3 +1,7 @@
+/* ==========================================================================
+   #BUTTON
+   ========================================================================== */
+   
 .govuk-button--secondary {
   background-color: $govuk-grey-3;
   box-shadow: 0 2px 0 rgba($govuk-grey-1, .7); // 70%
@@ -17,4 +21,21 @@
     color: $govuk-text-colour;
   }
 
+}
+
+
+/* ==========================================================================
+   #TABLE
+   ========================================================================== */
+
+.govuk-table--fixed {
+  table-layout: fixed;
+}
+
+.govuk-table__header {
+  vertical-align: top;
+}
+
+.govuk-table__cell {
+  vertical-align: top;
 }
