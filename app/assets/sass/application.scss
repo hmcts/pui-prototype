@@ -12,6 +12,8 @@ $path: "/public/images/";
 @import "patterns/check-your-answers";
 @import "patterns/related-items";
 
+@import "temp";
+
 .code {
   color: $govuk-text-colour;
   background-color: $govuk-grey-4;
