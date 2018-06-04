@@ -34,6 +34,7 @@ router.post('/setup', function(req, res) {
 });
 
 router.get('/app/dashboard', function(req, res) {
+	
 	var caseList = req.session.cases
 		.filter(c => req.session.services.indexOf(c.typeId) > -1)
 		.map(function(c) {
@@ -102,7 +103,9 @@ router.get('/app/dashboard', function(req, res) {
 			pageObject.success = 'Cases added';
 			break;
 	}
+
 	res.render('app/dashboard/index', pageObject);
+
 });
 
 router.post('/app/get-new-case', function (req, res) {
@@ -120,40 +123,57 @@ router.get('/app/case/:id/parties', function(req, res) {
 	require('./actions/' + helpers.getCaseType(_case).toLowerCase()).viewParties(req, res);
 });
 
+
 router.get('/app/case/:id/casefile', function(req, res) {
+	
 	var _case = helpers.getCase(req.session.cases, req.params.id);
+	
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
 		caseActions: helpers.getCaseActions(_case)
 	};
+
 	res.render('app/case/casefile', pageObject);
+
 });
+
 
 router.get('/app/case/:id/casefile/b', function(req, res) {
+	
 	var _case = helpers.getCase(req.session.cases, req.params.id);
+	
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
 		caseActions: helpers.getCaseActions(_case)
 	};
+	
 	res.render('app/case/casefileB.html', pageObject);
+
 });
 
+
 router.get('/app/case/:id/timeline', function(req, res) {
+	
 	var _case = helpers.getCase(req.session.cases, req.params.id);
+	
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
 		caseActions: helpers.getCaseActions(_case)
 	};
+
 	res.render('app/case/timeline', pageObject);
+
 });
+
 
 router.get('/app/case/:id/make-decision', function(req, res) {
 	var _case = req.session.cases.filter(c => c.id == req.params.id)[0];
 	require('./actions/' + helpers.getCaseType(_case).toLowerCase()).viewMakeDecision(req, res);
 });
+
 
 router.post('/app/case/:id/make-decision', function(req, res) {
 	if (req.body.satisfied === 'no') {
@@ -162,6 +182,7 @@ router.post('/app/case/:id/make-decision', function(req, res) {
 		res.redirect('costs-order');
 	}
 });
+
 
 // No option route
 router.get('/app/case/:id/provide-reason', function(req, res) {
@@ -186,9 +207,11 @@ router.get('/app/case/:id/generate-order', function(req, res) {
 	res.render('app/case/divorce/generate-order', pageObject);
 });
 
+
 router.post('/app/case/:id/generate-order', function(req, res) {
 	res.redirect('confirmation');
 });
+
 
 // Yes option route
 router.get('/app/case/:id/costs-order', require('./actions/divorce').viewCostsOrder);
@@ -214,11 +237,10 @@ router.get('/app/case/:id/confirmation', function(req, res) {
 });
 
 
-
-
-// Directions
 router.get('/app/case/:id/directions', function(req, res) {
+
 	var _case = helpers.getCase(req.session.cases, req.params.id);
+
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
@@ -229,17 +251,23 @@ router.get('/app/case/:id/directions', function(req, res) {
 			href: '/app/case/' + req.params.id + '/directions/create-direction-order'
 		}
 	};
+
 	res.render('app/case/directions/index', pageObject);
+
 });
 
 router.get('/app/case/:id/directions/create-direction', function(req, res) {
+
 	var _case = helpers.getCase(req.session.cases, req.params.id);
+
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
 		caseId: _case.id
 	};
+
 	res.render('app/case/directions/create-direction', pageObject);
+
 });
 
 
