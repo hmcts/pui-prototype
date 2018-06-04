@@ -34,8 +34,8 @@
 
           {% if draftRound %}
 
-            {% if draftRound.questions %}
-              
+            {% if draftRound.questions.length %}
+
               <h2 class="govuk-heading-m">Round {{draftRound.number}} (in draft)</h2>
               <div class="jui-questions govuk-!-mb-r6">
                 {% for question in draftRound.questions %}
@@ -62,7 +62,7 @@
               </div>
 
             {% else %}
-              
+
               <h2 class="govuk-heading-m">Round {{draftRound.number}}</h2>
               <p>No questions have been asked.</p>
               {{ govukButton({
@@ -75,7 +75,7 @@
           {% endif %}
 
           {% if sentRounds %}
-          
+
             {% for round in sentRounds %}
               <h2 class="govuk-heading-m">Round {{round.number}} (sent on {{round.dateSent | date('D MMMM YYYY')}})</h2>
               <div class="jui-questions govuk-!-mb-r6">

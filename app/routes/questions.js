@@ -127,6 +127,7 @@ router.get('/app/case/:case_id/questions/:question_id', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.case_id);
 
 	var pageObject = {
+		_case: _case,
 		casebar: helpers.getCaseBarObject(_case),
 		caseActions: helpers.getCaseActions(_case)
 	};
@@ -172,5 +173,10 @@ router.post('/app/case/:case_id/questions/:question_id/edit', function(req, res)
 	res.redirect(`/app/case/${_case.id}/questions`);
 });
 
+router.post('/app/case/:case_id/questions/:question_id/delete', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.case_id);
+	helpers.removeQuestion(_case, helpers.getQuestion(_case, req.params.question_id));
+	res.redirect(`/app/case/${_case.id}/questions`);
+});
 
 module.exports = router;

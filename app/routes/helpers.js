@@ -105,6 +105,19 @@ function isDraftQuestion(_case, questionId) {
 	return isDraft;
 }
 
+function removeQuestion(_case, question) {
+	for(let round of _case.rounds) {
+		removeItemFromArray(round.questions, question);
+	}
+}
+
+function removeItemFromArray(array, element) {
+	const index = array.indexOf(element);
+	if (index !== -1) {
+		array.splice(index, 1);
+	}
+}
+
 exports.getCaseBarObject = getCaseBarObject;
 exports.getCaseNavObject = getCaseNavObject;
 exports.getPartiesLine   = getPartiesLine;
@@ -113,3 +126,5 @@ exports.getCaseType = getCaseType;
 exports.getCaseActions = getCaseActions;
 exports.getQuestion = getQuestion;
 exports.isDraftQuestion = isDraftQuestion;
+exports.removeQuestion = removeQuestion;
+exports.removeItemFromArray = removeItemFromArray;
