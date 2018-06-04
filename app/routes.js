@@ -6,7 +6,7 @@ router.use('/', require('./routes/questions'));
 
 router.get('/', function (req, res) {
 	req.session.destroy();
-	res.redirect('/setup');
+	res.redirect('/app/dashboard');
 });
 
 module.exports = router;
