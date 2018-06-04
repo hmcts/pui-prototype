@@ -34,28 +34,30 @@ router.post('/setup', function(req, res) {
 });
 
 router.get('/app/dashboard', function(req, res) {
-	
-	var caseList = req.session.cases
-		.filter(c => req.session.services.indexOf(c.typeId) > -1)
-		.map(function(c) {
+	var caseList = req.session.cases;
 
-			var cells = [];
+	// Only filter by services if there are some.
+	if(req.session.services) {
+		caseList = caseList.filter(c => req.session.services.indexOf(c.typeId) > -1);
+	}
 
-			cells.push({
-				html : '<a href="/app/case/' + c.id + '">'+ c.id + '</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '')
-			});
+	caseList = caseList.map(function(c) {
+		var cells = [];
 
-			cells.push({ html: helpers.getPartiesLine(c)	});
-			cells.push({ html: helpers.getCaseType(c) });
-			cells.push({ html: c.status });
-			cells.push({ html: c.applicationDate });
-			cells.push({ html: c.documents });
-			cells.push({ html: c.lastAction });
-
-			return cells;
-
+		cells.push({
+			html : '<a href="/app/case/' + c.id + '">'+ c.id + '</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '')
 		});
 
+		cells.push({ html: helpers.getPartiesLine(c)	});
+		cells.push({ html: helpers.getCaseType(c) });
+		cells.push({ html: c.status });
+		cells.push({ html: c.applicationDate });
+		cells.push({ html: c.documents });
+		cells.push({ html: c.lastAction });
+
+		return cells;
+
+	});
 
 	var successFlash = req.flash('success')[0];
 
@@ -125,9 +127,9 @@ router.get('/app/case/:id/parties', function(req, res) {
 
 
 router.get('/app/case/:id/casefile', function(req, res) {
-	
+
 	var _case = helpers.getCase(req.session.cases, req.params.id);
-	
+
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
@@ -140,24 +142,24 @@ router.get('/app/case/:id/casefile', function(req, res) {
 
 
 router.get('/app/case/:id/casefile/b', function(req, res) {
-	
+
 	var _case = helpers.getCase(req.session.cases, req.params.id);
-	
+
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
 		caseActions: helpers.getCaseActions(_case)
 	};
-	
+
 	res.render('app/case/casefileB.html', pageObject);
 
 });
 
 
 router.get('/app/case/:id/timeline', function(req, res) {
-	
+
 	var _case = helpers.getCase(req.session.cases, req.params.id);
-	
+
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),

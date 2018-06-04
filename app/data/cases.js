@@ -642,7 +642,11 @@ module.exports = [
         author: 'Judge Prita Shah',
         dateAdded: new Date(),
         attachments: [],
-        response: null
+        response: {
+          author: 'Appellant',
+          date: new Date(),
+          body: '<p>The GP is a little way away from me and it takes me quite a while to get there. I take my stick as I have a lot of trouble walking. I stop at the bench on the main road and then again at the bus stop near to the doctor. It takes me longer than half an hour to get there.</p><p>I\'m in pain throughout the trip'
+        }
       }]
     }],
     parties: [
