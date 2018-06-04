@@ -1,5 +1,6 @@
 var helpers = require('../helpers');
 
+
 function getCaseActions(_case) {
 	return [
 		{
@@ -10,10 +11,12 @@ function getCaseActions(_case) {
 			href: `/app/case/${_case.id}/list-for-hearing`,
 			text: 'List for hearing'
 		}
-	]
+	];
 }
 
+
 function viewCaseSummary(req, res) {
+
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
 	var pageObject = {
@@ -25,6 +28,7 @@ function viewCaseSummary(req, res) {
 		panelRows: []
 	};
 
+
 	// Case details
 	pageObject.detailsRows.push([{ html: 'Parties' }, {html: helpers.getPartiesLine(_case)}]);
 	pageObject.detailsRows.push([{ html: 'Case number' }, {html: _case.id}]);
@@ -33,16 +37,23 @@ function viewCaseSummary(req, res) {
 	pageObject.detailsRows.push([{ html: 'Additional requirements' }, {html: _case.requirements}]);
 
 	res.render('app/case/sscs/summary', pageObject);
+
 }
 
+
 function viewMakeDecision(req, res) {
+	
 	var _case = helpers.getCase(req.session.cases, req.params.id);
+	
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		caseActions: getCaseActions(_case)
 	};
+
 	res.render('app/case/sscs/make-decision', pageObject);
+
 }
+
 
 exports.viewCaseSummary = viewCaseSummary;
 exports.viewMakeDecision = viewMakeDecision;

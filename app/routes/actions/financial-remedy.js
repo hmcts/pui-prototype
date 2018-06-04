@@ -11,11 +11,13 @@ function viewCaseSummary(req, res) {
 		representativesRows: []
 	};
 
+	
 	// Case details
 	pageObject.detailsRows.push([{ html: 'Case number' },	{ html: _case.id + (_case.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }]);
 	pageObject.detailsRows.push([{ html: 'Case type' },	{ html: _case.type }]);
 	pageObject.detailsRows.push([{ html: 'Case status' },	{ html: _case.status }]);
 	pageObject.detailsRows.push([{ html: 'Reason for divorce' }, { html: _case.reason }]);
+
 
 	// Representatives
 	pageObject.representativesRows.push([{ html: 'Petitioner' }, { html: _case.petitioner ? _case.petitioner : 'Unrepresented' }]);
