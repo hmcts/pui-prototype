@@ -1,0 +1,48 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set casenavId = "questions" %}
+
+{% block page_title %}{{question.subject}} - Continous Online Resolution{% endblock %}
+
+{% block content %}
+  {% include "includes/casebar.html" %}
+
+	<div class="jui-width-container">
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": backLink.href
+    }) }}
+
+    <main role="main" class="govuk-main-wrapper">
+      <h1 class="govuk-heading-xl">{{question.subject}}</h1>
+
+      <form method="post">
+        {{ govukInput({
+          label: {
+            text: "Subject"
+          },
+          id: "subject",
+          name: "subject",
+          value: question.subject,
+          "classes": "govuk-input--width-30"
+        }) }}
+
+        {{ govukTextarea({
+          label: {
+            text: "Question"
+          },
+          id: "body",
+          name: "body",
+          value: question.body,
+          "classes": "govuk-input--width-30"
+        }) }}
+
+        {{ govukButton({
+          "text": "Save question"
+        }) }}
+
+      </form>
+	  </main>
+  </div>
+{% endblock %}

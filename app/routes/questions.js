@@ -122,7 +122,6 @@ router.get('/app/case/:case_id/questions/:question_id', function(req, res) {
 
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
-		casenav: helpers.getCaseNavObject(_case),
 		caseActions: helpers.getCaseActions(_case)
 	};
 
@@ -130,8 +129,41 @@ router.get('/app/case/:case_id/questions/:question_id', function(req, res) {
 	pageObject.question = question;
 	pageObject.response = question.response;
 	pageObject.isDraftQuestion = helpers.isDraftQuestion(_case, req.params.question_id);
+	pageObject.editQuestionLink = {
+		href: `/app/case/${_case.id}/questions/${question.id}/edit`
+	};
 
 	res.render('app/case/questions/question', pageObject);
+});
+
+router.get('/app/case/:case_id/questions/:question_id/edit', function(req, res) {
+
+	var _case = helpers.getCase(req.session.cases, req.params.case_id);
+
+	var pageObject = {
+		casebar: helpers.getCaseBarObject(_case),
+		caseActions: helpers.getCaseActions(_case)
+	};
+
+	var question = helpers.getQuestion(_case, req.params.question_id);
+	pageObject.question = question;
+	pageObject.backLink = {
+		href: `/app/case/${_case.id}/questions/${question.id}`
+	};
+
+	res.render('app/case/questions/edit', pageObject);
+});
+
+router.post('/app/case/:case_id/questions/:question_id/edit', function(req, res) {
+
+	var _case = helpers.getCase(req.session.cases, req.params.case_id);
+
+	var question = helpers.getQuestion(_case, req.params.question_id);
+
+	question.subject = req.body.subject;
+	question.body = req.body.body;
+
+	res.redirect(`/app/case/${_case.id}/questions`);
 });
 
 
