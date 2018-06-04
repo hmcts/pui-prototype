@@ -38,6 +38,7 @@ router.get('/app/case/:id/questions', function(req, res) {
 	});
 
 	var draftRound = _case.rounds.filter(round => round.dateSent === null)[0] || {};
+
 	if(draftRound) {
 		draftRound.number = sentRounds.length + 1;
 	}
@@ -61,6 +62,7 @@ router.get('/app/case/:id/questions', function(req, res) {
 	}
 
 	res.render('app/case/questions/index', pageObject);
+
 });
 
 router.get('/app/case/:id/questions/check', (req, res) => {
@@ -82,31 +84,42 @@ router.get('/app/case/:id/questions/check', (req, res) => {
 
 });
 
+
 router.post('/app/case/:id/questions/send', (req, res) => {
+
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
 	var round = _case.rounds.filter(round => round.dateSent === null)[0];
+
 	round.dateSent = new Date();
 
 	req.flash('success', 'questions sent');
 
-	res.redirect(`/app/case/${_case.id}/questions`)
+	res.redirect(`/app/case/${_case.id}/questions`);
+
 });
 
+
 router.get('/app/case/:id/questions/create-questions', function(req, res) {
+	
 	var _case = helpers.getCase(req.session.cases, req.params.id);
+
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
 		caseActions: helpers.getCaseActions(_case),
 		_case: _case
 	};
+
 	res.render('app/case/questions/create-questions.html', pageObject);
+
 });
 
 
 router.post('/app/case/:id/questions/create-questions', function(req, res) {
+
 	var _case = helpers.getCase(req.session.cases, req.params.id);
+
 	var draftRound = _case.rounds.filter(r => r.dateSent == null)[0];
 
 	if(!draftRound) {
@@ -124,13 +137,15 @@ router.post('/app/case/:id/questions/create-questions', function(req, res) {
 			body: question.question,
 			id: uuid(),
 			author: 'Judge Prita Shah',
-			dateAdded: new Date()
+			dateAdded: new Date(),
+			new: true
 		});
 	});
 
 	req.flash('success', 'question added');
 
 	res.redirect(`/app/case/${_case.id}/questions`);
+
 });
 
 
@@ -145,6 +160,7 @@ router.get('/app/case/:case_id/questions/:question_id', function(req, res) {
 	};
 
 	var question = helpers.getQuestion(_case, req.params.question_id);
+
 	pageObject.question = question;
 	pageObject.response = question.response;
 	pageObject.isDraftQuestion = helpers.isDraftQuestion(_case, req.params.question_id);
@@ -153,6 +169,7 @@ router.get('/app/case/:case_id/questions/:question_id', function(req, res) {
 	};
 
 	res.render('app/case/questions/question', pageObject);
+
 });
 
 router.get('/app/case/:case_id/questions/:question_id/edit', function(req, res) {
@@ -171,6 +188,7 @@ router.get('/app/case/:case_id/questions/:question_id/edit', function(req, res) 
 	};
 
 	res.render('app/case/questions/edit', pageObject);
+
 });
 
 router.post('/app/case/:case_id/questions/:question_id/edit', function(req, res) {
@@ -183,13 +201,20 @@ router.post('/app/case/:case_id/questions/:question_id/edit', function(req, res)
 	question.body = req.body.body;
 
 	res.redirect(`/app/case/${_case.id}/questions`);
+
 });
 
 router.post('/app/case/:case_id/questions/:question_id/delete', function(req, res) {
+
 	var _case = helpers.getCase(req.session.cases, req.params.case_id);
+
 	helpers.removeQuestion(_case, helpers.getQuestion(_case, req.params.question_id));
+
 	req.flash('success', 'question deleted');
+
 	res.redirect(`/app/case/${_case.id}/questions`);
+
 });
+
 
 module.exports = router;

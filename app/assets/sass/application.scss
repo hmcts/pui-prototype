@@ -5,9 +5,12 @@ $path: "/public/images/";
 // Import GOV.UK Frontend
 @import "@govuk-frontend/frontend/all";
 
-// Import JUI styles
-@import "jui/all";
-
-// Patterns that aren"t in Frontend
+// Patterns that aren"t in GOV.UK Frontend
 @import "patterns/check-your-answers";
 @import "patterns/related-items";
+
+// JUI styles
+@import "jui/all";
+
+// Temporary styles until it makes its way into GOV.UK Frontend
+@import "temp";
