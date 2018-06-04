@@ -37,19 +37,22 @@
 
           {% if isDraftQuestion %}
 
-            <div class="jui-button-action  jui-button-action--inline  govuk-!-mt-r4">
-              {{ govukButton({
-                text: "Edit question",
-                href: editQuestionLink.href
-              }) }}
-            </div>
+            <div class="">
+              <div class="jui-button-action  jui-button-action--inline  govuk-!-mt-r4">
+                {{ govukButton({
+                  text: "Edit question",
+                  href: editQuestionLink.href
+                }) }}
+              </div>
 
-            <div class="jui-button-action  jui-button-action--inline  govuk-!-mt-r4">
-              {{ govukButton({
-                classes: "govuk-button--secondary",
-                text: "Delete question",
-                href: deleteQuestionLink.href
-              }) }}
+              <div class="jui-button-action  jui-button-action--inline  govuk-!-mt-r4">
+                <form method="post" action="/app/case/{{_case.id}}/questions/{{question.id}}/delete">
+                  {{ govukButton({
+                    text: "Delete question",
+                    classes: "govuk-button--secondary"
+                  }) }}
+                </form>
+              </div>
             </div>
 
           {% endif %}
@@ -106,7 +109,7 @@
               {% endcall %}
 
             </form>
-            
+
           {% endif %}
 
         </div>

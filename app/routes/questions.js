@@ -54,9 +54,9 @@ router.get('/app/case/:id/questions', function(req, res) {
 });
 
 router.get('/app/case/:id/questions/check', (req, res) => {
-	
+
 	var _case = helpers.getCase(req.session.cases, req.params.id);
-	
+
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
