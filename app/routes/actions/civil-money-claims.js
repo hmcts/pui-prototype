@@ -1,4 +1,4 @@
-const helpers = require('../helpers');
+var helpers = require('../helpers');
 
 function viewCaseSummary(req, res) {
 
