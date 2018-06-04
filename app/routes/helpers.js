@@ -92,6 +92,19 @@ function getQuestion(_case, questionId) {
 	return q;
 }
 
+function isDraftQuestion(_case, questionId) {
+	var isDraft = false;
+	for(let round of _case.rounds) {
+		for(let question of round.questions) {
+			if(question.id === questionId && !round.dateSent) {
+				isDraft = true;
+				break;
+			}
+		}
+	}
+	return isDraft;
+}
+
 exports.getCaseBarObject = getCaseBarObject;
 exports.getCaseNavObject = getCaseNavObject;
 exports.getPartiesLine   = getPartiesLine;
@@ -99,3 +112,4 @@ exports.getCase = getCase;
 exports.getCaseType = getCaseType;
 exports.getCaseActions = getCaseActions;
 exports.getQuestion = getQuestion;
+exports.isDraftQuestion = isDraftQuestion;

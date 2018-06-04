@@ -123,9 +123,13 @@ router.get('/app/case/:case_id/questions/:question_id', function(req, res) {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
-		caseActions: helpers.getCaseActions(_case),
-		question: helpers.getQuestion(_case, req.params.question_id)
+		caseActions: helpers.getCaseActions(_case)
 	};
+
+	var question = helpers.getQuestion(_case, req.params.question_id);
+	pageObject.question = question;
+	pageObject.response = question.response;
+	pageObject.isDraftQuestion = helpers.isDraftQuestion(_case, req.params.question_id);
 
 	res.render('app/case/questions/question', pageObject);
 });
