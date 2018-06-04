@@ -24,10 +24,19 @@
 }
 
 
+.jui-button-actions {
+  @include govuk-clearfix;
+}
+
+
 /* Style variants
    ========================================================================== */
 
-.jui-button-action--inline {
-  float: left;
-  margin-right: $govuk-spacing-scale-4;
+@include mq($from: tablet) {
+
+  .jui-button-actions__item--inline {
+    float: left;
+    margin-right: $govuk-spacing-scale-4;
+  }
+
 }
