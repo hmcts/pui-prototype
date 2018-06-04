@@ -54,8 +54,13 @@ router.get('/app/case/:id/questions', function(req, res) {
 });
 
 router.get('/app/case/:id/questions/check', (req, res) => {
+	
 	var _case = helpers.getCase(req.session.cases, req.params.id);
+	
 	var pageObject = {
+		casebar: helpers.getCaseBarObject(_case),
+		casenav: helpers.getCaseNavObject(_case),
+		caseActions: helpers.getCaseActions(_case),
 		backLink: {
 			href: `/app/case/${_case.id}/questions/`
 		},
@@ -64,6 +69,7 @@ router.get('/app/case/:id/questions/check', (req, res) => {
 	};
 
 	res.render('app/case/questions/check-your-answers', pageObject);
+
 });
 
 router.post('/app/case/:id/questions/send', (req, res) => {

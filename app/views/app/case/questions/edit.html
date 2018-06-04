@@ -2,9 +2,10 @@
 
 {% set casenavId = "questions" %}
 
-{% block page_title %}{{question.subject}} - Continous Online Resolution{% endblock %}
+{% block page_title %}Edit question - Continous Online Resolution{% endblock %}
 
 {% block content %}
+
   {% include "includes/casebar.html" %}
 
 	<div class="jui-width-container">
@@ -14,35 +15,45 @@
       "href": backLink.href
     }) }}
 
-    <main role="main" class="govuk-main-wrapper">
-      <h1 class="govuk-heading-xl">{{question.subject}}</h1>
+    <main class="govuk-main-wrapper" role="main">
 
-      <form method="post">
-        {{ govukInput({
-          label: {
-            text: "Subject"
-          },
-          id: "subject",
-          name: "subject",
-          value: question.subject,
-          "classes": "govuk-input--width-30"
-        }) }}
+      <div class="govuk-grid-row">
 
-        {{ govukTextarea({
-          label: {
-            text: "Question"
-          },
-          id: "body",
-          name: "body",
-          value: question.body,
-          "classes": "govuk-input--width-30"
-        }) }}
+        <div class="govuk-grid-column-two-thirds">
 
-        {{ govukButton({
-          "text": "Save question"
-        }) }}
+          <h1 class="govuk-heading-xl">Edit question</h1>
 
-      </form>
+          <form method="post">
+
+            {{ govukInput({
+              "label": {
+                "text": "Subject"
+              },
+              "id": "subject",
+              "name": "subject",
+              "value": question.subject
+            }) }}
+
+            {{ govukTextarea({
+              "label": {
+                "text": "Question"
+              },
+              "id": "body",
+              "name": "body",
+              "value": question.body
+            }) }}
+
+            {{ govukButton({
+              "text": "Save question"
+            }) }}
+
+          </form>
+
+        </div>
+
+      </div>
+
 	  </main>
+
   </div>
 {% endblock %}

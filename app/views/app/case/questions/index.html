@@ -5,86 +5,94 @@
 {% block page_title %}Questions - Continous Online Resolution{% endblock %}
 
 {% block content %}
+
   {% include "includes/casebar.html" %}
 
 	<div class="jui-width-container">
 
-    <main role="main" class="govuk-main-wrapper">
+    <main class="govuk-main-wrapper" role="main">
 
       {% include "includes/casenav.html" %}
 
-      {% if success %}
-        {{ juiAlert(
-          {
-            "icon": true,
-            "iconClasses": "jui-alert__icon--success",
-            "iconText": "Success!",
-            "alertText": success,
-            "alertClasses": "jui-alert--success"
-          })
-        }}
-      {% endif %}
+      <div class="govuk-grid-row">
 
-      <h1 class="govuk-heading-l">Questions</h1>
+        <div class="govuk-grid-column-two-thirds">
 
-      {% if draftRound %}
+          {% if success %}
+            {{ juiAlert(
+              {
+                "icon": true,
+                "iconClasses": "jui-alert__icon--success",
+                "iconText": "Success!",
+                "alertText": success,
+                "alertClasses": "jui-alert--success"
+              })
+            }}
+          {% endif %}
 
-        {% if draftRound.questions %}
+          <h1 class="govuk-heading-l">Questions</h1>
+
+          {% if draftRound %}
+
+            {% if draftRound.questions %}
+              
+              <h2 class="govuk-heading-m">Round {{draftRound.number}} (in draft)</h2>
+              <div class="jui-questions govuk-!-mb-r6">
+                {% for question in draftRound.questions %}
+                  <div class="jui-questions__item">
+                    <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a></h3>
+                    <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="{{questions.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | date('D MMMM YYYY')}}</time></p>
+                  </div>
+                {% endfor %}
+              </div>
+
+              <div class="jui-button-action">
+                {{ govukButton({
+                  "text": "Add more questions",
+                  "href": createQuestionsLink.href,
+                  "classes": "govuk-button--secondary  govuk-!-mb-r4"
+                }) }}
+              </div>
+
+              <div class="jui-button-action">
+                {{ govukButton({
+                  "text": "Send questions",
+                  "href": sendQuestionsLink.href
+                }) }}
+              </div>
+
+            {% else %}
+              
+              <h2 class="govuk-heading-m">Round {{draftRound.number}}</h2>
+              <p>No questions have been asked.</p>
+              {{ govukButton({
+                "text": "Create questions",
+                "href": createQuestionsLink.href
+              }) }}
+
+            {% endif %}
+
+          {% endif %}
+
+          {% if sentRounds %}
           
-          <h2 class="govuk-heading-m">Round {{draftRound.number}} (in draft)</h2>
-          <div class="jui-questions govuk-!-mb-r6">
-            {% for question in draftRound.questions %}
-              <div class="jui-questions__item">
-                <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a></h3>
-                <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="{{questions.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | date('D MMMM YYYY')}}</time></p>
+            {% for round in sentRounds %}
+              <h2 class="govuk-heading-m">Round {{round.number}} (sent on {{round.dateSent | date('D MMMM YYYY')}})</h2>
+              <div class="jui-questions govuk-!-mb-r6">
+                {% for question in round.questions %}
+                  <div class="jui-questions__item">
+                    <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a></h3>
+                    <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="{{questions.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | date('D MMMM YYYY')}}</time></p>
+                  </div>
+                {% endfor %}
               </div>
             {% endfor %}
-          </div>
 
-          <div class="jui-button-action">
-            {{ govukButton({
-              "text": "Add more questions",
-              "href": createQuestionsLink.href,
-              "classes": "govuk-button--secondary  govuk-!-mb-r4"
-            }) }}
-          </div>
+          {% endif %}
 
-          <div class="jui-button-action">
-            {{ govukButton({
-              "text": "Send questions",
-              "href": sendQuestionsLink.href
-            }) }}
-          </div>
+        </div>
 
-        {% else %}
-          
-          <h2 class="govuk-heading-m">Round {{draftRound.number}}</h2>
-          <p>No questions have been asked.</p>
-          {{ govukButton({
-            "text": "Create questions",
-            "href": createQuestionsLink.href
-          }) }}
-
-        {% endif %}
-
-      {% endif %}
-
-      {% if sentRounds %}
-       
-        {% for round in sentRounds %}
-          <h2 class="govuk-heading-m">Round {{round.number}} (sent on {{round.dateSent | date('D MMMM YYYY')}})</h2>
-          <!--p>Due by <b>{{round.dateDue | date('D MMMM YYYY')}}</b>.</p-->
-          <div class="jui-questions govuk-!-mb-r6">
-            {% for question in round.questions %}
-              <div class="jui-questions__item">
-                <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a></h3>
-                <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="{{questions.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | date('D MMMM YYYY')}}</time></p>
-              </div>
-            {% endfor %}
-          </div>
-        {% endfor %}
-
-      {% endif %}
+      </div>
 
 		</main>
 

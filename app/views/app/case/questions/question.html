@@ -5,6 +5,7 @@
 {% block page_title %}{{question.subject}} - Continous Online Resolution{% endblock %}
 
 {% block content %}
+
   {% include "includes/casebar.html" %}
 
 	<div class="jui-width-container">
@@ -14,14 +15,11 @@
       "href": "./"
     }) }}
 
-    <main role="main" class="govuk-main-wrapper">
-
+    <main class="govuk-main-wrapper" role="main">
 
       <div class="govuk-grid-row">
 
-
         <div class="govuk-grid-column-two-thirds">
-
 
           <h1 class="govuk-heading-xl">{{question.subject}}</h1>
 
@@ -48,9 +46,7 @@
 
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-
             <h2 class="govuk-heading-m">Response</h2>
-
 
             <div class="jui-response">
 
@@ -64,9 +60,7 @@
 
             </div>
 
-
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
 
             <form method="post">
 
@@ -106,11 +100,10 @@
 
         </div>
 
-
       </div>
-
 
 		</main>
 
 	</div>
+
 {% endblock %}

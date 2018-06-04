@@ -1,55 +1,57 @@
 {% extends "layouts/admin/base.html" %}
 
-{% set pageID = "Confirmation" %}
+{% set casenavId = "Confirmation" %}
 
-{% block page_title %}Check your answers - Judicial UI prototype{% endblock %}
+{% block page_title %}Check your answers - Continous Online Resolution{% endblock %}
 
 {% block content %}
 
-<div class="jui-width-container">
+  {% include "includes/casebar.html" %}
 
-  {{ govukBackLink({
-    "text": "Back",
-    "href": backLink.href
-  }) }}
+  <div class="jui-width-container">
 
-  <main role="main" class="govuk-main-wrapper">
+    {{ govukBackLink({
+      "text": "Back",
+      "href": backLink.href
+    }) }}
 
-    <div class="govuk-grid-row">
+    <main class="govuk-main-wrapper" role="main">
 
-      <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-row">
 
-        <h1 class="govuk-heading-xl">Check your questions before sending</h1>
+        <div class="govuk-grid-column-two-thirds">
 
-        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-mb-r6">
+          <h1 class="govuk-heading-xl">Check your questions before sending</h1>
 
-          {% for question in questions %}
-            <div class="govuk-check-your-answers__contents">
+          <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-mb-r6">
 
-              <dt class="govuk-check-your-answers__question">Question {{loop.index}}</dt>
+            {% for question in questions %}
+              <div class="govuk-check-your-answers__contents">
 
-              <dd class="govuk-check-your-answers__answer"><b>{{question.subject}}</b> <br> {{question.body}}</dd>
+                <dt class="govuk-check-your-answers__question">Question {{loop.index}}</dt>
 
-              <dd class="govuk-check-your-answers__change">
-                <a href="/app/case/{{_case.id}}/questions/{{question.id}}/edit">Change <span class="visually-hidden">{{question.subject}}</span></a>
-              </dd>
+                <dd class="govuk-check-your-answers__answer"><b>{{question.subject}}</b> <br> {{question.body}}</dd>
 
-            </div>
-          {% endfor %}
-        </dl>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="/app/case/{{_case.id}}/questions/{{question.id}}/edit">Change <span class="visually-hidden">{{question.subject}}</span></a>
+                </dd>
 
-        <form method="post" action="/app/case/{{_case.id}}/questions/send">
-          {{ govukButton({
-            "text": "Send questions"
-          }) }}
-        </form>
+              </div>
+            {% endfor %}
+          </dl>
+
+          <form method="post" action="/app/case/{{_case.id}}/questions/send">
+            {{ govukButton({
+              "text": "Send questions"
+            }) }}
+          </form>
+
+        </div>
 
       </div>
 
-    </div>
+    </main>
 
-  </main>
-
-</div>
+  </div>
 
 {% endblock %}
