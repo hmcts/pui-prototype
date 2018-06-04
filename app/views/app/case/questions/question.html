@@ -37,15 +37,16 @@
 
           {% if isDraftQuestion %}
 
-            <div class="">
-              <div class="jui-button-action  jui-button-action--inline  govuk-!-mt-r4">
+            <div class="jui-button-actions  govuk-!-mt-r7">
+
+              <div class="jui-button-actions__item  jui-button-actions__item--inline">
                 {{ govukButton({
                   text: "Edit question",
                   href: editQuestionLink.href
                 }) }}
               </div>
 
-              <div class="jui-button-action  jui-button-action--inline  govuk-!-mt-r4">
+              <div class="jui-button-actions__item  jui-button-actions__item--inline">
                 <form method="post" action="/app/case/{{_case.id}}/questions/{{question.id}}/delete">
                   {{ govukButton({
                     text: "Delete question",
@@ -53,6 +54,7 @@
                   }) }}
                 </form>
               </div>
+
             </div>
 
           {% endif %}
