@@ -15,6 +15,10 @@ router.get('/signout', function (req, res) {
 	res.redirect('/');
 });
 
+router.get('/signin', function(req, res) {
+	res.render('signin');
+});
+
 router.get('/setup', function(req, res) {
 	req.session.destroy();
 	var pageObject = {};
