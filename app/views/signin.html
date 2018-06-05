@@ -10,31 +10,35 @@
 
     <h1 class="govuk-heading-l">Sign in</h1>
 
-    {{ govukInput({
-      label: {
-        html: "Email address",
-        classes: "govuk-!-width-one-third"
-      },
-      id: "email-address",
-      name: "email-address",
-      classes: 'govuk-!-width-one-third'
-    }) }}
+    <form method="post">
 
-    {{ govukInput({
-      label: {
-        html: "Password",
-        classes: "govuk-!-width-one-third"
-      },
-      id: "password",
-      name: "password",
-      type: "password",
-      classes: "govuk-!-width-one-third"
-    }) }}
+      {{ govukInput({
+        label: {
+          html: "Email address",
+          classes: "govuk-!-width-one-third"
+        },
+        id: "email-address",
+        name: "email-address",
+        classes: 'govuk-!-width-one-third'
+      }) }}
 
-    {{ govukButton({
-      "text": "Sign in",
-      "classes": "govuk-!-mb-r4"
-    }) }}
+      {{ govukInput({
+        label: {
+          html: "Password",
+          classes: "govuk-!-width-one-third"
+        },
+        id: "password",
+        name: "password",
+        type: "password",
+        classes: "govuk-!-width-one-third"
+      }) }}
+
+      {{ govukButton({
+        "text": "Sign in",
+        "classes": "govuk-!-mb-r4"
+      }) }}
+
+    </form>
 
     <p class="govuk-body"><a href="">Forgotten your password?</a></p>
 

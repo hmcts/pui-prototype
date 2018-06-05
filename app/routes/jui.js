@@ -12,11 +12,15 @@ router.use(function(req, res, next) {
 
 router.get('/signout', function (req, res) {
 	req.session.destroy();
-	res.redirect('/');
+	res.redirect('/app/signin');
 });
 
-router.get('/signin', function(req, res) {
+router.get('/app/signin', function(req, res) {
 	res.render('signin');
+});
+
+router.post('/app/signin', function(req, res) {
+	res.redirect('/app/dashboard');
 });
 
 router.get('/setup', function(req, res) {
