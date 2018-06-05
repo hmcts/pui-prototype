@@ -10,6 +10,6 @@ module.exports = {
   sscs: {
     id: 'sscs',
     label: 'SSCS'
-  },
+  }
 };
 

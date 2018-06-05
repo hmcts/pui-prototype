@@ -1,4 +1,4 @@
-var caseTypes = require('../data/case-types');
+var services = require('../data/services');
 
 function getPartiesLine(_case) {
 	return _case.parties.map(function(party) {
@@ -13,16 +13,16 @@ function getPartiesLine(_case) {
 
 function getCaseType(_case) {
 	var caseType = '';
-	Object.keys(caseTypes).forEach(function(key) {
-		if(caseTypes[key].id == _case.typeId) {
-			caseType = caseTypes[key].label;
+	Object.keys(services).forEach(function(key) {
+		if(services[key].id == _case.serviceId) {
+			caseType = services[key].label;
 		}
 	});
 	return caseType;
 }
 
 function getCaseNavObject(_case) {
-	switch(_case.typeId) {
+	switch(_case.serviceId) {
 		case 'sscs':
 			return {
 				id: _case.id,
@@ -37,7 +37,7 @@ function getCaseNavObject(_case) {
 }
 
 function getCaseActions(_case) {
-	switch(_case.typeId) {
+	switch(_case.serviceId) {
 		case 'sscs':
 		return [
 			{

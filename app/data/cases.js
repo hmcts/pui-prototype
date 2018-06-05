@@ -1,4 +1,4 @@
-var caseTypes = require('./case-types');
+var services = require('./services');
 var uuid = require('uuid/v4');
 var moment = require('moment');
 
@@ -6,8 +6,7 @@ module.exports = [
 
   {
     id: 'SC1231612322',
-    userID: 1,
-    typeId: caseTypes.sscs.id,
+    serviceId: services.sscs.id,
     rounds: [{
       id: uuid(),
       dateSent: null,
@@ -86,8 +85,7 @@ module.exports = [
 
   {
     id: 'SC1231612323',
-    userID: 1,
-    typeId: caseTypes.sscs.id,
+    serviceId: services.sscs.id,
     rounds: [{
       id: uuid(),
       dateSent: null,
@@ -238,8 +236,7 @@ module.exports = [
 
   {
     id: 'BV18D00150',
-    userID: 1,
-    typeId: caseTypes.divorce.id,
+    serviceId: services.divorce.id,
     parties: [
       {
         type: 'Petitioner',
@@ -350,8 +347,7 @@ module.exports = [
 
   {
     id: 'BV18D00151',
-    userID: 1,
-    typeId: caseTypes['financial-remedy'].id,
+    serviceId: services['financial-remedy'].id,
     parties: [
       {
         type: 'Petitioner',
@@ -446,8 +442,7 @@ module.exports = [
 
   {
     id: 'BV18D00152',
-    userID: 1,
-    typeId: caseTypes['financial-remedy'].id,
+    serviceId: services['financial-remedy'].id,
     parties: [
       {
         type: 'Petitioner',
@@ -542,8 +537,7 @@ module.exports = [
 
   {
     id: 'BV18D00153',
-    userID: 1,
-    typeId: caseTypes.divorce.id,
+    serviceId: services.divorce.id,
     parties: [
       {
         type: 'Petitioner',
@@ -638,8 +632,7 @@ module.exports = [
 
   {
     id: 'BV18D00154',
-    userID: 1,
-    typeId: caseTypes['financial-remedy'].id,
+    serviceId: services['financial-remedy'].id,
     parties: [
       {
         type: 'Petitioner',
