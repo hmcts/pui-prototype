@@ -83,12 +83,20 @@
                 {% for question in round.questions %}
                   <div class="jui-questions__item">
 
+
+
                     {% if question.response %}
-                    
-                      <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a> {{ juiStatus({"text": "Replied"}) }}</h3>
-                      <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.response.author}}</span>, received on <time datetime="{{question.response.date | date('YYYY-MM-DDTHH:mm')}}">{{question.response.date | date('D MMMM YYYY')}}</time></p>
-                    
-                    {% elif (now | date()) >= (round.dateDue | date()) %}
+
+                      <h3 class="jui-questions__subject">
+                        <a href="/app/case/{{casenav.id}}/questions/{{question.id}}">
+                          {{loop.index}}. {{question.subject}}</a> {{ juiStatus({"text": "Replied"}) }}
+                        </h3>
+                        <p class="jui-questions__meta">
+                          From <span class="jui-questions__author">{{question.response.author}}</span>,
+                          received on <time datetime="{{question.response.date | date('YYYY-MM-DDTHH:mm')}}">{{question.response.date | date('D MMMM YYYY')}}</time>
+                        </p>
+
+                    {% elseif (round.overdue) %}
 
                       <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a> {{ juiStatus({"classes": "jui-status--urgent", "text": "Expired"}) }}</h3>
                       <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="{{question.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | date('D MMMM YYYY')}}</time></p>

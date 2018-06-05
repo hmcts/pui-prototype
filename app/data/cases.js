@@ -1,7 +1,6 @@
 var caseTypes = require('./case-types');
 var uuid = require('uuid/v4');
-
-var today = new Date();
+var moment = require('moment');
 
 module.exports = [
 
@@ -15,18 +14,17 @@ module.exports = [
       questions: []
     },{
       id: uuid(),
-      dateSent: new Date().setDate(today.getDate() - 14),
-      dateDue: new Date().setDate(today.getDate() - 1),
+      dateSent: moment('2018-05-28').toDate(),
       questions: [{
         id: uuid(),
         subject: 'How do you do your shopping?',
         body: 'Explain how you do your shopping. Include information about how often you go to the shops, how you get there and how you get your food from the shops to your home.',
         author: 'Judge Prita Shah',
-        dateAdded: new Date(),
+        dateAdded: moment('2018-05-28').toDate(),
         attachments: [],
         response: {
           author: 'Appellant',
-          date: new Date().setDate(today.getDate() - 3),
+          date: new Date(),
           body: '<p>I have a walk-in bath and a shower but I don’t use the shower since the accident because I can’t put my arms above my head and it makes it painful.</p>'
         }
       },
@@ -39,7 +37,7 @@ module.exports = [
         attachments: [],
         response: {
           author: 'Appellant',
-          date: new Date().setDate(today.getDate() - 2),
+          date: moment('2018-05-28').toDate(),
           body: '<p>I have a walk-in bath and a shower but I don’t use the shower since the accident because I can’t put my arms above my head and it makes it painful.</p>'
         }
       },
@@ -48,7 +46,7 @@ module.exports = [
         subject: 'How you wash yourself?',
         body: 'Explain how you wash yourself. Include information about whether you usually bath or shower.',
         author: 'Judge Prita Shah',
-        dateAdded: new Date().setDate(today.getDate() - 14),
+        dateAdded: moment('2018-05-28').toDate(),
         attachments: [],
         response: false
       }]
@@ -98,7 +96,7 @@ module.exports = [
         subject: 'How do you do your shopping?',
         body: 'Explain how you do your shopping. Include information about how often you go to the shops, how you get there and how you get your food from the shops to your home.',
         author: 'Judge Prita Shah',
-        dateAdded: new Date(),
+        dateAdded: moment('2018-04-22').toDate(),
         attachments: [],
         response: null
       }, {
@@ -106,23 +104,23 @@ module.exports = [
         subject: 'How you prepare your food?',
         body: 'Explain how you prepare your meals. Include information about the types of meals you eat, how you prepare them and whether there are any tasks in the kitchen you need assistance with.',
         author: 'Judge Prita Shah',
-        dateAdded: new Date(),
+        dateAdded: moment('2018-04-23').toDate(),
         attachments: [],
         response: null
       }]
     },{
       id: uuid(),
-      dateSent: new Date(),
+      dateSent: moment('2018-04-20').toDate(),
       questions: [{
         id: uuid(),
         subject: 'How you wash yourself?',
         body: 'Explain how you wash yourself. Include information about whether you usually bath or shower.',
         author: 'Judge Prita Shah',
-        dateAdded: new Date(),
+        dateAdded: moment('2018-04-20').toDate(),
         attachments: [],
         response: {
           author: 'Appellant',
-          date: new Date(),
+          date: moment('2018-04-21').toDate(),
           body: '<p>I have a walk-in bath and a shower but I don’t use the shower since the accident because I can’t put my arms above my head and it makes it painful.</p>'
         }
       }]

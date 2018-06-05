@@ -35,6 +35,8 @@ router.get('/app/case/:id/questions', function(req, res) {
 
 	sentRounds.forEach((round, i) => {
 		round.number = sentRounds.length-i;
+		round.dateDue = moment(round.dateSent).add(7, 'days').toDate();
+		round.overdue = moment() > moment(round.dateDue).add(1, 'days');
 	});
 
 	var draftRound = _case.rounds.filter(round => round.dateSent === null)[0] || {};
@@ -101,7 +103,7 @@ router.post('/app/case/:id/questions/send', (req, res) => {
 
 
 router.get('/app/case/:id/questions/create-questions', function(req, res) {
-	
+
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
 	var pageObject = {
