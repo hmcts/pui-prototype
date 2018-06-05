@@ -1,21 +1,21 @@
 /* ==========================================================================
-   #NAV
+   #PRIMARY NAV
    ========================================================================== */
 
-.jui-nav {
+.jui-primary-nav {
   color: $govuk-white;
   margin-top: 3px;
 }
 
 
-.jui-nav__list {
+.jui-primary-nav__list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 
-.jui-nav__item {
+.jui-primary-nav__item {
   display: inline-block;
   margin-right: $govuk-spacing-scale-2;
 
@@ -26,7 +26,7 @@
 }
 
 
-.jui-nav__link {
+.jui-primary-nav__link {
   font-weight: bold;
   text-decoration: none;
 
