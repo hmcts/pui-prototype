@@ -1,6 +1,6 @@
 var express = require('express');
 var router  = express.Router();
-var caseTypes = require('../data/case-types');
+var services = require('../data/services');
 var helpers = require('./helpers');
 
 router.use(function(req, res, next) {
@@ -18,10 +18,10 @@ router.get('/signout', function (req, res) {
 router.get('/setup', function(req, res) {
 	req.session.destroy();
 	var pageObject = {};
-	pageObject.services = Object.keys(caseTypes).map(key => ({
-		value: caseTypes[key].id,
-		text: caseTypes[key].label,
-		checked: caseTypes[key].label === 'SSCS'
+	pageObject.services = Object.keys(services).map(key => ({
+		value: services[key].id,
+		text: services[key].label,
+		checked: services[key].label === 'SSCS'
 	}));
 	res.render('setup', pageObject);
 });
@@ -38,7 +38,7 @@ router.get('/app/dashboard', function(req, res) {
 
 	// Only filter by services if there are some.
 	if(req.session.services) {
-		caseList = caseList.filter(c => req.session.services.indexOf(c.typeId) > -1);
+		caseList = caseList.filter(c => req.session.services.indexOf(c.serviceId) > -1);
 	}
 
 	caseList = caseList.map(function(c) {
