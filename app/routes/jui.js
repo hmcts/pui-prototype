@@ -197,7 +197,10 @@ router.post('/app/case/:id/make-decision', function(req, res) {
 router.get('/app/case/:id/provide-reason', function(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
-		casebar: helpers.getCaseBarObject(_case)
+		casebar: helpers.getCaseBarObject(_case),
+		backLink: {
+			href: `/app/case/${_case.id}/make-decision`
+		}
 	};
 	res.render('app/case/divorce/provide-reason', pageObject);
 });
