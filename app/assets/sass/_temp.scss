@@ -1,10 +1,10 @@
 /* ==========================================================================
    #BUTTON
    ========================================================================== */
-   
+
 .govuk-button--secondary {
   background-color: $govuk-grey-3;
-  box-shadow: 0 2px 0 rgba($govuk-grey-1, .7); // 70%
+  box-shadow: 0 2px 0 rgba($govuk-grey-1, .7);
   color: $govuk-black;
 
   &:link,
@@ -17,7 +17,7 @@
   &:hover,
   &:focus,
   &:link:focus {
-    background-color: $govuk-grey-2;
+    background-color: rgba($govuk-grey-2, .7);
     color: $govuk-text-colour;
   }
 

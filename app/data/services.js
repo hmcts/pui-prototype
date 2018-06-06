@@ -7,9 +7,9 @@ module.exports = {
     id: 'financial-remedy',
     label: 'Financial Remedy'
   },
-  sscs: {
-    id: 'sscs',
-    label: 'SSCS'
+  pip: {
+    id: 'pip',
+    label: 'PIP'
   }
 };
 

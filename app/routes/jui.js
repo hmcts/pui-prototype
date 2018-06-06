@@ -29,7 +29,7 @@ router.get('/setup', function(req, res) {
 	pageObject.services = Object.keys(services).map(key => ({
 		value: services[key].id,
 		text: services[key].label,
-		checked: services[key].label === 'SSCS'
+		checked: services[key].id === 'pip'
 	}));
 	res.render('setup', pageObject);
 });

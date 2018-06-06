@@ -36,21 +36,21 @@ function viewCaseSummary(req, res) {
 	pageObject.detailsRows.push([{ html: 'Tribunal centre' }, {html: _case.tribunalCentre}]);
 	pageObject.detailsRows.push([{ html: 'Additional requirements' }, {html: _case.requirements}]);
 
-	res.render('app/case/sscs/summary', pageObject);
+	res.render('app/case/pip/summary', pageObject);
 
 }
 
 
 function viewMakeDecision(req, res) {
-	
+
 	var _case = helpers.getCase(req.session.cases, req.params.id);
-	
+
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		caseActions: getCaseActions(_case)
 	};
 
-	res.render('app/case/sscs/make-decision', pageObject);
+	res.render('app/case/pip/make-decision', pageObject);
 
 }
 

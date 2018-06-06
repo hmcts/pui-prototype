@@ -6,7 +6,7 @@ module.exports = [
 
   {
     id: 'SC1231612322',
-    serviceId: services.sscs.id,
+    serviceId: services.pip.id,
     rounds: [{
       id: uuid(),
       dateSent: null,
@@ -85,7 +85,7 @@ module.exports = [
 
   {
     id: 'SC1231612323',
-    serviceId: services.sscs.id,
+    serviceId: services.pip.id,
     rounds: [{
       id: uuid(),
       dateSent: null,
