@@ -23,7 +23,7 @@ function getCaseType(_case) {
 
 function getCaseNavObject(_case) {
 	switch(_case.serviceId) {
-		case 'sscs':
+		case 'pip':
 			return {
 				id: _case.id,
 				questions: true
@@ -38,7 +38,7 @@ function getCaseNavObject(_case) {
 
 function getCaseActions(_case) {
 	switch(_case.serviceId) {
-		case 'sscs':
+		case 'pip':
 		return [
 			{
 				href: `/app/case/${_case.id}/make-decision`,
