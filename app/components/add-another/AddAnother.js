@@ -42,7 +42,7 @@ AddAnother.prototype.updateAttributes = function(index, item) {
 };
 
 AddAnother.prototype.createRemoveButton = function(item) {
-	item.append('<button type="button" class="govuk-button govuk-button--secondary jui-add-another__remove-button">Remove</button>');
+	item.append('<button type="button" class="govuk-button jui-button--secondary jui-add-another__remove-button">Remove</button>');
 };
 
 AddAnother.prototype.resetItem = function(item) {

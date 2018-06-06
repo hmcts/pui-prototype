@@ -1,8 +1,9 @@
 /* ==========================================================================
    #BUTTON
+   Unfortunately GDS don’t have a secondary button available.
    ========================================================================== */
 
-.govuk-button--secondary {
+.jui-button--secondary {
   background-color: $govuk-grey-3;
   box-shadow: 0 2px 0 rgba($govuk-grey-1, .7);
   color: $govuk-black;
@@ -21,21 +22,4 @@
     color: $govuk-text-colour;
   }
 
-}
-
-
-/* ==========================================================================
-   #TABLE
-   ========================================================================== */
-
-.govuk-table--fixed {
-  table-layout: fixed;
-}
-
-.govuk-table__header {
-  vertical-align: top;
-}
-
-.govuk-table__cell {
-  vertical-align: top;
 }
