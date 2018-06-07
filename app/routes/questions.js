@@ -11,6 +11,7 @@ router.get('/app/case/:id/questions', function(req, res) {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
 		caseActions: helpers.getCaseActions(_case),
+		appellantName: helpers.getAppellantName(_case),
 		createQuestionsLink: {
 			href: '/app/case/' + req.params.id + '/questions/create-questions'
 		},
@@ -143,7 +144,7 @@ router.post('/app/case/:id/questions/create-questions', function(req, res) {
 			body: question.question,
 			id: uuid(),
 			author: 'Judge Prita Shah',
-			dateAdded: new Date()
+			dateCreated: new Date()
 		});
 	});
 
@@ -204,6 +205,7 @@ router.post('/app/case/:case_id/questions/:question_id/edit', function(req, res)
 
 	question.subject = req.body.subject;
 	question.body = req.body.body;
+	question.dateChanged = new Date();
 
 	req.flash('success', 'question updated')
 

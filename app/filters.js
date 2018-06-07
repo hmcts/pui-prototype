@@ -10,6 +10,17 @@ module.exports = function (env) {
   var filters = {
     date: function(str, format) {
       return moment(str).format(format || 'MM DDD YYYY');
+    },
+    govDate: function(str) {
+      return moment(str).format('D MMMM YYYY');
+    },
+    govTime: function(str) {
+      var m = moment(str);
+      if(m.minutes() > 0) {
+        return m.format('h:mma');
+      } else {
+        return m.format('ha');
+      }
     }
   };
 

@@ -11,6 +11,14 @@ function getPartiesLine(_case) {
 	}).join(' versus ');
 }
 
+function getAppellantName(_case) {
+	return _case.parties.map(function(party) {
+		if(party.firstName) {
+			return party.firstName + ' ' + party.lastName;
+		}
+	})[0];
+}
+
 function getCaseType(_case) {
 	var caseType = '';
 	Object.keys(types).forEach(function(key) {
@@ -139,3 +147,4 @@ exports.getQuestion = getQuestion;
 exports.isDraftQuestion = isDraftQuestion;
 exports.removeQuestion = removeQuestion;
 exports.removeItemFromArray = removeItemFromArray;
+exports.getAppellantName = getAppellantName;

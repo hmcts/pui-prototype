@@ -19,7 +19,8 @@ module.exports = [
         subject: 'How do you do your shopping?',
         body: 'Explain how you do your shopping. Include information about how often you go to the shops, how you get there and how you get your food from the shops to your home.',
         author: 'Judge Prita Shah',
-        dateAdded: moment('2018-05-28').toDate(),
+        dateChanged: moment('2018-05-28').toDate(),
+        dateCreated: moment('2018-05-28').toDate(),
         attachments: [],
         response: {
           author: 'Appellant',
@@ -32,7 +33,7 @@ module.exports = [
         subject: 'How you prepare your food?',
         body: 'Explain how you prepare your meals. Include information about the types of meals you eat, how you prepare them and whether there are any tasks in the kitchen you need assistance with.',
         author: 'Judge Prita Shah',
-        dateAdded: new Date(),
+        dateChanged: new Date(),
         attachments: [],
         response: {
           author: 'Appellant',
@@ -45,7 +46,8 @@ module.exports = [
         subject: 'How you wash yourself?',
         body: 'Explain how you wash yourself. Include information about whether you usually bath or shower.',
         author: 'Judge Prita Shah',
-        dateAdded: moment('2018-05-28').toDate(),
+        dateChanged: moment('2018-05-28').toDate(),
+        dateCreated: moment('2018-05-28').toDate(),
         attachments: [],
         response: false
       }]
@@ -93,7 +95,8 @@ module.exports = [
         subject: 'How do you do your shopping?',
         body: 'Explain how you do your shopping. Include information about how often you go to the shops, how you get there and how you get your food from the shops to your home.',
         author: 'Judge Prita Shah',
-        dateAdded: moment('2018-04-22').toDate(),
+        dateChanged: moment('2018-04-22').toDate(),
+        dateCreated: moment('2018-04-22').toDate(),
         attachments: [],
         response: null
       }, {
@@ -101,7 +104,8 @@ module.exports = [
         subject: 'How you prepare your food?',
         body: 'Explain how you prepare your meals. Include information about the types of meals you eat, how you prepare them and whether there are any tasks in the kitchen you need assistance with.',
         author: 'Judge Prita Shah',
-        dateAdded: moment('2018-04-23').toDate(),
+        dateChanged: moment('2018-04-23').toDate(),
+        dateCreated: moment('2018-04-23').toDate(),
         attachments: [],
         response: null
       }]
@@ -113,7 +117,8 @@ module.exports = [
         subject: 'How you wash yourself?',
         body: 'Explain how you wash yourself. Include information about whether you usually bath or shower.',
         author: 'Judge Prita Shah',
-        dateAdded: moment('2018-04-20').toDate(),
+        dateChanged: moment('2018-04-20').toDate(),
+        dateCreated: moment('2018-04-20').toDate(),
         attachments: [],
         response: {
           author: 'Appellant',
