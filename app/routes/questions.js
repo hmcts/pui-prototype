@@ -36,6 +36,7 @@ router.get('/app/case/:id/questions', function(req, res) {
 		round.number = sentRounds.length-i;
 		round.dateDue = moment(round.dateSent).add(7, 'days').toDate();
 		round.overdue = moment() > moment(round.dateDue).add(1, 'days');
+		round.areAllQuestionsAnswered = round.questions.filter(question => question.response).length === round.questions.length;
 	});
 
 	var draftRound = _case.rounds.filter(round => round.dateSent === null)[0] || {};

@@ -45,8 +45,8 @@
               <div class="jui-questions govuk-!-mb-r6">
                 {% for question in draftRound.questions %}
                   <div class="jui-questions__item">
-                    <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{question.subject}}</a> {% if isNew %}{{ juiStatus({"classes": "jui-status--new", "text": "New"}) }} {% endif %}</h3>
-                    <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, last edited on <time datetime="{{questions.dateChanged | date('YYYY-MM-DDTHH:mm')}}">{{question.dateChanged | govDate}} at {{question.dateChanged | govTime }}</time></p>
+                    <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{question.subject}}</a></h3>
+                    <p class="jui-questions__meta">Last updated by <span class="jui-questions__author">{{question.author}}</span> on <time datetime="{{questions.dateChanged | date('YYYY-MM-DDTHH:mm')}}">{{question.dateChanged | govDate}} at {{question.dateChanged | govTime }}</time></p>
                   </div>
                 {% endfor %}
               </div>
@@ -69,7 +69,7 @@
             {% else %}
 
               <h2 class="govuk-heading-m">Round {{draftRound.number}}</h2>
-              <p>You haven't asked any questions.</p>
+              <p>You haven’t asked any questions.</p>
               {{ govukButton({
                 "text": "Add questions",
                 "href": createQuestionsLink.href
@@ -84,8 +84,16 @@
             {% for round in sentRounds %}
               <h2 class="govuk-heading-m">Round {{round.number}}</h2>
               <p>You sent {{round.questions.length}} question(s) to the appellant at {{round.dateSent | govTime }} on {{round.dateSent | govDate }}.</p>
-              <p>The appellant has until {{round.dateDue | govTime }} on {{round.dateDue | govDate }} to reply.</p>
 
+              {% if not round.overdue %}
+                <p>The appellant has until {{round.dateDue | govTime }} on {{round.dateDue | govDate }} to reply.</p>
+              {% else %}
+                {% if round.areAllQuestionsAnswered %}
+                  <p><b>The appellant has answered all the questions in time.</b></p>
+                {% else %}
+                  <p><b>The appellant has not answered all the question in time.</b></p>
+                {% endif %}
+              {% endif %}
               <div class="jui-questions govuk-!-mb-r6">
                 {% for question in round.questions %}
                   <div class="jui-questions__item">
@@ -97,14 +105,13 @@
                           {{question.subject}}</a> {{ juiStatus({"text": "Replied"}) }}
                       </h3>
                       <p class="jui-questions__meta">
-                        From <span class="jui-questions__author">{{question.response.author}}</span>,
-                        received on <time datetime="{{question.response.date | date('YYYY-MM-DDTHH:mm')}}">{{question.response.date | govDate}} at {{question.dateChanged | govTime }}</time>
+                        Responded by <span class="jui-questions__author">{{question.response.author}}</span> on <time datetime="{{question.response.date | date('YYYY-MM-DDTHH:mm')}}">{{question.response.date | govDate}} at {{question.dateChanged | govTime }}</time>
                       </p>
 
                     {% else %}
 
                       <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}"> {{question.subject}}</a></h3>
-                      <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="{{questions.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | govDate}} at {{question.dateChanged | govTime }}</time></p>
+                      <p class="jui-questions__meta">Sent by <span class="jui-questions__author">{{question.author}}</span> on <time datetime="{{questions.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | govDate}} at {{question.dateChanged | govTime }}</time></p>
 
                     {% endif %}
 
