@@ -1,6 +1,6 @@
 var express = require('express');
 var router  = express.Router();
-var services = require('../data/services');
+var types = require('../data/types');
 var helpers = require('./helpers');
 
 router.use(function(req, res, next) {
@@ -26,17 +26,17 @@ router.post('/app/signin', function(req, res) {
 router.get('/setup', function(req, res) {
 	req.session.destroy();
 	var pageObject = {};
-	pageObject.services = Object.keys(services).map(key => ({
-		value: services[key].id,
-		text: services[key].label,
-		checked: services[key].id === 'pip'
+	pageObject.types = Object.keys(types).map(key => ({
+		value: types[key].id,
+		text: types[key].label,
+		checked: types[key].id === 'pip'
 	}));
 	res.render('setup', pageObject);
 });
 
 router.post('/setup', function(req, res) {
 	// store service lines
-	req.session.services = req.body.services;
+	req.session.types = req.body.types;
 	req.flash('success', 'prototype setup');
 	res.redirect('/app/dashboard');
 });
@@ -44,9 +44,9 @@ router.post('/setup', function(req, res) {
 router.get('/app/dashboard', function(req, res) {
 	var caseList = req.session.cases;
 
-	// Only filter by services if there are some.
-	if(req.session.services) {
-		caseList = caseList.filter(c => req.session.services.indexOf(c.serviceId) > -1);
+	// Only filter by type if there are some.
+	if(req.session.types) {
+		caseList = caseList.filter(c => req.session.types.indexOf(c.typeId) > -1);
 	}
 
 	caseList = caseList.map(function(c) {

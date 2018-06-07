@@ -32,7 +32,7 @@ function viewCaseSummary(req, res) {
 	// Case details
 	pageObject.detailsRows.push([{ html: 'Parties' }, {html: helpers.getPartiesLine(_case)}]);
 	pageObject.detailsRows.push([{ html: 'Case number' }, {html: _case.id}]);
-	pageObject.detailsRows.push([{ html: 'Case type' }, {html: _case.benefit}]);
+	pageObject.detailsRows.push([{ html: 'Case type' }, {html: helpers.getCaseTypeLabel(_case)}]);
 	pageObject.detailsRows.push([{ html: 'Tribunal centre' }, {html: _case.tribunalCentre}]);
 	pageObject.detailsRows.push([{ html: 'Additional requirements' }, {html: _case.requirements}]);
 

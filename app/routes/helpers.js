@@ -1,4 +1,4 @@
-var services = require('../data/services');
+var types = require('../data/types');
 
 function getPartiesLine(_case) {
 	return _case.parties.map(function(party) {
@@ -13,9 +13,19 @@ function getPartiesLine(_case) {
 
 function getCaseType(_case) {
 	var caseType = '';
-	Object.keys(services).forEach(function(key) {
-		if(services[key].id == _case.serviceId) {
-			caseType = services[key].label;
+	Object.keys(types).forEach(function(key) {
+		if(types[key].id == _case.typeId) {
+			caseType = types[key].id;
+		}
+	});
+	return caseType;
+}
+
+function getCaseTypeLabel(_case) {
+	var caseType = '';
+	Object.keys(types).forEach(function(key) {
+		if(types[key].id == _case.typeId) {
+			caseType = types[key].label;
 		}
 	});
 	return caseType;
@@ -123,6 +133,7 @@ exports.getCaseNavObject = getCaseNavObject;
 exports.getPartiesLine   = getPartiesLine;
 exports.getCase = getCase;
 exports.getCaseType = getCaseType;
+exports.getCaseTypeLabel = getCaseTypeLabel;
 exports.getCaseActions = getCaseActions;
 exports.getQuestion = getQuestion;
 exports.isDraftQuestion = isDraftQuestion;

@@ -63,6 +63,10 @@ router.get('/app/case/:id/questions', function(req, res) {
 		pageObject.success = 'Question deleted';
 	}
 
+	if(successFlash[0] == 'question updated') {
+		pageObject.success = 'Question updated';
+	}
+
 	res.render('app/case/questions/index', pageObject);
 
 });
@@ -200,6 +204,8 @@ router.post('/app/case/:case_id/questions/:question_id/edit', function(req, res)
 
 	question.subject = req.body.subject;
 	question.body = req.body.body;
+
+	req.flash('success', 'question updated')
 
 	res.redirect(`/app/case/${_case.id}/questions`);
 

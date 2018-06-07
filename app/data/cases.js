@@ -1,4 +1,4 @@
-var services = require('./services');
+var types = require('./types');
 var uuid = require('uuid/v4');
 var moment = require('moment');
 
@@ -6,7 +6,7 @@ module.exports = [
 
   {
     id: 'SC1231612322',
-    serviceId: services.pip.id,
+    typeId: types.pip.id,
     rounds: [{
       id: uuid(),
       dateSent: null,
@@ -78,14 +78,13 @@ module.exports = [
     documents: '6 Docs (8 pages)',
     lastAction: '22 Jan 2018',
     urgent: true,
-    benefit: 'PIP',
     tribunalCentre: 'Fox Court',
     requirements: 'Assissted Digital support requested'
   },
 
   {
     id: 'SC1231612323',
-    serviceId: services.pip.id,
+    typeId: types.pip.id,
     rounds: [{
       id: uuid(),
       dateSent: null,
@@ -151,7 +150,6 @@ module.exports = [
     documents: '6 Docs (8 pages)',
     lastAction: '22 Jan 2018',
     urgent: false,
-    benefit: 'PIP',
     tribunalCentre: 'Fox Court',
     requirements: 'Hearing loop required',
     events: [
@@ -236,7 +234,7 @@ module.exports = [
 
   {
     id: 'BV18D00150',
-    serviceId: services.divorce.id,
+    typeId: types.divorce.id,
     parties: [
       {
         type: 'Petitioner',
@@ -347,7 +345,7 @@ module.exports = [
 
   {
     id: 'BV18D00153',
-    serviceId: services.divorce.id,
+    typeId: types.divorce.id,
     parties: [
       {
         type: 'Petitioner',

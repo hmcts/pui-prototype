@@ -22,19 +22,16 @@
         <form method="post" action="/setup">
 
           {{ govukCheckboxes({
-            "idPrefix": "services",
-            "name": "services",
+            "idPrefix": "types",
+            "name": "types",
             "fieldset": {
               "legend": {
-                "text": "Service lines",
+                "text": "Case type",
                 "isPageHeading": true,
                 "classes": "govuk-fieldset__legend--m"
               }
             },
-            "hint": {
-              "text": "Select all service lines you would like to see in your dashboard."
-            },
-            "items": services
+            "items": types
           }) }}
 
           {{ govukButton({
