@@ -90,11 +90,11 @@
                       <h3 class="jui-questions__subject">
                         <a href="/app/case/{{casenav.id}}/questions/{{question.id}}">
                           {{question.subject}}</a> {{ juiStatus({"text": "Replied"}) }}
-                        </h3>
-                        <p class="jui-questions__meta">
-                          From <span class="jui-questions__author">{{question.response.author}}</span>,
-                          received on <time datetime="{{question.response.date | date('YYYY-MM-DDTHH:mm')}}">{{question.response.date | govDate}} at {{question.dateChanged | govTime }}</time>
-                        </p>
+                      </h3>
+                      <p class="jui-questions__meta">
+                        From <span class="jui-questions__author">{{question.response.author}}</span>,
+                        received on <time datetime="{{question.response.date | date('YYYY-MM-DDTHH:mm')}}">{{question.response.date | govDate}} at {{question.dateChanged | govTime }}</time>
+                      </p>
 
                     {% elseif (round.overdue) %}
 

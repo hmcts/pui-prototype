@@ -173,6 +173,9 @@ router.get('/app/case/:case_id/questions/:question_id', function(req, res) {
 	pageObject.editQuestionLink = {
 		href: `/app/case/${_case.id}/questions/${question.id}/edit`
 	};
+	pageObject.deleteQuestionLink = {
+		href: `/app/case/${_case.id}/questions/${question.id}/delete`
+	};
 
 	res.render('app/case/questions/question', pageObject);
 
@@ -210,6 +213,21 @@ router.post('/app/case/:case_id/questions/:question_id/edit', function(req, res)
 	req.flash('success', 'question updated')
 
 	res.redirect(`/app/case/${_case.id}/questions`);
+
+});
+
+router.get('/app/case/:case_id/questions/:question_id/delete', function(req, res) {
+	var _case = helpers.getCase(req.session.cases, req.params.case_id);
+	var question = helpers.getQuestion(_case, req.params.question_id);
+	var pageObject = {
+		_case: _case,
+		question: question,
+		backLink: {
+			href: `/app/case/${_case.id}/questions/${question.id}`
+		}
+	};
+
+	res.render('app/case/questions/delete-confirmation', pageObject);
 
 });
 

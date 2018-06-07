@@ -47,12 +47,11 @@
               </div>
 
               <div class="jui-button-actions__item  jui-button-actions__item--inline">
-                <form method="post" action="/app/case/{{_case.id}}/questions/{{question.id}}/delete">
-                  {{ govukButton({
-                    text: "Delete question",
-                    classes: "jui-button--secondary"
-                  }) }}
-                </form>
+                {{ govukButton({
+                  href: deleteQuestionLink.href,
+                  text: "Delete question",
+                  classes: "jui-button--secondary"
+                }) }}
               </div>
 
             </div>
