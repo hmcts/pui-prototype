@@ -83,7 +83,7 @@
             <br>
             {% for round in sentRounds %}
               <h2 class="govuk-heading-m">Round {{round.number}}</h2>
-              <p>You sent {{round.questions.length}} question(s) to the appellant at {{round.dateSent | govTime }} on {{round.dateSent | govDate }}.</p>
+              <p>You sent {{round.questions.length}} question{% if round.questions.length > 1 %}s{% endif %} to the appellant at {{round.dateSent | govTime }} on {{round.dateSent | govDate }}.</p>
 
               {% if not round.overdue %}
                 <p>The appellant has until {{round.dateDue | govTime }} on {{round.dateDue | govDate }} to reply.</p>
