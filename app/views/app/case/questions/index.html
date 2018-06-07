@@ -101,14 +101,9 @@
                         received on <time datetime="{{question.response.date | date('YYYY-MM-DDTHH:mm')}}">{{question.response.date | govDate}} at {{question.dateChanged | govTime }}</time>
                       </p>
 
-                    {% elseif (round.overdue) %}
-
-                      <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{question.subject}}</a> {{ juiStatus({"classes": "jui-status--urgent", "text": "Expired"}) }}</h3>
-                      <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="{{question.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | govDate}} at {{question.dateChanged | govTime }}</time></p>
-
                     {% else %}
 
-                      <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}">{{loop.index}}. {{question.subject}}</a></h3>
+                      <h3 class="jui-questions__subject"><a href="/app/case/{{casenav.id}}/questions/{{question.id}}"> {{question.subject}}</a></h3>
                       <p class="jui-questions__meta">From <span class="jui-questions__author">{{question.author}}</span>, added on <time datetime="{{questions.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{question.dateAdded | govDate}} at {{question.dateChanged | govTime }}</time></p>
 
                     {% endif %}
