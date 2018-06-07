@@ -76,9 +76,9 @@ module.exports = [
       }
     ],
     status: 'Deadline expired',
-    applicationDate: '11 Jan 2018',
+    applicationDate: moment('2018-05-09'),
     documents: '6 Docs (8 pages)',
-    lastAction: '22 Jan 2018',
+    lastAction: moment('2018-05-09'),
     urgent: true,
     tribunalCentre: 'Fox Court',
     requirements: 'Assissted Digital support requested'
@@ -151,9 +151,9 @@ module.exports = [
       }
     ],
     status: 'Party replied',
-    applicationDate: '11 Jan 2018',
+    applicationDate: moment('2018-05-09'),
     documents: '6 Docs (8 pages)',
-    lastAction: '22 Jan 2018',
+    lastAction: moment('2018-05-09'),
     urgent: false,
     tribunalCentre: 'Fox Court',
     requirements: 'Hearing loop required',
@@ -264,9 +264,9 @@ module.exports = [
     ],
     status: 'Consider decree nisi',
     reason: 'Separated for 2 years and consent',
-    applicationDate: '11 Jan 2018',
+    applicationDate: moment('2018-05-09'),
     documents: '6 Docs (8 pages)',
-    lastAction: '22 Jan 2018',
+    lastAction: moment('2018-05-09'),
     events: [
       {
         id: 1,
@@ -375,9 +375,9 @@ module.exports = [
     ],
     status: 'Consider decree nisi',
     reason: 'Separated for 2 years and consent',
-    applicationDate: '23 Jan 2018',
+    applicationDate: moment('2018-05-09'),
     documents: '3 Docs (8 pages)',
-    lastAction: '16 Feb 2018',
+    lastAction: moment('2018-05-09'),
     petitioner: '',
     respondent: '',
     events: [

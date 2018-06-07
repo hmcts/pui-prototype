@@ -57,10 +57,10 @@ router.get('/app/dashboard', function(req, res) {
 		});
 
 		cells.push({ html: helpers.getPartiesLine(c)	});
-		cells.push({ html: helpers.getCaseType(c) });
+		cells.push({ html: helpers.getCaseTypeLabel(c) });
 		cells.push({ html: c.status });
-		cells.push({ html: c.applicationDate });
-		cells.push({ html: c.lastAction });
+		cells.push({ html: helpers.getFormattedDate(c.applicationDate) + ' at ' + helpers.getFormattedTime(c.applicationDate) });
+		cells.push({ html: helpers.getFormattedDate(c.lastAction) + ' at ' + helpers.getFormattedTime(c.lastAction) });
 
 		return cells;
 

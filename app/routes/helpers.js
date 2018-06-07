@@ -1,4 +1,5 @@
 var types = require('../data/types');
+var moment = require('moment');
 
 function getPartiesLine(_case) {
 	return _case.parties.map(function(party) {
@@ -136,6 +137,16 @@ function removeItemFromArray(array, element) {
 	}
 }
 
+function getFormattedDate(m) {
+	var date = moment(m);
+	return date.format('D MMMM YYYY');
+}
+
+function getFormattedTime(m) {
+	var date = moment(m);
+	return date.minutes() > 0 ? date.format('h:mma') : date.format('ha');
+}
+
 exports.getCaseBarObject = getCaseBarObject;
 exports.getCaseNavObject = getCaseNavObject;
 exports.getPartiesLine   = getPartiesLine;
@@ -148,3 +159,5 @@ exports.isDraftQuestion = isDraftQuestion;
 exports.removeQuestion = removeQuestion;
 exports.removeItemFromArray = removeItemFromArray;
 exports.getAppellantName = getAppellantName;
+exports.getFormattedDate = getFormattedDate;
+exports.getFormattedTime = getFormattedTime;
