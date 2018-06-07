@@ -32,7 +32,7 @@ function getCaseTypeLabel(_case) {
 }
 
 function getCaseNavObject(_case) {
-	switch(_case.serviceId) {
+	switch(_case.typeId) {
 		case 'pip':
 			return {
 				id: _case.id,
@@ -47,7 +47,7 @@ function getCaseNavObject(_case) {
 }
 
 function getCaseActions(_case) {
-	switch(_case.serviceId) {
+	switch(_case.typeId) {
 		case 'pip':
 		return [
 			{
