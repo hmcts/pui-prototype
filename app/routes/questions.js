@@ -20,17 +20,15 @@ router.get('/app/case/:id/questions', function(req, res) {
 		}
 	};
 
-	_case.rounds.sort((a, b) => {
-		if(a.dateSent < b.datesent) {
+	var rounds = _case.rounds.sort((a, b) => {
+		if(a.dateSent < b.dateSent) {
 			return -1;
 		}
-		if(a.dateSent > b.datesent) {
+		if(a.dateSent > b.dateSent) {
 			return 1;
 		}
 		return 0;
-	});
-
-	_case.rounds.reverse();
+	}).reverse();
 
 	var sentRounds = _case.rounds.filter(round => round.dateSent !== null);
 
