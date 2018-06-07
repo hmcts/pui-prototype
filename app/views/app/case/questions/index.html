@@ -36,7 +36,12 @@
 
             {% if draftRound.questions.length %}
 
-              <h2 class="govuk-heading-m">Round {{draftRound.number}} (in draft)</h2>
+              <h2 class="govuk-heading-m">Round {{draftRound.number}}</h2>
+
+              <p>You have not sent these questions to the appellant.</p>
+              <!--<p>You have written {{draftRound.questions.length}} question(s).</p>
+              <p>You can add more questions, edit the existing questions or send all questions to the appellant.</p>-->
+
               <div class="jui-questions govuk-!-mb-r6">
                 {% for question in draftRound.questions %}
                   <div class="jui-questions__item">
@@ -48,7 +53,7 @@
 
               <div class="jui-button-action">
                 {{ govukButton({
-                  "text": "Add more questions",
+                  "text": "Add questions",
                   "href": createQuestionsLink.href,
                   "classes": "jui-button--secondary  govuk-!-mb-r4"
                 }) }}
@@ -64,9 +69,9 @@
             {% else %}
 
               <h2 class="govuk-heading-m">Round {{draftRound.number}}</h2>
-              <p>No questions have been asked.</p>
+              <p>You haven't asked any questions.</p>
               {{ govukButton({
-                "text": "Create questions",
+                "text": "Add questions",
                 "href": createQuestionsLink.href
               }) }}
 
@@ -77,13 +82,13 @@
           {% if sentRounds %}
             <br>
             {% for round in sentRounds %}
-              <h2 class="govuk-heading-m">Round {{round.number}} (sent on {{round.dateSent | date('D MMMM YYYY')}})</h2>
-              <p>Due by <b>{{round.dateDue | govDate }}</b>.</p>
+              <h2 class="govuk-heading-m">Round {{round.number}}</h2>
+              <p>You sent {{round.questions.length}} question(s) to the appellant at {{round.dateSent | govTime }} on {{round.dateSent | govDate }}.</p>
+              <p>The appellant has until {{round.dateDue | govTime }} on {{round.dateDue | govDate }} to reply.</p>
+
               <div class="jui-questions govuk-!-mb-r6">
                 {% for question in round.questions %}
                   <div class="jui-questions__item">
-
-
 
                     {% if question.response %}
 
