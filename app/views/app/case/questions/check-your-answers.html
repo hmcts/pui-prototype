@@ -28,9 +28,9 @@
             {% for question in questions %}
               <div class="govuk-check-your-answers__contents">
 
-                <dt class="govuk-check-your-answers__question">Question {{loop.index}}</dt>
+                <dt class="govuk-check-your-answers__question">{{question.subject}}</dt>
 
-                <dd class="govuk-check-your-answers__answer"><b>{{question.subject}}</b> <br> {{question.body}}</dd>
+                <dd class="govuk-check-your-answers__answer">{{question.body}}</dd>
 
                 <dd class="govuk-check-your-answers__change">
                   <a href="/app/case/{{_case.id}}/questions/{{question.id}}/edit">Change <span class="visually-hidden">{{question.subject}}</span></a>
