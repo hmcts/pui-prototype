@@ -220,6 +220,8 @@ router.get('/app/case/:case_id/questions/:question_id/delete', function(req, res
 	var question = helpers.getQuestion(_case, req.params.question_id);
 	var pageObject = {
 		_case: _case,
+		casebar: helpers.getCaseBarObject(_case),
+		caseActions: helpers.getCaseActions(_case),
 		question: question,
 		backLink: {
 			href: `/app/case/${_case.id}/questions/${question.id}`
