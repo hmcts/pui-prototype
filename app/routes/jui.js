@@ -1,5 +1,5 @@
 var express = require('express');
-var router  = express.Router();
+var router = express.Router();
 var types = require('../data/types');
 var helpers = require('./helpers');
 
@@ -10,20 +10,20 @@ router.use(function(req, res, next) {
 	next();
 });
 
-router.get('/signout', function (req, res) {
+router.get('/signout', (req, res) => {
 	req.session.destroy();
 	res.redirect('/app/signin');
 });
 
-router.get('/app/signin', function(req, res) {
+router.get('/app/signin', (req, res) => {
 	res.render('signin');
 });
 
-router.post('/app/signin', function(req, res) {
+router.post('/app/signin', (req, res) => {
 	res.redirect('/app/dashboard');
 });
 
-router.get('/setup', function(req, res) {
+router.get('/setup', (req, res) => {
 	req.session.destroy();
 	var pageObject = {};
 	pageObject.types = Object.keys(types).map(key => ({
@@ -34,14 +34,22 @@ router.get('/setup', function(req, res) {
 	res.render('setup', pageObject);
 });
 
-router.post('/setup', function(req, res) {
+router.post('/setup', (req, res) => {
 	// store service lines
 	req.session.types = req.body.types;
 	req.flash('success', 'prototype setup');
 	res.redirect('/app/dashboard');
 });
 
-router.get('/app/dashboard', function(req, res) {
+router.get('/app', (req, res) => {
+	res.redirect('/app/dashboard');
+});
+
+router.get('/app/cases', (req, res) => {
+	res.redirect('/app/dashboard');
+});
+
+router.get('/app/dashboard', (req, res) => {
 	var caseList = req.session.cases;
 
 	// Only filter by type if there are some.
@@ -53,7 +61,7 @@ router.get('/app/dashboard', function(req, res) {
 		var cells = [];
 
 		cells.push({
-			html : '<a href="/app/case/' + c.id + '">'+ c.id + '</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '')
+			html : '<a href="/app/cases/' + c.id + '">'+ c.id + '</a>' + (c.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '')
 		});
 
 		cells.push({ html: helpers.getPartiesLine(c)	});
@@ -76,7 +84,7 @@ router.get('/app/dashboard', function(req, res) {
 			var cells = [];
 
 			cells.push({
-				html : '<a href="/app/case/' + c.id + '">'+ c.id +'</a>' + ' <span class="jui-status  jui-status--new  govuk-!-ml-r1">New</span>'
+				html : '<a href="/app/cases/' + c.id + '">'+ c.id +'</a>' + ' <span class="jui-status  jui-status--new  govuk-!-ml-r1">New</span>'
 			});
 
 			cells.push({ html: helpers.getPartiesLine(c)
@@ -117,23 +125,23 @@ router.get('/app/dashboard', function(req, res) {
 
 });
 
-router.post('/app/get-new-case', function (req, res) {
+router.post('/app/get-new-case', (req, res) => {
 	req.flash('success', 'cases added');
 	res.redirect('/app/dashboard');
 });
 
-router.get('/app/case/:id', function(req, res) {
+router.get('/app/cases/:id', (req, res) => {
 	var _case = req.session.cases.filter(c => c.id == req.params.id)[0];
 	require('./actions/' + helpers.getCaseType(_case).toLowerCase()).viewCaseSummary(req, res);
 });
 
-router.get('/app/case/:id/parties', function(req, res) {
+router.get('/app/cases/:id/parties', (req, res) => {
 	var _case = req.session.cases.filter(c => c.id == req.params.id)[0];
 	require('./actions/' + helpers.getCaseType(_case).toLowerCase()).viewParties(req, res);
 });
 
 
-router.get('/app/case/:id/casefile', function(req, res) {
+router.get('/app/cases/:id/casefile', (req, res) => {
 
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
@@ -148,7 +156,7 @@ router.get('/app/case/:id/casefile', function(req, res) {
 });
 
 
-router.get('/app/case/:id/casefile/b', function(req, res) {
+router.get('/app/cases/:id/casefile/b', (req, res) => {
 
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
@@ -163,7 +171,7 @@ router.get('/app/case/:id/casefile/b', function(req, res) {
 });
 
 
-router.get('/app/case/:id/timeline', function(req, res) {
+router.get('/app/cases/:id/timeline', (req, res) => {
 
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
@@ -178,13 +186,13 @@ router.get('/app/case/:id/timeline', function(req, res) {
 });
 
 
-router.get('/app/case/:id/make-decision', function(req, res) {
+router.get('/app/cases/:id/make-decision', (req, res) => {
 	var _case = req.session.cases.filter(c => c.id == req.params.id)[0];
 	require('./actions/' + helpers.getCaseType(_case).toLowerCase()).viewMakeDecision(req, res);
 });
 
 
-router.post('/app/case/:id/make-decision', function(req, res) {
+router.post('/app/cases/:id/make-decision', (req, res) => {
 	if (req.body.satisfied === 'no') {
 		res.redirect('provide-reason');
 	} else {
@@ -194,24 +202,24 @@ router.post('/app/case/:id/make-decision', function(req, res) {
 
 
 // No option route
-router.get('/app/case/:id/provide-reason', function(req, res) {
+router.get('/app/cases/:id/provide-reason', (req, res) => {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		backLink: {
-			href: `/app/case/${_case.id}/make-decision`
+			href: `/app/cases/${_case.id}/make-decision`
 		}
 	};
 	res.render('app/case/divorce/provide-reason', pageObject);
 });
 
 
-router.post('/app/case/:id/provide-reason', function(req, res) {
+router.post('/app/cases/:id/provide-reason', (req, res) => {
 	res.redirect('generate-order');
 });
 
 
-router.get('/app/case/:id/generate-order', function(req, res) {
+router.get('/app/cases/:id/generate-order', (req, res) => {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case)
@@ -220,19 +228,19 @@ router.get('/app/case/:id/generate-order', function(req, res) {
 });
 
 
-router.post('/app/case/:id/generate-order', function(req, res) {
+router.post('/app/cases/:id/generate-order', (req, res) => {
 	res.redirect('confirmation');
 });
 
 
 // Yes option route
-router.get('/app/case/:id/costs-order', require('./actions/divorce').viewCostsOrder);
+router.get('/app/cases/:id/costs-order', require('./actions/divorce').viewCostsOrder);
 
-router.post('/app/case/:id/costs-order', function(req, res) {
+router.post('/app/cases/:id/costs-order', (req, res) => {
 	res.redirect('confirmation');
 });
 
-// router.get('/app/case/:id/check-your-answers', function(req, res) {
+// router.get('/app/cases/:id/check-your-answers', (req, res) => {
 // 	var _case = helpers.getCase(req.session.cases, req.params.id);
 // 	var pageObject = {
 // 		casebar: helpers.getCaseBarObject(_case)
@@ -241,7 +249,7 @@ router.post('/app/case/:id/costs-order', function(req, res) {
 // });
 
 
-router.get('/app/case/:id/confirmation', function(req, res) {
+router.get('/app/cases/:id/confirmation', (req, res) => {
 	var pageObject = {
 		casenav: helpers.getCaseNavObject(req.params.id)
 	};
@@ -249,7 +257,7 @@ router.get('/app/case/:id/confirmation', function(req, res) {
 });
 
 
-router.get('/app/case/:id/directions', function(req, res) {
+router.get('/app/cases/:id/directions', (req, res) => {
 
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
@@ -257,10 +265,10 @@ router.get('/app/case/:id/directions', function(req, res) {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
 		createDirectionLink: {
-			href: '/app/case/' + req.params.id + '/directions/create-direction'
+			href: '/app/cases/' + req.params.id + '/directions/create-direction'
 		},
 		createDirectionOrderLink: {
-			href: '/app/case/' + req.params.id + '/directions/create-direction-order'
+			href: '/app/cases/' + req.params.id + '/directions/create-direction-order'
 		}
 	};
 
@@ -268,7 +276,7 @@ router.get('/app/case/:id/directions', function(req, res) {
 
 });
 
-router.get('/app/case/:id/directions/create-direction', function(req, res) {
+router.get('/app/cases/:id/directions/create-direction', (req, res) => {
 
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 

@@ -1,37 +1,37 @@
 <nav class="jui-secondary-nav" aria-label="Case navigation">
   <ul class="jui-secondary-nav__list">
     <li class="jui-secondary-nav__item">
-      <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'summary'}} href="/app/case/{{casenav.id}}">Summary</a>
+      <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'summary'}} href="/app/cases/{{casenav.id}}">Summary</a>
     </li>
     {% if casenav.parties %}
     <li class="jui-secondary-nav__item">
-      <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'parties'}} href="/app/case/{{casenav.id}}/parties">Parties</a>
+      <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'parties'}} href="/app/cases/{{casenav.id}}/parties">Parties</a>
     </li>
     {% endif %}
     <li class="jui-secondary-nav__item">
-      <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'casefile'}} href="/app/case/{{casenav.id}}/casefile">Documents</a>
+      <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'casefile'}} href="/app/cases/{{casenav.id}}/casefile">Documents</a>
     </li>
     <li class="jui-secondary-nav__item">
-      <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'timeline'}} href="/app/case/{{casenav.id}}/timeline">Timeline</a>
+      <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'timeline'}} href="/app/cases/{{casenav.id}}/timeline">Timeline</a>
     </li>
     {% if casenav.questions %}
       <li class="jui-secondary-nav__item">
-        <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'questions'}} href="/app/case/{{casenav.id}}/questions">Questions</a>
+        <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'questions'}} href="/app/cases/{{casenav.id}}/questions">Questions</a>
       </li>
     {% endif %}
     {% if casenav.directions %}
       <li class="jui-secondary-nav__item">
-        <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'directions'}} href="/app/case/{{casenav.id}}/directions">Directions</a>
+        <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'directions'}} href="/app/cases/{{casenav.id}}/directions">Directions</a>
       </li>
     {% endif %}
     {% if casenav.notes %}
       <li class="jui-secondary-nav__item">
-        <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'notes'}} href="/app/case/{{casenav.id}}/notes">Notes</a>
+        <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'notes'}} href="/app/cases/{{casenav.id}}/notes">Notes</a>
       </li>
     {% endif %}
     {% if casenav.correspondence %}
       <li class="jui-secondary-nav__item">
-        <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'casecomms'}} href="/app/case/">Case comms.</a>
+        <a class="jui-secondary-nav__link" {{ 'aria-current=page' if casenavId == 'casecomms'}} href="/app/cases/">Case comms.</a>
       </li>
     {% endif %}
   </ul>

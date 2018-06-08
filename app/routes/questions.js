@@ -5,7 +5,7 @@ var moment = require('moment');
 var uuid = require('uuid/v4');
 
 
-router.get('/app/case/:id/questions', function(req, res) {
+router.get('/app/cases/:id/questions', (req, res) => {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
@@ -13,10 +13,10 @@ router.get('/app/case/:id/questions', function(req, res) {
 		caseActions: helpers.getCaseActions(_case),
 		appellantName: helpers.getAppellantName(_case),
 		createQuestionsLink: {
-			href: '/app/case/' + req.params.id + '/questions/create-questions'
+			href: '/app/cases/' + req.params.id + '/questions/new'
 		},
 		sendQuestionsLink: {
-			href: `/app/case/${_case.id}/questions/check`
+			href: `/app/cases/${_case.id}/questions/check`
 		}
 	};
 
@@ -71,7 +71,7 @@ router.get('/app/case/:id/questions', function(req, res) {
 
 });
 
-router.get('/app/case/:id/questions/check', (req, res) => {
+router.get('/app/cases/:id/questions/check', (req, res) => {
 
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
@@ -80,18 +80,18 @@ router.get('/app/case/:id/questions/check', (req, res) => {
 		casenav: helpers.getCaseNavObject(_case),
 		caseActions: helpers.getCaseActions(_case),
 		backLink: {
-			href: `/app/case/${_case.id}/questions/`
+			href: `/app/cases/${_case.id}/questions/`
 		},
 		questions: _case.rounds.filter(round => round.dateSent === null)[0].questions,
 		_case: _case
 	};
 
-	res.render('app/case/questions/check-your-answers', pageObject);
+	res.render('app/case/questions/check', pageObject);
 
 });
 
 
-router.post('/app/case/:id/questions/send', (req, res) => {
+router.post('/app/cases/:id/questions/send', (req, res) => {
 
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
@@ -101,12 +101,12 @@ router.post('/app/case/:id/questions/send', (req, res) => {
 
 	req.flash('success', 'questions sent');
 
-	res.redirect(`/app/case/${_case.id}/questions`);
+	res.redirect(`/app/cases/${_case.id}/questions`);
 
 });
 
 
-router.get('/app/case/:id/questions/create-questions', function(req, res) {
+router.get('/app/cases/:id/questions/new', (req, res) => {
 
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
@@ -117,12 +117,12 @@ router.get('/app/case/:id/questions/create-questions', function(req, res) {
 		_case: _case
 	};
 
-	res.render('app/case/questions/create-questions.html', pageObject);
+	res.render('app/case/questions/new.html', pageObject);
 
 });
 
 
-router.post('/app/case/:id/questions/create-questions', function(req, res) {
+router.post('/app/cases/:id/questions/new', (req, res) => {
 
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
@@ -149,12 +149,12 @@ router.post('/app/case/:id/questions/create-questions', function(req, res) {
 
 	req.flash('success', 'question added');
 
-	res.redirect(`/app/case/${_case.id}/questions`);
+	res.redirect(`/app/cases/${_case.id}/questions`);
 
 });
 
 
-router.get('/app/case/:case_id/questions/:question_id', function(req, res) {
+router.get('/app/cases/:case_id/questions/:question_id', (req, res) => {
 
 	var _case = helpers.getCase(req.session.cases, req.params.case_id);
 
@@ -170,17 +170,17 @@ router.get('/app/case/:case_id/questions/:question_id', function(req, res) {
 	pageObject.response = question.response;
 	pageObject.isDraftQuestion = helpers.isDraftQuestion(_case, req.params.question_id);
 	pageObject.editQuestionLink = {
-		href: `/app/case/${_case.id}/questions/${question.id}/edit`
+		href: `/app/cases/${_case.id}/questions/${question.id}/edit`
 	};
 	pageObject.deleteQuestionLink = {
-		href: `/app/case/${_case.id}/questions/${question.id}/delete`
+		href: `/app/cases/${_case.id}/questions/${question.id}/delete`
 	};
 
-	res.render('app/case/questions/question', pageObject);
+	res.render('app/case/questions/show', pageObject);
 
 });
 
-router.get('/app/case/:case_id/questions/:question_id/edit', function(req, res) {
+router.get('/app/cases/:case_id/questions/:question_id/edit', (req, res) => {
 
 	var _case = helpers.getCase(req.session.cases, req.params.case_id);
 
@@ -192,14 +192,14 @@ router.get('/app/case/:case_id/questions/:question_id/edit', function(req, res) 
 	var question = helpers.getQuestion(_case, req.params.question_id);
 	pageObject.question = question;
 	pageObject.backLink = {
-		href: `/app/case/${_case.id}/questions/${question.id}`
+		href: `/app/cases/${_case.id}/questions/${question.id}`
 	};
 
 	res.render('app/case/questions/edit', pageObject);
 
 });
 
-router.post('/app/case/:case_id/questions/:question_id/edit', function(req, res) {
+router.post('/app/cases/:case_id/questions/:question_id/edit', (req, res) => {
 
 	var _case = helpers.getCase(req.session.cases, req.params.case_id);
 
@@ -211,11 +211,11 @@ router.post('/app/case/:case_id/questions/:question_id/edit', function(req, res)
 
 	req.flash('success', 'question updated')
 
-	res.redirect(`/app/case/${_case.id}/questions`);
+	res.redirect(`/app/cases/${_case.id}/questions`);
 
 });
 
-router.get('/app/case/:case_id/questions/:question_id/delete', function(req, res) {
+router.get('/app/cases/:case_id/questions/:question_id/delete', (req, res) => {
 	var _case = helpers.getCase(req.session.cases, req.params.case_id);
 	var question = helpers.getQuestion(_case, req.params.question_id);
 	var pageObject = {
@@ -224,15 +224,15 @@ router.get('/app/case/:case_id/questions/:question_id/delete', function(req, res
 		caseActions: helpers.getCaseActions(_case),
 		question: question,
 		backLink: {
-			href: `/app/case/${_case.id}/questions/${question.id}`
+			href: `/app/cases/${_case.id}/questions/${question.id}`
 		}
 	};
 
-	res.render('app/case/questions/delete-confirmation', pageObject);
+	res.render('app/case/questions/delete', pageObject);
 
 });
 
-router.post('/app/case/:case_id/questions/:question_id/delete', function(req, res) {
+router.post('/app/cases/:case_id/questions/:question_id/delete', (req, res) => {
 
 	var _case = helpers.getCase(req.session.cases, req.params.case_id);
 
@@ -240,7 +240,7 @@ router.post('/app/case/:case_id/questions/:question_id/delete', function(req, re
 
 	req.flash('success', 'question deleted');
 
-	res.redirect(`/app/case/${_case.id}/questions`);
+	res.redirect(`/app/cases/${_case.id}/questions`);
 
 });
 

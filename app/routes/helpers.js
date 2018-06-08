@@ -60,26 +60,26 @@ function getCaseActions(_case) {
 		case 'pip':
 		return [
 			{
-				href: `/app/case/${_case.id}/make-decision`,
+				href: `/app/cases/${_case.id}/make-decision`,
 				text: 'Make decision'
 			},
 			{
-				href: `/app/case/${_case.id}/list-for-hearing`,
+				href: `/app/cases/${_case.id}/list-for-hearing`,
 				text: 'List for hearing'
 			}
 		];
 		case 'divorce':
 			return [
 				{
-					href: `/app/case/${_case.id}/make-decision`,
+					href: `/app/cases/${_case.id}/make-decision`,
 					text: 'Make decision'
 				},
 				{
-					href: `/app/case/${_case.id}/mark-as-prepared`,
+					href: `/app/cases/${_case.id}/mark-as-prepared`,
 					text: 'Mark as prepared'
 				},
 				{
-					href: `/app/case/${_case.id}/reassign`,
+					href: `/app/cases/${_case.id}/reassign`,
 					text: 'Reassign'
 				}
 			];

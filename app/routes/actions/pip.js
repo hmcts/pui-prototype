@@ -4,11 +4,11 @@ var helpers = require('../helpers');
 function getCaseActions(_case) {
 	return [
 		{
-			href: `/app/case/${_case.id}/make-decision`,
+			href: `/app/cases/${_case.id}/make-decision`,
 			text: 'Make decision'
 		},
 		{
-			href: `/app/case/${_case.id}/list-for-hearing`,
+			href: `/app/cases/${_case.id}/list-for-hearing`,
 			text: 'List for hearing'
 		}
 	];
