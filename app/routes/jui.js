@@ -178,7 +178,8 @@ router.get('/app/cases/:id/timeline', (req, res) => {
 	var pageObject = {
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
-		caseActions: helpers.getCaseActions(_case)
+		caseActions: helpers.getCaseActions(_case),
+		events: helpers.getRecentEvents(_case)
 	};
 
 	res.render('app/case/timeline', pageObject);

@@ -147,6 +147,28 @@ function getFormattedTime(m) {
 	return date.minutes() > 0 ? date.format('h:mma') : date.format('ha');
 }
 
+function getRecentEvents(_case) {
+	return getEvents(_case).slice(0,5);
+}
+
+function getEvents(_case) {
+	var events = [];
+	if(_case.events) {
+		events = _case.events.sort((a, b) => {
+			if(a.date < b.date) {
+				return -1;
+			}
+			if(a.date > b.date) {
+				return 1;
+			}
+			return 0;
+		});
+		events = events.reverse()
+	}
+	return events;
+}
+
+
 exports.getCaseBarObject = getCaseBarObject;
 exports.getCaseNavObject = getCaseNavObject;
 exports.getPartiesLine   = getPartiesLine;
@@ -161,3 +183,5 @@ exports.removeItemFromArray = removeItemFromArray;
 exports.getAppellantName = getAppellantName;
 exports.getFormattedDate = getFormattedDate;
 exports.getFormattedTime = getFormattedTime;
+exports.getRecentEvents = getRecentEvents;
+exports.getEvents = getEvents;

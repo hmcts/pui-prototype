@@ -25,9 +25,9 @@ function viewCaseSummary(req, res) {
 		caseActions: getCaseActions(_case),
 		casenav: helpers.getCaseNavObject(_case),
 		detailsRows: [],
-		panelRows: []
+		panelRows: [],
+		recentEvents: helpers.getRecentEvents(_case)
 	};
-
 
 	// Case details
 	pageObject.detailsRows.push([{ html: 'Parties' }, {html: helpers.getPartiesLine(_case)}]);

@@ -9,9 +9,9 @@ function viewCaseSummary(req, res) {
 		caseActions: helpers.getCaseActions(_case),
 		casenav: helpers.getCaseNavObject(_case),
 		detailsRows: [],
-		representativesRows: []
+		representativesRows: [],
+		recentEvents: helpers.getRecentEvents(_case)
 	};
-
 
 	// Case details
 	pageObject.detailsRows.push([{ html: 'Case number' },	{ html: _case.id + (_case.urgent ? ' <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> ' : '') }]);

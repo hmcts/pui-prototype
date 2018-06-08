@@ -7,6 +7,30 @@ module.exports = [
   {
     id: 'SC1231612322',
     typeId: types.pip.id,
+    status: 'Deadline expired',
+    applicationDate: moment('2018-05-09'),
+    documents: '6 Docs (8 pages)',
+    lastAction: moment('2018-05-09'),
+    urgent: true,
+    tribunalCentre: 'Fox Court',
+    requirements: 'Assisted Digital support requested',
+    events: [
+      {
+        id: uuid(),
+        date: moment('2018-04-27 13:30'),
+        title: 'Compliant appeal'
+      },
+      {
+        id: uuid(),
+        date: moment('2018-04-27 09:34'),
+        title: 'Directions issued to Appellant'
+      },
+      {
+        id: uuid(),
+        date: moment('2018-04-26'),
+        title: 'GAPS to Apppellant Officer'
+      }
+    ],
     rounds: [{
       id: uuid(),
       dateSent: null,
@@ -75,13 +99,6 @@ module.exports = [
         }
       }
     ],
-    status: 'Deadline expired',
-    applicationDate: moment('2018-05-09'),
-    documents: '6 Docs (8 pages)',
-    lastAction: moment('2018-05-09'),
-    urgent: true,
-    tribunalCentre: 'Fox Court',
-    requirements: 'Assissted Digital support requested'
   },
 
   {
@@ -159,82 +176,21 @@ module.exports = [
     requirements: 'Hearing loop required',
     events: [
       {
-        id: 1,
-        date: '27 February 2018',
-        time: '1:01pm',
-        event: 'Application for decree nisi received',
-        actionBy: 'Petitioner (D. Francis)',
-        files: [
-          {
-            id: 1,
-            name: 'Application for decree nisi',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          }
-        ]
+        id: uuid(),
+        date: moment('2018-04-27 13:30'),
+        title: 'Compliant appeal'
       },
       {
-        id: 2,
-        date: '24 February 2018',
-        time: '3:22pm',
-        event: 'Acknowledgement of service by the court',
-        actionBy: 'Respondent (S. Francis)',
-        files: [
-          {
-            id: 1,
-            name: 'Aknowledgement of service',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          }
-        ]
+        id: uuid(),
+        date: moment('2018-04-27 09:34'),
+        title: 'Directions issued to Appellant'
       },
       {
-        id: 3,
-        date: '18 February 2018',
-        time: '1:32pm',
-        event: 'Court issues petition to the respondent',
-        actionBy: 'Court',
-        files: [
-          {
-            id: 1,
-            name: 'Petition for divorce',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          }
-        ]
-      },
-      {
-        id: 4,
-        date: '16 February 2018',
-        time: '2:10pm',
-        event: 'Application for divorce submitted',
-        actionBy: 'Petitioner (D . Francis)',
-        files: [
-          {
-            id: 1,
-            name: 'Petition for divorce',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          },
-          {
-            id: 2,
-            name: 'Marriage certificate',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          }
-        ]
+        id: uuid(),
+        date: moment('2018-04-26'),
+        title: 'GAPS to Apppellant Officer'
       }
-    ]
+    ],
   },
 
   {
@@ -269,83 +225,24 @@ module.exports = [
     lastAction: moment('2018-05-09'),
     events: [
       {
-        id: 1,
-        date: '27 February 2018',
-        time: '1:01pm',
-        event: 'Application for decree nisi received',
-        actionBy: 'Petitioner (D. Francis)',
-        files: [
-          {
-            id: 1,
-            name: 'Application for decree nisi',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          }
-        ]
+        id: uuid(),
+        date: moment('2018-02-27 13:01'),
+        title: 'Application for decree nisi received',
+        by: 'Petitioner (D. Francis)'
       },
       {
-        id: 2,
-        date: '24 February 2018',
-        time: '3:22pm',
-        event: 'Acknowledgement of service by the court',
-        actionBy: 'Respondent (S. Francis)',
-        files: [
-          {
-            id: 1,
-            name: 'Aknowledgement of service',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          }
-        ]
+        id: uuid(),
+        date: moment('2018-04-24 15:22'),
+        title: 'Acknowledgement of service by the court',
+        by: 'Respondent (S. Francis)'
       },
       {
-        id: 3,
-        date: '18 February 2018',
-        time: '1:32pm',
-        event: 'Court issues petition to the respondent',
-        actionBy: 'Court',
-        files: [
-          {
-            id: 1,
-            name: 'Petition for divorce',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          }
-        ]
-      },
-      {
-        id: 4,
-        date: '16 February 2018',
-        time: '2:10pm',
-        event: 'Application for divorce submitted',
-        actionBy: 'Petitioner (D . Francis)',
-        files: [
-          {
-            id: 1,
-            name: 'Petition for divorce',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          },
-          {
-            id: 2,
-            name: 'Marriage certificate',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          }
-        ]
+        id: uuid(),
+        date: moment('2018-04-16 14:10'),
+        title: 'Application for divorce submitted',
+        by: 'Petitioner (D . Francis)'
       }
     ]
-
   },
 
   {
@@ -382,63 +279,22 @@ module.exports = [
     respondent: '',
     events: [
       {
-        id: 2,
-        date: '24 February 2018',
-        time: '3:22pm',
-        event: 'Acknowledgement of service by the court',
-        actionBy: 'Respondent (F. Sutton)',
-        files: [
-          {
-            id: 1,
-            name: 'Aknowledgement of service',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          }
-        ]
+        id: uuid(),
+        date: moment('2018-02-27 13:01'),
+        title: 'Application for decree nisi received',
+        by: 'Petitioner (D. Francis)'
       },
       {
-        id: 3,
-        date: '18 February 2018',
-        time: '1:32pm',
-        event: 'Court issues petition to the respondent',
-        actionBy: 'Court',
-        files: [
-          {
-            id: 1,
-            name: 'Petition for divorce',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          }
-        ]
+        id: uuid(),
+        date: moment('2018-04-24 15:22'),
+        title: 'Acknowledgement of service by the court',
+        by: 'Respondent (S. Francis)'
       },
       {
-        id: 4,
-        date: '16 February 2018',
-        time: '2:10pm',
-        event: 'Application for divorce submitted',
-        actionBy: 'Petitioner (W . Sutton)',
-        files: [
-          {
-            id: 1,
-            name: 'Petition for divorce',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          },
-          {
-            id: 2,
-            name: 'Marriage certificate',
-            url: '#',
-            type: 'PDF',
-            size: '123KB',
-            pages: '3 pages'
-          }
-        ]
+        id: uuid(),
+        date: moment('2018-04-16 14:10'),
+        title: 'Application for divorce submitted',
+        by: 'Petitioner (D . Francis)'
       }
     ]
   }

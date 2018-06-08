@@ -1,24 +1,24 @@
-<div class="jui-timeline{% if params.classes %} {{ params.classes }}{% endif %}"> 
+<div class="jui-timeline{% if params.classes %} {{ params.classes }}{% endif %}">
 
   {% for event in params.events %}
   <div class="jui-timeline__item">
 
-    <div class="jui-timeline__header">
-      <time datetime="{{event.dateAdded | date('YYYY-MM-DDTHH:mm')}}">{{event.dateAdded | date('D MMM YYYY')}}</time>
-    </div>
-
     <div class="jui-timeline__content">
 
       <div class="jui-timeline__event">
-        
-        {%- if params.isPageSpecific %}
-          <h2 class="jui-timeline__title">{{event.title}}</h2>
-        {% else %}
-          <h3 class="jui-timeline__title">{{event.title}}</h3>
-        {% endif %}
 
-        <p class="jui-timeline__meta">by {{event.addedBy}} <time class="jui-timeline__meta-added" datetime="{{event.dateAdded | date('YYYY-MM-DDTHH:mm')}}"><span class="visually-hidden">added on</span> {{event.dateAdded | date('h:mma')}}</time></p>
-      
+        {%- if params.isPageSpecific %}
+          <h2>{{event.title}}</h2>
+        {% else %}
+          <h3>{{event.title}}</h3>
+        {% endif %}
+        {% if event.by %}
+          <p class="jui-timeline__meta">by {{event.by}}</p>
+        {% endif %}
+        <p>
+          <time datetime="{{event.date | date('YYYY-MM-DDTHH:mm')}}">{{event.date | govDate }} at {{event.date | govTime }}</time>
+        </p>
+
       </div>
 
     </div>

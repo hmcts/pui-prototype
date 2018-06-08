@@ -44,6 +44,26 @@
 
     </div>
 
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+
+        <h2 class="gov-heading-s  govuk-!-mb-r2">Recent events</h2>
+
+        {% if recentEvents.length %}
+          {{juiTimeline({
+            "classes": "govuk-!-mb-r7",
+            "isPageSpecific": false,
+            "events": recentEvents
+          })}}
+        {% else %}
+          <p>No events.</p>
+        {% endif %}
+      </div>
+
+    </div>
+
+
   </main>
 
 </div>
