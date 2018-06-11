@@ -37,39 +37,60 @@
 
           <div class="jui-casefile-page-body">
 
-            <h2 class="govuk-heading-l">Document (1)</h2>
+            <h2 class="govuk-heading-l">Personal Independence Payment</h2>
 
-            <p class="govuk-body">David Francis is applying to the court for a decree of divorce from Susan Francis.</p>
-
-            <h4>Issued</h4>
-            <p class="govuk-!-mt-r0">18 February 2018</p>
-
-            <h4>Case number</h4>
-            <p class="govuk-!-mt-r0">BV18D00150</p>
-
-            <h4>Petitioner</h4>
-            <p class="govuk-!-mt-r0">David Francis</p>
-
-            <h4>Respondent</h4>
-            <p class="govuk-!-mt-r0">Susan Francis</p>
-
-            <h3 class="govuk-heading-m  govuk-!-mt-r6">About the marriage</h3>
-
-            <h4>Who the marriage is between</h4>
-            <p class="govuk-!-mt-r0">David Francis and Susan Francis (as shown on the marriage certificate)</p>
-
-            <h4>Where the marriage took place</h4>
-            <p class="govuk-!-mt-r0">London, England, United Kingdom</p>
-
-            <h4>Date of marriage</h4>
-            <p class="govuk-!-mt-r0">1 January 2014 (4 years 3 months)</p>
-
-            <h3 class="govuk-heading-m  govuk-!-mt-r6">Why the court can deal with the case (jurisdiction)</h3>
-
-            <p>The applicant and respondent are habitually resident in England and Wales.</p>
-
-            <h4>Other court cases that could affect juristiction</h4>
-            <p class="govuk-!-mt-r0">There are no other ongoing, completed or abandoned court cases related to the marriage, property or children.</p>
+            {{ govukTable({
+              "firstCellIsHeader": true,
+              "caption": "Section 1",
+              "captionClasses": "govuk-heading-s",
+              "classes": "govuk-!-f-16  govuk-!-mb-r8  jui-table  jui-table--fixed",
+              "rows": [
+                [
+                  {"text": "Appeal Tribunal Reference Number"},
+                  {"text": "SC242/17/1234"}
+                ],
+                [
+                  {"text": "Personal details"},
+                  {"text": "Warren Sutton"}
+                ],
+                [
+                  {"text": "Address"},
+                  {"html": "24 Park Road<br>Lewisham<br>London<br>E11 4PR"}
+                ],
+                [
+                  {"text": "Date of birth"},
+                  {"html": "20 September 1983 (34 years old)"}
+                ],
+                [
+                  {"text": "National Insurance number"},
+                  {"html": "JK 02 03 04 extends"}
+                ],
+                [
+                  {"text": "Benefit"},
+                  {"html": "PIP"}
+                ],
+                [
+                  {"text": "Date of claim"},
+                  {"html": "16/03/2017"}
+                ],
+                [
+                  {"text": "Decision effective date"},
+                  {"html": "Warren was previously awarded the lower rate Mobility and lowest rate Car components of Disability Living Allowance.<br><br>DLA was in payment until 11/07/2017, the last day of the 28 day period which started on the first DLA payday after the Personal Independence Payment decision of 13/06/2017.<br><br> <b>If the Tribunal decide to award benefit, the earliest date for any PIP award is 12/07/2017.</b><br><br> <b>The specific legislation is the Personal Independence Payment (Transitional Provisions) Regulations 2013 reg 17(1)(b).</b>"}
+                ],
+                [
+                  {"text": "Date of outcome decision"},
+                  {"html": "13/06/2017"}
+                ],
+                [
+                  {"text": "Date of Reconsideration Decision"},
+                  {"html": "27/09/2017"}
+                ],
+                [
+                  {"text": "Date of Appeal Request"},
+                  {"html": "16/11/2017"}
+                ]
+              ]
+            }) }}
 
           </div>
 
@@ -83,39 +104,26 @@
 
           <div class="jui-casefile-page-body">
 
-            <h2 class="govuk-heading-l">Application for decree nisi</h2>
-
-            <p class="govuk-body">David Francis is applying to the court for a decree of divorce from Susan Francis.</p>
-
-            <h4>Issued</h4>
-            <p class="govuk-!-mt-r0">18 February 2018</p>
-
-            <h4>Case number</h4>
-            <p class="govuk-!-mt-r0">BV18D00150</p>
-
-            <h4>Petitioner</h4>
-            <p class="govuk-!-mt-r0">David Francis</p>
-
-            <h4>Respondent</h4>
-            <p class="govuk-!-mt-r0">Susan Francis</p>
-
-            <h3 class="govuk-heading-m  govuk-!-mt-r6">About the marriage</h3>
-
-            <h4>Who the marriage is between</h4>
-            <p class="govuk-!-mt-r0">David Francis and Susan Francis (as shown on the marriage certificate)</p>
-
-            <h4>Where the marriage took place</h4>
-            <p class="govuk-!-mt-r0">London, England, United Kingdom</p>
-
-            <h4>Date of marriage</h4>
-            <p class="govuk-!-mt-r0">1 January 2014 (4 years 3 months)</p>
-
-            <h3 class="govuk-heading-m  govuk-!-mt-r6">Why the court can deal with the case (jurisdiction)</h3>
-
-            <p>The applicant and respondent are habitually resident in England and Wales.</p>
-
-            <h4>Other court cases that could affect juristiction</h4>
-            <p class="govuk-!-mt-r0">There are no other ongoing, completed or abandoned court cases related to the marriage, property or children.</p>
+            {{ govukTable({
+              "firstCellIsHeader": true,
+              "caption": "Section 1 (continued)",
+              "captionClasses": "govuk-heading-s",
+              "classes": "govuk-!-f-16  govuk-!-mb-r8  jui-table  jui-table--fixed",
+              "rows": [
+                [
+                  {"text": "Decision Maker's name and address where documents for the Decision Maker may be sent or delivered"},
+                  {"html": "Arron Setton<br>Personal Independence Payment (9)<br>Mall Handling Site 29<br>Liverpool, WV78 1AA"}
+                ],
+                [
+                  {"text": "name and addresses of any other respondents and their representatives."},
+                  {"html": "Joseph Fontainour<br>123 The Way<br>London<br>B4 4FF"}
+                ],
+                [
+                  {"text": "Name and address of Appoinetee"},
+                  {"html": "N/A"}
+                ]
+              ]
+            }) }}
 
           </div>
 
