@@ -141,8 +141,11 @@ router.get('/app/cases/:id/parties', (req, res) => {
 });
 
 
-router.get('/app/cases/:id/casefile', (req, res) => {
+router.get('/app/cases/:id/documents', (req, res) => {
+	res.redirect(`/app/cases/${req.params.id}/documents/1`);
+});
 
+router.get('/app/cases/:id/documents/:num', (req, res) => {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
 	var pageObject = {
@@ -151,8 +154,9 @@ router.get('/app/cases/:id/casefile', (req, res) => {
 		caseActions: helpers.getCaseActions(_case)
 	};
 
-	res.render('app/case/casefile', pageObject);
+	var templatePath = `app/case/${helpers.getCaseType(_case).toLowerCase()}/documents/${req.params.num}`;
 
+	res.render(templatePath, pageObject);
 });
 
 
