@@ -64,14 +64,20 @@
         <h2 class="gov-heading-s  govuk-!-mb-r2">Recent events</h2>
 
         {% if recentEvents.length %}
+
           {{juiTimeline({
-            "classes": "govuk-!-mb-r7",
             "isPageSpecific": false,
             "events": recentEvents
           })}}
+
+          <p><a href="">View all events</a></p>
+
         {% else %}
+
           <p>No events.</p>
+
         {% endif %}
+
       </div>
 
     </div>

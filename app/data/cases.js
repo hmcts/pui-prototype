@@ -18,17 +18,30 @@ module.exports = [
       {
         id: uuid(),
         date: moment('2018-04-27 13:30'),
-        title: 'Compliant appeal'
+        title: 'Compliant appeal',
+        by: 'Appellant'
       },
       {
         id: uuid(),
         date: moment('2018-04-27 09:34'),
-        title: 'Directions issued to Appellant'
+        title: 'Directions issued to appellant',
+        by: 'Judge Prita Shah',
+        documents: [
+          {
+            id: uuid(),
+            name: 'Decision notice'
+          },
+          {
+            id: uuid(),
+            name: 'Application for decree nisi'
+          }
+        ]
       },
       {
         id: uuid(),
         date: moment('2018-04-26'),
-        title: 'GAPS to Apppellant Officer'
+        title: 'GAPS to Apppellant Officer',
+        by: 'Appellant'
       }
     ],
     rounds: [{

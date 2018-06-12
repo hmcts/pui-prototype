@@ -2,46 +2,39 @@
    #TIMELINE
    ========================================================================== */
 
-.jui-timeline__item {
-  border: 1px solid $govuk-border-colour;
+.jui-timeline {
   position: relative;
-  width: 100%;
 
-  // Only supported in IE9+ (we need to decide what browsers were supporting)
-  &:not(:first-child) {
-    margin-top: $govuk-spacing-scale-4;
-
-    &:before {
-      background-color: $govuk-border-colour;
-      content: "";
-      display: block;
-      height: 20px;
-      position: absolute; left: 9px; top: -21px;
-      width: 1px;
-    }
-
+  &:before {
+    background-color: $govuk-blue;
+    content: "";
+    height: calc(100% - 10px);
+    left: 0;
+    position: absolute;
+    top: $govuk-spacing-scale-2;
+    width: 5px;
   }
 
 }
 
 
-.jui-timeline__header {
-  background-color: $govuk-grey-4;
-  border-bottom: 1px solid $govuk-border-colour;
-  padding: $govuk-spacing-scale-2;
-}
-
-
-.jui-timeline__content {
-  padding: $govuk-spacing-scale-2;
-}
-
-
-.jui-timeline__event {
+.jui-timeline__item {
+  padding-bottom: $govuk-spacing-scale-6;
+  padding-left: $govuk-spacing-scale-4;
   position: relative;
 
-  &:not(:first-child) {
-    margin-top: $govuk-spacing-scale-2;
+  &:before {
+    background-color: $govuk-blue;
+    content: "";
+    height: 5px;
+    left: 0;
+    position: absolute;
+    top: $govuk-spacing-scale-2;
+    width: 15px;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
   }
 
 }
@@ -49,19 +42,38 @@
 
 .jui-timeline__title {
   @include govuk-font-bold-16;
-  display: inline-block;
+  display: inline;
 }
 
 
-.jui-timeline__meta {
-  display: inline-block;
+.jui-timeline__by {
+  @include govuk-font-regular-16;
+  color: $govuk-secondary-text-colour;
+  display: inline;
   margin: 0;
 }
 
 
-.jui-timeline__meta-added {
-  color: $govuk-secondary-text-colour;
-  position: absolute; 
-  right: 0; 
-  top: 0;
+.jui-timeline__date {
+  margin: 0;
+}
+
+
+.jui-timeline__documents {
+  list-style: none;
+  padding-left: 0;
+}
+
+
+.jui-timeline__document-item {
+  margin-bottom: $govuk-spacing-scale-1;
+}
+
+
+.jui-timeline__document-link {
+  background-image: url(#{$jui-assets-path}icon-document.svg);
+  background-repeat: no-repeat;
+  background-size: 15px 20px;
+  background-position: 0 50%;
+  padding-left: $govuk-spacing-scale-5;
 }
