@@ -9,7 +9,6 @@ module.exports = [
     typeId: types.pip.id,
     status: 'Deadline expired',
     applicationDate: moment('2018-05-09'),
-    documents: '6 Docs (8 pages)',
     lastAction: moment('2018-05-09'),
     urgent: true,
     tribunalCentre: 'Fox Court',
@@ -247,7 +246,13 @@ module.exports = [
     status: 'Consider decree nisi',
     reason: 'Separated for 2 years and consent',
     applicationDate: moment('2018-05-09'),
-    documents: '6 Docs (8 pages)',
+    documents: [{
+      id: '1',
+      label: 'Personal Independence Payment'
+    }, {
+      id: '2',
+      label: 'Decision Notice'
+    }],
     lastAction: moment('2018-05-09'),
     events: [
       {
