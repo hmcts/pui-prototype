@@ -117,7 +117,7 @@ module.exports = [
   {
     id: 'SC1231612323',
     typeId: types.pip.id,
-    rounds: [{
+    rounds: [/*{
       id: uuid(),
       dateSent: null,
       questions: [{
@@ -156,7 +156,7 @@ module.exports = [
           body: '<p>I have a walk-in bath and a shower but I don’t use the shower since the accident because I can’t put my arms above my head and it makes it painful.</p>'
         }
       }]
-    }],
+    }*/],
     parties: [
       {
         type: 'Appellant',
