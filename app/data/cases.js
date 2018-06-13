@@ -23,32 +23,41 @@ module.exports = [
     events: [
       {
         id: uuid(),
-        date: moment('2018-04-27 13:30'),
-        title: 'Compliant appeal',
-        by: 'Appellant'
+        date: moment('2017-11-20 13:01'),
+        title: 'New Direct Lodgement Registration',
+        by: 'DLC Admin'
       },
+
       {
         id: uuid(),
-        date: moment('2018-04-27 09:34'),
-        title: 'Directions issued to appellant',
-        by: 'Judge Prita Shah',
-        documents: [
-          {
-            id: uuid(),
-            name: 'Decision notice'
-          },
-          {
-            id: uuid(),
-            name: 'Application for decree nisi'
-          }
-        ]
+        date: moment('2017-12-05 09:10'),
+        title: 'Appeal marked as compliant',
+        by: 'Tribunal Case Worker – Emily Oliver'
       },
+
       {
         id: uuid(),
-        date: moment('2018-04-26'),
-        title: 'GAPS to Apppellant Officer',
-        by: 'Appellant'
+        date: moment('2018-01-25 16:48'),
+        title: 'Response submitted',
+        by: 'DWP Appeals Officer'
       }
+
+      // {
+      //   id: uuid(),
+      //   date: moment('2018-04-27 09:34'),
+      //   title: 'Directions issued to appellant',
+      //   by: 'Judge Prita Shah',
+      //   documents: [
+      //     {
+      //       id: uuid(),
+      //       name: 'Decision notice'
+      //     },
+      //     {
+      //       id: uuid(),
+      //       name: 'Application for decree nisi'
+      //     }
+      //   ]
+      // }
     ],
     rounds: [{
       id: uuid(),
@@ -202,18 +211,37 @@ module.exports = [
     events: [
       {
         id: uuid(),
-        date: moment('2018-04-27 13:30'),
-        title: 'Compliant appeal'
+        date: moment('2017-11-20 13:01'),
+        title: 'New Direct Lodgement Registration',
+        by: 'DLC Admin'
       },
+
       {
         id: uuid(),
-        date: moment('2018-04-27 09:34'),
-        title: 'Directions issued to Appellant'
+        date: moment('2017-11-20 14:21'),
+        title: 'Complex appeal – requires further guidance',
+        by: 'DLC Admin'
       },
+
       {
         id: uuid(),
-        date: moment('2018-04-26'),
-        title: 'GAPS to Apppellant Officer'
+        date: moment('2017-11-20 14:27'),
+        title: 'Interlocutory referral to DJ DeVere',
+        by: 'DLC Admin'
+      },
+
+      {
+        id: uuid(),
+        date: moment('2017-12-05 09:10'),
+        title: 'Appeal marked as compliant',
+        by: 'DJ DeVere'
+      },
+
+      {
+        id: uuid(),
+        date: moment('2018-01-25 16:48'),
+        title: 'Response submitted',
+        by: 'DWP Appeals Officer'
       }
     ],
   },
