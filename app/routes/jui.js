@@ -142,13 +142,15 @@ router.get('/app/cases/:id/parties', (req, res) => {
 
 
 router.get('/app/cases/:id/documents', (req, res) => {
-	res.redirect(`/app/cases/${req.params.id}/documents/1`);
+	var _case = helpers.getCase(req.session.cases, req.params.id);
+	res.redirect(`/app/cases/${req.params.id}/documents/${_case.documents[0].id}`);
 });
 
 router.get('/app/cases/:id/documents/:num', (req, res) => {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
 	var pageObject = {
+		documents: _case.documents,
 		casebar: helpers.getCaseBarObject(_case),
 		casenav: helpers.getCaseNavObject(_case),
 		caseActions: helpers.getCaseActions(_case)

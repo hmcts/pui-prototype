@@ -14,6 +14,13 @@ module.exports = [
     urgent: true,
     tribunalCentre: 'Fox Court',
     requirements: 'Assisted Digital support requested',
+    documents: [{
+      id: '1-w',
+      label: 'Personal Independence Payment'
+    }, {
+      id: '2-w',
+      label: 'Decision Notice'
+    }],
     events: [
       {
         id: uuid(),
@@ -117,6 +124,13 @@ module.exports = [
   {
     id: 'SC1231612323',
     typeId: types.pip.id,
+    documents: [{
+      id: '1',
+      label: 'Personal Independence Payment'
+    }, {
+      id: '2',
+      label: 'Decision Notice'
+    }],
     rounds: [/*{
       id: uuid(),
       dateSent: null,
@@ -182,7 +196,6 @@ module.exports = [
     ],
     status: 'Party replied',
     applicationDate: moment('2018-05-09'),
-    documents: '6 Docs (8 pages)',
     lastAction: moment('2018-05-09'),
     urgent: false,
     tribunalCentre: 'Fox Court',
