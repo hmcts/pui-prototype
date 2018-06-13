@@ -27,7 +27,7 @@
 
       </div>
 
-      <div class="jui-casefile-page">
+      <div class="jui-casefile-page editable">
 
         <div class="jui-casefile-page-content" data-page="1">
 
@@ -137,4 +137,62 @@
 
 </div>
 
+{% endblock %}
+
+{% block page_scripts %}
+<script>
+  var CommentButton = MediumEditor.Extension.extend({
+    name: 'comment',
+    init: function () {
+      this.button = this.document.createElement('button');
+      this.button.classList.add('medium-editor-action');
+      this.button.innerHTML = 'Add comment';
+    },
+
+    getButton: function () {
+      return this.button;
+    }
+  });
+
+  // rangy.init();
+
+  var HighlightButton = MediumEditor.Extension.extend({
+    name: 'highlight',
+    init: function () {
+      // this.classApplier = rangy.createClassApplier('highlight', {
+      //   elementTagName: 'mark',
+      //   normalize: true
+      // });
+
+      this.button = this.document.createElement('button');
+      this.button.classList.add('medium-editor-action');
+      this.button.innerHTML = 'Highlight';
+      this.on(this.button, 'click', this.handleClick.bind(this));
+    },
+
+    getButton: function () {
+      return this.button;
+    },
+
+    handleClick: function (event) {
+      // this.classApplier.toggleSelection();
+
+      // Ensure the editor knows about an html change so watchers are notified
+      // ie: <textarea> elements depend on the editableInput event to stay synchronized
+      this.base.checkContentChanged();
+    }
+  });
+
+  var editor = new MediumEditor('.editable', {
+    disableEditing: true,
+    buttonLabels: true,
+    toolbar: {
+      buttons: ['highlight', 'comment']
+    },
+    extensions: {
+      'highlight': new HighlightButton(),
+      'comment': new CommentButton()
+    }
+  });
+</script>
 {% endblock %}
