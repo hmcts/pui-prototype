@@ -155,15 +155,15 @@
     }
   });
 
-  // rangy.init();
+  rangy.init();
 
   var HighlightButton = MediumEditor.Extension.extend({
     name: 'highlight',
     init: function () {
-      // this.classApplier = rangy.createClassApplier('highlight', {
-      //   elementTagName: 'mark',
-      //   normalize: true
-      // });
+      this.classApplier = rangy.createClassApplier('highlight', {
+        elementTagName: 'mark',
+        normalize: true
+      });
 
       this.button = this.document.createElement('button');
       this.button.classList.add('medium-editor-action');
@@ -176,7 +176,7 @@
     },
 
     handleClick: function (event) {
-      // this.classApplier.toggleSelection();
+      this.classApplier.toggleSelection();
 
       // Ensure the editor knows about an html change so watchers are notified
       // ie: <textarea> elements depend on the editableInput event to stay synchronized
