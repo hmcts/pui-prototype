@@ -64,13 +64,12 @@
         <h2 class="gov-heading-s  govuk-!-mb-r2">Recent events</h2>
 
         {% if recentEvents.length %}
-
           {{juiTimeline({
             "isPageSpecific": false,
             "events": recentEvents
           })}}
 
-          <p><a href="">View all events</a></p>
+          <p><a href="/app/cases/{{_case.id}}/timeline">View all events</a></p>
 
         {% else %}
 

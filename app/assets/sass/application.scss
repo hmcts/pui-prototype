@@ -11,3 +11,7 @@ $path: "/public/images/";
 
 // JUI styles
 @import "jui/all";
+
+mark.comment {
+  background-color: $govuk-orange;
+}

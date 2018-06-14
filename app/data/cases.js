@@ -8,41 +8,56 @@ module.exports = [
     id: 'SC1231612322',
     typeId: types.pip.id,
     status: 'Deadline expired',
-    applicationDate: moment('2018-05-09'),
-    documents: '6 Docs (8 pages)',
-    lastAction: moment('2018-05-09'),
+    applicationDate: moment('2017-11-20 13:01'),
+    lastAction: moment('2018-01-11-25 16:48'),
     urgent: true,
     tribunalCentre: 'Fox Court',
     requirements: 'Assisted Digital support requested',
+    documents: [{
+      id: '1-w',
+      label: 'Personal Independence Payment'
+    }, {
+      id: '2-w',
+      label: 'Decision Notice'
+    }],
     events: [
       {
         id: uuid(),
-        date: moment('2018-04-27 13:30'),
-        title: 'Compliant appeal',
-        by: 'Appellant'
+        date: moment('2017-11-20 13:01'),
+        title: 'New Direct Lodgement Registration',
+        by: 'DLC Admin'
       },
+
       {
         id: uuid(),
-        date: moment('2018-04-27 09:34'),
-        title: 'Directions issued to appellant',
-        by: 'Judge Prita Shah',
-        documents: [
-          {
-            id: uuid(),
-            name: 'Decision notice'
-          },
-          {
-            id: uuid(),
-            name: 'Application for decree nisi'
-          }
-        ]
+        date: moment('2017-12-05 09:10'),
+        title: 'Appeal marked as compliant',
+        by: 'Tribunal Case Worker – Emily Oliver'
       },
+
       {
         id: uuid(),
-        date: moment('2018-04-26'),
-        title: 'GAPS to Apppellant Officer',
-        by: 'Appellant'
+        date: moment('2018-01-25 16:48'),
+        title: 'Response submitted',
+        by: 'DWP Appeals Officer'
       }
+
+      // {
+      //   id: uuid(),
+      //   date: moment('2018-04-27 09:34'),
+      //   title: 'Directions issued to appellant',
+      //   by: 'Judge Prita Shah',
+      //   documents: [
+      //     {
+      //       id: uuid(),
+      //       name: 'Decision notice'
+      //     },
+      //     {
+      //       id: uuid(),
+      //       name: 'Application for decree nisi'
+      //     }
+      //   ]
+      // }
     ],
     rounds: [{
       id: uuid(),
@@ -117,7 +132,14 @@ module.exports = [
   {
     id: 'SC1231612323',
     typeId: types.pip.id,
-    rounds: [{
+    documents: [{
+      id: '1',
+      label: 'Personal Independence Payment'
+    }, {
+      id: '2',
+      label: 'Decision Notice'
+    }],
+    rounds: [/*{
       id: uuid(),
       dateSent: null,
       questions: [{
@@ -156,7 +178,7 @@ module.exports = [
           body: '<p>I have a walk-in bath and a shower but I don’t use the shower since the accident because I can’t put my arms above my head and it makes it painful.</p>'
         }
       }]
-    }],
+    }*/],
     parties: [
       {
         type: 'Appellant',
@@ -182,7 +204,6 @@ module.exports = [
     ],
     status: 'Party replied',
     applicationDate: moment('2018-05-09'),
-    documents: '6 Docs (8 pages)',
     lastAction: moment('2018-05-09'),
     urgent: false,
     tribunalCentre: 'Fox Court',
@@ -190,18 +211,37 @@ module.exports = [
     events: [
       {
         id: uuid(),
-        date: moment('2018-04-27 13:30'),
-        title: 'Compliant appeal'
+        date: moment('2017-11-20 13:01'),
+        title: 'New Direct Lodgement Registration',
+        by: 'DLC Admin'
       },
+
       {
         id: uuid(),
-        date: moment('2018-04-27 09:34'),
-        title: 'Directions issued to Appellant'
+        date: moment('2017-11-20 14:21'),
+        title: 'Complex appeal – requires further guidance',
+        by: 'DLC Admin'
       },
+
       {
         id: uuid(),
-        date: moment('2018-04-26'),
-        title: 'GAPS to Apppellant Officer'
+        date: moment('2017-11-20 14:27'),
+        title: 'Interlocutory referral to DJ DeVere',
+        by: 'DLC Admin'
+      },
+
+      {
+        id: uuid(),
+        date: moment('2017-12-05 09:10'),
+        title: 'Appeal marked as compliant',
+        by: 'DJ DeVere'
+      },
+
+      {
+        id: uuid(),
+        date: moment('2018-01-25 16:48'),
+        title: 'Response submitted',
+        by: 'DWP Appeals Officer'
       }
     ],
   },
@@ -234,7 +274,13 @@ module.exports = [
     status: 'Consider decree nisi',
     reason: 'Separated for 2 years and consent',
     applicationDate: moment('2018-05-09'),
-    documents: '6 Docs (8 pages)',
+    documents: [{
+      id: '1',
+      label: 'Personal Independence Payment'
+    }, {
+      id: '2',
+      label: 'Decision Notice'
+    }],
     lastAction: moment('2018-05-09'),
     events: [
       {

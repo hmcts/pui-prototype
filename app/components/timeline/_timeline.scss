@@ -17,6 +17,12 @@
 
 }
 
+.jui-timeline--full {
+  &:before {
+    height: calc(100% - 77px);
+  }
+}
+
 
 .jui-timeline__item {
   padding-bottom: $govuk-spacing-scale-6;

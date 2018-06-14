@@ -148,7 +148,7 @@ function getFormattedTime(m) {
 }
 
 function getRecentEvents(_case) {
-	return getEvents(_case).slice(0,5);
+	return getEvents(_case).slice(0,3);
 }
 
 function getEvents(_case) {

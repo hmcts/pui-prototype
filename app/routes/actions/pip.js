@@ -20,6 +20,7 @@ function viewCaseSummary(req, res) {
 	var _case = helpers.getCase(req.session.cases, req.params.id);
 
 	var pageObject = {
+		_case: _case,
 		success: req.session.success,
 		casebar: helpers.getCaseBarObject(_case),
 		caseActions: getCaseActions(_case),
