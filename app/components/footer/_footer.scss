@@ -3,10 +3,11 @@
    ========================================================================== */
 
    $color-footer-link: rgb(69, 74, 76); // No colour variable defined by GDS!
-
+   $color-footer-line: rgb(161, 172, 178); // GDS does not have the correct colour as a variable
 
    .jui-footer {
      background-color: $govuk-grey-3;
+     border-top: 1px solid $color-footer-line;
      padding-top: $govuk-spacing-scale-7;
      padding-bottom: $govuk-spacing-scale-7;
    }
