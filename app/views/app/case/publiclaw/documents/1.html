@@ -1,0 +1,213 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set casenavId = "casefile" %}
+
+{% block page_title %}Documents - Judicial UI prototype{% endblock %}
+
+{% block content %}
+
+{% include "includes/casebar.html" %}
+
+<div class="jui-width-container">
+
+  <main class="govuk-main-wrapper" role="main">
+
+    {% include "includes/secondary-nav.html" %}
+
+    <h1 class="govuk-heading-l">Documents</h1>
+
+    <div class="jui-casefile  govuk-!-mb-r6">
+
+      <div class="jui-casefile-files">
+
+        <ul class="jui-casefile-list">
+          {% for document in documents %}
+            <li><a href="/app/cases/{{casenav.id}}/documents/{{document.id}}">{{document.label}}</a></li>
+          {% endfor %}
+        </ul>
+
+      </div>
+
+      <div class="jui-casefile-page editable">
+
+        <div class="jui-casefile-page-content" data-page="1">
+
+          <div class="jui-casefile-page-head">
+            <img src="/public/images/logo-hmcts.svg" alt="HM Courts &amp; Tribunals Service">
+          </div>
+
+          <div class="jui-casefile-page-body">
+
+            <h2 class="govuk-heading-l">Personal Independence Payment</h2>
+
+            {{ govukTable({
+              "firstCellIsHeader": true,
+              "caption": "Section 1",
+              "captionClasses": "govuk-heading-s",
+              "classes": "govuk-!-f-16  govuk-!-mb-r8  jui-table  jui-table--fixed",
+              "rows": [
+                [
+                  {"text": "Appeal Tribunal Reference Number"},
+                  {"text": "SC242/17/1234"}
+                ],
+                [
+                  {"text": "Personal details"},
+                  {"text": "Alan Jones"}
+                ],
+                [
+                  {"text": "Address"},
+                  {"html": "24 Park Road<br>Lewisham<br>London<br>E11 4PR"}
+                ],
+                [
+                  {"text": "Date of birth"},
+                  {"html": "20 September 1983 (34 years old)"}
+                ],
+                [
+                  {"text": "National Insurance number"},
+                  {"html": "JK 02 03 04 extends"}
+                ],
+                [
+                  {"text": "Benefit"},
+                  {"html": "PIP"}
+                ],
+                [
+                  {"text": "Date of claim"},
+                  {"html": "16/03/2017"}
+                ],
+                [
+                  {"text": "Decision effective date"},
+                  {"html": "Alan was previously awarded the lower rate Mobility and lowest rate Car components of Disability Living Allowance.<br><br>DLA was in payment until 11/07/2017, the last day of the 28 day period which started on the first DLA payday after the Personal Independence Payment decision of 13/06/2017.<br><br> <b>If the Tribunal decide to award benefit, the earliest date for any PIP award is 12/07/2017.</b><br><br> <b>The specific legislation is the Personal Independence Payment (Transitional Provisions) Regulations 2013 reg 17(1)(b).</b>"}
+                ],
+                [
+                  {"text": "Date of outcome decision"},
+                  {"html": "13/06/2017"}
+                ],
+                [
+                  {"text": "Date of Reconsideration Decision"},
+                  {"html": "27/09/2017"}
+                ],
+                [
+                  {"text": "Date of Appeal Request"},
+                  {"html": "16/11/2017"}
+                ]
+              ]
+            }) }}
+
+          </div>
+
+        </div>
+
+        <div class="jui-casefile-page-content" data-page="2">
+
+          <div class="jui-casefile-page-head">
+            <img src="/public/images/logo-hmcts.svg" alt="HM Courts &amp; Tribunals Service">
+          </div>
+
+          <div class="jui-casefile-page-body">
+
+            {{ govukTable({
+              "firstCellIsHeader": true,
+              "caption": "Section 1 (continued)",
+              "captionClasses": "govuk-heading-s",
+              "classes": "govuk-!-f-16  govuk-!-mb-r8  jui-table  jui-table--fixed",
+              "rows": [
+                [
+                  {"text": "Decision Maker's name and address where documents for the Decision Maker may be sent or delivered"},
+                  {"html": "Arron Setton<br>Personal Independence Payment (9)<br>Mall Handling Site 29<br>Liverpool, WV78 1AA"}
+                ],
+                [
+                  {"text": "name and addresses of any other respondents and their representatives."},
+                  {"html": "Joseph Fontainour<br>123 The Way<br>London<br>B4 4FF"}
+                ],
+                [
+                  {"text": "Name and address of Appoinetee"},
+                  {"html": "N/A"}
+                ]
+              ]
+            }) }}
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+{% endblock %}
+
+{% block page_scripts %}
+<script>
+  var CommentButton = MediumEditor.Extension.extend({
+    name: 'comment',
+    init: function () {
+      this.classApplier = rangy.createClassApplier('comment', {
+        elementTagName: 'mark',
+        normalize: true
+      });
+
+      this.button = this.document.createElement('button');
+      this.button.classList.add('medium-editor-action');
+      this.button.innerHTML = 'Comment';
+      this.on(this.button, 'click', this.handleClick.bind(this));
+    },
+
+    getButton: function () {
+      return this.button;
+    },
+
+    handleClick: function (event) {
+      this.classApplier.toggleSelection();
+
+      // Ensure the editor knows about an html change so watchers are notified
+      // ie: <textarea> elements depend on the editableInput event to stay synchronized
+      this.base.checkContentChanged();
+    }
+  });
+
+  rangy.init();
+
+  var HighlightButton = MediumEditor.Extension.extend({
+    name: 'highlight',
+    init: function () {
+      this.classApplier = rangy.createClassApplier('highlight', {
+        elementTagName: 'mark',
+        normalize: true
+      });
+
+      this.button = this.document.createElement('button');
+      this.button.classList.add('medium-editor-action');
+      this.button.innerHTML = 'Highlight';
+      this.on(this.button, 'click', this.handleClick.bind(this));
+    },
+
+    getButton: function () {
+      return this.button;
+    },
+
+    handleClick: function (event) {
+      this.classApplier.toggleSelection();
+
+      // Ensure the editor knows about an html change so watchers are notified
+      // ie: <textarea> elements depend on the editableInput event to stay synchronized
+      this.base.checkContentChanged();
+    }
+  });
+
+  var editor = new MediumEditor('.editable', {
+    disableEditing: true,
+    buttonLabels: true,
+    toolbar: {
+      buttons: ['highlight', 'comment']
+    },
+    extensions: {
+      'highlight': new HighlightButton(),
+      'comment': new CommentButton()
+    }
+  });
+</script>
+{% endblock %}

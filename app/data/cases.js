@@ -5,81 +5,52 @@ var moment = require('moment');
 module.exports = [
 
   {
-    id: 'SC1231612323',
-    typeId: types.pip.id,
+    id: 'LU17C87541',
+    typeId: types.publiclaw.id,
     documents: [{
       id: '1',
-      label: 'Personal Independence Payment'
+      label: 'A. Preliminary Documents'
     }, {
       id: '2',
-      label: 'Decision Notice'
+      label: 'B. Application and Orders'
+    }, {
+      id: '3',
+      label: 'C. Statements and Affidavits'
+    }, {
+      id: '4',
+      label: 'D. Care Plans'
+    }, {
+      id: '5',
+      label: 'E. Expert’s reports'
+    }, {
+      id: '6',
+      label: 'F. Other Documents'
+    }, {
+      id: '7',
+      label: 'G. Police Documents'
+    }, {
+      id: '8',
+      label: 'H. Medical Notes'
     }],
     rounds: [],
     parties: [
       {
-        type: 'Appellant',
-        firstName: 'Alan',
-        lastName: 'Jones',
-        representative: null
+        type: 'Respondent',
+        org: 'Luton County Court',
       },
       {
         type: 'Respondent',
-        org: 'DWP',
+        org: 'Martins',
         office: '3',
         email: 'dwp@dwp.com',
-        phone: '01838 787 637',
-        decisionMaker: {
-          firstName: 'Denise',
-          lastName: 'Okenwe'
-        },
-        presentingOfficer: {
-          firstName: 'Claire',
-          lastName: 'Potter'
-        }
+        phone: '01838 787 637'
       }
     ],
-    status: 'Party replied',
+    status: 'Final Hearing',
     applicationDate: moment('2018-05-09'),
     lastAction: moment('2018-05-09'),
-    urgent: false,
-    tribunalCentre: 'Fox Court',
-    requirements: 'Hearing loop required',
-    events: [
-      {
-        id: uuid(),
-        date: moment('2017-11-20 13:01'),
-        title: 'New Direct Lodgement Registration',
-        by: 'DLC Admin'
-      },
-
-      {
-        id: uuid(),
-        date: moment('2017-11-20 14:21'),
-        title: 'Complex appeal – requires further guidance',
-        by: 'DLC Admin'
-      },
-
-      {
-        id: uuid(),
-        date: moment('2017-11-20 14:27'),
-        title: 'Interlocutory referral to DJ DeVere',
-        by: 'DLC Admin'
-      },
-
-      {
-        id: uuid(),
-        date: moment('2017-12-05 09:10'),
-        title: 'Appeal marked as compliant',
-        by: 'DJ DeVere'
-      },
-
-      {
-        id: uuid(),
-        date: moment('2018-01-25 16:48'),
-        title: 'Response submitted',
-        by: 'DWP Appeals Officer'
-      }
-    ],
+    court: 'Luton County Court and Family Court',
+    events: [],
   }
 
 ];

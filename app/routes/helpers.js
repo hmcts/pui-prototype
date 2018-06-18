@@ -52,6 +52,11 @@ function getCaseNavObject(_case) {
 				id: _case.id,
 				parties: true
 			};
+		case 'publiclaw':
+			return {
+				id: _case.id,
+				parties: false
+			};
 	}
 }
 
@@ -83,6 +88,8 @@ function getCaseActions(_case) {
 					text: 'Reassign'
 				}
 			];
+		case 'publiclaw':
+		return [];
 	}
 }
 

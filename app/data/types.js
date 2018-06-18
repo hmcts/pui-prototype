@@ -6,6 +6,10 @@ module.exports = {
   pip: {
     id: 'pip',
     label: 'PIP'
+  },
+  publiclaw: {
+    id: 'publiclaw',
+    label: 'Public Law'
   }
 };
 
