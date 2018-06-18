@@ -32,25 +32,20 @@ module.exports = [
       id: '8',
       label: 'H. Medical Notes'
     }],
-    rounds: [],
     parties: [
       {
-        type: 'Respondent',
+        type: 'Local authority',
         org: 'Luton County Court',
       },
       {
-        type: 'Respondent',
+        type: 'Defendants',
         org: 'Martins',
-        office: '3',
-        email: 'dwp@dwp.com',
-        phone: '01838 787 637'
       }
     ],
     status: 'Final Hearing',
     applicationDate: moment('2018-05-09'),
     lastAction: moment('2018-05-09'),
-    court: 'Luton County Court and Family Court',
-    events: [],
+    court: 'Luton County Court and Family Court'
   }
 
 ];

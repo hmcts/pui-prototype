@@ -1,8 +1,7 @@
-const express = require('express');
-const router  = express.Router();
+var express = require('express');
+var router  = express.Router();
 
 router.use('/', require('./routes/jui'));
-router.use('/', require('./routes/questions'));
 
 router.get('/', function (req, res) {
 	req.session.destroy();

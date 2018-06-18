@@ -2,25 +2,13 @@
 
 {% set pageID = "Dashboard" %}
 
-{% block page_title %}Dashboard - Judicial UI prototype{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
 
 {% block content %}
 
 <div class="jui-width-container">
 
   <main role="main" class="govuk-main-wrapper">
-
-    {% if success %}
-      {{ juiAlert(
-        {
-          "icon": true,
-          "iconClasses": "jui-alert__icon--success",
-          "iconText": "Success!",
-          "alertText": success,
-          "alertClasses": "jui-alert--success"
-        })
-      }}
-    {% endif %}
 
     <h1 class="govuk-heading-l">Dashboard</h1>
 
