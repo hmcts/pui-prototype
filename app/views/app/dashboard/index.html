@@ -6,6 +6,15 @@
 
 {% block content %}
 
+{{puiPrimaryNav({ items: [{
+  active: true,
+  href: '/path',
+  label: 'Cases'
+}, {
+  href: '/path',
+  label: 'Appointments'
+}]})}}
+
 <div class="jui-width-container">
 
   <main role="main" class="govuk-main-wrapper">

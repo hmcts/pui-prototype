@@ -7,14 +7,14 @@
     </div>
 
     <div class="jui-header__account">
-
-      <nav class="jui-primary-nav" aria-label="Global navigation">
-        <ul class="jui-primary-nav__list">
-          <li class="jui-primary-nav__item"><a class="jui-primary-nav__link" href="/app/dashboard">Dashboard</a></li>
-          <li class="jui-primary-nav__item"><a class="jui-primary-nav__link" href="/signout">Signout</a></li>
-        </ul>
-      </nav>
-
+      {% block accountNav %}
+        <nav class="jui-account-nav" aria-label="Global navigation">
+          <ul class="jui-account-nav__list">
+            <!-- <li class="jui-account-nav__item"><a class="jui-account-nav__link" href="/app/dashboard">Dashboard</a></li> -->
+            <li class="jui-account-nav__item"><a class="jui-account-nav__link" href="/signout">Signout</a></li>
+          </ul>
+        </nav>
+      {% endblock %}
     </div>
 
   </div>

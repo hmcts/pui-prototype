@@ -1,0 +1,9 @@
+<nav class="jui-primary-nav{% if params.classes %} {{ params.classes }}{% endif %}">
+  <ul class="jui-primary-nav__list">
+    {% for item in params.items %}
+      <li class="jui-primary-nav__item">
+        <a class="jui-primary-nav__link" href="{{item.href}}" {% if item.active %}aria-current="page"{%endif%}>{{item.label}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

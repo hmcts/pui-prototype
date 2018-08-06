@@ -1,17 +1,98 @@
+@mixin pui-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $jui-page-width;
+
+  @include govuk-if-ie8 {
+    width: $jui-page-width;
+  }
+
+  // On mobile, add half width gutters
+  padding: 0 $jui-gutter-half;
+
+  // On tablet, add full width gutters
+  @include mq($from: tablet) {
+    padding: 0 $jui-gutter;
+  }
+
+  // As soon as the viewport is greater than the width of the page plus the
+  // gutters, just centre the content instead of adding gutters.
+  @include mq($and: "(min-width: #{($jui-page-width + $jui-gutter * 2)})") {
+    margin: 0 auto;
+  }
+}
+
+
+
+
+
+
+
 /* ==========================================================================
-   #PRIMARY NAV
+   #SECONDARY NAV
    ========================================================================== */
+
+   .jui-secondary-nav {
+    margin-bottom: $govuk-spacing-scale-7;
+
+    @include mq($from: tablet) {
+      box-shadow: inset 0 -1px 0 $govuk-border-colour;
+      width: 100%;
+    }
+
+  }
+
+
+  .jui-secondary-nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .jui-secondary-nav__item {
+    box-shadow: inset 0 -1px 0 $govuk-border-colour;
+    display: block;
+    margin-top: -1px;
+
+    &:last-child {
+      box-shadow: none;
+    }
+
+    @include mq($from: tablet) {
+      display: inline-block;
+      margin-right: $govuk-spacing-scale-4;
+      margin-top: 0;
+      box-shadow: none;
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .jui-primary-nav {
   color: $govuk-white;
-  margin-top: 3px;
-}
+  background-color: $govuk-black;
 
+}
 
 .jui-primary-nav__list {
   list-style: none;
   margin: 0;
   padding: 0;
+  @include pui-container;
 }
 
 
@@ -22,13 +103,13 @@
   &:last-child {
     margin-right: 0;
   }
-  
 }
 
-
 .jui-primary-nav__link {
-  font-weight: bold;
-  text-decoration: none;
+  display: block;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-decoration: underline;
 
   &:link,
   &:visited,
@@ -37,7 +118,28 @@
   }
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
+  }
+}
+
+
+.jui-primary-nav__link[aria-current=page] {
+  color: $govuk-white;
+  position: relative;
+  text-decoration: none;
+
+  &::before {
+    background-color: $govuk-white;
+    content: "";
+    display: block;
+    position: absolute; bottom: 0; left: 0;
+    height: 5px;
+      width: 100%;
+
+    @include mq($from: tablet) {
+
+    }
+
   }
 
 }

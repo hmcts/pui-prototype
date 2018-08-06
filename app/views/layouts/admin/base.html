@@ -31,6 +31,7 @@
 {%- from "case-actions/macro.njk" import juiCaseActions %}
 {%- from "timeline/macro.njk" import juiTimeline %}
 {%- from "document/macro.njk" import juiDocument %}
+{%- from "primary-nav/macro.njk" import puiPrimaryNav %}
 
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="{{ html_lang|default('en') }}"><![endif]-->
@@ -81,7 +82,28 @@
     </div>
 
     {% block header %}
-      {% include "header/header.html" %}
+      <header class="jui-header" role="banner">
+
+        <div class="jui-width-container">
+
+          <div class="jui-header__service">
+            <a href="/app/dashboard">{{serviceName}}</a>
+          </div>
+
+          <div class="jui-header__account">
+            {% block accountNav %}
+              <nav class="jui-account-nav" aria-label="Global navigation">
+                <ul class="jui-account-nav__list">
+                  <!-- <li class="jui-account-nav__item"><a class="jui-account-nav__link" href="/app/dashboard">Dashboard</a></li> -->
+                  <li class="jui-account-nav__item"><a class="jui-account-nav__link" href="/signout">Signout</a></li>
+                </ul>
+              </nav>
+            {% endblock %}
+          </div>
+
+        </div>
+
+      </header>
     {% endblock %}
 
     {% block content %}{% endblock %}
