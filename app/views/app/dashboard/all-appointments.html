@@ -1,0 +1,87 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set pageID = "Dashboard" %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+
+  {{puiPrimaryNav({ items: [{ href: '/app/dashboard', label: 'Cases' }, { href: '/app/dashboard/appointments', label: 'Appointments', active: true }]})}}
+
+
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+    <h1 class="govuk-heading-l">Your organisation's appointments</h1>
+
+<a href="./appointments">View only your own appointments</a><br><br>
+
+<table class="govuk-table">
+<!--   <caption class="govuk-table__caption">Your court appointments</caption>
+ -->  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Reference</th>
+      <th class="govuk-table__header" scope="col">Parties</th>
+            <th class="govuk-table__header" scope="col">Solicitor</th>
+
+      <th class="govuk-table__header" scope="col">Court</th>
+      <th class="govuk-table__header" scope="col">Judge</th>
+      <th class="govuk-table__header" scope="col">Date and time</th>
+
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row"><a href="">KM-9772973</a></th>
+      <td class="govuk-table__cell ">John Smith v Jane Smith</td>
+      <td class="govuk-table__cell ">Kerry Miles</td>
+
+      <td class="govuk-table__cell ">Bury St Edmunds Regional Divorce Centre</td>
+      <td class="govuk-table__cell ">Mr Justice Warner</td>
+      <td class="govuk-table__cell ">Friday 17 August 2017 at 10:30am</td>
+    </tr>
+            <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row"><a href="">DJ-2261788</a></th>
+      <td class="govuk-table__cell ">Graham Edgar v Katherine Edgar</td>
+      <td class="govuk-table__cell ">David Jones</td>
+
+      <td class="govuk-table__cell ">Bury St Edmunds Regional Divorce Centre</td>
+      <td class="govuk-table__cell ">Mr Justice Warner</td>
+      <td class="govuk-table__cell ">Monday 20 August 2017 at 3pm</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row"><a href="">KM-6692638</a></th>
+      <td class="govuk-table__cell ">David Francis v Susan Francis</td>
+      <td class="govuk-table__cell ">Kerry Miles</td>
+            <td class="govuk-table__cell ">Court of Appeal Civil Division</td>
+      <td class="govuk-table__cell ">Lady Justice Grant</td>
+            <td class="govuk-table__cell">Wednesday 22 August 2017 at 1:00pm</th>
+
+    </tr>
+  </tbody>
+</table>
+
+  <!--   {{ govukTable({
+        "classes": "govuk-!-f-16",
+        "caption": "Your organisation's cases",
+        "captionClasses": "govuk-heading-m",
+        "firstCellIsHeader": true,
+        "head": [
+          {"text": "Parties"},
+          {"text": "Case number"},
+          {"text": "Type"},
+          {"text": "Status"},
+          {"text": "Solicitor"},
+          {"text": "Start date"},
+          {"text": "Last updated"}
+        ],
+        "rows": caseList
+      }) }} -->
+
+
+  </main>
+
+</div>
+
+{% endblock %}

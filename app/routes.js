@@ -5,7 +5,7 @@ router.use('/', require('./routes/jui'));
 
 router.get('/', function (req, res) {
 	req.session.destroy();
-	res.redirect('/app/dashboard');
+	res.redirect('/app/signin.html');
 });
 
 module.exports = router;

@@ -1,14 +1,6 @@
 {% extends "layouts/admin/base.html" %}
 
-{% block page_title %}Sign in - Judicial case manager{% endblock %}
-
-{% block accountNav %}
-  <nav class="jui-account-nav" aria-label="Global navigation">
-    <ul class="jui-account-nav__list">
-      <li class="jui-account-nav__item"><a class="jui-account-nav__link" href="/signout">Sign in</a></li>
-    </ul>
-  </nav>
-{% endblock %}
+{% block page_title %}Sign in - Professional case manager{% endblock %}
 
 {% block content %}
 
@@ -43,12 +35,26 @@
 
       {{ govukButton({
         "text": "Sign in",
-        "classes": "govuk-!-mb-r4"
+        "classes": "govuk-!-mb-r4",
+        "href": "/app/dashboard"
       }) }}
 
     </form>
 
     <p class="govuk-body"><a href="">Forgotten your password?</a></p>
+
+    <div class="govuk-!-width-two-thirds govuk-body">
+
+    <h2 class="govuk-heading-m">If you do not have an account</h2>
+
+      <p>You cannot use this service to set up a new account.</p>
+      <p>Contact the person in your organisation who is responsible for creating accounts.</p>
+
+    <h2 class="govuk-heading-m">If your organisation is not set up on this service</h2>
+
+      <p>Someone in your organisation will need to <a href="">set up the organisation to use the professional case manager</a>. After that you can create your own account.</p>
+
+    </div>
 
   </main>
 
