@@ -6,9 +6,18 @@
 
 {% block content %}
 
+{{puiPrimaryNav({ items: [{
+  active: true,
+  href: '/path',
+  label: 'Cases'
+}, {
+  href: '/path',
+  label: 'Appointments'
+}]})}}
+
 {% include "includes/casebar.html" %}
 
-<div class="jui-width-container">
+<div class="govuk-width-container">
 
   <main class="govuk-main-wrapper" role="main">
 
