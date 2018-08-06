@@ -1,10 +1,10 @@
-@mixin pui-container {
+@mixin pui-container($max-width: 960px) {
   margin-left: auto;
   margin-right: auto;
-  max-width: $jui-page-width;
+  max-width: $max-width;
 
   @include govuk-if-ie8 {
-    width: $jui-page-width;
+    width: $max-width;
   }
 
   // On mobile, add half width gutters
