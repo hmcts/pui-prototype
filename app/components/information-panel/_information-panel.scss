@@ -3,23 +3,23 @@
    ========================================================================== */
 
 .jui-panel {
-  @include govuk-font-regular-19;
+  @include govuk-font($size: 19);
   border: 5px solid transparent;
   box-sizing: border-box;
-  margin-bottom: $govuk-spacing-scale-6;
-  padding: $govuk-spacing-scale-6 - $govuk-border-width;
+  margin-bottom: govuk-spacing(6);
+  padding: govuk-spacing(6) - $govuk-border-width;
   position: relative;
 }
 
 
 .jui-panel__title {
-  @include govuk-font-bold-36;
-  margin-bottom: $govuk-spacing-scale-3;
+  @include govuk-font($size: 36, $weight: bold);
+  margin-bottom: govuk-spacing(3);
 }
 
 
 .jui-panel__body {
-  @include govuk-font-regular-24;
+  @include govuk-font($size: 24);
 }
 
 
@@ -29,13 +29,13 @@
 
   dt {
     font-weight: bold;
-    margin-bottom: $govuk-spacing-scale-1;
+    margin-bottom: govuk-spacing(1);
   }
 
   dd {
-    @include govuk-font-regular-16;
+    @include govuk-font($size: 16);
     margin-left: 0;
-    margin-bottom: $govuk-spacing-scale-4;
+    margin-bottom: govuk-spacing(4);
 
     &:last-child {
       margin-bottom: 0;
@@ -50,12 +50,12 @@
    ========================================================================== */
 
 .jui-panel--information {
-  border-color: $govuk-blue;
+  border-color: govuk-colour('blue');
  }
 
 
 .jui-panel--confirmation {
-  border-color: $govuk-green;
-  color: $govuk-green;
+  border-color: govuk-colour('green');
+  color: govuk-colour('green');
   text-align: center;
 }

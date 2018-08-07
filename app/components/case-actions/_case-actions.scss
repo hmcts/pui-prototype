@@ -10,7 +10,7 @@
 
 
 .jui-case-actions__item {
-  margin-right: $govuk-spacing-scale-2;
+  margin-right: govuk-spacing(2);
   float: left;
 
   &:last-child {
@@ -21,9 +21,9 @@
 
 
 .jui-case-actions__link {
-  background-color: $govuk-grey-4;
+  background-color: govuk-colour('grey-4');
   display: block;
-  padding: $govuk-spacing-scale-1 $govuk-spacing-scale-2;
+  padding: govuk-spacing(1) govuk-spacing(2);
   text-decoration: none;
 
   &:link,
@@ -33,7 +33,7 @@
   }
 
   &:hover {
-    background-color: $govuk-grey-3;
+    background-color: govuk-colour('grey-3');
   }
 
 }

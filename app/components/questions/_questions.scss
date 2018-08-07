@@ -4,8 +4,8 @@
 
 .jui-questions__item {
   border-bottom: 1px solid $govuk-border-colour;
-  padding-top: $govuk-spacing-scale-4;
-  padding-bottom: $govuk-spacing-scale-4;
+  padding-top: govuk-spacing(4);
+  padding-bottom: govuk-spacing(4);
   position: relative;
 
   &:first-child {
@@ -16,7 +16,7 @@
 
 
 .jui-questions__subject a {
-  margin-right: $govuk-spacing-scale-2;
+  margin-right: govuk-spacing(2);
 }
 
 
@@ -30,7 +30,7 @@
   margin-bottom: 0;
 
   @include mq($from: tablet) {
-    margin-top: $govuk-spacing-scale-1;
+    margin-top: govuk-spacing(1);
   }
 
 }
@@ -47,7 +47,7 @@
   padding-left: 30px;
 
   @include mq($until: tablet) {
-    margin-top: $govuk-spacing-scale-2;
+    margin-top: govuk-spacing(2);
   }
 
   @include mq($from: tablet) {
@@ -66,7 +66,7 @@
   margin-top: 0;
 
   @include mq($from: tablet) {
-    margin-bottom: $govuk-spacing-scale-6;
+    margin-bottom: govuk-spacing(6);
   }
 
 }

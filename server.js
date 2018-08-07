@@ -63,11 +63,15 @@ if (env === 'production' && useAuth === 'true') {
 }
 
 // Set up App
-var appViews = [path.join(__dirname, '/app/views/'),
+var appViews = [
+  path.join(__dirname, '/node_modules/govuk-frontend/'),
+  path.join(__dirname, '/node_modules/govuk-frontend/components'),
+  path.join(__dirname, '/node_modules/@hmcts/frontend/components'),
+  path.join(__dirname, '/app/views/'),
   path.join(__dirname, '/lib/'),
-  path.join(__dirname, '/app/components/'),
-  path.join(__dirname, '/node_modules/govuk_template_jinja/views/layouts'),
-  path.join(__dirname, '/node_modules/@govuk-frontend/frontend/components')]
+  path.join(__dirname, '/app/components/')
+]
+
 
 var nunjucksAppEnv = nunjucks.configure(appViews, {
   autoescape: true,
@@ -83,14 +87,10 @@ utils.addNunjucksFilters(nunjucksAppEnv)
 app.set('view engine', 'html')
 
 // Middleware to serve static assets
-app.use('/icons', express.static(path.join(__dirname, '/node_modules/@govuk-frontend/icons')))
 app.use('/public', express.static(path.join(__dirname, '/public')))
-app.use('/public', express.static(path.join(__dirname, '/node_modules/govuk_template_jinja/assets')))
-// app.use('/public', express.static(path.join(__dirname, '/node_modules/govuk_frontend_toolkit')))
-// app.use('/public/images/icons', express.static(path.join(__dirname, '/node_modules/govuk_frontend_toolkit/images')))
-
-// Elements refers to icon folder instead of images folder
-app.use(favicon(path.join(__dirname, 'node_modules', 'govuk_template_jinja', 'assets', 'images', 'favicon.ico')))
+app.use('/assets', express.static(path.join(__dirname, 'node_modules', 'govuk-frontend', 'assets')))
+app.use('/node_modules/govuk-frontend', express.static(path.join(__dirname, '/node_modules/govuk-frontend')))
+app.use('/node_modules/hmcts-frontend', express.static(path.join(__dirname, '/node_modules/@hmcts/frontend')))
 
 // Set up documentation app
 if (useDocumentation) {

@@ -2,16 +2,22 @@
 // in the govuk frontend toolkit"s url-helpers partial
 $path: "/public/images/";
 
-// Import GOV.UK Frontend
-@import "@govuk-frontend/frontend/all";
+$govuk-global-styles: true;
+
+@import "node_modules/govuk-frontend/all";
+@import "node_modules/@hmcts/frontend/all";
 
 // Patterns that aren"t in GOV.UK Frontend
 @import "patterns/check-your-answers";
 @import "patterns/related-items";
 
 // JUI styles
-@import "jui/all";
+@import "pui/all";
+
+.js-enabled .js-hidden {
+  display: none !important;
+}
 
 mark.comment {
-  background-color: $govuk-orange;
+  background-color: govuk-colour('orange');
 }

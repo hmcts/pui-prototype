@@ -6,7 +6,7 @@
   @include govuk-clearfix;
 
   &:not(:first-child) {
-    margin-top: $govuk-spacing-scale-2;
+    margin-top: govuk-spacing(2);
   }
 
 }
