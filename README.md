@@ -1,1 +1,1 @@
-# Demo for Professional UI (JEG)
+# PUI prototype
