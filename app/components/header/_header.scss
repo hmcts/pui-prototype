@@ -4,20 +4,20 @@
 
    .jui-header {
     @include govuk-clearfix;
-    background-color: $govuk-black;
-    padding-top: $govuk-spacing-scale-3;
-    padding-bottom: $govuk-spacing-scale-3;
+    background-color: govuk-colour('black');
+    padding-top: govuk-spacing(3);
+    padding-bottom: govuk-spacing(3);
   }
 
 
   .jui-header__service {
-    @include govuk-font-bold-24;
+    @include govuk-font($size: 24, $weight: bold);
     display: block;
 
     a:link,
     a:active,
     a:visited {
-      color: $govuk-white;
+      color: govuk-colour('white');
       text-decoration: none;
     }
 

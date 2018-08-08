@@ -1,6 +1,6 @@
 .jui-primary-nav {
-  color: $govuk-white;
-  background-color: $govuk-black;
+  color: govuk-colour('white');
+  background-color: govuk-colour('black');
 }
 
 .jui-primary-nav__list {
@@ -13,7 +13,7 @@
 
 .jui-primary-nav__item {
   display: inline-block;
-  margin-right: $govuk-spacing-scale-2;
+  margin-right: govuk-spacing(2);
 
   &:last-child {
     margin-right: 0;
@@ -39,12 +39,12 @@
 
 
 .jui-primary-nav__link[aria-current=page] {
-  color: $govuk-white;
+  color: govuk-colour('white');
   position: relative;
   text-decoration: none;
 
   &::before {
-    background-color: $govuk-white;
+    background-color: govuk-colour('white');
     content: "";
     display: block;
     position: absolute; bottom: 0; left: 0;

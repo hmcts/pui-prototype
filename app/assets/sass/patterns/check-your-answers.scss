@@ -1,7 +1,7 @@
 // Recommended - Use these styles for the check your answers pattern
 .govuk-check-your-answers {
 
-  @include govuk-font-regular-19;
+  @include govuk-font($size: 19);
 
   @include mq($from: desktop) {
     display: table;

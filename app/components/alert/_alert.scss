@@ -3,8 +3,8 @@
    ========================================================================== */
 
 .jui-alert {
-  border: 5px solid $govuk-blue;
-  margin-bottom: $govuk-spacing-scale-6;
+  border: 5px solid govuk-colour('blue');
+  margin-bottom: govuk-spacing(6);
   position: relative;
 }
 
@@ -27,7 +27,7 @@
 
 .jui-alert__text {
   display: inline-block;
-  padding: $govuk-spacing-scale-2;
+  padding: govuk-spacing(2);
   vertical-align: top;
 }
 
@@ -36,7 +36,7 @@
    ========================================================================== */
 
 .jui-alert--success {
-  border-color: $govuk-button-colour;
+  border-color: govuk-colour('green');
 }
 
 

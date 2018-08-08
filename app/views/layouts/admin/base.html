@@ -21,15 +21,18 @@
 {%- from "checkboxes/macro.njk" import govukCheckboxes %}
 {%- from "radios/macro.njk" import govukRadios %}
 
-<!-- Temp override until GDS do this work -->
 {%- from "tabs/macro.njk" import govukTabs %}
+
+
+<!-- HMCTS -->
+{%- from "timeline/macro.njk" import hmctsTimeline %}
+{%- from "sub-navigation/macro.njk" import hmctsSubNavigation %}
 
 <!-- JUI specific -->
 {%- from "status/macro.njk" import juiStatus %}
 {%- from "alert/macro.njk" import juiAlert %}
 {%- from "information-panel/macro.njk" import juiInformationPanel %}
 {%- from "case-actions/macro.njk" import juiCaseActions %}
-{%- from "timeline/macro.njk" import juiTimeline %}
 {%- from "document/macro.njk" import juiDocument %}
 {%- from "primary-nav/macro.njk" import puiPrimaryNav %}
 
@@ -39,16 +42,6 @@
   <head>
     <meta charset="utf-8">
     <title>{% block page_title %}GOV.UK - The best place to find government services and information{% endblock %}</title>
-
-    <!--[if gt IE 8]><!--><link href="{{ asset_path }}stylesheets/govuk-template.css" media="screen" rel="stylesheet"><!--<![endif]-->
-    <!--[if IE 6]><link href="{{ asset_path }}stylesheets/govuk-template-ie6.css" media="screen" rel="stylesheet"><![endif]-->
-    <!--[if IE 7]><link href="{{ asset_path }}stylesheets/govuk-template-ie7.css" media="screen" rel="stylesheet"><![endif]-->
-    <!--[if IE 8]><link href="{{ asset_path }}stylesheets/govuk-template-ie8.css" media="screen" rel="stylesheet"><![endif]-->
-    <link href="{{ asset_path }}stylesheets/govuk-template-print.css" media="print" rel="stylesheet">
-
-    <!--[if IE 8]><link href="{{ asset_path }}stylesheets/fonts-ie8.css" media="all" rel="stylesheet"><![endif]-->
-    <!--[if gte IE 9]><!--><link href="{{ asset_path }}stylesheets/fonts.css" media="all" rel="stylesheet"><!--<![endif]-->
-    <!--[if lt IE 9]><script src="{{ asset_path }}javascripts/ie.js"></script><![endif]-->
 
     <link rel="shortcut icon" href="{{ asset_path }}images/favicon.ico" type="image/x-icon">
 
@@ -64,22 +57,23 @@
     <meta property="og:image" content="{{ asset_path }}images/opengraph-image.png">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
 
-    <!--[if lte IE 8]><link href="/public/stylesheets/application-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
-    <!--[if gt IE 8]><!--><link href="/public/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->
+   <!--[if lte IE 8]><link href="/public/stylesheets/application-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+        <!--[if gt IE 8]><!--><link href="/public/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->
 
   </head>
 
-  <body class="{% block body_classes %}{% endblock %}">
+  <body class="govuk-template__body {{ bodyClasses }}">
 
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
-    {% block body_start %}{% endblock %}
+    {% block bodyStart %}{% endblock %}
 
-    <div id="skiplink-container">
-      <div>
-        <a href="#content" class="skiplink">{{ skip_link_message|default('Skip to main content') }}</a>
-      </div>
-    </div>
+    {% block skipLink %}
+      {{ govukSkipLink({
+        href: '#main-content',
+        text: 'Skip to main content'
+      }) }}
+    {% endblock %}
 
     {% block header %}
       <header class="jui-header" role="banner">
@@ -113,8 +107,6 @@
     {% endblock %}
 
     <div id="global-app-error" class="app-error hidden"></div>
-
-    <script src="{{ asset_path }}javascripts/govuk-template.js"></script>
 
     {% block body_end %}
       {% block scripts %}
