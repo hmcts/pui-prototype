@@ -7,14 +7,10 @@
   {% include 'includes/primary-nav.html' %}
 
   <div class="govuk-width-container">
+    {{govukBackLink({
+      href: '/app/account/users'
+    })}}
     <main role="main" class="govuk-main-wrapper">
-
-      {% include 'includes/account-sub-nav.html' %}
-
-      {{govukBackLink({
-        href: '/app/account/users'
-      })}}
-
       <h1 class="govuk-heading-xl">Create users</h1>
 
       <p>To setup users with the same permissions, configure their permissions and send them the link below.</p>

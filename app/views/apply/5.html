@@ -1,0 +1,30 @@
+{% extends "layouts/service/base.html" %}
+
+{% block content %}
+  <div class="govuk-width-container">
+    <main role="main" class="govuk-main-wrapper">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <form action="/apply/6">
+
+            {{ govukInput({
+              label: {
+                text: "What's your Solicitors Regulation Authority (SRA) number?",
+                classes: 'govuk-label--xl',
+                isPageHeading: true
+              },
+              id: "org",
+              name: "org"
+            }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+{% endblock %}
