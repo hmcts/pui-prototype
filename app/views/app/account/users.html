@@ -1,0 +1,91 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set pageId = 'users' %}
+
+{% block content %}
+
+  {% include 'includes/primary-nav.html' %}
+
+  <div class="govuk-width-container">
+    <main role="main" class="govuk-main-wrapper">
+
+        {% include 'includes/account-sub-nav.html' %}
+
+      <h1 class="govuk-heading-xl">Users</h1>
+
+      {{govukButton({
+        text: 'Create user',
+        href: '/app/account/users/new'
+      })}}
+
+      {{ govukTable({
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "Email address"
+          },
+          {
+            text: "Manages users"
+          },
+          {
+            text: "Manages payment"
+          },
+          {
+            text: "Manages org"
+          },
+          {
+            text: "Active"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: '<a href="">Joseph King</a>'
+            },
+            {
+              text: "j.king@org.com"
+            },
+            {
+              text: "Yes"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "Yes"
+            },
+            {
+              text: "No"
+            }
+          ],
+          [
+            {
+              html: '<a href="/">Stephanie Black</a>'
+            },
+            {
+              text: "s.black@org.com"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "Yes"
+            }
+          ]
+        ]
+      }) }}
+
+
+
+    </main>
+  </div>
+
+{% endblock %}
