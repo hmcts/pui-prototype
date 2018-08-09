@@ -1,0 +1,53 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set pageId = 'org' %}
+
+{% block content %}
+
+  {% include 'includes/primary-nav.html' %}
+
+  <div class="govuk-width-container">
+    <main role="main" class="govuk-main-wrapper">
+
+        {% include 'includes/account-sub-nav.html' %}
+
+      <h1 class="govuk-heading-xl">Organisation</h1>
+
+      <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+              {{ govukTable({
+                firstCellIsHeader: true,
+                rows: [
+                  [
+                    {
+                      text: "Name"
+                    },
+                    {
+                      text: "Lawyers Ltd"
+                    },
+                    {
+                      html: '<a href="/">Change</a>'
+                    }
+                  ],
+                  [
+                    {
+                      text: "Address"
+                    },
+                    {
+                      html: "The Shard, Floor 14, London, SW1 9SU"
+                    },
+                    {
+                      html: '<a href="/">Change</a>'
+                    }
+                  ]
+                ]
+              }) }}
+          </div>
+        </div>
+
+
+
+    </main>
+  </div>
+
+{% endblock %}
