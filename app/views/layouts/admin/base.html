@@ -82,12 +82,7 @@
 
           <div class="jui-header__account">
             {% block accountNav %}
-              <nav class="jui-account-nav" aria-label="Global navigation">
-                <ul class="jui-account-nav__list">
-                  <li class="jui-account-nav__item"><a class="jui-account-nav__link" href="/app/dashboard">Account</a></li>
-                  <li class="jui-account-nav__item"><a class="jui-account-nav__link" href="/signout">Sign out</a></li>
-                </ul>
-              </nav>
+              {% include 'includes/account-nav.html' %}
             {% endblock %}
           </div>
 
