@@ -1,12 +1,12 @@
 {% extends "layouts/admin/base.html" %}
 
-{% set pageID = "Dashboard" %}
+{% set pageId = "cases" %}
 
 {% block page_title %}Dashboard{% endblock %}
 
 {% block content %}
 
-{{puiPrimaryNav({ items: [{ href: '/app/dashboard', label: 'Cases', active: true }, { href: '/app/dashboard/appointments', label: 'Appointments' }]})}}
+  {% include 'includes/primary-nav.html' %}
 
 <div class="govuk-width-container">
 

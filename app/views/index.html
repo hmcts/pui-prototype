@@ -1,32 +1,18 @@
 {% extends "layouts/service/base.html" %}
 
-{% block page_title %}
-  Judicial UI prototypes
-{% endblock %}
-
 {% block content %}
+  <div class="govuk-grid-row">
 
-<div class="govuk-width-container">
+    <div class="govuk-grid-column-two-thirds">
 
-  <main role="main" class="govuk-main-wrapper">
+      <h1 class="govuk-heading-l">Prototypes</h1>
 
-    <div class="govuk-grid-row">
-
-      <div class="govuk-grid-column-two-thirds">
-
-        <h1 class="govuk-heading-l">Judicial Case Manager</h1>
-
-        {{ govukButton({
-          "text": "Setup",
-          "href": "/setup"
-        }) }}
-
-      </div>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/apply/1">Apply for an account</a></li>
+        <li><a href="/app/signin">Access case</a></li>
+      </ul>
 
     </div>
 
-  </main>
-
-</div>
-
+  </div>
 {% endblock %}

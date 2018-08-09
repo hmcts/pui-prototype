@@ -21,6 +21,7 @@
 }
 
 .jui-primary-nav__link {
+  @include govuk-font($size: 19);
   display: block;
   padding-top: 12px;
   padding-bottom: 12px;

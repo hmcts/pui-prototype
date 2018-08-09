@@ -1,0 +1,37 @@
+{% extends "layouts/service/base.html" %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "alpha"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+{% endblock %}
+{% block content %}
+
+
+
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+
+        <form>
+          {{govukButton({
+            text: 'Continue'
+          })}}
+        </form>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+{% endblock %}
