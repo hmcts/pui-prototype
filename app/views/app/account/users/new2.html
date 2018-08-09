@@ -1,0 +1,79 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set pageId = 'users' %}
+
+{% block content %}
+
+  {% include 'includes/primary-nav.html' %}
+
+  <div class="govuk-width-container">
+    <main role="main" class="govuk-main-wrapper">
+
+      {% include 'includes/account-sub-nav.html' %}
+
+      {{govukBackLink({
+        href: '/app/account/users'
+      })}}
+
+      <h1 class="govuk-heading-xl">Create users</h1>
+
+      <p>To setup users with the same permissions, configure their permissions and send them the link below.</p>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <form>
+            {{ govukCheckboxes({
+              idPrefix: "permissions",
+              name: "permissions",
+              fieldset: {
+                legend: {
+                  text: "Permissions",
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              hint: {
+                text: "Give this user extra priviledges."
+              },
+              items: [
+                {
+                  value: "users",
+                  text: "Manage users"
+                },
+                {
+                  value: "payment",
+                  text: "Manages payment"
+                },
+                {
+                  value: "org",
+                  text: "Manages organisation"
+                }
+              ]
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Link",
+                classes: 'govuk-label--m'
+              },
+              hint: {
+                text: "Copy this link and send it to the users who you want to have the permissions you've just setup."
+              },
+              id: "email",
+              name: "email",
+              value: 'https://some/secure/link?permisions=a,b,c',
+              attributes: {
+                readOnly: 'readonly'
+              }
+            }) }}
+
+            {{govukButton({
+              text: 'Copy',
+              classes: 'hmcts-button--secondary'
+            })}}
+
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}
