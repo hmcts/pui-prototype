@@ -1,0 +1,91 @@
+{% extends "layouts/service/base.html" %}
+
+{% block content %}
+<div class="govuk-width-container">
+  <main role="main" class="govuk-main-wrapper">
+    <h1 class="govuk-heading-xl">Check your answers</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+
+          <div class="govuk-check-your-answers__contents">
+            <dt class="govuk-check-your-answers__question">Name</dt>
+            <dd class="govuk-check-your-answers__answer">
+              {{data.name}}
+            </dd>
+            <dd class="govuk-check-your-answers__change">
+              <a href="/apply/name">Change <span class="govuk-visually-hidden">name</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-check-your-answers__contents">
+            <dt class="govuk-check-your-answers__question">Email address</dt>
+            <dd class="govuk-check-your-answers__answer">
+              {{data.email}}
+            </dd>
+            <dd class="govuk-check-your-answers__change">
+              <a href="/apply/email">Change <span class="govuk-visually-hidden">email</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-check-your-answers__contents">
+            <dt class="govuk-check-your-answers__question">Organisation name</dt>
+            <dd class="govuk-check-your-answers__answer">
+              {{data['org-name']}}
+            </dd>
+            <dd class="govuk-check-your-answers__change">
+              <a href="/apply/org-name">Change <span class="govuk-visually-hidden">organisation name</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Organisation address</dt>
+              <dd class="govuk-check-your-answers__answer">
+                  {{data['address-line-1']}}
+                  {{data['address-line-2']}}
+                  {{data['address-town']}}
+                  {{data['address-county']}}
+                  {{data['address-postcode']}}
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="/apply/org-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Organisation number</dt>
+              <dd class="govuk-check-your-answers__answer">
+                {{data['org-number']}}
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="/apply/org-number">Change <span class="govuk-visually-hidden">organisation number</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Solictors Regulation Authority (SRA) number</dt>
+              <dd class="govuk-check-your-answers__answer">
+                {{data['sra-number']}}
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="/apply/sra-number">Change <span class="govuk-visually-hidden">sra number</span></a>
+              </dd>
+            </div>
+
+        </dl>
+
+        <h2 class="govuk-heading-l">Now send your application</h2>
+        <p>By submitting this application, you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+        <form method="post" action="/app/cases/{{_case.id}}/fr/submit-decision">
+          {{ govukButton({
+            "text": "Accept and send application"
+          }) }}
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

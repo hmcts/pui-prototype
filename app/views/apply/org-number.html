@@ -2,20 +2,24 @@
 
 {% block content %}
   <div class="govuk-width-container">
+
+    {{govukBackLink({
+      href: '/apply/org-address'
+    })}}
     <main role="main" class="govuk-main-wrapper">
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-          <form action="/apply/5">
+          <form action="/apply/sra-number">
 
             {{ govukInput({
               label: {
-                text: "What's the name of your organisation?",
+                text: "What's your company's registration number?",
                 classes: 'govuk-label--xl',
                 isPageHeading: true
               },
-              id: "org",
-              name: "org"
+              id: "org-number",
+              name: "org-number"
             }) }}
 
             {{govukButton({
