@@ -1,35 +1,67 @@
 {% extends "layouts/service/base.html" %}
 
-{% block content %}
-<div class="govuk-width-container">
-  <main role="main" class="govuk-main-wrapper">
-    <h1 class="govuk-heading-xl">Register your organisation with HMCTS</h1>
+{% block content%}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Professional case manager</h1>
 
-    <h2 class="govuk-heading-l">Before you start</h2>
-    <p>To register your organisation with HMCTS you need to:</p>
+    <p class="govuk-body">Use this service to:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>manage cases</li>
+      <li>see court hearings</li>
+      <li>manage payments</li>
+    </ul>
+
+    <p class="govuk-body">Registering takes around 5 minutes.</p>
+
+    {{ govukButton({
+      text: "Start now",
+      href: "/apply/name",
+      classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+    }) }}
+
+    <h2 class="govuk-heading-m">Before you start</h2>
+
+    <p class="govuk-body">You will need:</p>
 
     <ul class="govuk-list govuk-list--bullet">
       <li>to provide your Solicitors Regulation Authority (SRA) number</li>
       <li>be based in England or Wales</li>
       <li>have staff email addresses to create your user's accounts</li>
     </ul>
-    <div class="govuk-grid-row">
 
-      <div class="govuk-grid-column-two-thirds">
+  </div>
 
-        <form action="/apply/name">
-          {{govukButton({
-            text: 'Start now',
-            classes: 'govuk-button--start'
-          })}}
-        </form>
+  <div class="govuk-grid-column-one-third">
 
-      </div>
+    <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
 
-    </div>
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Subsection
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#" class="govuk-!-font-weight-bold">
+              More <span class="govuk-visually-hidden">in Subsection</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
 
-  </main>
-
+  </div>
 </div>
-
 {% endblock %}
