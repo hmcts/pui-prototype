@@ -84,9 +84,10 @@
         <h2 class="govuk-heading-l">Now send your application</h2>
         <p>By submitting this application, you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
-        <form method="post" action="/app/cases/{{_case.id}}/fr/submit-decision">
+        <form method="post" action="/apply/confirmation">
           {{ govukButton({
-            "text": "Accept and send application"
+            "text": "Accept and send application",
+            href: '/apply/confirmation'
           }) }}
         </form>
       </div>
