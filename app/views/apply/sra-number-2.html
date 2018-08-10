@@ -2,24 +2,25 @@
 
 {% block content %}
   <div class="govuk-width-container">
+
     {{govukBackLink({
-      href: '/apply/name'
+      href: '/apply/sra-number'
     })}}
+
     <main role="main" class="govuk-main-wrapper">
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-          <form action="/apply/check">
+          <form action="/apply/sra-number-3">
 
             {{ govukInput({
               label: {
-                text: "What's your email address?",
+                text: "What's your Solicitors Regulation Authority (SRA) number?",
                 classes: 'govuk-label--xl',
                 isPageHeading: true
               },
-              id: "email",
-              name: "email",
-              type: "email"
+              id: "sra-number",
+              name: "sra-number"
             }) }}
 
             {{govukButton({
