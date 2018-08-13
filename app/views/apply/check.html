@@ -35,10 +35,10 @@
                 {% if data['org-address'] %}
                   {{ data['org-address'] | safe }}
                 {% else %}
-                  {{data['address-line-1']}}
-                  {{data['address-line-2']}}
-                  {{data['address-town']}}
-                  {{data['address-county']}}
+                  {{data['address-line-1']}}<br>
+                  {{data['address-line-2']}}<br>
+                  {{data['address-town']}}<br>
+                  {{data['address-county']}}<br>
                   {{data['address-postcode']}}
                 {% endif %}
               </dd>

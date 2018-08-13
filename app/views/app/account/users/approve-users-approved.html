@@ -14,11 +14,15 @@
 
       <h1 class="govuk-heading-xl">Approve users</h1>
 
-      {{puiAlert({
-        alertHtml: 'User approved successfully.',
-        alertClasses: 'jui-alert--success',
-        iconClasses: 'jui-alert__icon--success'
-      })}}
+      {{ puiAlert(
+        {
+          "icon": true,
+          "iconClasses": "jui-alert__icon--success",
+          "iconText": "Success!",
+          "alertText": 'Successfully approved John Smith.',
+          "alertClasses": "jui-alert--success"
+        })
+      }}
 
       {{ govukTable({
         head: [
@@ -46,10 +50,10 @@
           ],
           [
             {
-              html: 'Stephanie Black'
+              html: 'Judith Robinson'
             },
             {
-              text: "s.black@org.com"
+              text: "judith.robinson@org.com"
             },
             {
               html: '<a href="/app/account/users/approve-user">Approve</a>&nbsp;&nbsp;&nbsp;<a href="/app/account/users/approve-user">Delete</a>'
