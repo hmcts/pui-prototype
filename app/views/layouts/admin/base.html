@@ -26,9 +26,11 @@
 
 <!-- HMCTS -->
 {%- from "sub-navigation/macro.njk" import hmctsSubNavigation %}
+{%- from "primary-navigation/macro.njk" import hmctsPrimaryNavigation %}
+{%- from "global-header/macro.njk" import hmctsGlobalHeader %}
 
 <!-- PUI specific -->
-{%- from "primary-nav/macro.njk" import puiPrimaryNav %}
+
 
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="{{ html_lang|default('en') }}"><![endif]-->
@@ -70,23 +72,18 @@
     {% endblock %}
 
     {% block header %}
-      <header class="jui-header" role="banner">
 
-        <div class="govuk-width-container">
-
-          <div class="jui-header__service">
-            <a href="/app/cases">{{serviceName}}</a>
-          </div>
-
-          <div class="jui-header__account">
-            {% block accountNav %}
-              {% include 'includes/account-nav.html' %}
-            {% endblock %}
-          </div>
-
-        </div>
-
-      </header>
+      {{hmctsGlobalHeader({
+        serviceUrl: '/app/cases',
+        serviceName: 'Professional case manager',
+        navigation: [{
+          text: 'Account',
+          href: '/app/account'
+        }, {
+          text: 'Sign out',
+          href: '/sign-out'
+        }]
+      })}}
     {% endblock %}
 
     {% block content %}{% endblock %}
