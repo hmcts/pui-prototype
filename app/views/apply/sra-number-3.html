@@ -8,16 +8,18 @@
     })}}
 
     <main role="main" class="govuk-main-wrapper">
+      <h1 class="govuk-heading-xl">Check your organisation's details</h1>
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <form action="/apply/sra-number-3" method="post">
 
-            <h2 class="govuk-heading-m">SRA number</h2>
+            <h2 class="govuk-heading-m">Solicitors Regulation Authority number</h2>
             <p>{{data['sra-number']}} <a href="/apply/sra-number-2">Change</a></p>
 
-            <h2 class="govuk-heading-m">Company details</h2>
+            <h2 class="govuk-heading-m">Organisation details</h2>
             <p>Irwin Mitchell Solicitors<br>40 Holborn Viaduct<br> London<br> EC1N 2PZ</p>
+            <p>DX number: 123456</p>
             <p><a href="/apply/org-name">Enter your company's details manually</a></p>
 
             {{govukButton({

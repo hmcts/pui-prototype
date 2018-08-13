@@ -9,7 +9,7 @@
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-          <form action="/apply/email">
+          <form action="/apply/org-address">
 
             {{ govukInput({
               label: {
@@ -17,8 +17,8 @@
                 classes: 'govuk-label--xl',
                 isPageHeading: true
               },
-              id: "org",
-              name: "org"
+              id: "org-name",
+              name: "org-name"
             }) }}
 
             {{govukButton({
