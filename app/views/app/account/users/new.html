@@ -12,7 +12,7 @@
     })}}
     <main role="main" class="govuk-main-wrapper">
 
-      <h1 class="govuk-heading-xl">Create user</h1>
+      <h1 class="govuk-heading-xl">Invite user</h1>
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
@@ -23,7 +23,7 @@
                 classes: 'govuk-label--m'
               },
               hint: {
-                text: "They'll get sent an email prompting them to setup their account."
+                text: "We'll send the user a link so they can finish setting up their account."
               },
               id: "email",
               name: "email"
@@ -39,20 +39,20 @@
                 }
               },
               hint: {
-                text: "Give this user extra priviledges."
+                text: "All users can submit applications and view applications made by other users. You can also give them additional permissions."
               },
               items: [
                 {
                   value: "users",
-                  text: "Manage users"
+                  text: "Manage users - invite, approve and delete users; change permissions"
                 },
                 {
                   value: "payment",
-                  text: "Manages payment"
+                  text: "Manage payment - view payments; add and delete accounts"
                 },
                 {
                   value: "org",
-                  text: "Manages organisation"
+                  text: "Manage organisation - view and edit details"
                 }
               ]
             }) }}
