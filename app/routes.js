@@ -19,9 +19,9 @@ router.post('/apply/sra-number', (req, res) => {
 });
 
 router.post('/apply/sra-number-3', (req, res) => {
-	req.session.data['org-name'] = 'Irwin Mitchell Solicitors';
+	req.session.data['org-name'] = 'Sherwin Davis';
 	req.session.data['org-number'] = '123456';
-	req.session.data['org-address'] = '40 Holborn Viaduct<br> London<br> EC1N 2PZ';
+	req.session.data['org-address'] = '31 High Street<br> Norwich<br> NR2 8GG';
 	res.redirect('/apply/name')
 });
 
