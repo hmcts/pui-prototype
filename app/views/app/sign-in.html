@@ -2,13 +2,17 @@
 
 {% block page_title %}Sign in - Professional case manager{% endblock %}
 
-{% block accountNav %}
-  <nav class="jui-account-nav" aria-label="Global navigation">
-    <ul class="jui-account-nav__list">
-      <li class="jui-account-nav__item"><a class="jui-account-nav__link" href="/app/sign-in">Sign in</a></li>
-    </ul>
-  </nav>
-{% endblock %}
+{% block header %}
+
+      {{hmctsGlobalHeader({
+        serviceUrl: '/app/cases',
+        serviceName: 'Professional case manager',
+        navigation: [{
+          text: 'Sign in',
+          href: '/app/sign-in'
+        }]
+      })}}
+    {% endblock %}
 
 {% block content %}
 
