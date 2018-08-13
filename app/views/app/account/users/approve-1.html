@@ -1,0 +1,57 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set pageId = 'users' %}
+
+{% block content %}
+
+  {% include 'includes/primary-nav.html' %}
+
+  <div class="govuk-width-container">
+    {{govukBackLink({
+      href: '/app/account/users/approve-users'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+
+      <h1 class="govuk-heading-xl">Approve John Smith</h1>
+
+      <form action="/app/account/users/approve-users">
+
+
+          {{ govukCheckboxes({
+            idPrefix: "permissions",
+            name: "permissions",
+            fieldset: {
+              legend: {
+                text: "Permissions",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            hint: {
+              text: "Give this user extra privileges."
+            },
+            items: [
+              {
+                value: "users",
+                text: "Manage users"
+              },
+              {
+                value: "payment",
+                text: "Manages payment"
+              },
+              {
+                value: "org",
+                text: "Manages organisation"
+              }
+            ]
+          }) }}
+
+          {{govukButton({
+            text: 'Save'
+          })}}
+        </form>
+
+
+    </main>
+  </div>
+
+{% endblock %}

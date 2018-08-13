@@ -21,3 +21,35 @@ $govuk-global-styles: true;
 mark.comment {
   background-color: govuk-colour('orange');
 }
+
+.pui-case-action-alert {
+  background-color: govuk-colour("blue");
+  color: govuk-colour("white");
+  margin-bottom: govuk-spacing(6);
+  padding: govuk-spacing(4);
+}
+
+.pui-case-action-alert__heading {
+  color: inherit;
+  @include govuk-font(
+    $size: 24,
+    $weight: bold
+  );
+  color: inherit;
+  margin-bottom: govuk-spacing(2);
+  margin-top: 0;
+}
+
+.pui-case-action-alert__content {
+  color: inherit;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+.pui-case-action-alert__link:link,
+.pui-case-action-alert__link:visited {
+  color: govuk-colour("white");
+}

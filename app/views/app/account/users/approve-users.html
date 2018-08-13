@@ -1,0 +1,71 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set pageId = 'users' %}
+
+{% block content %}
+
+  {% include 'includes/primary-nav.html' %}
+
+  <div class="govuk-width-container">
+    {{govukBackLink({
+      href: '/app/account/users'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+
+      <h1 class="govuk-heading-xl">Approve users</h1>
+
+      {{ govukTable({
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "Email address"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: 'John Smith'
+            },
+            {
+              text: "john.smith@lawyers4u.com"
+            },
+            {
+              html: '<a href="/app/account/users/approve-1">Approve</a>&nbsp;&nbsp;&nbsp;<a href="/app/account/users/approve-user">Delete</a>'
+            }
+          ],
+          [
+            {
+              html: 'Stephanie Black'
+            },
+            {
+              text: "s.black@org.com"
+            },
+            {
+              html: '<a href="/app/account/users/approve-user">Approve</a>&nbsp;&nbsp;&nbsp;<a href="/app/account/users/approve-user">Delete</a>'
+            }
+          ],
+          [
+            {
+              html: 'Stephanie Black'
+            },
+            {
+              text: "s.black@org.com"
+            },
+            {
+              html: '<a href="/app/account/users/approve-user">Approve</a>&nbsp;&nbsp;&nbsp;<a href="/app/account/users/approve-user">Delete</a>'
+            }
+          ]
+        ]
+      }) }}
+
+
+
+    </main>
+  </div>
+
+{% endblock %}
