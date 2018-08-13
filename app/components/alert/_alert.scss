@@ -26,6 +26,7 @@
 
 
 .jui-alert__text {
+  @include govuk-font($size: 19);
   display: inline-block;
   padding: govuk-spacing(2);
   vertical-align: top;

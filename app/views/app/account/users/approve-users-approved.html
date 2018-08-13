@@ -14,11 +14,15 @@
 
       <h1 class="govuk-heading-xl">Approve users</h1>
 
-      {{puiAlert({
-        alertHtml: 'User approved successfully.',
-        alertClasses: 'jui-alert--success',
-        iconClasses: 'jui-alert__icon--success'
-      })}}
+      {{ puiAlert(
+        {
+          "icon": true,
+          "iconClasses": "jui-alert__icon--success",
+          "iconText": "Success!",
+          "alertText": 'Successfully approved the user.',
+          "alertClasses": "jui-alert--success"
+        })
+      }}
 
       {{ govukTable({
         head: [
