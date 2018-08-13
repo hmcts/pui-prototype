@@ -23,7 +23,7 @@
                 classes: 'govuk-label--m'
               },
               hint: {
-                text: "They'll get sent an email prompting them to setup their account."
+                text: "We'll send the user a link so they can finish setting up their account."
               },
               id: "email",
               name: "email"
@@ -39,26 +39,26 @@
                 }
               },
               hint: {
-                text: "Give this user extra priviledges."
+                text: "All users can submit applications and view applications made by other users. You can also give them additional permissions."
               },
               items: [
                 {
                   value: "users",
-                  text: "Manage users"
-                },
-                {
-                  value: "payment",
-                  text: "Manages payment"
+                  text: "Manage users - invite, approve and delete users; change permissions"
                 },
                 {
                   value: "org",
-                  text: "Manages organisation"
-                }
+                  text: "Manage organisation - view and edit details"
+                },
+                {
+                  value: "payment",
+                  text: "Manage payment - view payments; add and delete accounts"
+                }                
               ]
             }) }}
 
             {{govukButton({
-              text: 'Save'
+              text: 'Send invitation'
             })}}
           </form>
         </div>
