@@ -17,33 +17,33 @@
       <form action="/app/account/users/approve-users-approved">
 
 
-          {{ govukCheckboxes({
-            idPrefix: "permissions",
-            name: "permissions",
-            fieldset: {
-              legend: {
-                text: "Permissions",
-                classes: "govuk-fieldset__legend--m"
-              }
+        {{ govukCheckboxes({
+          idPrefix: "permissions",
+          name: "permissions",
+          fieldset: {
+            legend: {
+              text: "Permissions",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "All users can submit applications and view applications made by other users. You can also give them additional permissions."
+          },
+          items: [
+            {
+              value: "users",
+              text: "Manage users - invite, approve and delete users; change permissions"
             },
-            hint: {
-              text: "Give this user extra privileges."
+            {
+              value: "org",
+              text: "Manage organisation - view and edit details"
             },
-            items: [
-              {
-                value: "users",
-                text: "Manage users"
-              },
-              {
-                value: "payment",
-                text: "Manages payment"
-              },
-              {
-                value: "org",
-                text: "Manages organisation"
-              }
-            ]
-          }) }}
+            {
+              value: "payment",
+              text: "Manage payment - view payments; add and delete accounts"
+            }
+          ]
+        }) }}
 
           {{govukButton({
             text: 'Save'
