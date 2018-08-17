@@ -1,0 +1,76 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set pageId = 'users' %}
+
+{% block content %}
+
+  {% include 'includes/primary-nav.html' %}
+
+  <div class="govuk-width-container">
+    {{govukBackLink({
+      href: '/app/account/users'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+      
+      <h2 class="govuk-heading-xl">Users who can view and edit the case</h1>
+
+        {{govukButton({
+          text: 'Share with another user',
+          href: '/app/share-case/email'
+        })}}
+
+      {{ govukTable({
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "Email address"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: 'John Smith'
+            },
+            {
+              text: "john.smith@sherwindavis.co.uk"
+            },
+            {
+              html: '<a href="/app/account/users/approve-user">Remove</a>'
+            }
+          ],
+          [
+            {
+              html: 'Stephanie Black'
+            },
+            {
+              text: "stephanie.black@sherwindavis.co.uk"
+            },
+            {
+              html: '<a href="/app/account/users/approve-user">Remove</a>'
+            }
+          ],
+          [
+            {
+              html: 'Judith Robinson'
+            },
+            {
+              text: "judith.robinson@sherwindavis.co.uk"
+            },
+            {
+              html: '<a href="/app/account/users/approve-user">Remove</a>'
+            }
+          ]
+        ]
+      }) }}
+
+
+
+    </main>
+  </div>
+
+{% endblock %}
