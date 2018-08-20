@@ -1,0 +1,59 @@
+{% extends "layouts/admin/base.html" %}
+
+{% block page_title %}Sign in - Professional case manager{% endblock %}
+
+{% block header %}
+  {{hmctsGlobalHeader({
+    serviceUrl: '/app/manage-a-case',
+    serviceName: 'Manage a case',
+    navigation: [{
+      text: 'Sign in',
+      href: '/app/sign-in'
+    }]
+  })}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+    <h1 class="govuk-heading-l">Sign in</h1>
+
+    <form method="get" action="/app/manage-a-case/find-case">
+
+      {{ govukInput({
+        label: {
+          html: "Email address",
+          classes: "govuk-!-width-one-third"
+        },
+        id: "email-address",
+        name: "email-address",
+        classes: 'govuk-!-width-one-third'
+      }) }}
+
+      {{ govukInput({
+        label: {
+          html: "Password",
+          classes: "govuk-!-width-one-third"
+        },
+        id: "password",
+        name: "password",
+        type: "password",
+        classes: "govuk-!-width-one-third"
+      }) }}
+
+      {{ govukButton({
+        "text": "Sign in"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body"><a href="">Forgotten your password?</a></p>
+
+  </main>
+
+</div>
+
+{% endblock %}

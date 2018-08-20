@@ -1,0 +1,49 @@
+{% extends "layouts/admin/base.html" %}
+
+{% block page_title %}Sign in - Professional case manager{% endblock %}
+
+{% block header %}
+  {{hmctsGlobalHeader({
+    serviceUrl: '/app/manage-a-case/find-case',
+    serviceName: 'Manage a case',
+    navigation: [{
+      text: 'Sign out',
+      href: '/app/sign-out'
+    }]
+  })}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          <span class="govuk-caption-xl">Case number 123456</span>
+          Divorce between John Smith v Amy Smith
+        </h1>
+
+        {{ govukPanel({
+          titleHtml: "Applied for decree nisi"
+        }) }}
+        <br>
+
+        <h2 class="govuk-heading-l">Todos</h2>
+        <p><a href="#">Upload evidence</a></p>
+        <p><a href="#">Make a payment</a></p>
+        <h2 class="govuk-heading-l">Actions</h2>
+        <p><a href="#">Cancel application</a></p>
+        <p><a href="#">Update address</a></p>
+        <p><a href="#">Share case</a></p>
+      </div>
+    </div>
+
+
+  </main>
+
+</div>
+
+{% endblock %}
