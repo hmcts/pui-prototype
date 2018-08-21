@@ -7,7 +7,7 @@
 <div class="govuk-width-container">
   {{govukBackLink({
     href: '/app/manage-a-case/find-case',
-    text: 'Back to search'
+    text: 'Search for another case'
   })}}
   <main role="main" class="govuk-main-wrapper">
 
@@ -15,29 +15,50 @@
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">
           <span class="govuk-caption-xl">Case number 123456</span>
-          Divorce: John Smith v Amy Smith
+          John Smith v Amy Smith
         </h1>
+
+        <div class="pui-case-action-alert">
+          <h2 class="pui-case-action-alert__heading">Action needed</h2>
+          <div class="pui-case-action-alert__content">
+            <p><a class="pui-case-action-alert__link" href="/app/manage-a-case/upload-evidence">Upload evidence of John Smith's new salary</a></p>
+          </div>
+        </div>
 
         {% set status = 'Applied for decree nisi' %}
         {% if data.status %}
           {% set status = data.status %}
         {% endif %}
 
+        {{ govukTable({
+          "classes": "govuk-!-margin-bottom-7  jui-table  jui-table--fixed",
+          "firstCellIsHeader": true,
+          "rows": [
+            [{
+              text: 'Status'
+            },
+            {
+              text: status
+            }],
+            [{
+              text: 'Type'
+            },
+            {
+              text: 'Divorce'
+            }]
+          ]
+        }) }}
 
-        {{ puiAlert(
+
+
+
+
+        <!-- {{ puiAlert(
           {
             alertText: status
           })
-        }}
+        }} -->
 
-        <h2 class="govuk-heading-l">Todos</h2>
-        <ul class="govuk-list">
-          <li><a href="/app/manage-a-case/upload-evidence">Upload evidence of John Smith's new salary</a></li>
-          <li><a href="#">Make payment</a></li>
-        </ul>
-
-
-        <h2 class="govuk-heading-l">Actions</h2>
         <ul class="govuk-list">
           <li><a href="/app/share-case/shared-with">Share case</a></li>
           <li><a href="#">Change application details</a></li>
