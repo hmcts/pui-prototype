@@ -8,14 +8,17 @@
         <div class="govuk-grid-column-two-thirds">
           <form action="/app/share-case/shared-with-added">
 
-            {{ govukInput({
+            {{ govukTextarea({
               label: {
-                text: "What's the email address of the person you want to share the case with?",
+                text: "Email addresses",
                 classes: 'govuk-label--xl',
                 isPageHeading: true
               },
-              id: "email",
-              name: "email"
+              hint: {
+                html: 'You can enter multiple email addresses separate by a comma'
+              },
+              id: "name",
+              name: "name"
             }) }}
 
             {{govukButton({

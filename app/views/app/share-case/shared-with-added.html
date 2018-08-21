@@ -1,34 +1,27 @@
-{% extends "layouts/admin/base.html" %}
-
-{% set pageId = 'users' %}
+{% extends "layouts/service/base.html" %}
 
 {% block content %}
 
-  {% include 'includes/primary-nav.html' %}
-
   <div class="govuk-width-container">
-    {{govukBackLink({
-      href: '/app/account/users'
-    })}}
     <main role="main" class="govuk-main-wrapper">
-      
+
       {{ puiAlert(
         {
           "icon": true,
           "iconClasses": "jui-alert__icon--success",
           "iconText": "Success!",
-          "alertText": 'Successfully approved ' + data.name + '.',
+          "alertText": 'Successfully invited ' + data.name + '.',
           "alertClasses": "jui-alert--success"
         })
       }}
 
 
-      <h2 class="govuk-heading-xl">Users who can view and edit the case</h1>
+      <h1 class="govuk-heading-xl">
+          <span class="govuk-caption-xl">Case number 123456</span>
+          Manage user access
+        </h1>
 
-        {{govukButton({
-          text: 'Share with another user',
-          href: '/app/share-case/email'
-        })}}
+
 
       {{ govukTable({
         head: [
@@ -89,6 +82,13 @@
           ]
         ]
       }) }}
+
+
+      {{govukButton({
+        text: 'Share with another user',
+        href: '/app/share-case/email'
+      })}}
+      <p><a href="/app/manage-a-case/case-1">Go to the case</a></p>
 
 
 

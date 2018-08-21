@@ -5,20 +5,28 @@
 {% block content %}
 
 <div class="govuk-width-container">
-
+  {{govukBackLink({
+    href: '/app/manage-a-case/find-case',
+    text: 'Back to search'
+  })}}
   <main role="main" class="govuk-main-wrapper">
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">
           <span class="govuk-caption-xl">Case number 123456</span>
-          Divorce between John Smith v Amy Smith
+          Divorce: John Smith v Amy Smith
         </h1>
+
+        {% set status = 'Applied for decree nisi' %}
+        {% if data.status %}
+          {% set status = data.status %}
+        {% endif %}
+
 
         {{ puiAlert(
           {
-            "alertText": 'Applied for decree nisi',
-            "alertClasses": "jui-alert--success"
+            alertText: status
           })
         }}
 
@@ -31,9 +39,9 @@
 
         <h2 class="govuk-heading-l">Actions</h2>
         <ul class="govuk-list">
-          <li><a href="#">Cancel application</a></li>
-          <li><a href="#">Update address</a></li>
           <li><a href="/app/share-case/shared-with">Share case</a></li>
+          <li><a href="#">Change application details</a></li>
+          <li><a href="/app/manage-a-case/cancel-application">Cancel application</a></li>
         </ul>
 
       </div>
