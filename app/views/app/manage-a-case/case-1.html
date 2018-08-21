@@ -1,17 +1,6 @@
-{% extends "layouts/admin/base.html" %}
+{% extends "layouts/service/base.html" %}
 
 {% block page_title %}Sign in - Professional case manager{% endblock %}
-
-{% block header %}
-  {{hmctsGlobalHeader({
-    serviceUrl: '/app/manage-a-case/find-case',
-    serviceName: 'Manage a case',
-    navigation: [{
-      text: 'Sign out',
-      href: '/app/sign-out'
-    }]
-  })}}
-{% endblock %}
 
 {% block content %}
 
@@ -26,18 +15,27 @@
           Divorce between John Smith v Amy Smith
         </h1>
 
-        {{ govukPanel({
-          titleHtml: "Applied for decree nisi"
-        }) }}
-        <br>
+        {{ puiAlert(
+          {
+            "alertText": 'Applied for decree nisi',
+            "alertClasses": "jui-alert--success"
+          })
+        }}
 
         <h2 class="govuk-heading-l">Todos</h2>
-        <p><a href="#">Upload evidence</a></p>
-        <p><a href="#">Make a payment</a></p>
+        <ul class="govuk-list">
+          <li><a href="#">Upload evidence</a></li>
+          <li><a href="#">Make payment</a></li>
+        </ul>
+
+
         <h2 class="govuk-heading-l">Actions</h2>
-        <p><a href="#">Cancel application</a></p>
-        <p><a href="#">Update address</a></p>
-        <p><a href="#">Share case</a></p>
+        <ul class="govuk-list">
+          <li><a href="#">Cancel application</a></li>
+          <li><a href="#">Update address</a></li>
+          <li><a href="/app/share-case/shared-with">Share case</a></li>
+        </ul>
+
       </div>
     </div>
 

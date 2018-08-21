@@ -1,17 +1,7 @@
-{% extends "layouts/admin/base.html" %}
+{% extends "layouts/service/base.html" %}
 
 {% block page_title %}Sign in - Professional case manager{% endblock %}
 
-{% block header %}
-  {{hmctsGlobalHeader({
-    serviceUrl: '/app/manage-a-case/find-case',
-    serviceName: 'Manage a case',
-    navigation: [{
-      text: 'Sign out',
-      href: '/app/sign-out'
-    }]
-  })}}
-{% endblock %}
 
 {% block content %}
 

@@ -1,23 +1,16 @@
-{% extends "layouts/admin/base.html" %}
+{% extends "layouts/service/base.html" %}
 
 {% set pageId = 'users' %}
+{% set serviceName = 'Share a case' %}
 
 {% block content %}
 
-  {% include 'includes/primary-nav.html' %}
-
   <div class="govuk-width-container">
-    {{govukBackLink({
-      href: '/app/account/users'
-    })}}
     <main role="main" class="govuk-main-wrapper">
-      
-      <h2 class="govuk-heading-xl">Users who can view and edit the case</h1>
-
-        {{govukButton({
-          text: 'Share with another user',
-          href: '/app/share-case/name'
-        })}}
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Case number 123456</span>
+        Manage user access
+      </h1>
 
       {{ govukTable({
         head: [
@@ -68,7 +61,12 @@
         ]
       }) }}
 
+      {{govukButton({
+        text: 'Share with another user',
+        href: '/app/share-case/name'
+      })}}
 
+      <p><a href="/app/manage-a-case/case-1">Go to the case</a></p>
 
     </main>
   </div>
