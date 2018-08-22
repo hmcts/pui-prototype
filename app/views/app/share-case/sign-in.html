@@ -1,18 +1,6 @@
-{% extends "layouts/admin/base.html" %}
+{% extends "layouts/service/base.html" %}
 
-{% block page_title %}Sign in - Professional case manager{% endblock %}
-
-{% block header %}
-
-      {{hmctsGlobalHeader({
-        serviceUrl: '/app/share-case/reference',
-        serviceName: 'Share a case with a colleague',
-        navigation: [{
-          text: 'Sign in',
-          href: '/app/sign-in'
-        }]
-      })}}
-    {% endblock %}
+{% set serviceName = 'Manage access to a case' %}
 
 {% block content %}
 

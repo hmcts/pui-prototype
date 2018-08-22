@@ -1,0 +1,61 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = '' %}
+
+{% block beforeContent %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "HMCTS Legal Services"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Guidance</span>
+        HMCTS online services for professionals
+      </h1>
+
+      <p class="govuk-body-l">Register and manage multiple services etc etc etc. Register and manage multiple services etc etc etc. Register and manage multiple services etc etc etc.</p>
+
+      <div class="govuk-body-s">
+        Published 23 October 2014<br>
+        Last updated 27 June 2017<br>
+        From: <strong>HMCTS</strong>
+      </div>
+
+
+      <h2 class="govuk-heading-m">Cases</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="#">Create case</a></li>
+        <li><a href="#">Manage case</a></li>
+        <li><a href="#">Share case</a></li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Users</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="#">Create an account</a></li>
+        <li><a href="#">Manage account</a></li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Organisations</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="#">Manage an organisation</a></li>
+      </ul>
+
+  </div>
+{% endblock %}

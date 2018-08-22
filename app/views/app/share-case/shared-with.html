@@ -1,7 +1,7 @@
 {% extends "layouts/service/base.html" %}
 
 {% set pageId = 'users' %}
-{% set serviceName = 'Share a case' %}
+{% set serviceName = 'Manage access to a case' %}
 
 {% block content %}
 
@@ -11,6 +11,8 @@
         <span class="govuk-caption-xl">Case number 123456</span>
         Manage user access
       </h1>
+
+      <p class="govuk-body">You have shared the case with 3 users.</p>
 
       {{ govukTable({
         head: [
