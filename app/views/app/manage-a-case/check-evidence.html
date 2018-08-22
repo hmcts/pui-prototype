@@ -29,10 +29,10 @@
           </div>
         </dl>
 
-        <form method="post" action="/apply/confirmation">
+        <form method="get" action="/app/manage-a-case/evidence-confirmation">
+          <input type="hidden" name="evidence-submitted" value="yes">
           {{ govukButton({
-            "text": "Submit evidence",
-            href: '/app/manage-a-case/evidence-confirmation'
+            "text": "Submit evidence"
           }) }}
         </form>
       </div>
