@@ -9,7 +9,7 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <form action="/app/share-case/shared-with-added">
-
+            <input type="hidden" name="shared-name" value="Jenny Silver">
             {{ govukTextarea({
               label: {
                 text: "Email addresses",
@@ -19,8 +19,8 @@
               hint: {
                 html: 'You can enter multiple email addresses separate by a comma'
               },
-              id: "name",
-              name: "name"
+              id: "shared-email",
+              name: "shared-email"
             }) }}
 
             {{govukButton({

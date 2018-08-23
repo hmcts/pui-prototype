@@ -12,7 +12,7 @@
           "icon": true,
           "iconClasses": "jui-alert__icon--success",
           "iconText": "Success!",
-          "alertText": 'Successfully invited ' + data.name + '.',
+          "alertText": 'Successfully invited ' + data['shared-name'] + '.',
           "alertClasses": "jui-alert--success"
         })
       }}
@@ -42,10 +42,10 @@
         rows: [
         [
             {
-              html: data.name
+              html: data['shared-name']
             },
             {
-              html: data.email
+              html: data['shared-email']
             },
             {
               html: '<a href="/app/account/users/approve-user">Remove</a>'
