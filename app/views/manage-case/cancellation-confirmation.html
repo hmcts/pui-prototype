@@ -1,0 +1,30 @@
+{% extends "layouts/service/base.html" %}
+
+{% block page_title %}Sign in - Professional case manager{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "Application cancelled",
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+
+      <p class="govuk-body">We've sent you a confirmation email.</p>
+
+      <h3 class="govuk-heading-m">What happens next</h3>
+
+      <p class="govuk-body">
+       We'll send the cancellation request to the court.
+      </p>
+
+      <p class="govuk-body">
+        <a href="/app/manage-a-case/find-case">Find another case</a>
+      </p>
+
+    </div>
+  </div>
+
+
+{% endblock %}

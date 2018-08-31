@@ -1,0 +1,32 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS account' %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "Application complete",
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+
+      <p class="govuk-body">We've sent you a confirmation email.</p>
+
+      <h3 class="govuk-heading-m">What happens next</h3>
+
+      <!-- <p class="govuk-body">
+       We'll email you again within 3 working days, either to confirm your registration or to ask for more information.
+      </p> -->
+
+      <p class="govuk-body">
+        You can use HMCTS online services straight away to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+       <li><a href="">create a case</a></li>
+       <li><a href="/app/manage-a-case/find-case">manage a case</a> - if you created it or someone gave you access</li>
+       </p>
+
+    </div>
+  </div>
+
+{% endblock %}

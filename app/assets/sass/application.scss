@@ -53,3 +53,12 @@ mark.comment {
 .pui-case-action-alert__link:visited {
   color: govuk-colour("white");
 }
+
+.hmcts-navigation {
+  @include mq($from: desktop) {
+    position: absolute;
+    right: 0;
+    top: 12px;
+  }
+
+}

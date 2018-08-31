@@ -1,0 +1,52 @@
+{% extends "layouts/service/base.html" %}
+
+{% block page_title %}Sign in - Professional case manager{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  {{govukBackLink({
+    href: './case-1',
+    text: 'Back to case'
+  })}}
+  <main role="main" class="govuk-main-wrapper">
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          <span class="govuk-caption-xl">Case number 123456</span>
+          Upload evidence of John Smith's new salary
+        </h1>
+        <form method="get" action="/manage-case/check-evidence">
+          {{ govukFileUpload({
+            id: "file-upload-1",
+            name: "file-upload-1",
+            label: {
+              text: "Upload evidence",
+              classes: 'govuk-label--m'
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: "comments",
+            id: "comments",
+            label: {
+              text: "Additional comments (optional)",
+              classes: 'govuk-label--m'
+            }
+          }) }}
+          {{ govukButton({
+            "text": "Continue"
+          }) }}
+        </form>
+      </div>
+    </div>
+
+
+  </main>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layouts/service/base.html" %}
+
+{% block page_title %}Sign in - Professional case manager{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  {{govukBackLink({
+    href: '/app/manage-a-case/case-1',
+    text: 'Back to case'
+  })}}
+  <main role="main" class="govuk-main-wrapper">
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          <span class="govuk-caption-xl">Case number 123456</span>
+          Are you sure you wish to cancel the application?
+        </h1>
+        <form method="get" action="/app/manage-a-case/cancellation-confirmation">
+          <input type="hidden" name="status" value="Application cancelled">
+          {{ govukButton({
+            "text": "Cancel the application"
+          }) }}
+
+        </form>
+      </div>
+    </div>
+
+
+  </main>
+
+</div>
+
+{% endblock %}

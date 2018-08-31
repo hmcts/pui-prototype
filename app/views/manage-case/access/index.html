@@ -1,0 +1,73 @@
+{% extends "layouts/service/base.html" %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    <main role="main" class="govuk-main-wrapper">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Case number 123456</span>
+        Manage access
+      </h1>
+
+      <p class="govuk-body">You have shared the case with 3 users.</p>
+
+      {{ govukTable({
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "Email address"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: 'John Smith'
+            },
+            {
+              text: "john.smith@sherwindavis.co.uk"
+            },
+            {
+              html: '<a href="#">Remove</a>'
+            }
+          ],
+          [
+            {
+              html: 'Stephanie Black'
+            },
+            {
+              text: "stephanie.black@sherwindavis.co.uk"
+            },
+            {
+              html: '<a href="#">Remove</a>'
+            }
+          ],
+          [
+            {
+              html: 'Judith Robinson'
+            },
+            {
+              text: "judith.robinson@sherwindavis.co.uk"
+            },
+            {
+              html: '<a href="#">Remove</a>'
+            }
+          ]
+        ]
+      }) }}
+
+      {{govukButton({
+        text: 'Share with another user',
+        href: '/manage-case/access/email'
+      })}}
+
+      <p><a href="/manage-case/case-1">Go to the case</a></p>
+
+    </main>
+  </div>
+
+{% endblock %}

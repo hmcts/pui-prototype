@@ -1,0 +1,46 @@
+{% extends "layouts/service/base.html" %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+    <h1 class="govuk-heading-l">Sign in</h1>
+
+    <form method="get" action="/manage-case/find-case">
+
+      {{ govukInput({
+        label: {
+          html: "Email address",
+          classes: "govuk-!-width-one-third"
+        },
+        id: "email-address",
+        name: "email-address",
+        classes: 'govuk-!-width-one-third'
+      }) }}
+
+      {{ govukInput({
+        label: {
+          html: "Password",
+          classes: "govuk-!-width-one-third"
+        },
+        id: "password",
+        name: "password",
+        type: "password",
+        classes: "govuk-!-width-one-third"
+      }) }}
+
+      {{ govukButton({
+        "text": "Sign in"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body"><a href="">Forgotten your password?</a></p>
+
+  </main>
+
+</div>
+
+{% endblock %}

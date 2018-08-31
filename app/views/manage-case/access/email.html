@@ -1,0 +1,35 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Manage access to a case' %}
+
+{% block content %}
+  <div class="govuk-width-container">
+    <main role="main" class="govuk-main-wrapper">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <form action="confirmation" method="get">
+            <input type="hidden" name="shared-name" value="Jenny Silver">
+            {{ govukTextarea({
+              label: {
+                text: "Email addresses",
+                classes: 'govuk-label--xl',
+                isPageHeading: true
+              },
+              hint: {
+                html: 'You can enter multiple email addresses separate by a comma'
+              },
+              id: "shared-email",
+              name: "shared-email"
+            }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+{% endblock %}
