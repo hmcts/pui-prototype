@@ -15,8 +15,11 @@
 
           {{ govukInput({
             label: {
-              html: '<h1 class="govuk-label__heading govuk-!-margin-bottom-0">Find a case</h1>',
+              html: '<h1 class="govuk-label__heading govuk-!-margin-bottom-0">What\'s the court reference number for the case?</h1>',
               isPageHeading: true
+            },
+            hint: {
+              html: 'For example 1234-5678-1234-5678'
             },
             id: "case-number",
             name: "case-number"
@@ -29,8 +32,8 @@
         </form>
       </div>
     </div>
-
-    <!-- <div class="govuk-grid-row">
+<!-- 
+    <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h2 class="govuk-heading-xl">Your cases</h2>
       </div>
@@ -47,7 +50,7 @@
               {{ govukInput({
 
                 label: {
-                  html: 'Case number',
+                  html: 'Case reference',
                   classes: 'hidden'
                 },
                 id: "case-number",
@@ -80,25 +83,25 @@
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="row"><a href="">KM/3002992</a></th>
+              <th class="govuk-table__header" scope="row"><a href="">2992-3984-7729-1850</a></th>
               <td class="govuk-table__cell ">John Smith v Jane Smith</td>
               <td class="govuk-table__cell ">Financial remedy</td>
               <td class="govuk-table__cell ">Awaiting payment</td>
             </tr>
             <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="row"><a href="">KM/3301900</a></th>
+              <th class="govuk-table__header" scope="row"><a href="">7459-0990-2759-1124</a></th>
               <td class="govuk-table__cell ">Warren Sutton</td>
               <td class="govuk-table__cell ">Probate</td>
               <td class="govuk-table__cell ">Awaiting documentation</td>
             </tr><tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="row"><a href="">KM/5918392</a></th>
+              <th class="govuk-table__header" scope="row"><a href="">5531-4893-2885-3995</a></th>
               <td class="govuk-table__cell ">Alan Jones</td>
               <td class="govuk-table__cell ">Probate</td>
               <td class="govuk-table__cell ">Examining</td>
 
             </tr>
              <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="row"><a href="">KM/6692638</a></th>
+              <th class="govuk-table__header" scope="row"><a href="">3883-3325-4754-5242</a></th>
               <td class="govuk-table__cell ">David Francis v Susan Francis</td>
               <td class="govuk-table__cell ">Divorce</td>
               <td class="govuk-table__cell ">Petition paid and submitted</td>
@@ -107,41 +110,41 @@
                </tr>
 
              <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="row"><a href="">KM/9772973</a></th>
+              <th class="govuk-table__header" scope="row"><a href="">8901-3804-3774-1299</a></th>
               <td class="govuk-table__cell ">John Smith v Jane Smith</td>
               <td class="govuk-table__cell ">Divorce</td>
               <td class="govuk-table__cell ">Petition issued</td>
             </tr>
              <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="row"><a href="">KM/2235572</a></th>
+              <th class="govuk-table__header" scope="row"><a href="">4893-8859-2884-2311</a></th>
               <td class="govuk-table__cell ">Sally Lane v James Lane</td>
               <td class="govuk-table__cell ">Divorce</td>
               <td class="govuk-table__cell ">Awaiting help with fees decision</td>
 
             </tr>
              <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="row"><a href="">KM/1002998</a></th>
+              <th class="govuk-table__header" scope="row"><a href="">6900-3918-8491-3995</a></th>
               <td class="govuk-table__cell ">Damien Salmon v Patricia Salmon</td>
               <td class="govuk-table__cell ">Financial remedy</td>
               <td class="govuk-table__cell ">Consent order approved</td>
 
             </tr>
              <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="row"><a href="">KM/6636271</a></th>
+              <th class="govuk-table__header" scope="row"><a href="">4543-2466-3123-1899</a></th>
               <td class="govuk-table__cell ">Sarah Kinnear</td>
               <td class="govuk-table__cell ">Probate</td>
               <td class="govuk-table__cell ">Stopped</td>
 
             </tr>
              <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="row"><a href="">KM/9772973</a></th>
+              <th class="govuk-table__header" scope="row"><a href="">5950-4399-3889-3991</a></th>
               <td class="govuk-table__cell ">Rukhsana Khan v Ali Khan</td>
               <td class="govuk-table__cell ">Divorce</td>
               <td class="govuk-table__cell ">Case created and awaiting action by the petitioner</td>
 
             </tr>
              <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="row"><a href="">KM/9772973</a></th>
+              <th class="govuk-table__header" scope="row"><a href="">5994-3991-5894-9389</a></th>
               <td class="govuk-table__cell ">Kieran Flick</td>
               <td class="govuk-table__cell ">Probate</td>
               <td class="govuk-table__cell ">Grant issued</td>

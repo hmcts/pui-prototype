@@ -12,14 +12,20 @@
 
         <h3 class="govuk-heading-m">What happens next</h3>
 
-        <p class="govuk-body">
-          We'll contact the organisation you have told us about and take you off the case accordingly.
-        </p>
+        <div class="govuk-body">
+          <p>
+            We've contacted {{data['transfer-email-address']}} to tell them that you want to transfer the case to them.
+          </p>
 
-        <p class="govuk-body">
-          <a href="/manage-case">Find another case</a>
-        </p>
+          <p>
+            You can no longer access the case. 
+          </p>
 
+          <p>
+            <a href="/manage-case">Find another case</a>
+          </p>
+
+        </div>
 
     </main>
   </div>

@@ -14,14 +14,14 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
           <h1 class="govuk-heading-xl">
-              <span class="govuk-caption-xl">Case number 123456</span>
+              <span class="govuk-caption-xl">Case number {{data['case-number']}}</span>
               Request transfer to another organisation
             </h1>
         <form method="get" action="/manage-case/transfer/confirmation">
 
           {{ govukInput({
             label: {
-              html: '<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Email address you want to transfer the case to</h2>',
+              html: '<h2 class="govuk-heading-m govuk-!-margin-bottom-0">What email address do you want to transfer the case to?</h2>',
               isPageHeading: true
             },
             hint: {

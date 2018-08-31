@@ -31,7 +31,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">
-          <span class="govuk-caption-xl">Case number 123456</span>
+          <span class="govuk-caption-xl">Case {{data['case-number']}}</span>
           John Smith v Amy Smith
         </h1>
 
@@ -70,9 +70,9 @@
 
 
         <ul class="govuk-list">
-          <li><a href="./send-message">Send message (or file)</a></li>
+          <li><a href="./send-message">Send message or upload file</a></li>
           <li><a href="./access">Manage access</a></li>
-          <li><a href="./transfer">Request transfer</a></li>
+          <li><a href="./transfer">Request transfer to another organisation</a></li>
           <li><a href="./end-case">End the case</a></li>
           <!-- <li><a href="./cancel-application">Issue general application and charge me something</a></li> -->
         </ul>
