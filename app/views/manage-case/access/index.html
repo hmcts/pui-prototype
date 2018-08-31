@@ -11,19 +11,55 @@
 
       <p class="govuk-body">You have shared the case with 3 users.</p>
 
-      {{ govukTable({
-        head: [
+      {% if data['shared-name'] %}
+      {% set rows = [
+        [
           {
-            text: "Name"
+            html: data['shared-name']
           },
           {
-            text: "Email address"
+            text: data['shared-email']
           },
           {
-            text: "Actions"
+            html: '<a href="#">Remove</a>'
           }
         ],
-        rows: [
+        [
+          {
+            html: 'John Smith'
+          },
+          {
+            text: "john.smith@sherwindavis.co.uk"
+          },
+          {
+            html: '<a href="#">Remove</a>'
+          }
+        ],
+        [
+          {
+            html: 'Stephanie Black'
+          },
+          {
+            text: "stephanie.black@sherwindavis.co.uk"
+          },
+          {
+            html: '<a href="#">Remove</a>'
+          }
+        ],
+        [
+          {
+            html: 'Judith Robinson'
+          },
+          {
+            text: "judith.robinson@sherwindavis.co.uk"
+          },
+          {
+            html: '<a href="#">Remove</a>'
+          }
+        ]
+      ] %}
+      {% else %}
+        {% set rows = [
           [
             {
               html: 'John Smith'
@@ -57,7 +93,23 @@
               html: '<a href="#">Remove</a>'
             }
           ]
-        ]
+        ] %}
+      {% endif %}
+
+
+      {{ govukTable({
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "Email address"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: rows
       }) }}
 
       {{govukButton({
