@@ -11,6 +11,23 @@
   })}}
   <main role="main" class="govuk-main-wrapper">
 
+      <!-- {{hmctsSubNavigation({
+        items: [{
+          text: 'Summary',
+          href: '/manage-account',
+          active: true
+        }, {
+          text: 'Messages',
+          href: '/manage-account/organisation',
+          active: false
+        }, {
+          text: 'Access',
+          href: '/manage-account/organisation',
+          active: false
+        }]
+      })}} -->
+
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">
@@ -51,14 +68,24 @@
           ]
         }) }}
 
+
         <ul class="govuk-list">
+          <li><a href="./send-message">Send message (or file)</a></li>
           <li><a href="./access">Manage access</a></li>
-          <li><a href="#">Upload documents</a></li>
-          <li><a href="#">Ask a question about the case</a></li>
-          <li><a href="./transfer-case">Transfer the case to another organisation</a></li>
-          <li><a href="./cancel-application">End the case</a></li>
+          <li><a href="./transfer">Request transfer</a></li>
+          <li><a href="./end-case">End the case</a></li>
+          <li><a href="./cancel-application">Issue general application and charge me something</a></li>
         </ul>
 
+      </div>
+      <div class="govuk-grid-column-one-third">
+          <!-- <ul class="govuk-list">
+              <li><a href="./messages">Messages</a> (1 new)</li>
+              <li><a href="./access">Access</a></li>
+              <li><a href="#">Documents</a></li>
+              <li><a href="./transfer-case">Transfer the case to another organisation</a></li>
+              <li><a href="./cancel-application">End the case</a></li>
+            </ul> -->
       </div>
     </div>
 

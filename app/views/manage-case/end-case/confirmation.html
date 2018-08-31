@@ -1,0 +1,27 @@
+{% extends "layouts/service/base.html" %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    <main role="main" class="govuk-main-wrapper">
+
+        {{ govukPanel({
+          titleText: "Case ended",
+          html: 'Reference P4S12345'
+        }) }}
+
+        <h3 class="govuk-heading-m">What happens next</h3>
+
+        <p class="govuk-body">
+          We'll end the case.
+        </p>
+
+        <p class="govuk-body">
+          <a href="/manage-case">Find another case</a>
+        </p>
+
+
+    </main>
+  </div>
+
+{% endblock %}

@@ -7,7 +7,7 @@
 
 <div class="govuk-width-container">
   {{govukBackLink({
-    href: '/manage-a-case/case-1'
+    href: '/manage-case/case-1'
   })}}
   <main role="main" class="govuk-main-wrapper">
 
@@ -15,9 +15,9 @@
       <div class="govuk-grid-column-two-thirds">
           <h1 class="govuk-heading-xl">
               <span class="govuk-caption-xl">Case number 123456</span>
-              Transfer case to another organisation
+              Request transfer to another organisation
             </h1>
-        <form method="get" action="/app/manage-a-case/case-transferred">
+        <form method="get" action="/manage-case/transfer/confirmation">
 
           {{ govukInput({
             label: {
@@ -32,7 +32,7 @@
           }) }}
 
           {{ govukButton({
-            "text": "Transfer case"
+            "text": "Request transfer"
           }) }}
 
         </form>

@@ -1,0 +1,48 @@
+{% extends "layouts/service/base.html" %}
+
+{% block page_title %}Sign in - Professional case manager{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  {{govukBackLink({
+    href: '/manage-case/case-1'
+  })}}
+  <main role="main" class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">
+              <span class="govuk-caption-xl">Case number 123456</span>
+              End case
+            </h1>
+        <form method="get" action="/manage-case/end-case/confirmation">
+
+          {{ govukTextarea({
+            name: "more-detail",
+            id: "more-detail",
+            label: {
+              text: "Why do you want to end the case?",
+              classes: 'govuk-label--m'
+            },
+            hint: {
+              text: "After you end the case, you will no longer have access."
+            }
+          }) }}
+
+
+          {{ govukButton({
+            "text": "End case"
+          }) }}
+
+        </form>
+      </div>
+    </div>
+
+
+  </main>
+
+</div>
+
+{% endblock %}
