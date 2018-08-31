@@ -1,0 +1,52 @@
+{% extends "layouts/service/base.html" %}
+
+{% block page_title %}Sign in - Professional case manager{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {{ puiAlert(
+          {
+            "icon": true,
+            "iconClasses": "jui-alert__icon--success",
+            "iconText": "Success!",
+            "alertText": 'Transferred case 123456 to ' + data['transfer-email-address'],
+            "alertClasses": "jui-alert--success"
+          })
+        }}
+  
+        <form method="get" action="/app/manage-a-case/case-1">
+
+          {{ govukInput({
+            label: {
+              html: '<h1 class="govuk-label__heading govuk-!-margin-bottom-0">Find a case</h1>',
+              isPageHeading: true
+            },
+            hint: {
+              html: 'Enter a case number. For example, 123456.'
+            },
+            id: "case-number",
+            name: "case-number"
+          }) }}
+
+          {{ govukButton({
+            "text": "Search"
+          }) }}
+
+        </form>
+      </div>
+    </div>
+
+
+  </main>
+
+</div>
+
+{% endblock %}

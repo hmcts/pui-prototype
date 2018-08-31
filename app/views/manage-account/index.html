@@ -1,0 +1,78 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Manage HMCTS account' %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+    <h1 class="govuk-heading-xl">Manage account</h1>
+
+    <p class="govuk-body">You have permission to <a href="/a/a/">manage your organisation's details</a>.</p>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukTable({
+              firstCellIsHeader: true,
+              rows: [
+                [
+                  {
+                    text: "Name"
+                  },
+                  {
+                    text: "Kerry Miles"
+                  },
+                  {
+                    html: '<a href="/">Change</a>'
+                  }
+                ],
+                [
+                  {
+                    text: "Email address"
+                  },
+                  {
+                    text: "kerry.miles@sherwindavis.co.uk"
+                  },
+                  {
+                    html: '<a href="/">Change</a>'
+                  }
+                ],
+                [
+                  {
+                    text: "Organisation"
+                  },
+                  {
+                    html: 'Sherwin Davis'
+                  },
+                  {
+                    html: ''
+                  }
+                ],
+                [
+                  {
+                    text: "Organisation address"
+                  },
+                  {
+                    html: "31 High Street<br>Norwich<br>NR2 8GG"
+                  },
+                  {
+                    html: '<a href="./change-address">Change</a>'
+                  }
+                ]
+              ]
+            }) }}
+
+
+        </div>
+      </div>
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}

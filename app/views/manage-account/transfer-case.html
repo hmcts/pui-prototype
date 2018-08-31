@@ -1,0 +1,47 @@
+{% extends "layouts/service/base.html" %}
+
+{% block page_title %}Sign in - Professional case manager{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  {{govukBackLink({
+    href: '/manage-a-case/case-1'
+  })}}
+  <main role="main" class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">
+              <span class="govuk-caption-xl">Case number 123456</span>
+              Transfer case to another organisation
+            </h1>
+        <form method="get" action="/app/manage-a-case/case-transferred">
+
+          {{ govukInput({
+            label: {
+              html: '<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Email address you want to transfer the case to</h2>',
+              isPageHeading: true
+            },
+            hint: {
+              html: 'You will not be able to access the case after you transfer it.'
+            },
+            id: "transfer-email-address",
+            name: "transfer-email-address"
+          }) }}
+
+          {{ govukButton({
+            "text": "Transfer case"
+          }) }}
+
+        </form>
+      </div>
+    </div>
+
+
+  </main>
+
+</div>
+
+{% endblock %}
