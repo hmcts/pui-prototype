@@ -10,6 +10,7 @@ $govuk-global-styles: true;
 // Patterns that aren"t in GOV.UK Frontend
 @import "patterns/check-your-answers";
 @import "patterns/related-items";
+@import "patterns/accessible-autocomplete";
 
 // JUI styles
 @import "pui/all";

@@ -1,0 +1,44 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create HMCTS account' %}
+
+{% block content %}
+<div class="govuk-width-container">
+
+    {{govukBackLink({
+      href: '/create-account/name'
+    })}}
+
+    <main role="main" class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <form action="/create-account/password">
+
+            {{ govukInput({
+              label: {
+                text: "What's your email address?",
+                classes: 'govuk-label--xl',
+                isPageHeading: true
+              },
+              id: "email",
+              name: "email"
+            }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script>
+    accessibleAutocomplete.enhanceSelectElement({
+      selectElement: document.querySelector('#name')
+    })
+  </script>
+{% endblock %}
