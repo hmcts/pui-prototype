@@ -1,0 +1,32 @@
+{% extends "layouts/service/base.html" %}
+
+{% block page_title %}Sign in - Professional case manager{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  {{govukBackLink({
+    href: '.',
+    text: 'Search for another case'
+  })}}
+  <main role="main" class="govuk-main-wrapper">
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          You don't have permission to access the case #{{data['case-number']}}
+        </h1>
+
+        <p class="govuk-body">Your colleague needs to share the case with you, so that you can access it.</p>
+        <p class="govuk-body"><a href="/manage-case">Find another case</a></p>
+
+      </div>
+    </div>
+
+
+  </main>
+
+</div>
+
+{% endblock %}

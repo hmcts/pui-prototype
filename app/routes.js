@@ -18,11 +18,22 @@ router.post('/apply/sra-number', (req, res) => {
 	}
 });
 
+
 router.post('/apply/sra-number-3', (req, res) => {
 	req.session.data['org-name'] = 'Sherwin Davis';
 	req.session.data['org-number'] = '123456';
 	req.session.data['org-address'] = '31 High Street<br> Norwich<br> NR2 8GG';
 	res.redirect('/apply/name')
 });
+
+router.post('/manage-case/find-case', (req, res) => {
+	var casenumber = req.body['case-number'].replace(/-/g, "").trim();
+	if(casenumber === '1234567812345678') {
+		res.redirect('/manage-case/case-1');
+	} else {
+		res.redirect('/manage-case/no-access');
+	}
+});
+
 
 module.exports = router;
