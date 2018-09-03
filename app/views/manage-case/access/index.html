@@ -6,7 +6,7 @@
     <main role="main" class="govuk-main-wrapper">
       <h1 class="govuk-heading-xl">
         <span class="govuk-caption-xl">John Smith v Amy Smith</span>
-        Manage access
+        Change who can access the case
       </h1>
 
       {% if data['shared-name'] %}
@@ -87,7 +87,7 @@
       }) }}
 
       {{govukButton({
-        text: 'Share with another user',
+        text: 'Give access to another user',
         href: '/manage-case/access/email'
       })}}
 
