@@ -5,18 +5,13 @@
   <div class="govuk-width-container">
     <main role="main" class="govuk-main-wrapper">
       <h1 class="govuk-heading-xl">
-        <span class="govuk-caption-xl">Case number {{data['case-number']}}</span>
+        <span class="govuk-caption-xl">John Smith v Amy Smith</span>
         Manage access
       </h1>
-
-      <p class="govuk-body">You have shared the case with 3 users.</p>
 
       {% if data['shared-name'] %}
       {% set rows = [
         [
-          {
-            html: data['shared-name']
-          },
           {
             text: data['shared-email']
           },
@@ -26,9 +21,6 @@
         ],
         [
           {
-            html: 'John Smith'
-          },
-          {
             text: "john.smith@sherwindavis.co.uk"
           },
           {
@@ -37,9 +29,6 @@
         ],
         [
           {
-            html: 'Stephanie Black'
-          },
-          {
             text: "stephanie.black@sherwindavis.co.uk"
           },
           {
@@ -47,9 +36,6 @@
           }
         ],
         [
-          {
-            html: 'Judith Robinson'
-          },
           {
             text: "judith.robinson@sherwindavis.co.uk"
           },
@@ -62,9 +48,6 @@
         {% set rows = [
           [
             {
-              html: 'John Smith'
-            },
-            {
               text: "john.smith@sherwindavis.co.uk"
             },
             {
@@ -73,9 +56,6 @@
           ],
           [
             {
-              html: 'Stephanie Black'
-            },
-            {
               text: "stephanie.black@sherwindavis.co.uk"
             },
             {
@@ -83,9 +63,6 @@
             }
           ],
           [
-            {
-              html: 'Judith Robinson'
-            },
             {
               text: "judith.robinson@sherwindavis.co.uk"
             },
@@ -99,9 +76,6 @@
 
       {{ govukTable({
         head: [
-          {
-            text: "Name"
-          },
           {
             text: "Email address"
           },

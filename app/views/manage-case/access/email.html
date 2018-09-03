@@ -2,12 +2,14 @@
 
 {% block content %}
   <div class="govuk-width-container">
+      {{govukBackLink({
+        href: '/manage-case/access'
+      })}}
     <main role="main" class="govuk-main-wrapper">
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <form action="confirmation" method="get">
-            <input type="hidden" name="shared-name" value="Jenny Silver">
             {{ govukTextarea({
               label: {
                 text: "What email addresses do you want to share the case with?",
