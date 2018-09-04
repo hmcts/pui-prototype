@@ -28,12 +28,12 @@ router.post('/apply/sra-number-3', (req, res) => {
 
 router.post('/manage-case/find-case', (req, res) => {
 	var casenumber = req.body['case-number'].replace(/-/g, "").trim();
-	if(casenumber === '1001221133446772') {
+
+	if(casenumber === '1001221133446772' || casenumber === 'john') {
 		res.redirect('/manage-case/case-1');
 	} else {
 		res.redirect('/manage-case/no-access');
 	}
 });
-
 
 module.exports = router;
