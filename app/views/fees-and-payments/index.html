@@ -1,0 +1,66 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Manage HMCTS fee account' %}
+
+{% block content%}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Manage your HMCTS fee account</h1>
+
+    <p class="govuk-body">You can use this service to:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>check your balance</li>
+      <li>see a list of your transactions</li>
+      <li>download statements</li>
+      <li>top up your fee account</li>
+    </ul>
+
+    {{ govukButton({
+      text: "Start now",
+      href: "/apply/sra-number",
+      classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+    }) }}
+
+    <h2 class="govuk-heading-m">Before you start</h2>
+
+    <p class="govuk-body">You can access this service if:
+      <ul class="govuk-list govuk-list--bullet">
+      <li>you have an account for HMCTS online services</li>
+      <li>you've been given access to financial information for your organisation - ask a colleague who already has access </li>
+    </ul>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+    <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+<!--
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Subsection
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#" class="govuk-!-font-weight-bold">
+              More <span class="govuk-visually-hidden">in Subsection</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+ -->
+  </div>
+</div>
+{% endblock %}
