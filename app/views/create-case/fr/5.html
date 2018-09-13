@@ -1,0 +1,97 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS case' %}
+
+{% block beforeContent %}
+{{ super() }}
+{{govukBackLink({
+  href: '/create-case/fr/3'
+})}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <form action="/create-case/fr/3" method="post">
+
+            {% set propertyHtml %}
+              {{ govukTextarea({
+                name: "more-detail",
+                id: "more-detail",
+                label: {
+                  text: "Addresses of properties"
+                }
+              }) }}
+
+              {{ govukTextarea({
+                name: "more-detail",
+                id: "more-detail",
+                label: {
+                  text: "Names and addresses of people with mortgages on the properties"
+                }
+              }) }}
+            {% endset %}
+
+
+            {{ govukCheckboxes({
+              idPrefix: "represented",
+              name: "represented",
+              fieldset: {
+                legend: {
+                  html: '<span class="govuk-caption-xl">Create a financial remedy case</span> What the application is for',
+                  isPageHeading: true,
+                  classes: 'govuk-label--xl'
+                }
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "Periodical payment order"
+                },
+                {
+                  value: "no",
+                  text: "Lump sum order"
+                },
+                {
+                  value: "no",
+                  text: "Pension sharing order"
+                },
+                {
+                  value: "no",
+                  text: "Pension attachment order"
+                },
+                {
+                  value: "no",
+                  text: "Pension compensation sharing order"
+                },
+                {
+                  value: "no",
+                  text: "Pension compensation attachment order"
+                },
+                {
+                  value: "no",
+                  text: "A settlement or a transfer or property for the benefit of children"
+                },
+                {
+                  value: "no",
+                  text: "Property adjustment order",
+                  conditional: {
+                    html: propertyHtml
+                  }
+                }
+              ]
+            }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+{% endblock %}

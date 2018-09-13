@@ -17,14 +17,15 @@
 
           <h1 class="govuk-heading-xl">
             <span class="govuk-caption-xl">Create a financial remedy case</span>
-            Respondent's address
+            Respondent's contact details
           </h1>
 
-          <form action="/create-case/fr/3" method="get">
+          <form action="/create-case/fr/5" method="get">
 
               {{ govukInput({
                 label: {
-                  html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+                  html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>',
+                  classes: 'govuk-label--m'
                 },
                 id: "address-line-1",
                 name: "address-line-1"
@@ -32,7 +33,8 @@
 
               {{ govukInput({
                 label: {
-                  html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+                  html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>',
+                  classes: 'govuk-label--m'
                 },
                 id: "address-line-2",
                 name: "address-line-2"
@@ -40,7 +42,8 @@
 
               {{ govukInput({
                 label: {
-                  text: "Town or city"
+                  text: "Town or city",
+                  classes: 'govuk-label--m'
                 },
                 classes: "govuk-!-width-two-thirds",
                 id: "address-town",
@@ -49,7 +52,8 @@
 
               {{ govukInput({
                 label: {
-                  text: "County"
+                  text: "County",
+                  classes: 'govuk-label--m'
                 },
                 classes: "govuk-!-width-two-thirds",
                 id: "address-county",
@@ -58,13 +62,33 @@
 
               {{ govukInput({
                 label: {
-                  text: "Postcode"
+                  text: "Postcode",
+                  classes: 'govuk-label--m'
                 },
                 classes: "govuk-input--width-10",
                 id: "address-postcode",
                 name: "address-postcode"
               }) }}
 
+
+              {{ govukInput({
+                label: {
+                  html: 'Email address',
+                  classes: 'govuk-label--m'
+                },
+                id: "email",
+                name: "email"
+              }) }}
+
+              {{ govukInput({
+                label: {
+                  html: 'Phone number',
+                  classes: 'govuk-label--m'
+                },
+                classes: 'govuk-!-width-two-thirds',
+                id: "phone",
+                name: "phone"
+              }) }}
 
             {{govukButton({
               text: 'Continue'
