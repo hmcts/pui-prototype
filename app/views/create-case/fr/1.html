@@ -1,0 +1,97 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS case' %}
+{% block beforeContent %}
+{{ super() }}
+{{govukBackLink({
+  href: '/create-case'
+})}}
+{% endblock %}
+
+
+{% block content %}
+
+
+  <div class="govuk-width-container">
+
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-xl">
+            <span class="govuk-caption-xl">Create a financial remedy case</span>
+            Divorce details
+          </h1>
+
+          <form action="/create-case/fr/2" method="get">
+
+            {{ govukInput({
+              label: {
+                text: "Divorce case number",
+                classes: 'govuk-label--m'
+              },
+              hint: {
+                text: 'For example ED11D12345'
+              },
+              id: "divorce-case-number",
+              name: "divorce-case-number"
+            }) }}
+
+            {% set uploadNisiHtml %}
+              {{ govukFileUpload({
+                id: "file-upload-1",
+                name: "file-upload-1",
+                label: {
+                  text: "Upload Decree nisi"
+                }
+              }) }}
+            {% endset -%}
+
+            {% set uploadAbsoluteHtml %}
+              {{ govukFileUpload({
+                id: "file-upload-1",
+                name: "file-upload-1",
+                label: {
+                  text: "Upload Decree absolute (optional)"
+                }
+              }) }}
+            {% endset -%}
+
+            {{ govukRadios({
+              idPrefix: "divorce-stage",
+              name: "divorce-stage",
+              fieldset: {
+                legend: {
+                  text: "Stage of divorce",
+                  classes: 'govuk-label--m'
+                }
+              },
+              items: [
+                {
+                  value: "decree nisi",
+                  text: "Decree nisi",
+                  conditional: {
+                    html: uploadNisiHtml
+                  }
+                },
+                {
+                  value: "decree absolute",
+                  text: "Decree absolute",
+                  conditional: {
+                    html: uploadAbsoluteHtml
+                  }
+                }
+              ]
+            }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+{% endblock %}

@@ -36,4 +36,12 @@ router.post('/manage-case/find-case', (req, res) => {
 	}
 });
 
+router.post('/create-case/fr/3', (req, res) => {
+	if(req.body.represented == 'yes') {
+		res.redirect('/create-case/fr/4a');
+	} else {
+		res.redirect('/create-case/fr/4b');
+	}
+});
+
 module.exports = router;
