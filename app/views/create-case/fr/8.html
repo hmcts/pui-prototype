@@ -1,0 +1,60 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS case' %}
+
+{% block beforeContent %}
+{{ super() }}
+{{govukBackLink({
+  href: '/create-case/fr/7'
+})}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container">
+
+
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Create a financial remedy case</span>
+        Consent order
+      </h1>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <form action="/create-case/fr/9" method="post">
+
+
+              {{ govukFileUpload({
+                id: "file-upload-1",
+                name: "file-upload-1",
+                label: {
+                  text: "Draft consent order",
+                  classes: 'govuk-label--m'
+                },
+                hint: {
+                  text: 'Upload a scanned copy of the draft consent order signed by both parties'
+                }
+              }) }}
+
+              {{ govukFileUpload({
+                id: "file-upload-1",
+                name: "file-upload-1",
+                label: {
+                  text: "Text contents of the draft consent order (optional)",
+                  classes: 'govuk-label--m'
+                },
+                hint: {
+                  text: 'If you have a text version of the draft consent order, uploading it may reduce the time taken by the judge to approve it.'
+                }
+              }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+{% endblock %}

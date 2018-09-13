@@ -1,0 +1,97 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS case' %}
+
+{% block beforeContent %}
+{{ super() }}
+{{govukBackLink({
+  href: '/create-case/fr/8'
+})}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container">
+
+
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Create a financial remedy case</span>
+        Consent order
+      </h1>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <form action="/create-case/fr/9" method="post">
+
+            {% set oneUpload %}
+
+              {{ govukFileUpload({
+                id: "file-upload-1",
+                name: "file-upload-1",
+                label: {
+                  text: "Joint D81 form",
+                  classes: 'govuk-label--m'
+                }
+              }) }}
+
+            {% endset %}
+
+            {% set twoUpload %}
+
+              {{ govukFileUpload({
+                id: "file-upload-1",
+                name: "file-upload-1",
+                label: {
+                  text: "Applicant D81 form",
+                  classes: 'govuk-label--m'
+                }
+              }) }}
+
+              {{ govukFileUpload({
+                id: "file-upload-1",
+                name: "file-upload-1",
+                label: {
+                  text: "Respondent D81 form",
+                  classes: 'govuk-label--m'
+                }
+              }) }}
+
+            {% endset %}
+
+            {{ govukRadios({
+              idPrefix: "represented",
+              name: "represented",
+              fieldset: {
+                legend: {
+                  text: "Are you uploading a joint D81 form?",
+                  classes: 'govuk-label--m'
+                }
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes",
+                  conditional: {
+                    html: oneUpload
+                  }
+                },
+                {
+                  value: "no",
+                  text: "No, I'm uploading two separate forms",
+                  conditional: {
+                    html: twoUpload
+                  }
+                }
+              ]
+            }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+{% endblock %}

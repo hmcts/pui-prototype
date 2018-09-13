@@ -1,0 +1,51 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS case' %}
+
+{% block beforeContent %}
+{{ super() }}
+{{govukBackLink({
+  href: '/create-case/fr/6'
+})}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container">
+
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <form action="/create-case/fr/8" method="post">
+
+
+
+            {{ govukCheckboxes({
+              idPrefix: "confirm",
+              name: "confirm",
+              fieldset: {
+                legend: {
+                  html: '<span class="govuk-caption-xl">Create a financial remedy case</span>Are you authorised to submit this application?',
+                  classes: 'govuk-label--xl',
+                  isPageHeading: true
+                }
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "I confirm my client has authorised me to submit this application"
+                }
+              ]
+            }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+{% endblock %}

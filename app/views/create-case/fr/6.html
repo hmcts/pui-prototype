@@ -1,0 +1,80 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS case' %}
+
+{% block beforeContent %}
+{{ super() }}
+{{govukBackLink({
+  href: '/create-case/fr/5'
+})}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container">
+
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <form action="/create-case/fr/7" method="post">
+
+            {% set yesHtml %}
+              {{ govukRadios({
+                classes: "govuk-radios--inline",
+                idPrefix: "written",
+                name: "written",
+                fieldset: {
+                  legend: {
+                    text: "Is there a written agreement for the maintenance for the benefit of children?"
+                  }
+                },
+                items: [
+                  {
+                    value: "yes",
+                    text: "Yes"
+                  },
+                  {
+                    value: "no",
+                    text: "No"
+                  }
+                ]
+              }) }}
+            {% endset %}
+
+
+            {{ govukRadios({
+              idPrefix: "represented",
+              name: "represented",
+              fieldset: {
+                legend: {
+                  text: "Does the application contain periodical payments for children?",
+                  classes: 'govuk-label--xl',
+                  isPageHeading: true
+                }
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes",
+                  conditional: {
+                    html: yesHtml
+                  }
+                },
+                {
+                  value: "no",
+                  text: "No"
+                }
+              ]
+            }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+{% endblock %}
