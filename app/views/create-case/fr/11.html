@@ -1,0 +1,110 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS case' %}
+
+{% block beforeContent %}
+{{ super() }}
+{{govukBackLink({
+  href: '/create-case/fr/10'
+})}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container">
+
+    <div class="hmcts-add-another">
+
+      <h1 class="govuk-heading-xl hmcts-add-another__heading">
+        <span class="govuk-caption-xl">Create a financial remedy case</span>
+        Payment
+      </h1>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <form action="/create-case/fr/12" method="post">
+
+          {% set yesHtml %}
+
+            {{ govukInput({
+              label: {
+                text: "Help with fees reference number",
+                classes: 'govuk-label--m'
+              },
+              classes: "govuk-!-width-two-thirds",
+              id: "first-name",
+              name: "first-name"
+            }) }}
+
+          {% endset %}
+
+          {% set noHtml %}
+
+            {{ govukInput({
+              label: {
+                text: "Payment account number",
+                classes: 'govuk-label--m'
+              },
+              classes: "govuk-!-width-two-thirds",
+              id: "first-name",
+              name: "first-name"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Your payment reference number",
+                classes: 'govuk-label--m'
+              },
+              classes: "govuk-!-width-two-thirds",
+              id: "last-name",
+              name: "last-name"
+            }) }}
+
+          {% endset %}
+
+          {{ govukRadios({
+            idPrefix: "represented",
+            name: "represented",
+            fieldset: {
+              legend: {
+                text: "Has the applicant applied for help with fees online?",
+                classes: 'govuk-label--m'
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes",
+                conditional: {
+                  html: yesHtml
+                }
+              },
+              {
+                value: "no",
+                text: "No",
+                conditional: {
+                  html: noHtml
+                }
+              }
+            ]
+          }) }}
+
+            {{ govukButton({
+              text: 'Continue'
+            }) }}
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    </main>
+  </div>
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  new HMCTSFrontend.AddAnother($('.hmcts-add-another'));
+</script>
+{% endblock %}
