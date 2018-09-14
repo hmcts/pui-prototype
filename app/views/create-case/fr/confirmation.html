@@ -1,0 +1,43 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS case' %}
+
+
+{% block content %}
+  <div class="govuk-width-container">
+    <main role="main" class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          {{ govukPanel({
+            titleText: "Application sent",
+            html: 'Reference 1111-2222-3333-4444'
+          }) }}
+
+          <h3 class="govuk-heading-m">What happens next</h3>
+
+          <p class="govuk-body">
+            We will start examining the application within 2 working days.
+          </p>
+
+          <p class="govuk-body">You can use [track] and [share] this case using HMCTS online services.</p>
+
+          <!-- <ul class="govuk-list govuk-list--bullet">
+
+           <li><a href="/manage-case">manage a case</a> - if you created it or someone gave you access</li>
+          </ul> -->
+
+
+
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  new HMCTSFrontend.AddAnother($('.hmcts-add-another'));
+</script>
+{% endblock %}
