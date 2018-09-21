@@ -1,0 +1,71 @@
+{% extends "layouts/service/base.html" %}
+
+{% set pageId = 'users' %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    <main role="main" class="govuk-main-wrapper">
+
+      {{hmctsSubNavigation({
+        items: [{
+          text: 'Profile',
+          href: '/manage-account',
+          active: false
+        }, {
+          text: 'Organisation',
+          href: '/manage-account/organisation',
+          active: false
+        }, {
+          text: 'Users',
+          href: '/manage-account/users',
+          active: true
+        }]
+      })}}
+
+
+        <h1 class="govuk-heading-xl">Users</h1>
+
+      <!-- <p>You need to <a href="/app/account/users/approve-users">approve 3 users</a>.</p> -->
+
+
+      {{govukButton({
+        text: 'Invite user',
+        href: './new'
+      })}}
+
+      {{ govukTable({
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "Email address"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: '<a href="">David Jones</a>'
+            },
+            {
+              text: "david.jones@sherwindavis.co.uk"
+            }
+          ],
+          [
+            {
+              html: '<a href="/">Kerry Miles</a>'
+            },
+            {
+              text: "kerry.miles@sherwindavis.co.uk"
+            }
+          ]
+        ]
+      }) }}
+
+
+
+    </main>
+  </div>
+
+{% endblock %}
