@@ -1,0 +1,126 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Manage organisation account' %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+    {{hmctsSubNavigation({
+      items: [  {
+        text: 'Organisation',
+        href: '/manage-account-v2/organisation',
+        active: true
+      }, {
+        text: 'Users',
+        href: '/manage-account-v2/users',
+        active: false
+      },
+      {
+        text: 'Payments',
+        href: '/manage-account-v2/payments',
+        active: false
+      }]
+    })}}
+
+    <h1 class="govuk-heading-xl">Organisation</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+          {{ govukTable({
+            firstCellIsHeader: true,
+            rows: [
+              [
+                {
+                  text: "Name"
+                },
+                {
+                  text: "Sherwin Davis"
+                },
+                {
+                  html: '<a href="/">Change</a>'
+                }
+              ],
+              [
+                {
+                  text: "Address"
+                },
+                {
+                  html: "31 High Street<br>Norwich<br>NR2 8GG"
+                },
+                {
+                  html: '<a href="/">Change</a>'
+                }
+              ]
+            ]
+          }) }}
+
+
+          <!-- <ul class="govuk-list">
+            <li><a href="./access">Manage organisation access</a></li>
+            <li><a href="./addresses">Add a new address</a></li>
+          </ul> -->
+
+
+
+
+        <!--<h2 class="govuk-heading-l">Organisation</h2>
+
+        {{ govukTable({
+          firstCellIsHeader: true,
+          rows: [
+            [
+              {
+                text: "Name"
+              },
+              {
+                text: "Sherwin Davis"
+              },
+              {
+                html: '<a href="/">Change</a>'
+              }
+            ],
+            [
+              {
+                text: "Address 1"
+              },
+              {
+                html: "31 High Street<br>Norwich<br>NR2 8GG"
+              },
+              {
+                html: '<a href="/">Change</a>'
+              }
+            ],
+            [
+              {
+                text: "Address 2"
+              },
+              {
+                html: "3 Trickle Street<br>Borehamwood<br>H1 8GG"
+              },
+              {
+                html: '<a href="/">Change</a>'
+              }
+            ]
+          ]
+        }) }}
+
+
+        <ul class="govuk-list">
+          <li><a href="./access">Manage organisation access</a></li>
+          <li><a href="./addresses">Add a new address</a></li>
+        </ul>-->
+
+      </div>
+    </div>
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}

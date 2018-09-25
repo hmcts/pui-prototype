@@ -1,0 +1,60 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Manage organisation account' %}
+
+{% set pageId = 'users' %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    {{govukBackLink({
+      href: './'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+
+      <h1 class="govuk-heading-xl">Invite user</h1>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <form action="./confirmation">
+            {{ govukInput({
+              label: {
+                text: "Email address",
+                classes: 'govuk-label--m'
+              },
+              hint: {
+                text: "We'll send the user a link so they can finish setting up their account."
+              },
+              id: "email",
+              name: "email"
+            }) }}
+
+            {{ govukCheckboxes({
+              idPrefix: "permissions",
+              name: "permissions",
+              fieldset: {
+                legend: {
+                  text: "Permissions",
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              hint: {
+                text: "All users can view and create cases. An admin user can also manage the organisation account."
+              },
+              items: [
+                {
+                  value: "admin",
+                  text: "Admin user"
+                }
+              ]
+            }) }}
+
+            {{govukButton({
+              text: 'Send invitation'
+            })}}
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}
