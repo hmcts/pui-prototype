@@ -1,0 +1,237 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage organisation account' %}
+
+{% block content %}
+{{hmctsPrimaryNavigation({ classes: "govuk-!-margin-bottom-0",
+  items: [  {
+    text: 'Organisation',
+    href: '/manage-account-v2',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-account-v2/users',
+    active: false
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v2/payments',
+    active: true
+  }]
+})}}
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+      {{hmctsSubNavigation({
+        items: [  {
+          text: 'Overview',
+          href: '/manage-account-v2/payments',
+          active: false
+        }, {
+          text: 'Transactions',
+          href: '/manage-account-v2/payments/transactions',
+          active: true
+        }]
+      })}}
+
+    <h1 class="govuk-heading-xl">Transactions</h1>
+
+    {{ govukTable({
+      head: [
+        {
+          text: "Payment reference"
+        },
+        {
+          text: "Case reference"
+        },
+        {
+          text: "Your reference"
+        },
+        {
+          text: "Submitted by"
+        },
+        {
+          text: "Status"
+        },
+        {
+          text: "Date created"
+        },
+        {
+          text: "Amount"
+        }
+      ],
+
+      rows: [
+        [
+          {
+            html: '<a href="">RC-2352-6362-6257-7742</a>'
+          },
+          {
+            text: "1542-5226-7383-2772	"
+          },
+          {
+            text: "J Hart vs M Hart"
+          },
+          {
+            text: "James Brown"
+          },
+          {
+            text: "Pending"
+          },
+          {
+            text: "26 September 2018 at 11:01pm"
+          },
+          {
+            text: "-£550.00"
+          }
+        ],
+        [
+          {
+            html: '<a href="">RC-2352-6362-6257-7742</a>'
+          },
+          {
+            text: "1542-5226-7383-2772	"
+          },
+          {
+            text: "J Hart vs M Hart"
+          },
+          {
+            text: "James Brown"
+          },
+          {
+            text: "Pending"
+          },
+          {
+            text: "26 September 2018 at 11:01pm"
+          },
+          {
+            text: "-£550.00"
+          }
+        ],
+        [
+          {
+            html: '<a href="">RC-2352-6362-6257-7742</a>'
+          },
+          {
+            text: "1542-5226-7383-2772	"
+          },
+          {
+            text: "J Hart vs M Hart"
+          },
+          {
+            text: "James Brown"
+          },
+          {
+            text: "Pending"
+          },
+          {
+            text: "26 September 2018 at 11:01pm"
+          },
+          {
+            text: "-£550.00"
+          }
+        ],
+        [
+          {
+            html: '<a href="">RC-2352-6362-6257-7742</a>'
+          },
+          {
+            text: "1542-5226-7383-2772	"
+          },
+          {
+            text: "J Hart vs M Hart"
+          },
+          {
+            text: "James Brown"
+          },
+          {
+            text: "Pending"
+          },
+          {
+            text: "26 September 2018 at 11:01pm"
+          },
+          {
+            text: "-£550.00"
+          }
+        ],
+        [
+          {
+            html: '<a href="">RC-2352-6362-6257-7742</a>'
+          },
+          {
+            text: "1542-5226-7383-2772	"
+          },
+          {
+            text: "J Hart vs M Hart"
+          },
+          {
+            text: "James Brown"
+          },
+          {
+            text: "Pending"
+          },
+          {
+            text: "26 September 2018 at 11:01pm"
+          },
+          {
+            text: "-£550.00"
+          }
+        ],
+        [
+          {
+            html: '<a href="">RC-2352-6362-6257-7742</a>'
+          },
+          {
+            text: "1542-5226-7383-2772	"
+          },
+          {
+            text: "J Hart vs M Hart"
+          },
+          {
+            text: "James Brown"
+          },
+          {
+            text: "Pending"
+          },
+          {
+            text: "26 September 2018 at 11:01pm"
+          },
+          {
+            text: "-£550.00"
+          }
+        ],[
+        {
+          html: '<a href="">RC-2352-6362-6257-7742</a>'
+        },
+        {
+          text: "1542-5226-7383-2772	"
+        },
+        {
+          text: "J Hart vs M Hart"
+        },
+        {
+          text: "James Brown"
+        },
+        {
+          text: "Pending"
+        },
+        {
+          text: "26 September 2018 at 11:01pm"
+        },
+        {
+          text: "-£550.00"
+        }
+      ]
+      ]
+    }) }}
+
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}

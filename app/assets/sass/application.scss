@@ -63,3 +63,46 @@ mark.comment {
   }
 
 }
+
+
+@include govuk-media-query($from: tablet) {
+
+  .hmcts-page-heading {
+    text-align: justify;
+    font-size: .1px; // Hide whitespace between elements
+
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+    }
+
+  }
+
+  .hmcts-page-heading__title-wrapper {
+    display: inline-block;
+    vertical-align: top;
+
+    .hmcts-page-heading__title {
+      text-align: left;
+      margin-right: govuk-spacing(4);
+    }
+
+  }
+
+  .hmcts-page-heading__actions-wrapper {
+    display: inline-block;
+    vertical-align: top;
+
+    .hmcts-page-heading__button:first-child  {
+      margin-left: 0;
+    }
+
+  }
+
+  .hmcts-page-heading__button {
+    margin-left: govuk-spacing(4);
+    margin-top: govuk-spacing(1);
+  }
+
+}

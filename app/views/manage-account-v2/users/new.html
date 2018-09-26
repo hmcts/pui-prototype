@@ -1,10 +1,27 @@
-{% extends "layouts/service/base.html" %}
+{% extends "layouts/admin/base.html" %}
 
 {% set serviceName = 'Manage organisation account' %}
 
 {% set pageId = 'users' %}
 
 {% block content %}
+{{hmctsPrimaryNavigation({ classes: "govuk-!-margin-bottom-0",
+  items: [  {
+    text: 'Organisation',
+    href: '/manage-account-v2',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-account-v2/users',
+    active: true
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v2/payments',
+    active: false
+  }]
+})}}
+
 
   <div class="govuk-width-container">
     {{govukBackLink({

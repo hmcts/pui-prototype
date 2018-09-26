@@ -1,41 +1,51 @@
-{% extends "layouts/service/base.html" %}
+{% extends "layouts/admin/base.html" %}
 
 {% set serviceName = 'Manage organisation account' %}
 
 {% set pageId = 'users' %}
 
 {% block content %}
-
+  {{hmctsPrimaryNavigation({ classes: "govuk-!-margin-bottom-0",
+    items: [{
+      text: 'Organisation',
+      href: '/manage-account-v2/',
+      active: false
+    }, {
+      text: 'Users',
+      href: '/manage-account-v2/users',
+      active: true
+    },
+    {
+      text: 'Payments',
+      href: '/manage-account-v2/payments',
+      active: false
+    }]
+  })}}
   <div class="govuk-width-container">
+
     <main role="main" class="govuk-main-wrapper">
 
-      {{hmctsSubNavigation({
-        items: [{
-          text: 'Organisation',
-          href: '/manage-account-v2/',
-          active: false
-        }, {
-          text: 'Users',
-          href: '/manage-account-v2/users',
-          active: true
-        },
-        {
-          text: 'Payments',
-          href: '/manage-account-v2/payments',
-          active: false
-        }]
-      })}}
 
 
-        <h1 class="govuk-heading-xl">Users</h1>
+
+      <div class="hmcts-page-heading">
+        <div class="hmcts-page-heading__title-wrapper">
+          <h1 class="hmcts-page-heading__title govuk-heading-xl">Users</h1>
+        </div>
+        <div class="hmcts-page-heading__actions-wrapper">
+            {{govukButton({
+              text: 'Invite user',
+              href: '/manage-account-v2/users/new',
+              classes: 'hmcts-page-heading__button'
+            })}}
+        </div>
+      </div>
+
 
       <!-- <p>You need to <a href="/app/account/users/approve-users">approve 3 users</a>.</p> -->
 
 
-      {{govukButton({
-        text: 'Invite user',
-        href: './users/new'
-      })}}
+
 
       {{ govukTable({
         head: [

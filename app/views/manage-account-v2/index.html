@@ -1,29 +1,29 @@
-{% extends "layouts/service/base.html" %}
+{% extends "layouts/admin/base.html" %}
 
 {% set serviceName = 'Manage organisation account' %}
 
 {% block content %}
+{{hmctsPrimaryNavigation({ classes: "govuk-!-margin-bottom-0",
+  items: [  {
+    text: 'Organisation',
+    href: '/manage-account-v2',
+    active: true
+  }, {
+    text: 'Users',
+    href: '/manage-account-v2/users',
+    active: false
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v2/payments',
+    active: false
+  }]
+})}}
 
 <div class="govuk-width-container">
 
   <main role="main" class="govuk-main-wrapper">
 
-    {{hmctsSubNavigation({
-      items: [  {
-        text: 'Organisation',
-        href: '/manage-account-v2/organisation',
-        active: true
-      }, {
-        text: 'Users',
-        href: '/manage-account-v2/users',
-        active: false
-      },
-      {
-        text: 'Payments',
-        href: '/manage-account-v2/payments',
-        active: false
-      }]
-    })}}
 
     <h1 class="govuk-heading-xl">Organisation</h1>
 

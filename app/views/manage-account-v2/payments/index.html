@@ -1,0 +1,75 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage organisation account' %}
+
+{% block content %}
+{{hmctsPrimaryNavigation({ classes: "govuk-!-margin-bottom-0",
+  items: [  {
+    text: 'Organisation',
+    href: '/manage-account-v2',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-account-v2/users',
+    active: false
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v2/payments',
+    active: true
+  }]
+})}}
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+      {{hmctsSubNavigation({
+        items: [  {
+          text: 'Overview',
+          href: '/manage-account-v2/payments',
+          active: true
+        }, {
+          text: 'Transactions',
+          href: '/manage-account-v2/payments/transactions',
+          active: false
+        }]
+      })}}
+
+    <h1 class="govuk-heading-xl">Overview</h1>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+    {{ govukTable({
+      firstCellIsHeader: true,
+      rows: [
+        [
+          {
+            html: 'Account number (PBA)'
+          },
+          {
+            text: "PBA0246111"
+          }
+        ],
+        [
+          {
+            html: 'Balance'
+          },
+          {
+            text: "£2746.00"
+          }
+        ]
+      ]
+    }) }}
+    </div>
+    </div>
+
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}
