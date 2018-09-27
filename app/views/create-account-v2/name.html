@@ -2,12 +2,17 @@
 
 {% set serviceName = 'Create an HMCTS account' %}
 
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/create-account/check-organisation'
+  })}}
+{% endblock %}
+
 {% block content %}
 <div class="govuk-width-container">
 
-    {{govukBackLink({
-      href: '/create-account/check-organisation'
-    })}}
+
 
     <main role="main" class="govuk-main-wrapper">
 

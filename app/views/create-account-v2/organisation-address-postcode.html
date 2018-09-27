@@ -1,0 +1,53 @@
+{% extends "layouts/service/base.html" %}
+
+{% from "input/macro.njk" import govukInput %}
+{% from "fieldset/macro.njk" import govukFieldset %}
+
+{% set serviceName = 'Create an HMCTS account' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/create-account/organisation-name'
+  })}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/create-account-v2/organisation-address-postcode-results">
+
+
+
+      {% call govukFieldset({
+        legend: {
+          text: "What's your organisation's address?",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+
+        {{ govukInput({
+          label: {
+            text: 'Postcode',
+            classes: 'govuk-label--m'
+          },
+          classes: "govuk-input--width-10",
+          id: "postcode",
+          name: "postcode"
+        }) }}
+
+      {% endcall %}
+
+      {{govukButton({
+        text: 'Find address'
+      })}}
+
+    </form>
+  </div>
+</div>
+
+
+    </main>
+  </div>
+{% endblock %}

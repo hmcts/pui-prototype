@@ -2,14 +2,19 @@
 
 {% set serviceName = 'Create an HMCTS account' %}
 
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/create-account/organisation-name'
+  })}}
+{% endblock %}
+
 {% block content %}
-{{govukBackLink({
-  href: '/create-account/organisation-name'
-})}}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="/create-account-v2/organisation-address">
- 
+      <form action="/create-account-v2/organisation-address-postcode">
+
         {{ govukInput({
           label: {
             text: "What's the name of your organisation?",

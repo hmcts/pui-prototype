@@ -5,16 +5,21 @@
 
 {% set serviceName = 'Create an HMCTS account' %}
 
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/create-account/organisation-name'
+  })}}
+{% endblock %}
+
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="/create-account-v2/name">
 
-    {{govukBackLink({
-      href: '/create-account/organisation-name'
-    })}}
 
-      
+
+
       {% call govukFieldset({
         legend: {
           text: "What's your organisation's address?",
@@ -22,7 +27,7 @@
           isPageHeading: true
         }
       }) %}
-      
+
         {{ govukInput({
           label: {
             html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
@@ -30,7 +35,7 @@
           id: "address-line-1",
           name: "address-line-1"
         }) }}
-      
+
         {{ govukInput({
           label: {
             html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
@@ -38,7 +43,7 @@
           id: "address-line-2",
           name: "address-line-2"
         }) }}
-      
+
         {{ govukInput({
           label: {
             text: "Town or city"
@@ -47,7 +52,7 @@
           id: "address-town",
           name: "address-town"
         }) }}
-      
+
         {{ govukInput({
           label: {
             text: "County"
@@ -56,7 +61,7 @@
           id: "address-county",
           name: "address-county"
         }) }}
-      
+
         {{ govukInput({
           label: {
             text: "Postcode"
@@ -65,7 +70,7 @@
           id: "address-postcode",
           name: "address-postcode"
         }) }}
-      
+
       {% endcall %}
 
       {{govukButton({
@@ -75,7 +80,7 @@
     </form>
   </div>
 </div>
-  
+
 
     </main>
   </div>
