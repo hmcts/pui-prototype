@@ -41,12 +41,6 @@
         </div>
       </div>
 
-
-      <!-- <p>You need to <a href="/app/account/users/approve-users">approve 3 users</a>.</p> -->
-
-
-
-
       {{ govukTable({
         head: [
           {
@@ -56,7 +50,16 @@
             text: "Email address"
           },
           {
-            text: "Admin user"
+            text: "Manage cases"
+          },
+          {
+            text: "Manage users"
+          },
+          {
+            text: "Manage payment"
+          },
+          {
+            text: "Manage organisation"
           }
         ],
         rows: [
@@ -66,6 +69,35 @@
             },
             {
               text: "david.jones@sherwindavis.co.uk"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "Yes"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "Yes"
+            }
+          ],
+          [
+            {
+              html: '<a href="">Sue Potts</a>'
+            },
+            {
+              text: "sue.potts@sherwindavis.co.uk"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "Yes"
             },
             {
               text: "No"
@@ -80,6 +112,15 @@
             },
             {
               text: "Yes"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "No"
             }
           ]
         ]
