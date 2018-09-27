@@ -13,16 +13,30 @@
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-xl">What's your name?</h1>
+
           <form action="/create-account-v2/password">
 
             {{ govukInput({
               label: {
-                text: "What's your name?",
-                classes: 'govuk-label--xl',
-                isPageHeading: true
+                text: "First name(s)",
+                classes: 'govuk-label--m'
               },
-              id: "name",
-              name: "name"
+              hint: {
+                text: 'Include all middle names here'
+              },
+              id: "firstname",
+              name: "firstname"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Last name",
+                classes: 'govuk-label--m'
+              },
+              id: "lastname",
+              name: "lastname"
             }) }}
 
             {{govukButton({
