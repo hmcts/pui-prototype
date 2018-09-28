@@ -34,7 +34,7 @@
         </div>
         <div class="hmcts-page-heading__actions-wrapper">
             {{govukButton({
-              text: 'Invite user',
+              text: 'Invite users',
               href: '/manage-account-v2/users/new',
               classes: 'hmcts-page-heading__button'
             })}}
@@ -43,9 +43,6 @@
 
       {{ govukTable({
         head: [
-          {
-            text: "Name of user"
-          },
           {
             text: "Email address"
           },
@@ -60,15 +57,15 @@
           },
           {
             text: "Manage payment"
+          },
+          {
+            text: "Status"
           }
         ],
         rows: [
-          [
+        [
             {
-              html: '<a href="">David Jones</a>'
-            },
-            {
-              text: "djones@sherwindavis.co.uk"
+              html: '<a href="">amysmith@sherwindavis.co.uk</a>'
             },
             {
               text: "No"
@@ -81,34 +78,54 @@
             },
             {
               text: "No"
+            },
+            {
+              text: "Pending"
             }
           ],
           [
             {
-              html: '<a href="">Sue Potts</a>'
-            },
-            {
-              text: "spotts@sherwindavis.co.uk"
-            },
-            {
-              text: "No"
-            },
-            {
-              text: "No"
+              html: '<a href="">djones@sherwindavis.co.uk</a>'
             },
             {
               text: "No"
             },
             {
               text: "Yes"
+            },
+            {
+              text: "Yes"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "Active"
             }
           ],
           [
             {
-              html: '<a href="/">Kerry Miles</a>'
+              html: '<a href="">spotts@sherwindavis.co.uk</a>'
             },
             {
-              text: "kmiles@sherwindavis.co.uk"
+              text: "No"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "Yes"
+            },
+            {
+              text: "Active"
+            }
+          ],
+          [
+            {
+              html: '<a href="/">kmiles@sherwindavis.co.uk</a>'
             },
             {
               text: "Yes"
@@ -121,6 +138,9 @@
             },
             {
               text: "No"
+            },
+            {
+              text: "Active"
             }
           ]
         ]

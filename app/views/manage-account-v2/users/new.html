@@ -29,18 +29,18 @@
     })}}
     <main role="main" class="govuk-main-wrapper">
 
-      <h1 class="govuk-heading-xl">Invite user</h1>
-
+      <h1 class="govuk-heading-xl">Invite users</h1>
+      <p class="govuk-body">We'll send users a link so they can finish setting up their account.</p>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <form action="./confirmation">
-            {{ govukInput({
+            {{ govukTextarea({
               label: {
-                text: "Email address",
+                text: "Email addresses",
                 classes: 'govuk-label--m'
               },
               hint: {
-                text: "We'll send the user a link so they can finish setting up their account."
+                text: "If you want to invite multiple users, separate each email address with a comma. For example “jo@sherwindavis.com, terri@sherwindavis.com”"
               },
               id: "email",
               name: "email"
