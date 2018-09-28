@@ -26,12 +26,12 @@
 
 
       <h2 class="govuk-heading-m">Postcode</h2>
-      <p>SW1A 1AA <a href="/create-account-v2/organisation-address-postcode">Change</a></p>
+      <p>{{data.postcode}} <a href="/create-account-v2/organisation-address-postcode">Change</a></p>
 
 
       {{ govukSelect({
-        id: "org-name",
-        name: "org-name",
+        id: "org-address",
+        name: "org-address",
         label: {
           text: "Select address",
           classes: 'govuk-label--m'
@@ -39,27 +39,27 @@
         items: [
           {
             value: "",
-            text: "2 addresses found"
+            text: "5 addresses found"
           },
           {
-            value: "A+ Law",
-            text: "A+ Law"
+            value: "1 Jones Street, Preston",
+            text: "1 Jones Street, Preston"
           },
           {
-            value: "Derwent Thompson",
-            text: "Derwent Thompson"
+            value: "3 Jones Street, Preston",
+            text: "3 Jones Street, Preston"
           },
           {
-            value: "Sien Solicitors",
-            text: "Sien Solicitors"
+            value: "5 Jones Street, Preston",
+            text: "5 Jones Street, Preston"
           },
           {
-            value: "Sherwin Davis",
-            text: "Sherwin Davis"
+            value: "7 Jones Street, Preston",
+            text: "7 Jones Street, Preston"
           },
           {
-            value: "Wedlake Bell",
-            text: "Wedlake Bell"
+            value: "9 Jones Street, Preston",
+            text: "9 Jones Street, Preston"
           }
         ]
       }) }}
