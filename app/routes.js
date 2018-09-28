@@ -44,4 +44,138 @@ router.post('/create-case/fr/3', (req, res) => {
 	}
 });
 
+router.get('/manage-account-v2/users', (req, res) => {
+	var emailaddresses = req.session.data.emailaddresses;
+
+	if(emailaddresses) {
+		if(emailaddresses.indexOf(',') >= 0) {
+			emailaddresses = emailaddresses.split(',');
+		} else {
+			emailaddresses = [emailaddresses];
+		}
+	}
+
+	var permissions = req.session.data.permissions;
+
+
+	var rows = [
+		[
+			{
+				html: '<a href="">amysmith@sherwindavis.co.uk</a>'
+			},
+			{
+				text: "No"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "No"
+			},
+			{
+				text: "Pending"
+			}
+		],[
+			{
+				html: '<a href="">djones@sherwindavis.co.uk</a>'
+			},
+			{
+				text: "No"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "No"
+			},
+			{
+				text: "Active"
+			}
+		],
+		[
+			{
+				html: '<a href="">spotts@sherwindavis.co.uk</a>'
+			},
+			{
+				text: "No"
+			},
+			{
+				text: "No"
+			},
+			{
+				text: "No"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Active"
+			}
+		],
+		[
+			{
+				html: '<a href="/">kmiles@sherwindavis.co.uk</a>'
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "No"
+			},
+			{
+				text: "No"
+			},
+			{
+				text: "No"
+			},
+			{
+				text: "Active"
+			}
+		]
+	];
+
+	var newRows = [
+
+	];
+
+
+	if(emailaddresses) {
+		for(var i = 0; i < emailaddresses.length; i++) {
+			newRows.push([{
+				html: `<a href="/">${emailaddresses[i]}</a>`
+			},
+			{
+				text: permissions.indexOf('cases') > -1 ? "Yes" : "No"
+			},
+			{
+				text: permissions.indexOf('organisation') > -1 ? "Yes" : "No"
+			},
+			{
+				text: permissions.indexOf('users') > -1 ? "Yes" : "No"
+			},
+			{
+				text: permissions.indexOf('payment') > -1 ? "Yes" : "No"
+			},
+			{
+				text: "Pending"
+			}])
+		}
+
+		rows = newRows.concat(rows);
+	}
+
+
+	res.render('manage-account-v2/users/index.html', {
+		rows: rows
+	});
+});
+
+
+
 module.exports = router;
