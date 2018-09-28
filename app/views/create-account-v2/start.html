@@ -1,12 +1,21 @@
 {% extends "layouts/service/base.html" %}
 
-{% set serviceName = 'Create an HMCTS account' %}
+{% set serviceName = 'Register organisation for HMCTS services' %}
 
 {% block content%}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Start page here</h1>
+    <h1 class="govuk-heading-xl">Register your organisation for HMCTS online services</h1>
+
+    <p class="govuk-body">You'll create your own user account at the same time as registering your organisation. It will take around 5 minutes.</p>
+
+    <p class="govuk-body">We'll contact you within 3 working days to confirm that you can use HMCTS online services. You'll then be able to sign in to your user account to:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>create cases and check their status</li>
+      <li>create accounts for people in your organisation to use HMCTS online services</li>
+    </ul>
 
     {{ govukButton({
       text: "Start",
