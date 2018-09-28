@@ -21,11 +21,17 @@
 
       {% call govukFieldset({
         legend: {
-          text: "What's your organisation's address?",
+          text: "What addresses does your oganisation use?",
           classes: "govuk-fieldset__legend--xl",
           isPageHeading: true
         }
       }) %}
+
+<br>
+
+<p class="govuk-body">You must add at least one address now. You'll be able to add more after you've registered your organisation.</p>
+
+<p class="govuk-body">Your organisation's users will be able to choose which address HMCTS should use to contact them.</p>
 
         {{ govukInput({
           label: {
