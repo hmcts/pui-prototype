@@ -15,12 +15,12 @@
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="/create-account-v2/name">
+      <form action="/create-account-v2/organisation-address-another" method="post">
 
       {{ govukRadios({
         classes: "govuk-radios--inline",
-        idPrefix: "sra-number-q",
-        name: "sra-number-q",
+        idPrefix: "another-address",
+        name: "another-address",
         hint: {
           text: 'You can add more after you\'ve created your account.'
         },

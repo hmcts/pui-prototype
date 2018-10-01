@@ -44,6 +44,17 @@ router.post('/create-case/fr/3', (req, res) => {
 	}
 });
 
+router.post('/create-account-v2/organisation-address-another', (req, res) => {
+	// need to store an address in session with dx number
+	// then use this to drive other parts of the UI
+
+	if(req.body['another-address'] === 'yes') {
+		res.redirect('/create-account-v2/organisation-address-postcode');
+	} else {
+		res.redirect('/create-account-v2/name');
+	}
+});
+
 router.get('/manage-account-v2/users', (req, res) => {
 	var emailaddresses = req.session.data.emailaddresses;
 
@@ -64,7 +75,7 @@ router.get('/manage-account-v2/users', (req, res) => {
 				html: '<a href="">amysmith@sherwindavis.co.uk</a>'
 			},
 			{
-				text: "No"
+				text: ""
 			},
 			{
 				text: "Yes"
@@ -73,7 +84,7 @@ router.get('/manage-account-v2/users', (req, res) => {
 				text: "Yes"
 			},
 			{
-				text: "No"
+				text: ""
 			},
 			{
 				text: "Pending"
@@ -83,7 +94,7 @@ router.get('/manage-account-v2/users', (req, res) => {
 				html: '<a href="">djones@sherwindavis.co.uk</a>'
 			},
 			{
-				text: "No"
+				text: ""
 			},
 			{
 				text: "Yes"
@@ -92,7 +103,7 @@ router.get('/manage-account-v2/users', (req, res) => {
 				text: "Yes"
 			},
 			{
-				text: "No"
+				text: ""
 			},
 			{
 				text: "Active"
@@ -103,13 +114,13 @@ router.get('/manage-account-v2/users', (req, res) => {
 				html: '<a href="">spotts@sherwindavis.co.uk</a>'
 			},
 			{
-				text: "No"
+				text: ""
 			},
 			{
-				text: "No"
+				text: ""
 			},
 			{
-				text: "No"
+				text: ""
 			},
 			{
 				text: "Yes"
@@ -126,13 +137,13 @@ router.get('/manage-account-v2/users', (req, res) => {
 				text: "Yes"
 			},
 			{
-				text: "No"
+				text: ""
 			},
 			{
-				text: "No"
+				text: ""
 			},
 			{
-				text: "No"
+				text: ""
 			},
 			{
 				text: "Active"
@@ -151,16 +162,16 @@ router.get('/manage-account-v2/users', (req, res) => {
 				html: `<a href="/">${emailaddresses[i]}</a>`
 			},
 			{
-				text: permissions.indexOf('cases') > -1 ? "Yes" : "No"
+				text: permissions.indexOf('cases') > -1 ? "Yes" : ""
 			},
 			{
-				text: permissions.indexOf('organisation') > -1 ? "Yes" : "No"
+				text: permissions.indexOf('organisation') > -1 ? "Yes" : ""
 			},
 			{
-				text: permissions.indexOf('users') > -1 ? "Yes" : "No"
+				text: permissions.indexOf('users') > -1 ? "Yes" : ""
 			},
 			{
-				text: permissions.indexOf('payment') > -1 ? "Yes" : "No"
+				text: permissions.indexOf('payment') > -1 ? "Yes" : ""
 			},
 			{
 				text: "Pending"
