@@ -13,62 +13,62 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="/create-account-v2/organisation-address-another">
+      <form action="/create-account-v2/organisation-dx">
 
-      <h1 class="govuk-heading-xl">What addresses does your oganisation use?</h1>
-
-
-      <h2 class="govuk-heading-m">Postcode</h2>
-      <p>{{data.postcode}} <a href="/create-account-v2/organisation-address-postcode">Change</a></p>
+        <h1 class="govuk-heading-xl">What addresses does your oganisation use?</h1>
+        <h2 class="govuk-heading-m">Postcode</h2>
+        <p>{{data.postcode}} <a href="/create-account-v2/organisation-address-postcode">Change</a></p>
 
 
-      {{ govukSelect({
-        id: "org-address",
-        name: "org-address",
-        label: {
-          text: "Select address",
-          classes: 'govuk-label--m'
-        },
-        items: [
-          {
-            value: "",
-            text: "5 addresses found"
+        <input type="hidden" name="address-line-1" value="1 Duke Street">
+        <input type="hidden" name="address-town" value="London">
+        <input type="hidden" name="address-county" value="London">
+        <input type="hidden" name="address-postcode" value="W1 9SF">
+
+
+        {{ govukSelect({
+          id: "org-address",
+          name: "org-address",
+          label: {
+            text: "Select address",
+            classes: 'govuk-label--m'
           },
-          {
-            value: "1 Jones Street, Preston",
-            text: "1 Jones Street, Preston"
-          },
-          {
-            value: "3 Jones Street, Preston",
-            text: "3 Jones Street, Preston"
-          },
-          {
-            value: "5 Jones Street, Preston",
-            text: "5 Jones Street, Preston"
-          },
-          {
-            value: "7 Jones Street, Preston",
-            text: "7 Jones Street, Preston"
-          },
-          {
-            value: "9 Jones Street, Preston",
-            text: "9 Jones Street, Preston"
-          }
-        ]
-      }) }}
-      <p class="govuk-body"><a href="./organisation-address">Can't find your address?</a></p>
+          items: [
+            {
+              value: "",
+              text: "5 addresses found"
+            },
+            {
+              value: "1 Jones Street, Preston",
+              text: "1 Jones Street, Preston"
+            },
+            {
+              value: "3 Jones Street, Preston",
+              text: "3 Jones Street, Preston"
+            },
+            {
+              value: "5 Jones Street, Preston",
+              text: "5 Jones Street, Preston"
+            },
+            {
+              value: "7 Jones Street, Preston",
+              text: "7 Jones Street, Preston"
+            },
+            {
+              value: "9 Jones Street, Preston",
+              text: "9 Jones Street, Preston"
+            }
+          ]
+        }) }}
+        <p class="govuk-body"><a href="./organisation-address">Can't find your address?</a></p>
 
-      {{govukButton({
-        text: 'Continue'
-      })}}
+        {{govukButton({
+          text: 'Continue'
+        })}}
 
-    </form>
-  </div>
-</div>
-
-
-    </main>
+      </form>
+    </div>
   </div>
 {% endblock %}
