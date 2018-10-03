@@ -17,7 +17,7 @@
                   {{data.firstname}}
                 </dd>
                 <dd class="govuk-check-your-answers__change">
-                  <a href="/create-account/name">Change <span class="govuk-visually-hidden">name</span></a>
+                  <a href="/create-user-account/name">Change <span class="govuk-visually-hidden">name</span></a>
                 </dd>
               </div>
 
@@ -27,7 +27,7 @@
                     {{data.lastname}}
                   </dd>
                   <dd class="govuk-check-your-answers__change">
-                    <a href="/create-account/name">Change <span class="govuk-visually-hidden">name</span></a>
+                    <a href="/create-user-account/name">Change <span class="govuk-visually-hidden">name</span></a>
                   </dd>
                 </div>
 
@@ -38,7 +38,17 @@
                 * * * * * *
               </dd>
               <dd class="govuk-check-your-answers__change">
-                <a href="/create-account/email">Change <span class="govuk-visually-hidden">email</span></a>
+                <a href="/create-user-account/email">Change <span class="govuk-visually-hidden">email</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Address</dt>
+              <dd class="govuk-check-your-answers__answer">
+                {{data.address | safe}}
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="/create-user-account/address">Change <span class="govuk-visually-hidden">email</span></a>
               </dd>
             </div>
 

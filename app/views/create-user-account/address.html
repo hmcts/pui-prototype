@@ -1,0 +1,63 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS account' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/create-user-account/name'
+  })}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+
+    <main role="main" class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <form action="/create-user-account/check">
+
+            {{ govukRadios({
+              idPrefix: "address",
+              name: "address",
+              fieldset: {
+                legend: {
+                  text: "Choose address",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              hint: {
+                text: 'Your organisation has more than one address. Choose the address to which you belong.'
+              },
+              items: [
+                {
+                  value: "23 Neon Lane<br>Nottingham<br>NH1 4SH",
+                  html: "23 Neon Lane<br>Nottingham<br>NH1 4SH"
+                },
+                {
+                  value: "1 Duke Street<br>London<br>W91SF",
+                  html: "1 Duke Street<br>London<br>W91SF"
+                }
+              ]
+            }) }}
+
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script>
+    accessibleAutocomplete.enhanceSelectElement({
+      selectElement: document.querySelector('#name')
+    })
+  </script>
+{% endblock %}
