@@ -49,12 +49,9 @@ router.post('/create-account-v2/organisation-address-another', (req, res) => {
 		req.session.data.addresses = [];
 	}
 
-	console.log('???', req.session.data['address-line1']);
-
 	var address = {
-		line1: req.session.data['address-line1'],
+		line1: req.session.data['address-line-1'],
 		town: req.session.data['address-town'],
-		county: req.session.data['address-county'],
 		postcode: req.session.data['address-postcode'],
 		dx: req.session.data['org-dx']
 	};
@@ -72,6 +69,10 @@ router.get('/create-account-v2/check', (req, res) => {
 	res.render('create-account-v2/check.html');
 });
 
+router.post('/create-account-v2/organisation-address-postcode-results', (req, res) => {
+	req.session.data['address-town'] = 'London';
+	res.redirect('/create-account-v2/organisation-dx');
+});
 
 router.get('/manage-account-v2/users', (req, res) => {
 	var emailaddresses = req.session.data.emailaddresses;
