@@ -45,8 +45,21 @@ router.post('/create-case/fr/3', (req, res) => {
 });
 
 router.post('/create-account-v2/organisation-address-another', (req, res) => {
-	// need to store an address in session with dx number
-	// then use this to drive other parts of the UI
+	if(!req.session.data.addresses) {
+		req.session.data.addresses = [];
+	}
+
+	console.log('???', req.session.data['address-line1']);
+
+	var address = {
+		line1: req.session.data['address-line1'],
+		town: req.session.data['address-town'],
+		county: req.session.data['address-county'],
+		postcode: req.session.data['address-postcode'],
+		dx: req.session.data['org-dx']
+	};
+
+	req.session.data.addresses.push(address);
 
 	if(req.body['another-address'] === 'yes') {
 		res.redirect('/create-account-v2/organisation-address-postcode');
@@ -54,6 +67,11 @@ router.post('/create-account-v2/organisation-address-another', (req, res) => {
 		res.redirect('/create-account-v2/name');
 	}
 });
+
+router.get('/create-account-v2/check', (req, res) => {
+	res.render('create-account-v2/check.html');
+});
+
 
 router.get('/manage-account-v2/users', (req, res) => {
 	var emailaddresses = req.session.data.emailaddresses;
