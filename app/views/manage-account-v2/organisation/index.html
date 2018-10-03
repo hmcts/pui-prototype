@@ -1,6 +1,6 @@
 {% extends "layouts/admin/base.html" %}
 
-{% set serviceName = 'Manage account' %}
+{% set serviceName = 'Manage organisation account' %}
 
 {% block content %}
 {{hmctsPrimaryNavigation({
@@ -8,11 +8,11 @@
   items: [ {
     text: 'Profile',
     href: '/manage-account-v2',
-    active: true
+    active: false
   },  {
     text: 'Organisation',
     href: '/manage-account-v2/organisation',
-    active: false
+    active: true
   }, {
     text: 'Users',
     href: '/manage-account-v2/users',
@@ -30,7 +30,7 @@
   <main role="main" class="govuk-main-wrapper">
 
 
-    <h1 class="govuk-heading-xl">Profile</h1>
+    <h1 class="govuk-heading-xl">Organisation</h1>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
@@ -39,46 +39,13 @@
             rows: [
               [
                 {
-                  text: "First name"
+                  text: "Name"
                 },
                 {
-                  text: "Adam"
+                  text: "Sherwin Davis"
                 },
                 {
-                  html: ''
-                }
-              ],
-              [
-                {
-                  text: "Last name"
-                },
-                {
-                  text: "Silver"
-                },
-                {
-                  html: ''
-                }
-              ],
-              [
-                {
-                  text: "Email"
-                },
-                {
-                  html: "adam@sherwindavis.com"
-                },
-                {
-                  html: ''
-                }
-              ],
-              [
-                {
-                  text: "Password"
-                },
-                {
-                  html: "********"
-                },
-                {
-                  html: ''
+                  html: '<a href="/">Change</a>'
                 }
               ],
               [
@@ -86,10 +53,10 @@
                   text: "Address"
                 },
                 {
-                  html: "1 The Road<br>London<br>W91SF"
+                  html: "31 High Street<br>Norwich<br>NR2 8GG"
                 },
                 {
-                  html: '<a href="#">Change default</a>'
+                  html: '<a href="/">Change</a>'
                 }
               ]
             ]

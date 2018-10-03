@@ -5,22 +5,27 @@
 {% set pageId = 'users' %}
 
 {% block content %}
-  {{hmctsPrimaryNavigation({ classes: "govuk-!-margin-bottom-0",
-    items: [{
-      text: 'Organisation',
-      href: '/manage-account-v2/',
-      active: false
-    }, {
-      text: 'Users',
-      href: '/manage-account-v2/users',
-      active: true
-    },
-    {
-      text: 'Payments',
-      href: '/manage-account-v2/payments',
-      active: false
-    }]
-  })}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Profile',
+    href: '/manage-account-v2',
+    active: false
+  },  {
+    text: 'Organisation',
+    href: '/manage-account-v2/organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-account-v2/users',
+    active: true
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v2/payments',
+    active: false
+  }]
+})}}
   <div class="govuk-width-container">
 
     <main role="main" class="govuk-main-wrapper">

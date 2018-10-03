@@ -5,7 +5,7 @@
 {% block beforeContent %}
   {{ super() }}
   {{govukBackLink({
-    href: '/create-user-account/name'
+    href: '/create-user-account-address/name'
   })}}
 {% endblock %}
 
@@ -15,20 +15,20 @@
     <main role="main" class="govuk-main-wrapper">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-          <form action="/create-user-account/check">
+          <form action="/create-user-account-address/check">
 
             {{ govukRadios({
               idPrefix: "address",
               name: "address",
               fieldset: {
                 legend: {
-                  text: "Choose address",
+                  text: "Choose default address",
                   isPageHeading: true,
                   classes: "govuk-fieldset__legend--xl"
                 }
               },
               hint: {
-                text: 'Your organisation has more than one address. Choose the address to which you belong.'
+                text: 'Your organisation has more than one address. Choose your default address so that it\'s easier to create applications. You can always change this for each application if you want.'
               },
               items: [
                 {

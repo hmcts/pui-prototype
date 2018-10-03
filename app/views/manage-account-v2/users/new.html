@@ -5,10 +5,15 @@
 {% set pageId = 'users' %}
 
 {% block content %}
-{{hmctsPrimaryNavigation({ classes: "govuk-!-margin-bottom-0",
-  items: [  {
-    text: 'Organisation',
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Profile',
     href: '/manage-account-v2',
+    active: false
+  },  {
+    text: 'Organisation',
+    href: '/manage-account-v2/organisation',
     active: false
   }, {
     text: 'Users',

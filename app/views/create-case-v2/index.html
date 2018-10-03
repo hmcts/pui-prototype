@@ -1,0 +1,48 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS case' %}
+
+{% block content %}
+  <div class="govuk-width-container">
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <form action="/create-case-v2/fr/1" method="get">
+
+            {{ govukRadios({
+              idPrefix: "type",
+              name: "type",
+              fieldset: {
+                legend: {
+                  text: "Type of case",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              items: [
+                {
+                  value: "divorce",
+                  text: "Divorce"
+                },
+                {
+                  value: "fr",
+                  text: "Financial remedy (not contested)"
+                },
+                {
+                  value: "probate",
+                  text: "Probate"
+                }
+              ]
+            }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+{% endblock %}

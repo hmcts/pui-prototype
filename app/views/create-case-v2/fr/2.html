@@ -1,0 +1,52 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS case' %}
+
+{% block beforeContent %}
+{{ super() }}
+{{govukBackLink({
+  href: '/create-case/fr/1'
+})}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-xl">
+            <span class="govuk-caption-xl">Create a financial remedy case</span>
+            Applicant's details
+          </h1>
+
+          <form action="/create-case/fr/3" method="get">
+
+            {{ govukInput({
+              label: {
+                text: "First and middle names",
+                classes: 'govuk-label--m'
+              },
+              id: "first-name",
+              name: "first-name"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Last name",
+                classes: 'govuk-label--m'
+              },
+              id: "last-name",
+              name: "last-name"
+            }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+{% endblock %}

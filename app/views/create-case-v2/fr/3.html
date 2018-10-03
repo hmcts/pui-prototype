@@ -1,0 +1,74 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS case' %}
+
+{% block beforeContent %}
+{{ super() }}
+{{govukBackLink({
+  href: '/create-case/fr/2'
+})}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-xl">
+            <span class="govuk-caption-xl">Create a financial remedy case</span>
+            Respondent's details
+          </h1>
+
+          <form action="/create-case/fr/3" method="post">
+
+            {{ govukInput({
+              label: {
+                text: "First and middle names",
+                classes: 'govuk-label--m'
+              },
+              id: "first-name",
+              name: "first-name"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Last name",
+                classes: 'govuk-label--m'
+              },
+              id: "last-name",
+              name: "last-name"
+            }) }}
+
+            {{ govukRadios({
+              classes: "govuk-radios--inline",
+              idPrefix: "represented",
+              name: "represented",
+              fieldset: {
+                legend: {
+                  text: "Does the respondent have a solicitor?",
+                  classes: 'govuk-label--m'
+                }
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                }
+              ]
+            }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+{% endblock %}

@@ -5,39 +5,43 @@
 {% block beforeContent %}
   {{ super() }}
   {{govukBackLink({
-    href: '/create-user-account/name'
+    href: '/create-user-account-address/start'
   })}}
 {% endblock %}
 
 {% block content %}
 <div class="govuk-width-container">
 
+
+
     <main role="main" class="govuk-main-wrapper">
-      <h1 class="govuk-heading-xl">Create a password</h1>
+
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-          <form action="/create-user-account/check">
+
+          <h1 class="govuk-heading-xl">What's your name?</h1>
+
+          <form action="/create-user-account-address/password">
 
             {{ govukInput({
               label: {
-                text: "Enter your password",
-                classes: 'govuk-label--m',
-                isPageHeading: false
+                text: "First name(s)",
+                classes: 'govuk-label--m'
               },
-              type: 'password',
-              id: "password",
-              name: "password"
+              hint: {
+                text: 'Include all middle names here'
+              },
+              id: "firstname",
+              name: "firstname"
             }) }}
 
             {{ govukInput({
               label: {
-                text: "Confirm your password",
-                classes: 'govuk-label--m',
-                isPageHeading: false
+                text: "Last name",
+                classes: 'govuk-label--m'
               },
-              type: 'password',
-              id: "confirm-password",
-              name: "confirm-password"
+              id: "lastname",
+              name: "lastname"
             }) }}
 
             {{govukButton({
