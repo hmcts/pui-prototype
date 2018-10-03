@@ -1,6 +1,6 @@
 {% extends "layouts/admin/base.html" %}
 
-{% set serviceName = 'Manage account' %}
+{% set serviceName = 'Manage HMCTS account' %}
 
 {% block content %}
 {{hmctsPrimaryNavigation({
@@ -91,65 +91,20 @@
                 {
                   html: '<a href="#">Change default</a>'
                 }
+              ],
+              [
+                {
+                  text: "Permissions"
+                },
+                {
+                  html: "Manage cases"
+                },
+                {
+                  html: ""
+                }
               ]
             ]
           }) }}
-
-
-          <!-- <ul class="govuk-list">
-            <li><a href="./access">Manage organisation access</a></li>
-            <li><a href="./addresses">Add a new address</a></li>
-          </ul> -->
-
-
-
-
-        <!--<h2 class="govuk-heading-l">Organisation</h2>
-
-        {{ govukTable({
-          firstCellIsHeader: true,
-          rows: [
-            [
-              {
-                text: "Name"
-              },
-              {
-                text: "Sherwin Davis"
-              },
-              {
-                html: '<a href="/">Change</a>'
-              }
-            ],
-            [
-              {
-                text: "Address 1"
-              },
-              {
-                html: "31 High Street<br>Norwich<br>NR2 8GG"
-              },
-              {
-                html: '<a href="/">Change</a>'
-              }
-            ],
-            [
-              {
-                text: "Address 2"
-              },
-              {
-                html: "3 Trickle Street<br>Borehamwood<br>H1 8GG"
-              },
-              {
-                html: '<a href="/">Change</a>'
-              }
-            ]
-          ]
-        }) }}
-
-
-        <ul class="govuk-list">
-          <li><a href="./access">Manage organisation access</a></li>
-          <li><a href="./addresses">Add a new address</a></li>
-        </ul>-->
 
       </div>
     </div>

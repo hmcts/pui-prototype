@@ -4,7 +4,7 @@
 {% block beforeContent %}
 {{ super() }}
 {{govukBackLink({
-  href: '/create-case'
+  href: '/create-case-v2'
 })}}
 {% endblock %}
 
@@ -19,12 +19,29 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-          <h1 class="govuk-heading-xl">
-            <span class="govuk-caption-xl">Create a financial remedy case</span>
-            Address
-          </h1>
+          <form action="/create-case-v2/fr/2" method="get">
 
-          <form action="/create-case/fr/2" method="get">
+            {{ govukRadios({
+              idPrefix: "address",
+              name: "address",
+              fieldset: {
+                legend: {
+                  text: "Choose address",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              items: [
+                {
+                  value: "23 Neon Lane<br>Nottingham<br>NH1 4SH",
+                  html: "23 Neon Lane<br>Nottingham<br>NH1 4SH"
+                },
+                {
+                  value: "1 Duke Street<br>London<br>W91SF",
+                  html: "1 Duke Street<br>London<br>W91SF"
+                }
+              ]
+            }) }}
 
 
 

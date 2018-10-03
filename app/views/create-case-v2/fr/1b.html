@@ -1,0 +1,37 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Create an HMCTS case' %}
+{% block beforeContent %}
+{{ super() }}
+{{govukBackLink({
+  href: '/create-case-v2'
+})}}
+{% endblock %}
+
+
+{% block content %}
+
+
+  <div class="govuk-width-container">
+
+    <h1 class="govuk-heading-xl">
+      Organisation address
+    </h1>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <form action="/create-case-v2/fr/2" method="get">
+
+            <p class="govuk-body">23 Neon Lane<br>Nottingham<br>NH1 4SH</p>
+            <p class="govuk-body"><a href="/create-case-v2/fr/1">Change address</a></p>
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+{% endblock %}
