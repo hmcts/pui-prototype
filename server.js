@@ -95,10 +95,12 @@ app.use('/node_modules/hmcts-frontend', express.static(path.join(__dirname, '/no
 
 // Set up documentation app
 if (useDocumentation) {
-  var documentationViews = [path.join(__dirname, '/docs/views/'),
-    path.join(__dirname, '/lib/'),
-    path.join(__dirname, '/node_modules/govuk_template_jinja/views/layouts'),
-    path.join(__dirname, '/node_modules/@govuk-frontend/')]
+  var documentationViews = [
+    path.join(__dirname, '/node_modules/govuk-frontend/'),
+    path.join(__dirname, '/node_modules/govuk-frontend/components'),
+    path.join(__dirname, '/docs/views/'),
+    path.join(__dirname, '/lib/')
+  ]
 
   var nunjucksDocumentationEnv = nunjucks.configure(documentationViews, {
     autoescape: true,
