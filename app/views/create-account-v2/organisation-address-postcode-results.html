@@ -19,7 +19,7 @@
 
         <h1 class="govuk-heading-xl">What addresses does your oganisation use?</h1>
         <h2 class="govuk-heading-m">Postcode</h2>
-        <p>{{data.postcode}} <a href="/create-account-v2/organisation-address-postcode">Change</a></p>
+        <p>{{data['address-postcode']}} <a href="/create-account-v2/organisation-address-postcode">Change</a></p>
 
         {{ govukSelect({
           id: "address-line-1",
