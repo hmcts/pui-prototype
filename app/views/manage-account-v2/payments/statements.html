@@ -1,0 +1,310 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage HMCTS account' %}
+
+{% block content %}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Profile',
+    href: '/manage-account-v2',
+    active: false
+  },  {
+    text: 'Organisation',
+    href: '/manage-account-v2/organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-account-v2/users',
+    active: false
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v2/payments',
+    active: true
+  }]
+})}}
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+    {{hmctsSubNavigation({
+      items: [  {
+        text: 'Overview',
+        href: '/manage-account-v2/payments',
+        active: false
+      }, {
+        text: 'Transactions',
+        href: '/manage-account-v2/payments/transactions',
+        active: false
+      },{
+        text: 'Statements',
+        href: '/manage-account-v2/payments/statements',
+        active: true
+      },
+      {
+        text: 'Manage account',
+        href: '/manage-account-v2/payments/manage-account',
+        active: false
+      }
+      ]
+    })}}
+
+    <div class="hmcts-page-heading">
+      <div class="hmcts-page-heading__title-wrapper">
+        <h1 class="hmcts-page-heading__title govuk-heading-xl">Statements</h1>
+      </div>
+      <div class="hmcts-page-heading__actions-wrapper">
+
+      </div>
+    </div>
+
+
+
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <dl class="govuk-check-your-answers govuk-check-your-answers--short">
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question" id="pendingStatement1">
+                July 2018
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="#">
+                  View statement<span class="visually-hidden"></span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question" id="pendingStatement2">
+                June 2018
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="#">
+                  View statement<span class="visually-hidden"></span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question" id="pendingStatement3">
+                May 2018
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="#">
+                  View statement<span class="visually-hidden"></span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question" id="pendingStatement4">
+                April 2018
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="#">
+                  View statement<span class="visually-hidden"></span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question" id="pendingStatement5">
+                March 2018
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="#">
+                  View statement<span class="visually-hidden"></span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question" id="pendingStatement6">
+                Febuary 2018
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="#">
+                  View statement<span class="visually-hidden"></span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question" id="pendingStatement7">
+                January 2018
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="#">
+                  View statement<span class="visually-hidden"></span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question" id="pendingStatement8">
+                December 2017
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="#">
+                  View statement<span class="visually-hidden"></span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question" id="pendingStatement9">
+                November 2017
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="#">
+                  View statement<span class="visually-hidden"></span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question" id="pendingStatement10">
+                October 2017
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="#">
+                  View statement<span class="visually-hidden"></span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question" id="pendingStatement11">
+                September 2017
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="#">
+                  View statement<span class="visually-hidden"></span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question" id="pendingStatement12">
+                August 2017
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="#">
+                  View statement<span class="visually-hidden"></span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              You will only be able to see the last 12 months of statements
+            </strong>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}
+{% block page_scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+<script>
+
+
+
+pendingStatement();
+
+function pendingStatement() {
+  var dateField = document.getElementById('pendingStatement1');
+  dateField.innerHTML = moment().subtract(0, 'months').format ('02 MMMM YYYY');
+
+  var dateField = document.getElementById('pendingStatement2');
+  dateField.innerHTML = moment().subtract(1, 'months').format ('02 MMMM YYYY');
+
+  var dateField = document.getElementById('pendingStatement3');
+  dateField.innerHTML = moment().subtract(2, 'months').format ('02 MMMM YYYY');
+
+  var dateField = document.getElementById('pendingStatement4');
+  dateField.innerHTML = moment().subtract(3, 'months').format ('02 MMMM YYYY');
+
+  var dateField = document.getElementById('pendingStatement5');
+  dateField.innerHTML = moment().subtract(4, 'months').format ('02 MMMM YYYY');
+
+  var dateField = document.getElementById('pendingStatement6');
+  dateField.innerHTML = moment().subtract(5, 'months').format ('02 MMMM YYYY');
+
+  var dateField = document.getElementById('pendingStatement7');
+  dateField.innerHTML = moment().subtract(6, 'months').format ('02 MMMM YYYY');
+
+  var dateField = document.getElementById('pendingStatement8');
+  dateField.innerHTML = moment().subtract(7, 'months').format ('02 MMMM YYYY');
+
+  var dateField = document.getElementById('pendingStatement9');
+  dateField.innerHTML = moment().subtract(8, 'months').format ('02 MMMM YYYY');
+
+  var dateField = document.getElementById('pendingStatement10');
+  dateField.innerHTML = moment().subtract(9, 'months').format ('02 MMMM YYYY');
+
+  var dateField = document.getElementById('pendingStatement11');
+  dateField.innerHTML = moment().subtract(10, 'months').format ('02 MMMM YYYY');
+
+  var dateField = document.getElementById('pendingStatement12');
+  dateField.innerHTML = moment().subtract(11, 'months').format ('02 MMMM YYYY');
+}
+
+
+
+
+
+</script>
+
+{% endblock %}
