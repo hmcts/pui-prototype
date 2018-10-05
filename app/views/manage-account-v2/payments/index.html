@@ -28,69 +28,34 @@
 
   <main role="main" class="govuk-main-wrapper">
 
-      {{hmctsSubNavigation({
-        items: [  {
-          text: 'Overview',
-          href: '/manage-account-v2/payments',
-          active: true
-        }, {
-          text: 'Transactions',
-          href: '/manage-account-v2/payments/transactions',
-          active: false
-        }]
-      })}}
 
-    <h1 class="govuk-heading-xl">Overview</h1>
+      <div class="hmcts-page-heading">
+        <div class="hmcts-page-heading__title-wrapper">
+          <h1 class="hmcts-page-heading__title govuk-heading-xl">Payments</h1>
+        </div>
+        <div class="hmcts-page-heading__actions-wrapper">
+
+        </div>
+      </div>
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-    {{ govukTable({
-      firstCellIsHeader: true,
-      rows: [
-        [
-          {
-            html: 'Account number (PBA)'
-          },
-          {
-            text: "PBA0246111"
-          }
-        ],
-        [
-          {
-            html: 'Balance'
-          },
-          {
-            text: "£2746.00"
-          }
-        ]
-      ]
-    }) }}
+          <h2 class="govuk-heading-m">Choose account</h2>
+
+          <ul class="govuk-list govuk-!-font-size-24 govuk-!-font-weight-bold">
+            <li>
+              <a class="govuk-link" href="/manage-account-v2/payments/overview">PBA0241163</a>
+            </li>
+            <br>
+            <li>
+              <a class="govuk-link" href="#">PBA222333</a>
+            </li>
+            </ul>
 
 
 
 
-    {{ govukTable({
-      firstCellIsHeader: true,
-      rows: [
-        [
-          {
-            html: 'Account number (PBA)'
-          },
-          {
-            text: "PBA1211676"
-          }
-        ],
-        [
-          {
-            html: 'Balance'
-          },
-          {
-            text: "£724.00"
-          }
-        ]
-      ]
-    }) }}
     </div>
     </div>
 
@@ -101,5 +66,31 @@
   </main>
 
 </div>
+
+
+{% endblock %}
+{% block page_scripts %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+
+<script>
+
+nextPaymentDue();
+
+function nextPaymentDue() {
+  var dateField = document.getElementById('nextpayment1');
+  dateField.innerHTML = moment().add(1, 'months').format ('01 MMM YYYY');
+
+  var dateField = document.getElementById('nextpayment2');
+  dateField.innerHTML = moment().add(1, 'months').format ('03 MMM YYYY');
+  }
+
+
+
+
+
+</script>
+
 
 {% endblock %}

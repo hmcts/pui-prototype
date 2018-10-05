@@ -1,0 +1,315 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage HMCTS account' %}
+
+{% block content %}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Profile',
+    href: '/manage-account-v2',
+    active: false
+  },  {
+    text: 'Organisation',
+    href: '/manage-account-v2/organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-account-v2/users',
+    active: false
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v2/payments',
+    active: true
+  }]
+})}}
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+    {{hmctsSubNavigation({
+      items: [  {
+        text: 'Overview',
+        href: '/manage-account-v2/payments',
+        active: false
+      }, {
+        text: 'Transactions',
+        href: '/manage-account-v2/payments/transactions',
+        active: false
+      },{
+        text: 'Statements',
+        href: '/manage-account-v2/payments/statements',
+        active: false
+      },
+      {
+        text: 'Manage account',
+        href: '/manage-account-v2/payments/manage-account',
+        active: true
+      }
+      ]
+    })}}
+
+    <h1 class="govuk-heading-xl">Manage account</h1>
+
+
+    {% set pastDayHtml %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        <h2 class="govuk-heading-l">
+              Summary
+            </h2>
+
+            <dl class="govuk-check-your-answers govuk-check-your-answers--short">
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+                  Account number
+                </dt>
+                <dd class="govuk-check-your-answers__answer">
+                  PBA0241163
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+                  Account name
+                </dt>
+                <dd class="govuk-check-your-answers__answer">
+                  Bluebird solicitors
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="#">
+                    Change<span class="visually-hidden"></span>
+                  </a>
+                </dd>
+              </div>
+
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+                  Account type
+                </dt>
+                <dd class="govuk-check-your-answers__answer">
+                  Credit
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="#">
+                    Change<span class="visually-hidden"></span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+                  Credit limit
+                </dt>
+                <dd class="govuk-check-your-answers__answer">
+                  £20,000.00
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="#">
+                    Change<span class="visually-hidden"></span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+                  Billing address
+                </dt>
+                <dd class="govuk-check-your-answers__answer">
+                  72 Guild Street<br />
+                  London<br />
+                  SE23 6FH
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="#">
+                    Change<span class="visually-hidden"></span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+              Billing type
+                </dt>
+                <dd class="govuk-check-your-answers__answer">
+                  Monthly
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="#">
+                    Change<span class="visually-hidden"></span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+              Next payment due
+                </dt>
+                <dd class="govuk-check-your-answers__answer" id="nextPaymentDue">
+                  01 Aug 2018
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="#">
+                    Change<span class="visually-hidden"></span>
+                  </a>
+                </dd>
+              </div>
+            </dl>
+
+
+
+    {% endset -%}
+
+    {% set pastWeekHtml %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        <h2 class="govuk-heading-l">
+              Summary
+            </h2>
+
+            <dl class="govuk-check-your-answers govuk-check-your-answers--short">
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+                  Account number
+                </dt>
+                <dd class="govuk-check-your-answers__answer">
+                  PBA222333
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+                  Account name
+                </dt>
+                <dd class="govuk-check-your-answers__answer">
+                  Bluebird solicitors
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="#">
+                    Change<span class="visually-hidden"></span>
+                  </a>
+                </dd>
+              </div>
+
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+                  Account type
+                </dt>
+                <dd class="govuk-check-your-answers__answer">
+                  Credit
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="#">
+                    Change<span class="visually-hidden"></span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+                  Credit limit
+                </dt>
+                <dd class="govuk-check-your-answers__answer">
+                  £2,000.00
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="#">
+                    Change<span class="visually-hidden"></span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+                  Billing address
+                </dt>
+                <dd class="govuk-check-your-answers__answer">
+                  72 Guild Street<br />
+                  London<br />
+                  SE23 6FH
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="#">
+                    Change<span class="visually-hidden"></span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+              Billing type
+                </dt>
+                <dd class="govuk-check-your-answers__answer">
+                  Monthly
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="#">
+                    Change<span class="visually-hidden"></span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">
+              Next payment due
+                </dt>
+                <dd class="govuk-check-your-answers__answer" id="nextPaymentDue">
+                  01 Aug 2018
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="#">
+                    Change<span class="visually-hidden"></span>
+                  </a>
+                </dd>
+              </div>
+            </dl>
+
+
+
+
+
+    {% endset -%}
+
+
+
+
+
+    {{ govukTabs({
+      items: [
+        {
+          label: "PBA0241163",
+          id: "past-day",
+          panel: {
+            html: pastDayHtml
+          }
+        },
+        {
+          label: "PBA222333",
+          id: "past-week",
+          panel: {
+            html: pastWeekHtml
+          }
+        }
+      ]
+    }) }}
+
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}

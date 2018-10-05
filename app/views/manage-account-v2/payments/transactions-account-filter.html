@@ -27,10 +27,6 @@
 
 <style>
 
-#no-underline{
-  underline: none;
-}
-
 /* // RESPONSIVE table */
 
 body {
@@ -120,8 +116,6 @@ table th {
   }
 }
 
-
-
 </style>
 <div class="govuk-width-container">
 
@@ -130,7 +124,7 @@ table th {
     {{hmctsSubNavigation({
       items: [  {
         text: 'Overview',
-        href: '/manage-account-v2/payments/overview',
+        href: '/manage-account-v2/payments',
         active: false
       }, {
         text: 'Transactions',
@@ -192,18 +186,51 @@ table th {
             </form>
           </div>
 
-
+          <br>
 
 
 
           </div>
 
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half">
+
+                          <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h1 class="govuk-fieldset__heading">
+                          Account
+                      </h1>
+                    </legend>
+                    <span id="waste-hint" class="govuk-hint">
+                    </span>
+                    <div class="govuk-checkboxes transactions-checkboxes">
+                      <div class="govuk-checkboxes__item transactions-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste-1">
+                         PBA0241163
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item transactions-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                          PBA222333
+                        </label>
+                      </div>
+
+                    </div>
+                  </fieldset>
+                      </div>
+
+              </div>
+          </div>
+
+
+
 
 
     <div class="govuk-grid-row">
                 <div class="govuk-grid-column-full">
-
-
 
             <a class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold" href="#">Download current transactions</a>
 
@@ -228,8 +255,8 @@ table th {
       <tr>
         <td data-label="Payment reference"><a href="/manage-account-v2/payments/RC-2352-6362-6257-7742">RC-2352-6362-6257-7742<a/></td>
         <td data-label="Case">1542-5226-7383-2772</td>
-        <td data-label="Reference">J Hart vs M Hart</td>
-        <td data-label="Submitted by">James Brown</td>
+        <td data-label="Your reference">J Hart vs M Hart</td>
+        <td data-label="Approver">James Brown</td>
         <td data-label="Status">Pending</td>
         <td id="pendingPayment" data-label="Date"></td>
         <td data-label="Amount">-£550.00</td>
@@ -238,8 +265,8 @@ table th {
       <tr>
         <td data-label="Payment reference"><a href="/RC-9584-2521-7742-1457">RC-9584-2521-7742-1457<a/></td>
         <td data-label="Case">1526-8943-7271-8327</td>
-        <td data-label="Reference">Smith probate app</td>
-        <td data-label="Submitted by">Lucy Smith</td>
+        <td data-label="Your reference">Smith probate app</td>
+        <td data-label="Approver">Lucy Smith</td>
         <td data-label="Status">Completed</td>
         <td id="1457Date" data-label="Date">02 Oct 2018</td>
         <td data-label="Amount">-£215.00</td>
@@ -248,8 +275,8 @@ table th {
       <tr>
         <td data-label="Payment reference"><a href="#">RC-6124-1415-7215-1515<a/></td>
         <td data-label="Case">1562-1578-3622-1589</td>
-        <td data-label="Reference">Jones hearing</td>
-        <td data-label="Submitted by">Joe Green</td>
+        <td data-label="Your reference">Jones hearing</td>
+        <td data-label="Approver">Joe Green</td>
         <td data-label="Status">Completed</td>
         <td id="1515Date" data-label="Date"></td>
         <td data-label="Amount">-£250.00</td>
@@ -258,8 +285,8 @@ table th {
       <tr class="linked-payment">
         <td data-label="Payment reference" class="linked-payment-ref">DIRECT DEBIT PAYMENT</td>
         <td data-label="Case">-</td>
-        <td data-label="Reference">-</td>
-        <td data-label="Submitted by">-</td>
+        <td data-label="Your reference">-</td>
+        <td data-label="Approver">-</td>
         <td data-label="Status">Completed</td>
         <td id="directDebitDate" data-label="Date"></td>
         <td data-label="Amount">+£2590.40</td>
@@ -268,8 +295,8 @@ table th {
       <tr>
         <td data-label="Payment reference"><a href="#">RC-6420-7212-7321-8721<a/></td>
         <td data-label="Case">1538-3893-8483-8337</td>
-        <td data-label="Reference">Baker PRB </td>
-        <td data-label="Submitted by">Joe Green</td>
+        <td data-label="Your reference">Baker PRB </td>
+        <td data-label="Approver">Joe Green</td>
         <td data-label="Status">Completed</td>
         <td id="8721Date" data-label="Date"></td>
         <td data-label="Amount">-£215.00</td>
@@ -278,8 +305,8 @@ table th {
       <tr>
         <td data-label="Payment reference"><a href="#">RC-2234-2626-6772-1678<a/></td>
         <td data-label="Case">1574-2379-9760-0643</td>
-        <td data-label="Reference">Probate 31</td>
-        <td data-label="Submitted by">James Brown</td>
+        <td data-label="Your reference">Probate 31</td>
+        <td data-label="Approver">James Brown</td>
         <td data-label="Status">Completed</td>
         <td id="1678Date" data-label="Date"></td>
         <td data-label="Amount">-£215.00</td>
@@ -288,8 +315,8 @@ table th {
       <tr>
         <td data-label="Payment reference"><a href="#">RC-3467-6167-1676-7832<a/></td>
         <td data-label="Case">1562-1578-3622-1589</td>
-        <td data-label="Reference">Jones application</td>
-        <td data-label="Submitted by">James Brown</td>
+        <td data-label="Your reference">Jones application</td>
+        <td data-label="Approver">James Brown</td>
         <td data-label="Status">Completed</td>
         <td id="7832Date" data-label="Date"></td>
         <td data-label="Amount">-£150.00</td>
@@ -298,8 +325,8 @@ table th {
       <tr>
         <td data-label="Payment reference"><a href="#">RC-7436-2522-7632-8363<a/></td>
         <td data-label="Case">1508-4872-2683-8278</td>
-        <td data-label="Reference">Greens divorce</td>
-        <td data-label="Submitted by">Lucy Smith</td>
+        <td data-label="Your reference">Greens divorce</td>
+        <td data-label="Approver">Lucy Smith</td>
         <td data-label="Status">Completed</td>
         <td id="8363Date" data-label="Date"></td>
         <td data-label="Amount">-£550.00</td>
