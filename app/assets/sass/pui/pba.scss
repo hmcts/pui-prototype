@@ -254,3 +254,26 @@ padding-bottom: 1em;
       display: inline-block;
   }
 }
+
+// Check your answers PBA
+
+// Recommended - Use these styles for the check your answers pattern
+.govuk-check-your-answers {
+
+  @include govuk-font($size: 19);
+
+  @include mq($from: desktop) {
+    display: table;
+  }
+}
+
+.govuk-check-your-answers--pba-overview {
+  @include mq($from: desktop) {
+    // to make group of q&a line up horizontally (unless there is just one group)
+    width: 100%;
+    // recommended for mostly short questions
+    .govuk-check-your-answers__question {
+      width: 35%;
+    }
+  }
+}

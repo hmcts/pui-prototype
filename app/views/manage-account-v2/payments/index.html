@@ -28,31 +28,10 @@
 
   <main role="main" class="govuk-main-wrapper">
 
-      {{hmctsSubNavigation({
-        items: [  {
-          text: 'Overview',
-          href: '/manage-account-v2/payments',
-          active: true
-        }, {
-          text: 'Transactions',
-          href: '/manage-account-v2/payments/transactions',
-          active: false
-        },{
-          text: 'Statements',
-          href: '/manage-account-v2/payments/statements',
-          active: false
-        },
-        {
-          text: 'Manage account',
-          href: '/manage-account-v2/payments/manage-account',
-          active: false
-        }
-        ]
-      })}}
 
       <div class="hmcts-page-heading">
         <div class="hmcts-page-heading__title-wrapper">
-          <h1 class="hmcts-page-heading__title govuk-heading-xl">Overview</h1>
+          <h1 class="hmcts-page-heading__title govuk-heading-xl">Payments</h1>
         </div>
         <div class="hmcts-page-heading__actions-wrapper">
 
@@ -62,102 +41,19 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
+          <h2 class="govuk-heading-m">Choose account</h2>
 
-            <dl class="govuk-check-your-answers govuk-check-your-answers--short">
-            <div class="govuk-check-your-answers__contents">
-              <dt class="govuk-check-your-answers__question">
-                Account number
-              </dt>
-              <dd class="govuk-check-your-answers__change">
+          <ul class="govuk-list govuk-!-font-size-24 govuk-!-font-weight-bold">
+            <li>
+              <a class="govuk-link" href="/manage-account-v2/payments/overview">PBA0241163</a>
+            </li>
+            <br>
+            <li>
+              <a class="govuk-link" href="#">PBA222333</a>
+            </li>
+            </ul>
 
-              </dd>
-              <dd class="govuk-check-your-answers__answer">
-                	PBA0241163
-              </dd>
-              <dd class="govuk-check-your-answers__change">
-              </dd>
-            </div>
-            <div class="govuk-check-your-answers__contents">
-              <dt class="govuk-check-your-answers__question">
-                Balance
-              </dt>
-              <dd class="govuk-check-your-answers__change">
 
-              </dd>
-              <dd class="govuk-check-your-answers__answer">
-                £2746.00
-              </dd>
-              <dd class="govuk-check-your-answers__change">
-              </dd>
-            </div>
-            <div class="govuk-check-your-answers__contents">
-
-              <dt class="govuk-check-your-answers__question">
-                Available credit
-              </dt>
-              <dd class="govuk-check-your-answers__change">
-
-              </dd>
-              <dd class="govuk-check-your-answers__answer">
-                £17,254.00
-              </dd>
-              <dd class="govuk-check-your-answers__change">
-                <span class="govuk-caption-m" style="color: #000; padding-bottom: 10px;"> Next payment due <span id="nextpayment1"></span></span>
-              </dd>
-            </div>
-          </dl>
-          <br>
-          <button type="submit" class="govuk-button">
-          Pay balance
-          </button>
-
-          <dl class="govuk-check-your-answers govuk-check-your-answers--short">
-          <div class="govuk-check-your-answers__contents">
-            <dt class="govuk-check-your-answers__question">
-              Account number
-            </dt>
-            <dd class="govuk-check-your-answers__change">
-
-            </dd>
-            <dd class="govuk-check-your-answers__answer">
-                PBA1211676
-            </dd>
-            <dd class="govuk-check-your-answers__change">
-            </dd>
-          </div>
-          <div class="govuk-check-your-answers__contents">
-            <dt class="govuk-check-your-answers__question">
-              Balance
-            </dt>
-            <dd class="govuk-check-your-answers__change">
-
-            </dd>
-            <dd class="govuk-check-your-answers__answer">
-              £446.00
-            </dd>
-            <dd class="govuk-check-your-answers__change">
-            </dd>
-          </div>
-          <div class="govuk-check-your-answers__contents">
-
-            <dt class="govuk-check-your-answers__question">
-              Available credit
-            </dt>
-            <dd class="govuk-check-your-answers__change">
-
-            </dd>
-            <dd class="govuk-check-your-answers__answer">
-              £1,554.00
-            </dd>
-            <dd class="govuk-check-your-answers__change">
-                <span class="govuk-caption-m" style="color: #000; padding-bottom: 10px;"> Next payment due <span id="nextpayment2"></span></span>
-            </dd>
-          </div>
-        </dl>
-        <br>
-        <button type="submit" class="govuk-button">
-        Pay balance
-        </button>
 
 
     </div>
