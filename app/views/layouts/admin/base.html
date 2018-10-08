@@ -29,7 +29,8 @@
 {%- from "timeline/macro.njk" import hmctsTimeline %}
 
 <!-- PUI specific -->
-{%- from "alert/macro.njk" import puiAlert %}
+{%- from "alert/macro.njk" import hmctsAlert %}
+{%- from "casebar/macro.njk" import puiCasebar %}
 
 
 <!DOCTYPE html>
@@ -55,6 +56,7 @@
 
    <!--[if lte IE 8]><link href="/public/stylesheets/application-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
         <!--[if gt IE 8]><!--><link href="/public/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->
+<link href="/public/kit-icons/icons.css" media="screen" rel="stylesheet" type="text/css" />
 
   </head>
 
@@ -74,8 +76,10 @@
     {% block header %}
 
       {{hmctsGlobalHeader({
-        serviceUrl: '/app/cases',
-        serviceName: serviceName,
+        service: {
+          name: serviceName,
+          url: '#'
+        },
         navigation: [{
           text: 'Sign out',
           href: '/sign-out'

@@ -15,6 +15,29 @@ $govuk-global-styles: true;
 // JUI styles
 @import "pui/all";
 
+// PBA styles
+@import "pui/pba";
+
+// Home office icon-small
+.side-space {
+           margin-right: .5em;
+         }
+         .icon-medium {
+           font-size: 24px;
+           &:before {
+             vertical-align: bottom;
+             padding-bottom: 1em;
+           }
+         }
+         .icon-small {
+           font-size: 18px;
+           &:before {
+             vertical-align: middle;
+             padding-bottom: 1em;
+           }
+         }
+
+
 .js-enabled .js-hidden {
   display: none !important;
 }
@@ -106,3 +129,23 @@ mark.comment {
   }
 
 }
+
+//Home office css */
+
+          .side-space {
+          	margin-right: .5em;
+          }
+          .icon-medium {
+            font-size: 24px;
+            &:before {
+              vertical-align: bottom;
+              padding-bottom: 1em;
+            }
+          }
+          .icon-small {
+            font-size: 18px;
+            &:before {
+              vertical-align: middle;
+              padding-bottom: 1em;
+            }
+          }
