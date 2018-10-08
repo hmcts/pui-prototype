@@ -91,6 +91,26 @@ router.get('/manage-account-v2/users', (req, res) => {
 	var rows = [
 		[
 			{
+				html: '<a href="">adam@sherwindavis.co.uk</a>'
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Active"
+			}
+		],
+		[
+			{
 				html: '<a href="">amysmith@sherwindavis.co.uk</a>'
 			},
 			{
