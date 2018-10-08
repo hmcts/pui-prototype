@@ -25,33 +25,55 @@
   }]
 })}}
 <div class="govuk-width-container">
-
   <main role="main" class="govuk-main-wrapper">
-
-
-      <div class="hmcts-page-heading">
-        <div class="hmcts-page-heading__title-wrapper">
-          <h1 class="hmcts-page-heading__title govuk-heading-xl">Payments</h1>
-        </div>
-        <div class="hmcts-page-heading__actions-wrapper">
-
-        </div>
-      </div>
+    <h1 class="hmcts-page-heading__title govuk-heading-xl">Payment accounts</h1>
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-          <h2 class="govuk-heading-m">Choose account</h2>
+          {{ govukTable({
+            head: [
+              {
+                text: "PBA number"
+              },
+              {
+                text: "Balance"
+              },
+              {
+                text: "Available credit"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: '<a class="govuk-link" href="/manage-account-v2/payments/overview">PBA0241163</a>'
+                },
+                {
+                  html: '£2746'
+                },
+                {
+                  html: '£17,254'
+                }
+              ],
+              [
+                {
+                  html: '<a class="govuk-link" href="/manage-account-v2/payments/overview">PBA222333</a>'
+                },
+                {
+                  html: '£1234'
+                },
+                {
+                  html: '£11,005'
+                }
+              ]
+            ]
+          }) }}
 
-          <ul class="govuk-list govuk-!-font-size-24 govuk-!-font-weight-bold">
-            <li>
-              <a class="govuk-link" href="/manage-account-v2/payments/overview">PBA0241163</a>
-            </li>
-            <br>
-            <li>
-              <a class="govuk-link" href="#">PBA222333</a>
-            </li>
-            </ul>
+          {{govukButton({
+            text: 'Add another account'
+          })}}
+
+
 
 
 
