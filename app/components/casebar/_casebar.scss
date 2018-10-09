@@ -27,6 +27,7 @@
 .jui-casebar__title:visited {
   @include govuk-font(16);
   color: govuk-colour("white");
+  font-weight: bold;
 }
 
 
