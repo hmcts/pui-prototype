@@ -78,12 +78,14 @@
       {{hmctsGlobalHeader({
         service: {
           name: serviceName,
-          url: '#'
+          url: '/'
         },
-        navigation: [{
-          text: 'Sign out',
-          href: '/sign-out'
-        }]
+        navigation: {
+          items: [{
+            text: 'Sign out',
+            href: '/sign-out'
+          }]
+        }
       })}}
     {% endblock %}
 

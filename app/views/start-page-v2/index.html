@@ -1,0 +1,65 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = '' %}
+
+{% block beforeContent %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/"
+    },
+    {
+      text: "Crime, justice and the law"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Guidance</span>
+        HMCTS online services for professionals
+      </h1>
+
+      <p class="govuk-body-l">Find out how to create an account and use HM Courts and Tribunals Service (HMCTS) online services.</p>
+
+      <div class="govuk-body-s">
+        Published 20 August 2018<br>
+        Last updated 22 August 2022<br>
+        From: <strong><a href="">HM Courts and Tribunals Service</a></strong>
+      </div>
+
+      <h2 class="govuk-heading-m">Getting started</h2>
+
+      <p>You need to <a href="/create-account-v2/start">register your organisation</a> before you can create or manage cases.</p>
+
+      <p>You can <a href="/manage-account-v2/sign-in">manage your account</a> if you need to change any information later - for example if you move to a different office.</p>
+
+      <h2 class="govuk-heading-m">Creating new cases</h2>
+
+      <p>Once you have an account for HMCTS online services, you can <a href="/ccd-ui/create-case">create a case online</a> for:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>divorce</li>
+        <li>financial remedy</li>
+        <li>probate</li>
+        <li>civil money claims</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Managing existing cases</h2>
+
+      <p>You can <a href="/ccd-ui/case-list">manage a case</a> which you created or have been given access to. You'll be able to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>check the status of the case</li>
+        <li>upload documents</li>
+      </ul>
+
+  </div>
+{% endblock %}
