@@ -1,0 +1,39 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Register organisation for HMCTS services' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/create-account-v3/organisation-address-postcode-results'
+  })}}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/create-account-v3/organisation-address-another">
+
+        {{ govukInput({
+          label: {
+            text: "What's the DX number for this address? (optional)",
+            classes: 'govuk-label--xl',
+            isPageHeading: true
+          },
+          id: "org-dx",
+          name: "org-dx"
+        }) }}
+
+
+        <!-- <p class="govuk-body"><a href="#">Can't find your organistaion?</a></p> -->
+
+        {{govukButton({
+          text: 'Continue'
+        })}}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+

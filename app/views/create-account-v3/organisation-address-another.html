@@ -1,0 +1,57 @@
+{% extends "layouts/service/base.html" %}
+
+{% from "input/macro.njk" import govukInput %}
+{% from "fieldset/macro.njk" import govukFieldset %}
+
+{% set serviceName = 'Register organisation for HMCTS services' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/create-account/organisation-address-results'
+  })}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/create-account-v3/organisation-address-another" method="post">
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "another-address",
+        name: "another-address",
+        hint: {
+          text: 'You can add more after you\'ve registered your organisation.'
+        },
+        fieldset: {
+          legend: {
+            text: "Do you want to add another address?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      {{govukButton({
+        text: 'Continue'
+      })}}
+
+    </form>
+  </div>
+</div>
+
+
+    </main>
+  </div>
+{% endblock %}

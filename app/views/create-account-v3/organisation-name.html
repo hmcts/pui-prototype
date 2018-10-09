@@ -1,0 +1,39 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Register organisation for HMCTS services' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/create-account/organisation-name'
+  })}}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/create-account-v3/organisation-address-postcode">
+
+        {{ govukInput({
+          label: {
+            text: "What's the name of your organisation?",
+            classes: 'govuk-label--xl',
+            isPageHeading: true
+          },
+          id: "org-name",
+          name: "org-name"
+        }) }}
+
+
+        <!-- <p class="govuk-body"><a href="#">Can't find your organistaion?</a></p> -->
+
+        {{govukButton({
+          text: 'Continue'
+        })}}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+

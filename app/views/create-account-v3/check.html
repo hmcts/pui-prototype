@@ -1,0 +1,74 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Register organisation for HMCTS services' %}
+
+{% block content %}
+<div class="govuk-width-container">
+  <main role="main" class="govuk-main-wrapper">
+    <h1 class="govuk-heading-xl">Check your answers</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+
+          <div class="govuk-check-your-answers__contents">
+            <dt class="govuk-check-your-answers__question">Organisation name</dt>
+            <dd class="govuk-check-your-answers__answer">
+              {{data['org-name']}}
+            </dd>
+            <dd class="govuk-check-your-answers__change">
+              <a href="/create-account-v3/organisation-name">Change <span class="govuk-visually-hidden">organisation name</span></a>
+            </dd>
+          </div>
+
+
+          {% for address in data.addresses %}
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Organisation address</dt>
+              <dd class="govuk-check-your-answers__answer">
+                {{address.line1}}<br>
+                {{address.town}}<br>
+                {{address.postcode}}<br><br>
+                DX number: {{address.dx}}<br>
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="/create-account-v3/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+              </dd>
+            </div>
+          {% endfor %}
+
+            <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">First name(s)</dt>
+                <dd class="govuk-check-your-answers__answer">
+                  {{data.firstname}}
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="/create-account-v3/name">Change <span class="govuk-visually-hidden">name</span></a>
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                  <dt class="govuk-check-your-answers__question">Last name</dt>
+                  <dd class="govuk-check-your-answers__answer">
+                    {{data.lastname}}
+                  </dd>
+                  <dd class="govuk-check-your-answers__change">
+                    <a href="/create-account-v3/name">Change <span class="govuk-visually-hidden">name</span></a>
+                  </dd>
+                </div>
+
+        </dl>
+
+        <h2 class="govuk-heading-l">Now submit your registration</h2>
+        <p>When you do this you confirm that the information you've given is accurate.</p>
+
+          {{ govukButton({
+            "text": "Submit",
+            href: '/create-account-v3/confirmation'
+          }) }}
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

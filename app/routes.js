@@ -226,6 +226,34 @@ router.get('/manage-account-v2/users', (req, res) => {
 	});
 });
 
+router.post('/create-account-v3/organisation-address-another', (req, res) => {
+	if(!req.session.data.addresses) {
+		req.session.data.addresses = [];
+	}
 
+	var address = {
+		line1: req.session.data['address-line-1'],
+		town: req.session.data['address-town'],
+		postcode: req.session.data['address-postcode'],
+		dx: req.session.data['org-dx']
+	};
+
+	req.session.data.addresses.push(address);
+
+	if(req.body['another-address'] === 'yes') {
+		res.redirect('/create-account-v3/organisation-address-postcode');
+	} else {
+		res.redirect('/create-account-v3/name');
+	}
+});
+
+router.get('/create-account-v3/check', (req, res) => {
+	res.render('create-account-v3/check.html');
+});
+
+router.post('/create-account-v3/organisation-address-postcode-results', (req, res) => {
+	req.session.data['address-town'] = 'London';
+	res.redirect('/create-account-v3/organisation-dx');
+});
 
 module.exports = router;
