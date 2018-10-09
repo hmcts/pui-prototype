@@ -1,0 +1,249 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage HMCTS account' %}
+
+{% block content %}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Profile',
+    href: '/manage-account-v3',
+    active: false
+  },  {
+    text: 'Organisation',
+    href: '/manage-account-v3/organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-account-v3/users',
+    active: false
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v3/payments',
+    active: true
+  }]
+})}}
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+      <!-- {{hmctsSubNavigation({
+        items: [  {
+          text: 'Overview',
+          href: '/manage-account-v3/payments',
+          active: true
+        }, {
+          text: 'Transactions',
+          href: '/manage-account-v3/payments/transactions',
+          active: false
+        },{
+          text: 'Manage account',
+          href: '/manage-account-v3/payments/manage-account',
+          active: false
+        }
+        ]
+      })}} -->
+
+      <a href="/manage-account-v3/payments/transactions" class="govuk-back-link">Back to transactions</a>
+
+      <br>
+      <br>
+
+    <h1 class="govuk-heading-xl">Payment summary</h1>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+
+                   <dl class="govuk-check-your-answers govuk-check-your-answers--short">
+                     <div class="govuk-check-your-answers__contents">
+                       <dt class="govuk-check-your-answers__question">
+                         Payment reference
+                       </dt>
+                       <dd class="govuk-check-your-answers__answer">
+                         RC-2352-6362-6257-7742
+                       </dd>
+                       <dd class="govuk-check-your-answers__change">
+
+                       </dd>
+                     </div>
+                     <div class="govuk-check-your-answers__contents">
+                       <dt class="govuk-check-your-answers__question">
+                         Total payment amount
+                       </dt>
+                       <dd class="govuk-check-your-answers__answer">
+                         £550.00
+                       </dd>
+                       <dd class="govuk-check-your-answers__change">
+                         <div class ="white-text"></div>
+
+                       </dd>
+                     </div>
+                   </dl>
+
+                   <br>
+
+
+                     <h3 class="govuk-heading-m">Fee details</h3>
+
+
+                    <dl class="govuk-check-your-answers govuk-check-your-answers--short">
+                      <div class="govuk-check-your-answers__contents">
+                        <dt class="govuk-check-your-answers__question">
+                          Description
+                        </dt>
+                        <dd class="govuk-check-your-answers__answer">
+                          Application for divorce
+                        </dd>
+                        <dd class="govuk-check-your-answers__change">
+
+                        </dd>
+                      </div>
+                      <div class="govuk-check-your-answers__contents">
+                        <dt class="govuk-check-your-answers__question">
+                          <caption></caption>
+                          Code
+                        </dt>
+                        <dd class="govuk-check-your-answers__answer">
+                        FEE2241
+                        </dd>
+                        <dd class="govuk-check-your-answers__change">
+
+                        </dd>
+                      </div>
+                      <div class="govuk-check-your-answers__contents">
+                        <dt class="govuk-check-your-answers__question">
+                          Fee amount
+                        </dt>
+                        <dd class="govuk-check-your-answers__answer">
+                          £550.00
+                        </dd>
+                        <dd class="govuk-check-your-answers__change">
+
+                        </dd>
+                      </div>
+                      <div class="govuk-check-your-answers__contents">
+                        <dt class="govuk-check-your-answers__question">
+                          Net amount
+                        </dt>
+                        <dd class="govuk-check-your-answers__answer">
+                          £550.00
+                        </dd>
+                        <dd class="govuk-check-your-answers__change">
+                          <div class ="white-text"></div>
+
+                        </dd>
+                      </div>
+                    </dl>
+
+                    <br>
+
+
+
+
+
+                    <h3 class="govuk-heading-m">Payment method</h3>
+
+                   <dl class="govuk-check-your-answers govuk-check-your-answers--short">
+                     <div class="govuk-check-your-answers__contents">
+                       <dt class="govuk-check-your-answers__question">
+                         Method
+                       </dt>
+                       <dd class="govuk-check-your-answers__answer">
+                         Pay by account
+                       </dd>
+                       <dd class="govuk-check-your-answers__change">
+
+                       </dd>
+                     </div><div class="govuk-check-your-answers__contents">
+                       <dt class="govuk-check-your-answers__question">
+                         Type
+                       </dt>
+                       <dd class="govuk-check-your-answers__answer">
+                         Credit
+                       </dd>
+                       <dd class="govuk-check-your-answers__change">
+
+                       </dd>
+                     </div>
+                     <div class="govuk-check-your-answers__contents">
+                       <dt class="govuk-check-your-answers__question">
+                         Account name
+                       </dt>
+                       <dd class="govuk-check-your-answers__answer">
+                         Bluebird solicitors
+                       </dd>
+                       <dd class="govuk-check-your-answers__change">
+
+                       </dd>
+                     </div>
+                     <div class="govuk-check-your-answers__contents">
+                       <dt class="govuk-check-your-answers__question">
+                         Account number
+                       </dt>
+                       <dd class="govuk-check-your-answers__answer">
+                         PBA0241463
+                       </dd>
+                       <dd class="govuk-check-your-answers__change">
+
+                       </dd>
+                     </div>
+                     <div class="govuk-check-your-answers__contents">
+                       <dt class="govuk-check-your-answers__question">
+                         Customer internal reference
+                       </dt>
+                       <dd class="govuk-check-your-answers__answer">
+                         Divorce 7
+                       </dd>
+                       <dd class="govuk-check-your-answers__change">
+                         <div class ="white-text"></div>
+
+                       </dd>
+                     </div>
+                   </dl>
+
+                   <br>
+
+                   <h3 class="govuk-heading-m">Payment history</h3>
+
+                    <dl class="govuk-check-your-answers govuk-check-your-answers--short">
+                      <div class="govuk-check-your-answers__contents">
+                        <dt class="govuk-check-your-answers__question">
+                          Payment pending
+                        </dt>
+                        <dd class="govuk-check-your-answers__answer">
+                          £550.00
+                        </dd>
+                        <dd class="govuk-check-your-answers__change">
+                          02 Aug 2018—00:00:00
+                        </dd>
+                      </div>
+
+                      <!-- <div class="govuk-check-your-answers__contents">
+                        <dt class="govuk-check-your-answers__question">
+                          Payment success
+                        </dt>
+                        <dd class="govuk-check-your-answers__answer">
+                          £550.00
+                        </dd>
+                        <dd class="govuk-check-your-answers__change">
+                          30 Jul 2018—12:31:27
+                        </dd>
+                      </div> -->
+                    </dl>
+
+
+    </div>
+    </div>
+
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,451 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage HMCTS account' %}
+
+{% block content %}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Profile',
+    href: '/manage-account-v3',
+    active: false
+  },  {
+    text: 'Organisation',
+    href: '/manage-account-v3/organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-account-v3/users',
+    active: false
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v3/payments',
+    active: false
+  }]
+})}}
+{{ puiCasebar({
+  caseId: casebar.id,
+  parties: casebar.parties
+}) }}
+
+<style>
+
+#no-underline{
+  underline: none;
+}
+
+/* // RESPONSIVE table */
+
+body {
+  line-height: 1.25;
+}
+
+table {
+  border-bottom: 1px solid #fff;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  table-layout: auto;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em 0;
+  text-align: left;
+
+}
+
+table th {
+
+}
+
+@media screen and (max-width: 650px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+  }
+
+  table tr {
+    border-bottom: 5px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+
+  }
+}
+
+
+
+</style>
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+    {{hmctsSubNavigation({
+      items: [  {
+        text: 'Summary',
+        href: '/manage-account-v3/payments/overview',
+        active: false
+      }, {
+        text: 'Transactions',
+        href: '/manage-account-v3/payments/transactions',
+        active: true
+      },{
+        text: 'Statements',
+        href: '/manage-account-v3/payments/statements',
+        active: false
+      }
+      ]
+    })}}
+    <h1 class="govuk-heading-xl">Transactions</h1>
+
+
+
+
+    <div class="govuk-grid-row">
+
+          <div class="govuk-grid-column-one-third">
+            <div class="govuk-form-group">
+              <label class="govuk-fieldset__legend govuk-fieldset__legend--s" for="email">
+                Date range
+              </label>
+            <div class="govuk-input" id="reportrange" style="background: #fff; font-size: 18px; cursor: pointer; padding: 8px 10px; border: 2px solid #000; width: 100%">
+              <i class="hod-calendar black"></i>&nbsp;
+              <span></span>
+               <i class="fa fa-caret-down"></i>
+          </div>
+          </div>
+          </div>
+
+
+
+          <div class="govuk-grid-column-two-thirds">
+            <form class="govuk-form-group">
+              <label class="govuk-fieldset__legend govuk-fieldset__legend--s" for="email">
+                Search
+              </label>
+
+                <div style="float: left; margin-right: 1%; width: 80%;">
+                  <input type="text" class="govuk-input" id="myInput" placeholder="Enter a case number or reference" style="width: 100%;">
+                </div>
+                <div style="float: left; width: 19%;">
+                  <button type="button" class="govuk-button" onclick="myFunction()" style="margin: 0; width: 100%;">Search</button>
+                </div>
+
+
+                <!-- <form class="example" action="action_page.php">
+                  <input class="govuk-input" type="text" placeholder="Enter a case number or reference" name="search">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                </form> -->
+
+            </form>
+          </div>
+
+
+
+
+
+          </div>
+
+
+
+    <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+
+
+
+            <a class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold" href="#">Download current transactions</a>
+
+
+
+
+          <table class="govuk-body govuk-!-font-size-14" id="transactionstable">
+          <p class="govuk-body govuk-!-font-size-16">  <!-- 7 payments --> </p>
+          <thead class="govuk-!-font-size-16">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="col">Payment reference</th>
+        <th class="govuk-table__header" scope="col">Case</th>
+        <th class="govuk-table__header" scope="col">Reference</th>
+        <th class="govuk-table__header" scope="col">Submitted by</th>
+        <th class="govuk-table__header" scope="col">Status</th>
+        <th class="govuk-table__header" scope="col">Date created</th>
+        <th class="govuk-table__header" scope="col">Amount</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Payment reference"><a href="/manage-account-v3/payments/RC-2352-6362-6257-7742">RC-2352-6362-6257-7742<a/></td>
+        <td data-label="Case">1542-5226-7383-2772</td>
+        <td data-label="Reference">J Hart vs M Hart</td>
+        <td data-label="Submitted by">James Brown</td>
+        <td data-label="Status">Pending</td>
+        <td id="pendingPayment" data-label="Date"></td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+
+      <tr>
+        <td data-label="Payment reference"><a href="/RC-9584-2521-7742-1457">RC-9584-2521-7742-1457<a/></td>
+        <td data-label="Case">1526-8943-7271-8327</td>
+        <td data-label="Reference">Smith probate app</td>
+        <td data-label="Submitted by">Lucy Smith</td>
+        <td data-label="Status">Completed</td>
+        <td id="1457Date" data-label="Date">02 Oct 2018</td>
+        <td data-label="Amount">-£215.00</td>
+      </tr>
+
+      <tr>
+        <td data-label="Payment reference"><a href="#">RC-6124-1415-7215-1515<a/></td>
+        <td data-label="Case">1562-1578-3622-1589</td>
+        <td data-label="Reference">Jones hearing</td>
+        <td data-label="Submitted by">Joe Green</td>
+        <td data-label="Status">Completed</td>
+        <td id="1515Date" data-label="Date"></td>
+        <td data-label="Amount">-£250.00</td>
+      </tr>
+
+      <tr class="linked-payment">
+        <td data-label="Payment reference" class="linked-payment-ref">DIRECT DEBIT PAYMENT</td>
+        <td data-label="Case">-</td>
+        <td data-label="Reference">-</td>
+        <td data-label="Submitted by">-</td>
+        <td data-label="Status">Completed</td>
+        <td id="directDebitDate" data-label="Date"></td>
+        <td data-label="Amount">+£2590.40</td>
+      </tr>
+
+      <tr>
+        <td data-label="Payment reference"><a href="#">RC-6420-7212-7321-8721<a/></td>
+        <td data-label="Case">1538-3893-8483-8337</td>
+        <td data-label="Reference">Baker PRB </td>
+        <td data-label="Submitted by">Joe Green</td>
+        <td data-label="Status">Completed</td>
+        <td id="8721Date" data-label="Date"></td>
+        <td data-label="Amount">-£215.00</td>
+      </tr>
+
+      <tr>
+        <td data-label="Payment reference"><a href="#">RC-2234-2626-6772-1678<a/></td>
+        <td data-label="Case">1574-2379-9760-0643</td>
+        <td data-label="Reference">Probate 31</td>
+        <td data-label="Submitted by">James Brown</td>
+        <td data-label="Status">Completed</td>
+        <td id="1678Date" data-label="Date"></td>
+        <td data-label="Amount">-£215.00</td>
+      </tr>
+
+      <tr>
+        <td data-label="Payment reference"><a href="#">RC-3467-6167-1676-7832<a/></td>
+        <td data-label="Case">1562-1578-3622-1589</td>
+        <td data-label="Reference">Jones application</td>
+        <td data-label="Submitted by">James Brown</td>
+        <td data-label="Status">Completed</td>
+        <td id="7832Date" data-label="Date"></td>
+        <td data-label="Amount">-£150.00</td>
+      </tr>
+
+      <tr>
+        <td data-label="Payment reference"><a href="#">RC-7436-2522-7632-8363<a/></td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+        <td data-label="Submitted by">Lucy Smith</td>
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date"></td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+
+
+
+
+    </tbody>
+  </table>
+
+
+
+      </div>
+        </div>
+
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}
+{% block page_scripts %}
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/en-gb.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+<script>
+
+
+
+$(function() {
+  $('input[name="birthday"]').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    minYear: 1901,
+    maxYear: parseInt(moment().format('YYYY'),10)
+  }, function(start, end, label) {
+    var years = moment().diff(start, 'years');
+    // alert("You are " + years + " years old!");
+  });
+
+});
+
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("transactionstable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+function nextPaymentDue() {
+  var dateField = document.getElementById('nextPaymentDue');
+  dateField.innerHTML = moment().add(1, 'months').format ('01 MMM YYYY');
+}
+
+
+function paymentReferenceDates() {
+  var dateField = document.getElementById('pendingPayment');
+  dateField.innerHTML = moment().format('DD MMM YYYY[—23:00:00]');
+
+  var dateField = document.getElementById('1457Date');
+  dateField.innerHTML = moment().subtract(1, 'days').format ('DD MMM YYYY[—12:31:27]');
+
+  var dateField = document.getElementById('1515Date');
+  dateField.innerHTML = moment().subtract(2, 'days').format ('DD MMM YYYY[—09:11:12]');
+
+  var dateField = document.getElementById('8721Date');
+  dateField.innerHTML = moment().subtract(3, 'days').format ('DD MMM YYYY[—16:01:45]');
+
+  var dateField = document.getElementById('directDebitDate');
+  dateField.innerHTML = moment().subtract(3, 'days').format ('DD MMM YYYY[—00:00:02]');
+
+  var dateField = document.getElementById('1678Date');
+  dateField.innerHTML = moment().subtract(4, 'days').format ('DD MMM YYYY[—11:43:33]');
+
+  var dateField = document.getElementById('7832Date');
+  dateField.innerHTML = moment().subtract(4, 'days').format ('DD MMM YYYY[—15:23:56]');
+
+  var dateField = document.getElementById('8363Date');
+  dateField.innerHTML = moment().subtract(5, 'days').format ('DD MMM YYYY[—10:20:05]');
+}
+
+
+function balanceYesterday() {
+  var dateField = document.getElementById('balanceYesterday');
+  dateField.innerHTML = moment().subtract(1, 'days').format ('[ ]DD MMM YYYY');
+}
+
+
+$(function() {
+
+    var start = moment().subtract(29, 'days');
+    var end = moment();
+
+    function cb(start, end) {
+        $('#reportrange span').html(start.format('DD MMM YYYY') + ' - ' + end.format('DD MMM YYYY'));
+    }
+
+    $('#reportrange').daterangepicker({
+        startDate: start,
+        endDate: end,
+        ranges: {
+          'Next 7 Days': [moment().add(6, 'days'), moment().add(1, 'days')],
+          'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')],
+           'Today': [moment(), moment()],
+           'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+           'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+           'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+           'This Month': [moment().startOf('month'), moment().endOf('month')],
+           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    }, cb);
+
+    cb(start, end);
+    // nextPaymentDue();
+    paymentReferenceDates();
+    // balanceYesterday();
+});
+
+
+
+
+
+
+
+</script>
+
+
+{% endblock %}
