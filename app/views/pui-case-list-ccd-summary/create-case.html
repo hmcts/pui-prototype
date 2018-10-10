@@ -1,0 +1,24 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage an HMCTS case' %}
+
+{% block content %}
+  {{hmctsPrimaryNavigation({
+    classes: "govuk-!-margin-bottom-0",
+    items: [ {
+      text: 'Cases',
+      href: '/pui-case-list-ccd-summary',
+      active: false
+    },  {
+      text: 'Create case',
+      href: '/pui-case-list-ccd-summary/create-case',
+      active: true
+    }]
+  })}}
+
+  <div class="govuk-width-container">
+    <main>
+      <img src="/public/images/ccd-ui-create-case.png" width="100%">
+    </main>
+  </div>
+{% endblock %}
