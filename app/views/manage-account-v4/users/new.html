@@ -1,0 +1,119 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage HMCTS account' %}
+
+{% set pageId = 'users' %}
+
+{% block content %}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Profile',
+    href: '/manage-account-v4',
+    active: false
+  },  {
+    text: 'Organisation',
+    href: '/manage-account-v4/organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-account-v4/users',
+    active: true
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v4/payments',
+    active: false
+  }]
+})}}
+
+
+  <div class="govuk-width-container">
+    {{govukBackLink({
+      href: './'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+
+      <h1 class="govuk-heading-xl">Invite users</h1>
+      <p class="govuk-body">We'll send users a link so they can finish setting up their account.</p>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <form action="./confirmation">
+            {{ govukInput({
+              label: {
+                text: "First name",
+                classes: 'govuk-label--m'
+              },
+              id: "firstname",
+              name: "firstname"
+            }) }}
+            {{ govukInput({
+              label: {
+                text: "Last name",
+                classes: 'govuk-label--m'
+              },
+              id: "lastname",
+              name: "lastname"
+            }) }}
+            {{ govukInput({
+              label: {
+                text: "Email address",
+                classes: 'govuk-label--m'
+              },
+              id: "emailaddress",
+              name: "emailaddress"
+            }) }}
+
+            {{ govukCheckboxes({
+              idPrefix: "permissions",
+              name: "permissions",
+              fieldset: {
+                legend: {
+                  text: "Permissions",
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              hint: {
+                text: "All users can submit applications and view applications made by other users. You can also give them additional permissions."
+              },
+              items: [
+                {
+                  value: "cases",
+                  text: "Manage cases",
+                  hint: {
+                    text: "View, create and progress cases"
+                  }
+                },
+                {
+                  value: "users",
+                  text: "Manage users",
+                  hint: {
+                    text: "Invite, approve and delete users; change permissions"
+                  }
+                },
+                {
+                  value: "organisation",
+                  text: "Manage organisation",
+                  hint: {
+                    text: "View and edit details"
+                  }
+                },
+                {
+                  value: "payment",
+                  text: "Manage payment",
+                  hint: {
+                    text: "View payments; add and delete accounts"
+                  }
+                }
+              ]
+            }) }}
+
+            {{govukButton({
+              text: 'Send invitation'
+            })}}
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}

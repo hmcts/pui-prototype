@@ -392,4 +392,140 @@ router.get('/manage-account-v3/users', (req, res) => {
 	});
 });
 
+router.get('/manage-account-v4/users', (req, res) => {
+	var emailaddress = req.session.data.emailaddress;
+
+	var permissions = req.session.data.permissions || [];
+
+
+	var rows = [
+		[
+			{
+				html: '<a href="">adam@sherwindavis.co.uk</a>'
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Active"
+			}
+		],
+		[
+			{
+				html: '<a href="">amysmith@sherwindavis.co.uk</a>'
+			},
+			{
+				text: ""
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: ""
+			},
+			{
+				text: "Pending"
+			}
+		],[
+			{
+				html: '<a href="">djones@sherwindavis.co.uk</a>'
+			},
+			{
+				text: ""
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: ""
+			},
+			{
+				text: "Active"
+			}
+		],
+		[
+			{
+				html: '<a href="">spotts@sherwindavis.co.uk</a>'
+			},
+			{
+				text: ""
+			},
+			{
+				text: ""
+			},
+			{
+				text: ""
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Active"
+			}
+		],
+		[
+			{
+				html: '<a href="/">kmiles@sherwindavis.co.uk</a>'
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: ""
+			},
+			{
+				text: ""
+			},
+			{
+				text: ""
+			},
+			{
+				text: "Active"
+			}
+		]
+	];
+
+	var newRows = [
+
+	];
+
+	rows.push([{
+		html: `<a href="/">${emailaddress}</a>`
+	},
+	{
+		text: permissions.indexOf('cases') > -1 ? "Yes" : ""
+	},
+	{
+		text: permissions.indexOf('organisation') > -1 ? "Yes" : ""
+	},
+	{
+		text: permissions.indexOf('users') > -1 ? "Yes" : ""
+	},
+	{
+		text: permissions.indexOf('payment') > -1 ? "Yes" : ""
+	},
+	{
+		text: "Pending"
+	}]);
+
+	res.render('manage-account-v4/users/index.html', {
+		rows: rows
+	});
+});
+
 module.exports = router;

@@ -1,0 +1,118 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage HMCTS account' %}
+
+{% block content %}
+
+
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Profile',
+    href: '/manage-account-v4',
+    active: false
+  },  {
+    text: 'Organisation',
+    href: '/manage-account-v4/organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-account-v4/users',
+    active: false
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v4/payments',
+    active: false
+  }]
+})}}
+{{ hmctsDetailsBar({
+  reference: 'PBA0241163'
+}) }}
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+
+      {{hmctsSubNavigation({
+        items: [  {
+          text: 'Summary',
+          href: '/manage-account-v4/payments/overview',
+          active: true
+        }, {
+          text: 'Transactions',
+          href: '/manage-account-v4/payments/transactions',
+          active: false
+        }
+        ]
+      })}}
+
+      <div class="hmcts-page-heading">
+        <div class="hmcts-page-heading__title-wrapper">
+          <h1 class="hmcts-page-heading__title govuk-heading-xl">Summary</h1>
+        </div>
+        <div class="hmcts-page-heading__actions-wrapper">
+
+        </div>
+      </div>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+            <dl class="govuk-check-your-answers govuk-check-your-answers--pba-overview">
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">
+                Account number
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+                	PBA0241163
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">
+                Balance
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+                £2746.00
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">
+                Available credit
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+                £17,254.00
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+
+              </dd>
+            </div>
+          </dl>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    </div>
+
+
+
+
+
+  </main>
+
+</div>
+
+
+{% endblock %}

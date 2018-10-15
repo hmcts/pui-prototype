@@ -1,0 +1,119 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage HMCTS account' %}
+
+{% block content %}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Profile',
+    href: '/manage-account-v4',
+    active: true
+  },  {
+    text: 'Organisation',
+    href: '/manage-account-v4/organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-account-v4/users',
+    active: false
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v4/payments',
+    active: false
+  }]
+})}}
+
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+
+    <h1 class="govuk-heading-xl">Profile</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+          {{ govukTable({
+            firstCellIsHeader: true,
+            rows: [
+              [
+                {
+                  text: "First name"
+                },
+                {
+                  text: "Adam"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  text: "Last name"
+                },
+                {
+                  text: "Silver"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  text: "Email"
+                },
+                {
+                  html: "adam@sherwindavis.com"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  text: "Password"
+                },
+                {
+                  html: "********"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  html: "Default organisation address"
+                },
+                {
+                  html: "1 The Road<br>London<br>W91SF"
+                },
+                {
+                  html: '<a href="#">Change default</a>'
+                }
+              ],
+              [
+                {
+                  text: "Permissions"
+                },
+                {
+                  html: "Managing: cases, organisation, users, cases, payment"
+                },
+                {
+                  html: ""
+                }
+              ]
+            ]
+          }) }}
+
+      </div>
+    </div>
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}

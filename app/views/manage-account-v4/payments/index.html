@@ -1,0 +1,116 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage HMCTS account' %}
+
+{% block content %}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Profile',
+    href: '/manage-account-v4',
+    active: false
+  },  {
+    text: 'Organisation',
+    href: '/manage-account-v4/organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-account-v4/users',
+    active: false
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v4/payments',
+    active: true
+  }]
+})}}
+<div class="govuk-width-container">
+  <main role="main" class="govuk-main-wrapper">
+    <h1 class="hmcts-page-heading__title govuk-heading-xl">Payment accounts</h1>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          {{ govukTable({
+            head: [
+              {
+                text: "PBA number"
+              },
+              {
+                text: "Balance"
+              },
+              {
+                text: "Available credit"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: '<a class="govuk-link" href="/manage-account-v4/payments/overview">PBA0241163</a>'
+                },
+                {
+                  html: '£2746'
+                },
+                {
+                  html: '£17,254'
+                }
+              ],
+              [
+                {
+                  html: '<a class="govuk-link" href="/manage-account-v4/payments/overview">PBA222333</a>'
+                },
+                {
+                  html: '£1234'
+                },
+                {
+                  html: '£11,005'
+                }
+              ]
+            ]
+          }) }}
+
+          <p class="govuk-body"><a href="#">Add another account</a></p>
+
+
+
+
+
+
+    </div>
+    </div>
+
+
+
+
+
+  </main>
+
+</div>
+
+
+{% endblock %}
+{% block page_scripts %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+
+<script>
+
+nextPaymentDue();
+
+function nextPaymentDue() {
+  var dateField = document.getElementById('nextpayment1');
+  dateField.innerHTML = moment().add(1, 'months').format ('01 MMM YYYY');
+
+  var dateField = document.getElementById('nextpayment2');
+  dateField.innerHTML = moment().add(1, 'months').format ('03 MMM YYYY');
+  }
+
+
+
+
+
+</script>
+
+
+{% endblock %}
