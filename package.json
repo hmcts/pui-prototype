@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "govuk-frontend": "^1.1.0",
-    "@hmcts/frontend": "0.0.12-alpha",
+    "@hmcts/frontend": "0.0.14-alpha",
     "basic-auth": "^1.0.3",
     "basic-auth-connect": "^1.0.0",
     "body-parser": "^1.14.1",
