@@ -504,24 +504,28 @@ router.get('/manage-account-v4/users', (req, res) => {
 
 	];
 
-	rows.push([{
-		html: `<a href="/">${emailaddress}</a>`
-	},
-	{
-		text: permissions.indexOf('cases') > -1 ? "Yes" : ""
-	},
-	{
-		text: permissions.indexOf('organisation') > -1 ? "Yes" : ""
-	},
-	{
-		text: permissions.indexOf('users') > -1 ? "Yes" : ""
-	},
-	{
-		text: permissions.indexOf('payment') > -1 ? "Yes" : ""
-	},
-	{
-		text: "Pending"
-	}]);
+	if(emailaddress) {
+		rows.push([{
+			html: `<a href="/">${emailaddress}</a>`
+		},
+		{
+			text: permissions.indexOf('cases') > -1 ? "Yes" : ""
+		},
+		{
+			text: permissions.indexOf('organisation') > -1 ? "Yes" : ""
+		},
+		{
+			text: permissions.indexOf('users') > -1 ? "Yes" : ""
+		},
+		{
+			text: permissions.indexOf('payment') > -1 ? "Yes" : ""
+		},
+		{
+			text: "Pending"
+		}]);
+	}
+
+
 
 	res.render('manage-account-v4/users/index.html', {
 		rows: rows
