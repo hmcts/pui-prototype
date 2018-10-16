@@ -1,0 +1,58 @@
+{% extends "layouts/service/base.html" %}
+
+{% from "input/macro.njk" import govukInput %}
+{% from "fieldset/macro.njk" import govukFieldset %}
+
+{% set serviceName = 'Register organisation for HMCTS services' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/create-account/organisation-name'
+  })}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/create-account-v4/organisation-address-postcode-results">
+
+
+      {% call govukFieldset({
+        legend: {
+          text: "What addresses does your oganisation use?",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+
+<br>
+
+<p class="govuk-body">You must add at least one address.</p>
+
+<p class="govuk-body">People in your organisation will be able to choose which of these addresses we use to contact them.</p>
+
+        {{ govukInput({
+          label: {
+            text: 'Postcode',
+            classes: 'govuk-label--m'
+          },
+          classes: "govuk-input--width-10",
+          id: "address-postcode",
+          name: "address-postcode"
+        }) }}
+
+      {% endcall %}
+
+      {{govukButton({
+        text: 'Find address'
+      })}}
+
+    </form>
+  </div>
+</div>
+
+
+    </main>
+  </div>
+{% endblock %}
