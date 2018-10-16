@@ -1,0 +1,67 @@
+{% extends "layouts/service/base.html" %}
+
+{% from "input/macro.njk" import govukInput %}
+{% from "fieldset/macro.njk" import govukFieldset %}
+
+{% set serviceName = 'Register organisation for HMCTS services' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/create-account/organisation-name'
+  })}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/create-account-v4/organisation-dx" method="post">
+
+        <h1 class="govuk-heading-xl">What addresses does your oganisation use?</h1>
+        <h2 class="govuk-heading-m">Postcode</h2>
+        <p>{{data['address-postcode']}} <a href="/create-account-v4/organisation-address-postcode">Change</a></p>
+
+        {{ govukSelect({
+          id: "address-line-1",
+          name: "address-line-1",
+          label: {
+            text: "Select address",
+            classes: 'govuk-label--m'
+          },
+          items: [
+            {
+              value: "",
+              text: "5 addresses found"
+            },
+            {
+              value: "1 Jones Street",
+              text: "1 Jones Street, London"
+            },
+            {
+              value: "3 Jones Street",
+              text: "3 Jones Street, London"
+            },
+            {
+              value: "5 Jones Street",
+              text: "5 Jones Street, London"
+            },
+            {
+              value: "7 Jones Street",
+              text: "7 Jones Street, London"
+            },
+            {
+              value: "9 Jones Street",
+              text: "9 Jones Street, London"
+            }
+          ]
+        }) }}
+        <p class="govuk-body"><a href="./organisation-address">Can't find your address?</a></p>
+
+        {{govukButton({
+          text: 'Continue'
+        })}}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
