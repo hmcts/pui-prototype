@@ -26,9 +26,10 @@
     active: false
   }]
 })}}
-{{ hmctsDetailsBar({
+<!-- {{ hmctsDetailsBar({
   reference: 'PBA0241163'
-}) }}
+}) }} -->
+
 <div class="govuk-width-container">
 
   <main role="main" class="govuk-main-wrapper">
@@ -37,7 +38,7 @@
       {{hmctsSubNavigation({
         items: [  {
           text: 'Summary',
-          href: '/manage-account-v4/payments/overview',
+          href: '/manage-account-v4/payments/summary',
           active: true
         }, {
           text: 'Transactions',
@@ -49,7 +50,9 @@
 
       <div class="hmcts-page-heading">
         <div class="hmcts-page-heading__title-wrapper">
-          <h1 class="hmcts-page-heading__title govuk-heading-xl">Summary</h1>
+          <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">
+            <span class="govuk-caption-xl">PBA0241163</span> Summary
+            </h1>
         </div>
         <div class="hmcts-page-heading__actions-wrapper">
 
@@ -63,12 +66,13 @@
             <dl class="govuk-check-your-answers govuk-check-your-answers--pba-overview">
             <div class="govuk-check-your-answers__contents">
               <dt class="govuk-check-your-answers__question">
-                Account number
+                Available credit
               </dt>
               <dd class="govuk-check-your-answers__answer">
-                	PBA0241163
+                £17,254.00
               </dd>
               <dd class="govuk-check-your-answers__change">
+
               </dd>
             </div>
             <div class="govuk-check-your-answers__contents">
@@ -79,17 +83,6 @@
                 £2746.00
               </dd>
               <dd class="govuk-check-your-answers__change">
-              </dd>
-            </div>
-            <div class="govuk-check-your-answers__contents">
-              <dt class="govuk-check-your-answers__question">
-                Available credit
-              </dt>
-              <dd class="govuk-check-your-answers__answer">
-                £17,254.00
-              </dd>
-              <dd class="govuk-check-your-answers__change">
-
               </dd>
             </div>
           </dl>

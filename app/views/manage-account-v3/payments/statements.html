@@ -24,9 +24,9 @@
     active: false
   }]
 })}}
-{{ hmctsDetailsBar({
+<!-- {{ hmctsDetailsBar({
   reference: 'PBA0241163'
-}) }}
+}) }} -->
 <div class="govuk-width-container">
 
   <main role="main" class="govuk-main-wrapper">
@@ -34,7 +34,7 @@
     {{hmctsSubNavigation({
       items: [  {
         text: 'Summary',
-        href: '/manage-account-v3/payments/overview',
+        href: '/manage-account-v3/payments/summary',
         active: false
       }, {
         text: 'Transactions',
@@ -50,7 +50,10 @@
 
     <div class="hmcts-page-heading">
       <div class="hmcts-page-heading__title-wrapper">
-        <h1 class="hmcts-page-heading__title govuk-heading-xl">Statements</h1>
+
+        <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">
+          <span class="govuk-caption-xl">PBA0241163</span> Statements
+          </h1>
       </div>
       <div class="hmcts-page-heading__actions-wrapper">
 
