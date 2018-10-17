@@ -1,4 +1,4 @@
-{% extends "layouts/service/base.html" %}
+{% extends "layouts/admin/base.html" %}
 
 {% from "input/macro.njk" import govukInput %}
 {% from "fieldset/macro.njk" import govukFieldset %}
@@ -19,7 +19,7 @@
 
       {% call govukFieldset({
         legend: {
-          text: "What's your organisation's address?",
+          text: "What's the address of your main office?",
           classes: "govuk-fieldset__legend--xl",
           isPageHeading: true
         }

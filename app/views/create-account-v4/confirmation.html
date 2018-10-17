@@ -1,4 +1,4 @@
-{% extends "layouts/service/base.html" %}
+{% extends "layouts/admin/base.html" %}
 
 {% set serviceName = 'Register organisation for HMCTS services' %}
 
@@ -9,12 +9,17 @@
         titleText: "Registration submitted"
       }) }}
 
-      <p class="govuk-body">It takes up to 3 working days for us to approve your registration. We'll contact you within that time if there's a problem.</p>
+      <p class="govuk-body">You've sent us the details we need to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+          <li>register your organisation</li>
+          <li>create your user account</li>
+      </ul>
 
       <h2 class="govuk-heading-m">What happens next</h2>
 
       <p class="govuk-body">
-       We'll email you to ask you to finish creating your account.
+       We'll send you an email from  to ask you to finish creating your account.
       </p>
 
     </div>

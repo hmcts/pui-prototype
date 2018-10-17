@@ -1,0 +1,82 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage HMCTS cases' %}
+
+{% block content%}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Manage your HM Courts and Tribunals (HMCTS) cases</h1>
+
+    <p>Use this service to apply for:</p>
+      
+    <ul class="govuk-list govuk-list--bullet">
+      <li>divorce</li>
+      <li>financial remedy</li>
+      <li>probate</li>
+    </ul>
+
+    <p>Once you've submitted the application, you can:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>check the status of the case</li>
+      <li>upload extra documents to progress the case</li>
+    </ul>
+
+    {{ govukButton({
+      text: "Start",
+      href: "/pui-case-list-ccd-summary/sign-in",
+      classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+    }) }}
+
+    <h2 class="govuk-heading-m">Manage your account</h2>
+
+    <p>You can <a href="/manage-account-v4/sign-in">manage your account</a> if you need to:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+        <li>invite other people in your organisation to use HMCTS professional services</li>
+        <li>check your organisation's fee account balance and recent transactions</li>
+      </ul>  
+
+    <h2 class="govuk-heading-m">If you do not have an account</h2>
+
+    <p>You need an account to use HMCTS professional services.</p> 
+
+    <p>If your organisation has been registered to use these services, someone in the organisation will be able to invite you.</p>
+
+    <p>Otherwise, you'll need to wait until your organisation has been invited to register.</p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+    <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+<!--
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Subsection
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#" class="govuk-!-font-weight-bold">
+              More <span class="govuk-visually-hidden">in Subsection</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+ -->
+  </div>
+</div>
+{% endblock %}

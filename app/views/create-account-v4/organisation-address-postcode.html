@@ -1,4 +1,4 @@
-{% extends "layouts/service/base.html" %}
+{% extends "layouts/admin/base.html" %}
 
 {% from "input/macro.njk" import govukInput %}
 {% from "fieldset/macro.njk" import govukFieldset %}
@@ -20,17 +20,13 @@
 
       {% call govukFieldset({
         legend: {
-          text: "What addresses does your oganisation use?",
+          text: "What's the address of your main office?",
           classes: "govuk-fieldset__legend--xl",
           isPageHeading: true
         }
       }) %}
 
 <br>
-
-<p class="govuk-body">You must add at least one address.</p>
-
-<p class="govuk-body">People in your organisation will be able to choose which of these addresses we use to contact them.</p>
 
         {{ govukInput({
           label: {

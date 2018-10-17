@@ -1,4 +1,4 @@
-{% extends "layouts/service/base.html" %}
+{% extends "layouts/admin/base.html" %}
 
 {% from "input/macro.njk" import govukInput %}
 {% from "fieldset/macro.njk" import govukFieldset %}
@@ -17,7 +17,7 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="/create-account-v4/organisation-dx" method="post">
 
-        <h1 class="govuk-heading-xl">What addresses does your oganisation use?</h1>
+        <h1 class="govuk-heading-xl">What's the address of your main office?</h1>
         <h2 class="govuk-heading-m">Postcode</h2>
         <p>{{data['address-postcode']}} <a href="/create-account-v4/organisation-address-postcode">Change</a></p>
 
