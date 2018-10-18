@@ -1,0 +1,111 @@
+{%- block top_of_page %}{% endblock %}
+{%- from "back-link/macro.njk" import govukBackLink %}
+{%- from "breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{%- from "button/macro.njk" import govukButton %}
+{%- from "date-input/macro.njk" import govukDateInput %}
+{%- from "details/macro.njk" import govukDetails %}
+{%- from "error-message/macro.njk" import govukErrorMessage %}
+{%- from "error-summary/macro.njk" import govukErrorSummary %}
+{%- from "fieldset/macro.njk" import govukFieldset %}
+{%- from "file-upload/macro.njk" import govukFileUpload %}
+{%- from "input/macro.njk" import govukInput %}
+{%- from "label/macro.njk" import govukLabel %}
+{%- from "panel/macro.njk" import govukPanel %}
+{%- from "phase-banner/macro.njk" import govukPhaseBanner %}
+{%- from "select/macro.njk" import govukSelect %}
+{%- from "skip-link/macro.njk" import govukSkipLink %}
+{%- from "table/macro.njk" import govukTable %}
+{%- from "tag/macro.njk" import govukTag %}
+{%- from "textarea/macro.njk" import govukTextarea %}
+{%- from "warning-text/macro.njk" import govukWarningText %}
+{%- from "checkboxes/macro.njk" import govukCheckboxes %}
+{%- from "radios/macro.njk" import govukRadios %}
+{%- from "tabs/macro.njk" import govukTabs %}
+
+<!-- HMCTS -->
+{%- from "sub-navigation/macro.njk" import hmctsSubNavigation %}
+{%- from "primary-navigation/macro.njk" import hmctsPrimaryNavigation %}
+{%- from "global-header/macro.njk" import hmctsGlobalHeader %}
+{%- from "timeline/macro.njk" import hmctsTimeline %}
+{%- from "details-bar/macro.njk" import hmctsDetailsBar %}
+
+<!-- PUI specific -->
+{%- from "alert/macro.njk" import hmctsAlert %}
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lte-ie8" lang="{{ html_lang|default('en') }}"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="{{ html_lang|default('en') }}"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title>{% block page_title %}GOV.UK - The best place to find government services and information{% endblock %}</title>
+
+    <link rel="shortcut icon" href="{{ asset_path }}images/favicon.ico" type="image/x-icon">
+
+    <link rel="mask-icon" href="{{ asset_path }}images/gov.uk_logotype_crown.svg" color="#0b0c0c">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset_path }}images/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="{{ asset_path }}images/apple-touch-icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset_path }}images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" href="{{ asset_path }}images/apple-touch-icon.png">
+
+    <meta name="theme-color" content="#0b0c0c">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="{{ asset_path }}images/opengraph-image.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+   <!--[if lte IE 8]><link href="/public/stylesheets/application-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+        <!--[if gt IE 8]><!--><link href="/public/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->
+<link href="/public/kit-icons/icons.css" media="screen" rel="stylesheet" type="text/css" />
+
+  </head>
+
+  <body class="govuk-template__body {{ bodyClasses }}">
+
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    {% block bodyStart %}{% endblock %}
+
+    {% block skipLink %}
+      {{ govukSkipLink({
+        href: '#main-content',
+        text: 'Skip to main content'
+      }) }}
+    {% endblock %}
+
+    {% block header %}
+
+      {{hmctsGlobalHeader({
+        service: {
+          name: serviceName,
+          url: '/'
+        },
+        navigation: {
+          items: [{
+            text: '',
+            href: '/sign-out'
+          }]
+        }
+      })}}
+    {% endblock %}
+
+    {% block content %}{% endblock %}
+
+    {% block footer %}
+      {% include "footer/footer.html" %}
+    {% endblock %}
+
+    <div id="global-app-error" class="app-error hidden"></div>
+
+    {% block body_end %}
+      {% block scripts %}
+        {% include "includes/scripts.html" %}
+        {% block page_scripts %}{% endblock %}
+      {% endblock %}
+      <!-- GOV.UK Prototype kit {{releaseVersion}} -->
+    {% endblock %}
+
+    <script>if (typeof window.GOVUKFrontend === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
+
+  </body>
+
+</html>
