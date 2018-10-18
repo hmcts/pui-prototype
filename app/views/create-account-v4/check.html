@@ -22,20 +22,18 @@
           </div>
 
 
-          {% for address in data.addresses %}
             <div class="govuk-check-your-answers__contents">
               <dt class="govuk-check-your-answers__question">Organisation address</dt>
               <dd class="govuk-check-your-answers__answer">
-                {{address.line1}}<br>
-                {{address.town}}<br>
-                {{address.postcode}}<br><br>
-                DX number: {{address.dx}}<br>
+                {{data['address-line-1']}}<br>
+                <!-- {{data['address-town']}}<br> -->
+                {{data['address-postcode']}}<br>
+                DX number: {{data['org-dx']}}
               </dd>
               <dd class="govuk-check-your-answers__change">
                 <a href="/create-account-v4/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
               </dd>
             </div>
-          {% endfor %}
 
             <div class="govuk-check-your-answers__contents">
                 <dt class="govuk-check-your-answers__question">First name(s)</dt>
