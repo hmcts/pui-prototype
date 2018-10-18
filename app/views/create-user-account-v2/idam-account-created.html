@@ -1,12 +1,50 @@
-{% extends "layouts/unbranded.html" %}
+{% extends "layouts/service/base.html" %}
 
-{% block content%}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <a href="/create-user-account-v2/start-manage-case">
-      <img src="/public/images/idam-account-created.png">
-    </a>
+
+{% block content %}
+<div class="govuk-width-container">
+
+
+
+    <main role="main" class="govuk-main-wrapper">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+
+          <form action="/create-user-account-v2/start-manage-case">
+
+        <fieldset class="govuk-fieldset">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+    <h1 class="govuk-fieldset__heading">
+      Account created
+    </h1>
+
+
+  </legend>
+
+  <p>You can now sign in to your account.</p>
+
+
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+
+      </form>
+        </div>
+      </div>
+    </main>
   </div>
-</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script>
+    accessibleAutocomplete.enhanceSelectElement({
+      selectElement: document.querySelector('#name')
+    })
+  </script>
 {% endblock %}
