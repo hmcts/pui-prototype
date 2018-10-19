@@ -1,0 +1,52 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage your HMCTS cases' %}
+
+{% set pageId = 'cases' %}
+
+{% block page_title %}Upload confirmation{% endblock %}
+
+{% block content %}
+
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '/pui-case-list-and-summary/case-list',
+    active: true
+  },  {
+    text: 'Create case',
+    href: '/pui-case-list-and-summary/create-case',
+    active: false
+  }]
+})}}
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <br>
+
+      {{ govukPanel({
+        titleText: "File uploaded",
+        html: data['file-upload-1']
+      }) }}
+
+      <h3 class="govuk-heading-m">What happens next</h3>
+
+      <div class="govuk-body">
+       <p>
+        We'll review what you've sent and contact you if we need more information.
+       </p>
+
+       <p class="govuk-body">
+        <a href="/pui-case-list-and-summary/case-summary">Go back to the case</a>
+       </p>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

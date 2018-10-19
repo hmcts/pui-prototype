@@ -1,0 +1,82 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage your HMCTS cases' %}
+
+{% set pageId = 'cases' %}
+
+{% block page_title %}Case summary{% endblock %}
+
+{% block content %}
+
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '/pui-case-list-and-summary/case-list',
+    active: true
+  },  {
+    text: 'Create case',
+    href: '/pui-case-list-and-summary/create-case',
+    active: false
+  }]
+})}}
+
+<div class="govuk-width-container">
+  {{govukBackLink({
+    href: '/pui-case-list-and-summary/case-list',
+    text: 'Back'
+  })}}
+
+  <main role="main" class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          John Smith v Jane Smith
+        </h1>
+
+        {% set status = 'Application drafted' %}
+        {% if data.status %}
+          {% set status = data.status %}
+        {% endif %}
+
+        {{ govukTable({
+          "classes": "govuk-!-margin-bottom-7  jui-table  jui-table--fixed",
+          "firstCellIsHeader": true,
+          "rows": [
+            [{
+              text: 'Status'
+            },
+            {
+              text: status
+            }],
+            [{
+              text: 'Type'
+            },
+            {
+              text: 'Divorce'
+            }],
+            [{
+              text: 'Court reference number'
+            },
+            {
+              text: '1536-7597-1594-4593'
+            }]
+          ]
+        }) }}
+
+
+        <ul class="govuk-list">
+          <li><a href="./case-details">See full case details</a></li>
+          <li><a href="./upload-file">Upload file</a></li>
+        </ul>
+
+      </div>
+    </div>
+
+
+  </main>
+
+</div>
+
+{% endblock %}
