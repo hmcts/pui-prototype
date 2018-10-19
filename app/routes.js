@@ -526,7 +526,7 @@ router.get('/manage-account-v4/users', (req, res) => {
 
 	if(emailaddress) {
 		rows.push([{
-			html: `<a href="/">${emailaddress}</a>`
+			html: `${emailaddress}`
 		},
 		{
 			text: permissions.indexOf('cases') > -1 ? "Yes" : ""
