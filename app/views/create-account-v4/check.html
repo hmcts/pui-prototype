@@ -29,12 +29,21 @@
                 {{data['address-line-1']}}<br>
                 <!-- {{data['address-town']}}<br> -->
                 {{data['address-postcode']}}<br>
-                DX number: {{data['org-dx']}}
               </dd>
               <dd class="govuk-check-your-answers__change">
                 <a href="/create-account-v4/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
               </dd>
             </div>
+
+            <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">DX number</dt>
+                <dd class="govuk-check-your-answers__answer">
+                  {{data['org-dx']}}
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="/create-account-v4/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+                </dd>
+              </div>
 
             <div class="govuk-check-your-answers__contents">
                 <dt class="govuk-check-your-answers__question">First name(s)</dt>
@@ -69,9 +78,13 @@
         </dl>
 
         <h2 class="govuk-heading-l">Now submit your registration details</h2>
-        <p>You are confirming that the information you've given is accurate.</p>
-    
-
+        <p>You are confirming that: 
+                
+    <ul class="govuk-list govuk-list--bullet">
+        <li>the details you've given are accurate</li>
+        <li>you have the authority to register your organisation</li>
+      </ul>
+            
           {{ govukButton({
             "text": "Submit",
             href: '/create-account-v4/confirmation'
