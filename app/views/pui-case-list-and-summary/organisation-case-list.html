@@ -13,11 +13,11 @@
   items: [ {
     text: 'Your cases',
     href: '/pui-case-list-and-summary/case-list',
-    active: true
+    active: false
   }, {
     text: 'Organisation\'s cases',
     href: '/pui-case-list-and-summary/organisation-case-list',
-    active: false
+    active: true
   }]
 })}}
 <div class="govuk-width-container">
@@ -26,7 +26,7 @@
 
       <div class="hmcts-page-heading">
           <div class="hmcts-page-heading__title-wrapper">
-            <h1 class="hmcts-page-heading__title govuk-heading-xl">Your cases</h1>
+            <h1 class="hmcts-page-heading__title govuk-heading-xl">Organisation's cases</h1>
           </div>
           <div class="hmcts-page-heading__actions-wrapper">
               {{govukButton({
