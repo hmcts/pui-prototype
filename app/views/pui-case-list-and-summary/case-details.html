@@ -14,25 +14,36 @@
     text: 'Your cases',
     href: '/pui-case-list-and-summary/case-list',
     active: true
-  },  {
-    text: 'Create case',
-    href: '/pui-case-list-and-summary/create-case',
-    active: false
   }]
 })}}
 
+{{ hmctsDetailsBar({
+  reference: 'PBA0241163',
+  title: { html: '<b>John Smith</b> v <b>Jane Smith</b>' }
+}) }}
+
 <div class="govuk-width-container">
-  {{govukBackLink({
-    href: '/pui-case-list-and-summary/case-summary',
-    text: 'Back'
-  })}}
+
 
 
     <main role="main" class="govuk-main-wrapper">
-      
+
+      {{hmctsSubNavigation({
+        items: [ {
+          text: 'Summary',
+          href: '/pui-case-list-and-summary/case-summary',
+          active: false
+        },  {
+          text: 'Application details',
+          href: '/pui-case-list-and-summary/case-details',
+          active: true
+        }]
+      })}}
+
+
       <h1 class="govuk-heading-xl">
-          <span class="govuk-caption-xl">John Smith v Jane Smith</span>
-          Case details</h1>
+
+          Application details</h1>
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">

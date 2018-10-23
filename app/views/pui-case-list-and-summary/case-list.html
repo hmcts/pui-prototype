@@ -14,17 +14,26 @@
     text: 'Your cases',
     href: '/pui-case-list-and-summary/case-list',
     active: true
-  },  {
-    text: 'Create case',
-    href: '/pui-case-list-and-summary/create-case',
-    active: false
   }]
 })}}
 <div class="govuk-width-container">
 
   <main role="main" class="govuk-main-wrapper">
 
-    <h1 class="govuk-heading-xl">Your cases</h1>
+      <div class="hmcts-page-heading">
+          <div class="hmcts-page-heading__title-wrapper">
+            <h1 class="hmcts-page-heading__title govuk-heading-xl">Your cases</h1>
+          </div>
+          <div class="hmcts-page-heading__actions-wrapper">
+              {{govukButton({
+                text: 'Create case',
+                href: '/pui-case-list-and-summary/create-case',
+                classes: 'hmcts-page-heading__button'
+              })}}
+          </div>
+        </div>
+
+
 
 <table class="govuk-table">
 <thead class="govuk-table__head">
