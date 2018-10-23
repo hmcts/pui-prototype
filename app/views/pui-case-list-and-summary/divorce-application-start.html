@@ -1,0 +1,27 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage your HMCTS cases' %}
+
+{% block content %}
+
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '/pui-case-list-and-summary/case-list',
+    active: false
+  }, {
+    text: 'Organisation\'s cases',
+    href: '/pui-case-list-and-summary/organisation-case-list',
+    active: false
+  }]
+})}}
+
+<div class="govuk-width-container">
+
+  <div class="govuk-width-container">
+    <main>
+      <img src="/public/images/divorce-application-start.png" width="100%">
+    </main>
+  </div>
+{% endblock %}
