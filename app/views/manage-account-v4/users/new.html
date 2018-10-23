@@ -35,7 +35,7 @@
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-    
+
       <h1 class="govuk-heading-xl">Invite user</h1>
       <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
           <form action="./confirmation">
@@ -64,6 +64,29 @@
               name: "emailaddress"
             }) }}
 
+            {% set caseLevelsHtml %}
+              {{ govukRadios({
+                idPrefix: "where-do-you-live",
+                name: "Level",
+                fieldset: {
+                  legend: {
+                    text: ""
+                  }
+                },
+                items: [
+                  {
+                    value: "org",
+                    text: "Own cases only",
+                    checked: true
+                  },
+                  {
+                    value: "scotland",
+                    text: "All the organisation's cases"
+                  }
+                ]
+              }) }}
+            {% endset %}
+
             {{ govukCheckboxes({
               idPrefix: "permissions",
               name: "permissions",
@@ -82,6 +105,9 @@
                   text: "Manage cases",
                   hint: {
                     text: "View, create and progress cases."
+                  },
+                  conditional: {
+                    html: caseLevelsHtml
                   }
                 },
                 {
