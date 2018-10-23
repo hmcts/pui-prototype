@@ -27,7 +27,8 @@
 
         {{ govukInput({
           label: {
-            html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+            html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>',
+            classes: 'govuk-label--m'
           },
           id: "address-line-1",
           name: "address-line-1"
@@ -43,7 +44,8 @@
 
         {{ govukInput({
           label: {
-            text: "Town or city"
+            text: "Town or city",
+            classes: 'govuk-label--m'
           },
           classes: "govuk-!-width-two-thirds",
           id: "address-town",
@@ -52,7 +54,8 @@
 
         {{ govukInput({
           label: {
-            text: "County"
+            text: "County",
+            classes: 'govuk-label--m'
           },
           classes: "govuk-!-width-two-thirds",
           id: "address-county",
@@ -61,7 +64,8 @@
 
         {{ govukInput({
           label: {
-            text: "Postcode"
+            text: "Postcode",
+            classes: 'govuk-label--m'
           },
           classes: "govuk-input--width-10",
           id: "address-postcode",
