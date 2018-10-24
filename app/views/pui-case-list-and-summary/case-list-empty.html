@@ -1,0 +1,50 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage your HMCTS cases' %}
+
+{% set pageId = 'cases' %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '/pui-case-list-and-summary/case-list',
+    active: true
+  }, {
+    text: 'Organisation\'s cases',
+    href: '/pui-case-list-and-summary/organisation-case-list',
+    active: false
+  }]
+})}}
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+      <div class="hmcts-page-heading">
+          <div class="hmcts-page-heading__title-wrapper">
+            <h1 class="hmcts-page-heading__title govuk-heading-xl">Your cases</h1>
+          </div>
+          <div class="hmcts-page-heading__actions-wrapper">
+              {{govukButton({
+                text: 'Create case',
+                href: '/pui-case-list-and-summary/create-case',
+                classes: 'hmcts-page-heading__button'
+              })}}
+          </div>
+        </div>
+
+        <p class="govuk-body">You haven't got any cases assigned to you.</p>
+
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}
