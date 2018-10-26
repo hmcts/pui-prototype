@@ -73,7 +73,6 @@
     {% endblock %}
 
     {% block header %}
-
       {{hmctsGlobalHeader({
         service: {
           name: serviceName,
@@ -87,6 +86,7 @@
         }
       })}}
     {% endblock %}
+    {% block beforeContent %}{% endblock %}
 
     {% block content %}{% endblock %}
 
