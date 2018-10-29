@@ -1,4 +1,4 @@
-{% extends "layouts/admin/base.html" %}
+{% extends "./layout.html" %}
 
 {% set serviceName = 'Manage your HMCTS cases' %}
 
@@ -6,22 +6,8 @@
 
 {% block page_title %}Upload confirmation{% endblock %}
 
-{% block content %}
+{% block mainContent %}
 
-{{hmctsPrimaryNavigation({
-  classes: "govuk-!-margin-bottom-0",
-  items: [ {
-    text: 'Your cases',
-    href: '/pui-case-list-and-summary/case-list',
-    active: false
-  }, {
-    text: 'Organisation\'s cases',
-    href: '/pui-case-list-and-summary/organisation-case-list',
-    active: false
-  }]
-})}}
-
-<div class="govuk-width-container">
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -47,6 +33,5 @@
 
     </div>
   </div>
-</div>
 
 {% endblock %}

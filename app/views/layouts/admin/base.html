@@ -26,6 +26,7 @@
 {%- from "sub-navigation/macro.njk" import hmctsSubNavigation %}
 {%- from "primary-navigation/macro.njk" import hmctsPrimaryNavigation %}
 {%- from "global-header/macro.njk" import hmctsGlobalHeader %}
+{%- from "global-footer/macro.njk" import hmctsGlobalFooter %}
 {%- from "timeline/macro.njk" import hmctsTimeline %}
 {%- from "details-bar/macro.njk" import hmctsDetailsBar %}
 
@@ -73,7 +74,6 @@
     {% endblock %}
 
     {% block header %}
-
       {{hmctsGlobalHeader({
         service: {
           name: serviceName,
@@ -87,6 +87,7 @@
         }
       })}}
     {% endblock %}
+    {% block beforeContent %}{% endblock %}
 
     {% block content %}{% endblock %}
 

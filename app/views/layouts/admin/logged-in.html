@@ -1,0 +1,30 @@
+{% extends "layouts/admin/base.html" %}
+
+{% block header %}
+  {{ super() }}
+  {{hmctsPrimaryNavigation({
+    classes: "govuk-!-margin-bottom-0",
+    items: [ {
+      text: 'Your cases',
+      href: '/pui-case-list-and-summary/case-list',
+      active: primaryNavId == 'cases'
+    }, {
+      text: 'Organisation\'s cases',
+      href: '/pui-case-list-and-summary/organisation-case-list',
+      active: primaryNavId == 'organisationCases'
+    }]
+  })}}
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container">
+    <main role="main" class="govuk-main-wrapper">
+      {% block mainContent %}
+      {% endblock %}
+    </main>
+  </div>
+{% endblock %}
