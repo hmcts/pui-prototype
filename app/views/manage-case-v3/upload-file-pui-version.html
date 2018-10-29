@@ -1,0 +1,75 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage your HMCTS cases' %}
+
+{% set pageId = 'cases' %}
+
+{% block page_title %}Case summary{% endblock %}
+
+{% block content %}
+
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '/manage-case-v3/case-list',
+    active: true
+  },  {
+    text: 'Create case',
+    href: '/manage-case-v3/create-case',
+    active: false
+  }]
+})}}
+
+<div class="govuk-width-container">
+  {{govukBackLink({
+    href: '/manage-case-v3/case-summary',
+    text: 'Back'
+  })}}
+
+  <main role="main" class="govuk-main-wrapper">
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          <span class="govuk-caption-xl">John Smith v Jane Smith</span>
+          Upload file
+        </h1>
+
+        <form method="get" action="/manage-case-v3/upload-confirmation">
+
+          {{ govukFileUpload({
+            id: "file-upload-1",
+            name: "file-upload-1",
+            label: {
+              text: "File",
+              classes: 'govuk-label--m'
+            }
+          }) }}
+
+
+          {{ govukTextarea({
+            name: "message",
+            id: "message",
+            label: {
+              text: "Message (optional)",
+              classes: 'govuk-label--m'
+            }
+          }) }}
+
+
+          {{ govukButton({
+            "text": "Send"
+          }) }}
+        </form>
+      </div>
+    </div>
+
+
+  </main>
+
+</div>
+
+{% endblock %}

@@ -552,4 +552,65 @@ router.get('/manage-account-v4/users', (req, res) => {
 	});
 });
 
+router.get('/manage-account-v5/users', (req, res) => {
+	var emailaddress = req.session.data.emailaddress;
+
+	var permissions = req.session.data.permissions || [];
+
+
+	var rows = [
+		[
+			{
+				html: 'holly.whitwham@westberks.gov.uk'
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "Active"
+			}
+		],
+	];
+
+	var newRows = [
+
+	];
+
+	if(emailaddress) {
+		rows.push([{
+			html: `${emailaddress}`
+		},
+		{
+			text: permissions.indexOf('cases') > -1 ? "Yes" : ""
+		},
+		{
+			text: permissions.indexOf('organisation') > -1 ? "Yes" : ""
+		},
+		{
+			text: permissions.indexOf('users') > -1 ? "Yes" : ""
+		},
+		{
+			text: permissions.indexOf('payment') > -1 ? "Yes" : ""
+		},
+		{
+			text: "Pending"
+		}]);
+	}
+
+
+
+	res.render('manage-account-v5/users/index.html', {
+		rows: rows
+	});
+});
+
 module.exports = router;

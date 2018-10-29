@@ -1,6 +1,6 @@
-{% extends "layouts/admin/base.html" %}
+{% extends "layouts/admin/base-logged-out.html" %}
 
-{% set serviceName = 'Manage your HMCTS cases' %}
+{% set serviceName = 'Manage HMCTS account' %}
 
 {% block content %}
 
@@ -10,7 +10,7 @@
 
     <h1 class="govuk-heading-l">Sign in</h1>
 
-    <form method="get" action="/manage-case-v2/case-list">
+    <form method="get" action="/manage-account-v5">
 
       {{ govukInput({
         label: {

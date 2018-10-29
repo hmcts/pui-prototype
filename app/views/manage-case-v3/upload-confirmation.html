@@ -1,0 +1,37 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage your HMCTS cases' %}
+
+{% set pageId = 'cases' %}
+
+{% block page_title %}Upload confirmation{% endblock %}
+
+{% block mainContent %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <br>
+
+      {{ govukPanel({
+        titleText: "File uploaded",
+        html: data['file-upload-1']
+      }) }}
+
+      <h3 class="govuk-heading-m">What happens next</h3>
+
+      <div class="govuk-body">
+       <p>
+        We'll review what you've sent and contact you if we need more information.
+       </p>
+
+       <p class="govuk-body">
+        <a href="/manage-case-v3/case-summary">Go back to the case</a>
+       </p>
+
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
