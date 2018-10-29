@@ -12,18 +12,18 @@
   classes: "govuk-!-margin-bottom-0",
   items: [ {
     text: 'Your cases',
-    href: '/pui-case-list-and-summary/case-list',
+    href: '/manage-case-v2/case-list',
     active: true
   },  {
     text: 'Create case',
-    href: '/pui-case-list-and-summary/create-case',
+    href: '/manage-case-v2/create-case',
     active: false
   }]
 })}}
 
 <div class="govuk-width-container">
   {{govukBackLink({
-    href: '/pui-case-list-and-summary/case-summary',
+    href: '/manage-case-v2/case-summary',
     text: 'Back'
   })}}
 
@@ -38,7 +38,7 @@
           Upload file
         </h1>
 
-        <form method="get" action="/pui-case-list-and-summary/upload-confirmation">
+        <form method="get" action="/manage-case-v2/upload-confirmation">
 
           {{ govukFileUpload({
             id: "file-upload-1",
