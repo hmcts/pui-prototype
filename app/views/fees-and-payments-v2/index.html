@@ -1,0 +1,56 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Manage HMCTS fee accounts' %}
+
+{% block content%}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Manage HMCTS fee accounts</h1>
+
+    <p>If you have a HMCTS fee account, you can sign in to check your:</p>
+      
+    <ul class="govuk-list govuk-list--bullet">
+        <li>credit limit</li>
+        <li>current balance</li>
+        <li>recent transactions</li>
+      </ul>
+
+    {{ govukButton({
+      text: "Start",
+      href: "/fees-and-payments-v2/sign-in",
+      classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+    }) }}
+
+  <div class="govuk-grid-column-one-third">
+
+    <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+<!--
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Subsection
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#" class="govuk-!-font-weight-bold">
+              More <span class="govuk-visually-hidden">in Subsection</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+ -->
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage HMCTS fee accounts' %}
+
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/fees-and-payments-v2/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{ hmctsDetailsBar({
+  reference: 'PBA0241163'
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+
+      {{hmctsSubNavigation({
+        items: [  {
+          text: 'Summary',
+          href: '/fees-and-payments-v2/summary',
+          active: true
+        }, {
+          text: 'Transactions',
+          href: '/fees-and-payments-v2/transactions',
+          active: false
+        }
+        ]
+      })}}
+
+      <div class="hmcts-page-heading">
+        <div class="hmcts-page-heading__title-wrapper">
+          <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">
+           Summary
+            </h1>
+        </div>
+        <div class="hmcts-page-heading__actions-wrapper">
+
+        </div>
+      </div>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+            <dl class="govuk-check-your-answers govuk-check-your-answers--pba-overview">
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">
+                Available credit
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+                £17,254.00
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">
+                Balance
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+                £2746.00
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+              </dd>
+            </div>
+          </dl>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    </div>
+
+
+
+
+
+  </main>
+
+</div>
+
+
+{% endblock %}

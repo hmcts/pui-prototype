@@ -1,0 +1,113 @@
+{% extends "./layout.html" %}
+
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: 'Manage HMCTS fee accounts',
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/fees-and-payments-v2/profile',
+      active: true
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+
+{% endblock %}
+
+
+{% set serviceName = 'Manage your HMCTS cases' %}
+
+{% set primaryNavId = 'cases' %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block mainContent %}
+
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+
+    <h1 class="govuk-heading-xl">Profile</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+          {{ govukTable({
+            firstCellIsHeader: true,
+            rows: [
+              [
+                {
+                  text: "First name"
+                },
+                {
+                  text: "Holly"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  text: "Last name"
+                },
+                {
+                  text: "Whitwham"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  text: "Email"
+                },
+                {
+                  html: "holly.whitwham@westberks.gov.uk"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  text: "Password"
+                },
+                {
+                  html: "********"
+                },
+                {
+                  html: ''
+                }
+              ],
+
+              [
+                {
+                  text: "Permitted to manage"
+                },
+                {
+                  html: "cases, organisation, users, payments"
+                },
+                {
+                  html: ""
+                }
+              ]
+            ]
+          }) }}
+
+      </div>
+    </div>
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}
