@@ -1,5 +1,30 @@
 {% extends "layouts/admin/logged-in.html" %}
 
+{% block header %}
+  {{hmctsGlobalHeader({
+    service: {
+      name: serviceName,
+      url: '/'
+    },
+    navigation: {
+      items: [{
+        text: 'Profile',
+        href: '/fees-and-payments-v2/profile'
+      },{
+        text: 'Sign out',
+        href: '/sign-out'
+      }]
+    }
+  })}}
+  {{hmctsPrimaryNavigation({
+    items: [ {
+      text: 'Accounts',
+      href: '/fees-and-payments-v2/accounts',
+      active: primaryNavId == 'accounts'
+    }]
+  })}}
+{% endblock %}
+
 {% block footer %}
   {{ hmctsGlobalFooter({
     help: {

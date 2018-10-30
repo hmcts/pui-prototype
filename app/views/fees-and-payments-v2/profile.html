@@ -1,25 +1,5 @@
 {% extends "./layout.html" %}
 
-{% block header %}
-{{hmctsGlobalHeader({
-  service: {
-    name: 'Manage HMCTS fee accounts',
-    url: '/'
-  },
-  navigation: {
-    items: [{
-      text: 'Profile',
-      href: '/fees-and-payments-v2/profile',
-      active: true
-    },{
-      text: 'Sign out',
-      href: '/sign-out'
-    }]
-  }
-})}}
-
-{% endblock %}
-
 
 {% set serviceName = 'Manage your HMCTS cases' %}
 
