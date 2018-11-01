@@ -564,7 +564,7 @@ router.get('/manage-account-v5/users', (req, res) => {
 				html: 'holly.whitwham@westberks.gov.uk'
 			},
 			{
-				text: "Yes"
+				text: "All"
 			},
 			{
 				text: "Yes"
@@ -590,7 +590,7 @@ router.get('/manage-account-v5/users', (req, res) => {
 			html: `${emailaddress}`
 		},
 		{
-			text: permissions.indexOf('cases') > -1 ? "Yes" : ""
+			text: permissions.indexOf('cases') > -1 ? "All" : ""
 		},
 		{
 			text: permissions.indexOf('organisation') > -1 ? "Yes" : ""
