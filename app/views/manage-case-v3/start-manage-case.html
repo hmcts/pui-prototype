@@ -1,12 +1,12 @@
 {% extends "layouts/service/base.html" %}
 
-{% set serviceName = 'Manage your HMCTS cases' %}
+{% set serviceName = 'Manage your civil and family court cases' %}
 
 {% block content%}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Manage your HMCTS cases</h1>
+    <h1 class="govuk-heading-xl">Manage your civil and family court cases</h1>
 
     <p>If you have an HMCTS professional services account, you can sign in to:</p>
 
@@ -18,13 +18,13 @@
 
     {{ govukButton({
       text: "Start",
-      href: "/manage-case-v2/sign-in",
+      href: "/manage-case-v3/sign-in",
       classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
     }) }}
 
     <h2 class="govuk-heading-m">Manage your account</h2>
 
-    <p>You can also <a href="/manage-account-v4/sign-in">manage your account</a> if you need to:</p>
+    <p>You can also <a href="/manage-account-v5/sign-in">manage your account</a> if you need to:</p>
 
     <ul class="govuk-list govuk-list--bullet">
         <li>invite other people in your organisation to use HMCTS professional services</li>
@@ -41,33 +41,6 @@
 
   <div class="govuk-grid-column-one-third">
 
-    <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
-<!--
-    <aside class="app-related-items" role="complementary">
-      <h2 class="govuk-heading-m" id="subsection-title">
-        Subsection
-      </h2>
-      <nav role="navigation" aria-labelledby="subsection-title">
-        <ul class="govuk-list govuk-!-font-size-16">
-          <li>
-            <a href="#">
-              Related link
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              Related link
-            </a>
-          </li>
-          <li>
-            <a href="#" class="govuk-!-font-weight-bold">
-              More <span class="govuk-visually-hidden">in Subsection</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
- -->
   </div>
 </div>
 {% endblock %}
