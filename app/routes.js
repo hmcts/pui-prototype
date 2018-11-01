@@ -7,7 +7,7 @@ router.get('/', function (req, res) {
 
 router.get('/sign-out', function (req, res) {
 	req.session.destroy();
-	res.redirect('/app/sign-in');
+	res.redirect('/');
 });
 
 router.post('/apply/sra-number', (req, res) => {
