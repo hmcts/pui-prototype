@@ -2,6 +2,42 @@
 
 {% set serviceName = 'Manage HMCTS account' %}
 
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-account-v5/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/manage-account-v5',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-account-v5/users',
+    active: false
+  },
+  {
+    text: 'Payments',
+    href: '/manage-account-v5/payments',
+    active: false
+  }]
+})}}
+
+{% endblock %}
+
 {% block content %}
 
   <div class="govuk-width-container">
