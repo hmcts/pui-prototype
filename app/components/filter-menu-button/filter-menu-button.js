@@ -1,21 +1,21 @@
 
 /*
 	new FilterMenuButton({
-		container: el,
-		mq: '(min-width: 50em)',
+		mq: '(min-width: 40.0625em)', // this is big screens
 		toggleButton: {
-			container: el
-			hideText: 'Hide filters',
-			showText: 'Show filters',
-			classes: ''
+			container: $('.hmcts-filter-menu'),
+			showText: 'Show filter',
+			hideText: 'Hide filter',
+			classes: 'hmcts-button--secondary'
 		},
 		closeButton: {
+			container: $('.hmcts-filter__header-action'),
 			text: 'Close'
 		},
 		filter: {
-			container: el
+			container: $('.hmcts-filter')
 		}
-	})
+	});
 */
 
 function FilterMenuButton(options) {
@@ -23,6 +23,7 @@ function FilterMenuButton(options) {
 	this.container = this.options.toggleButton.container;
 	this.createToggleButton();
 	this.setupResponsiveChecks();
+	this.options.filter.container.attr('tabindex', '-1');
 }
 
 FilterMenuButton.prototype.setupResponsiveChecks = function() {
@@ -45,17 +46,19 @@ FilterMenuButton.prototype.checkMode = function(mq) {
 	}
 };
 
+FilterMenuButton.prototype.enableBigMode = function() {
+	this.showMenu();
+	this.removeCloseButton();
+};
+
 FilterMenuButton.prototype.enableSmallMode = function() {
-	// this.container.prepend(this.menuButton);
 	this.hideMenu();
-	if(this.options.closeButton.conditional) {
-		this.addCloseButton();
-	}
+	this.addCloseButton();
 };
 
 FilterMenuButton.prototype.addCloseButton = function() {
 	if(this.options.closeButton) {
-		this.closeButton = $('<button class="hmcts-filter__close" type="button" aria-hidden="true" focusable="false">'+this.options.closeButton.text+'</svg></button>');
+		this.closeButton = $('<button class="hmcts-filter__close" type="button">'+this.options.closeButton.text+'</button>');
 		this.closeButton.on('click', $.proxy(this, 'onCloseClick'));
 		this.options.closeButton.container.append(this.closeButton);
 	}
@@ -66,16 +69,10 @@ FilterMenuButton.prototype.onCloseClick = function() {
 	this.menuButton.focus();
 };
 
-FilterMenuButton.prototype.enableBigMode = function() {
-	this.showMenu();
-	if(this.options.closeButton.conditional) {
-		this.removeCloseButton();
-	}
-};
-
 FilterMenuButton.prototype.removeCloseButton = function() {
 	if(this.closeButton) {
 		this.closeButton.remove();
+		this.closeButton = null;
 	}
 };
 
@@ -98,9 +95,7 @@ FilterMenuButton.prototype.onMenuButtonClick = function() {
 FilterMenuButton.prototype.toggle = function() {
 	if(this.menuButton.attr('aria-expanded') == 'false') {
 		this.showMenu();
-		if(this.closeButton) {
-			this.closeButton.focus();
-		}
+		this.options.filter.container.focus();
 	} else {
 		this.hideMenu();
 	}
