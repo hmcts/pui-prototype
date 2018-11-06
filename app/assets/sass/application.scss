@@ -151,3 +151,28 @@ mark.comment {
               padding-bottom: 1em;
             }
           }
+
+
+.hmcts-filter-menu {
+  display: inline-block;
+  margin-right: 10px;
+
+  @include govuk-media-query($from: tablet) {
+    // border: 10px solid #ccc;
+  }
+
+  button {
+    margin-bottom: 0;
+  }
+
+
+}
+
+.hmcts-action-bar {
+  vertical-align: top;
+  font-size: .1px;
+}
+
+.hmcts-action-bar .hmcts-menu {
+  display: inline-block;
+}

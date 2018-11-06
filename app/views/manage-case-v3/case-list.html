@@ -152,6 +152,22 @@
         </div>
         <div class="govuk-grid-column-two-thirds">
 
+          <div class="hmcts-action-bar">
+            <div class="hmcts-filter-menu"></div>
+            {{hmctsMenu({
+              items: [{
+                text: 'Reassign',
+                classes: 'hmcts-button--secondary'
+              }, {
+                text: 'Archive',
+                classes: 'hmcts-button--secondary'
+              }, {
+                text: 'Delete',
+                classes: 'hmcts-button--secondary'
+              }]
+            })}}
+          </div>
+
           <table class="govuk-table">
              <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
@@ -325,7 +341,7 @@
                     <td class="govuk-table__cell ">Probate</td>
                     <td class="govuk-table__cell ">Stopped</td>
                     <td class="govuk-table__cell ">9 August 2018 at 4:24pm</td>
-                </tr>            
+                </tr>
                 <tr class="govuk-table__row">
                     <th class="govuk-table__header" scope="row"><a href="">2427-6452-8238-1837</a></th>
                     <td class="govuk-table__cell ">John Smith v Jane Smith</td>
@@ -342,13 +358,31 @@
                 </tr>
               </tbody>
             </table>
-            
+
 
         </div>
       </div>
 
+{% endblock %}
 
-
-
-
+{% block page_scripts %}
+      <script>
+        new FilterMenuButton({
+          mq: '(min-width: 40.0625em)', // this is big screens
+          toggleButton: {
+            container: $('.hmcts-filter-menu'),
+            showText: 'Show filter',
+            hideText: 'Hide filter',
+            classes: 'hmcts-button--secondary'
+          },
+          closeButton: {
+            conditional: true,
+            container: $('.hmcts-filter__header-action'),
+            text: 'Close'
+          },
+          filter: {
+            container: $('.hmcts-filter')
+          }
+        });
+      </script>
 {% endblock %}
