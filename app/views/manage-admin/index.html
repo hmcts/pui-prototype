@@ -50,88 +50,51 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-          {{ govukTable({
-            firstCellIsHeader: true,
-            rows: [
-              [
-                {
-                  text: "Name"
-                },
-                {
-                  text: "West Berkshire Council"
-                },
-                {
-                  html: ''
-                }
-              ],
-              [
-                {
-                  text: "Address"
-                },
-                {
-                  html: "Market Street<br>Newbury<br>RG14 5LD"
-                },
-                {
-                  html: ''
-                }
-              ]
-            ]
-          }) }}
+        <table class="govuk-table">
+
+          <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row"></th>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"><a href="/manage-admin/update-org">Change</a></td>
+    </tr>
 
 
-          <!-- <ul class="govuk-list">
-            <li><a href="./access">Manage organisation access</a></li>
-          </ul> -->
+  <tbody class="govuk-table__body">
+
+    <tr class="govuk-table__row">
+
+
+      <th class="govuk-table__header" scope="row">Name</th>
 
 
 
-
-        <!--<h2 class="govuk-heading-l">Organisation</h2>
-
-        {{ govukTable({
-          firstCellIsHeader: true,
-          rows: [
-            [
-              {
-                text: "Name"
-              },
-              {
-                text: "Sherwin Davis"
-              },
-              {
-                html: '<a href="/">Change</a>'
-              }
-            ],
-            [
-              {
-                text: "Address 1"
-              },
-              {
-                html: "31 High Street<br>Norwich<br>NR2 8GG"
-              },
-              {
-                html: '<a href="/">Change</a>'
-              }
-            ],
-            [
-              {
-                text: "Address 2"
-              },
-              {
-                html: "3 Trickle Street<br>Borehamwood<br>H1 8GG"
-              },
-              {
-                html: '<a href="/">Change</a>'
-              }
-            ]
-          ]
-        }) }}
+      <td class="govuk-table__cell ">West Berkshire Council</td>
 
 
-        <ul class="govuk-list">
-          <li><a href="./access">Manage organisation access</a></li>
-          <li><a href="./addresses">Add a new address</a></li>
-        </ul>-->
+
+      <td class="govuk-table__cell "></td>
+
+
+    </tr>
+
+    <tr class="govuk-table__row">
+
+
+      <th class="govuk-table__header" scope="row">Address</th>
+
+
+
+      <td class="govuk-table__cell ">12 Market Street<br>Newbury<br>Berkshire<br>RG14 5LD</td>
+
+
+
+      <td class="govuk-table__cell "></td>
+
+
+    </tr>
+
+  </tbody>
+</table>
 
       </div>
     </div>

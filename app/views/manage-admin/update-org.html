@@ -1,0 +1,152 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family court cases' %}
+
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-admin/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/manage-admin',
+    active: true
+  }, {
+    text: 'Users',
+    href: '/manage-admin/users',
+    active: false
+  },
+  {
+    text: 'Fee accounts',
+    href: '/manage-admin/payments',
+    active: false
+  }]
+})}}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="hmcts-width-container">
+  {{govukBackLink({
+    href: './'
+  })}}
+  <main role="main" class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Organisation details</h1>
+
+    <form action="/manage-admin/">
+
+        <fieldset class="govuk-fieldset">
+
+
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--m" for="address-line-1">
+              Name
+            </label>
+
+
+            <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" value="West Berkshire Council">
+          </div>
+
+
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="address-line-1">
+      Building and street <span class="govuk-visually-hidden">line 1 of 2</span>
+    </label>
+
+
+    <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" value="12 Market Street">
+  </div>
+
+
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="address-line-2">
+      <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+    </label>
+
+
+    <input class="govuk-input" id="address-line-2" name="address-line-2" type="text">
+  </div>
+
+
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="address-town">
+      Town or city
+    </label>
+
+
+    <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text" value="Newbury">
+  </div>
+
+
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="address-county">
+      County
+    </label>
+
+
+    <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text" value="Berkshire">
+  </div>
+
+
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="address-postcode">
+      Postcode
+    </label>
+
+
+    <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text" value="RG14 5LD">
+  </div>
+
+
+        </fieldset>
+
+
+
+
+
+
+
+  <button type="submit" class="govuk-button">
+    Update
+  </button>
+
+
+      </form>
+
+  </div>
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
