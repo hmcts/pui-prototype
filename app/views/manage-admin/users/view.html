@@ -1,0 +1,144 @@
+{% extends "manage-admin/layout.html" %}
+
+
+{% set serviceName = 'Manage organisation details for civil and family court cases' %}
+
+{% set pageId = 'users' %}
+
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-admin/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/manage-admin',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-admin/users',
+    active: true
+  },
+  {
+    text: 'Fee accounts',
+    href: '/manage-admin/payments',
+    active: false
+  }]
+})}}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+  <div class="hmcts-width-container">
+    {{govukBackLink({
+      href: './'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">User details</h1>
+
+      <table class="govuk-table">
+
+
+
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row"></th>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"><a href="/manage-admin/users/update">Change</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Name</th>
+      <td class="govuk-table__cell">Joe Bloggs</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Email address</th>
+      <td class="govuk-table__cell">joe.bloggs@email.com</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="row">Permissions</th>
+      <td class="govuk-table__cell">
+        Manage cases<br>
+        Manage users<br>
+        Manage organisation<br>
+        Manage payment</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<ul class="govuk-list">
+        <li>
+          <details class="govuk-details" role="group">
+  <summary class="govuk-details__summary" role="button" aria-controls="details-content-f691f353-2362-4ac6-9329-b9f5296cf4a5" aria-expanded="false">
+    <span class="govuk-details__summary-text">
+      Reset password
+    </span>
+  </summary>
+  <div class="govuk-details__text" id="details-content-f691f353-2362-4ac6-9329-b9f5296cf4a5" aria-hidden="true">
+
+                      <form action="manage-users">
+                        <p>Are you sure you want to reset the password for <b>Joe Bloggs</b>?</p>
+                        <p>We'll send them an email to reset their password.</p>
+                        <input id="success" name="success" type="hidden" value="Reset password link sent">
+                        <input value="Yes, reset password" type="submit" class="govuk-button">
+                      </form>
+                      <p class="govuk-body">
+                        <a href="?reset-user">No, don't reset password</a>
+                      </p>
+  </div>
+</details>
+
+        </li>
+        <li>
+          <details class="govuk-details" role="group">
+  <summary class="govuk-details__summary" role="button" aria-controls="details-content-4464c0cd-412c-4a91-b896-955796a2df61" aria-expanded="false">
+    <span class="govuk-details__summary-text">
+      Revoke access
+    </span>
+  </summary>
+  <div class="govuk-details__text" id="details-content-4464c0cd-412c-4a91-b896-955796a2df61" aria-hidden="true">
+
+                      <form action="manage-users">
+                        <p>Are you sure you want to revoke access for <b>Joe Bloggs</b>?</p>
+                        <input id="success" name="success" type="hidden" value="User removed">
+                        <input id="user-removed" name="user-revoked" type="hidden" value="joe.bloggs@email.com">
+                        <input value="Yes, revoke user" type="submit" class="govuk-button">
+                      </form>
+                      <p class="govuk-body">
+                        <a href="?reset-user">No, don't revoke user</a>
+                      </p>
+  </div>
+</details>
+
+        </li>
+      </ul>
+
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}
