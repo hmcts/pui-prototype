@@ -1,0 +1,31 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage your civil and family court cases' %}
+
+{% set pageId = 'cases' %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block mainContent %}
+
+      <div class="hmcts-page-heading">
+          <div class="hmcts-page-heading__title-wrapper">
+            <h1 class="hmcts-page-heading__title govuk-heading-xl">Your cases</h1>
+          </div>
+          <div class="hmcts-page-heading__actions-wrapper">
+              {{govukButton({
+                text: 'Create case',
+                href: '/manage-case-v4/create-case',
+                classes: 'hmcts-page-heading__button'
+              })}}
+          </div>
+        </div>
+
+        <p class="govuk-body">You haven't got any cases assigned to you.</p>
+
+
+
+
+
+
+{% endblock %}
