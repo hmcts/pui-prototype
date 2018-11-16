@@ -2,7 +2,22 @@
 
 {% set serviceName = 'Manage organisation details for civil and family court cases' %}
 
-{% block content %}
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-account-v5/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
 {{hmctsPrimaryNavigation({
   classes: "govuk-!-margin-bottom-0",
   items: [ {
@@ -24,6 +39,11 @@
   reference: 'PBA0241163',
   title: { html: '<b>West Berkshire Council - Account A</b>' }
 }) }}
+
+{% endblock %}
+
+
+{% block content %}
 
 <style>
 
@@ -123,6 +143,7 @@ table th {
 
 
 </style>
+
 <div class="hmcts-width-container">
 
   <main role="main" class="govuk-main-wrapper">
@@ -139,20 +160,17 @@ table th {
       }
       ]
     })}}
-    <h1 class="govuk-heading-xl">Transactions</h1>
 
+    <div class="hmcts-page-heading">
+      <div class="hmcts-page-heading__title-wrapper">
+        <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">
+          Transactions
+          </h1>
+      </div>
+      <div class="hmcts-page-heading__actions-wrapper">
 
-
-
-
-
-
-
-
-
-
-
-
+      </div>
+    </div>
 
           <table class="govuk-body" id="transactionstable">
           <p class="govuk-body">  <!-- 7 payments --> </p>
