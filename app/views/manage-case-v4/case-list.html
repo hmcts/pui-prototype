@@ -1,0 +1,297 @@
+{% extends "./layout.html" %}
+
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-case-v4/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '/manage-case-v4/case-list',
+    active: primaryNavId == 'cases'
+  }, {
+    text: 'Organisation\'s cases',
+    href: '/manage-case-v4/organisation-case-list',
+    active: primaryNavId == 'organisationCases'
+  }]
+})}}
+{% endblock %}
+
+
+{% set serviceName = 'Manage your civil and family court cases' %}
+
+{% set primaryNavId = 'cases' %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block mainContent %}
+
+  {{ hmctsPageHeaderWithActions({
+    title: {
+      html: '<h1 class="govuk-heading-xl">Your cases</h1>'
+    },
+    classes: 'govuk-!-margin-bottom-7',
+    items: [{
+      text: 'Create case',
+      href: '/manage-case-v4/create-case'
+    }]
+  }) }}
+
+
+
+          <table class="govuk-table">
+             <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="col">Reference</th>
+                  <th class="govuk-table__header" scope="col">Parties</th>
+                  <th class="govuk-table__header" scope="col">Type</th>
+                  <th class="govuk-table__header" scope="col">Status</th>
+                  <th class="govuk-table__header" scope="col">Last updated</th>
+                  <th class="govuk-table__header" scope="col">Shared with</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="/manage-case-v4/case-summary">4458-8429-2491-3791</a></th>
+                  <td class="govuk-table__cell ">John Smith v Jane Smith</td>
+                  <td class="govuk-table__cell ">Divorce</td>
+                  <td class="govuk-table__cell ">Application drafted</td>
+                  <td class="govuk-table__cell ">5 Nov 2018 at 4:48pm</td>
+                  <td class="govuk-table__cell ">Kelly Jones</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">1262-2963-5085-2609</a></th>
+                  <td class="govuk-table__cell ">Gregory Fox</td>
+                  <td class="govuk-table__cell ">Probate</td>
+                  <td class="govuk-table__cell ">Ready to issue</td>
+                  <td class="govuk-table__cell ">5 Nov 2018 at 2:01pm</td>
+                  <td class="govuk-table__cell ">Kelly Jones, <br>Chris Smith</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">1117-5086-2665-7395</a></th>
+                  <td class="govuk-table__cell ">Warren Sutton</td>
+                  <td class="govuk-table__cell ">Probate</td>
+                  <td class="govuk-table__cell ">Application created</td>
+                  <td class="govuk-table__cell ">2 Nov 2018 at 10:03am</td>
+                  <td class="govuk-table__cell ">Chris Smith</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">8934-2347-6091-2028</a></th>
+                  <td class="govuk-table__cell ">Carlos Fisk v Jill Fisk</td>
+                  <td class="govuk-table__cell ">Financial remedy</td>
+                  <td class="govuk-table__cell ">Awaiting Payment Response</td>
+                  <td class="govuk-table__cell ">1 Nov 2018 at 12:42pm</td>
+                  <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">7725-2075-8562-8971</a></th>
+                  <td class="govuk-table__cell ">Alan Jones</td>
+                  <td class="govuk-table__cell ">Probate</td>
+                  <td class="govuk-table__cell ">Awaiting documentation</td>
+                  <td class="govuk-table__cell ">1 Nov 2018 at 11:05am</td>
+                  <td class="govuk-table__cell ">Kelly Jones</td>
+                </tr>
+                 <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">6030-1597-1298-9715</a></th>
+                  <td class="govuk-table__cell ">David Francis v Susan Francis</td>
+                  <td class="govuk-table__cell ">Divorce</td>
+                  <td class="govuk-table__cell ">Statement of Truth, Pay and Submit Required</td>
+                  <td class="govuk-table__cell ">31 Oct 2018 at 4:22pm</td>
+                  <td class="govuk-table__cell ">Jennifer Hedges</td>
+                </tr>
+                   </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">6282-6988-9181-9176</a></th>
+                  <td class="govuk-table__cell ">Violet Smith v Alan Smith</td>
+                  <td class="govuk-table__cell ">Divorce</td>
+                  <td class="govuk-table__cell ">Awaiting petitioner</td>
+                  <td class="govuk-table__cell ">31 Oct 2018 at 1:32pm</td>
+                  <td class="govuk-table__cell ">Kelly Jones</td>
+                </tr>
+                  <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">6925-5792-4576-3319</a></th>
+                  <td class="govuk-table__cell ">Cheryl Holt v John Holt</td>
+                  <td class="govuk-table__cell ">Financial remedy</td>
+                  <td class="govuk-table__cell ">Consent Order Made</td>
+                  <td class="govuk-table__cell ">31 Oct 2018 at 11:23am</td>
+                  <td class="govuk-table__cell "></td>
+                </tr>
+                 <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">5310-5186-1231-4639</a></th>
+                  <td class="govuk-table__cell ">Damien Salmon v Patricia Salmon</td>
+                  <td class="govuk-table__cell ">Financial remedy</td>
+                  <td class="govuk-table__cell ">Awaiting Judicial Response</td>
+                  <td class="govuk-table__cell ">29 Oct 2018 at 10:33am</td>
+                  <td class="govuk-table__cell "></td>
+                 </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">3831-6409-8169-2204</a></th>
+                  <td class="govuk-table__cell ">Timothy Greenway</td>
+                  <td class="govuk-table__cell ">Probate</td>
+                  <td class="govuk-table__cell ">Examining</td>
+                  <td class="govuk-table__cell ">29 Oct 2018 at 9:01am</td>
+                  <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">9532-5530-6258-5049</a></th>
+                  <td class="govuk-table__cell ">Adam Kowalski v Agata Kowalski</td>
+                  <td class="govuk-table__cell ">Divorce</td>
+                  <td class="govuk-table__cell ">Petition submitted</td>
+                  <td class="govuk-table__cell ">25 Oct 2018 at 6:10pm</td>
+                  <td class="govuk-table__cell "></td>
+                </tr>
+                </tr>
+                 <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">7625-1181-7909-5287</a></th>
+                  <td class="govuk-table__cell ">Sarah Kinnear</td>
+                  <td class="govuk-table__cell ">Probate</td>
+                  <td class="govuk-table__cell ">Stopped</td>
+                  <td class="govuk-table__cell ">24 Oct 2018 at 3:10pm</td>
+                  <td class="govuk-table__cell "></td>
+                </tr>
+                 <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">9376-7001-9175-1413</a></th>
+                  <td class="govuk-table__cell ">Rukhsana Khan v Ali Khan</td>
+                  <td class="govuk-table__cell ">Divorce</td>
+                  <td class="govuk-table__cell ">Awaiting AOS</td>
+                  <td class="govuk-table__cell ">19 Oct 2018 at 5:56pm</td>
+                  <td class="govuk-table__cell "></td>
+                </tr>
+                 <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">3967-8498-9343-2045</a></th>
+                  <td class="govuk-table__cell ">Kieran Flick</td>
+                  <td class="govuk-table__cell ">Probate</td>
+                  <td class="govuk-table__cell ">Stopped</td>
+                  <td class="govuk-table__cell ">18 Oct 2018 at 11:43am</td>
+                  <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">7372-5134-7441-3921</a></th>
+                  <td class="govuk-table__cell ">Francesca Dove</td>
+                  <td class="govuk-table__cell ">Probate</td>
+                  <td class="govuk-table__cell ">Grant issued</td>
+                  <td class="govuk-table__cell ">16 Oct 2018 at 3pm</td>
+                  <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">2877-6519-5618-9839</a></th>
+                  <td class="govuk-table__cell ">Iain Curran v Robin Curran</td>
+                  <td class="govuk-table__cell ">Financial remedy</td>
+                  <td class="govuk-table__cell ">Awaiting Judicial Response</td>
+                  <td class="govuk-table__cell ">16 Oct 2018 at 1:27pm</td>
+                  <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row"><a href="">8768-9687-5469-7731</a></th>
+                    <td class="govuk-table__cell ">Graham Edgar v Katherine Edgar</td>
+                    <td class="govuk-table__cell ">Financial remedy</td>
+                    <td class="govuk-table__cell ">Awaiting HWF Decision</td>
+                    <td class="govuk-table__cell ">11 Oct 2018 at 3:27pm</td>
+                    <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row"><a href="">5464-3800-8459-8477</a></th>
+                    <td class="govuk-table__cell ">Francesca Bianchi</td>
+                    <td class="govuk-table__cell ">Probate</td>
+                    <td class="govuk-table__cell ">Stopped</td>
+                    <td class="govuk-table__cell ">10 Oct 2018 at 5:01pm</td>
+                    <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row"><a href="">4748-2828-7712-8233</a></th>
+                    <td class="govuk-table__cell ">Alejandro Romero</td>
+                    <td class="govuk-table__cell ">Probate</td>
+                    <td class="govuk-table__cell ">Examining</td>
+                    <td class="govuk-table__cell ">3 Oct 2017 at 10:53pm</td>
+                    <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row"><a href="">6028-8467-4793-8075</a></th>
+                    <td class="govuk-table__cell ">Nazia Lashkar v Ashik Lashkar</td>
+                    <td class="govuk-table__cell ">Divorce</td>
+                    <td class="govuk-table__cell ">Awaiting Decree Nisi</td>
+                    <td class="govuk-table__cell ">3 Oct 2018 at 9am</td>
+                    <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row"><a href="">9417-3739-9576-5131</a></th>
+                    <td class="govuk-table__cell ">Karen Gallagher v Glenn Gallagher</td>
+                    <td class="govuk-table__cell ">Divorce</td>
+                    <td class="govuk-table__cell ">AOS Completed</td>
+                    <td class="govuk-table__cell ">17 Sep 2018 at 3:03pm</td>
+                    <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row"><a href="">3858-2644-5670-5587</a></th>
+                    <td class="govuk-table__cell ">Darren Wright v Gillian Wright</td>
+                    <td class="govuk-table__cell ">Financial remedy</td>
+                    <td class="govuk-table__cell ">Consent Order Made</td>
+                    <td class="govuk-table__cell ">5 Sep 2018 at 1:49pm</td>
+                    <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row"><a href="">9781-9466-6623-9191</a></th>
+                    <td class="govuk-table__cell ">Terence Yorke</td>
+                    <td class="govuk-table__cell ">Probate</td>
+                    <td class="govuk-table__cell ">Stopped</td>
+                    <td class="govuk-table__cell ">9 Aug 2018 at 4:24pm</td>
+                    <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row"><a href="">2427-6452-8238-1837</a></th>
+                    <td class="govuk-table__cell ">John Smith v Jane Smith</td>
+                    <td class="govuk-table__cell ">Divorce</td>
+                    <td class="govuk-table__cell ">Petition issued</td>
+                    <td class="govuk-table__cell ">6 Aug 2018 at 11am</td>
+                    <td class="govuk-table__cell "></td>
+                </tr>
+                 <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row"><a href="">4906-3581-7653-7996</a></th>
+                  <td class="govuk-table__cell ">Sally Lane v James Lane</td>
+                  <td class="govuk-table__cell ">Divorce</td>
+                  <td class="govuk-table__cell ">Awaiting help with fees decision</td>
+                  <td class="govuk-table__cell ">1 Aug 2018 at 2:02pm</td>
+                  <td class="govuk-table__cell "></td>
+                </tr>
+              </tbody>
+            </table>
+
+
+        <!-- </div>
+      </div> -->
+
+{% endblock %}
+
+{% block page_scripts %}
+      <script>
+        new FilterMenuButton({
+          mq: '(min-width: 40.0625em)', // this is big screens
+          toggleButton: {
+            container: $('.hmcts-filter-menu'),
+            showText: 'Show filter',
+            hideText: 'Hide filter',
+            classes: 'hmcts-button--secondary'
+          },
+          closeButton: {
+            container: $('.hmcts-filter__header-action'),
+            text: 'Close'
+          },
+          filter: {
+            container: $('.hmcts-filter')
+          }
+        });
+      </script>
+{% endblock %}
