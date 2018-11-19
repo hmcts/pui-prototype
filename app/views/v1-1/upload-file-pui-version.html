@@ -12,18 +12,18 @@
   classes: "govuk-!-margin-bottom-0",
   items: [ {
     text: 'Your cases',
-    href: '/manage-case-v3/case-list',
+    href: '/v1-1/case-list',
     active: true
   },  {
     text: 'Create case',
-    href: '/manage-case-v3/create-case',
+    href: '/v1-1/create-case',
     active: false
   }]
 })}}
 
 <div class="hmcts-width-container">
   {{govukBackLink({
-    href: '/manage-case-v3/case-summary',
+    href: '/v1-1/case-summary',
     text: 'Back'
   })}}
 
@@ -38,7 +38,7 @@
           Upload file
         </h1>
 
-        <form method="get" action="/manage-case-v3/upload-confirmation">
+        <form method="get" action="/v1-1/upload-confirmation">
 
           {{ govukFileUpload({
             id: "file-upload-1",

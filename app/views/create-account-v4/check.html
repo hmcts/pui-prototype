@@ -37,9 +37,10 @@
             </div>
 
             <div class="govuk-check-your-answers__contents">
-                <dt class="govuk-check-your-answers__question">DX number</dt>
+                <dt class="govuk-check-your-answers__question">DX reference</dt>
                 <dd class="govuk-check-your-answers__answer">
-                  {{data['org-dx']}}
+                  {{data['dx-number']}}<br>
+                  {{data['dx-exchange']}}
                 </dd>
                 <dd class="govuk-check-your-answers__change">
                   <a href="/create-account-v4/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>

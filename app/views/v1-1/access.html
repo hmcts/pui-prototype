@@ -1,0 +1,134 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage your civil and family court cases' %}
+
+{% block page_title %}Case summary{% endblock %}
+
+{% block beforeContent %}
+  {{ hmctsDetailsBar({
+    reference: 'PBA0241163',
+    title: { html: '<b>John Smith</b> v <b>Jane Smith</b>' }
+  }) }}
+{% endblock %}
+
+{% block mainContent %}
+
+  {{hmctsSubNavigation({
+    items: [ {
+      text: 'Summary',
+      href: '/v1-1/case-summary',
+      active: false
+    },  {
+      text: 'Application details',
+      href: '/v1-1/case-details',
+      active: false
+    }, {
+      text: 'Documents',
+      href: '/v1-1/documents',
+      active: false
+    }, {
+      text: 'Access',
+      href: '/v1-1/access',
+      active: true
+    }]
+  })}}
+
+
+      {{ hmctsPageHeaderWithActions({
+        title: {
+          html: '<h1 class="govuk-heading-xl">Access</h1>'
+        },
+        classes: 'govuk-!-margin-bottom-7',
+        items: [{
+          text: 'Invite user',
+          href: '/v1-1/invite'
+        }]
+      }) }}
+
+      {% if data['shared-email'] %}
+      {% set rows = [
+        [
+          {
+            text: data['shared-email']
+          },
+          {
+            html: '<a href="#">Remove</a>'
+          }
+        ],
+        [
+          {
+            text: "john.smith@sherwindavis.co.uk"
+          },
+          {
+            html: '<a href="#">Remove</a>'
+          }
+        ],
+        [
+          {
+            text: "stephanie.black@sherwindavis.co.uk"
+          },
+          {
+            html: '<a href="#">Remove</a>'
+          }
+        ],
+        [
+          {
+            text: "judith.robinson@sherwindavis.co.uk"
+          },
+          {
+            html: '<a href="#">Remove</a>'
+          }
+        ]
+      ] %}
+      {% else %}
+        {% set rows = [
+          [
+            {
+              text: "john.smith@sherwindavis.co.uk"
+            },
+            {
+              html: '<a href="#">Remove</a>'
+            }
+          ],
+          [
+            {
+              text: "stephanie.black@sherwindavis.co.uk"
+            },
+            {
+              html: '<a href="#">Remove</a>'
+            }
+          ],
+          [
+            {
+              text: "judith.robinson@sherwindavis.co.uk"
+            },
+            {
+              html: '<a href="#">Remove</a>'
+            }
+          ]
+        ] %}
+      {% endif %}
+
+
+      {{ govukTable({
+        head: [
+          {
+            text: "Email address"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: rows
+      }) }}
+
+
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  new HMCTSFrontend.AddAnother($('.hmcts-add-another'));
+</script>
+{% endblock %}

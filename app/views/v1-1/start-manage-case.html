@@ -1,0 +1,46 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Manage your civil and family court cases' %}
+
+{% block content%}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Manage your civil and family court cases</h1>
+
+    <p>If you have an account, you can sign in to:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+        <li>apply for divorce, financial remedy or probate online</li>
+        <li>check the status of a case - if you applied online</li>
+        <li>upload documents to progress the case</li>
+      </ul>
+
+    {{ govukButton({
+      text: "Start",
+      href: "/v1-1/sign-in",
+      classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+    }) }}
+
+    <h2 class="govuk-heading-m">Manage your organisation details</h2>
+
+    <p>If you have permission to <a href="/manage-account-v5/sign-in">manage your organisation details</a> you can:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+        <li>invite other people from your organisation</li>
+        <li>check your organisation's fee account balance and recent transactions</li>
+      </ul>
+
+    <h2 class="govuk-heading-m">If you do not have an account</h2>
+
+    <p>Someone in the organisation will be able to invite you, as long as your organisation is registered to manage civil and family court cases.</p>
+
+    <p>Otherwise, you'll need to wait until your organisation has been invited to register by HMCTS.</p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+</div>
+{% endblock %}

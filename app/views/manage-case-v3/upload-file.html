@@ -2,6 +2,10 @@
 
 {% set serviceName = 'Manage your civil and family court cases' %}
 
+{% set pageId = 'cases' %}
+
+{% block page_title %}Case summary{% endblock %}
+
 {% block header %}
 {{hmctsGlobalHeader({
   service: {
@@ -36,22 +40,70 @@
 {% block beforeContent %}
 {{ hmctsDetailsBar({
   reference: 'PBA0241163',
-  title: { html: '<b>John Smith</b> v <b>Jane Smith</b>' },
-  items: [
-  {
-    classes: 'hmcts-button--secondary',
-    text: 'Upload file',
-    href: '/manage-case-v3/upload-file'
-  }
-  ]
+  title: { html: '<b>John Smith</b> v <b>Jane Smith</b>' }
 }) }}
-{{super()}}
 {% endblock %}
 
 {% block mainContent %}
 
+<div class="hmcts-width-container">
   {{govukBackLink({
-    href: '/manage-case-v3/case-summary'
+    href: '/manage-case-v3/case-summary',
+    text: 'Back'
   })}}
-      <img src="/public/images/upload-file-ccd.png" width="100%">
+
+  <main role="main" class="govuk-main-wrapper">
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          Upload file
+        </h1>
+
+        <form method="get" action="/manage-case-v3/upload-confirmation">
+
+          {{ govukFileUpload({
+            id: 'selectfile',
+            name: 'selectfile',
+            label: {
+              text: 'File',
+              classes: 'govuk-label--m'
+            },
+            hint: {
+              text: 'You can upload JPG, BMP, PNG, TIF or PDF files up to 10MB in size.'
+            }
+          }) }}
+  
+          {{ govukInput({
+            label: {
+              text: 'Name to display for file',
+              classes: 'govuk-label--m'
+            },
+            id: 'displayname',
+            name: 'displayname'
+          }) }}
+    
+          {{ govukTextarea({
+            name: 'notes',
+            id: 'notes',
+            label: {
+              text: 'Notes (optional)',
+              classes: 'govuk-label--m'
+            }
+          }) }}
+  
+          {{ govukButton({
+            text: 'Upload'
+          }) }}
+        </form>
+      </div>
+    </div>
+
+
+  </main>
+
+</div>
+
 {% endblock %}

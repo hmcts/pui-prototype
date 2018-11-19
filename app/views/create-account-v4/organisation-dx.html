@@ -10,23 +10,35 @@
 {% endblock %}
 
 {% block content %}
+<div class="govuk-width-container">
+
+
+
+    <main role="main" class="govuk-main-wrapper">
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">What's the DX reference for your main office? (optional)</h1>
+
       <form action="/create-account-v4/name">
 
         {{ govukInput({
           label: {
-            text: "What's the DX number for your main office? (optional)",
-            classes: 'govuk-label--xl',
-            isPageHeading: true
+            text: "DX number",
+            classes: 'govuk-label--m'
           },
-          id: "org-dx",
-          name: "org-dx"
+          id: "dx-number",
+          name: "dx-number"
         }) }}
 
-
-        <!-- <p class="govuk-body"><a href="#">Can't find your organistaion?</a></p> -->
+        {{ govukInput({
+          label: {
+            text: "DX exchange",
+            classes: 'govuk-label--m'
+          },
+          id: "dx-exchange",
+          name: "dx-exchange"
+        }) }}
 
         {{govukButton({
           text: 'Continue'
@@ -34,6 +46,7 @@
       </form>
     </div>
   </div>
-
+    </main>
+  </div>
 {% endblock %}
 

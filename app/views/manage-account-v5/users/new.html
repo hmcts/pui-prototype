@@ -57,8 +57,11 @@
           <form action="./confirmation">
             {{ govukInput({
               label: {
-                text: "First name",
+                text: "First name(s)",
                 classes: 'govuk-label--m'
+              },
+              hint: {
+                text: "Include all middle names."
               },
               id: "firstname",
               name: "firstname"
@@ -92,12 +95,12 @@
                 items: [
                   {
                     value: "org",
-                    text: "Own cases only",
+                    text: "Create and progress cases",
                     checked: true
                   },
                   {
                     value: "scotland",
-                    text: "All the organisation's cases"
+                    text: "Create and progress cases; view all the organisation's cases"
                   }
                 ]
               }) }}
@@ -119,9 +122,6 @@
                 {
                   value: "cases",
                   text: "Manage cases",
-                  hint: {
-                    text: "View, create and progress cases."
-                  },
                   conditional: {
                     html: caseLevelsHtml
                   }
@@ -142,9 +142,9 @@
                 },
                 {
                   value: "payment",
-                  text: "Manage payment",
+                  text: "Manage fee accounts",
                   hint: {
-                    text: "View fee account balance and transactions."
+                    text: "View balances and transactions."
                   }
                 }
               ]
