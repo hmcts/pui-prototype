@@ -52,7 +52,7 @@
 
   <div class="hmcts-width-container">
     {{govukBackLink({
-      href: './'
+      href: 'profile'
     })}}
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
@@ -61,17 +61,24 @@
       <h1 class="govuk-heading-l">User details</h1>
 
       <form action="./confirmation">
-
         {{ govukInput({
           label: {
-            text: "Email address",
+            text: "First name",
             classes: 'govuk-label--m'
           },
-          id: "emailaddress",
-          name: "emailaddress",
-          value: "joe.bloggs@email.com"
+          id: "firstname",
+          name: "firstname",
+          value: "Joe"
         }) }}
-
+        {{ govukInput({
+          label: {
+            text: "Last name",
+            classes: 'govuk-label--m'
+          },
+          id: "lastname",
+          name: "lastname",
+          value: "Bloggs"
+        }) }}
 
 
         {{govukButton({
