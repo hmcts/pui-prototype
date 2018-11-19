@@ -15,7 +15,7 @@
   navigation: {
     items: [{
       text: 'Profile',
-      href: '/manage-case-v4/profile'
+      href: '/v1-1/profile'
     },{
       text: 'Sign out',
       href: '/sign-out'
@@ -26,11 +26,11 @@
   classes: "govuk-!-margin-bottom-0",
   items: [ {
     text: 'Your cases',
-    href: '/manage-case-v4/case-list',
+    href: '/v1-1/case-list',
     active: primaryNavId == 'cases'
   }, {
     text: 'Organisation\'s cases',
-    href: '/manage-case-v4/organisation-case-list',
+    href: '/v1-1/organisation-case-list',
     active: primaryNavId == 'organisationCases'
   }]
 })}}
@@ -45,7 +45,7 @@
   {
     classes: 'hmcts-button--secondary',
     text: 'Upload file',
-    href: '/manage-case-v4/upload-file'
+    href: '/v1-1/upload-file'
   }
   ]
 }) }}
@@ -57,7 +57,7 @@
 {% block mainContent %}
 
 {{govukBackLink({
-  href: '/manage-case-v4/access'
+  href: '/v1-1/access'
 })}}
 <br>
 <br>
@@ -68,7 +68,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="/manage-case-v4/access" method="get">
+    <form action="/v1-1/access" method="get">
       {{ govukTextarea({
         label: {
           text: "What email addresses do you want to give access to?",

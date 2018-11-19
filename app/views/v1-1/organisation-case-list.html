@@ -9,7 +9,7 @@
   navigation: {
     items: [{
       text: 'Profile',
-      href: '/manage-case-v4/profile'
+      href: '/v1-1/profile'
     },{
       text: 'Sign out',
       href: '/sign-out'
@@ -20,11 +20,11 @@
   classes: "govuk-!-margin-bottom-0",
   items: [ {
     text: 'Your cases',
-    href: '/manage-case-v4/case-list',
+    href: '/v1-1/case-list',
     active: primaryNavId == 'cases'
   }, {
     text: 'Organisation\'s cases',
-    href: '/manage-case-v4/organisation-case-list',
+    href: '/v1-1/organisation-case-list',
     active: primaryNavId == 'organisationCases'
   }]
 })}}
@@ -46,7 +46,7 @@
     <div class="hmcts-page-heading__actions-wrapper">
         {{govukButton({
           text: 'Create case',
-          href: '/manage-case-v4/create-case',
+          href: '/v1-1/create-case',
           classes: 'hmcts-page-heading__button'
         })}}
     </div>
