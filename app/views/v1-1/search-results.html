@@ -1,0 +1,63 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage your civil and family court cases' %}
+
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block mainContent %}
+
+  {{ hmctsPageHeaderWithActions({
+    title: {
+      html: '<h1 class="govuk-heading-xl">3 results for “John”</h1>'
+    },
+    classes: 'govuk-!-margin-bottom-7',
+    items: [{
+      text: 'Create case',
+      href: '/v1-1/create-case'
+    }]
+  }) }}
+
+
+
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="col">Reference</th>
+        <th class="govuk-table__header" scope="col">Parties</th>
+        <th class="govuk-table__header" scope="col">Type</th>
+        <th class="govuk-table__header" scope="col">Status</th>
+        <th class="govuk-table__header" scope="col">Last updated</th>
+        <th class="govuk-table__header" scope="col">Shared with</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="row"><a href="/v1-1/case-summary">4458-8429-2491-3791</a></th>
+        <td class="govuk-table__cell ">John Smith v Jane Smith</td>
+        <td class="govuk-table__cell ">Divorce</td>
+        <td class="govuk-table__cell ">Application drafted</td>
+        <td class="govuk-table__cell ">5 Nov 2018 at 4:48pm</td>
+        <td class="govuk-table__cell ">Kelly Jones</td>
+      </tr>
+      </tr>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="row"><a href="">8934-2347-6091-2028</a></th>
+        <td class="govuk-table__cell ">Carlos Fisk v Jill Johnson</td>
+        <td class="govuk-table__cell ">Financial remedy</td>
+        <td class="govuk-table__cell ">Awaiting Payment Response</td>
+        <td class="govuk-table__cell ">1 Nov 2018 at 12:42pm</td>
+        <td class="govuk-table__cell "></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="row"><a href="">7725-2075-8562-8971</a></th>
+        <td class="govuk-table__cell ">Alan John-Tayloy</td>
+        <td class="govuk-table__cell ">Probate</td>
+        <td class="govuk-table__cell ">Awaiting documentation</td>
+        <td class="govuk-table__cell ">1 Nov 2018 at 11:05am</td>
+        <td class="govuk-table__cell ">Kelly Jones</td>
+      </tr>
+    </tbodyå>
+  </table>
+{% endblock %}
