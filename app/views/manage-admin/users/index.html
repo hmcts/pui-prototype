@@ -1,0 +1,105 @@
+{% extends "manage-admin/layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family court cases' %}
+
+{% set pageId = 'users' %}
+
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-admin/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/manage-admin',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-admin/users',
+    active: true
+  },
+  {
+    text: 'Fee accounts',
+    href: '/manage-admin/payments',
+    active: false
+  }]
+})}}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="hmcts-width-container">
+
+    <main role="main" class="govuk-main-wrapper">
+
+
+
+
+      <div class="hmcts-page-heading">
+        <div class="hmcts-page-heading__title-wrapper">
+          <h1 class="hmcts-page-heading__title govuk-heading-xl">Users</h1>
+        </div>
+        <div class="hmcts-page-heading__actions-wrapper">
+            {{govukButton({
+              text: 'Invite user',
+              href: '/manage-admin/users/new',
+              classes: 'hmcts-page-heading__button'
+            })}}
+        </div>
+      </div>
+
+
+
+      <table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Name</th>
+      <th class="govuk-table__header" scope="col">Email address</th>
+      <th class="govuk-table__header" scope="col">Status</th>
+      <th
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" scope="row"><a href="/manage-admin/users/view">Joe Bloggs</a></td>
+      <td class="govuk-table__cell" scope="row">joe.bloggs@email.com</td>
+      <td class="govuk-table__cell" scope="row">Active</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" scope="row"><a href="/manage-admin/users/view">Jill Smith</a></td>
+      <td class="govuk-table__cell" scope="row">jill.smith@email.com</td>
+      <td class="govuk-table__cell" scope="row">Active</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" scope="row"><a href="/manage-admin/users/view-revoked">Bill Brown</a></td>
+      <td class="govuk-table__cell" scope="row">bill.brown@email.com</td>
+      <td class="govuk-table__cell" scope="row">Revoked</td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+    </main>
+  </div>
+
+{% endblock %}
