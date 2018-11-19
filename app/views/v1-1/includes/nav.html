@@ -1,0 +1,39 @@
+{% set toggleSearchHtml %}
+  <div class="hmcts-search-toggle">
+    <div class="hmcts-search-toggle__toggle"></div>
+    <div class="hmcts-search-toggle__search">
+      {{ hmctsSearch({
+        action: '/v1-1/search-results',
+        classes: 'hmcts-search--ondark hmcts-search--toggle hmcts-hidden',
+        input: {
+          id: 'search2',
+          name: 'search2'
+        },
+        label: {
+          classes: 'govuk-visually-hidden',
+          text: 'Search'
+        },
+        hint: {
+          text: 'Enter case number, for example 123456'
+        },
+        button: {
+          text: 'Search'
+        }
+      }) }}
+    </div>
+  </div>
+{% endset %}
+
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '/v1-1/case-list',
+    active: primaryNavId == 'cases'
+  }, {
+    text: 'Organisation\'s cases',
+    href: '/v1-1/organisation-case-list',
+    active: primaryNavId == 'organisationCases'
+  }],
+  searchHtml: toggleSearchHtml
+})}}

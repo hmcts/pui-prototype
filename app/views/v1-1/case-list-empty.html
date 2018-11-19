@@ -8,24 +8,16 @@
 
 {% block mainContent %}
 
-      <div class="hmcts-page-heading">
-          <div class="hmcts-page-heading__title-wrapper">
-            <h1 class="hmcts-page-heading__title govuk-heading-xl">Your cases</h1>
-          </div>
-          <div class="hmcts-page-heading__actions-wrapper">
-              {{govukButton({
-                text: 'Create case',
-                href: '/v1-1/create-case',
-                classes: 'hmcts-page-heading__button'
-              })}}
-          </div>
-        </div>
+  {{ hmctsPageHeaderWithActions({
+    title: {
+      html: '<h1 class="govuk-heading-xl">Your cases</h1>'
+    },
+    items: [{
+      text: 'Create case',
+      href: '/v1-1/create-case'
+    }]
+  }) }}
 
-        <p class="govuk-body">You haven't got any cases assigned to you.</p>
-
-
-
-
-
+  <p class="govuk-body">You haven't got any cases assigned to you.</p>
 
 {% endblock %}
