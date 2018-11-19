@@ -39,6 +39,11 @@
   }]
 })}}
 
+{{ hmctsDetailsBar({
+  reference: 'User',
+  title: { html: '<b>Joe Bloggs</b>' }
+}) }}
+
 {% endblock %}
 
 
@@ -46,9 +51,9 @@
 
 
   <div class="hmcts-width-container">
-    {{govukBackLink({
+    <!-- {{govukBackLink({
       href: './'
-    })}}
+    })}} -->
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
@@ -63,7 +68,7 @@
 </div>
 
 
-<ul class="govuk-list">
+<!-- <ul class="govuk-list">
         <li>
           <details class="govuk-details" role="group">
   <summary class="govuk-details__summary" role="button" aria-controls="details-content-f691f353-2362-4ac6-9329-b9f5296cf4a5" aria-expanded="false">
@@ -87,7 +92,9 @@
 
 
 
-      </ul>
+      </ul> -->
+
+
 
       <table class="govuk-table">
 
@@ -118,7 +125,7 @@
   </tbody>
 </table>
 
-
+<a href="/manage-admin/users/view" class="govuk-button hmcts-button--secondary">Re-activate user</a>
 
 
         </div>

@@ -39,6 +39,11 @@
   }]
 })}}
 
+{{ hmctsDetailsBar({
+  reference: 'User',
+  title: { html: '<b>Joe Bloggs</b>' }
+}) }}
+
 {% endblock %}
 
 
@@ -46,9 +51,9 @@
 
 
   <div class="hmcts-width-container">
-    {{govukBackLink({
+    <!-- {{govukBackLink({
       href: './'
-    })}}
+    })}} -->
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
@@ -60,20 +65,16 @@
 
 
   <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th class="govuk-table__header" scope="row"></th>
-      <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell"><a href="/manage-admin/users/update">Change</a></td>
-    </tr>
+
     <tr class="govuk-table__row">
       <th class="govuk-table__header" scope="row">Name</th>
       <td class="govuk-table__cell">Joe Bloggs</td>
-      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"><a href="/manage-admin/users/update-name">Change</a></td>
     </tr>
     <tr class="govuk-table__row">
       <th class="govuk-table__header" scope="row">Email address</th>
       <td class="govuk-table__cell">joe.bloggs@email.com</td>
-      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"><a href="/manage-admin/users/update-email">Change</a></td>
     </tr>
 
     <tr class="govuk-table__row">
@@ -83,15 +84,15 @@
         Manage users<br>
         Manage organisation<br>
         Manage payment</td>
-      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"><a href="/manage-admin/users/update-permissions">Change</a></td>
     </tr>
   </tbody>
 </table>
 
 
-
+  <!--
 <ul class="govuk-list">
-        <li>
+       <li>
           <details class="govuk-details" role="group">
   <summary class="govuk-details__summary" role="button" aria-controls="" aria-expanded="false">
     <span class="govuk-details__summary-text">
@@ -122,7 +123,7 @@
   </summary>
   <div class="govuk-details__text" id="" aria-hidden="true">
 
-                    
+
                         <p>Are you sure you want to revoke access for <b>Joe Bloggs</b>?</p>
                         <a href="/manage-admin/users/view-revoked" class="govuk-button">Yes, revoke user</a>
 
@@ -134,6 +135,12 @@
 
         </li>
       </ul>
+ -->
+
+
+    <a href="/manage-admin/users/view-revoked" class="govuk-button hmcts-button--secondary">Revoke user access</a>
+
+    
 
         </div>
       </div>

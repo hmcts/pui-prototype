@@ -56,33 +56,7 @@
       <h1 class="govuk-heading-l">User details</h1>
 
       <form action="./confirmation">
-        {{ govukInput({
-          label: {
-            text: "First name",
-            classes: 'govuk-label--m'
-          },
-          id: "firstname",
-          name: "firstname",
-          value: "Joe"
-        }) }}
-        {{ govukInput({
-          label: {
-            text: "Last name",
-            classes: 'govuk-label--m'
-          },
-          id: "lastname",
-          name: "lastname",
-          value: "Bloggs"
-        }) }}
-        {{ govukInput({
-          label: {
-            text: "Email address",
-            classes: 'govuk-label--m'
-          },
-          id: "emailaddress",
-          name: "emailaddress",
-          value: "joe.bloggs@email.com"
-        }) }}
+        
 
         {% set caseLevelsHtml %}
           {{ govukRadios({
