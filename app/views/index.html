@@ -3,98 +3,80 @@
 {% set serviceName = '' %}
 
 {% block content %}
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">PUI Prototypes</h1>
+  <h1 class="govuk-heading-xl">PUI Prototypes</h1>
 
-      <!-- <h2 class="govuk-heading-l">MVP</h2>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>Register organisation: <a href="/create-account-v4">new participant</a></li>
-        <li>Manage account: <a href="/manage-account-v4/sign-in">logged out</a> | <a href="/manage-account-v4">logged in</a></li>
-        <li><a href="/create-user-account-v2">Create user account</a></li>
-        <li><a href="/create-user-account-v2/start-manage-case">Manage cases</a></li>
-      </ul> -->
+  <h2 class="govuk-heading-l">MVP</h2>
 
-    
+  <ul class="govuk-list govuk-list--bullet">
+    <li><a href="/create-account-v4">Register to manage civil and family court cases</a></li>
+    <li>Manage your civil and family court cases:<br> <a href="/manage-case-v3/start-manage-case">logged out</a> | <a href="/manage-case-v3/case-list">logged in</a></li>
+    <li>Manage organisation details for civil and family court cases:<br> <a href="/manage-case-v3/start-manage-case">logged out</a> | <a href="/manage-account-v5">logged in</a></li>
+  </ul>
 
+  <hr>
+  <br>
 
-<h2 class="govuk-heading-l">Release 1.1</h2>
-     <p class="govuk-body">Features: share case with colleague, filter case list, search cases</p>
-     <ul class="govuk-list govuk-list--bullet">
-       <li>Manage your civil and family court cases:<br> <a href="/v1-1/start-manage-case">logged out</a> | <a href="/v1-1/case-list">logged in</a></li>
-     </ul>
+  <h2 class="govuk-heading-l">Release 1.1</h2>
 
-     <h2 class="govuk-heading-l">MVP</h2>
+  <p class="govuk-body">Features: share case with colleague, filter case list, search cases</p>
 
-     <ul class="govuk-list govuk-list--bullet">
-       <li><a href="/create-account-v4">Register to manage civil and family court cases</a></li>
-       <li>Manage your civil and family court cases:<br> <a href="/manage-case-v3/start-manage-case">logged out</a> | <a href="/manage-case-v3/case-list">logged in</a></li>
-       <li>Manage organisation details for civil and family court cases:<br> <a href="/manage-case-v3/start-manage-case">logged out</a> | <a href="/manage-account-v5">logged in</a></li>
-     </ul>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>Manage your civil and family court cases:<br> <a href="/v1-1/start-manage-case">logged out</a> | <a href="/v1-1/case-list">logged in</a></li>
+  </ul>
 
-      <hr>
-      <br>
+  <br>
+  <hr>
+  <br>
 
+  <h3 class="govuk-heading-l">PI12: Sprint 1</h3>
 
-        <h3 class="govuk-heading-l">PI12: Sprint 1</h3>
+  <ul class="govuk-list govuk-list--bullet">
+    <li><a href="/manage-admin/profile">Your profile administration</a> <strong class="govuk-tag">WIP</strong></li>
+    <li><a href="/manage-admin/users">User administration</a> <strong class="govuk-tag">WIP</strong></li>
+    <li><a href="/manage-admin/">Organisation administration</a> <strong class="govuk-tag">WIP</strong></li>
+  </ul>
 
+  <br>
+  <hr>
+  <br>
 
+  <h3 class="govuk-heading-m">Older iterations</h3>
 
-        <ul class="govuk-list govuk-list--bullet">
-          <li><a href="/manage-admin/profile">Administrate your own profile</a> <strong class="govuk-tag">WIP</strong></li>
-          <li><a href="/manage-admin/users">Administrate a user profile</a> <strong class="govuk-tag">WIP</strong></li>
-          <li><a href="/manage-admin/">Administrate organisation</a> <strong class="govuk-tag">WIP</strong></li>
-        </ul>
-      <hr>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>Manage case (PUI case list, summary and details): <a href="/manage-case-v2/sign-in">logged out</a> | <a href="/manage-case-v2/case-list">logged in</a></li>
+    <li><a href="/start-page-v2">Start page</a></li>
+    <li><a href="/create-account-v3">Register organisation</a></li>
+    <li>Manage account: <a href="/manage-account-v3/sign-in">logged out</a> | <a href="/manage-account-v3">logged in</a></li>
+    <li><a href="/create-user-account">Create user account</a></li>
+    <li><a href="/create-case-v2">Create case (multiple addresses)</a></li>
+    <li>Manage case (PUI case list): <a href="/pui-case-list-ccd-summary/sign-in">logged out</a> | <a href="/pui-case-list-ccd-summary/case-list">logged in</a></li>
+  </ul>
 
-      <br>
-      <br>
+  <ul class="govuk-list govuk-list--bullet">
+    <li><a href="/create-account-beta">Register existing beta participant</a></li>
+    <li><a href="/create-user-account">Create user account</a></li>
+    <li><a href="/start-page-v2">Start page</a></li>
+    <li><a href="/ccd-ui/case-list">CCD UI</a></li>
+    <li><a href="/create-account-v2">Register organisation</a></li>
+    <li>Manage case: <a href="/manage-case/sign-in">logged out</a> | <a href="/manage-case">logged in</a></li>
+    <li>Create case: <a href="/create-case/sign-in">logged out</a> | <a href="/create-case">logged in</a></li>
+    <li><a href="/create-account">Create account</a></li>
+    <li>Manage account: <a href="/manage-account/sign-in">logged out</a> | <a href="/manage-account">logged in</a></li>
+    <li><a href="/apply">Register your organisation</a></li>
+    <li><a href="/app/sign-in">Portal</a></li>
+    <li><a href="/app/check-status">Check status (no login needed)</a></li>
+    <li><a href="/app/share-case/reference">Share case (logged in)</a></li>
+    <li><a href="/app/share-case/sign-in">Share case (logged out)</a></li>
+    <li><a href="/app/manage-a-case/find-case">Manage case (logged in)</a></li>
+    <li><a href="/app/manage-a-case/sign-in">Manage case (logged out)</a></li>
+    <li><a href="/app/start/govuk-page">GOV.UK page</a></li>
+  </ul>
 
+</div>
 
-      <h3 class="govuk-heading-m">Older iterations</h3>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>Manage case (PUI case list, summary and details): <a href="/manage-case-v2/sign-in">logged out</a> | <a href="/manage-case-v2/case-list">logged in</a></li>
-        <li><a href="/start-page-v2">Start page</a></li>
-        <li><a href="/create-account-v3">Register organisation</a></li>
-        <li>Manage account: <a href="/manage-account-v3/sign-in">logged out</a> | <a href="/manage-account-v3">logged in</a></li>
-        <li><a href="/create-user-account">Create user account</a></li>
-        <li><a href="/create-case-v2">Create case (multiple addresses)</a></li>
-        <li>Manage case (PUI case list): <a href="/pui-case-list-ccd-summary/sign-in">logged out</a> | <a href="/pui-case-list-ccd-summary/case-list">logged in</a></li>
-      </ul>
-
-
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/create-account-beta">Register existing beta participant</a></li>
-        <li><a href="/create-user-account">Create user account</a></li>
-        <li><a href="/start-page-v2">Start page</a></li>
-        <li><a href="/ccd-ui/case-list">CCD UI</a></li>
-        <li><a href="/create-account-v2">Register organisation</a></li>
-        <li>Manage case: <a href="/manage-case/sign-in">logged out</a> | <a href="/manage-case">logged in</a></li>
-        <li>Create case: <a href="/create-case/sign-in">logged out</a> | <a href="/create-case">logged in</a></li>
-        <li><a href="/create-account">Create account</a></li>
-        <li>Manage account: <a href="/manage-account/sign-in">logged out</a> | <a href="/manage-account">logged in</a></li>
-        <li><a href="/apply">Register your organisation</a></li>
-        <li><a href="/app/sign-in">Portal</a></li>
-        <li><a href="/app/check-status">Check status (no login needed)</a></li>
-        <li><a href="/app/share-case/reference">Share case (logged in)</a></li>
-        <li><a href="/app/share-case/sign-in">Share case (logged out)</a></li>
-        <li><a href="/app/manage-a-case/find-case">Manage case (logged in)</a></li>
-        <li><a href="/app/manage-a-case/sign-in">Manage case (logged out)</a></li>
-        <li><a href="/app/start/govuk-page">GOV.UK page</a></li>
-      </ul>
-
-      <p>Working court references for 'manage case':</p>
-
-      <ul class="govuk-list govuk-list--bullet">
-      <li>1001-2211-3344-6772</li>
-      <li>john</a></li>
-      </ul>
-
-    </div>
-
-  </div>
+</div>
 {% endblock %}

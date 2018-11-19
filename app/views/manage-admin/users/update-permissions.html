@@ -39,6 +39,11 @@
   }]
 })}}
 
+{{ hmctsDetailsBar({
+  reference: 'User',
+  title: { html: '<b>Joe Bloggs</b>' }
+}) }}
+
 {% endblock %}
 
 
@@ -56,7 +61,7 @@
       <h1 class="govuk-heading-l">User details</h1>
 
       <form action="./confirmation">
-        
+
 
         {% set caseLevelsHtml %}
           {{ govukRadios({
