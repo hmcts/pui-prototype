@@ -83,29 +83,6 @@
               name: "emailaddress"
             }) }}
 
-            {% set caseLevelsHtml %}
-              {{ govukRadios({
-                idPrefix: "where-do-you-live",
-                name: "Level",
-                fieldset: {
-                  legend: {
-                    text: ""
-                  }
-                },
-                items: [
-                  {
-                    value: "org",
-                    text: "Create and progress cases",
-                    checked: true
-                  },
-                  {
-                    value: "scotland",
-                    text: "Create and progress cases; view all the organisation's cases"
-                  }
-                ]
-              }) }}
-            {% endset %}
-
             {{ govukCheckboxes({
               idPrefix: "permissions",
               name: "permissions",
@@ -121,9 +98,16 @@
               items: [
                 {
                   value: "cases",
-                  text: "Manage cases",
-                  conditional: {
-                    html: caseLevelsHtml
+                  text: "Create cases",
+                  hint: {
+                    text: "Create and progress cases; view the status of the user's own cases."
+                  }
+                },
+                {
+                  value: "organisation-view",
+                  text: "View organisation's cases",
+                  hint: {
+                    text: "View the status of all users' cases."
                   }
                 },
                 {
@@ -137,14 +121,14 @@
                   value: "organisation",
                   text: "Manage organisation",
                   hint: {
-                    text: "View and edit organisation name and addresses."
+                    text: "Edit organisation name and address."
                   }
                 },
                 {
                   value: "payment",
-                  text: "Manage fee accounts",
+                  text: "View fee accounts",
                   hint: {
-                    text: "View balances and transactions."
+                    text: "View account balances, available credit and transactions."
                   }
                 }
               ]
