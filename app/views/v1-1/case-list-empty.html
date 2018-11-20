@@ -1,0 +1,23 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage your civil and family court cases' %}
+
+{% set pageId = 'cases' %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block mainContent %}
+
+  {{ hmctsPageHeaderWithActions({
+    title: {
+      html: '<h1 class="govuk-heading-xl">Your cases</h1>'
+    },
+    items: [{
+      text: 'Create case',
+      href: '/v1-1/create-case'
+    }]
+  }) }}
+
+  <p class="govuk-body">You haven't got any cases assigned to you.</p>
+
+{% endblock %}

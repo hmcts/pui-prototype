@@ -176,3 +176,10 @@ mark.comment {
 .hmcts-action-bar .hmcts-menu {
   display: inline-block;
 }
+
+// remove when fixed in HMCTS Frontend
+@media (min-width: 48.0625em) {
+  .js-enabled .hmcts-search-toggle__search {
+    z-index: 10;
+  }
+}

@@ -7,41 +7,15 @@
 {% block page_title %}Create case{% endblock %}
 
 {% block header %}
-{{hmctsGlobalHeader({
-  service: {
-    name: serviceName,
-    url: '/'
-  },
-  navigation: {
-    items: [{
-      text: 'Profile',
-      href: '/manage-case-v4/profile'
-    },{
-      text: 'Sign out',
-      href: '/sign-out'
-    }]
-  }
-})}}
-{{hmctsPrimaryNavigation({
-  classes: "govuk-!-margin-bottom-0",
-  items: [ {
-    text: 'Your cases',
-    href: '/manage-case-v4/case-list',
-    active: primaryNavId == 'cases'
-  }, {
-    text: 'Organisation\'s cases',
-    href: '/manage-case-v4/organisation-case-list',
-    active: primaryNavId == 'organisationCases'
-  }]
-})}}
+  {% include "./includes/header.html" %}
+  {% include "./includes/nav.html" %}
 {% endblock %}
-
 
 {% block mainContent %}
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-          <form action="/manage-case-v4/divorce-application-start">
+          <form action="/v1-1/divorce-application-start">
 
             {{ govukRadios({
               idPrefix: "type",

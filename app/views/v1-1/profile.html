@@ -1,40 +1,8 @@
 {% extends "./layout.html" %}
 
-{% block header %}
-{{hmctsGlobalHeader({
-  service: {
-    name: serviceName,
-    url: '/'
-  },
-  navigation: {
-    items: [{
-      text: 'Profile',
-      href: '/manage-case-v4/profile',
-      active: true
-    },{
-      text: 'Sign out',
-      href: '/sign-out'
-    }]
-  }
-})}}
-{{hmctsPrimaryNavigation({
-  classes: "govuk-!-margin-bottom-0",
-  items: [ {
-    text: 'Your cases',
-    href: '/manage-case-v4/case-list',
-    active: false
-  }, {
-    text: 'Organisation\'s cases',
-    href: '/manage-case-v4/organisation-case-list',
-    active: false
-  }]
-})}}
-{% endblock %}
-
-
 {% set serviceName = 'Manage your civil and family court cases' %}
 
-{% set primaryNavId = 'cases' %}
+{% set globalNavId = 'profile' %}
 
 {% block page_title %}Dashboard{% endblock %}
 
