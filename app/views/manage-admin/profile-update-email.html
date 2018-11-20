@@ -36,7 +36,7 @@
 })}}
 
 {{ hmctsDetailsBar({
-  reference: 'User',
+  reference: 'Profile',
   title: { html: '<b>Joe Bloggs</b>' }
 }) }}
 
@@ -60,9 +60,9 @@
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">User details</h1>
+      <h1 class="govuk-heading-l">Profile</h1>
 
-      <form action="./confirmation">
+      <form action="/manage-admin/profile" method="post">
 
         {{ govukInput({
           label: {
