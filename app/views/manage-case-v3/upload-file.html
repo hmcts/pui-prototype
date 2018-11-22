@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set serviceName = 'Manage your civil and family court cases' %}
+{% set serviceName = 'Manage your civil and family law cases' %}
 
 {% set pageId = 'cases' %}
 
@@ -75,7 +75,7 @@
               text: 'You can upload JPG, BMP, PNG, TIF or PDF files up to 10MB in size.'
             }
           }) }}
-  
+
           {{ govukInput({
             label: {
               text: 'Name to display for file',
@@ -84,7 +84,7 @@
             id: 'displayname',
             name: 'displayname'
           }) }}
-    
+
           {{ govukTextarea({
             name: 'notes',
             id: 'notes',
@@ -93,7 +93,7 @@
               classes: 'govuk-label--m'
             }
           }) }}
-  
+
           {{ govukButton({
             text: 'Upload'
           }) }}
