@@ -1,8 +1,39 @@
 {% extends "./layout.html" %}
 
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-case-v3/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '',
+    active: primaryNavId == 'cases'
+  }, {
+    text: 'Organisation\'s cases',
+    href: '/manage-case-v3/organisation-case-list',
+    active: primaryNavId == 'organisationCases'
+  }]
+})}}
+{% endblock %}
+
+
 {% set serviceName = 'Manage your civil and family law cases' %}
 
-{% set pageId = 'cases' %}
+{% set primaryNavId = 'cases' %}
 
 {% block page_title %}Dashboard{% endblock %}
 
