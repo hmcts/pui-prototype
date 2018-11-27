@@ -2,7 +2,22 @@
 
 {% set serviceName = 'Manage organisation details for civil and family law cases' %}
 
-{% block content %}
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-admin/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
 {{hmctsPrimaryNavigation({
   classes: "govuk-!-margin-bottom-0",
   items: [ {
@@ -21,9 +36,12 @@
   }]
 })}}
 {{ hmctsIdentityBar({
-  reference: 'PBA0241163',
-  title: { html: '<b>West Berkshire Council - Account A</b>' }
+  title: { html: 'West Berkshire Council Account A' }
 }) }}
+
+{% endblock %}
+
+{% block content %}
 
 <style>
 
