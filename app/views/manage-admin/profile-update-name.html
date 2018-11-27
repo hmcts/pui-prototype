@@ -40,11 +40,6 @@
   }]
 })}}
 
-{{ hmctsIdentityBar({
-  reference: 'Profile',
-  title: { html: '<b>Joe Bloggs</b>' }
-}) }}
-
 {% endblock %}
 
 
@@ -59,7 +54,7 @@
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Profile</h1>
+      <h1 class="govuk-heading-xl">Change your name</h1>
 
       <form action="/manage-admin/profile" method="post">
         {{ govukInput({
@@ -83,7 +78,7 @@
 
 
         {{govukButton({
-          text: 'Update'
+          text: 'Save'
         })}}
       </form>
 

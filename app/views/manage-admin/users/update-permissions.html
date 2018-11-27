@@ -101,42 +101,46 @@
           items: [
             {
               value: "cases",
-              text: "Manage cases",
+              text: "Create cases",
               checked: true,
               hint: {
-                text: "View, create and progress cases."
-              },
-              conditional: {
-                html: caseLevelsHtml
+                text: "Create, progress and view the status of the user's own cases."
+              }
+            },
+            {
+              value: "organisation-view",
+              text: "View organisation's cases",
+              hint: {
+                text: "View the status of all cases created by the organisation's users."
               }
             },
             {
               value: "users",
               text: "Manage users",
               hint: {
-                text: "Invite and delete users; change users' permissions."
+                text: "View and invite users."
               }
             },
             {
               value: "organisation",
-              text: "Manage organisation",
+              text: "View organisation details",
               hint: {
-                text: "View and edit organisation name and addresses."
+                text: "View the organisation's name and address."
               }
             },
             {
               value: "payment",
-              text: "Manage payment",
+              text: "View fee accounts",
               checked: true,
               hint: {
-                text: "View fee account balance and transactions."
+                text: "View account balances, available credit and transactions."
               }
             }
           ]
         }) }}
 
         {{govukButton({
-          text: 'Update'
+          text: 'Save'
         })}}
       </form>
 
