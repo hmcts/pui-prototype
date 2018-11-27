@@ -39,9 +39,8 @@
   }]
 })}}
 
-{{ hmctsDetailsBar({
-  reference: 'User',
-  title: { html: '<b>Joe Bloggs</b>' }
+{{ hmctsIdentityBar({
+  title: { html: 'Joe Bloggs (joe.bloggs@email.com)' }
 }) }}
 
 {% endblock %}
@@ -82,7 +81,7 @@
 
 
         {{govukButton({
-          text: 'Update'
+          text: 'Save'
         })}}
       </form>
 

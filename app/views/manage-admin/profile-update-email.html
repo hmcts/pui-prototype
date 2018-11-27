@@ -35,17 +35,10 @@
   }]
 })}}
 
-{{ hmctsDetailsBar({
-  reference: 'Profile',
-  title: { html: '<b>Joe Bloggs</b>' }
-}) }}
-
 {% endblock %}
 
 
 {% set serviceName = 'Manage your HMCTS cases' %}
-
-{% set primaryNavId = 'cases' %}
 
 {% block page_title %}Dashboard{% endblock %}
 
@@ -60,24 +53,23 @@
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Profile</h1>
+      <h1 class="govuk-heading-xl">Change your email address</h1>
 
       <form action="/manage-admin/profile" method="post">
 
         {{ govukInput({
           label: {
-            text: "Email address",
+            text: "New email address",
             classes: 'govuk-label--m'
           },
           id: "emailaddress",
-          name: "emailaddress",
-          value: "joe.bloggs@email.com"
+          name: "emailaddress"
         }) }}
 
 
 
         {{govukButton({
-          text: 'Update'
+          text: 'Save'
         })}}
       </form>
 
