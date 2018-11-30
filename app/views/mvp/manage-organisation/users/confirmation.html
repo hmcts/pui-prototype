@@ -1,0 +1,68 @@
+4{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp/manage-organisation/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/mvp/manage-organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/mvp/manage-organisation/users',
+    active: false
+  },
+  {
+    text: 'Fee accounts',
+    href: '/mvp/manage-organisation/payments',
+    active: false
+  }]
+})}}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="hmcts-width-container">
+    <main role="main" class="govuk-main-wrapper">
+
+
+        {{ govukPanel({
+          titleText: "You've invited",
+          html: data['emailaddress']
+        }) }}
+
+        <h3 class="govuk-heading-m">What happens next</h3>
+
+        <p class="govuk-body">
+          We've emailed them a link so they can complete their registration.
+        </p>
+
+        <p class="govuk-body">
+          <a href="/mvp/manage-organisation/users">Go back to manage users</a>
+        </p>
+
+         <p><a style ="color:white" href="/create-user-account-v2">Link to Idam email</a></p>
+
+
+    </main>
+  </div>
+
+{% endblock %}
