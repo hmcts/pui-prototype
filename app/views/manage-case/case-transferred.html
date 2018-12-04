@@ -12,13 +12,9 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        {{ hmctsAlert(
+        {{ hmctsBanner(
           {
-            "icon": true,
-            "iconClasses": "jui-alert__icon--success",
-            "iconText": "Success!",
-            "alertText": 'Transferred case 123456 to ' + data['transfer-email-address'],
-            "alertClasses": "jui-alert--success"
+            "text": 'Transferred case 123456 to ' + data['transfer-email-address']
           })
         }}
 

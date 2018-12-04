@@ -7,13 +7,9 @@
   <div class="govuk-width-container">
     <main role="main" class="govuk-main-wrapper">
 
-      {{ hmctsAlert(
+      {{ hmctsBanner(
         {
-          "icon": true,
-          "iconClasses": "jui-alert__icon--success",
-          "iconText": "Success!",
-          "alertText": 'Successfully invited ' + data['shared-name'] + '.',
-          "alertClasses": "jui-alert--success"
+          "text": 'Successfully invited ' + data['shared-name'] + '.'
         })
       }}
 
