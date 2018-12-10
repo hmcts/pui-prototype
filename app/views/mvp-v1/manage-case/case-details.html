@@ -1,0 +1,215 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage your civil and family law cases' %}
+
+{% set primaryNavId = 'cases' %}
+
+{% block page_title %}Case summary{% endblock %}
+
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp/manage-case/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '/mvp/manage-case/case-list',
+    active: primaryNavId == 'cases'
+  }, {
+    text: 'Organisation\'s cases',
+    href: '/mvp/manage-case/organisation-case-list',
+    active: primaryNavId == 'organisationCases'
+  }]
+})}}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {{ hmctsIdentityBar({
+    title: { html: '<b>John Smith</b> and <b>Jane Smith</b> (Divorce)' }
+  }) }}
+{% endblock %}
+
+{% block mainContent %}
+
+
+
+
+      {{hmctsSubNavigation({
+        items: [ {
+          text: 'Summary',
+          href: '/mvp/manage-case/case-summary',
+          active: false
+        },  {
+          text: 'Application details',
+          href: '/mvp/manage-case/case-details',
+          active: true
+        }, {
+          text: 'Documents',
+          href: '/mvp/manage-case/documents',
+          active: false
+        }]
+      })}}
+
+
+      <h1 class="govuk-heading-xl">
+
+          Application details</h1>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          {% macro item(params) %}
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">{{params.key}}</dt>
+              <dd class="govuk-check-your-answers__answer">
+                {{params.value | safe}}
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <!-- <a href="{{params.link.href}}">Change <span class="govuk-visually-hidden"></span></a> -->
+              </dd>
+            </div>
+          {% endmacro %}
+
+          <h2 class="govuk-heading-l">Divorce details</h2>
+          <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+            {{item({
+              key: 'Divorce case number',
+              value: 'ED11D12345',
+              link: { href: '/create-case/fr/1' }
+            })}}
+            {{item({
+              key: 'Stage of divorce',
+              value: 'Application drafted',
+              link: { href: '/create-case/fr/1' }
+            })}}
+          </dl>
+
+          <h2 class="govuk-heading-l">Applicant's details</h2>
+          <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+            {{item({
+              key: 'First and middle names',
+              value: 'John',
+              link: { href: '/create-case/fr/2' }
+            })}}
+            {{item({
+              key: 'Last name',
+              value: 'Smith',
+              link: { href: '/create-case/fr/2' }
+            })}}
+          </dl>
+
+          <h2 class="govuk-heading-l">Respondent's details</h2>
+          <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+            {{item({
+              key: 'First and middle names',
+              value: 'Jane',
+              link: { href: '/create-case/fr/3' }
+            })}}
+            {{item({
+              key: 'Last name',
+              value: 'Smith',
+              link: { href: '/create-case/fr/3' }
+            })}}
+            {{item({
+              key: 'Does respondent have a solicitor?',
+              value: 'Yes',
+              link: { href: '/create-case/fr/3' }
+            })}}
+          </dl>
+
+          <h2 class="govuk-heading-l">Respondent's solcitor's details</h2>
+          <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+            {{item({
+              key: 'Solicitor name',
+              value: 'Alan Jones',
+              link: { href: '/create-case/fr/4a' }
+            })}}
+            {{item({
+              key: 'Solicitor firm',
+              value: 'Res Solicitors',
+              link: { href: '/create-case/fr/4a' }
+            })}}
+            {{item({
+              key: 'Solicitor reference',
+              value: '123456',
+              link: { href: '/create-case/fr/4a' }
+            })}}
+          </dl>
+
+          <h2 class="govuk-heading-l">What you're applying for</h2>
+          <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+            {{item({
+              key: 'Order types',
+              value: 'Periodical payment order, property adjustment order',
+              link: { href: '/create-case/fr/5' }
+            })}}
+            {{item({
+              key: 'Does the application contain periodical payments for children?',
+              value: 'No',
+              link: { href: '/create-case/fr/5' }
+            })}}
+            {{item({
+              key: 'Authority to apply',
+              value: 'Yes',
+              link: { href: '/create-case/fr/5' }
+            })}}
+          </dl>
+
+          <h2 class="govuk-heading-l">Consent order</h2>
+          <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+            {{item({
+              key: 'Draft consent order',
+              value: '<a href="#">draft-consent-order.pdf</a>',
+              link: { href: '/create-case/fr/8' }
+            })}}
+            {{item({
+              key: 'Are you uploading a joint D81 form?',
+              value: 'Yes',
+              link: { href: '/create-case/fr/8' }
+            })}}
+          </dl>
+
+          <h2 class="govuk-heading-l">Payment</h2>
+          <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+            {{item({
+              key: 'Has the applicant applied for help with fees online?',
+              value: 'No',
+              link: { href: '/create-case/fr/8' }
+            })}}
+            {{item({
+              key: 'Payment account number',
+              value: '12345678',
+              link: { href: '/create-case/fr/8' }
+            })}}
+            {{item({
+              key: 'Payment reference number',
+              value: 'fgh123',
+              link: { href: '/create-case/fr/8' }
+            })}}
+          </dl>
+
+
+        </div>
+      </div>
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  new HMCTSFrontend.AddAnother($('.hmcts-add-another'));
+</script>
+{% endblock %}
