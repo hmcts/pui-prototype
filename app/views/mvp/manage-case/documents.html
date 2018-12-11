@@ -45,8 +45,9 @@
 {{super()}}
 {% endblock %}
 
-{% block mainContent %}
-
+{% block content %}
+  <main class="govuk-main-wrapper">
+    <div class="hmcts-width-container">
 
       {{hmctsSubNavigation({
         items: [ {
@@ -64,8 +65,6 @@
         }]
       })}}
 
-
-
       {{ hmctsPageHeaderWithActions({
         title: {
           html: '<h1 class="govuk-heading-xl">Documents</h1>'
@@ -76,19 +75,19 @@
           href: '/mvp/manage-case/upload-file'
         }]
       }) }}
-
     </div>
 
     <div class="jui-cf">
-
-
+      <div class="jui-cf__toolbar" role="toolbar">
+        <div class="jui-cf__toolbar-container">
+          <button class="jui-cf__toolbar-button jui-cf__toolbar-button--items" type="button" aria-controls="files" aria-pressed="true">All items</button>
+          <button class="jui-cf__toolbar-button jui-cf__toolbar-button--comments" type="button" aria-controls="comments" aria-pressed="false">Comments</button>
+        </div>
+      </div>
 
       <div class="jui-cf__window">
-
         <div class="jui-cf__window-container">
-
           <div class="jui-cf__files" id="files">
-
             <h2 class="govuk-visually-hidden" id="all-items">All items</h2>
 
             <ul class="jui-tree" aria-labelledby="all-items">
@@ -107,7 +106,6 @@
                   </li>
 
                 </ul>
-
               </li>
 
               <li class="jui-tree__item">
@@ -274,9 +272,9 @@
           </div>
 
         </div>
-
       </div>
-
+    </div>
+  </main>
 
 {% endblock %}
 
