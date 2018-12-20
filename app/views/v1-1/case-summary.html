@@ -7,10 +7,7 @@
 {% block page_title %}Case summary{% endblock %}
 
 {% block beforeContent %}
-  {{ hmctsIdentityBar({
-    reference: 'PBA0241163',
-    title: { html: '<b>John Smith</b> and <b>Jane Smith</b> (Divorce)' }
-  }) }}
+  {% include "./includes/identitybar.html" %}
 {% endblock %}
 
 {% block mainContent %}

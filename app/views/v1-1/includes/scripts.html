@@ -8,4 +8,10 @@
       container: $('.hmcts-search')
     }
   });
+  new HMCTSFrontend.Menu({
+    container: $('.hmcts-identity-bar__actions .hmcts-menu'),
+    mq: '(min-width: 200em)',
+    buttonText: 'Actions',
+    menuClasses: 'hmcts-menu__wrapper--right'
+  });
 </script>
