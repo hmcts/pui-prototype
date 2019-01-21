@@ -1,0 +1,86 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Register to manage civil and family law cases' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/mvp/register-organisation/organisation-dx'
+  })}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+
+
+
+    <main role="main" class="govuk-main-wrapper">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+
+          <form action="/mvp/register-organisation/email">
+
+            {{ govukErrorSummary({
+              "titleText": "There is a problem",
+              "errorList": [
+              {
+              "text": "Enter first name",
+              "href": "#firstname"
+            },
+            {
+            "text": "Enter last name",
+            "href": "#lastname"
+            }
+              ]
+            }) }}
+
+              <h1 class="govuk-heading-xl">What's your name?</h1>
+
+            {{ govukInput({
+              label: {
+                text: "First name(s)",
+                classes: 'govuk-label--m'
+              },
+              hint: {
+                text: 'Include all middle names.'
+              },
+              id: "firstname",
+              name: "firstname",
+              errorMessage: {
+              text: "Enter first name"
+            }
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Last name",
+                classes: 'govuk-label--m'
+              },
+              id: "lastname",
+              name: "lastname",
+              errorMessage: {
+              text: "Enter last name"
+            }
+            }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script>
+    accessibleAutocomplete.enhanceSelectElement({
+      selectElement: document.querySelector('#name')
+    })
+  </script>
+{% endblock %}
