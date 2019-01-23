@@ -15,16 +15,43 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="/mvp/register-organisation/organisation-dx">
 
-        {{ govukInput({
-          label: {
-            text: "What's the pay by account (PBA) number for your organisation?",
-            classes: 'govuk-label--xl',
-            isPageHeading: true
-          },
-          id: "org-pba",
-          name: "org-pba",
-          classes: "govuk-input--width-10"
-        }) }}
+      <h1 class="govuk-heading-xl">What's the pay by account (PBA) number for your organisation?</h1>
+
+
+      <span id="dob-hint" class="govuk-hint">
+      You can enter up to 2 PBA numbers
+    </span>
+          <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="org-pba">
+          PBA number 1 (optional)
+          </label>
+
+
+          <input class="govuk-input govuk-input--width-10" id="org-pba" name="org-pba" type="text" value="">
+          <!-- <a  href="/mvp/register-organisation/organisation-pba2" class="govuk-link"> Remove</a> -->
+          </div>
+
+          <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="org-pba">
+          PBA number 2 (optional)
+          </label>
+
+          <!-- <input class="govuk-input govuk-input--width-10" id="org-pba" name="org-pba" type="text" value="">
+          <a  href="/mvp/register-organisation/organisation-pba2" class="govuk-link"> Remove</a>
+          </div>
+
+          <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="org-pba">
+          PBA number 3 (optional)
+          </label> -->
+
+
+          <input class="govuk-input govuk-input--width-10" id="org-pba" name="org-pba" type="text" value="">
+          <!-- <a  href="/mvp/register-organisation/organisation-pba2" class="govuk-link"> Remove</a> -->
+          </div>
+<!--
+        <a  href="/mvp/register-organisation/organisation-pba2" class="govuk-link">Add another PBA number</a> -->
+
 
         {{govukButton({
           text: 'Continue'
