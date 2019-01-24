@@ -18,13 +18,13 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">What's the DX reference for your main office? (optional)</h1>
+      <h1 class="govuk-heading-xl">What's the DX reference for your main office?</h1>
 
       <form action="/mvp/register-organisation/name">
 
         {{ govukInput({
           label: {
-            text: "DX number",
+            text: "DX number(optional)",
             classes: 'govuk-label--m'
           },
           id: "dx-number",
@@ -33,7 +33,7 @@
 
         {{ govukInput({
           label: {
-            text: "DX exchange",
+            text: "DX exchange (optional)",
             classes: 'govuk-label--m'
           },
           id: "dx-exchange",
