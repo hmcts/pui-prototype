@@ -46,11 +46,21 @@
                 </dd>
               </div>
 
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">Do you have a DX reference for your main office?</dt>
+                <dd class="govuk-check-your-answers__answer">
+                  {{data['has-dx']}}
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="/mvp/register-organisation/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+                </dd>
+              </div>
+
             <div class="govuk-check-your-answers__contents">
                 <dt class="govuk-check-your-answers__question">DX reference</dt>
                 <dd class="govuk-check-your-answers__answer">
-                  {{data['dx-number']}}<br>
-                  {{data['dx-exchange']}}
+                  DX number: {{data['dx-number']}}<br>
+                  DX exchange: {{data['dx-exchange']}}
                 </dd>
                 <dd class="govuk-check-your-answers__change">
                   <a href="/mvp/register-organisation/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
