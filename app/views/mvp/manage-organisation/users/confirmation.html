@@ -43,23 +43,28 @@
   <div class="hmcts-width-container">
     <main role="main" class="govuk-main-wrapper">
 
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            {{ govukPanel({
+              titleText: "You've invited",
+              html: data['emailaddress']
+            }) }}
 
-        {{ govukPanel({
-          titleText: "You've invited",
-          html: data['emailaddress']
-        }) }}
+            <h3 class="govuk-heading-m">What happens next</h3>
 
-        <h3 class="govuk-heading-m">What happens next</h3>
+            <p class="govuk-body">
+              We've emailed them a link so they can complete their registration.
+            </p>
 
-        <p class="govuk-body">
-          We've emailed them a link so they can complete their registration.
-        </p>
+            <p class="govuk-body">
+              <a href="/mvp/manage-organisation/users">Go back to manage users</a>
+            </p>
 
-        <p class="govuk-body">
-          <a href="/mvp/manage-organisation/users">Go back to manage users</a>
-        </p>
+             <p><a style ="color:white" href="/create-user-account-v2">Link to Idam email</a></p>
+          </div>
+        </div>
 
-         <p><a style ="color:white" href="/create-user-account-v2">Link to Idam email</a></p>
+
 
 
     </main>
