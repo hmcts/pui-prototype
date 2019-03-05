@@ -1,0 +1,46 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Register to manage civil and family law cases' %}
+
+
+{% block content%}
+<div class="hmcts-width-container">
+  
+    <a href="/mvp-v2/register-organisation/organisation-name" class="govuk-back-link">Back</a>
+
+    <main role="main" class="govuk-main-wrapper">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">What's the DX reference for your main office? (optional)</h1>
+
+      <form action="/mvp-v2/register-organisation/name">
+
+        {{ govukInput({
+          label: {
+            text: "DX number",
+            classes: 'govuk-label--m'
+          },
+          id: "dx-number",
+          name: "dx-number"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "DX exchange",
+            classes: 'govuk-label--m'
+          },
+          id: "dx-exchange",
+          name: "dx-exchange"
+        }) }}
+
+        {{govukButton({
+          text: 'Continue'
+        })}}
+      </form>
+    </div>
+  </div>
+    </main>
+  </div>
+{% endblock %}
+

@@ -84,11 +84,45 @@
             text: '',
             href: '/sign-out'
           }]
-        }
+        },
+        containerClasses: 'hmcts-admin-max-width'
       })}}
     {% endblock %}
 
     {% block content %}{% endblock %}
+
+    <footer class="hmcts-footer" role="contentinfo">
+
+      <div class="hmcts-footer__container">
+      
+      <h2 class="hmcts-footer__heading">Help</h2>
+      <ul class="hmcts-footer__list">
+        <li class="hmcts-footer__list-item">Email: <a class="hmcts-footer__link" href="mailto:#">service-desk@hmcts.gov.uk</a></li>
+        <li class="hmcts-footer__list-item">Phone: 0207 633 4140</li>
+        <li class="hmcts-footer__list-item"><span class="visually-hidden">Opening times: </span>Monday to Friday, 8am to 6pm (excluding public holidays)</li>
+      </ul>
+      
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      
+      <ul class="hmcts-footer__list hmcts-footer__list--inline">
+      
+        <li class="hmcts-footer__list-item">
+          <a class="hmcts-footer__link" href="#">Terms and conditions</a>
+        </li>
+      
+        <li class="hmcts-footer__list-item">
+          <a class="hmcts-footer__link" href="#">Cookies</a>
+        </li>
+      
+        <li class="hmcts-footer__list-item">
+          <a class="hmcts-footer__link" href="#">Privacy policy</a>
+        </li>
+      
+      </ul>
+      
+      </div>
+      
+      </footer> 
 
     {% block footer %}
       {% include "footer/footer.html" %}

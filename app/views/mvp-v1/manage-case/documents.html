@@ -15,7 +15,7 @@
   navigation: {
     items: [{
       text: 'Profile',
-      href: '/mvp/manage-case/profile'
+      href: '/mvp-v1/manage-case/profile'
     },{
       text: 'Sign out',
       href: '/sign-out'
@@ -26,11 +26,11 @@
   classes: "govuk-!-margin-bottom-0",
   items: [ {
     text: 'Your cases',
-    href: '/mvp/manage-case/case-list',
+    href: '/mvp-v1/manage-case/case-list',
     active: primaryNavId == 'cases'
   }, {
     text: 'Organisation\'s cases',
-    href: '/mvp/manage-case/organisation-case-list',
+    href: '/mvp-v1/manage-case/organisation-case-list',
     active: primaryNavId == 'organisationCases'
   }]
 })}}
@@ -51,15 +51,15 @@
       {{hmctsSubNavigation({
         items: [ {
           text: 'Summary',
-          href: '/mvp/manage-case/case-summary',
+          href: '/mvp-v1/manage-case/case-summary',
           active: false
         },  {
           text: 'Application details',
-          href: '/mvp/manage-case/case-details',
+          href: '/mvp-v1/manage-case/case-details',
           active: false
         }, {
           text: 'Documents',
-          href: '/mvp/manage-case/documents',
+          href: '/mvp-v1/manage-case/documents',
           active: true
         }]
       })}}
@@ -73,7 +73,7 @@
         items: [{
           classes: 'hmcts-button--secondary',
           text: 'Upload file',
-          href: '/mvp/manage-case/upload-file'
+          href: '/mvp-v1/manage-case/upload-file'
         }]
       }) }}
 

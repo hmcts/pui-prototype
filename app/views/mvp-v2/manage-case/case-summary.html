@@ -1,0 +1,147 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage your civil and family law cases' %}
+
+{% set pageId = 'cases' %}
+
+{% block page_title %}Case summary{% endblock %}
+
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp-v2/manage-case/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '/mvp-v2/manage-case/case-list',
+    active: primaryNavId == 'cases'
+  }, {
+    text: 'Organisation\'s cases',
+    href: '/mvp-v2/manage-case/organisation-case-list',
+    active: primaryNavId == 'organisationCases'
+  }]
+})}}
+{% endblock %}
+
+
+{% block beforeContent %}
+{{ hmctsIdentityBar({
+
+  title: { html: '<b>John Smith</b> and <b>Jane Smith</b> (Divorce)' }
+}) }}
+{% endblock %}
+
+{% block mainContent %}
+
+    {{hmctsSubNavigation({
+      items: [ {
+        text: 'Summary',
+        href: '/mvp-v2/manage-case/case-summary',
+        active: true
+      },  {
+        text: 'Application details',
+        href: '/mvp-v2/manage-case/case-details',
+        active: false
+      }, {
+        text: 'Documents',
+        href: '/mvp-v2/manage-case/documents',
+        active: false
+      }]
+    })}}
+
+
+    <h1 class="govuk-heading-xl">Summary</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% set status = 'Application drafted' %}
+        {% if data.status %}
+          {% set status = data.status %}
+        {% endif %}
+
+        {{ govukTable({
+          "classes": "govuk-!-margin-bottom-7  jui-table  jui-table--fixed",
+          "firstCellIsHeader": true,
+          "rows": [
+            [{
+              text: 'Status'
+            },
+            {
+              text: status
+            }],
+            [{
+              text: 'Type'
+            },
+            {
+              text: 'Divorce'
+            }],
+            [{
+              text: 'Parties'
+            },
+            {
+              text: 'John Smith v Jane Smith'
+            }],
+            [{
+              text: 'Court reference number'
+            },
+            {
+              text: '4458-8429-2491-3791'
+            }]
+          ]
+        }) }}
+
+
+        <!-- <ul class="govuk-list">
+          <li><a href="./case-details">See full case details</a></li>
+          <li><a href="./upload-file">Upload file</a></li>
+        </ul> -->
+
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <!-- <h2 class="govuk-heading-m">Recent events</h2>
+        {{hmctsTimeline({
+          events: [
+          {
+            title: 'Response submitted',
+            by: 'DWP Appeals Officer',
+            dateUtc: '2018-01-25T14:04',
+            date: '25 Jan 2018',
+            time: '14:04pm'
+          },
+          {
+            title: 'Appeal marked as compliant',
+            by: 'DJ DeVere',
+            dateUtc: '2017-12-05T09:10',
+            date: '5 Dec 2017',
+            time: '9:10am'
+          },
+          {
+            title: 'Interlocutory referral to DJ DeVere',
+            by: 'DLC Admin',
+            dateUtc: '2017-11-20T14:27',
+            date: '20 Nov 2017',
+            time: '14:27pm'
+          }
+          ]
+          }) }}
+          <p><a href="#">View full timeline</a></p> -->
+      </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends "./layout.html" %}
+
+{% block header %}
+{{hmctsGlobalHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp-v2/manage-case/profile',
+      active: true
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '/mvp-v2/manage-case/case-list',
+    active: false
+  }, {
+    text: 'Organisation\'s cases',
+    href: '/mvp-v2/manage-case/organisation-case-list',
+    active: false
+  }]
+})}}
+{% endblock %}
+
+
+{% set serviceName = 'Manage your civil and family law cases' %}
+
+{% set primaryNavId = 'cases' %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block mainContent %}
+
+<div class="hmcts-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+
+    <h1 class="govuk-heading-xl">Profile</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+          {{ govukTable({
+            firstCellIsHeader: true,
+            rows: [
+              [
+                {
+                  text: "First name"
+                },
+                {
+                  text: "Holly"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  text: "Last name"
+                },
+                {
+                  text: "Whitwham"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  text: "Email"
+                },
+                {
+                  html: "holly.whitwham@westberks.gov.uk"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  text: "Password"
+                },
+                {
+                  html: "********"
+                },
+                {
+                  html: ''
+                }
+              ],
+
+              [
+                {
+                  text: "Permitted to manage"
+                },
+                {
+                  html: "cases (all), organisation, users, payments"
+                },
+                {
+                  html: ""
+                }
+              ]
+            ]
+          }) }}
+
+      </div>
+    </div>
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}

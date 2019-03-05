@@ -15,11 +15,11 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="/mvp/register-organisation/organisation-dx" method="post">
+      <form action="/mvp-v1/register-organisation/organisation-dx" method="post">
 
         <h1 class="govuk-heading-xl">What's the address of your main office?</h1>
         <h2 class="govuk-heading-m">Postcode</h2>
-        <p>{{data['address-postcode']}} <a href="/mvp/register-organisation/organisation-address-postcode">Change</a></p>
+        <p>{{data['address-postcode']}} <a href="/mvp-v1/register-organisation/organisation-address-postcode">Change</a></p>
 
         {{ govukSelect({
           id: "address-line-1",

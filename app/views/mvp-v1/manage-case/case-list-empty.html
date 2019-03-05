@@ -9,7 +9,7 @@
   navigation: {
     items: [{
       text: 'Profile',
-      href: '/mvp/manage-case/profile'
+      href: '/mvp-v1/manage-case/profile'
     },{
       text: 'Sign out',
       href: '/sign-out'
@@ -24,7 +24,7 @@
     active: primaryNavId == 'cases'
   }, {
     text: 'Organisation\'s cases',
-    href: '/mvp/manage-case/organisation-case-list',
+    href: '/mvp-v1/manage-case/organisation-case-list',
     active: primaryNavId == 'organisationCases'
   }]
 })}}
@@ -46,7 +46,7 @@
           <div class="hmcts-page-heading__actions-wrapper">
               {{govukButton({
                 text: 'Create case',
-                href: '/mvp/manage-case/create-case',
+                href: '/mvp-v1/manage-case/create-case',
                 classes: 'hmcts-page-heading__button'
               })}}
           </div>

@@ -1,0 +1,108 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Register to manage civil and family law cases' %}
+
+{% block content%}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Contact us for help</h1>
+  
+      <form action="/v2/confirmation">
+          
+  
+          
+  
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="what">
+      What do you need help with?
+    </label>
+  
+  
+    <textarea class="govuk-textarea" id="what" name="what" rows="5"></textarea>
+  </div>
+  
+  
+          
+  
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="ref">
+      Case reference number (if applicable)
+    </label>
+  
+  
+    <input class="govuk-input govuk-input--width-10" id="ref" name="ref" type="text" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAfBJREFUWAntVk1OwkAUZkoDKza4Utm61iP0AqyIDXahN2BjwiHYGU+gizap4QDuegWN7lyCbMSlCQjU7yO0TOlAi6GwgJc0fT/fzPfmzet0crmD7HsFBAvQbrcrw+Gw5fu+AfOYvgylJ4TwCoVCs1ardYTruqfj8fgV5OUMSVVT93VdP9dAzpVvm5wJHZFbg2LQ2pEYOlZ/oiDvwNcsFoseY4PBwMCrhaeCJyKWZU37KOJcYdi27QdhcuuBIb073BvTNL8ln4NeeR6NRi/wxZKQcGurQs5oNhqLshzVTMBewW/LMU3TTNlO0ieTiStjYhUIyi6DAp0xbEdgTt+LE0aCKQw24U4llsCs4ZRJrYopB6RwqnpA1YQ5NGFZ1YQ41Z5S8IQQdP5laEBRJcD4Vj5DEsW2gE6s6g3d/YP/g+BDnT7GNi2qCjTwGd6riBzHaaCEd3Js01vwCPIbmWBRx1nwAN/1ov+/drgFWIlfKpVukyYihtgkXNp4mABK+1GtVr+SBhJDbBIubVw+Cd/TDgKO2DPiN3YUo6y/nDCNEIsqTKH1en2tcwA9FKEItyDi3aIh8Gl1sRrVnSDzNFDJT1bAy5xpOYGn5fP5JuL95ZjMIn1ya7j5dPGfv0A5eAnpZUY3n5jXcoec5J67D9q+VuAPM47D3XaSeL4AAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+  </div>
+  
+  
+          
+  
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="email">
+      Your email address
+    </label>
+  
+  
+    <input class="govuk-input govuk-input--width-20" id="email" name="email" type="text">
+  </div>
+  
+  
+          
+  
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="tel">
+      Your telephone number
+    </label>
+  
+  
+    <input class="govuk-input govuk-input--width-10" id="tel" name="tel" type="tel">
+  </div>
+  
+  
+          <p class="govuk-body">Responses can take up to 10 working days.</p>
+  
+          
+    
+      
+    
+  
+  <button type="submit" class="govuk-button">
+    Send message
+  </button>
+  
+      </form>
+  
+    </div>
+  
+  <div class="govuk-grid-column-one-third">
+
+    <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+<!--
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Subsection
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#" class="govuk-!-font-weight-bold">
+              More <span class="govuk-visually-hidden">in Subsection</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+ -->
+  </div>
+</div>
+{% endblock %}

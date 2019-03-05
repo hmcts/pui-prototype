@@ -1,0 +1,49 @@
+        {% extends "layouts/admin/base.html" %}
+
+        {% set serviceName = 'Register to manage civil and family law cases' %}
+        
+        {% block content%}
+        
+        
+        <div class="hmcts-width-container">
+            <a href="/mvp-v2/register-organisation/organisation-dx" class="govuk-back-link">Back</a>
+        <main role="main" class="govuk-main-wrapper">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-xl">What's your name?</h1>
+
+          <form action="/mvp-v2/register-organisation/email">
+
+            {{ govukInput({
+              label: {
+                text: "First name(s)",
+                classes: 'govuk-label--m'
+              },
+              hint: {
+                text: 'Include all middle names.'
+              },
+              id: "firstname",
+              name: "firstname"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Last name",
+                classes: 'govuk-label--m'
+              },
+              id: "lastname",
+              name: "lastname"
+            }) }}
+
+            {{govukButton({
+              text: 'Continue'
+            })}}
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

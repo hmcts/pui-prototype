@@ -1,0 +1,48 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Register to manage civil and family law cases' %}
+
+{% block content%}
+<div class="hmcts-width-container">
+<main role="main" class="govuk-main-wrapper">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Register to manage civil and family law cases</h1>
+
+      <p class="govuk-body">At the same time as you register your organisation, you'll give us details to create your
+        user account.</p>
+
+      <p class="govuk-body">We’ll approve the registration within 3 working days and send you an email asking you to
+        finish creating your account.</p>
+
+
+      {{ govukButton({
+      text: "Start",
+      href: "/mvp-v2/register-organisation/organisation-name",
+      classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+      }) }}
+
+      <!-- HMCTS help dropdown, commented out
+        
+        <details class="govuk-details" role="group">
+        <summary class="govuk-details__summary" role="button" aria-controls="" aria-expanded="false">
+          <span class="govuk-details__summary-text">
+            Contact us for help
+          </span>
+        </summary>
+        <div class="govuk-details__text" id="" aria-hidden="true">
+
+          <h2 class="govuk-heading-m">Email</h2>
+          <p class="govuk-body"><a href="">Send us a message (opens in a new
+              window)</a><br>We'll get back to you within 10 days.</p>
+          <h2 class="govuk-heading-m">Web chat</h2>
+          <p class="govuk-body"><a href="">Web chat (opens in a new window)</a><br>Monday to Friday, 9am to 5pm.</p>
+          <h2 class="govuk-heading-m">Telephone</h2>
+          <p class="govuk-body">0300 123 7050<br>Monday to Friday, 9am to 5pm.</p>
+
+        </div>
+      </details> -->
+    </div>
+  </main>
+</div>
+{% endblock %}
