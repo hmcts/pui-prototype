@@ -2,9 +2,17 @@
 
 {% set serviceName = 'Manage organisation details for civil and family law cases' %}
 
+
 {% block content %}
 
 <div class="hmcts-width-container">
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
 
   <main role="main" class="govuk-main-wrapper">
 
