@@ -12,8 +12,8 @@
     "test": "gulp test && npm run lint"
   },
   "dependencies": {
-    "govuk-frontend": "^2.4.0",
-    "@hmcts/frontend": "0.0.30-alpha",
+    "govuk-frontend": "^2.10.0",
+    "@hmcts/frontend": "0.0.33-alpha",
     "basic-auth": "^1.0.3",
     "basic-auth-connect": "^1.0.0",
     "body-parser": "^1.14.1",

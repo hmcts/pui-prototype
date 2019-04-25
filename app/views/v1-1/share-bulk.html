@@ -1,0 +1,38 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage your civil and family law cases' %}
+
+{% block page_title %}Reassign{% endblock %}
+
+{% block preContent %}
+{{govukBackLink({
+  href: '/v1-1/case-list'
+})}}
+{% endblock %}
+
+{% block mainContent %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/v1-1/share-bulk-confirmation" method="get">
+      {{ govukTextarea({
+        label: {
+          text: "Who do you want to share these cases with?",
+          classes: 'govuk-label--xl',
+          isPageHeading: true
+        },
+        hint: {
+          html: 'You can enter multiple email addresses separated by commas.'
+        },
+        id: "shared-email",
+        name: "shared-email"
+      }) }}
+
+      {{govukButton({
+        text: 'Continue'
+      })}}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

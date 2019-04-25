@@ -23,14 +23,14 @@
 {%- from "tabs/macro.njk" import govukTabs %}
 
 <!-- HMCTS -->
-{%- from "sub-navigation/macro.njk" import hmctsSubNavigation %}
-{%- from "primary-navigation/macro.njk" import hmctsPrimaryNavigation %}
-{%- from "global-header/macro.njk" import hmctsGlobalHeader %}
-{%- from "timeline/macro.njk" import hmctsTimeline %}
-{%- from "identity-bar/macro.njk" import hmctsIdentityBar %}
+{%- from "hmcts-sub-navigation/macro.njk" import hmctsSubNavigation %}
+{%- from "hmcts-primary-navigation/macro.njk" import hmctsPrimaryNavigation %}
+{%- from "hmcts-header/macro.njk" import hmctsGlobalHeader %}
+{%- from "hmcts-timeline/macro.njk" import hmctsTimeline %}
+{%- from "hmcts-identity-bar/macro.njk" import hmctsIdentityBar %}
 
 <!-- PUI specific -->
-{%- from "alert/macro.njk" import hmctsBanner %}
+{%- from "hmcts-banner/macro.njk" import hmctsBanner %}
 
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="{{ html_lang|default('en') }}"><![endif]-->
@@ -94,35 +94,35 @@
     <footer class="hmcts-footer" role="contentinfo">
 
       <div class="hmcts-footer__container">
-      
+
       <h2 class="hmcts-footer__heading">Help</h2>
       <ul class="hmcts-footer__list">
         <li class="hmcts-footer__list-item">Email: <a class="hmcts-footer__link" href="mailto:#">service-desk@hmcts.gov.uk</a></li>
         <li class="hmcts-footer__list-item">Phone: 0207 633 4140</li>
         <li class="hmcts-footer__list-item"><span class="visually-hidden">Opening times: </span>Monday to Friday, 8am to 6pm (excluding public holidays)</li>
       </ul>
-      
+
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-      
+
       <ul class="hmcts-footer__list hmcts-footer__list--inline">
-      
+
         <li class="hmcts-footer__list-item">
           <a class="hmcts-footer__link" href="#">Terms and conditions</a>
         </li>
-      
+
         <li class="hmcts-footer__list-item">
           <a class="hmcts-footer__link" href="#">Cookies</a>
         </li>
-      
+
         <li class="hmcts-footer__list-item">
           <a class="hmcts-footer__link" href="#">Privacy policy</a>
         </li>
-      
+
       </ul>
-      
+
       </div>
-      
-      </footer> 
+
+      </footer>
 
     {% block footer %}
       {% include "footer/footer.html" %}

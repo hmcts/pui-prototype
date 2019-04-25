@@ -1,92 +1,186 @@
-{% extends "layouts/unbranded.html" %}
+{% extends "layouts/service/base.html" %}
 
 {% set serviceName = '' %}
 
 {% block content %}
-<div class="govuk-grid-row">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-  <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Professional user interface prototypes</h1>
+      <p class="govuk-body">This prototype shows a number of experiments and iterations for professional users including registering an organisation, managing and organisation and managing cases and applications on behalf of citizens.</p>
 
-  <h1 class="govuk-heading-xl">PUI Prototypes</h1>
+      <h2 class="govuk-heading-m">Phase 1</h2>
 
-  <h2 class="govuk-heading-l">MVP R1.0</h2>
+      {% set releaseTwoHtml %}
+        <p class="govuk-body">This shows the two separate services which cover new functionality not covered in CCD UI with internal headers and footers because it was decided it won't be hosted on GOV.UK.</p>
+        <ul class="govuk-list">
+          <li><a href="/mvp-v2/register-organisation">Register organisation</a></li>
+          <li><a href="/mvp-v2/manage-organisation/sign-in">Manage organisation</a></li>
+          <li><a href="/mvp-v2/manage-case/start-manage-case">Start page</a></li>
+        </ul>
+      {% endset %}
 
-  <ul class="govuk-list govuk-list--bullet">
-    <li><a href="/mvp/register-organisation">Register organisation</a></li>
-    <li><a href="/mvp/manage-organisation/sign-in">Manage organisation</a></li>
-    <!-- <li><a href="/mvp/manage-case/start-manage-case">Manage your cases</a></li>
-    <br>
-    <li><a href="/mvp/manage-case/case-list">Manage cases - logged in</a></li> -->
-  </ul>
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 3</div>',
+        html: releaseTwoHtml
+      }) }}
 
-  <hr>
-  <br>
+      {% set releaseOneHtml %}
+        <p class="govuk-body">This shows the two separate services which cover new functionality not covered in CCD UI.</p>
+        <ul class="govuk-list">
+          <li><a href="/mvp/register-organisation">Register organisation</a></li>
+          <li><a href="/mvp/manage-organisation/sign-in">Manage organisation</a></li>
+        </ul>
+      {% endset %}
 
-  <h2 class="govuk-heading-l">MVP original</h2>
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 2</div>',
+        html: releaseOneHtml
+      }) }}
 
-  <ul class="govuk-list govuk-list--bullet">
-    <li><a href="/mvp-v1/register-organisation">Register</a></li>
-    <li><a href="/mvp-v1/manage-case/case-list">Manage cases</a></li>
-    <li><a href="/mvp-v1/manage-organisation">Manage organisation</a></li>
-    <li><a href="/mvp-v1/manage-case/start-manage-case">Start page</a></li>
-  </ul>
+      {% set releaseZeroHtml %}
+        <p class="govuk-body">This was the first intended first release which includes a new way to manage cases outside of CCD UI.</p>
+        <ul class="govuk-list">
+          <li><a href="/mvp-v1/register-organisation">Register</a></li>
+          <li><a href="/mvp-v1/manage-case/case-list">Manage cases</a></li>
+          <li><a href="/mvp-v1/manage-organisation">Manage organisation</a></li>
+          <li><a href="/mvp-v1/manage-case/start-manage-case">Start page</a></li>
+        </ul>
+      {% endset %}
 
-  <hr>
-  <br>
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 1</div>',
+        html: releaseZeroHtml
+      }) }}
 
-  <ul class="govuk-list govuk-list--bullet">
-      <li><a href="/mvp-v2/register-organisation">Header and footer removed</a></li>
-      <li><a href="/mvp-v2/manage-case/start-manage-case">Start page</a></li>
-  </ul>
+      <h2 class="govuk-heading-m">Phase 2</h2>
 
-  <h2 class="govuk-heading-l">PI12</h2>
+      {% set iterationTwoHtml %}
+        <p class="govuk-body">Includes case filter, search, share a case, editing organisation and profile.</p>
+        <ul class="govuk-list">
+            <li><a href="/v1-1/case-list">Manage cases</a></li>
+            <li><a href="/manage-admin/">Manage organisation</a></li>
+        </ul>
+      {% endset %}
 
-  <ul class="govuk-list govuk-list--bullet">
-    <li><a href="/v1-1/case-list">Filter case</a></li>
-    <li><a href="/v1-1/case-list">Search case</a></li>
-    <li><strong class="govuk-tag">In progress</strong> <a href="/v1-1/access">Share case</a></li>
-    <li><strong class="govuk-tag">In progress</strong> <a href="/manage-admin/profile">Your profile administration</a></li>
-    <li><strong class="govuk-tag">In progress</strong> <a href="/manage-admin/users">User administration</a></li>
-    <li><strong class="govuk-tag">In progress</strong> <a href="/manage-admin/">Organisation administration</a></li>
-  </ul>
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 1</div>',
+        html: iterationTwoHtml
+      }) }}
 
-  <br>
-  <hr>
-  <br>
+      <h2 class="govuk-heading-m">Alpha experiments</h2>
 
-  <h2 class="govuk-heading-l">Older iterations</h2>
+      {% set alphaEight %}
+        <p class="govuk-body">Improved start page. Showcasing how different permissions could manifest themselves in manage cases. Looking at ways where create a case is CCD UI with the rest as PUI. Changed start page. Manage organisation no longer on GOV.UK with payment information added.</p>
+        <ul class="govuk-list">
+          <li><a href="/manage-case-v2/case-list">Manage case</a></li>
+          <li><a href="/manage-account-v3">Manage organisation</a></li>
+          <li><a href="/create-account-v3">Register organisation</a></li>
+          <li><a href="/start-page-v2">Start page</a></li>
+        </ul>
+      {% endset %}
 
-  <ul class="govuk-list govuk-list--bullet">
-    <li>Manage case (PUI case list, summary and details): <a href="/manage-case-v2/sign-in">logged out</a> | <a href="/manage-case-v2/case-list">logged in</a></li>
-    <li><a href="/start-page-v2">Start page</a></li>
-    <li><a href="/create-account-v3">Register organisation</a></li>
-    <li>Manage account: <a href="/manage-account-v3/sign-in">logged out</a> | <a href="/manage-account-v3">logged in</a></li>
-    <li><a href="/create-user-account">Create user account</a></li>
-    <li><a href="/create-case-v2">Create case (multiple addresses)</a></li>
-    <li>Manage case (PUI case list): <a href="/pui-case-list-ccd-summary/sign-in">logged out</a> | <a href="/pui-case-list-ccd-summary/case-list">logged in</a></li>
-  </ul>
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 8</div>',
+        html: alphaEight
+      }) }}
 
-  <ul class="govuk-list govuk-list--bullet">
-    <li><a href="/create-account-beta">Register existing beta participant</a></li>
-    <li><a href="/create-user-account">Create user account</a></li>
-    <li><a href="/start-page-v2">Start page</a></li>
-    <li><a href="/ccd-ui/case-list">CCD UI</a></li>
-    <li><a href="/create-account-v2">Register organisation</a></li>
-    <li>Manage case: <a href="/manage-case/sign-in">logged out</a> | <a href="/manage-case">logged in</a></li>
-    <li>Create case: <a href="/create-case/sign-in">logged out</a> | <a href="/create-case">logged in</a></li>
-    <li><a href="/create-account">Create account</a></li>
-    <li>Manage account: <a href="/manage-account/sign-in">logged out</a> | <a href="/manage-account">logged in</a></li>
-    <li><a href="/apply">Register your organisation</a></li>
-    <li><a href="/app/sign-in">Portal</a></li>
-    <li><a href="/app/check-status">Check status (no login needed)</a></li>
-    <li><a href="/app/share-case/reference">Share case (logged in)</a></li>
-    <li><a href="/app/share-case/sign-in">Share case (logged out)</a></li>
-    <li><a href="/app/manage-a-case/find-case">Manage case (logged in)</a></li>
-    <li><a href="/app/manage-a-case/sign-in">Manage case (logged out)</a></li>
-    <li><a href="/app/start/govuk-page">GOV.UK page</a></li>
-  </ul>
+      {% set alphaSeven %}
+        <p class="govuk-body">Looking at ways to combine CCD UI where the case list is PUI and the case details becomes CCD UI. Create case more efficient as using organisation reference data to handle multiple addresses. Iterated create user account flow with better content.</p>
+        <ul class="govuk-list">
+          <li><a href="/pui-case-list-ccd-summary/case-list">Manage cases</a></li>
+          <li><a href="/create-case-v2">Create case</a></li>
+          <li><a href="/create-user-account">Create user account</a></li>
+        </ul>
+      {% endset %}
 
-</div>
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 7</div>',
+        html: alphaSeven
+      }) }}
 
-</div>
+      {% set alphaSix %}
+        <p class="govuk-body">Demonstrating how CCD UI could look when embedded inside PUI. Iterated registering a user with a notification email triggered by an admin. And looking at a way to migrate an existing private beta organisation.</p>
+        <ul class="govuk-list">
+            <li><a href="/create-account-beta">Register existing beta participant email</a></li>
+            <li><a href="/create-user-account">Create user account</a></li>
+            <li><a href="/ccd-ui/case-list">CCD UI</a></li>
+        </ul>
+      {% endset %}
+
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 6</div>',
+        html: alphaSix
+      }) }}
+
+      {% set alphaFive %}
+        <p class="govuk-body">Iterated manage a case with additional functionality. Type “john” for a valid case reference. Added new service for creating a case following the same pattern found in citizen facing services where apply and manage are separate.</p>
+        <ul class="govuk-list">
+          <li><a href="/manage-case">Manage case</a></li>
+          <li><a href="/create-case">Create case</a></li>
+        </ul>
+      {% endset %}
+
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 5</div>',
+        html: alphaFive
+      }) }}
+
+      {% set alphaFour %}
+        <p class="govuk-body">Registering an organisation now takes into account new constraints such as IDAM. Manage organisation service started. Start page iterated as part of HMCTS sub section on GOV.UK.</p>
+        <ul class="govuk-list">
+          <li><a href="/create-account-v2">Register organisation</a></li>
+          <li><a href="/manage-account">Manage organisation</a></li>
+          <li><a href="/start-page-v2">Start page</a></li>
+        </ul>
+      {% endset %}
+
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 4</div>',
+        html: alphaFour
+      }) }}
+
+      {% set alphaThree %}
+        <p class="govuk-body">Started looking at ways to help users register their organisation and create an account as separate journeys so that administrators within large organisations don't become bottle necks.</p>
+        <ul class="govuk-list">
+          <li><a href="/apply">Register your organisation</a></li>
+          <li><a href="/create-account">Create account</a></li>
+        </ul>
+      {% endset %}
+
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 3</div>',
+        html: alphaThree
+      }) }}
+
+      {% set alphaTwo %}
+        <p class="govuk-body">Separate services for checking status of a case, sharing a case and managing a case.</p>
+        <ul class="govuk-list">
+          <li><a href="/app/check-status">Check status (no login needed)</a></li>
+          <li><a href="/app/share-case/reference">Share case (logged in)</a></li>
+          <li><a href="/app/manage-a-case/find-case">Manage case (logged in)</a></li>
+          <li><a href="/app/start/govuk-page">GOV.UK page</a></li>
+        </ul>
+      {% endset %}
+
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 2</div>',
+        html: alphaTwo
+      }) }}
+
+
+      {% set alphaOne %}
+        <p class="govuk-body">Portal approach. Everything in one place including manage org, hearing and cases</p>
+        <ul class="govuk-list">
+            <li><a href="/app/sign-in">Portal</a></li>
+        </ul>
+      {% endset %}
+
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 1</div>',
+        html: alphaOne
+      }) }}
+
+    </div>
+  </div>
 {% endblock %}
