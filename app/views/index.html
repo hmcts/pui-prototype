@@ -9,10 +9,25 @@
       <h1 class="govuk-heading-xl">Professional user interface prototypes</h1>
       <p class="govuk-body">This prototype shows a number of experiments and iterations for professional users including registering an organisation, managing and organisation and managing cases and applications on behalf of citizens.</p>
 
-      <h2 class="govuk-heading-m">Phase 1</h2>
+      <h2 class="govuk-heading-m">Beta - phase 2</h2>
 
-      {% set releaseTwoHtml %}
-        <p class="govuk-body">This shows the two separate services which cover new functionality not covered in CCD UI with internal headers and footers because it was decided it won't be hosted on GOV.UK.</p>
+      {% set iterationTwoHtml %}
+        <p class="govuk-body">Includes case filter, search, share a case, editing organisation and profile.</p>
+        <ul class="govuk-list">
+            <li><a href="/v1-1/case-list">Manage cases</a></li>
+            <li><a href="/manage-admin/">Manage organisation</a></li>
+        </ul>
+      {% endset %}
+
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 1 (in progress)</div>',
+        html: iterationTwoHtml
+      }) }}
+
+      <h2 class="govuk-heading-m">Beta - phase 1</h2>
+
+      <!-- {% set releaseTwoHtml %}
+        <p class="govuk-body">Same as previous version but with internal headers and footers because it was decided it won't be hosted on GOV.UK.</p>
         <ul class="govuk-list">
           <li><a href="/mvp-v2/register-organisation">Register organisation</a></li>
           <li><a href="/mvp-v2/manage-organisation/sign-in">Manage organisation</a></li>
@@ -23,13 +38,14 @@
       {{ govukDetails({
         summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 3</div>',
         html: releaseTwoHtml
-      }) }}
+      }) }} -->
 
       {% set releaseOneHtml %}
         <p class="govuk-body">This shows the two separate services which cover new functionality not covered in CCD UI.</p>
         <ul class="govuk-list">
           <li><a href="/mvp/register-organisation">Register organisation</a></li>
           <li><a href="/mvp/manage-organisation/sign-in">Manage organisation</a></li>
+          <li><a href="/mvp/manage-case/start-manage-case">Start page</a></li>
         </ul>
       {% endset %}
 
@@ -51,21 +67,6 @@
       {{ govukDetails({
         summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 1</div>',
         html: releaseZeroHtml
-      }) }}
-
-      <h2 class="govuk-heading-m">Phase 2</h2>
-
-      {% set iterationTwoHtml %}
-        <p class="govuk-body">Includes case filter, search, share a case, editing organisation and profile.</p>
-        <ul class="govuk-list">
-            <li><a href="/v1-1/case-list">Manage cases</a></li>
-            <li><a href="/manage-admin/">Manage organisation</a></li>
-        </ul>
-      {% endset %}
-
-      {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 1</div>',
-        html: iterationTwoHtml
       }) }}
 
       <h2 class="govuk-heading-m">Alpha experiments</h2>
