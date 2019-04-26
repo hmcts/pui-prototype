@@ -25,8 +25,8 @@
 <!-- HMCTS -->
 {%- from "hmcts-sub-navigation/macro.njk" import hmctsSubNavigation %}
 {%- from "hmcts-primary-navigation/macro.njk" import hmctsPrimaryNavigation %}
-{%- from "hmcts-header/macro.njk" import hmctsGlobalHeader %}
-{%- from "hmcts-footer/macro.njk" import hmctsGlobalFooter %}
+{%- from "hmcts-header/macro.njk" import hmctsHeader %}
+{%- from "hmcts-footer/macro.njk" import hmctsFooter %}
 {%- from "hmcts-timeline/macro.njk" import hmctsTimeline %}
 {%- from "hmcts-identity-bar/macro.njk" import hmctsIdentityBar %}
 {%- from "hmcts-filter/macro.njk" import hmctsFilter %}
@@ -77,7 +77,7 @@
     {% endblock %}
 
     {% block header %}
-      {{hmctsGlobalHeader({
+      {{hmctsHeader({
         service: {
           name: serviceName,
           url: '/'
