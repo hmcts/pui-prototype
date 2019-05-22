@@ -40,6 +40,20 @@
         html: releaseTwoHtml
       }) }} -->
 
+      {% set releaseTwoHtml %}
+        <p class="govuk-body">Fee account no longer can display account name, register flow captures SRA and asks user to accept t&C and sign into each app must first ask user to accept T&Cs because IDAM can't be changed to allow for this.</p>
+        <ul class="govuk-list">
+          <li><a href="/i2/register-organisation">Register organisation</a></li>
+          <li><a href="/i2/manage-organisation/sign-in">Manage organisation</a></li>
+          <li><a href="/i2/manage-case/start-manage-case">Start page</a></li>
+        </ul>
+      {% endset %}
+
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 3 (In progress)</div>',
+        html: releaseTwoHtml
+      }) }}
+
       {% set releaseOneHtml %}
         <p class="govuk-body">This shows the two separate services which cover new functionality not covered in CCD UI.</p>
         <ul class="govuk-list">

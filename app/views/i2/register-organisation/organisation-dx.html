@@ -1,0 +1,51 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Register to manage civil and family law cases' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/i2/register-organisation/organisation-sra-pre'
+  })}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+
+
+
+    <main role="main" class="govuk-main-wrapper">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">What's the DX reference for your main office?</h1>
+
+      <form action="/i2/register-organisation/organisation-sra-pre">
+
+        {{ govukInput({
+          label: {
+            text: "DX number",
+            classes: 'govuk-label--m'
+          },
+          id: "dx-number",
+          name: "dx-number"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "DX exchange",
+            classes: 'govuk-label--m'
+          },
+          id: "dx-exchange",
+          name: "dx-exchange"
+        }) }}
+
+        {{govukButton({
+          text: 'Continue'
+        })}}
+      </form>
+    </div>
+  </div>
+    </main>
+  </div>
+{% endblock %}
