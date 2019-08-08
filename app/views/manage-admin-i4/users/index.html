@@ -1,0 +1,138 @@
+
+{% extends "manage-admin/layout.html" %}
+
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% set pageId = 'users' %}
+
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-admin-i4/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/manage-admin-i4',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-admin-i4/users',
+    active: true
+  }]
+
+})}}
+
+{% endblock %}
+ <!-- {
+    text: 'Fee accounts',
+    href: '/manage-admin/payments',
+    active: false
+  }] -->
+
+{% block content %}
+
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+    <main role="main" class="govuk-main-wrapper">
+
+     <div class="hmcts-page-heading"> 
+        
+      <div class="hmcts-page-heading__title-wrapper">
+     <span class="govuk-caption-xl">West Berkshire Council</span>
+          <h1 class="govuk-heading-xl">Users</h1> 
+        
+        <!--  <h1 class="hmcts-page-heading__title govuk-heading-xl">Users</h1> -->
+        </div>
+        <div class="hmcts-page-heading__actions-wrapper">
+            {{govukButton({
+              text: 'Invite user',
+              href: '/manage-admin-i4/users/new',
+              classes: 'hmcts-page-heading__button'
+            })}}
+        </div>
+      </div>
+
+<!--
+
+      <table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Name</th>
+      <th class="govuk-table__header" scope="col">Email address</th>
+      <th class="govuk-table__header" scope="col">Status</th>
+      <th
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" scope="row"><a href="/manage-admin-i4/users/view">Joe Bloggs</a></td>
+      <td class="govuk-table__cell" scope="row">joe.bloggs@email.com</td>
+      <td class="govuk-table__cell" scope="row">Active</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" scope="row"><a href="/manage-admin-i4/users/view">Jill Smith</a></td>
+      <td class="govuk-table__cell" scope="row">jill.smith@email.com</td>
+      <td class="govuk-table__cell" scope="row">Active</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" scope="row"><a href="/manage-admin-i4/users/view-revoked">Bill Brown</a></td>
+      <td class="govuk-table__cell" scope="row">bill.brown@email.com</td>
+      <td class="govuk-table__cell" scope="row">Revoked</td>
+    </tr>
+
+  </tbody>
+</table> -->
+
+      {{ govukTable({
+        head: [
+          {
+            text: "Email address"
+          },
+          {
+            text: "Manage cases"
+          },
+          {
+            text: "Manage organisation"
+          },
+          {
+            text: "Manage users"
+          },
+          {
+            text: "Manage fee accounts"
+          },
+          {
+            text: "Status"
+          }
+        ],
+        rows: rows
+      }) }}
+
+
+    </main>
+  </div>
+
+{% endblock %}

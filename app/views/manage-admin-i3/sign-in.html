@@ -1,0 +1,55 @@
+{% extends "layouts/admin/base.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% block content %}
+
+<div class="hmcts-width-container">
+
+    {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+  <main role="main" class="govuk-main-wrapper">
+
+    <h1 class="govuk-heading-l">Sign in</h1>
+
+    <form method="get" action="/manage-admin-i3">
+
+      {{ govukInput({
+        label: {
+          html: "Email address",
+          classes: "govuk-!-width-one-third"
+        },
+        id: "email-address",
+        name: "email-address",
+        classes: 'govuk-!-width-one-third'
+      }) }}
+
+      {{ govukInput({
+        label: {
+          html: "Password",
+          classes: "govuk-!-width-one-third"
+        },
+        id: "password",
+        name: "password",
+        type: "password",
+        classes: "govuk-!-width-one-third"
+      }) }}
+
+      {{ govukButton({
+        "text": "Sign in"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body"><a href="">Forgotten your password?</a></p>
+
+  </main>
+
+</div>
+
+{% endblock %}

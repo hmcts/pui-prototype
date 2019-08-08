@@ -1,0 +1,35 @@
+{% extends "layouts/admin/logged-in.html" %}
+
+{% block footer %}
+  {{ hmctsFooter({
+    help: {
+      heading: 'Help',
+      email: {
+        address: '#',
+        text: 'service-desk@hmcts.gov.uk'
+      },
+      phone: {
+        text: '0207 633 4140'
+      },
+      opening: {
+        text: 'Monday to Friday, 8am to 6pm (excluding public holidays)'
+      }
+    },
+    navigation: {
+      items: [{
+        text: 'Accessibility',
+        href: '/manage-admin-i3/accessibility'
+      }, {
+        text: 'Terms and conditions',
+        href: '/manage-admin-i3/terms'
+      }, {
+        text: 'Cookies',
+        href: '/manage-admin-i3/cookies'
+      }, {
+        text: 'Privacy policy',
+        href: '/manage-admin-i3/privacy'
+      }]
+    }
+  }) }}
+
+{% endblock %}

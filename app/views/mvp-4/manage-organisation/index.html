@@ -1,0 +1,144 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp-4/manage-organisation/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/mvp-4/manage-organisation',
+    active: true
+  }, {
+    text: 'Users',
+    href: '/mvp-4/manage-organisation/users',
+    active: false
+
+  }]
+})}}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="hmcts-width-container">
+
+  {% include "./includes/phase-banner.html" %}
+
+  <main role="main" class="govuk-main-wrapper">
+
+
+    <h1 class="govuk-heading-xl">Organisation</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+          {{ govukTable({
+            firstCellIsHeader: true,
+            rows: [
+              [
+                {
+                  text: "Name"
+                },
+                {
+                  text: "Wedlake Bell"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  text: "Address"
+                },
+                {
+                  html: "Market Street<br>Newbury<br>RG14 5LD"
+                },
+                {
+                  html: ''
+                }
+              ]
+            ]
+          }) }}
+
+
+          <!-- <ul class="govuk-list">
+            <li><a href="./access">Manage organisation access</a></li>
+          </ul> -->
+
+
+
+
+        <!--<h2 class="govuk-heading-l">Organisation</h2>
+
+        {{ govukTable({
+          firstCellIsHeader: true,
+          rows: [
+            [
+              {
+                text: "Name"
+              },
+              {
+                text: "Sherwin Davis"
+              },
+              {
+                html: '<a href="/">Change</a>'
+              }
+            ],
+            [
+              {
+                text: "Address 1"
+              },
+              {
+                html: "31 High Street<br>Norwich<br>NR2 8GG"
+              },
+              {
+                html: '<a href="/">Change</a>'
+              }
+            ],
+            [
+              {
+                text: "Address 2"
+              },
+              {
+                html: "3 Trickle Street<br>Borehamwood<br>H1 8GG"
+              },
+              {
+                html: '<a href="/">Change</a>'
+              }
+            ]
+          ]
+        }) }}
+
+
+        <ul class="govuk-list">
+          <li><a href="./access">Manage organisation access</a></li>
+          <li><a href="./addresses">Add a new address</a></li>
+        </ul>-->
+
+      </div>
+    </div>
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}

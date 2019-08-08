@@ -1,0 +1,101 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+ navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-admin-i4/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/manage-admin-i4',
+    active: true
+  }, {
+    text: 'Users',
+    href: '/manage-admin-i4/users',
+    active: false
+  }]
+
+})}}
+
+{% endblock %}
+ <!-- {
+    text: 'Fee accounts',
+    href: '/manage-admin/payments',
+    active: false
+  }] -->
+
+{% block content %}
+
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+  {{govukBackLink({
+    href: './'
+  })}}
+  <main role="main" class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+<span class="govuk-caption-xl">West Berkshire Council</span>
+    <h1 class="govuk-heading-xl">Change organisation name</h1>
+
+    <form action="/manage-admin-i4/">
+
+        <fieldset class="govuk-fieldset">
+
+
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--m" for="address-line-1">
+              Organisation name
+            </label>
+
+
+            <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" value="West Berkshire Council">
+          </div>
+
+
+
+
+
+        </fieldset>
+
+
+
+
+
+
+
+  <button type="submit" class="govuk-button">
+    Save
+  </button>
+
+
+      </form>
+
+  </div>
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}

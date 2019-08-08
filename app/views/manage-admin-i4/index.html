@@ -1,0 +1,109 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-admin-i4/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/manage-admin-i4',
+    active: true
+  }, {
+    text: 'Users',
+    href: '/manage-admin-i4/users',
+    active: false
+  }]
+
+})}}
+
+{% endblock %}
+ <!-- {
+    text: 'Fee accounts',
+    href: '/manage-admin/payments',
+    active: false
+  }] -->
+
+{% block content %}
+
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+  <main role="main" class="govuk-main-wrapper">
+
+    <div class="hmcts-page-heading"> 
+<span class="govuk-caption-xl">West Berkshire Council</span>
+    <h1 class="govuk-heading-xl">Organisation details</h1>
+</div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <table class="govuk-table">
+
+  <tbody class="govuk-table__body">
+
+    <tr class="govuk-table__row">
+
+
+      <th class="govuk-table__header" scope="row">Name</th>
+
+
+
+      <td class="govuk-table__cell ">West Berkshire Council</td>
+
+
+
+      <td class="govuk-table__cell"><a href="/manage-admin-i4/update-org-name">Change</a></td>
+
+
+    </tr>
+
+    <tr class="govuk-table__row">
+
+
+      <th class="govuk-table__header" scope="row">Address</th>
+
+
+
+      <td class="govuk-table__cell ">12 Market Street<br>Newbury<br>Berkshire<br>RG14 5LD</td>
+
+
+
+      <td class="govuk-table__cell"><a href="/manage-admin-i4/update-org-address">Change</a></td>
+
+
+    </tr>
+
+  </tbody>
+</table>
+
+      </div>
+    </div>
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}

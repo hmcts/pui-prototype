@@ -1,0 +1,38 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Register to manage civil and family law cases' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/i3/register-organisation/organisation-sra-pre'
+  })}}
+{% endblock %}
+
+{% block content %}
+<!-- <div class="govuk-width-container">
+  <main role="main" class="govuk-main-wrapper"> -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/i3/register-organisation/name">
+
+        {{ govukInput({
+          label: {
+            text: "SRA number",
+            classes: 'govuk-label--xl',
+            isPageHeading: true
+          },
+          id: "sra-number",
+          name: "sra-number"
+        }) }}
+
+        {{govukButton({
+          text: 'Continue'
+        })}}
+      </form>
+    </div>
+  </div>
+    </main>
+  </div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "manage-admin/layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+   navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-admin-i4/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/manage-admin-i4',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-admin-i4/users',
+    active: true
+  }]
+
+})}}
+
+{% endblock %}
+ <!-- {
+    text: 'Fee accounts',
+    href: '/manage-admin/payments',
+    active: false
+  }] -->
+
+
+{% block content %}
+
+  <div class="hmcts-width-container">
+      {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+    <main role="main" class="govuk-main-wrapper">
+
+      <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+
+        {{ govukPanel({
+          titleText: "Invitation sent to",
+           text: " ",
+          html: data ['emailaddress']
+         
+        }) }}
+
+        <h3 class="govuk-heading-m">What happens next</h3>
+
+        <p class="govuk-body">
+         The recipient will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.
+         <!-- We've emailed them a link so they can complete their registration. -->
+        </p>
+
+        <p class="govuk-body">
+          <a href="/manage-admin-i4/users">Go back to manage users</a>
+        </p>
+<!--
+         <p><a style ="color:white" href="/create-user-account-v2">Link to Idam email</a></p>
+-->
+</div>
+</div>
+    </main>
+  </div>
+
+{% endblock %}

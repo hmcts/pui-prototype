@@ -1,0 +1,138 @@
+{% extends "../layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% set pageId = 'users' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp-4/manage-organisation/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/mvp-4/manage-organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/mvp-4/manage-organisation/users',
+    active: true
+
+  }]
+})}}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+  <div class="hmcts-width-container">
+    {% include "../includes/phase-banner.html" %}
+
+    {{govukBackLink({
+      href: './'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <!-- {{ hmctsBanner({
+          type: 'warning',
+          text: 'Invitation already sent previously.',
+          iconFallbackText: 'Warning'
+          }) }} -->
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+
+
+      <h1 class="govuk-heading-xl">Invite user</h1>
+      <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
+          <form action="./confirmation">
+            {{ govukInput({
+              label: {
+                text: "First name(s)",
+                classes: 'govuk-label--m'
+              },
+              hint: {
+                text: "Include all middle names."
+              },
+              id: "firstname",
+              name: "firstname"
+            }) }}
+            {{ govukInput({
+              label: {
+                text: "Last name",
+                classes: 'govuk-label--m'
+              },
+              id: "lastname",
+              name: "lastname"
+            }) }}
+            {{ govukInput({
+              label: {
+                text: "Email address",
+                classes: 'govuk-label--m'
+              },
+              id: "emailaddress",
+              name: "emailaddress"
+            }) }}
+
+            {{ govukCheckboxes({
+              idPrefix: "permissions",
+              name: "permissions",
+              fieldset: {
+                legend: {
+                  text: "Permissions",
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              hint: {
+                text: "Choose what the user will be able to do. You can change this later."
+              },
+              items: [
+                {
+                  value: "cases",
+                  text: "Manage cases",
+                  hint: {
+                    text: "Create, progress and view the status of the user's own cases."
+                  }
+                },
+              
+                {
+                  value: "users",
+                  text: "Manage users",
+                  hint: {
+                    text: "View and invite users."
+                  }
+                },
+                {
+                  value: "organisation",
+                  text: "View organisation details",
+                  hint: {
+                    text: "View the organisation's name and address."
+                  }
+                }
+          
+              ]
+            }) }}
+
+            {{govukButton({
+              text: 'Send invitation'
+            })}}
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}

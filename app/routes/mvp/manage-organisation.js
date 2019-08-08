@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/mvp/manage-organisation/users', (req, res) => {
+router.get('/mvp-4/manage-organisation/users', (req, res) => {
 	var emailaddress = req.session.data.emailaddress;
 
 	var permissions = req.session.data.permissions || [];
@@ -10,10 +10,7 @@ router.get('/mvp/manage-organisation/users', (req, res) => {
 	var rows = [
 		[
 			{
-				html: 'adam.silver@wedlakebell.com'
-			},
-			{
-				text: "All"
+				html: '<a href="/">peter.gold@wedlakebell.com</a>'
 			},
 			{
 				text: "Yes"
@@ -24,6 +21,7 @@ router.get('/mvp/manage-organisation/users', (req, res) => {
 			{
 				text: "Yes"
 			},
+
 			{
 				text: "Active"
 			}
@@ -36,10 +34,10 @@ router.get('/mvp/manage-organisation/users', (req, res) => {
 
 	if(emailaddress) {
 		rows.push([{
-			html: `${emailaddress}`
+			html: `<a href="/">${emailaddress}</a>`
 		},
 		{
-			text: permissions.indexOf('cases') > -1 ? "All" : ""
+			text: permissions.indexOf('cases') > -1 ? "Yes" : ""
 		},
 		{
 			text: permissions.indexOf('organisation') > -1 ? "Yes" : ""
@@ -47,9 +45,7 @@ router.get('/mvp/manage-organisation/users', (req, res) => {
 		{
 			text: permissions.indexOf('users') > -1 ? "Yes" : ""
 		},
-		{
-			text: permissions.indexOf('payment') > -1 ? "Yes" : ""
-		},
+
 		{
 			text: "Pending"
 		}]);
@@ -57,7 +53,7 @@ router.get('/mvp/manage-organisation/users', (req, res) => {
 
 
 
-	res.render('mvp/manage-organisation/users/index.html', {
+	res.render('mvp-4/manage-organisation/users/index.html', {
 		rows: rows
 	});
 });

@@ -1,0 +1,92 @@
+{% extends "manage-admin/layout.html" %}
+
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% set pageId = 'users' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-admin-i3/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/manage-admin-i3',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-admin-i3/users',
+    active: true
+  }]
+
+})}}
+
+{% endblock %}
+ <!-- {
+    text: 'Fee accounts',
+    href: '/manage-admin/payments',
+    active: false
+  }] -->
+
+{% block content %}
+
+
+  <div class="hmcts-width-container">
+      {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+    {{govukBackLink({
+      href: './view'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-xl">West Berkshire Council</span>
+      <h1 class="govuk-heading-l">User details</h1>
+
+      <form action="/manage-admin-i3/users/view" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Email address",
+            classes: 'govuk-label--m'
+          },
+          id: "emailaddress",
+          name: "emailaddress",
+          value: "joe.bloggs@email.com"
+        }) }}
+
+
+
+        {{govukButton({
+          text: 'Save'
+        })}}
+      </form>
+
+    </div>
+
+
+
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}

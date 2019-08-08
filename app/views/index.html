@@ -1,4 +1,6 @@
+
 {% extends "layouts/service/base.html" %}
+
 
 {% set serviceName = '' %}
 
@@ -9,9 +11,149 @@
       <h1 class="govuk-heading-xl">Professional user interface prototypes</h1>
       <p class="govuk-body">This prototype shows a number of experiments and iterations for professional users including registering an organisation, managing and organisation and managing cases and applications on behalf of citizens.</p>
 
-      <h2 class="govuk-heading-m">Beta - phase 2</h2>
 
-      {% set iterationTwoHtml %}
+<h2 class="govuk-heading-m">Latest wireframe additions</h2>
+
+
+<ul class="govuk-list">
+           <li><span class="govuk-!-font-weight-bold">Whats new:</span></li>
+                  <ul class="govuk-list govuk-list--bullet">
+                   <li><a href="/i3/register-organisation/check">Register-organisation - check answers</a><br>
+                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-322, updated submit registration details copy, terms and conditions now opens in a new window.</span><br>
+                        <span class="form-hint">Added - Back link to top of page</span><br>
+                        
+                   </li>
+
+<p></p>
+<li><a href="/mvp/manage-organisation/">Footer</a></li>
+<span class="form-hint">JIRA EUI-460 - footer shows behaviour for opening in a new window;<br><br> Terms and conditions<br> Cookies<br>Privacy policy<br><br>(Please note this behaviour may not work as expected when accessed from other pages)</span>
+<p></p>
+                   <li><a href="/mvp/manage-organisation/terms">Terms and conditions </a><br>
+                        <span class="form-hint">JIRA EUI-218, Page</span>
+                   </li>
+                   <p></p>
+                   <li><a href="/mvp/manage-organisation/cookies">Cookies</a><br>
+                        <span class="form-hint">JIRA EUI-218, Page - links to other sites (e.g. Google) open in new window</span>
+                   </li><p></p>
+                   <li><a href="/mvp/manage-organisation/privacy">Privacy policy</a><br>
+                        <span class="form-hint">JIRA EUI-218, Page</span>
+                   </li>
+                 </ul> 
+
+        <p></p>
+ </ul>
+
+ <h2 class="govuk-heading-l">Latest wireframe </h2>
+
+<!-- LATEST WIREFRAME -->
+
+        {% set releaseZeroHtml %}
+        <p class="govuk-body"></p>
+
+
+        <ul class="govuk-list">
+          <li><a href="/i3/register-organisation/">Register</a><br>
+          <span class="form-hint">Registration, fixed inconsistent whitespace and updated service banner to 'BETA'</span><br></li> 
+         
+          <li><a href="/mvp-4/manage-organisation/users">Users</a><br>
+          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>  
+          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+          <span class="form-hint">Email is now a clickable link enablling user details to be edited</span>
+          </li>
+     
+
+       <!-- <li><a href="/v1-1-i3/case-list">Manage cases (new pages to be added to match EUI-360)</a></li> -->
+        </ul>
+      {% endset %}
+
+      {{ govukDetails({
+        summaryHtml: "Iteration 4 (Beta Phase 1)",
+        html: releaseZeroHtml
+      }) }}
+
+
+<!--
+
+LATEST CONTENT
+
+-->
+ 
+<!-- WIP -->
+
+      <h2 class="govuk-heading-l">Work in progress </h2>
+      
+
+      {% set iterationWipHtml %}
+        <p class="govuk-body">Updated UI<br> Added user permissions</p>
+      
+        <ul class="govuk-list govuk-list--bullet">
+         
+          <li><a href="/manage-admin-i3/sign-in">Sign in</a><br><span class="form-hint">Added Beta Banner</span></li>
+
+          <li><a href="/manage-admin-i3/index">Organisation</a><br>
+          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>  
+          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+          <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span>
+          </li>
+          <li><a href="/manage-admin-i3/users">Users</a><br>
+          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>  
+          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+          <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span>
+          </li>
+          
+          <li><a href="/manage-admin-i3/users/view">View user details</a><br>
+          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>  
+          <span class="form-hint">Added Beta Banner(UI Refinement)</span><br>
+          <span class="form-hint">Added Back Link (UI Refinement - Orientation)</span><br>
+          <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span><br>
+          <span class="form-hint">Removed Change Link from email address</span>
+          </li>
+
+          <li><a href="/manage-admin-i3/users/update-name">View user details - change name</a><br>
+          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>
+          <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>   
+          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+          <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span>
+          </li>
+
+          <li><a href="/manage-admin-i3/users/update-permissions">View user details - change permissions</a><br>
+          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>
+          <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>   
+          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+          <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span>
+          </li>
+
+
+          <li><a href="/manage-admin-i3/users/view-revoked">View user details - Revoke access</a><br>
+          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br> 
+          <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>  
+          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+          <span class="form-hint">Added Back Link (UI Refinement - Orientation)</span><br>
+          <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span><br>
+          <span class="form-hint">Added name of user to Permissions heading (UI Refinement - Orientation)</span>
+          </li>
+
+
+        </ul>
+      {% endset %}
+
+      {{ govukDetails({
+        summaryHtml: "Manage Organisation MVP +1",
+        html: iterationWipHtml
+      }) }}
+
+<!-- END OF WIP -->
+
+<!-- HISTORICAL CONTENT -->   
+
+
+
+<h2 class="govuk-heading-l">Historical iterations</h2>
+
+
+     <h2 class="govuk-heading-m">Beta - phase 2</h2>
+
+      {% set iterationBetaHtml %}
         <p class="govuk-body">Includes case filter, search, share a case, editing organisation and profile.</p>
         <ul class="govuk-list">
             <li><a href="/v1-1/case-list">Manage cases</a></li>
@@ -19,28 +161,24 @@
         </ul>
       {% endset %}
 
-      {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 1 (in progress)</div>',
-        html: iterationTwoHtml
-      }) }}
 
-      <h2 class="govuk-heading-m">Beta - phase 1</h2>
+     {{ govukDetails({
+  summaryText: "Iteration 1 (Beta Phase 2)",
+  html: iterationBetaHtml
+}) }}
 
-      <!-- {% set releaseTwoHtml %}
-        <p class="govuk-body">Same as previous version but with internal headers and footers because it was decided it won't be hosted on GOV.UK.</p>
-        <ul class="govuk-list">
-          <li><a href="/mvp-v2/register-organisation">Register organisation</a></li>
-          <li><a href="/mvp-v2/manage-organisation/sign-in">Manage organisation</a></li>
-          <li><a href="/mvp-v2/manage-case/start-manage-case">Start page</a></li>
-        </ul>
-      {% endset %}
 
-      {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 3</div>',
-        html: releaseTwoHtml
-      }) }} -->
 
-      {% set releaseTwoHtml %}
+
+
+<h2 class="govuk-heading-m">Beta phase 1 experiments</h2>
+
+
+  
+<!-- ITERATION 3 -->
+
+
+ {% set releaseTwoHtml %}
         <p class="govuk-body">Fee account no longer can display account name, register flow captures SRA and asks user to accept t&C and sign into each app must first ask user to accept T&Cs because IDAM can't be changed to allow for this.</p>
         <ul class="govuk-list">
           <li><a href="/i2/register-organisation">Register organisation</a></li>
@@ -49,10 +187,12 @@
         </ul>
       {% endset %}
 
-      {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 3 (In progress)</div>',
+  {{ govukDetails({
+        summaryHtml: "Iteration 3 (Beta Phase 1)",
         html: releaseTwoHtml
       }) }}
+
+<!-- ITERATION 2 -->
 
       {% set releaseOneHtml %}
         <p class="govuk-body">This shows the two separate services which cover new functionality not covered in CCD UI.</p>
@@ -63,10 +203,13 @@
         </ul>
       {% endset %}
 
+
       {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 2</div>',
+         summaryHtml: "Iteration 2 (Beta Phase 1)",
         html: releaseOneHtml
       }) }}
+
+<!-- ITERATION 1 -->
 
       {% set releaseZeroHtml %}
         <p class="govuk-body">This was the first intended first release which includes a new way to manage cases outside of CCD UI.</p>
@@ -79,11 +222,26 @@
       {% endset %}
 
       {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 1</div>',
+         summaryHtml: "Iteration 1 (Beta Phase 1)",
         html: releaseZeroHtml
       }) }}
 
-      <h2 class="govuk-heading-m">Alpha experiments</h2>
+
+    
+
+
+<!-- END OF HISTORICAL BETA ITERATIONS -->
+
+<h2 class="govuk-heading-m">Alpha experiments</h2>
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Alpha experiments
+    </span>
+  </summary>
+  <div>
+    <br>
+      
 
       {% set alphaEight %}
         <p class="govuk-body">Improved start page. Showcasing how different permissions could manifest themselves in manage cases. Looking at ways where create a case is CCD UI with the rest as PUI. Changed start page. Manage organisation no longer on GOV.UK with payment information added.</p>
@@ -96,7 +254,7 @@
       {% endset %}
 
       {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 8</div>',
+        summaryHtml: "Iteration 8",
         html: alphaEight
       }) }}
 
@@ -110,7 +268,7 @@
       {% endset %}
 
       {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 7</div>',
+        summaryHtml: "Iteration 7",
         html: alphaSeven
       }) }}
 
@@ -124,7 +282,7 @@
       {% endset %}
 
       {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 6</div>',
+        summaryHtml: "Iteration 6",
         html: alphaSix
       }) }}
 
@@ -137,7 +295,7 @@
       {% endset %}
 
       {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 5</div>',
+       summaryHtml: "Iteration 5",
         html: alphaFive
       }) }}
 
@@ -151,7 +309,7 @@
       {% endset %}
 
       {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 4</div>',
+        summaryHtml: "Iteration 4",
         html: alphaFour
       }) }}
 
@@ -164,7 +322,7 @@
       {% endset %}
 
       {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 3</div>',
+        summaryHtml: "Iteration 3",
         html: alphaThree
       }) }}
 
@@ -179,7 +337,7 @@
       {% endset %}
 
       {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 2</div>',
+        summaryHtml: "Iteration 2",
         html: alphaTwo
       }) }}
 
@@ -192,9 +350,24 @@
       {% endset %}
 
       {{ govukDetails({
-        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 1</div>',
+        summaryHtml: "Iteration 1",
         html: alphaOne
       }) }}
+
+
+
+
+
+
+
+
+
+  </div>
+</details>
+
+  
+
+
 
     </div>
   </div>

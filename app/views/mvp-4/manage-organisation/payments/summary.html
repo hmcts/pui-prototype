@@ -1,0 +1,114 @@
+{% extends "../layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp/manage-organisation/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/mvp/manage-organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/mvp/manage-organisation/users',
+    active: false
+  },
+  {
+    text: 'Fee accounts',
+    href: '/mvp/manage-organisation/payments',
+    active: false
+  }]
+})}}
+<div class="hmcts-width-container">
+  {% include "../includes/phase-banner-no-border.html" %}
+</div>
+{{ hmctsIdentityBar({
+  title: { html: 'Wedlake Bell - Account A' }
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="hmcts-width-container">
+  <main role="main" class="govuk-main-wrapper">
+
+
+      {{hmctsSubNavigation({
+        items: [  {
+          text: 'Summary',
+          href: '/mvp/manage-organisation/payments/summary',
+          active: true
+        }, {
+          text: 'Transactions',
+          href: '/mvp/manage-organisation/payments/transactions',
+          active: false
+        }
+        ]
+      })}}
+
+      <div class="hmcts-page-heading">
+        <div class="hmcts-page-heading__title-wrapper">
+          <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">
+           Summary
+            </h1>
+        </div>
+        <div class="hmcts-page-heading__actions-wrapper">
+
+        </div>
+      </div>
+
+      <p>Last updated on 15 October 2018 at 3:12pm</p>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+
+            <dl class="govuk-check-your-answers govuk-check-your-answers--pba-overview">
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">
+                Available credit
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+                £17,254.00
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+
+              </dd>
+            </div>
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">
+                Balance
+              </dt>
+              <dd class="govuk-check-your-answers__answer">
+                £2746.00
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+              </dd>
+            </div>
+          </dl>
+    </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}

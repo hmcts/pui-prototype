@@ -1,0 +1,62 @@
+{% extends "./layout.html" %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/i3/manage-case/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '',
+    active: primaryNavId == 'cases'
+  }, {
+    text: 'Organisation\'s cases',
+    href: '/i3/manage-case/organisation-case-list',
+    active: primaryNavId == 'organisationCases'
+  }]
+})}}
+{% endblock %}
+
+
+{% set serviceName = 'Manage your civil and family law cases' %}
+
+{% set primaryNavId = 'cases' %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block mainContent %}
+
+      <div class="hmcts-page-heading">
+          <div class="hmcts-page-heading__title-wrapper">
+            <h1 class="hmcts-page-heading__title govuk-heading-xl">Your cases</h1>
+          </div>
+          <div class="hmcts-page-heading__actions-wrapper">
+              {{govukButton({
+                text: 'Create case',
+                href: '/i3/manage-case/create-case',
+                classes: 'hmcts-page-heading__button'
+              })}}
+          </div>
+        </div>
+
+        <p class="govuk-body">You have not created any cases.</p>
+
+
+
+
+
+
+{% endblock %}

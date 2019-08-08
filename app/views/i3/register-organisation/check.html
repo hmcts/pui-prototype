@@ -1,0 +1,154 @@
+
+
+
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Register to manage civil and family law cases' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/i3/register-organisation/email'
+  })}}
+{% endblock %}
+
+
+{% block content %}
+<!-- <div class="govuk-width-container">
+  <main role="main" class="govuk-main-wrapper"> -->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">Check your answers before you register</h1>
+
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+
+          <div class="govuk-check-your-answers__contents">
+            <dt class="govuk-check-your-answers__question">Organisation name</dt>
+            <dd class="govuk-check-your-answers__answer">
+              {{data['org-name']}}
+            </dd>
+            <dd class="govuk-check-your-answers__change">
+              <a href="/i3/register-organisation/organisation-name">Change <span class="govuk-visually-hidden">organisation name</span></a>
+            </dd>
+          </div>
+
+
+            <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Organisation address</dt>
+              <dd class="govuk-check-your-answers__answer">
+                {{data['address-line-1']}}<br>
+                {{data['address-line-2']}}<br>
+                {{data['address-town']}}<br>
+                {{data['address-postcode']}}<br>
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                <a href="/i3/register-organisation/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">PBA number</dt>
+                <dd class="govuk-check-your-answers__answer">
+                  {{data['org-pba']}}
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="/i3/register-organisation/organisation-pba">Change <span class="govuk-visually-hidden">PBA number</span></a>
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">Do you have a DX reference for your main office?</dt>
+                <dd class="govuk-check-your-answers__answer">
+                  {{data['has-dx']}}
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="/i3/register-organisation/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+                </dd>
+              </div>
+
+            <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">DX reference</dt>
+                <dd class="govuk-check-your-answers__answer">
+                  DX number: {{data['dx-number']}}<br>
+                  DX exchange: {{data['dx-exchange']}}
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="/i3/register-organisation/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">Do you have an SRA number?</dt>
+                <dd class="govuk-check-your-answers__answer">
+                  {{data['has-sra']}}
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="/i3/register-organisation/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+                </dd>
+              </div>
+
+            <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">SRA number</dt>
+                <dd class="govuk-check-your-answers__answer">
+                  {{data['sra-number']}}
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="/i3/register-organisation/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+                </dd>
+              </div>
+
+            <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">First name(s)</dt>
+                <dd class="govuk-check-your-answers__answer">
+                  {{data.firstname}}
+                </dd>
+                <dd class="govuk-check-your-answers__change">
+                  <a href="/i3/register-organisation/name">Change <span class="govuk-visually-hidden">name</span></a>
+                </dd>
+              </div>
+
+              <div class="govuk-check-your-answers__contents">
+                  <dt class="govuk-check-your-answers__question">Last name</dt>
+                  <dd class="govuk-check-your-answers__answer">
+                    {{data.lastname}}
+                  </dd>
+                  <dd class="govuk-check-your-answers__change">
+                    <a href="/i3/register-organisation/name">Change <span class="govuk-visually-hidden">name</span></a>
+                  </dd>
+                </div>
+
+              <div class="govuk-check-your-answers__contents">
+                  <dt class="govuk-check-your-answers__question">Email address</dt>
+                  <dd class="govuk-check-your-answers__answer">
+
+
+                    {{data['email-address']}}
+                  </dd>
+                  <dd class="govuk-check-your-answers__change">
+                    <a href="/i3/register-organisation/name">Change <span class="govuk-visually-hidden">name</span></a>
+                  </dd>
+                </div>
+
+        </dl>
+
+        <h2 class="govuk-heading-l">Now submit your registration details</h2>
+<ul class="govuk-list">
+           
+                  <ul class="govuk-list govuk-list--bullet">
+                   
+<li>Your personal and organisation details are correct</li>
+<li>You have read and understood the <a href="/i3/manage-organisation/terms" rel="noopener noreferrer" target="_blank">terms and conditions</a> and are eligible for an account to manage your organisation and cases</li>
+<li>You are creating an account for your organisation for the first time</li>
+
+
+        {{ govukButton({
+          "text": "Confirm and submit details",
+          href: '/i3/register-organisation/confirmation'
+        }) }}
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

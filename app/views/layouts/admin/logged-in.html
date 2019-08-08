@@ -1,20 +1,42 @@
 {% extends "layouts/admin/base.html" %}
 
 {% block header %}
-  {{ super() }}
-  {{hmctsPrimaryNavigation({
-    classes: "govuk-!-margin-bottom-0",
-    items: [ {
-      text: 'Your cases',
-      href: '/mvp/manage-case/case-list',
-      active: primaryNavId == 'cases'
-    }, {
-      text: 'Organisation\'s cases',
-      href: '/mvp/manage-case/organisation-case-list',
-      active: primaryNavId == 'organisationCases'
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/i3/manage-organisation/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
     }]
-  })}}
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/i3/manage-organisation',
+    active: true
+  }, {
+    text: 'Users',
+    href: '/i3/manage-organisation/users',
+    active: false
+  },
+  {
+    text: 'Fee accounts',
+    href: '/i3/manage-organisation/payments',
+    active: false
+  }]
+})}}
+
 {% endblock %}
+
+
 
 {% block beforeContent %}
 
@@ -30,3 +52,4 @@
     </main>
   </div>
 {% endblock %}
+

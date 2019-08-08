@@ -1,0 +1,48 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Register to manage civil and family law cases' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/i3/register-organisation/organisation-address'
+  })}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/i3/register-organisation/organisation-dx">
+
+        {{ govukErrorSummary({
+          "titleText": "There is a problem",
+          "errorList": [
+          {
+          "text": "Enter PBA number",
+          "href": "#org-pba"
+          }
+          ]
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "What's the pay by account (PBA) number for your organisation?",
+            classes: 'govuk-label--xl',
+            isPageHeading: true
+          },
+          id: "org-pba",
+          name: "org-pba",
+          classes: "govuk-input--width-10",
+          errorMessage: {
+          text: "Enter PBA number"
+        }
+        }) }}
+
+        {{govukButton({
+          text: 'Continue'
+        })}}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

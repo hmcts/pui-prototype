@@ -1,0 +1,164 @@
+{% extends "manage-admin/layout.html" %}
+
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% set pageId = 'users' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/manage-admin-i3/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/manage-admin-i3',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/manage-admin-i3/users',
+    active: true
+  }]
+
+})}}
+
+{% endblock %}
+ <!-- {
+    text: 'Fee accounts',
+    href: '/manage-admin/payments',
+    active: false
+  }] -->
+
+{% block content %}
+
+
+  <div class="hmcts-width-container">
+      {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+    {{govukBackLink({
+      href: './view'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+       <span class="govuk-caption-xl">West Berkshire Council</span>
+       <h1 class="govuk-heading-l">User details</h1>
+
+      <form action="/manage-admin-i3/users/view" method="post">
+
+
+        {% set caseLevelsHtml %}
+          {{ govukRadios({
+            idPrefix: "where-do-you-live",
+            name: "Level",
+            fieldset: {
+              legend: {
+                text: ""
+              }
+            },
+            items: [
+              {
+                value: "org",
+                text: "Own cases only",
+                checked: true
+              },
+              {
+                value: "scotland",
+                text: "All the organisation's cases"
+              }
+            ]
+          }) }}
+        {% endset %}
+
+        {{ govukCheckboxes({
+          idPrefix: "permissions",
+          name: "permissions",
+          fieldset: {
+            legend: {
+              text: "Permissions for [First name, Last name]",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Choose what the user will be able to do. You can change this later."
+          },
+          items: [
+            {
+              value: "cases",
+              text: "Create cases",
+              checked: true,
+              hint: {
+                text: "Create, progress and view the status of the user's own cases."
+              }
+            },
+            
+            {
+              value: "users",
+              text: "Manage users",
+              hint: {
+                text: "View and invite users."
+              }
+            },
+            {
+              value: "organisation",
+              text: "View organisation details",
+              hint: {
+                text: "View the organisation's name and address."
+              }
+            }
+            
+          ]
+        }) }}
+
+        {{govukButton({
+          text: 'Save'
+        })}}
+      </form>
+
+    </div>
+
+
+
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}
+
+<!-- {
+              value: "organisation-view",
+              text: "View organisation's cases",
+              hint: {
+                text: "View the status of all cases created by the organisation's users."
+              }
+            },
+
+{
+              value: "payment",
+              text: "View fee accounts",
+              checked: true,
+              hint: {
+                text: "View account balances, available credit and transactions."
+              }
+            }
+
+
+-->

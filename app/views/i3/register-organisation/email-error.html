@@ -1,0 +1,49 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Register to manage civil and family law cases' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/i3/register-organisation/name'
+  })}}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/i3/register-organisation/check">
+        {{ govukErrorSummary({
+          "titleText": "There is a problem",
+          "errorList": [
+          {
+          "text": "Enter email address",
+          "href": "#email-address"
+        }
+          ]
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "What's your email address?",
+            classes: 'govuk-label--xl',
+            isPageHeading: true
+          },
+          id: "email-address",
+          name: "email-address",
+          errorMessage: {
+          text: "Enter email address"
+        }
+        }) }}
+
+
+        <!-- <p class="govuk-body"><a href="#">Can't find your organistaion?</a></p> -->
+
+        {{govukButton({
+          text: 'Continue'
+        })}}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
