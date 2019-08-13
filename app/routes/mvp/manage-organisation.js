@@ -9,8 +9,12 @@ router.get('/mvp-4/manage-organisation/users', (req, res) => {
 
 	var rows = [
 		[
+
+		{
+				html: '<a href="/mvp-4/manage-organisation/users/view">Peter Gold</a>'
+			},
 			{
-				html: '<a href="/mvp-4/manage-organisation/users/view">peter.gold@wedlakebell.com</a>'
+				text: 'peter.gold@wedlakebell.com'
 			},
 			{
 				text: "Yes"
@@ -26,15 +30,43 @@ router.get('/mvp-4/manage-organisation/users', (req, res) => {
 				text: "Active"
 			}
 		],
+		[
+		{
+				html: '<a href="/mvp-4/manage-organisation/users/view-revoked">Amy Venkatanarasimharaj</a>'
+			},
+			{
+				text: 'amyvenkatanarasimharaj@wedlakebell.com'
+			},
+			{
+				text: "Yes"
+			},
+			{
+				text: "No"
+			},
+			{
+				text: "No"
+			},
+	
+			{
+				text: "Suspended"
+			}
+		],
 	];
 
 	var newRows = [
 
 	];
 
+
 	if(emailaddress) {
-		rows.push([{
-			html: `<a href="/mvp-4/manage-organisation/users/view">${emailaddress}</a>`
+		rows.push([
+
+{
+	html:'<a href="">First Name Last Name</a>'
+},
+
+		{
+			text: `${emailaddress}`
 		},
 		{
 			text: permissions.indexOf('cases') > -1 ? "Yes" : ""
@@ -45,9 +77,9 @@ router.get('/mvp-4/manage-organisation/users', (req, res) => {
 		{
 			text: permissions.indexOf('users') > -1 ? "Yes" : ""
 		},
-
+	
 		{
-			text: "Pending"
+			text: 'Pending'
 		}]);
 	}
 

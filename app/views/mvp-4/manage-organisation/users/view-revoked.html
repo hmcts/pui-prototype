@@ -1,5 +1,4 @@
-{% extends "manage-admin/layout.html" %}
-
+{% extends "../layout.html" %}
 
 {% set serviceName = 'Manage organisation details for civil and family law cases' %}
 
@@ -14,7 +13,7 @@
   navigation: {
     items: [{
       text: 'Profile',
-      href: '/manage-admin/profile'
+      href: '/mvp-4/manage-organisation/profile'
     },{
       text: 'Sign out',
       href: '/sign-out'
@@ -25,24 +24,15 @@
   classes: "govuk-!-margin-bottom-0",
   items: [ {
     text: 'Organisation',
-    href: '/manage-admin',
+    href: '/mvp-4/manage-organisation',
     active: false
   }, {
     text: 'Users',
-    href: '/manage-admin/users',
+    href: '/mvp-4/manage-organisation/users',
     active: true
-  },
-  {
-    text: 'Fee accounts',
-    href: '/manage-admin/payments',
-    active: false
+
   }]
 })}}
-
-{{ hmctsIdentityBar({
-  reference: 'User',
-  title: { html: '<b>Joe Bloggs</b>' }
-}) }}
 
 {% endblock %}
 
@@ -51,9 +41,11 @@
 
 
   <div class="hmcts-width-container">
-    <!-- {{govukBackLink({
+    {% include "../includes/phase-banner.html" %}
+
+    {{govukBackLink({
       href: './'
-    })}} -->
+    })}}
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
@@ -63,7 +55,7 @@
       <div class="govuk-warning-text">
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
   <strong class="govuk-warning-text__text">
-    This user's access has been revoked
+    This user's access has been suspended
   </strong>
 </div>
 
@@ -104,28 +96,28 @@
 
     <tr class="govuk-table__row">
       <th class="govuk-table__header" scope="row">Name</th>
-      <td class="govuk-table__cell">Joe Bloggs</td>
+      <td class="govuk-table__cell">Amy Venkatanarasimharaj</td>
       <td class="govuk-table__cell"></td>
     </tr>
     <tr class="govuk-table__row">
       <th class="govuk-table__header" scope="row">Email address</th>
-      <td class="govuk-table__cell">joe.bloggs@email.com</td>
+      <td class="govuk-table__cell">amyvenkatanarasimharaj@wedlakebell.com</td>
       <td class="govuk-table__cell"></td>
     </tr>
 
     <tr class="govuk-table__row">
       <th class="govuk-table__header" scope="row">Permissions</th>
       <td class="govuk-table__cell">
-        Manage cases<br>
+        Manage cases<br><!--
         Manage users<br>
-        Manage organisation<br>
-        Manage payment</td>
+        Manage organisation<br> -->
+      
       <td class="govuk-table__cell"></td>
     </tr>
   </tbody>
 </table>
 
-<a href="/manage-admin/users/view" class="govuk-button hmcts-button--secondary">Re-activate user</a>
+<a href="/mvp-4/manage-organisation/users/view-s" class="govuk-button hmcts-button--secondary">Re-activate user</a>
 
 
         </div>
