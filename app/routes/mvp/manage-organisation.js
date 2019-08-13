@@ -10,7 +10,7 @@ router.get('/mvp-4/manage-organisation/users', (req, res) => {
 	var rows = [
 		[
 			{
-				html: '<a href="./view.html">peter.gold@wedlakebell.com</a>'
+				html: '<a href="/mvp-4/manage-organisation/users/view">peter.gold@wedlakebell.com</a>'
 			},
 			{
 				text: "Yes"
@@ -34,7 +34,7 @@ router.get('/mvp-4/manage-organisation/users', (req, res) => {
 
 	if(emailaddress) {
 		rows.push([{
-			html: `<a href="./view.html">${emailaddress}</a>`
+			html: `<a href="/mvp-4/manage-organisation/users/view">${emailaddress}</a>`
 		},
 		{
 			text: permissions.indexOf('cases') > -1 ? "Yes" : ""
