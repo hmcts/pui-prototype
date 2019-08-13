@@ -1,0 +1,146 @@
+{% extends "../layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% set pageId = 'users' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp-4/manage-organisation/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/mvp-4/manage-organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/mvp-4/manage-organisation/users',
+    active: true
+
+  }]
+})}}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+  <div class="hmcts-width-container">
+    {% include "../includes/phase-banner.html" %}
+
+    {{govukBackLink({
+      href: './'
+    })}}
+
+
+    <main role="main" class="govuk-main-wrapper">
+
+        {{ hmctsPageHeaderWithActions({
+          title: {
+            html: '<h1 class="govuk-heading-xl">User details</h1>'
+          },
+          items: [{
+            text: 'Revoke access',
+            classes: 'hmcts-button--secondary'
+          }]
+        }) }}
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+
+
+
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">Name</th>
+            <td class="govuk-table__cell">Joe Bloggs</td>
+            <td class="govuk-table__cell"><!-- <a href="/manage-admin/users/update-name">Change</a> --></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">Email address</th>
+            <td class="govuk-table__cell">joe.bloggs@email.com</td>
+            <td class="govuk-table__cell"><!-- <a href="/manage-admin/users/update-email">Change</a> --></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">Permissions</th>
+            <td class="govuk-table__cell">
+              Manage cases<br>
+              Manage users<br>
+              Manage organisation<br>
+              </td>
+              <td class="govuk-table__cell"><a href="./update-permissions.html">Change</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+
+  <!--
+<ul class="govuk-list">
+       <li>
+          <details class="govuk-details" role="group">
+  <summary class="govuk-details__summary" role="button" aria-controls="" aria-expanded="false">
+    <span class="govuk-details__summary-text">
+      Reset password
+    </span>
+  </summary>
+  <div class="govuk-details__text" id="" aria-hidden="true">
+
+                      <form>
+                        <p>Are you sure you want to reset the password for <b>Joe Bloggs</b>?</p>
+                        <p>We'll send them an email to reset their password.</p>
+                        <input id="success" name="success" type="hidden" value="Reset password link sent">
+                        <input value="Yes, reset password" type="submit" class="govuk-button">
+                      </form>
+                      <p class="govuk-body">
+                        <a href="">No, don't reset password</a>
+                      </p>
+  </div>
+</details>
+
+        </li>
+        <li>
+          <details class="govuk-details" role="group">
+  <summary class="govuk-details__summary" role="button" aria-controls="" aria-expanded="false">
+    <span class="govuk-details__summary-text">
+      Revoke access
+    </span>
+  </summary>
+  <div class="govuk-details__text" id="" aria-hidden="true">
+
+
+                        <p>Are you sure you want to revoke access for <b>Joe Bloggs</b>?</p>
+                        <a href="/manage-admin/users/view-revoked" class="govuk-button">Yes, revoke user</a>
+
+                      <p class="govuk-body">
+                        <a href="">No, don't revoke user</a>
+                      </p>
+  </div>
+</details>
+
+        </li>
+      </ul>
+ -->
+
+
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}
