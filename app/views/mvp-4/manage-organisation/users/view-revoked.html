@@ -52,18 +52,8 @@
   {{ hmctsPageHeaderWithActions({
           title: {
             html: '<h1 class="govuk-heading-xl">User details</h1>'
-          },
-          items: [{
-
-        text: 'Re-activate user',
-        classes: 'hmcts-button--secondary',
-        href: '/mvp-4/manage-organisation/users/view-s'
-          }]
+          }
         }) }}
-
-
-
-
 
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
@@ -73,9 +63,17 @@
       <div class="govuk-warning-text">
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
   <strong class="govuk-warning-text__text">
-    This user's access has been suspended
+    This user's access has been suspended, to reinstate the user you will need to contact the service desk.
   </strong>
 </div>
+
+<!--,
+          items: [{
+
+        text: 'Re-activate user',
+        classes: 'hmcts-button--secondary',
+        href: '/mvp-4/manage-organisation/users/view-s'
+          }] -->
 
 
 <!-- <ul class="govuk-list">
