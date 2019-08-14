@@ -47,10 +47,28 @@
       href: './'
     })}}
     <main role="main" class="govuk-main-wrapper">
+
+
+  {{ hmctsPageHeaderWithActions({
+          title: {
+            html: '<h1 class="govuk-heading-xl">User details</h1>'
+          },
+          items: [{
+
+        text: 'Re-activate user',
+        classes: 'hmcts-button--secondary',
+        href: '/mvp-4/manage-organisation/users/view-s'
+          }]
+        }) }}
+
+
+
+
+
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">User details</h1>
+     <!-- <h1 class="govuk-heading-l">User details</h1> -->
 
       <div class="govuk-warning-text">
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -117,7 +135,7 @@
   </tbody>
 </table>
 
-<a href="/mvp-4/manage-organisation/users/view-s" class="govuk-button hmcts-button--secondary">Re-activate user</a>
+
 
 
         </div>
