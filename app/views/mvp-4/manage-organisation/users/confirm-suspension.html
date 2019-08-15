@@ -1,0 +1,100 @@
+{% extends "../layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% set pageId = 'users' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp-4/manage-organisation/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/mvp-4/manage-organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/mvp-4/manage-organisation/users',
+    active: true
+
+  }]
+})}}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+  <div class="hmcts-width-container">
+    {% include "../includes/phase-banner.html" %}
+
+    {{govukBackLink({
+      href: '/mvp-4/manage-organisation/users/view'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+
+
+  {{ hmctsPageHeaderWithActions({
+          title: {
+            html: '<h1 class="govuk-heading-l">Are you sure you want to suspend this account?</h1>'
+          }
+        }) }}
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+ <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    If you suspend this account you will need to contact the service desk to reactivate.
+  </strong>
+</div>
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">Name</th>
+            <td class="govuk-table__cell">Joe Bloggs</td>
+            <td class="govuk-table__cell"><!-- <a href="/manage-admin/users/update-name">Change</a> --></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">Email address</th>
+            <td class="govuk-table__cell">joe.bloggs@email.com</td>
+            <td class="govuk-table__cell"><!-- <a href="/manage-admin/users/update-email">Change</a> --></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">Permissions</th>
+            <td class="govuk-table__cell">
+              Manage cases<br>
+              Manage users<br>
+              Manage organisation<br>
+              </td>
+              <td class="govuk-table__cell"><!--<a href="./update-permissions.html">Change</a>--></td>
+            </tr>
+          </tbody>
+        </table>
+     <form action="/mvp-4/manage-organisation/users/suspended">
+        {{govukButton({
+          text: 'Suspend account'
+        })}}
+      </form>
+<p><a href="/mvp-4/manage-organisation/users/view">Cancel</a></p>
+      </div>
+    </main>
+  </div>
+{% endblock %}
