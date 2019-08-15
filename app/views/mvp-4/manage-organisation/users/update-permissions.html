@@ -94,33 +94,39 @@
           items: [
             {
               value: "cases",
-              text: "Create cases",
+              text: "Manage cases",
               checked: true,
               hint: {
                 text: "Create, progress and view the status of the user's own cases."
+              }
+            },
+
+             {
+              value: "organisation",
+              text: "Manage organisation",
+              checked: true,
+              hint: {
+                text: "View the organisation's name and address."
               }
             },
             
             {
               value: "users",
               text: "Manage users",
+              checked: true,
               hint: {
                 text: "View and invite users."
               }
-            },
-            {
-              value: "organisation",
-              text: "View organisation details",
-              hint: {
-                text: "View the organisation's name and address."
-              }
             }
+
+
+           
             
           ]
         }) }}
 
         {{govukButton({
-          text: 'Submit and update'
+          text: 'Submit'
         })}}
       </form>
 
