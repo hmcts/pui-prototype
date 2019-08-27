@@ -1,5 +1,6 @@
 {% extends "../layout.html" %}
 
+
 {% set serviceName = 'Manage organisation details for civil and family law cases' %}
 
 {% block header %}
@@ -22,16 +23,16 @@
   classes: "govuk-!-margin-bottom-0",
   items: [ {
     text: 'Organisation',
-    href: '/mvp/manage-organisation',
+    href: '/mvp-4/manage-organisation',
     active: false
   }, {
     text: 'Users',
-    href: '/mvp/manage-organisation/users',
+    href: '/mvp-4/manage-organisation/users',
     active: false
   },
   {
     text: 'Fee accounts',
-    href: '/mvp/manage-organisation/payments',
+    href: '/mvp-4/manage-organisation/payments',
     active: false
   }]
 })}}
@@ -147,17 +148,20 @@ table th {
 </style>
 
 <div class="hmcts-width-container">
+   {{govukBackLink({
+      href: './'
+    })}}
 
   <main role="main" class="govuk-main-wrapper">
 
     {{hmctsSubNavigation({
       items: [  {
         text: 'Summary',
-        href: '/mvp/manage-organisation/payments/summary',
+        href: '/mvp-4/manage-organisation/payments/summary',
         active: false
       }, {
         text: 'Transactions',
-        href: '/mvp/manage-organisation/payments/transactions',
+        href: '/mvp-4/manage-organisation/payments/transactions',
         active: true
       }
       ]
@@ -176,17 +180,28 @@ table th {
 
     <p>Last updated on 15 October 2018 at 3:12pm</p>
 
+
+
+
+
+
+
+
+
+
           <table class="govuk-body" id="transactionstable">
           <p class="govuk-body">  <!-- 7 payments --> </p>
           <thead >
       <tr class="govuk-table__row">
-        <th class="govuk-table__header" scope="col">Payment reference</th>
-        <th class="govuk-table__header" scope="col">Case</th>
-        <th class="govuk-table__header" scope="col">Reference</th>
-        <th class="govuk-table__header" scope="col">Submitted by</th>
-        <th class="govuk-table__header" scope="col">Status</th>
-        <th class="govuk-table__header" scope="col">Date created</th>
-        <th class="govuk-table__header" scope="col">Amount</th>
+        <th scope="col" class="govuk-table__header" aria-sort="ascending"><button type="button" data-index="0">Payment reference</button></th>
+          <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case</button></th>
+<th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Reference</button></th>
+<th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Submitted by</button></th>
+<th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Status</button></th>
+<th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Date created</button></th>
+<th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Amount</button></th>
+
+
 
       </tr>
     </thead>
@@ -270,6 +285,73 @@ table th {
         <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
         <td data-label="Amount">-£550.00</td>
       </tr>
+         <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+        <td data-label="Submitted by">Lucy Smith</td>
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+
+   <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+        <td data-label="Submitted by">Lucy Smith</td>
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+
+         <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+        <td data-label="Submitted by">Lucy Smith</td>
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+   <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+        <td data-label="Submitted by">Lucy Smith</td>
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+   <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+        <td data-label="Submitted by">Lucy Smith</td>
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+   <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+        <td data-label="Submitted by">Lucy Smith</td>
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+   <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+        <td data-label="Submitted by">Lucy Smith</td>
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+
+
 
 
 
@@ -279,7 +361,33 @@ table th {
 
 
 
+<nav class="hmcts-pagination" id="pagination-label">
 
+  <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
+
+  <ul class="hmcts-pagination__list">
+    
+      <li class="hmcts-pagination__item  hmcts-pagination__item--prev">
+        <a class="hmcts-pagination__link" href="">Previous<span class="govuk-visually-hidden"> set of pages</span></a>
+      </li>
+    
+
+      <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="#">1</a></li>
+      <li class="hmcts-pagination__item hmcts-pagination__item--active">2</li>
+
+          <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="#">3</a></li>
+
+      <li class="hmcts-pagination__item  hmcts-pagination__item--next">
+        <a class="hmcts-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
+      </li>
+    
+  </ul>
+
+  
+    <p class="hmcts-pagination__results">Showing <b>16</b> to <b>30</b> of <b>40</b> results</p>
+  
+
+</nav>
 
 
 
