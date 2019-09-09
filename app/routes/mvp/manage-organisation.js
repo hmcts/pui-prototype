@@ -16,15 +16,7 @@ router.get('/mvp-4/manage-organisation/users', (req, res) => {
 			{
 				text: 'peter.gold@wedlakebell.com'
 			},
-			{
-				text: "Yes"
-			},
-			{
-				text: "Yes"
-			},
-			{
-				text: "Yes"
-			},
+	
 
 			{
 				text: "Active"
@@ -32,23 +24,14 @@ router.get('/mvp-4/manage-organisation/users', (req, res) => {
 		],
 		[
 		{
-				html: '<a href="/mvp-4/manage-organisation/users/view-revoked">Amy Venkatanarasimharaj</a>'
+				html: 'Amy Venkatanarasimharaj'
 			},
 			{
 				text: 'amyvenkatanarasimharaj@wedlakebell.com'
 			},
+
 			{
-				text: "Yes"
-			},
-			{
-				text: "No"
-			},
-			{
-				text: "No"
-			},
-	
-			{
-				text: "Suspended"
+				text: "Pending"
 			}
 		],
 	];
@@ -67,15 +50,6 @@ router.get('/mvp-4/manage-organisation/users', (req, res) => {
 
 		{
 			text: `${emailaddress}`
-		},
-		{
-			text: permissions.indexOf('cases') > -1 ? "Yes" : ""
-		},
-		{
-			text: permissions.indexOf('organisation') > -1 ? "Yes" : ""
-		},
-		{
-			text: permissions.indexOf('users') > -1 ? "Yes" : ""
 		},
 	
 		{

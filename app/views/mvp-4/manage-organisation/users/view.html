@@ -57,13 +57,9 @@
         {{ hmctsPageHeaderWithActions({
           title: {
             html: '<h1 class="govuk-heading-l">User details</h1>'
-          },
-          items: [{
+          }
 
-        text: 'Suspend account',
-        classes: 'hmcts-button--secondary',
-        href: '/mvp-4/manage-organisation/users/confirm-suspension'
-          }]
+    
         }) }}
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
@@ -89,9 +85,10 @@
             <td class="govuk-table__cell">
               Manage cases<br>
               Manage organisation<br>
-              Manage users
+              Manage users<p>
+                Manage payment
               </td>
-              <td class="govuk-table__cell"><a href="./update-permissions.html">Change</a></td>
+             <td class="govuk-table__cell"><!-- <a href="./update-permissions.html">Change</a>>--></td
             </tr>
           </tbody>
         </table>
