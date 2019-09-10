@@ -12,9 +12,6 @@
   },
   navigation: {
     items: [{
-      text: 'Profile',
-      href: '/mvp-4/manage-organisation/profile'
-    },{
       text: 'Sign out',
       href: '/sign-out'
     }]
@@ -43,6 +40,10 @@
 
 {% block content %}
 
+<!--{
+      text: 'Profile',
+      href: '/mvp-4/manage-organisation/profile'
+    }, --> 
 
   <div class="hmcts-width-container">
     {% include "../includes/phase-banner.html" %}
@@ -109,7 +110,7 @@
                   value: "cases",
                   text: "Manage cases",
                   hint: {
-                    text: "Create, progress and view the status of the user's own cases."
+                    text: "View, create and progress cases."
                   }
                 },
               
@@ -117,14 +118,14 @@
                   value: "users",
                   text: "Manage users",
                   hint: {
-                    text: "View and invite users."
+                    text: "Invite users."
                   }
                 },
                 {
                   value: "organisation",
-                  text: "View organisation details",
+                  text: "Manage organisation",
                   hint: {
-                    text: "View the organisation's name and address."
+                    text: "View the organisation name and addresses."
                   }
                 },
             {
