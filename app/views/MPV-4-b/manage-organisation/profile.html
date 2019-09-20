@@ -1,0 +1,127 @@
+{% extends "./layout.html" %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp/manage-organisation/profile',
+      active: true
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/mvp/manage-organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/mvp/manage-organisation/users',
+    active: false
+  },
+  {
+    text: 'Fee accounts',
+    href: '/mvp/manage-organisation/payments',
+    active: false
+  }]
+})}}
+
+{% endblock %}
+
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% set primaryNavId = 'cases' %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block preContent %}
+  {% include "./includes/phase-banner.html" %}
+{% endblock %}
+
+{% block mainContent %}
+
+
+    <h1 class="govuk-heading-xl">Profile</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+          {{ govukTable({
+            firstCellIsHeader: true,
+            rows: [
+              [
+                {
+                  text: "First name"
+                },
+                {
+                  text: "Adam"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  text: "Last name"
+                },
+                {
+                  text: "Silver"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  text: "Email"
+                },
+                {
+                  html: "adam.silver@wedlakebell.com"
+                },
+                {
+                  html: ''
+                }
+              ],
+              [
+                {
+                  text: "Password"
+                },
+                {
+                  html: "********"
+                },
+                {
+                  html: ''
+                }
+              ],
+
+              [
+                {
+                  text: "Permitted to manage"
+                },
+                {
+                  html: "cases (all), organisation, users, payments"
+                },
+                {
+                  html: ""
+                }
+              ]
+            ]
+          }) }}
+
+      </div>
+    </div>
+
+
+
+
+
+{% endblock %}
