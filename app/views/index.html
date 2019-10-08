@@ -2,8 +2,6 @@
 {% extends "layouts/service/base.html" %}
 
 
-{% set serviceName = '' %}
-
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -23,7 +21,13 @@
   <ul class="govuk-list">
            
                   <ul class="govuk-list govuk-list--bullet">
-                     <li><a href="/mvp-4/manage-organisation/users/problem.html">There is a problem with the service</a><br>
+
+  <li><a href="/mvp-4/manage-organisation/users/header">MyHMCTS Header</a><br>
+                        <span class="form-hint govuk-list govuk-list--bullet">Context of use of the MyHMCTS Branded Header</span><br>
+                   </li>
+
+
+                     <li><a href="/mvp-4/manage-organisation/users/problem">There is a problem with the service</a><br>
                         <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-899 and EUI-900, This is a page that tells someone there is something wrong with the service</span><br>
                    </li>
 

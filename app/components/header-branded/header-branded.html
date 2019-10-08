@@ -1,0 +1,26 @@
+<header class="jui-header" role="banner">
+
+  <div class="govuk-width-container">
+
+    <div class="jui-header__service">
+      <a href="/app/dashboard">{{serviceName}}</a>
+    </div>
+
+    <div class="jui-header__account">
+      {% block accountNav %}
+        <nav class="jui-account-nav" aria-label="Global navigation">
+          <ul class="jui-account-nav__list">
+            <!-- <li class="jui-account-nav__item"><a class="jui-account-nav__link" href="/app/dashboard">Dashboard</a></li> -->
+            <li class="jui-account-nav__item"><a class="jui-account-nav__link" href="/signout">Signout</a></li>
+          </ul>
+        </nav>
+      {% endblock %}
+    </div>
+
+  </div>
+
+</header>
+
+
+
+
