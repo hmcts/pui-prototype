@@ -36,12 +36,16 @@
 {%- from "hmcts-search/macro.njk" import hmctsSearch %}
 {%- from "hmcts-pagination/macro.njk" import hmctsPagination %}
 
+
+
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="{{ html_lang|default('en') }}"><![endif]-->
 <!--[if gt IE 8]><!--><html lang="{{ html_lang|default('en') }}"><!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title>{% block page_title %}GOV.UK - The best place to find government services and information{% endblock %}</title>
+    <title>{% block pageTitle %}
+  GOV.UK Prototype kit
+{% endblock %}</title>
 
     <link rel="shortcut icon" href="{{ asset_path }}images/favicon.ico" type="image/x-icon">
 
