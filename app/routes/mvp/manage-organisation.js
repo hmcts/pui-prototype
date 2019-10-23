@@ -6,7 +6,6 @@ router.get('/mvp-4/manage-organisation/users', (req, res) => {
 
 	var permissions = req.session.data.permissions || [];
 
-
 	var rows = [
 		[
 
