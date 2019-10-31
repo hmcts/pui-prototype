@@ -15,15 +15,6 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="/mvp-4/register-organisation/organisation-dx-pre">
-
-          {% call govukFieldset({
-        legend: {
-          text: "What's the payment by account (PBA) number for your organisation?",
-          classes: "govuk-fieldset__legend--xl",
-          isPageHeading: true
-        }
-      }) %}
-
             {{ govukErrorSummary({
           "titleText": "There is a problem",
           "errorList": [
@@ -38,6 +29,15 @@
           
           ]
         }) }}
+          {% call govukFieldset({
+        legend: {
+          text: "What's the payment by account (PBA) number for your organisation?",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+
+
 
         {{ govukInput({
           label: {
