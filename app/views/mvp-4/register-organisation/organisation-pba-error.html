@@ -10,40 +10,78 @@
 {% endblock %}
 
 {% block content %}
+  <h1 class="govuk-heading-xl">What's the payment by account (PBA) number for your organisation?</h1>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="/mvp-4/register-organisation/organisation-dx">
+      <form action="/mvp-4/register-organisation/organisation-dx-pre">
 
-        {{ govukErrorSummary({
+            {{ govukErrorSummary({
           "titleText": "There is a problem",
           "errorList": [
           {
-          "text": "Enter PBA number",
+          "text": "Enter a valid PBA number",
+          "href": "#org-pba"
+          },
+ {
+          "text": "Enter a valid PBA number",
           "href": "#org-pba"
           }
+          
           ]
         }) }}
 
         {{ govukInput({
           label: {
-            text: "What's the pay by account (PBA) number for your organisation?",
-            classes: 'govuk-label--xl',
-            isPageHeading: true
+            html: 'PBA number 1 (optional)',
+            classes: 'govuk-label--m'
           },
-          id: "org-pba",
-          name: "org-pba",
-          classes: "govuk-input--width-10",
-          errorMessage: {
-          text: "Enter PBA number"
-        }
+          id: "address-line-1",
+          name: "address-line-1",
+           errorMessage: {
+    text: "Enter a valid PBA number"
+  },
+          classes: 'govuk-input--width-20'
         }) }}
+
+        {{ govukInput({
+          label: {
+            html: 'PBA number 2 (optional)',
+            classes: 'govuk-label--m'
+          },
+          id: "address-line-1",
+          name: "address-line-1",
+           errorMessage: {
+    text: "Enter a valid PBA number"
+  },
+          classes: 'govuk-input--width-20'
+        }) }}
+     
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Why add a PBA number?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p class="govuk-body">Adding a PBA number for your organisation will allow you to view your:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>account balance</li>
+  <li>available credit</li>
+  <li>transactions</li>
+</ul>
+  </div>
+</details>
+
 
         {{govukButton({
           text: 'Continue'
         })}}
-      </form>
-    </div>
+    </form> </div>
   </div>
 
 {% endblock %}
+
+
+
+      
