@@ -118,19 +118,6 @@ information regarding what entering a PBA number enables. H1 title text also cha
 
 
 
-
-
-
-
-
-<!-- <h2 class="govuk-heading-l">Future development wireframe - Manage permissions</h2>
-
-  <p class="govuk-body"></p>
-  <ul class="govuk-list">
-           <li><a href="/mvp-4-b/manage-organisation/users">Users</a><br>
-</li>
-</ul> -->
-
 <h2 class="govuk-heading-l">Latest wireframe - Fee and Pay</h2>
 
 <!-- LATEST WIREFRAME -->
@@ -195,6 +182,27 @@ information regarding what entering a PBA number enables. H1 title text also cha
 LATEST CONTENT
 
 -->
+
+<!-- AAT -->
+
+      <h2 class="govuk-heading-l">Mirror of AAT environment </h2>
+      
+
+      {% set iterationWipHtml %}
+      
+      
+        <ul class="govuk-list govuk-list--bullet">   
+          <li><a href="/mvp-4/register-organisation/start-aat">Register</a><br>
+          <span class="form-hint">Registration, flow matching what is on AAT</span><br></li>
+        </ul>
+      {% endset %}
+
+      {{ govukDetails({
+        summaryHtml: "AAT Mirror",
+        html: iterationWipHtml
+      }) }}
+
+<!-- END OF WIP -->
  
 <!-- WIP -->
 

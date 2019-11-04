@@ -5,16 +5,8 @@
 {% block header %}
 <header class="hmcts-header" role="banner">
 
-<div class="hmcts-header__container">
-    <div class="govuk-header__logo">
-      <a href="/" class="govuk-header__link govuk-header__link--homepage">
-        <span class="govuk-header__logotype">    
-          <span class="govuk-header__logotype-text">
-            MyHMCTS
-          </span>
-        </span>
-      </a>
-    </div>
+<div class="hmcts-header__container"> 
+ 
 <a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
 
 </div>
@@ -32,29 +24,23 @@
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
   }) }}
    {{govukBackLink({
-      href: 'start'
+         href: 'organisation-sra-pre-aat'
     })}}
   <main role="main" class="govuk-main-wrapper">
-
-
- <div class="govuk-grid-row">
+  <div class="govuk-grid-row">
+>
     <div class="govuk-grid-column-two-thirds">
-
-      <form action="/mvp-4/register-organisation/organisation-address">
-
+      <form action="/mvp-4/register-organisation/name-aat">
 
         {{ govukInput({
           label: {
-            text: "What's the name of your organisation?",
+            text: "Enter your organisation SRA ID",
             classes: 'govuk-label--xl',
             isPageHeading: true
           },
-          id: "org-name",
-          name: "org-name"
+          id: "sra-number",
+          name: "sra-number"
         }) }}
-
-
-        <!-- <p class="govuk-body"><a href="#">Can't find your organistaion?</a></p> -->
 
         {{govukButton({
           text: 'Continue'
@@ -62,19 +48,6 @@
       </form>
     </div>
   </div>
-</main>
-</div>
-
-
+    </main>
+  </div>
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
