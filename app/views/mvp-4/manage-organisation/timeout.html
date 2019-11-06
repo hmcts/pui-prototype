@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "./layout.html" %}
 
 {% set serviceName = 'Register to manage civil and family law cases' %}
 
@@ -45,7 +45,7 @@
 
         {{ govukInput({
           label: {
-            text: "What's the name of your organisation?",
+            text: "You've been signed out",
             classes: 'govuk-label--xl',
             isPageHeading: true
           },
@@ -54,10 +54,10 @@
         }) }}
 
 
-        <!-- <p class="govuk-body"><a href="#">Can't find your organistaion?</a></p> -->
+        <p class="govuk-body">You’ve been inactive for too long so we’ve signed you out of your Help to Save account to keep it secure.</p>
 
         {{govukButton({
-          text: 'Continue'
+          text: 'Sign in'
         })}}
       </form>
     </div>
