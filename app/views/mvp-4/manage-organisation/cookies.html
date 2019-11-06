@@ -2,45 +2,34 @@
 
 {% set serviceName = 'Manage organisation details for civil and family law cases' %}
 
-{% block header %}
-{{hmctsHeader({
-  service: {
-    name: serviceName,
-    url: '/'
-  },
-  navigation: {
-    items: [{
-      text: 'Profile',
-      href: '/manage-admin-i3/profile'
-    },{
-      text: 'Sign out',
-      href: '/sign-out'
-    }]
-  }
-})}}
-{{hmctsPrimaryNavigation({
-  classes: "govuk-!-margin-bottom-0",
-  items: [ {
-    text: 'Organisation',
-    href: '/manage-admin-i3',
-    active: true
-  }, {
-    text: 'Users',
-    href: '/manage-admin-i3/users',
-    active: false
-  }]
-
-})}}
-{% endblock %}
-
 {% set primaryNavId = 'cookies' %}
 
 {% block page_title %}Cookies{% endblock %}
 
 {% block preContent %}
-  {% include "./includes/phase-banner.html" %}
+
 {% endblock %}
 
+{% block content%}
+<div class="govuk-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+    <main role="main" class="govuk-main-wrapper">
 {% block mainContent %}
+
   {% include "includes/cookies.html" %}
+{% endblock %}
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+</div>
+</main>
+</div>
+</div>
 {% endblock %}
