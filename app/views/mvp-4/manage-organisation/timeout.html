@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set serviceName = 'Register to manage civil and family law cases' %}
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
 
 {% block header %}
 <header class="hmcts-header" role="banner">
@@ -15,9 +15,20 @@
         </span>
       </a>
     </div>
-<a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
-
+<a class="hmcts-header__link" href="/">Manage organisation details for civil and family law cases</a>
+      <div class="hmcts-header__content">
+        <nav class="hmcts-header__navigation">
+          <ul class="hmcts-header__navigation-list">
+              <li class="hmcts-header__navigation-item">
+                <a class="hmcts-header__navigation-link" href="/sign-in" >
+                  Sign in
+                </a>
+              </li>
+          </ul>
+        </nav>
+      </div>   
 </div>
+  </div>
 
 </header>
 {% endblock %}
@@ -42,19 +53,9 @@
 
       <form action="/mvp-4/register-organisation/organisation-address">
 
-
-        {{ govukInput({
-          label: {
-            text: "You've been signed out",
-            classes: 'govuk-label--xl',
-            isPageHeading: true
-          },
-          id: "org-name",
-          name: "org-name"
-        }) }}
-
-
-        <p class="govuk-body">You’ve been inactive for too long so we’ve signed you out of your Help to Save account to keep it secure.</p>
+ <h1 class="hmcts-page-heading__title govuk-heading-xl">You've been signed out</h1>
+  
+        <p class="govuk-body">You’ve been inactive for too long so we’ve signed you out of your account to keep it secure.</p>
 
         {{govukButton({
           text: 'Sign in'
