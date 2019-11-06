@@ -1,4 +1,11 @@
 {% extends "./layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% set primaryNavId = 'terms' %}
+
+{% block page_title %}Terms{% endblock %}
+
 {% block header %}
 <header class="hmcts-header" role="banner">
   <div class="hmcts-header__container">
@@ -28,19 +35,27 @@
 </header>
 {% endblock %}
 
-{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+{% block content%}
+<div class="govuk-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
 
-{% set primaryNavId = 'terms' %}
-
-
-{% block page_title %}Terms{% endblock %}
-
-{% block preContent %}
-
-  {% include "./includes/phase-banner.html" %}
-
-{% endblock %}
+    <main role="main" class="govuk-main-wrapper">
 
 {% block mainContent %}
   {% include "includes/terms-mc.html" %}
+{% endblock %}
+
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+</div>
+</main>
+</div>
+</div>
 {% endblock %}

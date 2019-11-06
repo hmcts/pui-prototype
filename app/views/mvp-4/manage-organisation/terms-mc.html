@@ -7,10 +7,30 @@
 {% block page_title %}Terms{% endblock %}
 
 {% block preContent %}
-  {% include "./includes/phase-banner.html" %}
+
+{% endblock %}
+
+{% block content%}
+<div class="govuk-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+    <main role="main" class="govuk-main-wrapper">
+{% block mainContent %}
+
+ {% include "includes/terms.html" %}
 {% endblock %}
 
 
-{% block mainContent %}
-  {% include "includes/terms.html" %}
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+</div>
+</main>
+</div>
+</div>
 {% endblock %}
