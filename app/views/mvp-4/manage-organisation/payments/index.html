@@ -1,43 +1,57 @@
 {% extends "../layout.html" %}
-
-{% set serviceName = 'Manage organisation details for civil and family law cases' %}
-
 {% block header %}
-{{hmctsHeader({
-  service: {
-    name: serviceName,
-    url: '/'
-  },
-  navigation: {
-    items: [{
-      text: 'Profile',
-      href: '/mvp/manage-organisation/profile'
-    },{
-      text: 'Sign out',
-      href: '/sign-out'
-    }]
-  }
-})}}
-{{hmctsPrimaryNavigation({
-  classes: "govuk-!-margin-bottom-0",
-  items: [ {
-    text: 'Organisation',
-    href: '/mvp-4/manage-organisation',
-    active: false
-  }, {
-    text: 'Users',
-    href: '/mvp-4/manage-organisation/users',
-    active: false
-  },
-  {
-    text: 'Fee accounts',
-    href: '/mvp-4/manage-organisation/payments',
-    active: true
-  }]
-})}}
-
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">    
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+      <a class="hmcts-header__link" href="/">Manage organisation details for civil and family law cases</a>
+      <div class="hmcts-header__content">
+        <nav class="hmcts-header__navigation">
+          <ul class="hmcts-header__navigation-list">
+              <li class="hmcts-header__navigation-item">
+                <a class="hmcts-header__navigation-link" href="/sign-out" >
+                  Sign out
+                </a>
+              </li>
+          </ul>
+        </nav>
+      </div>   
+<div class="hmcts-primary-navigation govuk-!-margin-bottom-0">
+  <div class="hmcts-primary-navigation__container">
+    <div class="hmcts-primary-navigation__nav">
+      <nav class="hmcts-primary-navigation">
+        <ul class="hmcts-primary-navigation__list">
+          
+            <li class="hmcts-primary-navigation__item">
+              <a class="hmcts-primary-navigation__link"  href="/mvp-4/manage-organisation">
+                Organisation
+              </a>
+            </li>
+            <li class="hmcts-primary-navigation__item">
+              <a class="hmcts-primary-navigation__link"  href="/mvp-4/manage-organisation/users">
+                Users
+              </a>
+            </li>
+            <li class="hmcts-primary-navigation__item">
+              <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/payments">
+                Fee accounts
+              </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+  </div>
+</header>
 {% endblock %}
-
 
 {% block content %}
 

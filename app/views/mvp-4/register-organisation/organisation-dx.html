@@ -1,22 +1,43 @@
-{% extends "layouts/service/base.html" %}
+{% extends "mvp-4/manage-organisation/layout.html" %}
 
 {% set serviceName = 'Register to manage civil and family law cases' %}
 
-{% block beforeContent %}
-  {{ super() }}
-  {{govukBackLink({
-    href: '/mvp-4/register-organisation/organisation-pba'
-  })}}
+{% block header %}
+<header class="hmcts-header" role="banner">
+
+<div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">    
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+<a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
+
+</div>
+
+</header>
 {% endblock %}
 
 {% block content %}
-<!-- <div class="govuk-width-container">
+
+<div class="hmcts-width-container">
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+   {{govukBackLink({
+      href: 'organisation-dx-pre'
+    })}}
+  <main role="main" class="govuk-main-wrapper">
 
 
-
-    <main role="main" class="govuk-main-wrapper"> -->
-
-  <div class="govuk-grid-row">
+ <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
  
 
