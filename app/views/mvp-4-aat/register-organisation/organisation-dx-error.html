@@ -1,0 +1,82 @@
+{% extends "layouts/service/base.html" %}
+
+{% set serviceName = 'Register to manage civil and family law cases' %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{govukBackLink({
+    href: '/mvp-4/register-organisation/organisation-pba'
+  })}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+
+
+
+    <main role="main" class="govuk-main-wrapper">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form action="/mvp-4/register-organisation/name">
+
+  
+
+        {{ govukErrorSummary({
+          "titleText": "There is a problem",
+          "errorList": [
+          {
+          "text": "Enter your DX number",
+          "href": "#dx-number"
+        },
+        {
+        "text": "Enter your DX exchange",
+        "href": "#dx-exchange"
+        }
+          ]
+        }) }}
+
+                            {% call govukFieldset({
+        legend: {
+          text: "What's the DX reference for your main office?",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}  
+
+        {{ govukInput({
+          label: {
+            text: "DX number",
+            classes: 'govuk-label--m'
+          },
+          id: "dx-number",
+          name: "dx-number",
+          errorMessage: {
+          text: "Enter DX number"
+        }
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "DX exchange",
+            classes: 'govuk-label--m'
+          },
+          id: "dx-exchange",
+          name: "dx-exchange",
+          errorMessage: {
+          text: "Enter DX exchange"
+        }
+        }) }}
+           {% endcall %}
+
+        {{govukButton({
+          text: 'Continue'
+        })}}
+      </form>
+    </div>
+  </div>
+    </main>
+  </div>
+{% endblock %}

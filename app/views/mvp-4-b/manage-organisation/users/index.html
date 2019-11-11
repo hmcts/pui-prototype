@@ -1,0 +1,94 @@
+{% extends "../layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% set pageId = 'users' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp-4/manage-organisation/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/mvp-4/manage-organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/mvp-4/manage-organisation/users',
+    active: true
+      }, {
+    text: 'Fee accounts',
+    href: '/mvp-4/manage-organisation/payments',
+    active: false
+
+  }]
+})}}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="hmcts-width-container">
+    {% include "../includes/phase-banner.html" %}
+
+    <main role="main" class="govuk-main-wrapper">
+
+      <div class="hmcts-page-heading">
+        <div class="hmcts-page-heading__title-wrapper">
+          <h1 class="hmcts-page-heading__title govuk-heading-xl">Users</h1>
+        </div>
+        <div class="hmcts-page-heading__actions-wrapper">
+            {{govukButton({
+              text: 'Invite user',
+              href: '/mvp-4/manage-organisation/users/new',
+              classes: 'hmcts-page-heading__button'
+            })}}
+        </div>
+      </div>
+
+
+
+      {{ govukTable({
+        head: [
+
+  {
+            text: "Name"
+          },
+
+          {
+            text: "Email address"
+          },
+          
+          {
+            text: "Status"
+          }
+        ],
+        rows: rows
+      }) }}
+
+
+
+    </main>
+  </div>
+
+  <!--     {
+            text: "Manage fee accounts"
+          },
+        -->
+
+{% endblock %}

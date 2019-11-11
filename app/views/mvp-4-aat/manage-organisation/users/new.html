@@ -1,0 +1,164 @@
+{% extends "../layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">    
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+      <a class="hmcts-header__link" href="/">Manage organisation details for civil and family law cases</a>
+      <div class="hmcts-header__content">
+        <nav class="hmcts-header__navigation">
+          <ul class="hmcts-header__navigation-list">
+              <li class="hmcts-header__navigation-item">
+                <a class="hmcts-header__navigation-link" href="/sign-out" >
+                  Sign out
+                </a>
+              </li>
+          </ul>
+        </nav>
+      </div>   
+<div class="hmcts-primary-navigation govuk-!-margin-bottom-0">
+  <div class="hmcts-primary-navigation__container">
+    <div class="hmcts-primary-navigation__nav">
+      <nav class="hmcts-primary-navigation">
+        <ul class="hmcts-primary-navigation__list">
+          
+            <li class="hmcts-primary-navigation__item">
+              <a class="hmcts-primary-navigation__link"  href="/mvp-4-aat/manage-organisation">
+                Organisation
+              </a>
+            </li>
+            <li class="hmcts-primary-navigation__item">
+              <a class="hmcts-primary-navigation__link"  href="/mvp-4-aat/manage-organisation/users">
+                Users
+              </a>
+            </li>
+       <!--     <li class="hmcts-primary-navigation__item">
+              <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-aat/manage-organisation/payments">
+                Fee accounts
+              </a>
+            </li> -->
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+  </div>
+</header>
+
+{% endblock %}
+
+
+{% block content %}
+
+<!--{
+      text: 'Profile',
+      href: '/mvp-4-aat/manage-organisation/profile'
+    }, --> 
+
+  <div class="hmcts-width-container">
+    {% include "../includes/phase-banner.html" %}
+
+    {{govukBackLink({
+      href: './'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <!-- {{ hmctsBanner({
+          type: 'warning',
+          text: 'Invitation already sent previously.',
+          iconFallbackText: 'Warning'
+          }) }} -->
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+
+
+      <h1 class="govuk-heading-xl">Invite user</h1>
+      <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
+          <form action="./confirmation">
+            {{ govukInput({
+              label: {
+                text: "First name",
+                classes: 'govuk-label--m'
+              },
+              hint: {
+                text: "Include all middle names."
+              },
+              id: "firstname",
+              name: "firstname"
+            }) }}
+            {{ govukInput({
+              label: {
+                text: "Last name",
+                classes: 'govuk-label--m'
+              },
+              id: "lastname",
+              name: "lastname"
+            }) }}
+            {{ govukInput({
+              label: {
+                text: "Email address",
+                classes: 'govuk-label--m'
+              },
+              id: "emailaddress",
+              name: "emailaddress"
+            }) }}
+
+            {{ govukCheckboxes({
+              idPrefix: "permissions",
+              name: "permissions",
+              fieldset: {
+                legend: {
+                  text: "Permissions",
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              hint: {
+                text: "Choose at least one action the user can do. You can change this later."
+              },
+              items: [
+                {
+                  value: "cases",
+                  text: "Manage Cases",
+                  hint: {
+                    text: "View, create and progress cases."
+                  }
+                },
+              
+                {
+                  value: "users",
+                  text: "Manage Users",
+                  hint: {
+                    text: "Invite users."
+                  }
+                },
+                {
+                  value: "organisation",
+                  text: "Manage Organisation",
+                  hint: {
+                    text: "View the organisation name and address."
+                  }
+            
+            }
+
+
+
+          
+              ]
+            }) }}
+
+            {{govukButton({
+              text: 'Send invitation'
+            })}}
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}

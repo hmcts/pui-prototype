@@ -1,0 +1,387 @@
+{% extends "../layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp/manage-organisation/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/mvp-4/manage-organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/mvp-4/manage-organisation/users',
+    active: false
+  },
+  {
+    text: 'Fee accounts',
+    href: '/mvp-4/manage-organisation/payments',
+    active: true
+  }]
+})}}
+<div class="hmcts-width-container">
+    {% include "../includes/phase-banner-no-border.html" %}
+  </div>
+{{ hmctsIdentityBar({
+  title: { html: 'Wedlake Bell - Account A' }
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+
+#no-underline{
+  underline: none;
+}
+
+/* // RESPONSIVE table */
+
+body {
+  line-height: 1.25;
+}
+
+table {
+  border-bottom: 1px solid #fff;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  table-layout: auto;
+}
+
+table caption {
+  /* font-size: 1.5em; */
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em 0;
+  text-align: left;
+
+}
+
+table th {
+
+}
+
+@media screen and (max-width: 650px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    /* font-size: 1.3em; */
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+  }
+
+  table tr {
+    border-bottom: 5px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    /* font-size: .8em; */
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+
+  }
+}
+
+</style>
+
+<div class="hmcts-width-container">
+   {{govukBackLink({
+      href: './'
+    })}}
+
+  <main role="main" class="govuk-main-wrapper">
+
+    {{hmctsSubNavigation({
+      items: [  {
+        text: 'Summary',
+        href: '/mvp-4/manage-organisation/payments/summary',
+        active: false
+      }, {
+        text: 'Transactions',
+        href: '/mvp-4/manage-organisation/payments/transactions',
+        active: true
+      }
+      ]
+    })}}
+
+    <div class="hmcts-page-heading">
+      <div class="hmcts-page-heading__title-wrapper">
+        <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">
+          Transactions
+          </h1>
+      </div>
+      <div class="hmcts-page-heading__actions-wrapper">
+
+      </div>
+    </div>
+
+    <p>Last updated on 15 October 2018 at 3:12pm</p>
+
+          <table class="govuk-body" id="transactionstable">
+          <p class="govuk-body">  <!-- 7 payments --> </p>
+          <thead >
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header" aria-sort="ascending"><button type="button" data-index="0">Payment reference</button></th>
+          <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case</button></th>
+<th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Reference</button></th>
+<!-- <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Submitted by</button></th> -->
+<th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Status</button></th>
+<th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Date created</button></th>
+<th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Amount</button></th>
+
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Payment reference">RC-2352-6362-6257-7742</td>
+        <td data-label="Case">1542-5226-7383-2772</td>
+        <td data-label="Reference">J Hart vs M Hart</td>
+       <!-- <td data-label="Submitted by">James Brown</td> -->
+        <td data-label="Status">Pending</td>
+        <td id="pendingPayment" data-label="Date">15 Oct 2018 at 11pm</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+
+      <tr>
+        <td data-label="Payment reference">RC-9584-2521-7742-1457</td>
+        <td data-label="Case">1526-8943-7271-8327</td>
+        <td data-label="Reference">Smith probate app</td>
+       <!-- <td data-label="Submitted by">Lucy Smith</td> -->
+        <td data-label="Status">Completed</td>
+        <td id="1457Date" data-label="Date">14 Oct 2018 at 12:31pm</td>
+        <td data-label="Amount">-£215.00</td>
+      </tr>
+
+      <tr>
+        <td data-label="Payment reference">RC-6124-1415-7215-1515</td>
+        <td data-label="Case">1562-1578-3622-1589</td>
+        <td data-label="Reference">Jones hearing</td>
+       <!-- <td data-label="Submitted by">Joe Green</td> -->
+        <td data-label="Status">Completed</td>
+        <td id="1515Date" data-label="Date">13 Oct 2018 at 9:11am</td>
+        <td data-label="Amount">-£250.00</td>
+      </tr>
+
+  <!--   <tr class="linked-payment">
+        <td data-label="Payment reference" class="linked-payment-ref">DIRECT DEBIT PAYMENT</td>
+        <td data-label="Case">-</td>
+        <td data-label="Reference">-</td>
+        <td data-label="Submitted by">-</td>
+        <td data-label="Status">Completed</td>
+        <td id="directDebitDate" data-label="Date">2 Oct 2018 at Midnight</td>
+        <td data-label="Amount">+£2590.40</td>
+      </tr> -->
+
+      <tr>
+        <td data-label="Payment reference">RC-6420-7212-7321-8721</td>
+        <td data-label="Case">1538-3893-8483-8337</td>
+        <td data-label="Reference">Baker PRB </td>
+       
+        <td data-label="Status">Completed</td>
+        <td id="8721Date" data-label="Date">12 Oct 2018 at 16:01pm</td>
+        <td data-label="Amount">-£215.00</td>
+      </tr>
+
+      <tr>
+        <td data-label="Payment reference">RC-2234-2626-6772-1678</td>
+        <td data-label="Case">1574-2379-9760-0643</td>
+        <td data-label="Reference">Probate 31</td>
+      
+        <td data-label="Status">Completed</td>
+        <td id="1678Date" data-label="Date">11 Oct 2018 11:43am</td>
+        <td data-label="Amount">-£215.00</td>
+      </tr>
+
+      <tr>
+        <td data-label="Payment reference">RC-3467-6167-1676-7832</td>
+        <td data-label="Case">1562-1578-3622-1589</td>
+        <td data-label="Reference">Jones application</td>
+       
+        <td data-label="Status">Completed</td>
+        <td id="7832Date" data-label="Date">11 Oct 2018 at 15:23pm</td>
+        <td data-label="Amount">-£150.00</td>
+      </tr>
+
+      <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+      
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+         <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+      
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+
+   <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+      
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+
+         <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+     
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+   <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+   
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+   <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+     
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+   <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+       
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+   <tr>
+        <td data-label="Payment reference">RC-7436-2522-7632-8363</td>
+        <td data-label="Case">1508-4872-2683-8278</td>
+        <td data-label="Reference">Greens divorce</td>
+       
+        <td data-label="Status">Completed</td>
+        <td id="8363Date" data-label="Date">10 Oct 2018 at 10:20am</td>
+        <td data-label="Amount">-£550.00</td>
+      </tr>
+
+
+
+
+
+
+    </tbody>
+  </table>
+
+
+
+<nav class="hmcts-pagination" id="pagination-label">
+
+  <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
+
+  <ul class="hmcts-pagination__list">
+    
+      <li class="hmcts-pagination__item  hmcts-pagination__item--prev">
+        <a class="hmcts-pagination__link" href="">Previous<span class="govuk-visually-hidden"> set of pages</span></a>
+      </li>
+    
+
+      <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="#">1</a></li>
+      <li class="hmcts-pagination__item hmcts-pagination__item--active">2</li>
+
+          <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="#">3</a></li>
+
+      <li class="hmcts-pagination__item  hmcts-pagination__item--next">
+        <a class="hmcts-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
+      </li>
+    
+  </ul>
+
+  
+    <p class="hmcts-pagination__results">Showing <b>16</b> to <b>30</b> of <b>40</b> results</p>
+  
+
+</nav>
+
+
+
+
+  </main>
+
+</div>
+
+{% endblock %}

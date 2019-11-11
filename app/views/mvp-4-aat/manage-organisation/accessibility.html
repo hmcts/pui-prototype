@@ -1,0 +1,35 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% set primaryNavId = 'accessibility' %}
+
+{% block page_title %}Accessibility{% endblock %}
+
+{% block preContent %}
+
+{% endblock %}
+
+{% block content%}
+<div class="govuk-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+    <main role="main" class="govuk-main-wrapper">
+{% block mainContent %}
+
+  {% include "includes/accessibility.html" %}
+{% endblock %}
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+</div>
+</main>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "../layout.html" %}
+
+{% block pageTitle %}
+  Sorry, there is a problem with the service – Manage organisation details for civil and family law cases – GOV.UK
+{% endblock %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% set pageId = 'users' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp-4/manage-organisation/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/mvp-4/manage-organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/mvp-4/manage-organisation/users',
+    active: true
+          }, {
+    text: 'Fee accounts',
+    href: '/mvp-4/manage-organisation/payments',
+    active: false
+
+  }]
+})}}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="hmcts-width-container">
+    {% include "../includes/phase-banner.html" %}
+    <main role="main" class="govuk-main-wrapper">
+     <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Sorry, there is a problem with the service</h1>
+      <p class="govuk-body">Try again later.</p>
+      <p class="govuk-body">We have not saved your changes. When the service is available, you will have to start again.</p>
+   <p class="govuk-body">
+        Contact the service desk if you have any questions.
+      </p>
+
+    </div>
+  </div>
+    </main>
+  </div>
+{% endblock %}

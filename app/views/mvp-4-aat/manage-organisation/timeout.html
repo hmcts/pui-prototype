@@ -1,0 +1,78 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% block header %}
+<header class="hmcts-header" role="banner">
+
+<div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">    
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+<a class="hmcts-header__link" href="/">Manage organisation details for civil and family law cases</a>
+      <div class="hmcts-header__content">
+        <nav class="hmcts-header__navigation">
+          <ul class="hmcts-header__navigation-list">
+              <li class="hmcts-header__navigation-item">
+                <a class="hmcts-header__navigation-link" href="/sign-in" >
+                  Sign in
+                </a>
+              </li>
+          </ul>
+        </nav>
+      </div>   
+</div>
+  </div>
+
+</header>
+{% endblock %}
+
+{% block content %}
+
+<div class="hmcts-width-container">
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+  <main role="main" class="govuk-main-wrapper">
+
+ <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/mvp-4/register-organisation/organisation-address">
+
+ <h1 class="hmcts-page-heading__title govuk-heading-xl">We have signed you out</h1>
+  
+        <p class="govuk-body">For your security, we’ve signed you out of your account.</p>
+
+        {{govukButton({
+          text: 'Sign in'
+        })}}
+      </form>
+    </div>
+  </div>
+</main>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

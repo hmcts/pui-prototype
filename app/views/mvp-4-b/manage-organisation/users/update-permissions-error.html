@@ -1,0 +1,147 @@
+{% extends "../layout.html" %}
+
+{% set serviceName = 'Manage organisation details for civil and family law cases' %}
+
+{% set pageId = 'users' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/mvp-4/manage-organisation/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Organisation',
+    href: '/mvp-4/manage-organisation',
+    active: false
+  }, {
+    text: 'Users',
+    href: '/mvp-4/manage-organisation/users',
+    active: true
+          }, {
+    text: 'Fee accounts',
+    href: '/mvp-4/manage-organisation/payments',
+    active: false
+
+  }]
+})}}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+  <div class="hmcts-width-container">
+    {% include "../includes/phase-banner.html" %}
+
+    {{govukBackLink({
+      href: './view'
+    })}}
+
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+  <h2 class="govuk-error-summary__title" id="error-summary-title">
+    There is a problem
+  </h2>
+  <div class="govuk-error-summary__body">
+    <ul class="govuk-list govuk-error-summary__list">
+      <li>
+        <a href="#nationality">You must select at least one action</a>
+      </li>
+    </ul>
+  </div>
+</div>
+      <h1 class="govuk-heading-l">[First name, Last name]</h1>
+
+
+
+<div class="govuk-form-group govuk-form-group--error">
+  <fieldset class="govuk-fieldset" aria-describedby="nationality-hint nationality-error">
+     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+  
+    Permissions
+  
+  </legend>
+    <span id="nationality-hint" class="govuk-hint">
+      Choose at least one action the user can do. You can change this later.
+    </span>
+    <span id="nationality-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> You must select at least one action
+    </span>
+
+   <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="permissions-1" name="permissions" type="checkbox" value="cases" aria-describedby="permissions-1-item-hint">
+      <label class="govuk-label govuk-checkboxes__label" for="permissions-1">
+        Manage cases
+      </label>
+      <span id="permissions-1-item-hint" class="govuk-hint govuk-checkboxes__hint">
+        Create, progress and view the status of the user&#39;s own cases.
+      </span>
+    </div>
+    
+    
+    
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="permissions-3" name="permissions" type="checkbox" value="organisation" aria-describedby="permissions-3-item-hint">
+      <label class="govuk-label govuk-checkboxes__label" for="permissions-3">
+        Manage organisation
+      </label>
+      <span id="permissions-3-item-hint" class="govuk-hint govuk-checkboxes__hint">
+        View the organisation&#39;s name and address.
+      </span>
+    </div>
+    
+    
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="permissions-2" name="permissions" type="checkbox" value="users" aria-describedby="permissions-2-item-hint">
+      <label class="govuk-label govuk-checkboxes__label" for="permissions-2">
+        Manage users
+      </label>
+      <span id="permissions-2-item-hint" class="govuk-hint govuk-checkboxes__hint">
+        View and invite users.
+      </span>
+    </div>
+    
+
+
+
+
+
+
+    </div>
+  </fieldset>
+
+    {{govukButton({
+          text: 'Submit'
+        })}}
+</div>
+
+
+
+
+
+
+    </div>
+
+
+
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}
