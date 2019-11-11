@@ -52,15 +52,14 @@
   </div>
 </header>
 
-{% set serviceName = 'Manage organisation details for civil and family law cases' %}
-
 <div class="hmcts-width-container">
-  {% include "../includes/phase-banner-no-border.html" %}
+   {% include "../includes/phase-banner.html" %}
 </div>
+<!-- 
 {{ hmctsIdentityBar({
   title: { html: 'Wedlake Bell - Account A' }
 }) }}
-
+-->
 {% endblock %}
 
 
@@ -85,18 +84,16 @@
         ]
       })}}
 
-      <div class="hmcts-page-heading">
-        <div class="hmcts-page-heading__title-wrapper">
-          <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">
-           Summary
-            </h1>
-        </div>
-        <div class="hmcts-page-heading__actions-wrapper">
-
-        </div>
+    <div class="hmcts-page-heading">
+      <div class="hmcts-page-heading__title-wrapper">
+        <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">  <span class="govuk-caption-xl">Wedlake Bell - Account A</span>
+          Transactions
+          </h1>
       </div>
+    
+    </div>
 
-      <p>Last updated on 15 October 2018 at 3:12pm</p>
+    <p>Last updated on 15 October 2018 at 3:12pm</p>
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">

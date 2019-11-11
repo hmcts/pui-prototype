@@ -4,8 +4,7 @@
   <div class="hmcts-header__container">
     <div class="govuk-header__logo">
       <a href="/" class="govuk-header__link govuk-header__link--homepage">
-        <span class="govuk-header__logotype"> 
-  
+        <span class="govuk-header__logotype">    
           <span class="govuk-header__logotype-text">
             MyHMCTS
           </span>
@@ -52,22 +51,115 @@
 </div>
   </div>
 </header>
-
-{% set serviceName = 'Manage organisation details for civil and family law cases' %}
-
 <div class="hmcts-width-container">
-  {% include "../includes/phase-banner-no-border.html" %}
+   {% include "../includes/phase-banner.html" %}
 </div>
+<!-- 
 {{ hmctsIdentityBar({
   title: { html: 'Wedlake Bell - Account A' }
 }) }}
-
-{% endblock %}
+-->
+{% endblock %}}
 
 
 {% block content %}
 
+<style>
 
+#no-underline{
+  underline: none;
+}
+
+/* // RESPONSIVE table */
+
+body {
+  line-height: 1.25;
+}
+
+table {
+  border-bottom: 1px solid #fff;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  table-layout: auto;
+}
+
+table caption {
+  /* font-size: 1.5em; */
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em 0;
+  text-align: left;
+
+}
+
+table th {
+
+}
+
+@media screen and (max-width: 650px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    /* font-size: 1.3em; */
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+  }
+
+  table tr {
+    border-bottom: 5px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    /* font-size: .8em; */
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+
+  }
+}
+
+</style>
 
 <div class="hmcts-width-container">
    {{govukBackLink({
@@ -91,13 +183,11 @@
 
     <div class="hmcts-page-heading">
       <div class="hmcts-page-heading__title-wrapper">
-        <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">
+        <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">  <span class="govuk-caption-xl">Wedlake Bell - Account A</span>
           Transactions
           </h1>
       </div>
-      <div class="hmcts-page-heading__actions-wrapper">
-
-      </div>
+    
     </div>
 
     <p>Last updated on 15 October 2018 at 3:12pm</p>
