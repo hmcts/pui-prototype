@@ -1,136 +1,106 @@
 {% extends "../layout.html" %}
 {% block header %}
 <header class="hmcts-header" role="banner">
-  <div class="hmcts-header__container">
-    <div class="govuk-header__logo">
-      <a href="/" class="govuk-header__link govuk-header__link--homepage">
-        <span class="govuk-header__logotype">    
-          <span class="govuk-header__logotype-text">
-            MyHMCTS
-          </span>
-        </span>
-      </a>
-    </div>
-      <a class="hmcts-header__link" href="/">Manage organisation details for civil and family law cases</a>
-      <div class="hmcts-header__content">
-        <nav class="hmcts-header__navigation">
-          <ul class="hmcts-header__navigation-list">
-              <li class="hmcts-header__navigation-item">
-                <a class="hmcts-header__navigation-link" href="/sign-out" >
-                  Sign out
-                </a>
-              </li>
-          </ul>
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="#" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="#">Manage organisation details for civil and family law cases</a>
+        <div class="hmcts-header__content">
+            <nav class="hmcts-header__navigation" aria-label="Account navigation">
+                <ul class="hmcts-header__navigation-list">
+                    <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+                    <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Sign out
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <nav class="hmcts-primary-navigation">
+            <ul class="hmcts-primary-navigation__list">
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
+                        Organisation
+                    </a>
+                </li>
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/users">
+                        Users
+                    </a>
+                </li>
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li>
+            </ul>
         </nav>
-      </div>   
-<div class="hmcts-primary-navigation govuk-!-margin-bottom-0">
-  <div class="hmcts-primary-navigation__container">
-    <div class="hmcts-primary-navigation__nav">
-      <nav class="hmcts-primary-navigation">
-        <ul class="hmcts-primary-navigation__list">
-          
-            <li class="hmcts-primary-navigation__item">
-              <a class="hmcts-primary-navigation__link"  href="/mvp-4/manage-organisation">
-                Organisation
-              </a>
-            </li>
-            <li class="hmcts-primary-navigation__item">
-              <a class="hmcts-primary-navigation__link"  href="/mvp-4/manage-organisation/users">
-                Users
-              </a>
-            </li>
-            <li class="hmcts-primary-navigation__item">
-              <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/payments">
-                Fee accounts
-              </a>
-            </li>
-        </ul>
-      </nav>
     </div>
-  </div>
-</div>
-  </div>
 </header>
 {% endblock %}
-
 {% block content %}
-
 <div class="hmcts-width-container">
     {% include "../includes/phase-banner.html" %}
-  <main role="main" class="govuk-main-wrapper">
-    <h1 class="hmcts-page-heading__title govuk-heading-xl">Fee accounts</h1>
-
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-
-          {{ govukTable({
-            head: [
-              {
+    <main role="main" class="govuk-main-wrapper">
+        <h1 class="hmcts-page-heading__title govuk-heading-xl">Fee accounts</h1>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                {{ govukTable({
+                head: [
+                {
                 text: "Account number"
-              },
-              {
+                },
+                {
                 text: "Account name"
-              }
-            ],
-            rows: [
-              [
+                }
+                ],
+                rows: [
+                [
                 {
-                  html: '<a class="govuk-link" href="/mvp-4/manage-organisation/payments/summary">PBA0241163</a>'
+                html: '<a class="govuk-link" href="/mvp-4/manage-organisation/payments/summary">PBA0241163</a>'
                 },
                 {
-                  html: 'Wedlake Bell - Account A'
+                html: 'Wedlake Bell - Account A'
                 }
-              ],
-              [
+                ],
+                [
                 {
-                  html: '<a class="govuk-link" href="#">PBA222333</a>'
+                html: '<a class="govuk-link" href="#">PBA222333</a>'
                 },
                 {
-                  html: 'Wedlake Bell - Account B'
+                html: 'Wedlake Bell - Account B'
                 }
-              ]
-            ]
-          }) }}
-
-
-
-
-
-    </div>
-    </div>
-
-
-
-
-
-  </main>
-
+                ]
+                ]
+                }) }}
+            </div>
+        </div>
+    </main>
 </div>
-
-
 {% endblock %}
 {% block pageScripts %}
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-
-
 <script>
-
 nextPaymentDue();
 
 function nextPaymentDue() {
-  var dateField = document.getElementById('nextpayment1');
-  dateField.innerHTML = moment().add(1, 'months').format ('01 MMM YYYY');
+    var dateField = document.getElementById('nextpayment1');
+    dateField.innerHTML = moment().add(1, 'months').format('01 MMM YYYY');
 
-  var dateField = document.getElementById('nextpayment2');
-  dateField.innerHTML = moment().add(1, 'months').format ('03 MMM YYYY');
-  }
-
-
-
-
-
+    var dateField = document.getElementById('nextpayment2');
+    dateField.innerHTML = moment().add(1, 'months').format('03 MMM YYYY');
+}
 </script>
-
-
 {% endblock %}

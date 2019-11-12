@@ -1,109 +1,91 @@
 {% extends "mvp-4/manage-organisation/layout.html" %}
-
 {% set serviceName = 'Register to manage civil and family law cases' %}
-
 {% block header %}
 <header class="hmcts-header" role="banner">
-
-<div class="hmcts-header__container">
-    <div class="govuk-header__logo">
-      <a href="/" class="govuk-header__link govuk-header__link--homepage">
-        <span class="govuk-header__logotype">    
-          <span class="govuk-header__logotype-text">
-            MyHMCTS
-          </span>
-        </span>
-      </a>
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
     </div>
-<a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
-
-</div>
-
 </header>
 {% endblock %}
-
 {% block content %}
-
 <div class="hmcts-width-container">
-  {{ govukPhaseBanner({
+    {{ govukPhaseBanner({
     tag: {
-      text: "Beta"
+    text: "Beta"
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-  }) }}
-   {{govukBackLink({
-      href: 'organisation-pba'
+    }) }}
+    {{govukBackLink({
+    href: 'organisation-pba'
     })}}
-  <main role="main" class="govuk-main-wrapper">
-
-
- <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-
-      <form action="/mvp-4/register-organisation/name">
-
-  
-
-        {{ govukErrorSummary({
-          "titleText": "There is a problem",
-          "errorList": [
-          {
-          "text": "Enter your DX number",
-          "href": "#dx-number"
-        },
-        {
-        "text": "Enter your DX exchange",
-        "href": "#dx-exchange"
-        }
-          ]
-        }) }}
-
-                            {% call govukFieldset({
-        legend: {
-          text: "What's the DX reference for your main office?",
-          classes: "govuk-fieldset__legend--xl",
-          isPageHeading: true
-        }
-      }) %}  
-
-        {{ govukInput({
-          label: {
-            text: "DX number",
-            classes: 'govuk-label--m'
-          },
-          id: "dx-number",
-          name: "dx-number",
-          errorMessage: {
-          text: "Enter DX number"
-        },
-           hint: {
-                text: "This can be up to 13 characters (including letters and numbers). For example 931NR. You don't need to include 'DX'."
-              }
-        }) }}
-
-        {{ govukInput({
-          label: {
-            text: "DX exchange",
-            classes: 'govuk-label--m'
-          },
-          id: "dx-exchange",
-          name: "dx-exchange",
-          errorMessage: {
-          text: "Enter DX exchange"
-        },
-          hint: {
-                text: "This can be up to 20 characters (including letters, numbers and symbols). For example: HAYES (MIDDLESEX)."
-              }
-        }) }}
-           {% endcall %}
-
-        {{govukButton({
-          text: 'Continue'
-        })}}
-      </form>
-    </div>
-  </div>
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <form action="/mvp-4/register-organisation/name">
+                    {{ govukErrorSummary({
+                    "titleText": "There is a problem",
+                    "errorList": [
+                    {
+                    "text": "Enter your DX number",
+                    "href": "#dx-number"
+                    },
+                    {
+                    "text": "Enter your DX exchange",
+                    "href": "#dx-exchange"
+                    }
+                    ]
+                    }) }}
+                    {% call govukFieldset({
+                    legend: {
+                    text: "What's the DX reference for your main office?",
+                    classes: "govuk-fieldset__legend--xl",
+                    isPageHeading: true
+                    }
+                    }) %}
+                    {{ govukInput({
+                    label: {
+                    text: "DX number",
+                    classes: 'govuk-label--m'
+                    },
+                    id: "dx-number",
+                    name: "dx-number",
+                    errorMessage: {
+                    text: "Enter DX number"
+                    },
+                    hint: {
+                    text: "This can be up to 13 characters (including letters and numbers). For example 931NR. You don't need to include 'DX'."
+                    }
+                    }) }}
+                    {{ govukInput({
+                    label: {
+                    text: "DX exchange",
+                    classes: 'govuk-label--m'
+                    },
+                    id: "dx-exchange",
+                    name: "dx-exchange",
+                    errorMessage: {
+                    text: "Enter DX exchange"
+                    },
+                    hint: {
+                    text: "This can be up to 20 characters (including letters, numbers and symbols). For example: HAYES (MIDDLESEX)."
+                    }
+                    }) }}
+                    {% endcall %}
+                    {{govukButton({
+                    text: 'Continue'
+                    })}}
+                </form>
+            </div>
+        </div>
     </main>
-  </div>
+</div>
 {% endblock %}

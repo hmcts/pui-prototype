@@ -1,170 +1,142 @@
 {% extends "../layout.html" %}
 {% block header %}
 <header class="hmcts-header" role="banner">
-  <div class="hmcts-header__container">
-    <div class="govuk-header__logo">
-      <a href="/" class="govuk-header__link govuk-header__link--homepage">
-        <span class="govuk-header__logotype">    
-          <span class="govuk-header__logotype-text">
-            MyHMCTS
-          </span>
-        </span>
-      </a>
-    </div>
-      <a class="hmcts-header__link" href="/">Manage organisation details for civil and family law cases</a>
-      <div class="hmcts-header__content">
-        <nav class="hmcts-header__navigation">
-          <ul class="hmcts-header__navigation-list">
-              <li class="hmcts-header__navigation-item">
-                <a class="hmcts-header__navigation-link" href="/sign-out" >
-                  Sign out
-                </a>
-              </li>
-          </ul>
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="#" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="#">Manage organisation details for civil and family law cases</a>
+        <div class="hmcts-header__content">
+            <nav class="hmcts-header__navigation" aria-label="Account navigation">
+                <ul class="hmcts-header__navigation-list">
+                    <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+                    <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Sign out
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <nav class="hmcts-primary-navigation">
+            <ul class="hmcts-primary-navigation__list">
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
+                        Organisation
+                    </a>
+                </li>
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/users">
+                        Users
+                    </a>
+                </li>
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li>
+            </ul>
         </nav>
-      </div>   
-<div class="hmcts-primary-navigation govuk-!-margin-bottom-0">
-  <div class="hmcts-primary-navigation__container">
-    <div class="hmcts-primary-navigation__nav">
-      <nav class="hmcts-primary-navigation">
-        <ul class="hmcts-primary-navigation__list">
-          
-            <li class="hmcts-primary-navigation__item">
-              <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
-                Organisation
-              </a>
-            </li>
-            <li class="hmcts-primary-navigation__item">
-              <a class="hmcts-primary-navigation__link"  aria-current="page" href="/mvp-4/manage-organisation/users">
-                Users
-              </a>
-            </li>
-       <li class="hmcts-primary-navigation__item">
-              <a class="hmcts-primary-navigation__link"  href="/mvp-4/manage-organisation/payments">
-                Fee accounts
-              </a>
-            </li>
-        </ul>
-      </nav>
     </div>
-  </div>
-</div>
-  </div>
 </header>
-
 {% endblock %}
-
-
 {% block content %}
-
-
-  <div class="hmcts-width-container">
+<div class="hmcts-width-container">
     {% include "../includes/phase-banner.html" %}
-
     {{govukBackLink({
-      href: './view'
+    href: './view'
     })}}
-
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l">[First name, Last name]</h1>
-
-      <form action="./view" method="post">
-
-
-        {% set caseLevelsHtml %}
-          {{ govukRadios({
-            idPrefix: "where-do-you-live",
-            name: "Level",
-            fieldset: {
-              legend: {
-                text: ""
-              }
-            },
-            items: [
-              {
-                value: "org",
-                text: "Own cases only",
-                checked: true
-              },
-              {
-                value: "scotland",
-                text: "All the organisation's cases"
-              }
-            ]
-          }) }}
-        {% endset %}
-
-        {{ govukCheckboxes({
-           idPrefix: "permissions",
-          name: "permissions",
-          fieldset: {
-            legend: {
-              text: "Permissions",
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-       hint: {
-            text: "Choose at least one action the user can do. You can change this later."
-          },
-          items: [
-            {
-              value: "cases",
-              text: "Manage cases",
-              checked: true,
-              hint: {
-                text: "View, create and progress cases."
-              }
-            },
-
-             {
-              value: "users",
-              text: "Manage users",
-              checked: true,
-              hint: {
-                text: "Invite users."
-              }
-                },
-
-             {
-              value: "organisation",
-              text: "Manage organisation",
-              checked: true,
-              hint: {
-                text: "View the organisation name and address."
-              }
-            },
-            
-           
-          
-            {
-              value: "payment",
-              text: "Manage fee accounts",
-              checked: true,
-              hint: {
-                text: "View payments, account balances, available credit and transactions."
-              }
-            }
-
-
-           
-            
-          ]
-        }) }}
-
-        {{govukButton({
-          text: 'Submit'
-        })}}
-      </form>
-
-    </div>
-
-
-
+                <h1 class="govuk-heading-l">[First name, Last name]</h1>
+                <form action="./view" method="post">
+                    {% set caseLevelsHtml %}
+                    {{ govukRadios({
+                    idPrefix: "where-do-you-live",
+                    name: "Level",
+                    fieldset: {
+                    legend: {
+                    text: ""
+                    }
+                    },
+                    items: [
+                    {
+                    value: "org",
+                    text: "Own cases only",
+                    checked: true
+                    },
+                    {
+                    value: "scotland",
+                    text: "All the organisation's cases"
+                    }
+                    ]
+                    }) }}
+                    {% endset %}
+                    {{ govukCheckboxes({
+                    idPrefix: "permissions",
+                    name: "permissions",
+                    fieldset: {
+                    legend: {
+                    text: "Permissions",
+                    classes: "govuk-fieldset__legend--m"
+                    }
+                    },
+                    hint: {
+                    text: "Choose at least one action the user can do. You can change this later."
+                    },
+                    items: [
+                    {
+                    value: "cases",
+                    text: "Manage cases",
+                    checked: true,
+                    hint: {
+                    text: "View, create and progress cases."
+                    }
+                    },
+                    {
+                    value: "users",
+                    text: "Manage users",
+                    checked: true,
+                    hint: {
+                    text: "Invite users."
+                    }
+                    },
+                    {
+                    value: "organisation",
+                    text: "Manage organisation",
+                    checked: true,
+                    hint: {
+                    text: "View the organisation name and address."
+                    }
+                    },
+                    {
+                    value: "payment",
+                    text: "Manage fee accounts",
+                    checked: true,
+                    hint: {
+                    text: "View payments, account balances, available credit and transactions."
+                    }
+                    }
+                    ]
+                    }) }}
+                    {{govukButton({
+                    text: 'Submit'
+                    })}}
+                </form>
+            </div>
         </div>
-      </div>
-    </main>
-  </div>
+</div>
+</main>
+</div>
 {% endblock %}

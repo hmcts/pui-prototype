@@ -1,114 +1,92 @@
 {% extends "mvp-4/manage-organisation/layout.html" %}
-
 {% set serviceName = 'Register to manage civil and family law cases' %}
-
 {% block header %}
 <header class="hmcts-header" role="banner">
-
-<div class="hmcts-header__container">
-    <div class="govuk-header__logo">
-      <a href="/" class="govuk-header__link govuk-header__link--homepage">
-        <span class="govuk-header__logotype">    
-          <span class="govuk-header__logotype-text">
-            MyHMCTS
-          </span>
-        </span>
-      </a>
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
     </div>
-<a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
-
-</div>
-
 </header>
 {% endblock %}
-
 {% block content %}
-
 <div class="hmcts-width-container">
-  {{ govukPhaseBanner({
+    {{ govukPhaseBanner({
     tag: {
-      text: "Beta"
+    text: "Beta"
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-  }) }}
-   {{govukBackLink({
-      href: 'organisation-name'
+    }) }}
+    {{govukBackLink({
+    href: 'organisation-name'
     })}}
-  <main role="main" class="govuk-main-wrapper">
-
-
- <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <form action="/mvp-4/register-organisation/organisation-pba">
-
-      {% call govukFieldset({
-        legend: {
-          text: "What's the address of your main office?",
-          classes: "govuk-fieldset__legend--xl",
-          isPageHeading: true
-        }
-      }) %}
-
-        {{ govukInput({
-          label: {
-            html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>',
-            classes: 'govuk-label--m'
-          },
-          id: "address-line-1",
-          name: "address-line-1"
-        }) }}
-
-        {{ govukInput({
-          label: {
-            html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
-          },
-          id: "address-line-2",
-          name: "address-line-2"
-        }) }}
-
-        {{ govukInput({
-          label: {
-            text: "Town or city",
-            classes: 'govuk-label--m'
-          },
-          classes: "govuk-!-width-two-thirds",
-          id: "address-town",
-          name: "address-town"
-        }) }}
-
-        {{ govukInput({
-          label: {
-            text: "County",
-            classes: 'govuk-label--m'
-          },
-          classes: "govuk-!-width-two-thirds",
-          id: "address-county",
-          name: "address-county"
-        }) }}
-
-        {{ govukInput({
-          label: {
-            text: "Postcode",
-            classes: 'govuk-label--m'
-          },
-          classes: "govuk-input--width-10",
-          id: "address-postcode",
-          name: "address-postcode"
-        }) }}
-
-      {% endcall %}
-
-      {{govukButton({
-        text: 'Continue'
-      })}}
-
-    </form>
-  </div>
-</div>
-
-
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <form action="/mvp-4/register-organisation/organisation-pba">
+                    {% call govukFieldset({
+                    legend: {
+                    text: "What's the address of your main office?",
+                    classes: "govuk-fieldset__legend--xl",
+                    isPageHeading: true
+                    }
+                    }) %}
+                    {{ govukInput({
+                    label: {
+                    html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>',
+                    classes: 'govuk-label--m'
+                    },
+                    id: "address-line-1",
+                    name: "address-line-1"
+                    }) }}
+                    {{ govukInput({
+                    label: {
+                    html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+                    },
+                    id: "address-line-2",
+                    name: "address-line-2"
+                    }) }}
+                    {{ govukInput({
+                    label: {
+                    text: "Town or city",
+                    classes: 'govuk-label--m'
+                    },
+                    classes: "govuk-!-width-two-thirds",
+                    id: "address-town",
+                    name: "address-town"
+                    }) }}
+                    {{ govukInput({
+                    label: {
+                    text: "County",
+                    classes: 'govuk-label--m'
+                    },
+                    classes: "govuk-!-width-two-thirds",
+                    id: "address-county",
+                    name: "address-county"
+                    }) }}
+                    {{ govukInput({
+                    label: {
+                    text: "Postcode",
+                    classes: 'govuk-label--m'
+                    },
+                    classes: "govuk-input--width-10",
+                    id: "address-postcode",
+                    name: "address-postcode"
+                    }) }}
+                    {% endcall %}
+                    {{govukButton({
+                    text: 'Continue'
+                    })}}
+                </form>
+            </div>
+        </div>
     </main>
-  </div>
-  
+</div>
 {% endblock %}

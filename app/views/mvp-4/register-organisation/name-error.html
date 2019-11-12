@@ -1,99 +1,81 @@
 {% extends "mvp-4/manage-organisation/layout.html" %}
-
 {% set serviceName = 'Register to manage civil and family law cases' %}
-
 {% block header %}
 <header class="hmcts-header" role="banner">
-
-<div class="hmcts-header__container">
-    <div class="govuk-header__logo">
-      <a href="/" class="govuk-header__link govuk-header__link--homepage">
-        <span class="govuk-header__logotype">    
-          <span class="govuk-header__logotype-text">
-            MyHMCTS
-          </span>
-        </span>
-      </a>
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
     </div>
-<a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
-
-</div>
-
 </header>
 {% endblock %}
-
 {% block content %}
-
 <div class="hmcts-width-container">
-  {{ govukPhaseBanner({
+    {{ govukPhaseBanner({
     tag: {
-      text: "Beta"
+    text: "Beta"
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-  }) }}
-   {{govukBackLink({
-      href: 'organisation-sra'
+    }) }}
+    {{govukBackLink({
+    href: 'organisation-sra'
     })}}
-  <main role="main" class="govuk-main-wrapper">
-
-
- <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-
-
-
-          <form action="/mvp-4/register-organisation/email">
-
-            {{ govukErrorSummary({
-              "titleText": "There is a problem",
-              "errorList": [
-              {
-              "text": "Enter first name",
-              "href": "#firstname"
-            },
-            {
-            "text": "Enter last name",
-            "href": "#lastname"
-            }
-              ]
-            }) }}
-
-              <h1 class="govuk-heading-xl">What's your name?</h1>
-
-            {{ govukInput({
-              label: {
-                text: "First name(s)",
-                classes: 'govuk-label--m'
-              },
-              hint: {
-                text: 'Include all middle names.'
-              },
-              id: "firstname",
-              name: "firstname",
-              errorMessage: {
-              text: "Enter first name"
-            }
-            }) }}
-
-            {{ govukInput({
-              label: {
-                text: "Last name",
-                classes: 'govuk-label--m'
-              },
-              id: "lastname",
-              name: "lastname",
-              errorMessage: {
-              text: "Enter last name"
-            }
-            }) }}
-
-            {{govukButton({
-              text: 'Continue'
-            })}}
-          </form>
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <form action="/mvp-4/register-organisation/email">
+                    {{ govukErrorSummary({
+                    "titleText": "There is a problem",
+                    "errorList": [
+                    {
+                    "text": "Enter first name",
+                    "href": "#firstname"
+                    },
+                    {
+                    "text": "Enter last name",
+                    "href": "#lastname"
+                    }
+                    ]
+                    }) }}
+                    <h1 class="govuk-heading-xl">What's your name?</h1>
+                    {{ govukInput({
+                    label: {
+                    text: "First name(s)",
+                    classes: 'govuk-label--m'
+                    },
+                    hint: {
+                    text: 'Include all middle names.'
+                    },
+                    id: "firstname",
+                    name: "firstname",
+                    errorMessage: {
+                    text: "Enter first name"
+                    }
+                    }) }}
+                    {{ govukInput({
+                    label: {
+                    text: "Last name",
+                    classes: 'govuk-label--m'
+                    },
+                    id: "lastname",
+                    name: "lastname",
+                    errorMessage: {
+                    text: "Enter last name"
+                    }
+                    }) }}
+                    {{govukButton({
+                    text: 'Continue'
+                    })}}
+                </form>
+            </div>
         </div>
-      </div>
     </main>
-  </div>
-
+</div>
 {% endblock %}

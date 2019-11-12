@@ -1,93 +1,51 @@
-
 {% extends "../layout.html" %}
-
-
 {% block header %}
-
 <header class="hmcts-header" role="banner">
-
-<div class="hmcts-header__container">
-    <div class="govuk-header__logo">
-      <a href="/" class="govuk-header__link govuk-header__link--homepage">
-        <span class="govuk-header__logotype">    
-          <span class="govuk-header__logotype-text">
-            MyHMCTS
-          </span>
-        </span>
-      </a>
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Service name</a>
+        <div class="hmcts-header__content">
+            <nav class="hmcts-header__navigation" aria-label="Account navigation">
+                <ul class="hmcts-header__navigation-list">
+                    <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Sign out
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
-<a class="hmcts-header__link" href="/">Service name</a>
-
-    <div class="hmcts-header__content">
-
-  <nav class="hmcts-header__navigation" aria-label="Account navigation">
-
-    <ul class="hmcts-header__navigation-list">
-<!--
-      <li class="hmcts-header__navigation-item">
-        <a class="hmcts-header__navigation-link" href="#1">
-          Profile
-        </a>
-      </li>
--->
-      <li class="hmcts-header__navigation-item">
-        <a class="hmcts-header__navigation-link" href="#1">
-          Sign out
-        </a>
-      </li>
-
-    </ul>
-
-  </nav>
-
-</div>
-
-</div>
-
 </header>
-
 {% endblock %}
-
-
-
 {% block mainContent %}
-
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-
-          
-
-  <h1 class="govuk-heading-xl govuk-!-margin-bottom-4"><span class="govuk-caption-xl">Components</span>Branded Header</h1>
-
-  <strong class="govuk-tag govuk-!-margin-bottom-8">
-  experimental
-</strong>
-
-
-    <p>Use the MyHMCTS Branded Header component for any service or system not hosted on GOV.UK such as those for the judiciary or HMCTS staff.</p>
-<p>Do not use this for citizen-facing services.</p>
-
-
-<!--
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4"><span class="govuk-caption-xl">Components</span>Branded Header</h1>
+        <strong class="govuk-tag govuk-!-margin-bottom-8">
+            experimental
+        </strong>
+        <p>Use the MyHMCTS Branded Header component for any service or system not hosted on GOV.UK such as those for the judiciary or HMCTS staff.</p>
+        <p>Do not use this for citizen-facing services.</p>
+        <!--
 <p>You may be able to configure this component using the <a href="https://github.com/hmcts/frontend/tree/master/src/components/hmcts-header#arguments">Nunjucks macro arguments</a></p> -->
-
-
-<h2 class="govuk-heading-m" id="how-it-works">How it works</h2>
-<p>MyHMCTS is displayed on the 'Left', with the name of the service or system appearing off-centered left. You can also add global links in the top right. For example, ‘Profile’ and ‘Sign out’.</p>
-<h2 class="govuk-heading-m" id="research-on-this-component">Research on this component</h2>
-<p>We’ll update this section once it has been tested.</p>
-<!-- <ul class="govuk-list govuk-list--bullet">
+        <h2 class="govuk-heading-m" id="how-it-works">How it works</h2>
+        <p>MyHMCTS is displayed on the 'Left', with the name of the service or system appearing off-centered left. You can also add global links in the top right. For example, ‘Profile’ and ‘Sign out’.</p>
+        <h2 class="govuk-heading-m" id="research-on-this-component">Research on this component</h2>
+        <p>We’ll update this section once it has been tested.</p>
+        <!-- <ul class="govuk-list govuk-list--bullet">
 <li>Judicial user interface</li>
 <li>Professional user interface</li>
 </ul> -->
-
-  </div>
-
-
-
+    </div>
 </div>
 </div>
-
-
 {% endblock %}

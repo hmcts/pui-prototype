@@ -1,73 +1,57 @@
 {% extends "./layout.html" %}
-
 {% set serviceName = 'Manage organisation details for civil and family law cases' %}
-
 {% set primaryNavId = 'terms' %}
-
 {% block page_title %}Terms{% endblock %}
-
 {% block header %}
 <header class="hmcts-header" role="banner">
-  <div class="hmcts-header__container">
-    <div class="govuk-header__logo">
-      <a href="/" class="govuk-header__link govuk-header__link--homepage">
-        <span class="govuk-header__logotype">    
-          <span class="govuk-header__logotype-text">
-            MyHMCTS
-          </span>
-        </span>
-      </a>
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Manage organisation details for civil and family law cases</a>
+        <div class="hmcts-header__content">
+            <nav class="hmcts-header__navigation">
+                <ul class="hmcts-header__navigation-list">
+                    <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="/sign-out">
+                            Sign out
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
-			<a class="hmcts-header__link" href="/">Manage organisation details for civil and family law cases</a>
-      <div class="hmcts-header__content">
-        <nav class="hmcts-header__navigation">
-          <ul class="hmcts-header__navigation-list">
-              <li class="hmcts-header__navigation-item">
-                <a class="hmcts-header__navigation-link" href="/sign-out" >
-                  Sign out
-                </a>
-              </li>
-          </ul>
-        </nav>
-      </div>   
-
-  </div>
 </header>
 {% endblock %}
-
 {% block content%}
 <div class="govuk-width-container">
     {{ govukPhaseBanner({
     tag: {
-      text: "Beta"
+    text: "Beta"
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-  }) }}
-
+    }) }}
     <main role="main" class="govuk-main-wrapper">
-
-          <div class="govuk-grid-row">
+        <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-
-      <div class="column-two-thirds">
-                  <h1 class="govuk-heading-xl">Using this service</h1>
-
-  <h2 class="govuk-heading-m">Terms and conditions</h2>
-<p>You have read and understood the <a href="#" rel="noopener noreferrer" target="_blank">terms and conditions</a> and are eligible for an account to manage your organisation and cases.</p>
-
-<p>You should check these terms and conditions regularly. We may update them at any time without notice. If you continue to use this service after the terms and conditions have changed, you are deemed to have agreed to the changes.</p>
-
-<p><a href="index" role="button" draggable="false" class="govuk-button">
-  Confirm
-</a></p>
-
-    </div>
-  </div>
+                <div class="column-two-thirds">
+                    <h1 class="govuk-heading-xl">Using this service</h1>
+                    <h2 class="govuk-heading-m">Terms and conditions</h2>
+                    <p>You have read and understood the <a href="#" rel="noopener noreferrer" target="_blank">terms and conditions</a> and are eligible for an account to manage your organisation and cases.</p>
+                    <p>You should check these terms and conditions regularly. We may update them at any time without notice. If you continue to use this service after the terms and conditions have changed, you are deemed to have agreed to the changes.</p>
+                    <p><a href="index" role="button" draggable="false" class="govuk-button">
+                            Confirm
+                        </a></p>
+                </div>
+            </div>
+        </div>
 </div>
-
-
-
-  </div>
 </div>
 </main>
 </div>

@@ -1,46 +1,39 @@
 {% extends "layouts/service/base.html" %}
-
 {% from "input/macro.njk" import govukInput %}
 {% from "fieldset/macro.njk" import govukFieldset %}
-
 {% set serviceName = 'Register to manage civil and family law cases' %}
-
 {% block beforeContent %}
-  {{ super() }}
-  {{govukBackLink({
-    href: '/create-account/organisation-name'
-  })}}
+{{ super() }}
+{{govukBackLink({
+href: '/create-account/organisation-name'
+})}}
 {% endblock %}
-
 {% block content %}
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="/mvp/register-organisation/organisation-dx" method="post">
-
-        <h1 class="govuk-heading-xl">What's the address of your main office?</h1>
-        <h2 class="govuk-heading-m">Postcode</h2>
-        <p>{{data['address-postcode']}} <a href="/mvp/register-organisation/organisation-address-postcode">Change</a></p>
-
-        {{ govukSelect({
-          id: "address-line-1",
-          name: "address-line-1",
-          label: {
+        <form action="/mvp/register-organisation/organisation-dx" method="post">
+            <h1 class="govuk-heading-xl">What's the address of your main office?</h1>
+            <h2 class="govuk-heading-m">Postcode</h2>
+            <p>{{data['address-postcode']}} <a href="/mvp/register-organisation/organisation-address-postcode">Change</a></p>
+            {{ govukSelect({
+            id: "address-line-1",
+            name: "address-line-1",
+            label: {
             text: "Select address",
             classes: 'govuk-label--m'
-          },
-          items: [
+            },
+            items: [
             {
-              value: "",
-              text: "1 address found"
+            value: "",
+            text: "1 address found"
             },
             {
-              value: "Market Street, Newbury",
-              text: "Market Street, Newbury"
+            value: "Market Street, Newbury",
+            text: "Market Street, Newbury"
             }
-          ]
-        }) }}
-
-        <!-- {{ govukSelect({
+            ]
+            }) }}
+            <!-- {{ govukSelect({
           id: "address-line-1",
           name: "address-line-1",
           label: {
@@ -74,13 +67,11 @@
             }
           ]
         }) }} -->
-        <p class="govuk-body"><a href="./organisation-address">Can't find your address?</a></p>
-
-        {{govukButton({
-          text: 'Continue'
-        })}}
-
-      </form>
+            <p class="govuk-body"><a href="./organisation-address">Can't find your address?</a></p>
+            {{govukButton({
+            text: 'Continue'
+            })}}
+        </form>
     </div>
-  </div>
+</div>
 {% endblock %}
