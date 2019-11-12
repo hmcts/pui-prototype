@@ -12,34 +12,42 @@
                 </span>
             </a>
         </div>
-        <a class="hmcts-header__link" href="/">Manage organisation details for civil and family law cases</a>
+        <a class="hmcts-header__link" href="#">Manage organisation details for civil and family law cases</a>
         <div class="hmcts-header__content">
-            <nav class="hmcts-header__navigation">
+            <nav class="hmcts-header__navigation" aria-label="Account navigation">
                 <ul class="hmcts-header__navigation-list">
+                    <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
                     <li class="hmcts-header__navigation-item">
-                        <a class="hmcts-header__navigation-link" href="/sign-in">
+                        <a class="hmcts-header__navigation-link" href="#1">
                             Sign out
                         </a>
                     </li>
                 </ul>
             </nav>
-        </div>{{hmctsPrimaryNavigation({
-        classes: "govuk-!-margin-bottom-0",
-        items: [ {
-        text: 'Organisation',
-        href: '/mvp-4/manage-organisation',
-        active: true
-        }, {
-        text: 'Users',
-        href: '/mvp-4/manage-organisation/users',
-        active: false
-        }, {
-        text: 'Fee accounts',
-        href: '/mvp-4/manage-organisation/payments',
-        active: false
-        }]
-        })}}
-    </div>
+        </div>
+        <nav class="hmcts-primary-navigation">
+            <ul class="hmcts-primary-navigation__list">
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
+                        Organisation
+                    </a>
+                </li>
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/users">
+                        Users
+                    </a>
+                </li>
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </header>
 {% endblock %}
