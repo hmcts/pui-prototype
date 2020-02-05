@@ -23,7 +23,7 @@ router.get('/mvp-4/manage-organisation/users', (req, res) => {
 		],
 		[
 		{
-				html: 'Amy Venkatanarasimharaj'
+				html: '<a href="/mvp-4/manage-organisation/users/view-pending">Amy Venkatanarasimharaj</a>'
 			},
 			{
 				text: 'amyvenkatanarasimharaj@wedlakebell.com'
