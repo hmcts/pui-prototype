@@ -57,7 +57,7 @@
     href: './'
     })}}
     <main role="main" class="govuk-main-wrapper">
-       <h1 class="govuk-heading-l">Pending user details</h1>
+        <h1 class="govuk-heading-l">Pending user details</h1>
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 <table class="govuk-table">
@@ -66,7 +66,6 @@
                             <th class="govuk-table__header" scope="row">Name</th>
                             <td class="govuk-table__cell">Amy Venkatanarasimharaj</td>
                             <td class="govuk-table__cell">
-                            
                             </td>
                         </tr>
                         <tr class="govuk-table__row">
@@ -75,7 +74,7 @@
                             <td class="govuk-table__cell">
                             </td>
                         </tr>
-           <tr class="govuk-table__row">
+                        <tr class="govuk-table__row">
                             <th class="govuk-table__header" scope="row">Permissions</th>
                             <td class="govuk-table__cell">
                                 Manage cases<br>
@@ -83,23 +82,14 @@
                                     Manage organisation<br>
                                     Manage fee accounts
                             </td>
-                           
                         </tr>
                     </tbody>
                 </table>
-<div class="govuk-warning-text">
-  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-  <strong class="govuk-warning-text__text">
-    <span class="govuk-warning-text__assistive">Warning</span>
-    You cannot reinvite the same user more than once per hour.
-  </strong>
-</div>
             </div>
-        </div>    {{govukButton({
-                    text: 'Reinvite user',
-                    href: '/mvp-4/manage-organisation/users/confirmation'
-                    })}}
+        </div> {{govukButton({
+        text: 'Reinvite user',
+        href: '/mvp-4/manage-organisation/users/confirmation'
+        })}}
     </main>
-
 </div>
 {% endblock %}

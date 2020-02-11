@@ -61,7 +61,7 @@
                     <div class="govuk-error-summary__body">
                         <ul class="govuk-list govuk-error-summary__list">
                             <li>
-                                <a href="#nationality">You cannot reinvite the same user more than once per hour</a>
+                                <a href="#user-error">This user has already been invited</a> <br><a href="#user-error">The recipient will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account</a>
                             </li>
                         </ul>
                     </div>
@@ -98,21 +98,21 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="govuk-warning-text">
-                            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-                            <strong class="govuk-warning-text__text">
-                                <span class="govuk-warning-text__assistive">Warning</span>
-                                You cannot reinvite the same user more than once per hour.
-                            </strong>
-                        </div>
+                        <span id="user-error" class="govuk-error-message">
+                            <span class="govuk-visually-hidden">Error:</span> This user has already been invited<br>The recipient will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account
+                        </span>
+                      
+                  
                     </fieldset>
                 </div>
+{{govukButton({
+        text: 'Reinvite user',
+        href: '#'
+        })}}
+
             </div>
         </div>
-        {{govukButton({
-        text: 'Reinvite user',
-        href: '/mvp-4/manage-organisation/users/confirmation'
-        })}}
+        
     </main>
 </div>
 {% endblock %}
