@@ -1,41 +1,8 @@
 {% extends "./layout.html" %}
 
-{% block header %}
-{{hmctsHeader({
-  service: {
-    name: serviceName,
-    url: '/'
-  },
-  navigation: {
-    items: [{
-      text: 'Profile',
-      href: '/mvp/manage-case/profile'
-    },{
-      text: 'Sign out',
-      href: '/sign-out'
-    }]
-  }
-})}}
-{{hmctsPrimaryNavigation({
-  classes: "govuk-!-margin-bottom-0",
-  items: [ {
-    text: 'Your cases',
-    href: '/mvp/manage-case/case-list',
-    active: primaryNavId == 'cases'
-  }, {
-    text: 'Organisation\'s cases',
-    href: '/mvp/manage-case/organisation-case-list',
-    active: primaryNavId == 'organisationCases'
-  }]
-})}}
-{% endblock %}
 
 
-{% set serviceName = 'Manage your civil and family law cases' %}
 
-{% set primaryNavId = 'cases' %}
-
-{% block page_title %}Dashboard{% endblock %}
 
 {% block mainContent %}
 
@@ -46,7 +13,7 @@
     classes: 'govuk-!-margin-bottom-7',
     items: [{
       text: 'Create case',
-      href: '/mvp/manage-case/create-case'
+      href: '/mvp-4/manage-case/create-case'
     }]
   }) }}
 

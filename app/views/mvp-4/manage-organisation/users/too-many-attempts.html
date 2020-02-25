@@ -69,51 +69,89 @@
                 </div>
             </div>
         </div>
-        <h1 class="govuk-heading-l">Pending user details</h1>
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl">Reinvite user</h1>
                 <div class="govuk-form-group govuk-form-group--error">
                     <fieldset class="govuk-fieldset" aria-describedby="nationality-hint nationality-error">
-                        <table class="govuk-table">
-                            <tbody class="govuk-table__body">
-                                <tr class="govuk-table__row">
-                                    <th class="govuk-table__header" scope="row">Name</th>
-                                    <td class="govuk-table__cell">Amy Venkatanarasimharaj</td>
-                                    <td class="govuk-table__cell">
-                                    </td>
-                                </tr>
-                                <tr class="govuk-table__row">
-                                    <th class="govuk-table__header" scope="row">Email address</th>
-                                    <td class="govuk-table__cell">amyvenkatanarasimharaj@wedlakebell.com</td>
-                                    <td class="govuk-table__cell">
-                                    </td>
-                                </tr>
-                                <tr class="govuk-table__row">
-                                    <th class="govuk-table__header" scope="row">Permissions</th>
-                                    <td class="govuk-table__cell">
-                                        Manage cases<br>
-                                        Manage users<br>
-                                        Manage organisation<br>
-                                        Manage fee accounts
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <span id="user-error" class="govuk-error-message">
+                        <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label--m" for="first-name">
+                                First name
+                                <!--<span id="passport-issued-hint" class="govuk-hint">
+                            Include all middle names.
+                        </span> -->
+                            </label>
+                            <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Amy" disabled>
+                        </div>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label--m" for="first-name">
+                                Last name </label>
+                            <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Venkatanarasimharaj" disabled>
+                        </div>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label--m" for="first-name">
+                                Email address
+                            </label>
+                            <input class="govuk-input" id="emailaddress" name="full-name" type="text" autocomplete="name" spellcheck="false" value="amyvenkatanarasimharaj@wedlakebell.com" disabled>
+                        </div>
+                        <div class="govuk-form-group"> 
+                        <form action="#"> {{ govukCheckboxes({
+                            idPrefix: "permissions",
+                            name: "permissions",
+                            fieldset: {
+                            legend: {
+                            text: "Permissions",
+                            classes: "govuk-fieldset__legend--m"
+                            }
+                            },
+                            hint: {
+                            text: "Choose at least one action the user can do. You can change this later."
+                            },
+                            items: [
+                            {
+                            value: "cases",
+                            text: "Manage cases",
+                            hint: {
+                            text: "View, create and progress cases."
+                            }
+                            },
+                            {
+                            value: "users",
+                            text: "Manage users",
+                            hint: {
+                            text: "Invite users."
+                            }
+                            },
+                            {
+                            value: "organisation",
+                            text: "Manage organisation",
+                            hint: {
+                            text: "View the organisation name and address."
+                            }
+                            },
+                            {
+                            value: "payment",
+                            text: "Manage fee accounts",
+                            checked: false,
+                            hint: {
+                            text: "View payments, account balances, available credit and transactions."
+                            }
+                            }
+                            ]
+                            }) }} <span id="user-error" class="govuk-error-message">
                             <span class="govuk-visually-hidden">Error:</span> This user has already been invited<br>The recipient will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account
-                        </span>
-                      
-                  
+                            </span>
+                            {{govukButton({
+                            text: 'Send invitation'
+                            })}}
+                            </form>
+                        </div>
                     </fieldset>
                 </div>
-{{govukButton({
-        text: 'Reinvite user',
-        href: '#'
-        })}}
-
             </div>
         </div>
-        
-    </main>
+</div>
+</main>
 </div>
 {% endblock %}

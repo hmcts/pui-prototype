@@ -53,43 +53,25 @@
 {% block content %}
 <div class="hmcts-width-container">
     {% include "../includes/phase-banner.html" %}
-    {{govukBackLink({
-    href: './'
-    })}}
     <main role="main" class="govuk-main-wrapper">
-        <h1 class="govuk-heading-l">Pending user details</h1>
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <table class="govuk-table">
-                    <tbody class="govuk-table__body">
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Name</th>
-                            <td class="govuk-table__cell">Amy Venkatanarasimharaj</td>
-                            <td class="govuk-table__cell">
-                            </td>
-                        </tr>
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Email address</th>
-                            <td class="govuk-table__cell">amyvenkatanarasimharaj@wedlakebell.com</td>
-                            <td class="govuk-table__cell">
-                            </td>
-                        </tr><!--
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Permissions</th>
-                            <td class="govuk-table__cell">
-                                Manage cases<br>
-                                Manage users<p>
-                                    Manage organisation<br>
-                                    Manage fee accounts
-                            </td>
-                        </tr> -->
-                    </tbody>
-                </table>
+                {{ govukPanel({
+                titleText: "Access granted",
+                html: 'Case ID <br>#1574-2600-2616-6839'
+                }) }}
+                <h3 class="govuk-heading-m">What happens next</h3>
+                <p class="govuk-body">
+                    The file will be accessible for 24hrs. <p>After 24hrs you will need to request access again.</p>
+
+                    <p>All access requests are logged for auditing purposes.</p>
+                </p>
+                <p class="govuk-body">
+                    <a href="/mvp-4/manage-organisation/users">View case file</a>
+                </p>
+                <p><a style="color:white" href="/create-user-account-v2">Link to Idam email</a></p>
             </div>
-        </div> {{govukButton({
-        text: 'Reinvite user',
-        href: '/mvp-4/manage-organisation/users/reinvite'
-        })}}
+        </div>
     </main>
 </div>
 {% endblock %}
