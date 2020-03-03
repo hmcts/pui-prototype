@@ -1,241 +1,197 @@
-
 {% extends "layouts/service/base.html" %}
-
-
 {% block content %}
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-xl">Professional user interface prototypes</h1>
-      <p class="govuk-body">This prototype shows a number of experiments and iterations for professional users including registering an organisation, managing and organisation and managing cases and applications on behalf of citizens.</p>
-
-<h2 class="govuk-heading-m">Latest wireframe additions</h2>
-
-<details class="govuk-details" data-module="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Whats new
-    </span>
-     </summary>
-  <div class="govuk-details__text">
-  <ul class="govuk-list">
-           
-                  <ul class="govuk-list govuk-list--bullet">
-
-   <li><a href="/mvp-4/register-organisation/check-error">Register-organisation - SRA number error
-</a><br><span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1591, UI improvements to text,
-BA to see whether an earlier check can be made to PRD to address concerned of UXD</span><br></li>
-
-   <li><a href="mvp-4/manage-organisation/terms-mo-error">There is a problem with the service</a><br>
-    <span class="form-hint govuk-list govuk-list--bullet">T&Cs not available post sign in - My HMCTS Branded - Manage Org</span><br></li>
-
-   <li><a href="mvp-4/manage-organisation/terms-mc-error">There is a problem with the service</a><br>
-    <span class="form-hint govuk-list govuk-list--bullet">T&Cs not available post sign in - My HMCTS Branded - Manage Cases</span><br></li>
-
- <li><a href="mvp-4/manage-organisation/terms-mo-error-b">There is a problem with the service</a><br>
-    <span class="form-hint govuk-list govuk-list--bullet">T&Cs not available post sign in - Manage Org</span><br></li>
-
-   <li><a href="mvp-4/manage-organisation/terms-mc-error-b">There is a problem with the service</a><br>
-    <span class="form-hint govuk-list govuk-list--bullet">T&Cs not available post sign in - Manage Cases</span><br></li>
-
-
-
-                     
-   <li><a href="mvp-4/manage-organisation/users/view-pending">Reinvite pending user</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1377, expired activation email</span><br>
-                   </li>
-                     <li><a href="mvp-4/manage-organisation/users/confirmation-re">Reinvite pending user - reinvited confirmation</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1377, confirmation</span><br>
-                   </li>
-   <li><a href="mvp-4/manage-organisation/users/too-many-attempts">Reinvite pending user - too many attempts</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1377, expired activation email</span><br>
-                   </li>
-                      <li><a href="mvp-4/manage-organisation/users/error-attempt">Reinvite pending user - PRD error</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1377, expired activation email</span><br>
-                   </li>
-
-
-
-                     <li><a href="/mvp-4/register-organisation/email">Register-organisation - email hint text</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1339, Hint text</span><br>
-                   </li>
-                     <li><a href="/mvp-4/manage-organisation/timeout-modal">Timeout modal</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1082, Pre timeout modal window</span><br>
-                   </li>
-                       <li><a href="/mvp-4/manage-organisation/timeout">Timeout</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1082, You've been timed out</span><br>
-                   </li>
-
-                      <li><a href="/mvp-4/manage-organisation/payments/summary-933">Fee Accounts - View account</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-933, Credit and Balance £0.00</span><br>
-                   </li>
-                      <li><a href="/mvp-4/manage-organisation/payments/transactions-933">Fee Accounts - View account</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-933, No transactions to display</span><br>
-                   </li>
-
-      <li><a href="/mvp-4/manage-organisation/payments/931">Fee Accounts</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-931, Single PBA error </span><br>
-                   </li>
-                      <li><a href="/mvp-4/manage-organisation/payments/931b">Fee Accounts</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-931, Multiple PBA number errors</span><br>
-                   </li>
-                     <li><a href="/mvp-4/manage-organisation/payments/958">Fee Accounts</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-958, PBA number not provided during registration</span><br>
-                   </li>
-
-                     <li><a href="/mvp-4/manage-organisation/payments/931">Fee Accounts</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-931, Single PBA error </span><br>
-                   </li>
-
-                     <li><a href="/mvp-4/manage-case/sign-in-mc">Sign in to Manage Cases- Branded T&C's </a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-948, Branding for header and T&Cs pages</span><br>
-                   </li>
-
-                       <li><a href="/mvp-4/manage-organisation/sign-in-mo">Sign in to Manage Organisation - Branded T&C's </a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-945, Branding for header and T&Cs pages</span><br>
-                   </li>
-
-                    <li><a href="/mvp-4/manage-organisation/users/header">MyHMCTS Header</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">Context of use of the MyHMCTS Branded Header</span><br>
-                   </li>
-
-
-                     <li><a href="/mvp-4/manage-organisation/users/problem">There is a problem with the service</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-899 and EUI-900, This is a page that tells someone there is something wrong with the service</span><br>
-                   </li>
-               <li><a href="/mvp-4/manage-organisation/users/noupdate-permissions-error">Edit permissions no change error page</a><br>
-                <span class="form-hint">JIRA EUI-1023, Error shown when user hits submit but has not changed any of the current permissions</span><br>
-                    </li>
-                     <li><a href="/mvp-4/manage-organisation/users/update-permissions-error">Edit permissions error page</a><br>
-                <span class="form-hint">JIRA EUI-668, Error shown when user does not select at least one action</span><br>
-                    </li>
-                   <li><a href="/mvp-4/manage-organisation/users/new">Invite user</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-497, Manage payment added to permissions list</span><br>
-             <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1008, Manage payment renamed to Manage fee accounts (all pages)</span><br>
-                   </li>
-
- <li><a href="/mvp-4/register-organisation/organisation-pba">Register-organisation - What's the payment by account (PBA) number for your organisation?
-</a><br><span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1029, UI improvements to text,
-information regarding what entering a PBA number enables. H1 title text also changed. 'What's the payment' ... replacing 'What's your payment'.</span><br></li>
- <li><a href="/mvp-4/register-organisation/organisation-pba-error">Register-organisation (error) - What's the payment by account (PBA) number for your organisation? 
-</a><br><span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1029, Error message.</span><br></li>
-
- <li><a href="/mvp-4/register-organisation/organisation-dx">Register-organisation - What's the DX reference for your main office?</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-727, new hint text for DX number and DX exchange</span><br></li>
-
-                   <li><a href="/mvp-4/register-organisation/check">Register-organisation - check answers</a><br>
-                        <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-322, EUI-950, updated submit registration details copy, terms and conditions now opens in a new window.</span><br>
-                        <span class="form-hint">Added - Back link to top of page</span><br>
-                        
-                   </li>
-
-<p></p>
-<li><a href="/mvp-4/manage-organisation/">Footer</a></li>
-<span class="form-hint">JIRA EUI-954 - updated help text footer</span><br>
-<span class="form-hint">JIRA EUI-955 - updated help text footer</span><br>
-<span class="form-hint">JIRA EUI-460 - footer shows behaviour for opening in a new window;<br><br>Accessibility<br> Terms and conditions<br> Cookies<br>Privacy policy<br>Get help<br>(Please note this behaviour may not always work as expected when accessed from other pages)</span>
-<p></p>
-                   <li><a href="/mvp-4/manage-organisation/terms">Terms and conditions </a><br>
-                        <span class="form-hint">JIRA EUI-218 (updated with EUI-1501 Feb 2020), Page</span>
-                   </li>
-                   <p></p>
-                   <li><a href="/mvp-4/manage-organisation/cookies">Cookies</a><br>
-                        <span class="form-hint">JIRA EUI-218, Page - links to other sites (e.g. Google) open in new window</span>
-                   </li><p></p>
-                   <li><a href="/mvp-4/manage-organisation/privacy">Privacy policy</a><br>
-                        <span class="form-hint">JIRA EUI-218, Page</span>
-                   </li>
-<li><a href="/mvp-4/manage-organisation/accessibility">Accessibility statement </a><br>
-                        <span class="form-hint">JIRA EUI-536 (updated with EUI-1500 Feb 2020), Page</span>
-                   </li>
-<li><a href="/mvp-4/manage-organisation/get-help">get help </a><br>
-                        <span class="form-hint">JIRA EUI-</span>
-                   </li>
-
-
-
-     <li><a href="/mvp-4/register-organisation/">Register</a><br>
-          <span class="form-hint">Registration, fixed inconsistent whitespace and updated service banner to 'BETA'</span><br></li> 
-          <li><a href="/mvp-4/manage-organisation/users">Users</a><br>
-        <!--  <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>-->
-          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
-          <span class="form-hint">Added column Name - name is a clickable link enablling user details to be edited</span>
-          </li>
-          <li><a href="/mvp-4/manage-organisation/users/view">View details</a><br>
-          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>  
-          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
-          <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>
-          <span class="form-hint">Added Back Link (UI Refinement - Orientation)</span><br>
-          <span class="form-hint">Permissions now editable</span>
-          <span class="form-hint">Suspend account 'button' now active</span>
-          </li>
-
-
-
-          <li><a href="/mvp-4/manage-organisation/users/update-permissions">Update user permissions</a><br>
-          <!--  <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>-->
-          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
-          <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>
-          <span class="form-hint">Added name of user to H1 (UI Refinement - Orientation)</span><br>
-          <span class="form-hint">Amended grey hit text to advise user that at least one option must be selected. 'Choose at least one action the user can do. You can change this later.' (UI Refinement)</span><br>
-          <span class="form-hint">Renamed CTA button from 'Save' to 'Submit'.  (UI Refinement)</span><br>
-          </li>
-<br>
- <li><a href="/mvp-4/manage-organisation/users/update-permissions-error">Update user permissions error</a><br>
-          <span class="form-hint">Error when user trys to submit without at least one action selected.</span><br>
-          </li>
-<br> 
-
-          <li><a href="/mvp-4/manage-organisation/users/view-revoked-p">Suspended user details</a><br>
-           <!--  <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>-->
-          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
-          <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>
-          <span class="form-hint">Removed re-activate user button. For MVP this action will be performed by a request to the service desk (UI Refinement)</span><br>
-          <span class="form-hint">Reworded alert text to 'This user's account has been suspended.'</span><br>
-          <span class="form-hint"><s>Removed 'Contact service-desk@hmcts.gov.uk to reactivate this account.'</s> Added EUI-1593 'Get help to reactivate this account' </span>
-          </li>
-          <li><a href="/mvp-4/manage-organisation/users/new">Invite user</a><br>
-           <span class="form-hint">Amended grey hit text to advise user that at least one option must be selected. 'Choose at least one action the user can do. You can change this later.' (UI Refinement)</span><br>
-          </li>
-
-
-
-
-                 </ul> 
-
-        <p></p>
- </ul>
- </div>
-</details>
-
-
-
-<h2 class="govuk-heading-l">Latest wireframe - Fee and Pay</h2>
-
-<!-- LATEST WIREFRAME -->
-
+        <h1 class="govuk-heading-xl">Professional user interface prototypes</h1>
+        <p class="govuk-body">This prototype shows a number of experiments and iterations for professional users including registering an organisation, managing and organisation and managing cases and applications on behalf of citizens.</p>
+        <h2 class="govuk-heading-m">Latest wireframe additions</h2>
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    Whats new
+                </span>
+            </summary>
+            <div class="govuk-details__text">
+                <ul class="govuk-list">
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li><a href="/mvp-4/register-organisation/check-error">Register-organisation - SRA number error
+                            </a><br><span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1591, UI improvements to text,
+                                BA to see whether an earlier check can be made to PRD to address concerned of UXD</span><br></li>
+                        <li><a href="mvp-4/manage-organisation/terms-mo-error">There is a problem with the service</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">T&Cs not available post sign in - My HMCTS Branded - Manage Org</span><br></li>
+                        <li><a href="mvp-4/manage-organisation/terms-mc-error">There is a problem with the service</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">T&Cs not available post sign in - My HMCTS Branded - Manage Cases</span><br></li>
+                        <li><a href="mvp-4/manage-organisation/terms-mo-error-b">There is a problem with the service</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">T&Cs not available post sign in - Manage Org</span><br></li>
+                        <li><a href="mvp-4/manage-organisation/terms-mc-error-b">There is a problem with the service</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">T&Cs not available post sign in - Manage Cases</span><br></li>
+                        <li><a href="mvp-4/manage-organisation/users/view-pending">Reinvite pending user</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1377, expired activation email</span><br>
+                        </li>
+                        <li><a href="mvp-4/manage-organisation/users/confirmation-re">Reinvite pending user - reinvited confirmation</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1377, confirmation</span><br>
+                        </li>
+                        <li><a href="mvp-4/manage-organisation/users/too-many-attempts">Reinvite pending user - too many attempts</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1377, expired activation email</span><br>
+                        </li>
+                        <li><a href="mvp-4/manage-organisation/users/error-attempt">Reinvite pending user - PRD error - Covers general PRD and SIDAM errors</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1377, expired activation email</span><br>
+                        </li>
+                           <li><a href="mvp-4/manage-organisation/users/error-attempt-404">Reinvite pending user - PRD error - Covers PRD 404 error</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1377, When user does not exist</span><br>
+                        </li>
+                        <li><a href="mvp-4/manage-organisation/users/error-attempt-400">Reinvite pending user - PRD error - Covers PRD 400 error</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1377, When user is in a pending state</span><br>
+                        </li>
+                        <li><a href="/mvp-4/register-organisation/email">Register-organisation - email hint text</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1339, Hint text</span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/timeout-modal">Timeout modal</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1082, Pre timeout modal window</span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/timeout">Timeout</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1082, You've been timed out</span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/payments/summary-933">Fee Accounts - View account</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-933, Credit and Balance £0.00</span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/payments/transactions-933">Fee Accounts - View account</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-933, No transactions to display</span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/payments/931">Fee Accounts</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-931, Single PBA error </span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/payments/931b">Fee Accounts</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-931, Multiple PBA number errors</span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/payments/958">Fee Accounts</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-958, PBA number not provided during registration</span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/payments/931">Fee Accounts</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-931, Single PBA error </span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-case/sign-in-mc">Sign in to Manage Cases- Branded T&C's </a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-948, Branding for header and T&Cs pages</span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/sign-in-mo">Sign in to Manage Organisation - Branded T&C's </a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-945, Branding for header and T&Cs pages</span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/users/header">MyHMCTS Header</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">Context of use of the MyHMCTS Branded Header</span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/users/problem">There is a problem with the service</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-899 and EUI-900, This is a page that tells someone there is something wrong with the service</span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/users/noupdate-permissions-error">Edit permissions no change error page</a><br>
+                            <span class="form-hint">JIRA EUI-1023, Error shown when user hits submit but has not changed any of the current permissions</span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/users/update-permissions-error">Edit permissions error page</a><br>
+                            <span class="form-hint">JIRA EUI-668, Error shown when user does not select at least one action</span><br>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/users/new">Invite user</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-497, Manage payment added to permissions list</span><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1008, Manage payment renamed to Manage fee accounts (all pages)</span><br>
+                        </li>
+                        <li><a href="/mvp-4/register-organisation/organisation-pba">Register-organisation - What's the payment by account (PBA) number for your organisation?
+                            </a><br><span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1029, UI improvements to text,
+                                information regarding what entering a PBA number enables. H1 title text also changed. 'What's the payment' ... replacing 'What's your payment'.</span><br></li>
+                        <li><a href="/mvp-4/register-organisation/organisation-pba-error">Register-organisation (error) - What's the payment by account (PBA) number for your organisation?
+                            </a><br><span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-1029, Error message.</span><br></li>
+                        <li><a href="/mvp-4/register-organisation/organisation-dx">Register-organisation - What's the DX reference for your main office?</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-727, new hint text for DX number and DX exchange</span><br></li>
+                        <li><a href="/mvp-4/register-organisation/check">Register-organisation - check answers</a><br>
+                            <span class="form-hint govuk-list govuk-list--bullet">JIRA EUI-322, EUI-950, updated submit registration details copy, terms and conditions now opens in a new window.</span><br>
+                            <span class="form-hint">Added - Back link to top of page</span><br>
+                        </li>
+                        <p></p>
+                        <li><a href="/mvp-4/manage-organisation/">Footer</a></li>
+                        <span class="form-hint">JIRA EUI-954 - updated help text footer</span><br>
+                        <span class="form-hint">JIRA EUI-955 - updated help text footer</span><br>
+                        <span class="form-hint">JIRA EUI-460 - footer shows behaviour for opening in a new window;<br><br>Accessibility<br> Terms and conditions<br> Cookies<br>Privacy policy<br>Get help<br>(Please note this behaviour may not always work as expected when accessed from other pages)</span>
+                        <p></p>
+                        <li><a href="/mvp-4/manage-organisation/terms">Terms and conditions </a><br>
+                            <span class="form-hint">JIRA EUI-218 (updated with EUI-1501 Feb 2020), Page</span>
+                        </li>
+                        <p></p>
+                        <li><a href="/mvp-4/manage-organisation/cookies">Cookies</a><br>
+                            <span class="form-hint">JIRA EUI-218, Page - links to other sites (e.g. Google) open in new window</span>
+                        </li>
+                        <p></p>
+                        <li><a href="/mvp-4/manage-organisation/privacy">Privacy policy</a><br>
+                            <span class="form-hint">JIRA EUI-218, Page</span>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/accessibility">Accessibility statement </a><br>
+                            <span class="form-hint">JIRA EUI-536 (updated with EUI-1500 Feb 2020), Page</span>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/get-help">get help </a><br>
+                            <span class="form-hint">JIRA EUI-</span>
+                        </li>
+                        <li><a href="/mvp-4/register-organisation/">Register</a><br>
+                            <span class="form-hint">Registration, fixed inconsistent whitespace and updated service banner to 'BETA'</span><br></li>
+                        <li><a href="/mvp-4/manage-organisation/users">Users</a><br>
+                            <!--  <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>-->
+                            <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+                            <span class="form-hint">Added column Name - name is a clickable link enablling user details to be edited</span>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/users/view">View details</a><br>
+                            <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>
+                            <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+                            <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>
+                            <span class="form-hint">Added Back Link (UI Refinement - Orientation)</span><br>
+                            <span class="form-hint">Permissions now editable</span>
+                            <span class="form-hint">Suspend account 'button' now active</span>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/users/update-permissions">Update user permissions</a><br>
+                            <!--  <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>-->
+                            <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+                            <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>
+                            <span class="form-hint">Added name of user to H1 (UI Refinement - Orientation)</span><br>
+                            <span class="form-hint">Amended grey hit text to advise user that at least one option must be selected. 'Choose at least one action the user can do. You can change this later.' (UI Refinement)</span><br>
+                            <span class="form-hint">Renamed CTA button from 'Save' to 'Submit'. (UI Refinement)</span><br>
+                        </li>
+                        <br>
+                        <li><a href="/mvp-4/manage-organisation/users/update-permissions-error">Update user permissions error</a><br>
+                            <span class="form-hint">Error when user trys to submit without at least one action selected.</span><br>
+                        </li>
+                        <br>
+                        <li><a href="/mvp-4/manage-organisation/users/view-revoked-p">Suspended user details</a><br>
+                            <!--  <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>-->
+                            <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+                            <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>
+                            <span class="form-hint">Removed re-activate user button. For MVP this action will be performed by a request to the service desk (UI Refinement)</span><br>
+                            <span class="form-hint">Reworded alert text to 'This user's account has been suspended.'</span><br>
+                            <span class="form-hint"><s>Removed 'Contact service-desk@hmcts.gov.uk to reactivate this account.'</s> Added EUI-1593 'Get help to reactivate this account' </span>
+                        </li>
+                        <li><a href="/mvp-4/manage-organisation/users/new">Invite user</a><br>
+                            <span class="form-hint">Amended grey hit text to advise user that at least one option must be selected. 'Choose at least one action the user can do. You can change this later.' (UI Refinement)</span><br>
+                        </li>
+                    </ul>
+                    <p></p>
+                </ul>
+            </div>
+        </details>
+        <h2 class="govuk-heading-l">Latest wireframe - Fee and Pay</h2>
+        <!-- LATEST WIREFRAME -->
         {% set releaseZeroHtml %}
         <p class="govuk-body"></p>
-    <ul class="govuk-list govuk-list--bullet">   
-          <li><a href="/mvp-4/register-organisation/">Register</a><br>
-          <span class="form-hint">Registration, lastest prototype design</span><br></li>
-          <li><a href="/mvp-4/manage-organisation/sign-in-mo">Manage organisation</a><br>
-          <span class="form-hint">Manage organisation, lastest prototype design</span></li>
+        <ul class="govuk-list govuk-list--bullet">
+            <li><a href="/mvp-4/register-organisation/">Register</a><br>
+                <span class="form-hint">Registration, lastest prototype design</span><br></li>
+            <li><a href="/mvp-4/manage-organisation/sign-in-mo">Manage organisation</a><br>
+                <span class="form-hint">Manage organisation, lastest prototype design</span></li>
         </ul>
-      {% endset %}
-
-      {{ govukDetails({
+        {% endset %}
+        {{ govukDetails({
         summaryHtml: "Iteration 4 (Beta Phase 1)",
         html: releaseZeroHtml
-      }) }}
-<!--
+        }) }}
+        <!--
 
 LATEST CONTENT
 
 -->
-
-<!-- AAT -->
-<!--
+        <!-- AAT -->
+        <!--
       <h2 class="govuk-heading-l">Mirror of AAT environment </h2>
       
 
@@ -256,300 +212,218 @@ LATEST CONTENT
       }) }}
 
     -->
-
-<!-- END OF WIP -->
- 
-<!-- WIP -->
-
-      <h2 class="govuk-heading-l">Work in progress </h2>
-      
-
-      {% set iterationWipHtml %}
+        <!-- END OF WIP -->
+        <!-- WIP -->
+        <h2 class="govuk-heading-l">Work in progress </h2>
+        {% set iterationWipHtml %}
         <p class="govuk-body">Updated UI<br> Added user permissions</p>
-      
         <ul class="govuk-list govuk-list--bullet">
-         
-          <li><a href="/manage-admin-i3/sign-in">Sign in</a><br><span class="form-hint">Added Beta Banner</span></li>
-
-          <li><a href="/manage-admin-i3/index">Organisation</a><br>
-          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>  
-          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
-          <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span>
-          </li>
-          <li><a href="/manage-admin-i3/users">Users</a><br>
-          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>  
-          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
-          <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span>
-          </li>
-          
-          <li><a href="/manage-admin-i3/users/view">View user details</a><br>
-          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>  
-          <span class="form-hint">Added Beta Banner(UI Refinement)</span><br>
-          <span class="form-hint">Added Back Link (UI Refinement - Orientation)</span><br>
-          <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span><br>
-          <span class="form-hint">Removed Change Link from email address</span>
-          </li>
-
-          <li><a href="/manage-admin-i3/users/update-name">View user details - change name</a><br>
-          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>
-          <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>   
-          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
-          <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span>
-          </li>
-
-          <li><a href="/manage-admin-i3/users/update-permissions">View user details - change permissions</a><br>
-          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>
-          <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>   
-          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
-          <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span>
-          </li>
-
-
-          <li><a href="/manage-admin-i3/users/view-revoked">View user details - Revoke access</a><br>
-          <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br> 
-          <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>  
-          <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
-          <span class="form-hint">Added Back Link (UI Refinement - Orientation)</span><br>
-          <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span><br>
-          <span class="form-hint">Added name of user to Permissions heading (UI Refinement - Orientation)</span>
-          </li>
-
-
+            <li><a href="/manage-admin-i3/sign-in">Sign in</a><br><span class="form-hint">Added Beta Banner</span></li>
+            <li><a href="/manage-admin-i3/index">Organisation</a><br>
+                <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>
+                <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+                <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span>
+            </li>
+            <li><a href="/manage-admin-i3/users">Users</a><br>
+                <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>
+                <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+                <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span>
+            </li>
+            <li><a href="/manage-admin-i3/users/view">View user details</a><br>
+                <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>
+                <span class="form-hint">Added Beta Banner(UI Refinement)</span><br>
+                <span class="form-hint">Added Back Link (UI Refinement - Orientation)</span><br>
+                <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span><br>
+                <span class="form-hint">Removed Change Link from email address</span>
+            </li>
+            <li><a href="/manage-admin-i3/users/update-name">View user details - change name</a><br>
+                <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>
+                <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>
+                <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+                <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span>
+            </li>
+            <li><a href="/manage-admin-i3/users/update-permissions">View user details - change permissions</a><br>
+                <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>
+                <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>
+                <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+                <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span>
+            </li>
+            <li><a href="/manage-admin-i3/users/view-revoked">View user details - Revoke access</a><br>
+                <span class="form-hint">Removed Fee accounts tab from top sub menu (UI Refinement)</span><br>
+                <span class="form-hint">Removed grey sub title from top of page (UI Refinement)</span><br>
+                <span class="form-hint">Added Beta Banner (UI Refinement)</span><br>
+                <span class="form-hint">Added Back Link (UI Refinement - Orientation)</span><br>
+                <span class="form-hint">Added Caption Sub heading to display Org name (UI Refinement - Orientation)</span><br>
+                <span class="form-hint">Added name of user to Permissions heading (UI Refinement - Orientation)</span>
+            </li>
         </ul>
-      {% endset %}
-
-      {{ govukDetails({
+        {% endset %}
+        {{ govukDetails({
         summaryHtml: "Manage Organisation MVP +1",
         html: iterationWipHtml
-      }) }}
-
-<!-- END OF WIP -->
-
-<!-- HISTORICAL CONTENT -->   
-
-
-
-<h2 class="govuk-heading-l">Historical iterations</h2>
-
-
-     <h2 class="govuk-heading-m">Beta - phase 2</h2>
-
-      {% set iterationBetaHtml %}
+        }) }}
+        <!-- END OF WIP -->
+        <!-- HISTORICAL CONTENT -->
+        <h2 class="govuk-heading-l">Historical iterations</h2>
+        <h2 class="govuk-heading-m">Beta - phase 2</h2>
+        {% set iterationBetaHtml %}
         <p class="govuk-body">Includes case filter, search, share a case, editing organisation and profile.</p>
         <ul class="govuk-list">
             <li><a href="/v1-1/case-list">Manage cases</a></li>
             <li><a href="/manage-admin/">Manage organisation</a></li>
         </ul>
-      {% endset %}
-
-
-     {{ govukDetails({
-  summaryText: "Iteration 1 (Beta Phase 2)",
-  html: iterationBetaHtml
-}) }}
-
-
-
-
-
-<h2 class="govuk-heading-m">Beta phase 1 experiments</h2>
-
-
-  
-<!-- ITERATION 3 -->
-
-
- {% set releaseTwoHtml %}
+        {% endset %}
+        {{ govukDetails({
+        summaryText: "Iteration 1 (Beta Phase 2)",
+        html: iterationBetaHtml
+        }) }}
+        <h2 class="govuk-heading-m">Beta phase 1 experiments</h2>
+        <!-- ITERATION 3 -->
+        {% set releaseTwoHtml %}
         <p class="govuk-body">Fee account no longer can display account name, register flow captures SRA and asks user to accept t&C and sign into each app must first ask user to accept T&Cs because IDAM can't be changed to allow for this.</p>
         <ul class="govuk-list">
-          <li><a href="/i2/register-organisation">Register organisation</a></li>
-          <li><a href="/i2/manage-organisation/sign-in">Manage organisation</a></li>
-          <li><a href="/i2/manage-case/start-manage-case">Start page</a></li>
+            <li><a href="/i2/register-organisation">Register organisation</a></li>
+            <li><a href="/i2/manage-organisation/sign-in">Manage organisation</a></li>
+            <li><a href="/i2/manage-case/start-manage-case">Start page</a></li>
         </ul>
-      {% endset %}
-
-  {{ govukDetails({
+        {% endset %}
+        {{ govukDetails({
         summaryHtml: "Iteration 3 (Beta Phase 1)",
         html: releaseTwoHtml
-      }) }}
-
-<!-- ITERATION 2 -->
-
-      {% set releaseOneHtml %}
+        }) }}
+        <!-- ITERATION 2 -->
+        {% set releaseOneHtml %}
         <p class="govuk-body">This shows the two separate services which cover new functionality not covered in CCD UI.</p>
         <ul class="govuk-list">
-          <li><a href="/mvp/register-organisation">Register organisation</a></li>
-          <li><a href="/mvp/manage-organisation/sign-in">Manage organisation</a></li>
-          <li><a href="/mvp/manage-case/start-manage-case">Start page</a></li>
+            <li><a href="/mvp/register-organisation">Register organisation</a></li>
+            <li><a href="/mvp/manage-organisation/sign-in">Manage organisation</a></li>
+            <li><a href="/mvp/manage-case/start-manage-case">Start page</a></li>
         </ul>
-      {% endset %}
-
-
-      {{ govukDetails({
-         summaryHtml: "Iteration 2 (Beta Phase 1)",
+        {% endset %}
+        {{ govukDetails({
+        summaryHtml: "Iteration 2 (Beta Phase 1)",
         html: releaseOneHtml
-      }) }}
-
-<!-- ITERATION 1 -->
-
-      {% set releaseZeroHtml %}
+        }) }}
+        <!-- ITERATION 1 -->
+        {% set releaseZeroHtml %}
         <p class="govuk-body">This was the first intended first release which includes a new way to manage cases outside of CCD UI.</p>
         <ul class="govuk-list">
-          <li><a href="/mvp-v1/register-organisation">Register</a></li>
-          <li><a href="/mvp-v1/manage-case/case-list">Manage cases</a></li>
-          <li><a href="/mvp-v1/manage-organisation">Manage organisation</a></li>
-          <li><a href="/mvp-v1/manage-case/start-manage-case">Start page</a></li>
+            <li><a href="/mvp-v1/register-organisation">Register</a></li>
+            <li><a href="/mvp-v1/manage-case/case-list">Manage cases</a></li>
+            <li><a href="/mvp-v1/manage-organisation">Manage organisation</a></li>
+            <li><a href="/mvp-v1/manage-case/start-manage-case">Start page</a></li>
         </ul>
-      {% endset %}
-
-      {{ govukDetails({
-         summaryHtml: "Iteration 1 (Beta Phase 1)",
+        {% endset %}
+        {{ govukDetails({
+        summaryHtml: "Iteration 1 (Beta Phase 1)",
         html: releaseZeroHtml
-      }) }}
-
-
-    
-
-
-<!-- END OF HISTORICAL BETA ITERATIONS -->
-
-<h2 class="govuk-heading-m">Alpha experiments</h2>
-<details class="govuk-details" data-module="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Alpha experiments
-    </span>
-  </summary>
-  <div>
-    <br>
-      
-
-      {% set alphaEight %}
-        <p class="govuk-body">Improved start page. Showcasing how different permissions could manifest themselves in manage cases. Looking at ways where create a case is CCD UI with the rest as PUI. Changed start page. Manage organisation no longer on GOV.UK with payment information added.</p>
-        <ul class="govuk-list">
-          <li><a href="/manage-case-v2/case-list">Manage case</a></li>
-          <li><a href="/manage-account-v3">Manage organisation</a></li>
-          <li><a href="/create-account-v3">Register organisation</a></li>
-          <li><a href="/start-page-v2">Start page</a></li>
-        </ul>
-      {% endset %}
-
-      {{ govukDetails({
-        summaryHtml: "Iteration 8",
-        html: alphaEight
-      }) }}
-
-      {% set alphaSeven %}
-        <p class="govuk-body">Looking at ways to combine CCD UI where the case list is PUI and the case details becomes CCD UI. Create case more efficient as using organisation reference data to handle multiple addresses. Iterated create user account flow with better content.</p>
-        <ul class="govuk-list">
-          <li><a href="/pui-case-list-ccd-summary/case-list">Manage cases</a></li>
-          <li><a href="/create-case-v2">Create case</a></li>
-          <li><a href="/create-user-account">Create user account</a></li>
-        </ul>
-      {% endset %}
-
-      {{ govukDetails({
-        summaryHtml: "Iteration 7",
-        html: alphaSeven
-      }) }}
-
-      {% set alphaSix %}
-        <p class="govuk-body">Demonstrating how CCD UI could look when embedded inside PUI. Iterated registering a user with a notification email triggered by an admin. And looking at a way to migrate an existing private beta organisation.</p>
-        <ul class="govuk-list">
-            <li><a href="/create-account-beta">Register existing beta participant email</a></li>
-            <li><a href="/create-user-account">Create user account</a></li>
-            <li><a href="/ccd-ui/case-list">CCD UI</a></li>
-        </ul>
-      {% endset %}
-
-      {{ govukDetails({
-        summaryHtml: "Iteration 6",
-        html: alphaSix
-      }) }}
-
-      {% set alphaFive %}
-        <p class="govuk-body">Iterated manage a case with additional functionality. Type “john” for a valid case reference. Added new service for creating a case following the same pattern found in citizen facing services where apply and manage are separate.</p>
-        <ul class="govuk-list">
-          <li><a href="/manage-case">Manage case</a></li>
-          <li><a href="/create-case">Create case</a></li>
-        </ul>
-      {% endset %}
-
-      {{ govukDetails({
-       summaryHtml: "Iteration 5",
-        html: alphaFive
-      }) }}
-
-      {% set alphaFour %}
-        <p class="govuk-body">Registering an organisation now takes into account new constraints such as IDAM. Manage organisation service started. Start page iterated as part of HMCTS sub section on GOV.UK.</p>
-        <ul class="govuk-list">
-          <li><a href="/create-account-v2">Register organisation</a></li>
-          <li><a href="/manage-account">Manage organisation</a></li>
-          <li><a href="/start-page-v2">Start page</a></li>
-        </ul>
-      {% endset %}
-
-      {{ govukDetails({
-        summaryHtml: "Iteration 4",
-        html: alphaFour
-      }) }}
-
-      {% set alphaThree %}
-        <p class="govuk-body">Started looking at ways to help users register their organisation and create an account as separate journeys so that administrators within large organisations don't become bottle necks.</p>
-        <ul class="govuk-list">
-          <li><a href="/apply">Register your organisation</a></li>
-          <li><a href="/create-account">Create account</a></li>
-        </ul>
-      {% endset %}
-
-      {{ govukDetails({
-        summaryHtml: "Iteration 3",
-        html: alphaThree
-      }) }}
-
-      {% set alphaTwo %}
-        <p class="govuk-body">Separate services for checking status of a case, sharing a case and managing a case.</p>
-        <ul class="govuk-list">
-          <li><a href="/app/check-status">Check status (no login needed)</a></li>
-          <li><a href="/app/share-case/reference">Share case (logged in)</a></li>
-          <li><a href="/app/manage-a-case/find-case">Manage case (logged in)</a></li>
-          <li><a href="/app/start/govuk-page">GOV.UK page</a></li>
-        </ul>
-      {% endset %}
-
-      {{ govukDetails({
-        summaryHtml: "Iteration 2",
-        html: alphaTwo
-      }) }}
-
-
-      {% set alphaOne %}
-        <p class="govuk-body">Portal approach. Everything in one place including manage org, hearing and cases</p>
-        <ul class="govuk-list">
-            <li><a href="/app/sign-in">Portal</a></li>
-        </ul>
-      {% endset %}
-
-      {{ govukDetails({
-        summaryHtml: "Iteration 1",
-        html: alphaOne
-      }) }}
-
-
-
-
-
-
-
-
-
-  </div>
-</details>
-
-  
-
-
-
+        }) }}
+        <!-- END OF HISTORICAL BETA ITERATIONS -->
+        <h2 class="govuk-heading-m">Alpha experiments</h2>
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    Alpha experiments
+                </span>
+            </summary>
+            <div>
+                <br>
+                {% set alphaEight %}
+                <p class="govuk-body">Improved start page. Showcasing how different permissions could manifest themselves in manage cases. Looking at ways where create a case is CCD UI with the rest as PUI. Changed start page. Manage organisation no longer on GOV.UK with payment information added.</p>
+                <ul class="govuk-list">
+                    <li><a href="/manage-case-v2/case-list">Manage case</a></li>
+                    <li><a href="/manage-account-v3">Manage organisation</a></li>
+                    <li><a href="/create-account-v3">Register organisation</a></li>
+                    <li><a href="/start-page-v2">Start page</a></li>
+                </ul>
+                {% endset %}
+                {{ govukDetails({
+                summaryHtml: "Iteration 8",
+                html: alphaEight
+                }) }}
+                {% set alphaSeven %}
+                <p class="govuk-body">Looking at ways to combine CCD UI where the case list is PUI and the case details becomes CCD UI. Create case more efficient as using organisation reference data to handle multiple addresses. Iterated create user account flow with better content.</p>
+                <ul class="govuk-list">
+                    <li><a href="/pui-case-list-ccd-summary/case-list">Manage cases</a></li>
+                    <li><a href="/create-case-v2">Create case</a></li>
+                    <li><a href="/create-user-account">Create user account</a></li>
+                </ul>
+                {% endset %}
+                {{ govukDetails({
+                summaryHtml: "Iteration 7",
+                html: alphaSeven
+                }) }}
+                {% set alphaSix %}
+                <p class="govuk-body">Demonstrating how CCD UI could look when embedded inside PUI. Iterated registering a user with a notification email triggered by an admin. And looking at a way to migrate an existing private beta organisation.</p>
+                <ul class="govuk-list">
+                    <li><a href="/create-account-beta">Register existing beta participant email</a></li>
+                    <li><a href="/create-user-account">Create user account</a></li>
+                    <li><a href="/ccd-ui/case-list">CCD UI</a></li>
+                </ul>
+                {% endset %}
+                {{ govukDetails({
+                summaryHtml: "Iteration 6",
+                html: alphaSix
+                }) }}
+                {% set alphaFive %}
+                <p class="govuk-body">Iterated manage a case with additional functionality. Type “john” for a valid case reference. Added new service for creating a case following the same pattern found in citizen facing services where apply and manage are separate.</p>
+                <ul class="govuk-list">
+                    <li><a href="/manage-case">Manage case</a></li>
+                    <li><a href="/create-case">Create case</a></li>
+                </ul>
+                {% endset %}
+                {{ govukDetails({
+                summaryHtml: "Iteration 5",
+                html: alphaFive
+                }) }}
+                {% set alphaFour %}
+                <p class="govuk-body">Registering an organisation now takes into account new constraints such as IDAM. Manage organisation service started. Start page iterated as part of HMCTS sub section on GOV.UK.</p>
+                <ul class="govuk-list">
+                    <li><a href="/create-account-v2">Register organisation</a></li>
+                    <li><a href="/manage-account">Manage organisation</a></li>
+                    <li><a href="/start-page-v2">Start page</a></li>
+                </ul>
+                {% endset %}
+                {{ govukDetails({
+                summaryHtml: "Iteration 4",
+                html: alphaFour
+                }) }}
+                {% set alphaThree %}
+                <p class="govuk-body">Started looking at ways to help users register their organisation and create an account as separate journeys so that administrators within large organisations don't become bottle necks.</p>
+                <ul class="govuk-list">
+                    <li><a href="/apply">Register your organisation</a></li>
+                    <li><a href="/create-account">Create account</a></li>
+                </ul>
+                {% endset %}
+                {{ govukDetails({
+                summaryHtml: "Iteration 3",
+                html: alphaThree
+                }) }}
+                {% set alphaTwo %}
+                <p class="govuk-body">Separate services for checking status of a case, sharing a case and managing a case.</p>
+                <ul class="govuk-list">
+                    <li><a href="/app/check-status">Check status (no login needed)</a></li>
+                    <li><a href="/app/share-case/reference">Share case (logged in)</a></li>
+                    <li><a href="/app/manage-a-case/find-case">Manage case (logged in)</a></li>
+                    <li><a href="/app/start/govuk-page">GOV.UK page</a></li>
+                </ul>
+                {% endset %}
+                {{ govukDetails({
+                summaryHtml: "Iteration 2",
+                html: alphaTwo
+                }) }}
+                {% set alphaOne %}
+                <p class="govuk-body">Portal approach. Everything in one place including manage org, hearing and cases</p>
+                <ul class="govuk-list">
+                    <li><a href="/app/sign-in">Portal</a></li>
+                </ul>
+                {% endset %}
+                {{ govukDetails({
+                summaryHtml: "Iteration 1",
+                html: alphaOne
+                }) }}
+            </div>
+        </details>
     </div>
-  </div>
+</div>
 {% endblock %}

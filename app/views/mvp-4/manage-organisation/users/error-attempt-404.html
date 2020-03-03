@@ -56,46 +56,21 @@
     {{govukBackLink({
     href: './'
     })}}
+
     <main role="main" class="govuk-main-wrapper">
-        <h1 class="govuk-heading-l">Pending user details</h1>
+       <h1 class="govuk-heading-l">Sorry, there is a problem with this account</h1>
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
+                 <p class="govuk-body"><a target="_blank" href="/mvp-4/manage-organisation/get-help">Get help</a> to reactivate this account.</p>
 
-
-                <table class="govuk-table">
-                    <tbody class="govuk-table__body">
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Name</th>
-                            <td class="govuk-table__cell">Amy Venkatanarasimharaj</td>
-                            <td class="govuk-table__cell">
-                            </td>
-                        </tr>
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Email address</th>
-                            <td class="govuk-table__cell">amyvenkatanarasimharaj@wedlakebell.com</td>
-                            <td class="govuk-table__cell">
-                            </td>
-                        </tr><!--
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Permissions</th>
-                            <td class="govuk-table__cell">
-                                Manage cases<br>
-                                Manage users<p>
-                                    Manage organisation<br>
-                                    Manage fee accounts
-                            </td>
-                        </tr> -->
-                    </tbody>
-                </table>
-<div class="govuk-inset-text">
-  <p>This user has already been invited.</p><p>If you resend an invitation, they'll receive an email from HM Courts & Tribunals to finish setting up their account.</p><p>You can't invite the same user more than once an hour.</p>
-</div>
-
+        <p class="govuk-body">
+                    <a href="/mvp-4/manage-organisation/users">Go back to manage users</a>
+                </p>
             </div>
-        </div> {{govukButton({
-        text: 'Resend invitation',
-        href: '/mvp-4/manage-organisation/users/reinvite'
-        })}}
+        </div>     
+
+
     </main>
+
 </div>
 {% endblock %}
