@@ -15,11 +15,6 @@
         <div class="hmcts-header__content">
             <nav class="hmcts-header__navigation" aria-label="Account navigation">
                 <ul class="hmcts-header__navigation-list">
-                    <!-- <li class="hmcts-header__navigation-item">
-                        <a class="hmcts-header__navigation-link" href="#1">
-                            Profile
-                        </a>
-                    </li> -->
                     <li class="hmcts-header__navigation-item">
                         <a class="hmcts-header__navigation-link" href="#1">
                             Sign out
@@ -54,7 +49,7 @@
 <div class="hmcts-width-container">
     {% include "../includes/phase-banner.html" %}
     {{govukBackLink({
-    href: './view'
+    href: './'
     })}}
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
@@ -71,9 +66,32 @@
                         </ul>
                     </div>
                 </div>
-                <h1 class="govuk-heading-l">[First name, Last name]</h1>
+                <h1 class="govuk-heading-xl">Invite user</h1>
                 <div class="govuk-form-group govuk-form-group--error">
                     <fieldset class="govuk-fieldset" aria-describedby="nationality-hint nationality-error">
+                        <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label--m" for="first-name">
+                                First name
+                                <!--<span id="passport-issued-hint" class="govuk-hint">
+                            Include all middle names.
+                        </span> -->
+                            </label>
+                            <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Amy" disabled>
+                        </div>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label--m" for="first-name">
+                                Last name </label>
+                            <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Venkatanarasimharaj" disabled>
+                        </div>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label--m" for="first-name">
+                                Email address
+                            </label>
+                            <input class="govuk-input" id="emailaddress" name="full-name" type="text" autocomplete="name" spellcheck="false" value="amyvenkatanarasimharaj@wedlakebell.com" disabled>
+                        </div>
+                        <div class="govuk-form-group">
+                                     <fieldset class="govuk-fieldset" aria-describedby="nationality-hint nationality-error">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                             Permissions
                         </legend>
@@ -110,24 +128,25 @@
                                 View the organisation name and address.
                             </span>
                         </div>
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="permissions-2" name="permissions" type="checkbox" value="users" aria-describedby="permissions-2-item-hint">
-                            <label class="govuk-label govuk-checkboxes__label" for="permissions-2">
-                                Manage fee accounts
-                            </label>
-                            <span id="permissions-2-item-hint" class="govuk-hint govuk-checkboxes__hint">
-                                View payments, account balances, available credit and transactions.
-                            </span>
-                        </div>
+                        
                 </div>
                 </fieldset>
-                {{govukButton({
-                text: 'Submit'
+                  {{govukButton({
+                text: 'Send invitation'
                 })}}
+                        </div>
+                    </fieldset>
+                </div>
             </div>
         </div>
 </div>
-</div>
 </main>
 </div>
+<!--,{
+                            value: "payment",
+                            text: "Manage fee accounts",
+                            checked: false,
+                            hint: {
+                            text: "View payments, account balances, available credit and transactions."
+                            } -->
 {% endblock %}
