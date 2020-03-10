@@ -1,127 +1,95 @@
 {% extends "manage-admin/layout.html" %}
-
-{% set serviceName = 'Manage organisation details for civil and family law cases' %}
-
+{% set serviceName = 'Manage organisation' %}
 {% block header %}
 {{hmctsHeader({
-  service: {
-    name: serviceName,
-    url: '/'
-  },
-  navigation: {
-    items: [{
-      text: 'Profile',
-      href: '/manage-admin/profile'
-    },{
-      text: 'Sign out',
-      href: '/sign-out'
-    }]
-  }
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+items: [{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
 })}}
 {{hmctsPrimaryNavigation({
-  classes: "govuk-!-margin-bottom-0",
-  items: [ {
-    text: 'Organisation',
-    href: '/manage-admin',
-    active: false
-  }, {
-    text: 'Users',
-    href: '/manage-admin/users',
-    active: false
-  },
-  {
-    text: 'Fee accounts',
-    href: '/manage-admin/payments',
-    active: false
-  }]
+classes: "govuk-!-margin-bottom-0",
+items: [ {
+text: 'Organisation',
+href: '/manage-admin-i3',
+active: false
+}, {
+text: 'Users',
+href: '/manage-admin-i3/users',
+active: false
+},
+{
+text: 'Fee accounts',
+href: '/manage-admin-i3/payments',
+active: true
+}]
 })}}
-{{ hmctsIdentityBar({
-  title: { html: 'West Berkshire Council Account A' }
-}) }}
-
 {% endblock %}
-
-
 {% block content %}
-
 <div class="hmcts-width-container">
-
-  <main role="main" class="govuk-main-wrapper">
-
-
-      {{hmctsSubNavigation({
-        items: [  {
-          text: 'Summary',
-          href: '/manage-admin/payments/summary',
-          active: true
+    {{ govukPhaseBanner({
+    tag: {
+    text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: './'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="hmcts-page-heading">
+            <div class="hmcts-page-heading__title-wrapper">
+                <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold"> <span class="govuk-caption-xl">Wedlake Bell - Account A</span>
+                    PBA0241163
+                </h1>
+            </div>
+        </div>
+        {{hmctsSubNavigation({
+        items: [ {
+        text: 'Summary',
+        href: '/manage-admin-i3/payments/summary',
+        active: true
         }, {
-          text: 'Transactions',
-          href: '/manage-admin/payments/transactions',
-          active: false
+        text: 'Transactions',
+        href: '/manage-admin-i3/payments/transactions',
+        active: false
         }
         ]
-      })}}
-
-      <div class="hmcts-page-heading">
-        <div class="hmcts-page-heading__title-wrapper">
-          <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">
-           Summary
-            </h1>
-        </div>
-        <div class="hmcts-page-heading__actions-wrapper">
-
-        </div>
-      </div>
-
-      <p>Last updated on 15 October 2018 at 3:12pm</p>
-
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-
-
-            <dl class="govuk-check-your-answers govuk-check-your-answers--pba-overview">
-            <div class="govuk-check-your-answers__contents">
-              <dt class="govuk-check-your-answers__question">
-                Available credit
-              </dt>
-              <dd class="govuk-check-your-answers__answer">
-                £17,254.00
-              </dd>
-              <dd class="govuk-check-your-answers__change">
-
-              </dd>
+        })}}
+        <p>Last updated on 15 October 2018 at 3:12pm</p>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <dl class="govuk-check-your-answers govuk-check-your-answers--pba-overview">
+           
+                    <div class="govuk-check-your-answers__contents">
+                        <dt class="govuk-check-your-answers__question">
+                            Available credit
+                        </dt>
+                        <dd class="govuk-check-your-answers__answer">
+                            £17,254.00
+                        </dd>
+                        <dd class="govuk-check-your-answers__change">
+                        </dd>
+                    </div>
+                    <div class="govuk-check-your-answers__contents">
+                        <dt class="govuk-check-your-answers__question">
+                            Balance
+                        </dt>
+                        <dd class="govuk-check-your-answers__answer">
+                            £2746.00
+                        </dd>
+                        <dd class="govuk-check-your-answers__change">
+                        </dd>
+                    </div>
+                </dl>
             </div>
-            <div class="govuk-check-your-answers__contents">
-              <dt class="govuk-check-your-answers__question">
-                Balance
-              </dt>
-              <dd class="govuk-check-your-answers__answer">
-                £2746.00
-              </dd>
-              <dd class="govuk-check-your-answers__change">
-              </dd>
-            </div>
-          </dl>
-
-
-
-
-
-
-
-
-
-
-    </div>
-    </div>
-
-
-
-
-
-  </main>
-
+        </div>
+    </main>
 </div>
-
-
 {% endblock %}

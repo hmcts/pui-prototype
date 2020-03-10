@@ -32,54 +32,32 @@ active: false
 })}}
 {% endblock %}
 {% block content %}
-  <div class="hmcts-width-container">
-      {{ govukPhaseBanner({
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
     tag: {
-      text: "beta"
+    text: "beta"
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-  }) }}
-    {{govukBackLink({
-      href: './view-2'
-    })}}
+    }) }}
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-
-      <span class="govuk-caption-xl">Wedlake Bell</span><h1 class="govuk-heading-l">User</h1>
-
-      <form action="/manage-admin-i3/users/view-2" method="post">
-        {{ govukInput({
-          label: {
-            text: "First name",
-            classes: 'govuk-label--m'
-          },
-          id: "firstname",
-          name: "firstname",
-          value: "Jill"
-        }) }}
-        {{ govukInput({
-          label: {
-            text: "Last name",
-            classes: 'govuk-label--m'
-          },
-          id: "lastname",
-          name: "lastname",
-          value: "Smith"
-        }) }}
-
-
-        {{govukButton({
-          text: 'Save'
-        })}}
-      </form>
-
-    </div>
-
-
-
+                {{ govukPanel({
+                titleText: "You've invited",
+                html: 'amyvenkatanarasimharaj@wedlakebell.com'
+                }) }}
+                <h3 class="govuk-heading-m">What happens next</h3>
+                <p class="govuk-body">
+                    The recipient will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.
+                </p>
+                <p class="govuk-body">
+                    <a href="/manage-admin-i3/users/view-pending-users">Go back to manage users</a>
+                </p>
+                <!--
+         <p><a style ="color:white" href="/create-user-account-v2">Link to Idam email</a></p>
+-->
+            </div>
         </div>
-      </div>
     </main>
-  </div>
+</div>
 {% endblock %}

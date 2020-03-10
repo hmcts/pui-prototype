@@ -1,48 +1,37 @@
 {% extends "manage-admin/layout.html" %}
-
-{% set serviceName = 'Manage organisation details for civil and family law cases' %}
-
+{% set serviceName = 'Manage organisation' %}
 {% set pageId = 'users' %}
-
 {% block header %}
 {{hmctsHeader({
-  service: {
-    name: serviceName,
-    url: '/'
-  },
- navigation: {
-    items: [{
-      text: 'Profile',
-      href: '/manage-admin-i3/profile'
-    },{
-      text: 'Sign out',
-      href: '/sign-out'
-    }]
-  }
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+items: [{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
 })}}
 {{hmctsPrimaryNavigation({
-  classes: "govuk-!-margin-bottom-0",
-  items: [ {
-    text: 'Organisation',
-    href: '/manage-admin-i3',
-    active: false
-  }, {
-    text: 'Users',
-    href: '/manage-admin-i3/users',
-    active: true
-  }]
-
+classes: "govuk-!-margin-bottom-0",
+items: [ {
+text: 'Organisation',
+href: '/manage-admin-i3',
+active: false
+}, {
+text: 'Users',
+href: '/manage-admin-i3/users',
+active: true
+}, {
+text: 'Fee accounts',
+href: '/manage-admin-i3/payments',
+active: false
+}]
 })}}
-
 {% endblock %}
- <!-- {
-    text: 'Fee accounts',
-    href: '/manage-admin/payments',
-    active: false
-  }] -->
-
 {% block content %}
-
 
   <div class="hmcts-width-container">
       {{ govukPhaseBanner({
@@ -52,59 +41,54 @@
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
   }) }}
      {{govukBackLink({
-      href: './'
+      href: './view-revoked-users'
     })}} 
-   <main role="main" class="govuk-main-wrapper">
-
+    <main role="main" class="govuk-main-wrapper">
         {{ hmctsPageHeaderWithActions({
-          title: {
-            html: ' <span class="govuk-caption-xl">Wedlake Bell</span><h1 class="govuk-heading-xl">Administrator</h1>'
-          },
-          items: [{
-            text: 'Re-activate user',
-            classes: 'hmcts-button--secondary',
-            href: './view'
-          }]
+        title: {
+        html: '<h1 class="govuk-heading-l">User details</h1>'
+        }
         }) }}
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
+                <!-- <h1 class="govuk-heading-l">User details</h1> -->
+                <div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                        This user's account has been suspended.
+                    </strong>
+                </div>
 
-
-      <div class="govuk-warning-text">
-  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-  <strong class="govuk-warning-text__text">
-    This user's access has been revoked
-  </strong>
-</div>
-
-
-    <table class="govuk-table">
-        <tbody class="govuk-table__body">
-
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">Name</th>
-            <td class="govuk-table__cell">Joe Bloggs</td>
-            <td class="govuk-table__cell"><!--<a href="/manage-admin-i3/users/update-name">Change</a>--></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">Email address</th>
-            <td class="govuk-table__cell">joe.bloggs@Wedlake Bell.com</td>
-            <td class="govuk-table__cell"><!--<a href="/manage-admin-i3/users/update-email">Change</a>--></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">Permissions</th>
-            <td class="govuk-table__cell">
-              Manage cases<br>
-              Manage users<br>
-              Manage organisation<br></td>
-              <!--Manage payment -->
-              <td class="govuk-table__cell"><!--<a href="/manage-admin-i3/users/update-permissions">Change</a>--></td>
-            </tr>
-          </tbody>
-        </table>
-
-        </div>
-      </div>
+                <table class="govuk-table">
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="row">Name</th>
+                            <td class="govuk-table__cell">Bill Brown</td>
+                            <td class="govuk-table__cell"></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="row">Email address</th>
+                            <td class="govuk-table__cell">bill.brown@wedlakebell.com</td>
+                            <td class="govuk-table__cell"></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="row">Permissions</th>
+                            <td class="govuk-table__cell">
+                                Manage cases<br>
+                                <!--
+        Manage users<br>
+        Manage organisation<br> -->
+                            <td class="govuk-table__cell"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <p>Contact <a href="mailto:service-desk@hmcts.gov.uk">service-desk@hmcts.gov.uk</a> to reactivate this account.</p>
+    <p class="govuk-body">
+                    <a href="/manage-admin-i3/users/view-revoked-users">Go back to manage users</a>
+                </p>
+                </div>
+            </div>
     </main>
   </div>
 {% endblock %}
