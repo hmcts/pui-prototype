@@ -1,10 +1,8 @@
-
 {% extends "manage-admin/layout.html" %}
 
 {% set serviceName = 'Manage organisation details for civil and family law cases' %}
 
 {% set pageId = 'users' %}
-
 
 {% block header %}
 {{hmctsHeader({
@@ -12,7 +10,7 @@
     name: serviceName,
     url: '/'
   },
-  navigation: {
+ navigation: {
     items: [{
       text: 'Profile',
       href: '/manage-admin-i3/profile'
@@ -45,15 +43,16 @@
 
 {% block content %}
 
-<div class="hmcts-width-container">
-    {{ govukPhaseBanner({
+
+  <div class="hmcts-width-container">
+      {{ govukPhaseBanner({
     tag: {
       text: "beta"
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
   }) }}
-
-    <main role="main" class="govuk-main-wrapper">
+  
+     <main role="main" class="govuk-main-wrapper">
 
      <div class="hmcts-page-heading"> 
         
@@ -77,7 +76,7 @@
 
     
       <li class="hmcts-sub-navigation__item">
-        <a class="hmcts-sub-navigation__link" aria-current="page" href="/manage-admin-i3/users/">
+        <a class="hmcts-sub-navigation__link" href="/manage-admin-i3/users/">
           Active
         </a>
       </li>
@@ -89,7 +88,7 @@
       </li>
     
 <li class="hmcts-sub-navigation__item">
-        <a class="hmcts-sub-navigation__link"  href="/manage-admin-i3/users/view-revoked-users">
+        <a class="hmcts-sub-navigation__link"  aria-current="page" href="/manage-admin-i3/users/view-revoked-users">
           Revoked
         </a>
       </li>
@@ -109,23 +108,16 @@
   </thead>
   <tbody class="govuk-table__body">
 
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" scope="row"><a href="/manage-admin-i3/users/view">Joe Bloggs</a></td>
-      <td class="govuk-table__cell" scope="row">joe.bloggs@Wedlake Bell.com</td>
-      <td class="govuk-table__cell" scope="row">Active</td>
-    </tr>
 
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" scope="row"><a href="/manage-admin-i3/users/view-2">Jill Smith</a></td>
-      <td class="govuk-table__cell" scope="row">jill.smith@Wedlake Bell.com</td>
-      <td class="govuk-table__cell" scope="row">Active</td>
+      <td class="govuk-table__cell" scope="row"><a href="/manage-admin-i3/users/view-revoked">Bill Brown</a></td>
+      <td class="govuk-table__cell" scope="row">bill.brown@email.com</td>
+      <td class="govuk-table__cell" scope="row">Revoked</td>
     </tr>
-
 
   </tbody>
 </table>
 
     </main>
   </div>
-
 {% endblock %}
