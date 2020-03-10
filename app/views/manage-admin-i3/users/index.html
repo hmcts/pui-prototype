@@ -32,6 +32,7 @@ active: false
 })}}
 {% endblock %}
 {% block content %}
+
 <div class="hmcts-width-container">
     {{ govukPhaseBanner({
     tag: {
@@ -73,14 +74,14 @@ active: false
             </ul>
         </nav>
         <div>
-            <p>Showing <b>16</b> users</p>
+            <p>Showing <b>24</b> users</p>
         </div>
         <table class="govuk-table">
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="col">Name</th>
-                    <th class="govuk-table__header" scope="col">Email address</th>
-                    <th class="govuk-table__header" scope="col">Status</th>
+                    <th scope="col" class="govuk-table__header" aria-sort="ascending"><button type="button" data-index="0">Name</button></th>
+                    <th scope="col" class="govuk-table__header" aria-sort="decending"><button type="button" data-index="0">Email address</button></th>
+                      <th scope="col" class="govuk-table__header" aria-sort="decending"><button type="button" data-index="0">Role</button></th>
                     <th>
                 </tr>
             </thead>
@@ -88,62 +89,123 @@ active: false
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row"><a href="/manage-admin-i3/users/view">Joe Bloggs</a></td>
                     <td class="govuk-table__cell" scope="row">joe.bloggs@wedlakebell.com</td>
-                    <td class="govuk-table__cell" scope="row">Active</td>
+                    <td class="govuk-table__cell" scope="row">Administrator</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row"><a href="/manage-admin-i3/users/view-2">Jill Smith</a></td>
                     <td class="govuk-table__cell" scope="row">jill.smith@wedlakebell.com</td>
-                    <td class="govuk-table__cell" scope="row">Active</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row"><a href="#">Dominika Garner</a></td>
                     <td class="govuk-table__cell" scope="row">dominika.garnerh@wedlakebell.com</td>
-                    <td class="govuk-table__cell" scope="row">Active</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row"><a href="#">Jadene Harris</a></td>
                     <td class="govuk-table__cell" scope="row">jadene.harris@wedlakebell.com</td>
-                    <td class="govuk-table__cell" scope="row">Active</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row"><a href="#">Lyndsey Mora</a></td>
                     <td class="govuk-table__cell" scope="row">lyndsey.mora@wedlakebell.com</td>
-                    <td class="govuk-table__cell" scope="row">Active</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row"><a href="#">Eryn Marriott</a></td>
                     <td class="govuk-table__cell" scope="row">eryn.marriott@wedlakebell.com</td>
-                    <td class="govuk-table__cell" scope="row">Active</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row"><a href="#">Bonita Bannister</a></td>
                     <td class="govuk-table__cell" scope="row">bonita.bannister@wedlakebell.com</td>
-                    <td class="govuk-table__cell" scope="row">Active</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row"><a href="#">Kofi Bowman</a></td>
                     <td class="govuk-table__cell" scope="row">kofi.bowman@wedlakebell.com</td>
-                    <td class="govuk-table__cell" scope="row">Active</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row"><a href="#">Terence Williams</a></td>
                     <td class="govuk-table__cell" scope="row">terence.williams@wedlakebell.com</td>
-                    <td class="govuk-table__cell" scope="row">Active</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row"><a href="#">Ivy-Rose Ireland</a></td>
                     <td class="govuk-table__cell" scope="row">ivy-rose.ireland@wedlakebell.com</td>
-                    <td class="govuk-table__cell" scope="row">Active</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row"><a href="#">Michele Serrano</a></td>
                     <td class="govuk-table__cell" scope="row">michele.serrano@wedlakebell.com</td>
-                    <td class="govuk-table__cell" scope="row">Active</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell" scope="row"><a href="#">Kaya Mccullough</a></td>
                     <td class="govuk-table__cell" scope="row">kaya.mcculloughn@wedlakebell.com</td>
-                    <td class="govuk-table__cell" scope="row">Active</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
+                </tr>
+                <!-- Break -->
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="/manage-admin-i3/users/view">Joe Bloggs</a></td>
+                    <td class="govuk-table__cell" scope="row">joe.bloggs@wedlakebell.com</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="/manage-admin-i3/users/view-2">Jill Smith</a></td>
+                    <td class="govuk-table__cell" scope="row">jill.smith@wedlakebell.com</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="#">Dominika Garner</a></td>
+                    <td class="govuk-table__cell" scope="row">dominika.garnerh@wedlakebell.com</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="#">Jadene Harris</a></td>
+                    <td class="govuk-table__cell" scope="row">jadene.harris@wedlakebell.com</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="#">Lyndsey Mora</a></td>
+                    <td class="govuk-table__cell" scope="row">lyndsey.mora@wedlakebell.com</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="#">Eryn Marriott</a></td>
+                    <td class="govuk-table__cell" scope="row">eryn.marriott@wedlakebell.com</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="#">Bonita Bannister</a></td>
+                    <td class="govuk-table__cell" scope="row">bonita.bannister@wedlakebell.com</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="#">Kofi Bowman</a></td>
+                    <td class="govuk-table__cell" scope="row">kofi.bowman@wedlakebell.com</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="#">Terence Williams</a></td>
+                    <td class="govuk-table__cell" scope="row">terence.williams@wedlakebell.com</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="#">Ivy-Rose Ireland</a></td>
+                    <td class="govuk-table__cell" scope="row">ivy-rose.ireland@wedlakebell.com</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="#">Michele Serrano</a></td>
+                    <td class="govuk-table__cell" scope="row">michele.serrano@wedlakebell.com</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row"><a href="#">Kaya Mccullough</a></td>
+                    <td class="govuk-table__cell" scope="row">kaya.mcculloughn@wedlakebell.com</td>
+                    <td class="govuk-table__cell" scope="row">User</td>
                 </tr>
             </tbody>
         </table>
