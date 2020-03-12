@@ -34,7 +34,7 @@
                 "titleText": "There is a problem",
                 "errorList": [
                 {
-                "html": "This SRA number has already been used.
+                "html": "This PBA number has already been used.
                 ",
                 "href": "#dx-number"
                 }
@@ -66,9 +66,20 @@
                         </div>
                         <div class="govuk-check-your-answers__contents">
                             <dt class="govuk-check-your-answers__question">PBA number</dt>
-                            <dd class="govuk-check-your-answers__answer">
-                                {{data['org-pba']}}
+                              <dd class="govuk-check-your-answers__answer">
+                                PBA0241163<br>
+                                 
+                                PBA222333
+                                  <span id="passport-issued-error" class="govuk-error-message"> {{data['sra-number']}}
+                                    <span class="govuk-visually-hidden">Error:</span> This PBA has already been used.<br>
+                                    You should check the PBA has been entered correctly.<br>
+                                    You should also check if your organisation has already been registered.<br>
+                                    If you're still having problems, contact HMCTS.
+                                </span>
                             </dd>
+                            <!--<dd class="govuk-check-your-answers__answer">
+                                {{data['org-pba']}}
+                            </dd>-->
                             <dd class="govuk-check-your-answers__change">
                                 <a href="/mvp-4/register-organisation/organisation-pba">Change <span class="govuk-visually-hidden">PBA number</span></a>
                             </dd>
@@ -105,12 +116,7 @@
                         <div class="govuk-check-your-answers__contents">
                             <dt class="govuk-check-your-answers__question ">SRA number</dt>
                             <dd class="govuk-check-your-answers__answer">596723<br>
-                                <span id="passport-issued-error" class="govuk-error-message"> {{data['sra-number']}}
-                                    <span class="govuk-visually-hidden">Error:</span> This SRA has already been used.<br>
-                                    You should check the SRA has been entered correctly.<br>
-                                    You should also check if your organisation has already been registered.<br>
-                                    If you're still having problems, contact HMCTS.
-                                </span>
+                             
                             </dd>
                             <dd class="govuk-check-your-answers__change">
                                 <a href="/mvp-4/register-organisation/organisation-sra">Change <span class="govuk-visually-hidden">organistaion sra</span></a>
