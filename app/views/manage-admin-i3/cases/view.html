@@ -1,0 +1,88 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+{{hmctsHeader({
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+items: [{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
+})}}
+{{hmctsPrimaryNavigation({
+classes: "govuk-!-margin-bottom-0",
+items: [ {
+text: 'Organisation',
+href: '/manage-admin-i3',
+active: false
+}, {
+text: 'Users',
+href: '/manage-admin-i3/users',
+active: false
+}, {
+text: 'Cases',
+href: '/manage-admin-i3/cases',
+active: true
+},{
+text: 'Fee accounts',
+href: '/manage-admin-i3/payments',
+active: false
+}]
+})}}
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: './'
+    })}}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <main class="govuk-main-wrapper" role="main">
+                <form method="post">
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                                <h1 class="govuk-fieldset__heading">
+                                    Who do you want to share the case with?
+                                </h1>
+                            </legend>
+                            <div class="govuk-radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="who-1" name="who" type="radio" value="namedperson">
+                                    <label class="govuk-label govuk-radios__label" for="who-1">
+                                        An employee in my organisation
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="who-2" name="who" type="radio" value="role">
+                                    <label class="govuk-label govuk-radios__label" for="who-2">
+                                        A person outside my organisation
+                                    </label>
+                                </div>
+                               
+                            </div>
+                        </fieldset>
+                    </div>
+                {{govukButton({
+        text: 'Continue',
+        href: './share-org'
+        })}}
+                </form>
+            </main>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}

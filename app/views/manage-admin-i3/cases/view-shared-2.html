@@ -1,0 +1,118 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+{{hmctsHeader({
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+items: [{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
+})}}
+{{hmctsPrimaryNavigation({
+classes: "govuk-!-margin-bottom-0",
+items: [ {
+text: 'Organisation',
+href: '/manage-admin-i3',
+active: false
+}, {
+text: 'Users',
+href: '/manage-admin-i3/users',
+active: false
+}, {
+text: 'Cases',
+href: '/manage-admin-i3/cases',
+active: true
+},{
+text: 'Fee accounts',
+href: '/manage-admin-i3/payments',
+active: false
+}]
+})}}
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="hmcts-page-heading">
+             <div class="hmcts-page-heading__title-wrapper">
+                <span class="govuk-caption-xl">Wedlake Bell</span>
+                <h1 class="govuk-heading-xl">Cases</h1>
+            </div>
+            <div class="hmcts-page-heading__actions-wrapper">
+                <!-- {{govukButton({
+                text: 'Invite user',
+                href: '/manage-admin-i3/users/new',
+                classes: 'hmcts-page-heading__button'
+                })}} -->
+            </div>
+        </div>
+  <nav class="hmcts-sub-navigation">
+            <ul class="hmcts-sub-navigation__list">
+                <li class="hmcts-sub-navigation__item">
+                    <a class="hmcts-sub-navigation__link"  href="/manage-admin-i3/cases/">
+                        All cases
+                    </a>
+                </li>
+                <li class="hmcts-sub-navigation__item">
+                    <a class="hmcts-sub-navigation__link" aria-current="page" href="/manage-admin-i3/cases/view-shared">
+                        Shared cases
+                    </a>
+                </li>
+       
+            </ul>
+        </nav>
+         <div>
+            <p>Showing <b>2</b> cases</p>
+        </div>
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col">Reference</th>
+                    <th class="govuk-table__header" scope="col">Case created</th>
+                    <th class="govuk-table__header" scope="col">Type</th>
+                    <th class="govuk-table__header" scope="col">Assigned to</th>
+                    <th class="govuk-table__header" scope="col">Shared with</th>
+                     <th class="govuk-table__header" scope="col">Notes</th>
+                    <th class="govuk-table__header" scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+            
+  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Margaret Blake and William Blake <br><span class="govuk-caption-m govuk-!-font-size-16"> FR1231612322 </span> </td>
+                    <td class="govuk-table__cell" scope="row">13 Dec 2019</td>
+                    <td class="govuk-table__cell">Financial remedy</td>
+                    <td class="govuk-table__cell">Dominika Garner</td>
+                     <td class="govuk-table__cell">[Firstname Lastname]</td>
+                     <td class="govuk-table__cell">Advice sort on  ...</td>
+                  <td class="govuk-table__cell"><a href="#">Edit</a></td>
+                </tr>
+
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Warren Sutton and DWP <br><span class="govuk-caption-m govuk-!-font-size-16"> SC1231612322 </span> </td>
+                    <td class="govuk-table__cell" scope="row">17 Jan 2020</td>
+                    <td class="govuk-table__cell">PIP</td>
+                    <td class="govuk-table__cell">Terence Williams</td>
+                    <td class="govuk-table__cell">Michele Serrano</td>
+                     <td class="govuk-table__cell">Michele had  worked on a simular case.</td>
+                    <td class="govuk-table__cell"><a href="#">Edit</a></td>
+                </tr>
+               
+                
+            </tbody>
+        </table>
+    </main>
+</div>
+{% endblock %}
