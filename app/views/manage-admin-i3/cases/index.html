@@ -44,83 +44,288 @@ active: false
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
     <main role="main" class="govuk-main-wrapper">
-        <div class="hmcts-page-heading">
-            <div class="hmcts-page-heading__title-wrapper">
-                <span class="govuk-caption-xl">Wedlake Bell</span>
-                <h1 class="govuk-heading-xl">Cases</h1>
+        {{ hmctsPageHeaderWithActions({
+        title: {
+        html: '<span class="govuk-caption-xl">Wedlake Bell</span>
+        <h1 class="govuk-heading-xl">Cases</h1>'
+        },
+        classes: 'govuk-!-margin-bottom-7',
+        items: [{
+        text: 'Create case',
+        href: '/v1-1/create-case'
+        }]
+        }) }}
+        {% set filterOptionsHtml %}
+        {{ govukCheckboxes({
+        idPrefix: 'type',
+        name: 'type',
+        fieldset: {
+        legend: {
+        text: 'Type',
+        classes: 'govuk-fieldset__legend--m'
+        }
+        },
+        items: [
+        {
+        value: '1',
+        text: 'Divorce (18)',
+        checked: true
+        },
+        {
+        value: '2',
+        text: 'Financial Remedy (5)',
+        checked: true
+        },
+        {
+        value: '3',
+        text: 'Probate (2)',
+        checked: true
+        }
+        ]
+        }) }}
+        {{ govukCheckboxes({
+        idPrefix: 'source',
+        name: 'source',
+        fieldset: {
+        legend: {
+        text: 'Source',
+        classes: 'govuk-fieldset__legend--m'
+        }
+        },
+        items: [
+        {
+        value: '1',
+        text: 'Internal',
+        checked: true
+        },
+        {
+        value: '2',
+        text: 'External referral',
+        checked: true
+        }
+        ]
+        }) }}
+        {% endset %}
+        <div class="hmcts-filter-layout">
+            <div class="hmcts-filter-layout__filter">
+                {{ hmctsFilter({
+                heading: {
+                text: 'Filter'
+                },
+                selectedFilters: {
+                heading: {
+                text: 'Selected filters'
+                },
+                clearLink: {
+                text: 'Clear filters'
+                },
+                categories: [
+                {
+                heading: {
+                text: 'Type'
+                },
+                items: [{
+                href: '/path/to/remove/this',
+                text: 'Divorce'
+                }, {
+                href: '/path/to/remove/this',
+                text: 'Financial remedy'
+                },{
+                href: '/path/to/remove/this',
+                text: 'Probate'
+                }]
+                },
+                {
+                heading: {
+                text: 'Source'
+                },
+                items: [{
+                href: '/path/to/remove/this',
+                text: 'Internal'
+                }, {
+                href: '/path/to/remove/this',
+                text: 'External referral'
+                }]
+                }
+                ]
+                },
+                optionsHtml: filterOptionsHtml
+                }) }}
             </div>
-            <div class="hmcts-page-heading__actions-wrapper">
-                <!-- {{govukButton({
-                text: 'Invite user',
-                href: '/manage-admin-i3/users/new',
-                classes: 'hmcts-page-heading__button'
-                })}} -->
+            <div class="hmcts-filter-layout__content">
+                <div class="hmcts-action-bar">
+                    <div class="hmcts-action-bar__filter"></div>
+                    {{ hmctsMenu({
+                    items: [{
+                    text: 'Assign case',
+                    classes: 'hmcts-button--secondary',
+                    href: './share-bulk'
+                    }]
+                    }) }}
+                </div>
+                <div class="hmcts-scrollable-pane">
+                    <div class="hmcts-scrollable-pane__wrapper">
+                        {% set checkbox %}
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
+                            <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
+                            </label>
+                        </div>
+                        {% endset %}
+                        <nav class="hmcts-sub-navigation">
+                            <ul class="hmcts-sub-navigation__list">
+                                <li class="hmcts-sub-navigation__item">
+                                    <a class="hmcts-sub-navigation__link" aria-current="page" href="/manage-admin-i3/cases/">
+                                        Unassigned cases
+                                    </a>
+                                </li>
+                                <li class="hmcts-sub-navigation__item">
+                                    <a class="hmcts-sub-navigation__link" href="/manage-admin-i3/cases/index-3">
+                                        Assigned cases
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div>
+                            <p>Showing <b>11</b> unassigned cases</p>
+                        </div>
+                        <table class="govuk-table">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
+                                    <th class="govuk-table__header" scope="col">Reference</th>
+                                    <th class="govuk-table__header" scope="col">Case received</th>
+                                    <th class="govuk-table__header" scope="col">Case created</th>
+                                    <th class="govuk-table__header" scope="col">Type</th>
+                                    <th class="govuk-table__header" scope="col">Source</th>
+                                    <th class="govuk-table__header" scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                                    <td class="govuk-table__cell ">Kieran Flick<br><span class="govuk-caption-m govuk-!-font-size-16">3967-8498-9343-2045</span></th>
+                                    <td class="govuk-table__cell "></td>
+                                    <td class="govuk-table__cell ">07 Apr 2020</td>
+                                    <td class="govuk-table__cell ">Probate</td>
+                                    <td class="govuk-table__cell ">Internal</td>
+                                    <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                                    <td class="govuk-table__cell ">Francesca Dove<br><span class="govuk-caption-m govuk-!-font-size-16">7372-5134-7441-3921</span></th>
+                                   
+                                    <td class="govuk-table__cell ">07 Apr 2020</td> <td class="govuk-table__cell ">03 Mar 2020</td>
+                                    <td class="govuk-table__cell ">Probate</td>
+                                    <td class="govuk-table__cell ">External referral</td>
+                                    <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                                    <td class="govuk-table__cell ">Iain Curran v Robin<br><span class="govuk-caption-m govuk-!-font-size-16">2877-6519-5618-9839</span></th>
+                                    <td class="govuk-table__cell "></td>
+                                    <td class="govuk-table__cell ">07 Apr 2020</td>
+                                    <td class="govuk-table__cell ">Financial remedy</td>
+                                    <td class="govuk-table__cell ">Internal</td>
+                                    <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                                    <td class="govuk-table__cell ">Graham Edgar v Kath<br><span class="govuk-caption-m govuk-!-font-size-16">8768-9687-5469-7731</span></th>
+                                    <td class="govuk-table__cell ">07 Apr 2020</td><td class="govuk-table__cell ">22 Sep 2019</td>
+                                    <td class="govuk-table__cell "> Financial remedy</td>
+                                    <td class="govuk-table__cell ">External referral</td>
+                                    <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                                    <td class="govuk-table__cell ">Francesca Bianchi<br><span class="govuk-caption-m govuk-!-font-size-16">5464-3800-8459-8477</span></th>
+                                    <td class="govuk-table__cell "></td>
+                                    <td class="govuk-table__cell ">07 Apr 2020</td>
+                                    <td class="govuk-table__cell ">Probate</td>
+                                    <td class="govuk-table__cell ">Internal</td>
+                                    <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                                    <td class="govuk-table__cell ">Alejandro Romero<br><span class="govuk-caption-m govuk-!-font-size-16">4748-2828-7712-8233</span></th>
+                                    <td class="govuk-table__cell "></td>
+                                    <td class="govuk-table__cell ">07 Apr 2020</td>
+                                    <td class="govuk-table__cell ">Probate</td>
+                                    <td class="govuk-table__cell ">Internal</td>
+                                    <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                                    <td class="govuk-table__cell ">Nazia Lashkar v Ash<br><span class="govuk-caption-m govuk-!-font-size-16">6028-8467-4793-8075</span></th>
+                                    <td class="govuk-table__cell "></td>
+                                    <td class="govuk-table__cell ">06 Apr 2020</td>
+                                    <td class="govuk-table__cell ">Divorce</td>
+                                    <td class="govuk-table__cell ">Internal</td>
+                                    <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                                    <td class="govuk-table__cell ">Karen Gallagher v G<br><span class="govuk-caption-m govuk-!-font-size-16">9417-3739-9576-5131</span></th>
+                                    <td class="govuk-table__cell ">06 Apr 2020</td>
+                                    <td class="govuk-table__cell ">18 Dec 2019</td>
+                                    <td class="govuk-table__cell ">Divorce</td>
+                                    <td class="govuk-table__cell "> External referral</td>
+                                    <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                                    <td class="govuk-table__cell ">Darren Wright v Gil<br><span class="govuk-caption-m govuk-!-font-size-16">3858-2644-5670-5587</span></th>
+                                    <td class="govuk-table__cell "></td>
+                                    <td class="govuk-table__cell ">06 Apr 2020</td>
+                                    <td class="govuk-table__cell ">Financial remedy</td>
+                                    <td class="govuk-table__cell ">Internal</td>
+                                    <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                                    <td class="govuk-table__cell ">Terence Yorke<br><span class="govuk-caption-m govuk-!-font-size-16">9781-9466-6623-9191</span></th>
+                                    <td class="govuk-table__cell "></td>
+                                    <td class="govuk-table__cell ">06 Apr 2020</td>
+                                    <td class="govuk-table__cell ">Probate</td>
+                                    <td class="govuk-table__cell ">Internal</td>
+                                    <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                                    <td class="govuk-table__cell ">John Smith v Jane S<br><span class="govuk-caption-m govuk-!-font-size-16">2427-6452-8238-1837</span></th>
+                                    <td class="govuk-table__cell "></td>
+                                    <td class="govuk-table__cell ">05 Apr 2020</td>
+                                    <td class="govuk-table__cell ">Divorce</td>
+                                    <td class="govuk-table__cell ">Internal</td>
+                                    <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-        </div>
-         <nav class="hmcts-sub-navigation">
-            <ul class="hmcts-sub-navigation__list">
-                <li class="hmcts-sub-navigation__item">
-                    <a class="hmcts-sub-navigation__link" aria-current="page" href="/manage-admin-i3/cases/">
-                        All cases
-                    </a>
-                </li>
-                <li class="hmcts-sub-navigation__item">
-                    <a class="hmcts-sub-navigation__link" href="/manage-admin-i3/cases/view-shared">
-                        Shared cases
-                    </a>
-                </li>
-       
-            </ul>
-        </nav>
-        <div>
-            <p>Showing <b>5</b> cases</p>
-        </div>
-        <table class="govuk-table">
-            <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="col">Reference</th>
-                    <th class="govuk-table__header" scope="col">Case created</th>
-                    <th class="govuk-table__header" scope="col">Type</th>
-                    <th class="govuk-table__header" scope="col">Assigned to</th>
-                    <th class="govuk-table__header" scope="col"></th>
-                </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Margaret Blake and William Blake <br><span class="govuk-caption-m govuk-!-font-size-16"> FR1231612322 </span> </td>
-                    <td class="govuk-table__cell" scope="row">13 Dec 2019</td>
-                    <td class="govuk-table__cell">Financial remedy</td>
-                    <td class="govuk-table__cell">Dominika Garner</td>
-                    <td class="govuk-table__cell"><a href="/manage-admin-i3/cases/view">Share case</a></td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Warren Sutton and DWP <br><span class="govuk-caption-m govuk-!-font-size-16"> SC1231612322 </span> </td>
-                    <td class="govuk-table__cell" scope="row">17 Jan 2020</td>
-                    <td class="govuk-table__cell">PIP</td>
-                    <td class="govuk-table__cell">Terence Williams</td>
-                    <td class="govuk-table__cell"><a href="#">Share case</a></td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Alan Jones and DWP <br><span class="govuk-caption-m govuk-!-font-size-16"> SC1231612323 </span> </td>
-                    <td class="govuk-table__cell" scope="row">26 Jan 2020</td>
-                    <td class="govuk-table__cell">PIP</td>
-                    <td class="govuk-table__cell">Terence Williams</td>
-                    <td class="govuk-table__cell"><a href="#">Share case</a></td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Susan Francis and David Francis <br><span class="govuk-caption-m govuk-!-font-size-16"> BV18D00150 </span> </td>
-                     <td class="govuk-table__cell" scope="row">10 Mar 2020</td>
-                    <td class="govuk-table__cell">Divorce</td>
-                    <td class="govuk-table__cell">Bonita Bannister</td>
-                    <td class="govuk-table__cell"><a href="#">Share case</a></td>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Paul Fox and Helen Fox <br><span class="govuk-caption-m govuk-!-font-size-16"> BV18D06676 </span> </td> <td class="govuk-table__cell" scope="row">04 Apr 2020</td>
-                    <td class="govuk-table__cell">Divorce</td>
-                    <td class="govuk-table__cell">Bonita Bannister</td>
-                    <td class="govuk-table__cell"><a href="#">Share case</a></td>
-                </tr>
-            </tbody>
-        </table>
     </main>
 </div>
+{% endblock %}
+{% block pageScripts %}
+{{super()}}
+<script>
+new HMCTSFrontend.FilterToggleButton({
+    bigModeMediaQuery: '(min-width: 48.063em)',
+    startHidden: true,
+    toggleButton: {
+        container: $('.hmcts-action-bar__filter'),
+        showText: 'Show filter',
+        hideText: 'Hide filter',
+        classes: 'hmcts-button--secondary'
+    },
+    closeButton: {
+        container: $('.hmcts-filter__header-action'),
+        text: 'Close'
+    },
+    filter: {
+        container: $('.hmcts-filter')
+    }
+});
+</script>
 {% endblock %}
