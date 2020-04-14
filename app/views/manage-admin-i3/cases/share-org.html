@@ -49,29 +49,60 @@ active: false
     <main class="govuk-main-wrapper" role="main">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
+                {{ govukTextarea({
+                label: {
+                text: "Who do you want to share the case with?",
+                classes: 'govuk-label--xl',
+                isPageHeading: true
+                },
+                hint: {
+                html: 'You can enter multiple email addresses separated by commas.
+               </p>
+                    <div class="govuk-form-group">
+                        <select class="govuk-select" id="name" name="name">
+                            <option value="Joe Bloggs">Joe Bloggs - joe.bloggs@wedlakebell.com</option>
+                            <option value="Jill Smiths">Jill Smith - jill.smith@wedlakebell.com</option>
+                            <option value="Dominika Garner">Dominika Garner - dominika.garnerh@wedlakebell.com</option>
+                            <option value="Jadene Harris">Jadene Harris - jadene.harris@wedlakebell.com</option>
+                            <option value="Lyndsey Mora">Lyndsey Mora - lyndsey.mora@wedlakebell.com</option>
+                            <option value="Eryn Marriott">Eryn Marriott - eryn.marriott@wedlakebell.com</option>
+                            <option value="Bonita Bannister">Bonita Bannister - bonita.bannister@wedlakebell.com</option>
+                            <option value="Kofi Bowman">Kofi Bowman - kofi.bowman@wedlakebell.com</option>
+                            <option value="Terence Williams">Terence Williams - terence.williams@wedlakebell.com</option>
+                            <option value="Ivy-Rose Ireland">Ivy-Rose Irelands - terence.williams@wedlakebell.com</option>
+                            <!--   <option value="Michele Serrano">Michele Serrano</option> -->
+                            <option value="Kaya Mccullough">Kaya Mccullough - kaya.mcculloughn@wedlakebell.com</option>
+                        </select></div></p>'  },
+               
+                id: "shared-email",
+                name: "shared-email"
+                }) }}
+                <p>Or select from the list</p>
                 <form method="post">
                     <div class="govuk-form-group">
-                        <h1 class="govuk-label-wrapper">
-                            <label class="govuk-label govuk-label--xl" for="name">
-                                Name of the employee to share case with
-                            </label>
-                        </h1>
                         <select class="govuk-select" id="name" name="name">
-                            <option value=""></option>
-                            <option value="Bonita Bannister">Bonita Bannister</option>
-                            <option value="Kofi Bowman">Kofi Bowman</option>
-                           <!-- <option value="Dominika Garner">Dominika Garner</option> -->
-                            <option value="Michele Serrano">Michele Serrano</option>
-                            <option value="Jill Smiths">Jill Smiths</option>
-                            <option value="Terence Williams">Terence Williams</option>
-                        </select>
+                            <option value="Joe Bloggs">Joe Bloggs - joe.bloggs@wedlakebell.com</option>
+                            <option value="Jill Smiths">Jill Smith - jill.smith@wedlakebell.com</option>
+                            <option value="Dominika Garner">Dominika Garner - dominika.garnerh@wedlakebell.com</option>
+                            <option value="Jadene Harris">Jadene Harris - jadene.harris@wedlakebell.com</option>
+                            <option value="Lyndsey Mora">Lyndsey Mora - lyndsey.mora@wedlakebell.com</option>
+                            <option value="Eryn Marriott">Eryn Marriott - eryn.marriott@wedlakebell.com</option>
+                            <option value="Bonita Bannister">Bonita Bannister - bonita.bannister@wedlakebell.com</option>
+                            <option value="Kofi Bowman">Kofi Bowman - kofi.bowman@wedlakebell.com</option>
+                            <option value="Terence Williams">Terence Williams - terence.williams@wedlakebell.com</option>
+                            <option value="Ivy-Rose Ireland">Ivy-Rose Irelands - terence.williams@wedlakebell.com</option>
+                            <!--   <option value="Michele Serrano">Michele Serrano</option> -->
+                            <option value="Kaya Mccullough">Kaya Mccullough - kaya.mcculloughn@wedlakebell.com</option>
+                        </select>{{govukButton({
+                        text: 'Add',
+                        classes: 'hmcts-button--secondary',
+                        href: '#'
+                        })}}
                     </div>
-
-                    <p><span class="govuk-body govuk-!-font-weight-bold">Case currently assigned to:</span> Dominika Garner</p> 
-                              {{govukButton({
-        text: 'Continue',
-        href: './share-org-why'
-        })}}
+                    {{govukButton({
+                    text: 'Continue',
+                    href: './share-org-why'
+                    })}}
                 </form>
             </div>
         </div>
