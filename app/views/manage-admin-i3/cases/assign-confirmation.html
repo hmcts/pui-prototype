@@ -43,41 +43,26 @@ active: false
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
-    {{govukBackLink({
-    href: './share-org'
-    })}}
-    <main class="govuk-main-wrapper" role="main">
+    <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form method="post">
-                    <div class="govuk-form-group">
-                        <h1 class="govuk-label-wrapper">
-                       <label class="govuk-label govuk-label--xl" for="reason"><span class="govuk-caption-xl">Share case</span>
-      Notes for recipient
-    </label>
-    
-  </h1>
-
-  
-  
-  <span id="reason-hint" class="govuk-hint">
-    Why are you sharing the case with them? What do they need to know?
-  </span>
-
-
-  <textarea class="govuk-textarea" id="reason" name="reason" rows="5" aria-describedby="reason-hint"></textarea>
-</div> 
-                              {{govukButton({
-        text: 'Continue',
-        href: './confirmation'
-        })}}
-                </form>
+                {{ govukPanel({
+                titleText: "Case shared with",
+                text: "[Firstname Lastname]"
+                }) }}
+                <h3 class="govuk-heading-m">What happens next</h3>
+                <p class="govuk-body">
+                    The recipient will receive an email informing them they now have access to the case.
+                    <!-- We've emailed them a link so they can complete their registration. -->
+                </p>
+                <p class="govuk-body">
+                    <a href="/manage-admin-i3/cases/index-3">Go to cases</a>
+                </p>
+                <!--
+         <p><a style ="color:white" href="/create-user-account-v2">Link to Idam email</a></p>
+-->
             </div>
         </div>
     </main>
-</div>
-</div>
-</div>
-</div>
 </div>
 {% endblock %}

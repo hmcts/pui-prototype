@@ -53,8 +53,8 @@ active: false
                     <div class="govuk-form-group">
                         <fieldset class="govuk-fieldset">
                             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-                                <h1 class="govuk-fieldset__heading"><span class="govuk-caption-xl">Share case</span>
-                                    Who do you want to share with?
+                                <h1 class="govuk-fieldset__heading"><span class="govuk-caption-xl">Assign case</span>
+                                    Who do you want to assign the case to?
                                 </h1>
                             </legend>
                             <div class="govuk-radios">
@@ -69,14 +69,12 @@ active: false
                                     <label class="govuk-label govuk-radios__label" for="who-2">
                                         A person outside my organisation
                                     </label>
-                                </div>
-                               
                             </div>
                         </fieldset>
                     </div>
                 {{govukButton({
         text: 'Continue',
-        href: './share-org'
+        href: './assign-org'
         })}}
                 </form>
             </main>
@@ -85,4 +83,88 @@ active: false
 </div>
 </div>
 </div>
+{% endblock %}
+
+
+
+    <h1 class="govuk-heading-xl">
+      Summary
+    </h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% set status = 'Application drafted' %}
+        {% if data.status %}
+          {% set status = data.status %}
+        {% endif %}
+
+        {{ govukTable({
+          "classes": "govuk-!-margin-bottom-7  jui-table  jui-table--fixed",
+          "firstCellIsHeader": true,
+          "rows": [
+            [{
+              text: 'Status'
+            },
+            {
+              text: status
+            }],
+            [{
+              text: 'Type'
+            },
+            {
+              text: 'Divorce'
+            }],
+            [{
+              text: 'Parties'
+            },
+            {
+              text: 'John Smith v Jane Smith'
+            }],
+            [{
+              text: 'Court reference number'
+            },
+            {
+              text: '4458-8429-2491-3791'
+            }]
+          ]
+        }) }}
+
+
+        <ul class="govuk-list">
+          <li><a href="./case-details">See full case details</a></li>
+          <li><a href="./upload-file">Upload file</a></li>
+        </ul>
+
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-m">Recent events</h2>
+        {{hmctsTimeline({
+          events: [
+          {
+            title: 'Response submitted',
+            by: 'DWP Appeals Officer',
+            dateUtc: '2018-01-25T14:04',
+            date: '25 Jan 2018',
+            time: '14:04pm'
+          },
+          {
+            title: 'Appeal marked as compliant',
+            by: 'DJ DeVere',
+            dateUtc: '2017-12-05T09:10',
+            date: '5 Dec 2017',
+            time: '9:10am'
+          },
+          {
+            title: 'Interlocutory referral to DJ DeVere',
+            by: 'DLC Admin',
+            dateUtc: '2017-11-20T14:27',
+            date: '20 Nov 2017',
+            time: '14:27pm'
+          }
+          ]
+          }) }}
+          <p><a href="#">View full timeline</a></p> 
+      </div>
+    </div>
+
 {% endblock %}

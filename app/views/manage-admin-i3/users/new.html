@@ -1,173 +1,162 @@
 {% extends "manage-admin/layout.html" %}
-
-
-{% set serviceName = 'Manage organisation details for civil and family law cases' %}
-
+{% set serviceName = 'Manage organisation' %}
 {% set pageId = 'users' %}
-
 {% block header %}
 {{hmctsHeader({
-  service: {
-    name: serviceName,
-    url: '/'
-  },
-   navigation: {
-    items: [{
-      text: 'Profile',
-      href: '/manage-admin-i3/profile'
-    },{
-      text: 'Sign out',
-      href: '/sign-out'
-    }]
-  }
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+items: [{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
 })}}
 {{hmctsPrimaryNavigation({
-  classes: "govuk-!-margin-bottom-0",
-  items: [ {
-    text: 'Organisation',
-    href: '/manage-admin-i3',
-    active: false
-  }, {
-    text: 'Users',
-    href: '/manage-admin-i3/users',
-    active: true
-  }]
-
+classes: "govuk-!-margin-bottom-0",
+items: [ {
+text: 'Organisation',
+href: '/manage-admin-i3',
+active: false
+}, {
+text: 'Users',
+href: '/manage-admin-i3/users',
+active: true
+},{
+text: 'Cases',
+href: '/manage-admin-i3/cases',
+active: false
+}, {
+text: 'Fee accounts',
+href: '/manage-admin-i3/payments',
+active: false
+}]
 })}}
-
 {% endblock %}
- <!-- {
-    text: 'Fee accounts',
-    href: '/manage-admin/payments',
-    active: false
-  }] -->
-
-
 {% block content %}
-
-
-  <div class="hmcts-width-container">
-      {{ govukPhaseBanner({
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
     tag: {
-      text: "beta"
+    text: "beta"
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-  }) }}
+    }) }}
     {{govukBackLink({
-      href: './'
+    href: './'
     })}}
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-<span class="govuk-caption-xl">Wedlake Bell</span>
-      <h1 class="govuk-heading-xl">Invite user</h1>
-      <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
-          <form action="./confirmation">
-            {{ govukInput({
-              label: {
-                text: "First name",
-                classes: 'govuk-label--m'
-              },
-              id: "firstname",
-              name: "firstname"
-            }) }}
-            {{ govukInput({
-              label: {
-                text: "Last name",
-                classes: 'govuk-label--m'
-              },
-              id: "lastname",
-              name: "lastname"
-            }) }}
-            {{ govukInput({
-              label: {
-                text: "Email address",
-                classes: 'govuk-label--m'
-              },
-              id: "emailaddress",
-              name: "emailaddress"
-            }) }}
-
-            {% set caseLevelsHtml %}
-              {{ govukRadios({
-                idPrefix: "where-do-you-live",
-                name: "Level",
-                fieldset: {
-                  legend: {
+                <span class="govuk-caption-xl">Wedlake Bell</span>
+                <h1 class="govuk-heading-xl">Invite user</h1>
+                <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
+                <form action="./confirmation">
+                    {{ govukInput({
+                    label: {
+                    text: "First name",
+                    classes: 'govuk-label--m'
+                    },
+                    id: "firstname",
+                    name: "firstname"
+                    }) }}
+                    {{ govukInput({
+                    label: {
+                    text: "Last name",
+                    classes: 'govuk-label--m'
+                    },
+                    id: "lastname",
+                    name: "lastname"
+                    }) }}
+                    {{ govukInput({
+                    label: {
+                    text: "Email address",
+                    classes: 'govuk-label--m'
+                    },
+                    id: "emailaddress",
+                    name: "emailaddress"
+                    }) }}
+                    {% set caseLevelsHtml %}
+                    {{ govukRadios({
+                    idPrefix: "where-do-you-live",
+                    name: "Level",
+                    fieldset: {
+                    legend: {
                     text: ""
-                  }
-                },
-                items: [
-                  {
+                    }
+                    },
+                    items: [
+                    {
                     value: "org",
                     text: "Own cases only",
                     checked: true
-                  },
-                  {
+                    },
+                    {
                     value: "scotland",
                     text: "All the organisation's cases"
-                  }
-                ]
-              }) }}
-            {% endset %}
-
-            {{ govukCheckboxes({
-              idPrefix: "permissions",
-              name: "permissions",
-              fieldset: {
-                legend: {
-                  text: "Permissions",
-                  classes: "govuk-fieldset__legend--m"
-                }
-              },
-              hint: {
-                text: "Choose what the user will be able to do. You can change this later."
-              },
-              items: [
-                {
-                  value: "cases",
-                  text: "Manage cases",
-                  hint: {
+                    }
+                    ]
+                    }) }}
+                    {% endset %}
+                    {{ govukCheckboxes({
+                    idPrefix: "permissions",
+                    name: "permissions",
+                    fieldset: {
+                    legend: {
+                    text: "Permissions",
+                    classes: "govuk-fieldset__legend--m"
+                    }
+                    },
+                    hint: {
+                    text: "Choose what the user will be able to do. You can change this later."
+                    },
+                    items: [
+                    {
+                    value: "cases",
+                    text: "Manage cases",
+                    hint: {
                     text: "View, create and progress cases."
-                  },
-                  conditional: {
+                    },
+                    conditional: {
                     html: caseLevelsHtml
-                  }
-                },
-                {
-                  value: "users",
-                  text: "Manage users",
-                  hint: {
+                    }
+                    },
+                    {
+                    value: "users",
+                    text: "Manage users",
+                    hint: {
                     text: "Invite and delete users; change users' permissions."
-                  }
-                },
-                {
-                  value: "organisation",
-                  text: "Manage organisation",
-                  hint: {
+                    }
+                    },
+                    {
+                    value: "organisation",
+                    text: "Manage organisation",
+                    hint: {
                     text: "View and edit organisation name and addresses."
-                  }
-                }]
-            }) }}
-
-            {{govukButton({
-              text: 'Send invitation'
-            })}}
-
-
-
-          <!--      {
+                    }
+                    },
+                    {
+                    value: "payment",
+                    text: "Manage payment",
+                    hint: {
+                    text: "View fee account balance and transactions."
+                    }
+                    }]
+                    }) }}
+                    {{govukButton({
+                    text: 'Send invitation'
+                    })}}
+                    <!--      {
                   value: "payment",
                   text: "Manage payment",
                   hint: {
                     text: "View fee account balance and transactions."
                   } 
                 } -->
-
-            
-          </form>
+                </form>
+            </div>
         </div>
-      </div>
     </main>
-  </div>
+</div>
 {% endblock %}

@@ -1,0 +1,115 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+{{hmctsHeader({
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+items: [{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
+})}}
+{{hmctsPrimaryNavigation({
+classes: "govuk-!-margin-bottom-0",
+items: [ {
+text: 'Organisation',
+href: '/manage-admin-i3',
+active: false
+}, {
+text: 'Users',
+href: '/manage-admin-i3/users',
+active: false
+}, {
+text: 'Cases',
+href: '/manage-admin-i3/cases',
+active: true
+},{
+text: 'Fee accounts',
+href: '/manage-admin-i3/payments',
+active: false
+}]
+})}}
+{% endblock %}
+
+{% block content %}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: './'
+    })}}
+    <main class="govuk-main-wrapper" role="main">
+       
+           
+
+    {{hmctsSubNavigation({
+      items: [ {
+        text: 'Summary',
+        href: '/v1-1/case-summary',
+        active: true
+   
+      }, {
+        text: 'Access',
+        href: '/v1-1/access',
+        active: false
+      }]
+    })}}
+
+    <h1 class="govuk-heading-xl">
+      Summary
+    </h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% set status = 'Application drafted' %}
+        {% if data.status %}
+          {% set status = data.status %}
+        {% endif %}
+
+        {{ govukTable({
+          "classes": "govuk-!-margin-bottom-7  jui-table  jui-table--fixed",
+          "firstCellIsHeader": true,
+          "rows": [
+            [{
+              text: 'Status'
+            },
+            {
+              text: status
+            }],
+            [{
+              text: 'Type'
+            },
+            {
+              text: 'Divorce'
+            }],
+            [{
+              text: 'Parties'
+            },
+            {
+              text: 'Karen Gallagher v G'
+            }],
+            [{
+              text: 'Court reference number'
+            },
+            {
+              text: '9417-3739-9576-5131'
+            }]
+          ]
+        }) }}
+
+
+      </div>
+
+      </div>
+    </div>
+
+{% endblock %}

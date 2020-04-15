@@ -152,12 +152,18 @@ active: false
             <div class="hmcts-filter-layout__content">
                 <div class="hmcts-action-bar">
                     <div class="hmcts-action-bar__filter"></div> <!------ START WORK HERE ON TUESDAY -------->
-                    {{ hmctsMenu({
+                   {{ hmctsMenu({
                     items: [{
                     text: 'Share case',
-                    classes: 'hmcts-button',
+                    classes: 'hmcts-button--secondary',
                     href: 'view'
-                    }]
+                    },
+                    {
+                    text: 'Assign case',
+                    classes: 'hmcts-button--secondary',
+                    href: 'caseload'
+                    }
+                    ]
                     }) }}
                 </div>
                 <div class="hmcts-scrollable-pane">
