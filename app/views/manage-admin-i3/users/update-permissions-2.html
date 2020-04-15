@@ -24,6 +24,10 @@ active: false
 text: 'Users',
 href: '/manage-admin-i3/users',
 active: true
+},{
+text: 'Cases',
+href: '/manage-admin-i3/cases',
+active: false
 }, {
 text: 'Fee accounts',
 href: '/manage-admin-i3/payments',
@@ -76,7 +80,7 @@ active: false
                     fieldset: {
                     legend: {
                     text: "Permissions",
-                    classes: "govuk-fieldset__legend--m"
+                     classes: "govuk-fieldset__legend--m"
                     }
                     },
                     hint: {
@@ -105,6 +109,14 @@ active: false
                     text: "View organisation details",
                     hint: {
                     text: "View the organisation's name and address."
+                    }
+                    },
+                    {
+                    value: "payment",
+                    text: "Manage fee accounts",
+                    checked: true,
+                    hint: {
+                    text: "View payments, account balances, available credit and transactions."
                     }
                     }
                     ]

@@ -105,11 +105,11 @@ active: false
                     fieldset: {
                     legend: {
                     text: "Permissions",
-                    classes: "govuk-fieldset__legend--m"
+              classes: "govuk-fieldset__legend--m"
                     }
                     },
                     hint: {
-                    text: "Choose what the user will be able to do. You can change this later."
+                    text: "Choose at least one action the user can do. You can change this later."
                     },
                     items: [
                     {
@@ -117,32 +117,31 @@ active: false
                     text: "Manage cases",
                     hint: {
                     text: "View, create and progress cases."
-                    },
-                    conditional: {
-                    html: caseLevelsHtml
                     }
                     },
                     {
                     value: "users",
                     text: "Manage users",
                     hint: {
-                    text: "Invite and delete users; change users' permissions."
+                    text: "Invite users."
                     }
                     },
                     {
                     value: "organisation",
                     text: "Manage organisation",
                     hint: {
-                    text: "View and edit organisation name and addresses."
+                    text: "View the organisation name and address."
                     }
                     },
                     {
                     value: "payment",
-                    text: "Manage payment",
+                    text: "Manage fee accounts",
+                    checked: false,
                     hint: {
-                    text: "View fee account balance and transactions."
+                    text: "View payments, account balances, available credit and transactions."
                     }
-                    }]
+                    }
+                    ]
                     }) }}
                     {{govukButton({
                     text: 'Send invitation'

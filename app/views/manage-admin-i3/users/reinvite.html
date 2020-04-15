@@ -24,6 +24,10 @@ active: false
 text: 'Users',
 href: '/manage-admin-i3/users',
 active: true
+},{
+text: 'Cases',
+href: '/manage-admin-i3/cases',
+active: false
 }, {
 text: 'Fee accounts',
 href: '/manage-admin-i3/payments',
@@ -79,36 +83,45 @@ Last name                    </label>
                         fieldset: {
                         legend: {
                         text: "Permissions",
-                        classes: "govuk-fieldset__legend--m"
-                        }
-                        },
-                        hint: {
-                        text: "Choose at least one action the user can do. You can change this later."
-                        },
-                        items: [
-                        {
-                        value: "cases",
-                        text: "Manage cases",
-                        hint: {
-                        text: "View, create and progress cases."
-                        }
-                        },
-                        {
-                        value: "users",
-                        text: "Manage users",
-                        hint: {
-                        text: "Invite users."
-                        }
-                        },
-                        {
-                        value: "organisation",
-                        text: "Manage organisation",
-                        hint: {
-                        text: "View the organisation name and address."
-                        }
-                        }
-                        ]
-                        }) }}
+                           classes: "govuk-fieldset__legend--m"
+                    }
+                    },
+                    hint: {
+                    text: "Choose at least one action the user can do. You can change this later."
+                    },
+                    items: [
+                    {
+                    value: "cases",
+                    text: "Manage cases",
+                    hint: {
+                    text: "View, create and progress cases."
+                    }
+                    },
+                    {
+                    value: "users",
+                    text: "Manage users",
+                    hint: {
+                    text: "Invite users."
+                    }
+                    },
+                    {
+                    value: "organisation",
+                    text: "Manage organisation",
+                    hint: {
+                    text: "View the organisation name and address."
+                    }
+                    },
+                    {
+                    value: "payment",
+                    text: "Manage fee accounts",
+                    checked: false,
+                    hint: {
+                    text: "View payments, account balances, available credit and transactions."
+                    }
+                    }
+                    ]
+                    }) }}
+                
                         {{govukButton({
                         text: 'Send invitation'
                         })}}
