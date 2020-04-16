@@ -15,11 +15,8 @@
     title: {
       html: '<h1 class="govuk-heading-xl">Your cases</h1>'
     },
-    classes: 'govuk-!-margin-bottom-7',
-    items: [{
-      text: 'Create case',
-      href: '/v1-1/create-case'
-    }]
+    classes: 'govuk-!-margin-bottom-7'
+
   }) }}
 
   {% set filterOptionsHtml %}
@@ -78,7 +75,10 @@ items: [
 }) }}
 
 {% endset %}
-
+  <!--  items: [{
+      text: 'Create case',
+      href: '/v1-1/create-case'
+    }] -->
 
 <div class="hmcts-filter-layout">
 
