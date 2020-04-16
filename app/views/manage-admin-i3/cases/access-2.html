@@ -53,7 +53,15 @@ active: false
         text: 'Summary',
         href: '/manage-admin-i3/cases/case-summary',
         active: false
-      }, 
+      }, {
+      text: 'Application details',
+      href: '#',
+      active: false
+    }, {
+      text: 'Documents',
+      href: '#',
+      active: false
+    },
       {
         text: 'Access',
         href: '/manage-admin-i3/cases/access',
@@ -68,11 +76,51 @@ active: false
         title: {
           html: '<h1 class="govuk-heading-xl">Access</h1>'
         },
-        classes: 'govuk-!-margin-bottom-7'  
+        classes: 'govuk-!-margin-bottom-7',
+        items: [{
+          text: 'Invite user',
+          href: '/manage-admin-i3/cases/invite'
+        }]
       }) }}
 
-     
-<p class="govuk-body">No users are assigned or shared with this case.</p>
+      {% if data['shared-email'] %}
+      {% set rows = [
+        [
+          {
+            text: data['shared-email']
+          },
+          {
+            html: '<a href="access">Remove</a>'
+          }
+        ]
+      ] %}
+      {% else %}
+        {% set rows = [
+          [
+            {
+              text: ""
+            },
+            {
+              html: ''
+            }
+          ]
+       
+        ] %}
+      {% endif %}
+
+
+      {{ govukTable({
+        head: [
+          {
+            text: "Email address"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: rows
+      }) }}
+
    </div>
 
       </div>

@@ -45,18 +45,17 @@ active: false
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
     {{govukBackLink({
-    href: './'
+    href: './index-3'
     })}}
     <main class="govuk-main-wrapper" role="main">
     {{hmctsSubNavigation({
       items: [ {
         text: 'Summary',
-        href: '/manage-admin-i3/cases/case-summary',
+        href: '/manage-admin-i3/cases/case-summary-assigned',
         active: false
-      }, 
-      {
+      },  {
         text: 'Access',
-        href: '/manage-admin-i3/cases/access',
+        href: '/manage-admin-i3/cases/access-3',
         active: true
       }]
     })}}
@@ -68,11 +67,55 @@ active: false
         title: {
           html: '<h1 class="govuk-heading-xl">Access</h1>'
         },
-        classes: 'govuk-!-margin-bottom-7'  
+        classes: 'govuk-!-margin-bottom-7'
       }) }}
 
-     
-<p class="govuk-body">No users are assigned or shared with this case.</p>
+      {% if data['shared-email'] %}
+      {% set rows = [
+        [
+          {
+            text: data['shared-email']
+          },
+          {
+            html: '<a href="#">Remove</a>'
+          }
+        ],
+        [
+          {
+            text: "michele.serrano@wedlakebell.com"
+          },
+          {
+            html: '<a href="#">Remove</a>'
+          }
+        ]
+      ] %}
+      {% else %}
+        {% set rows = [
+          [
+            {
+              text: "michele.serrano@wedlakebell.com"
+            },
+            {
+              html: '<a href="#">Remove</a>'
+            }
+          ]
+       
+        ] %}
+      {% endif %}
+
+
+      {{ govukTable({
+        head: [
+          {
+            text: "Email address"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: rows
+      }) }}
+
    </div>
 
       </div>
