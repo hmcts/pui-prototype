@@ -48,14 +48,11 @@ active: false
     href: './'
     })}}
     <main class="govuk-main-wrapper" role="main">
-       
-           
-
     {{hmctsSubNavigation({
       items: [ {
         text: 'Summary',
         href: '/manage-admin-i3/cases/case-summary',
-        active: true
+        active: false
       }, {
       text: 'Application details',
       href: '#',
@@ -68,54 +65,71 @@ active: false
       {
         text: 'Access',
         href: '/manage-admin-i3/cases/access',
-        active: false
+        active: true
       }]
     })}}
+     
 
-    <h1 class="govuk-heading-xl">
-      Summary
-    </h1>
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
 
-        {% set status = 'Application drafted' %}
-        {% if data.status %}
-          {% set status = data.status %}
-        {% endif %}
 
-        {{ govukTable({
-          "classes": "govuk-!-margin-bottom-7  jui-table  jui-table--fixed",
-          "firstCellIsHeader": true,
-          "rows": [
-            [{
-              text: 'Status'
+      {{ hmctsPageHeaderWithActions({
+        title: {
+          html: '<h1 class="govuk-heading-xl">Access</h1>'
+        },
+        classes: 'govuk-!-margin-bottom-7',
+        items: [{
+          text: 'Invite user',
+          href: '/manage-admin-i3/cases/invite'
+        }]
+      }) }}
+
+      {% if data['shared-email'] %}
+      {% set rows = [
+        [
+          {
+            text: data['shared-email']
+          },
+          {
+            html: '<a href="#">Remove</a>'
+          }
+        ],
+        [
+          {
+            text: "lyndsey.mora@wedlakebell.com"
+          },
+          {
+            html: '<a href="#">Remove</a>'
+          }
+        ]
+      ] %}
+      {% else %}
+        {% set rows = [
+          [
+            {
+              text: "lyndsey.mora@wedlakebell.com"
             },
             {
-              text: status
-            }],
-            [{
-              text: 'Type'
-            },
-            {
-              text: 'Divorce'
-            }],
-            [{
-              text: 'Parties'
-            },
-            {
-              text: 'Karen Gallagher v G'
-            }],
-            [{
-              text: 'Court reference number'
-            },
-            {
-              text: '9417-3739-9576-5131'
-            }]
+              html: '<a href="#">Remove</a>'
+            }
           ]
-        }) }}
+       
+        ] %}
+      {% endif %}
 
 
-      </div>
+      {{ govukTable({
+        head: [
+          {
+            text: "Email address"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: rows
+      }) }}
+
+   </div>
 
       </div>
     </div>

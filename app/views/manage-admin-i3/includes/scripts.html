@@ -1,0 +1,17 @@
+<script>
+  new HMCTSFrontend.SearchToggleButton({
+    toggleButton: {
+      container: $('.hmcts-search-toggle__toggle'),
+      text: 'Find case'
+    },
+    search: {
+      container: $('.hmcts-search')
+    }
+  });
+  new HMCTSFrontend.Menu({
+    container: $('.hmcts-identity-bar__actions .hmcts-menu'),
+    mq: '(min-width: 200em)',
+    buttonText: 'Actions',
+    menuClasses: 'hmcts-menu__wrapper--right'
+  });
+</script>

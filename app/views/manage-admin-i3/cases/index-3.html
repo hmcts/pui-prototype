@@ -48,12 +48,7 @@ active: false
         title: {
         html: '<span class="govuk-caption-xl">Wedlake Bell</span>
         <h1 class="govuk-heading-xl">Cases</h1>'
-        },
-        classes: 'govuk-!-margin-bottom-7',
-        items: [{
-        text: 'Create case',
-        href: '/v1-1/create-case'
-        }]
+        }
         }) }}
         {% set filterOptionsHtml %}
         {{ govukCheckboxes({
@@ -161,7 +156,7 @@ active: false
                     {
                     text: 'Assign case',
                     classes: 'hmcts-button--secondary',
-                    href: 'caseload'
+                    href: '#'
                     }
                     ]
                     }) }}
