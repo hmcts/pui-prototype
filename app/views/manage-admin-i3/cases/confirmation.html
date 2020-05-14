@@ -47,16 +47,17 @@ active: false
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 {{ govukPanel({
-                titleText: "Case shared with",
-                text: "[Firstname Lastname]"
+                titleText: "All done",
+                text: ""
                 }) }}
                 <h3 class="govuk-heading-m">What happens next</h3>
                 <p class="govuk-body">
-                    The recipient will receive an email informing them they now have access to the case.
-                    <!-- We've emailed them a link so they can complete their registration. -->
-                </p>
+                    Users you have shared with will be able to access the case from their case list.</p>
+                        <p class="govuk-body">
+                    Users you have removed with will no longer have access.</p>
+
                 <p class="govuk-body">
-                    <a href="/manage-admin-i3/cases/index-3">Go to cases</a>
+                    <a href="/manage-admin-i3/cases/index">Go to cases</a>
                 </p>
                 <!--
          <p><a style ="color:white" href="/create-user-account-v2">Link to Idam email</a></p>

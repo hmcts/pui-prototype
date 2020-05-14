@@ -1,0 +1,165 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+{{hmctsHeader({
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+items: [{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
+})}}
+{{hmctsPrimaryNavigation({
+classes: "govuk-!-margin-bottom-0",
+items: [ {
+text: 'Organisation',
+href: '/manage-admin-i3',
+active: false
+}, {
+text: 'Users',
+href: '/manage-admin-i3/users',
+active: false
+}, {
+text: 'Cases',
+href: '/manage-admin-i3/cases',
+active: true
+},{
+text: 'Fee accounts',
+href: '/manage-admin-i3/payments',
+active: false
+}]
+})}}
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: './'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl"><span class="govuk-caption-xl">Share case</span>Enter recipient </h1>
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="email">
+                        Email address
+                    </label>
+                    <span id="email-hint" class="govuk-hint">
+                        You can enter multiple addresses from your organisation, type name or email
+                    </span>
+                    <input class="govuk-input govuk-input--width-30" id="width-30" name="width-30" type="text"> {{govukButton({
+                    text: 'Add',
+                    classes: 'hmcts-button--secondary',
+                    href: '#'
+                    })}} <details class="govuk-details" data-module="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                Help with email
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            If you can't see the email address of an employee, they will need to complete their registration, contact your administrator for assistance.
+                        </div>
+                    </details>
+                </div>
+                <h3 class="govuk-heading-m">Recipients<span id="email-hint" class="govuk-hint">
+                        Users will be added to all selected cases
+                    </span></h3>
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col">Name</th>
+                            <th class="govuk-table__header" scope="col">Email address</th>
+                            <th class="govuk-table__header" scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Dominika Garner</td>
+                            <td class="govuk-table__cell">dominika.garnerh@wedlakebell.com</td>
+                            <td class="govuk-table__cell"><a href="#">Remove</a></td>
+                        </tr>
+                        <!--    <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">ivy-rose.ireland@wedlakebell.com</td>
+                    <td class="govuk-table__cell"><a href="#">Remove</a></td>
+                </tr>
+            </tbody>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">joe.bloggs@wedlakebell.com</td>
+                <td class="govuk-table__cell"><a href="#">Remove</a></td>
+            </tr> -->
+                </table>
+                <label class="govuk-label govuk-!-font-weight-bold" for="cases">
+                </label>
+                <h3 class="govuk-heading-m">Selected case</h3>
+                <!-- 
+                    <select class="govuk-select" id="name" name="name">
+                        <option value="Joe Bloggs">Joe Bloggs - joe.bloggs@wedlakebell.com</option>
+                        <option value="Jill Smiths">Jill Smith - jill.smith@wedlakebell.com</option>
+
+ <option value="Bonita Bannister">Bonita Bannister - bonita.bannister@wedlakebell.com</option>
+                        <option value="Dominika Garner">Dominika Garner - dominika.garnerh@wedlakebell.com</option>
+                        <option value="Eryn Marriott">Eryn Marriott - eryn.marriott@wedlakebell.com</option>
+                         <option value="Ivy-Rose Ireland">Ivy-Rose Irelands - ivy-rose.ireland@wedlakebell.com</option>
+                        <option value="Jadene Harris">Jadene Harris - jadene.harris@wedlakebell.com</option>
+                        <option value="Kaya Mccullough">Kaya Mccullough - kaya.mcculloughn@wedlakebell.com</option>
+                         <option value="Kofi Bowman">Kofi Bowman - kofi.bowman@wedlakebell.com</option>
+                        <option value="Lyndsey Mora">Lyndsey Mora - lyndsey.mora@wedlakebell.com</option>
+                         <option value="Michele Serrano">Michele Serrano - michele.serrano@wedlakebell.com</option> 
+                       
+                       
+                        <option value="Terence Williams">Terence Williams - terence.williams@wedlakebell.com</option>
+                       
+                      
+                        
+                    </select> -->
+            </div>
+        </div>
+ <table class="govuk-table">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="col"><span class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc"></span></th>
+                                    <th class="govuk-table__header" scope="col">Reference</th>
+                                    <th class="govuk-table__header" scope="col">Shared with</th>
+                                    <th class="govuk-table__header" scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                                    <td class="govuk-table__cell ">John Smith v Jane Smith<br><span class="govuk-caption-m govuk-!-font-size-16"> 4458-8429-2491-3791 </span></td>
+                               
+                                  
+                                    <td class="govuk-table__cell ">Michele Serrano<span class="govuk-caption-m govuk-!-font-size-16">michele.serrano@wedlakebell.com</span><br>Ivy-Rose Ireland<span class="govuk-caption-m govuk-!-font-size-16">ivy-rose.ireland@wedlakebell.com</span></td>
+                                  
+                                    <td class="govuk-table__cell "></td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                                    <td class="govuk-table__cell ">Gregory Fox<br><span class="govuk-caption-m govuk-!-font-size-16">1262-2963-5085-2609</span></th>
+                              
+                                    <td class="govuk-table__cell ">Jill Smith</td>
+                                    <td class="govuk-table__cell "><span class="govuk-caption-m govuk-!-font-size-16">ivy-rose.ireland@wedlakebell.com<br>bonita.bannister@wedlakebell.com<br>eryn.marriott@wedlakebell.com</span></td>
+                                    <td class="govuk-table__cell "></td>
+                                </tr>
+                          
+                            </tbody>
+                        </table>
+        </form>
+        {{govukButton({
+        text: 'Continue',
+        href: './confirmation'
+        })}}
+</div>
+</main>
+{% endblock %}

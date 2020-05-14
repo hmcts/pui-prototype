@@ -1,0 +1,339 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+{{hmctsHeader({
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+items: [{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
+})}}
+{{hmctsPrimaryNavigation({
+classes: "govuk-!-margin-bottom-0",
+items: [ {
+text: 'Organisation',
+href: '/manage-admin-i3',
+active: false
+}, {
+text: 'Users',
+href: '/manage-admin-i3/users',
+active: false
+}, {
+text: 'Cases',
+href: '/manage-admin-i3/cases',
+active: true
+},{
+text: 'Fee accounts',
+href: '/manage-admin-i3/payments',
+active: false
+}]
+})}}
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'share-org-new-remove'
+    })}}
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+                <h1 class="govuk-heading-xl"><span class="govuk-caption-xl">Share case</span>Check and confirm your selection </h1>
+                
+
+                <h2 class="govuk-heading-l">Cases</h2>
+
+<!--
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    <div class="govuk-summary-list__row ">
+                        <dt class="govuk-summary-list__key govuk-!-font-size-27">
+                            Paul Saddlebrook Vs Jennifer Saddlebrook<span class="govuk-caption-m govuk-!-font-size-19">4748-2828-7712-8233</span>
+                        </dt>
+                    </div>
+                    <dl>
+                       <dl class="govuk-summary-list ">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key govuk-!-font-size-27">
+                                Neha Venkatanarasimharaj Vs Sanjet Venkatanarasimharaj<span class="govuk-caption-m govuk-!-font-size-19">9417-3739-9576-5131</span>
+                            </dt>
+                        </div>
+                      </dl>
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key"><span class="hmcts-badge">Users to be added</span>
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">
+                                    <span class="govuk-visually-hidden"></span>
+                                </a>
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Name
+                            </dt>
+                            <dt class="govuk-summary-list__key">
+                                Email address
+                            </dt>
+                            <dd class="govuk-summary-list__actions">
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                Michele Serrano
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                michele.serrano@wedlakebell.com
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">
+                                    Change<span class="govuk-visually-hidden"> email</span>
+                                </a>
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                Terence Williams
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                terence.williams@wedlakebell.com
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">
+                                    Change<span class="govuk-visually-hidden"> email</span>
+                                </a>
+                            </dd>
+                        </div>
+                      </dl>
+
+ <h2 class="govuk-heading-l">Cases</h2>
+
+
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    <div class="govuk-summary-list__row ">
+                        <dt class="govuk-summary-list__key govuk-!-font-size-27">
+                            Paul Saddlebrook Vs Jennifer Saddlebrook<span class="govuk-caption-m govuk-!-font-size-19">4748-2828-7712-8233</span>
+                        </dt>
+                    </div>
+                    <dl>
+-->
+
+                        <!-- to be removed -->
+
+                        <!--
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                <span class="hmcts-badge hmcts-badge--red">Users to be removed</span>
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">
+                                    <span class="govuk-visually-hidden"></span>
+                                </a>
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Name
+                            </dt>
+                            <dt class="govuk-summary-list__key">
+                                Email address
+                            </dt>
+                            <dd class="govuk-summary-list__actions">
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                Ivy-Rose Ireland
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                ivy-rose.ireland@wedlakebell.com
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">
+                                    Change<span class="govuk-visually-hidden"> email</span>
+                                </a>
+                            </dd>
+                        </div>
+                    </dl>
+                   -->
+
+
+
+  
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    <div class="govuk-summary-list__row " >
+                        <dt class="govuk-summary-list__key govuk-!-font-size-27 ">
+                            Paul Saddlebrook Vs Jennifer Saddlebrook<span class="govuk-caption-m govuk-!-font-size-19">4748-2828-7712-8233</span>
+                        </dt>
+                    </div>
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key"><span class="hmcts-badge">Users to be added</span>
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">Change
+                                    <span class="govuk-visually-hidden"></span>
+                                </a>
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Name
+                            </dt>
+                            <dt class="govuk-summary-list__key">
+                                Email address
+                            </dt>
+                            <dd class="govuk-summary-list__actions">
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                Michele Serrano
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                michele.serrano@wedlakebell.com
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">
+                                    <span class="govuk-visually-hidden"> email</span>
+                                </a>
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                Terence Williams
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                terence.williams@wedlakebell.com
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">
+                                    <span class="govuk-visually-hidden"> email</span>
+                                </a>
+                            </dd>
+                        </div>
+                        <!-- to be removed -->
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                <span class="hmcts-badge hmcts-badge--red">Users to be removed</span>
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">Change
+                                    <span class="govuk-visually-hidden"></span>
+                                </a>
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Name
+                            </dt>
+                            <dt class="govuk-summary-list__key">
+                                Email address
+                            </dt>
+                            <dd class="govuk-summary-list__actions">
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                Ivy-Rose Ireland
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                ivy-rose.ireland@wedlakebell.com
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">
+                                    <span class="govuk-visually-hidden"> email</span>
+                                </a>
+                            </dd>
+                        </div>
+                    </dl>
+                    <!-- case 2 
+                    <h2 class="govuk-heading-l">Case</h2>-->
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key govuk-!-font-size-27">
+                                Neha Venkatanarasimharaj Vs Sanjet Venkatanarasimharaj<span class="govuk-caption-m govuk-!-font-size-19">9417-3739-9576-5131</span>
+                            </dt>
+                        </div>
+                        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    <span class="hmcts-badge">Users to be added</span>
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="#">Change
+                                        <span class="govuk-visually-hidden"></span>
+                                    </a>
+                                </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Name
+                                </dt>
+                                <dt class="govuk-summary-list__key">
+                                    Email address
+                                </dt>
+                                <dd class="govuk-summary-list__actions">
+                                </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                                <dd class="govuk-summary-list__value">
+                                    Michele Serrano
+                                </dd>
+                                <dd class="govuk-summary-list__value">
+                                    michele.serrano@wedlakebell.com
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="#">
+                                        <span class="govuk-visually-hidden"> email</span>
+                                    </a>
+                                </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                                <dd class="govuk-summary-list__value">
+                                    Terence Williams
+                                </dd>
+                                <dd class="govuk-summary-list__value">
+                                    terence.williams@wedlakebell.com
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="#">
+                                        <span class="govuk-visually-hidden"> email</span>
+                                    </a>
+                                </dd>
+                            </div>
+                        </dl>
+
+
+                {{govukButton({
+        text: 'Continue',
+        href: './confirmation'
+        })}}
+                </dl>
+
+            </div>
+        </div>
+</div>
+</main>
+{% endblock %}

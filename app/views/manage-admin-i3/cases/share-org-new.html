@@ -60,7 +60,7 @@ active: false
                     <input class="govuk-input govuk-input--width-30" id="width-30" name="width-30" type="text"> {{govukButton({
                     text: 'Add',
                     classes: 'hmcts-button--secondary',
-                    href: 'share-org-new'
+                    href: '#'
                     })}}
                                     <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
@@ -109,23 +109,36 @@ active: false
                     <th class="govuk-table__header" scope="col">Name</th>
                     <th class="govuk-table__header" scope="col">Email address</th>
                     <th class="govuk-table__header" scope="col">Actions</th>
+                    <th class="govuk-table__header" scope="col"></th>
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell">Dominika Garnerh</td>
                     <td class="govuk-table__cell">dominika.garnerh@wedlakebell.com</td>
-                    <td class="govuk-table__cell"><a href="#">Remove</a></td>
+                    <td class="govuk-table__cell"><a href="#">Remove</a></td><td class="govuk-table__cell"></td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell">Ivy-Rose Ireland</td>
                     <td class="govuk-table__cell">ivy-rose.ireland@wedlakebell.com</td>
-                    <td class="govuk-table__cell"><a href="#">Remove</a></td>
+                    <td class="govuk-table__cell"><a href="share-org-new-remove">Remove</a></td><td class="govuk-table__cell"></td>
                 </tr>
                 <tr class="govuk-table__row">
                       <td class="govuk-table__cell">Jadene Harris</td>
                     <td class="govuk-table__cell">  jadene.harris@wedlakebell.com</td>
                     <td class="govuk-table__cell"><a href="#">Remove</a></td>
+                    <td class="govuk-table__cell"></td>
+                </tr>
+
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">Michele Serrano</td>
+                    <td class="govuk-table__cell">  michele.serrano@wedlakebell.com</td>
+                    <td class="govuk-table__cell"><a href="#">Cancel</a></td><td class="govuk-table__cell"><span class="hmcts-badge">To be added</span></td>
+                </tr>    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">Terence Williams</td>
+                    <td class="govuk-table__cell">  terence.williams@wedlakebell.com</td>
+                    <td class="govuk-table__cell"><a href="#">Cancel</a></td>
+                    <td class="govuk-table__cell"><span class="hmcts-badge">To be added</span></td>
                 </tr>
             </tbody>
         </table>'
@@ -141,19 +154,30 @@ active: false
                 <tr class="govuk-table__row">
  <th class="govuk-table__header" scope="col">Name</th>
                     <th class="govuk-table__header" scope="col">Email address</th>
-                    <th class="govuk-table__header" scope="col">Actions</th>
+                    <th class="govuk-table__header" scope="col">Actions</th><td class="govuk-table__cell"></td>
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell">Dominika Garnerh</td>
                     <td class="govuk-table__cell">dominika.garnerh@wedlakebell.com</td>
-                    <td class="govuk-table__cell"><a href="#">Remove</a></td>
+                    <td class="govuk-table__cell"><a href="#">Remove</a></td><td class="govuk-table__cell"></td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell">Ivy-Rose Ireland</td>
                     <td class="govuk-table__cell">joe.bloggs@wedlakebell.com</td>
-                    <td class="govuk-table__cell"><a href="#">Remove</a></td>
+                    <td class="govuk-table__cell"><a href="#">Remove</a></td><td class="govuk-table__cell"></td>
+                </tr>
+                
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">Michele Serrano</td>
+                    <td class="govuk-table__cell">  michele.serrano@wedlakebell.com</td>
+                    <td class="govuk-table__cell"><a href="#">Cancel</a></td><td class="govuk-table__cell"><span class="hmcts-badge">To be added</span></td>
+                </tr>    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">Terence Williams</td>
+                    <td class="govuk-table__cell">  terence.williams@wedlakebell.com</td>
+                    <td class="govuk-table__cell"><a href="#">Cancel</a></td>
+                    <td class="govuk-table__cell"><span class="hmcts-badge">To be added</span></td>
                 </tr>
             </tbody>
         </table>'
@@ -164,7 +188,7 @@ active: false
         </form>
         {{govukButton({
         text: 'Continue',
-        disabled: true
+        href: './share-check'
         })}}
 </div>
 </main>

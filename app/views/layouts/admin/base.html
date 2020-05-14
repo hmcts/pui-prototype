@@ -1,4 +1,6 @@
 {%- block top_of_page %}{% endblock %}
+
+{%- from "accordion/macro.njk" import govukAccordion %}
 {%- from "back-link/macro.njk" import govukBackLink %}
 {%- from "breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {%- from "button/macro.njk" import govukButton %}
@@ -36,8 +38,6 @@
 {%- from "hmcts-search/macro.njk" import hmctsSearch %}
 {%- from "hmcts-pagination/macro.njk" import hmctsPagination %}
 
-
-
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="{{ html_lang|default('en') }}"><![endif]-->
 <!--[if gt IE 8]><!--><html lang="{{ html_lang|default('en') }}"><!--<![endif]-->
@@ -48,7 +48,6 @@
 {% endblock %}</title>
 
     <link rel="shortcut icon" href="{{ asset_path }}images/favicon.ico" type="image/x-icon">
-
     <link rel="mask-icon" href="{{ asset_path }}images/gov.uk_logotype_crown.svg" color="#0b0c0c">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset_path }}images/apple-touch-icon-180x180.png">
     <link rel="apple-touch-icon" sizes="167x167" href="{{ asset_path }}images/apple-touch-icon-167x167.png">
