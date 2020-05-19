@@ -150,19 +150,16 @@ active: false
             <div class="hmcts-filter-layout__content">
                 <div class="hmcts-action-bar">
                     <div class="hmcts-action-bar__filter"></div>
-                    {{ hmctsMenu({
-                    items: [{
-                    text: 'Share case',
-                    classes: 'hmcts-button--secondary',
-                    href: '/manage-admin-i3/cases/share-org'
-                    }
-                    ]
-                    }) }}
+                    {{ govukButton({
+                         classes: "govuk-button--secondary",
+  text: "Share case",
+  disabled: true
+}) }}
                 </div>
                 <div class="hmcts-scrollable-pane">
                     <div class="hmcts-scrollable-pane__wrapper">
                         {% set checkbox %}
-                        <div class="govuk-checkboxes__item">
+                     <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
                             <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
                             </label>
@@ -186,8 +183,8 @@ active: false
                             <h3 class="govuk-heading-m">Case list</h3>
                             <div>
                                 <p>
-                                    <span class="govuk-checkboxes">Displaying <b>1 - 10</b> out of 11 result</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span class="govuk-checkboxes--small" for="items"><label class=""><span class="">Only show selected items</label></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    Displaying <b>1 - 10</b> out of 11 result &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                   
                                     <span class="govuk-label govuk-checkboxes__label" for="reset"><a href="#">Reset all selected items</a></span>
                               
                            </p> </div>

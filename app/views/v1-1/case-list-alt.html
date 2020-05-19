@@ -1,0 +1,372 @@
+{% extends "./layout.html" %}
+
+{% set primaryNavId = 'cases' %}
+
+
+
+{% set serviceName = 'Manage your civil and family law cases' %}
+
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block mainContent %}
+
+  {{ hmctsPageHeaderWithActions({
+    title: {
+      html: '<h1 class="govuk-heading-xl">Your cases</h1>'
+    },
+    classes: 'govuk-!-margin-bottom-7'
+
+  }) }}
+
+  {% set filterOptionsHtml %}
+{{ govukCheckboxes({
+idPrefix: 'type',
+name: 'type',
+fieldset: {
+  legend: {
+    text: 'Type',
+    classes: 'govuk-fieldset__legend--m'
+  }
+},
+items: [
+  {
+    value: '1',
+    text: 'Divorce (18)',
+    checked: true
+  },
+  {
+    value: '2',
+    text: 'Financial Remedy (5)',
+    checked: true
+  },
+  {
+    value: '3',
+    text: 'Probate (2)'
+  }
+]
+}) }}
+
+{{ govukCheckboxes({
+idPrefix: 'status',
+name: 'status',
+fieldset: {
+  legend: {
+    text: 'Status',
+    classes: 'govuk-fieldset__legend--m'
+  }
+},
+items: [
+  {
+    value: '1',
+    text: 'Application drafted',
+    checked: true
+  },
+  {
+    value: '2',
+    text: 'Awaiting payment'
+  },
+  {
+    value: 'magistrate',
+    text: 'Petition paid',
+    checked: false
+  }
+]
+}) }}
+
+{% endset %}
+  <!--  items: [{
+      text: 'Create case',
+      href: '/v1-1/create-case'
+    }] -->
+
+<div class="hmcts-filter-layout">
+
+<div class="hmcts-filter-layout__filter">
+
+{{ hmctsFilter({
+  heading: {
+  text: 'Filter'
+  },
+  selectedFilters: {
+
+  heading: {
+    text: 'Selected filters'
+  },
+
+  clearLink: {
+    text: 'Clear filters'
+  },
+
+  categories: [
+    {
+      heading: {
+        text: 'Type'
+      },
+      items: [{
+        href: '/path/to/remove/this',
+        text: 'Divorce'
+      }, {
+        href: '/path/to/remove/this',
+        text: 'Financial remedy'
+      }]
+    },
+    {
+      heading: {
+        text: 'Status'
+      },
+      items: [{
+        href: '/path/to/remove/this',
+        text: 'Application drafted'
+      }]
+    }
+  ]
+},
+  optionsHtml: filterOptionsHtml
+}) }}
+
+</div>
+
+<div class="hmcts-filter-layout__content">
+
+  <div class="hmcts-action-bar">
+    <div class="hmcts-action-bar__filter"></div>
+    {{ hmctsMenu({
+      items: [{
+        text: 'Share',
+        classes: 'hmcts-button--secondary',
+        href: './share-bulk'
+      }]
+    }) }}
+  </div>
+
+  <div class="hmcts-scrollable-pane">
+    <div class="hmcts-scrollable-pane__wrapper">
+
+      {% set checkbox %}
+      <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
+          <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
+
+          </label>
+        </div>
+      {% endset %}
+
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
+            <th class="govuk-table__header" scope="col">Reference</th>
+            <th class="govuk-table__header" scope="col">Type</th>
+            <th class="govuk-table__header" scope="col">Status</th>
+            <th class="govuk-table__header" scope="col"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">John Smith v Jane Smith<br><span class="govuk-caption-m govuk-!-font-size-16"> 4458-8429-2491-3791 </span></td>
+            <td class="govuk-table__cell ">Divorce</td>
+            <td class="govuk-table__cell ">Application drafted</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Gregory Fox<br><span class="govuk-caption-m govuk-!-font-size-16">1262-2963-5085-2609</span></th>
+            <td class="govuk-table__cell ">Probate</td>
+            <td class="govuk-table__cell ">Ready to issue</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Warren Sutton<br><span class="govuk-caption-m govuk-!-font-size-16">1117-5086-2665-7395</span></th>
+            <td class="govuk-table__cell ">Probate</td>
+            <td class="govuk-table__cell ">Application created</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Carlos Fisk v Jill <br><span class="govuk-caption-m govuk-!-font-size-16">8934-2347-6091-2028</span></th>
+            <td class="govuk-table__cell ">Financial remedy</td>
+            <td class="govuk-table__cell ">Awaiting Payment Response</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Alan Jones<br><span class="govuk-caption-m govuk-!-font-size-16">7725-2075-8562-8971</span></th>
+            <td class="govuk-table__cell ">Probate</td>
+            <td class="govuk-table__cell ">Awaiting documentation</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">David Francis v Sus<br><span class="govuk-caption-m govuk-!-font-size-16">6030-1597-1298-9715</span></th>
+            <td class="govuk-table__cell ">Divorce</td>
+            <td class="govuk-table__cell ">Statement of Truth, Pay and Submit Required</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Violet Smith v Alan<br><span class="govuk-caption-m govuk-!-font-size-16">6282-6988-9181-9176</span></th>
+            <td class="govuk-table__cell ">Divorce</td>
+            <td class="govuk-table__cell ">Awaiting petitioner</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Cheryl Holt v John <br><span class="govuk-caption-m govuk-!-font-size-16">6925-5792-4576-3319</span></th>
+            <td class="govuk-table__cell ">Financial remedy</td>
+            <td class="govuk-table__cell ">Consent Order Made</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Damien Salmon v Pat<br><span class="govuk-caption-m govuk-!-font-size-16">5310-5186-1231-4639</span></th>
+            <td class="govuk-table__cell ">Financial remedy</td>
+            <td class="govuk-table__cell ">Awaiting Judicial Response</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Timothy Greenway<br><span class="govuk-caption-m govuk-!-font-size-16">3831-6409-8169-2204</span></th>
+            <td class="govuk-table__cell ">Probate</td>
+            <td class="govuk-table__cell ">Examining</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Adam Kowalski v Aga<br><span class="govuk-caption-m govuk-!-font-size-16">9532-5530-6258-5049</span></th>
+            <td class="govuk-table__cell ">Divorce</td>
+            <td class="govuk-table__cell ">Petition submitted</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Sarah Kinnear<br><span class="govuk-caption-m govuk-!-font-size-16">7625-1181-7909-5287</span></th>
+            <td class="govuk-table__cell ">Probate</td>
+            <td class="govuk-table__cell ">Stopped</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Rukhsana Khan v Ali<br><span class="govuk-caption-m govuk-!-font-size-16">9376-7001-9175-1413</span></th>
+            <td class="govuk-table__cell ">Divorce</td>
+            <td class="govuk-table__cell ">Awaiting AOS</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Kieran Flick<br><span class="govuk-caption-m govuk-!-font-size-16">3967-8498-9343-2045</span></th>
+            <td class="govuk-table__cell ">Probate</td>
+            <td class="govuk-table__cell ">Stopped</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Francesca Dove<br><span class="govuk-caption-m govuk-!-font-size-16">7372-5134-7441-3921</span></th>
+            <td class="govuk-table__cell ">Probate</td>
+            <td class="govuk-table__cell ">Grant issued</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Iain Curran v Robin<br><span class="govuk-caption-m govuk-!-font-size-16">2877-6519-5618-9839</span></th>
+            <td class="govuk-table__cell ">Financial remedy</td>
+            <td class="govuk-table__cell ">Awaiting Judicial Response</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Graham Edgar v Kath<br><span class="govuk-caption-m govuk-!-font-size-16">8768-9687-5469-7731</span></th>
+            <td class="govuk-table__cell ">Financial remedy</td>
+            <td class="govuk-table__cell ">Awaiting HWF Decision</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Francesca Bianchi<br><span class="govuk-caption-m govuk-!-font-size-16">5464-3800-8459-8477</span></th>
+            <td class="govuk-table__cell ">Probate</td>
+            <td class="govuk-table__cell ">Stopped</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Alejandro Romero<br><span class="govuk-caption-m govuk-!-font-size-16">4748-2828-7712-8233</span></th>
+            <td class="govuk-table__cell ">Probate</td>
+            <td class="govuk-table__cell ">Examining</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Nazia Lashkar v Ash<br><span class="govuk-caption-m govuk-!-font-size-16">6028-8467-4793-8075</span></th>
+            <td class="govuk-table__cell ">Divorce</td>
+            <td class="govuk-table__cell ">Awaiting Decree Nisi</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Karen Gallagher v G<br><span class="govuk-caption-m govuk-!-font-size-16">9417-3739-9576-5131</span></th>
+            <td class="govuk-table__cell ">Divorce</td>
+            <td class="govuk-table__cell ">AOS Completed</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Darren Wright v Gil<br><span class="govuk-caption-m govuk-!-font-size-16">3858-2644-5670-5587</span></th>
+            <td class="govuk-table__cell ">Financial remedy</td>
+            <td class="govuk-table__cell ">Consent Order Made</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Terence Yorke<br><span class="govuk-caption-m govuk-!-font-size-16">9781-9466-6623-9191</span></th>
+            <td class="govuk-table__cell ">Probate</td>
+            <td class="govuk-table__cell ">Stopped</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">John Smith v Jane S<br><span class="govuk-caption-m govuk-!-font-size-16">2427-6452-8238-1837</span></th>
+            <td class="govuk-table__cell ">Divorce</td>
+            <td class="govuk-table__cell ">Petition issued</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+            <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+            <td class="govuk-table__cell ">Sally Lane v James <br><span class="govuk-caption-m govuk-!-font-size-16">4906-3581-7653-7996</span></th>
+            <td class="govuk-table__cell ">Divorce</td>
+            <td class="govuk-table__cell ">Awaiting help with fees decision</td>
+            <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  {{super()}}
+  <script>
+    new HMCTSFrontend.FilterToggleButton({
+      bigModeMediaQuery: '(min-width: 48.063em)',
+      startHidden: true,
+      toggleButton: {
+        container: $('.hmcts-action-bar__filter'),
+        showText: 'Show filter',
+        hideText: 'Hide filter',
+        classes: 'hmcts-button--secondary'
+      },
+      closeButton: {
+        container: $('.hmcts-filter__header-action'),
+        text: 'Close'
+      },
+      filter: {
+        container: $('.hmcts-filter')
+      }
+    });
+  </script>
+{% endblock %}
