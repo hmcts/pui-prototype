@@ -7,11 +7,13 @@
     "node": ">=6.11.1 <7.0"
   },
   "scripts": {
+    "preinstall": "npx --userconfig .npmrc npm-force-resolutions",
     "start": "node start.js",
     "lint": "standard",
     "test": "gulp test && npm run lint"
   },
   "dependencies": {
+    "govuk-frontend": "^2.10.0",
     "@hmcts/frontend": "0.0.34-alpha",
     "basic-auth": "^1.0.3",
     "basic-auth-connect": "^1.0.0",
@@ -23,7 +25,6 @@
     "express": "4.15.2",
     "express-session": "^1.13.0",
     "express-writer": "0.0.4",
-    "govuk-frontend": "^2.13.0",
     "govuk_template_jinja": "0.22.3",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
@@ -32,7 +33,6 @@
     "gulp-sass": "3.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-util": "^3.0.7",
-    "http-errors": "^1.7.3",
     "marked": "^0.3.6",
     "minimist": "1.2.0",
     "moment": "^2.22.1",
@@ -52,5 +52,8 @@
     "ignore": [
       "nunjucks"
     ]
+  },
+  "resolutions": {
+    "graceful-fs": "4.2.3"
   }
 }
