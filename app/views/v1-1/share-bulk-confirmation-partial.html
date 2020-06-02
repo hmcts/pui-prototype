@@ -1,0 +1,69 @@
+ {% extends "./layout.html" %}
+
+{% set serviceName = 'Manage your civil and family law cases' %}
+
+{% block page_title %}Reassign{% endblock %}
+
+{% block mainContent %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Sorry, there is a problem</h1>
+
+    <p class="govuk-body">The following cases were not shared:</p>
+
+
+    <table class="govuk-table">
+        <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th class="govuk-table__header govuk-!-font-size-27" scope="col" colspan="4">Neha Venkatanarasimharaj Vs Sanjet Venkatanarasimharaj<span class="govuk-caption-m govuk-!-font-size-19">9417-3739-9576-5131</span></th>
+                <th class="govuk-table__header" scope="col"><a class="govuk-link govuk-body" href="#">Change</a></th>
+            </tr>
+            <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col">Name</th>
+                <th class="govuk-table__header" scope="col">Email address</th>
+                <th class="govuk-table__header" scope="col" colspan="3"></th>
+            </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Michele Serrano</td>
+                <td class="govuk-table__cell"> michele.serrano@wedlakebell.com</td>
+                <td class="govuk-table__cell"></td>
+                <td class="govuk-table__cell" colspan="3"><span class="hmcts-badge">To be added</span></td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Terence Williams</td>
+                <td class="govuk-table__cell"> terence.williams@wedlakebell.com</td>
+                <td class="govuk-table__cell"></td>
+                <td class="govuk-table__cell" colspan="3"><span class="hmcts-badge">To be added</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+                <p class="govuk-body">
+                      All your other selected cases were successfully shared.</p>
+                        <p class="govuk-body">
+                    Try again or <a href="/mvp-4/manage-organisation/get-help" target="blank">get help</a> if you’re still having problems.
+                    </p>
+
+                    {{govukButton({
+            text: 'Try again',
+            href: './share-bulk-confirmation-new'
+            })}}
+
+  <!--   <p class="govuk-body">
+      <a href="/v1-1/case-list">Go back to your cases</a>
+     </p> -->
+
+  </div>
+</div>
+
+
+{% endblock %}
