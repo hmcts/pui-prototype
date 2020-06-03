@@ -2,7 +2,15 @@
 {% set primaryNavId = 'cases' %}
 {% set serviceName = 'Manage your civil and family law cases' %}
 {% block page_title %}Dashboard{% endblock %}
+
+
+
+
+
+
 {% block mainContent %}
+
+
 
  {{ hmctsPageHeaderWithActions({
     title: {
@@ -218,7 +226,7 @@ checked: false
                                 <td class="govuk-table__cell "><a href="/v1-1/case-summary">View</a></td>
                             </tr>
 
-                         <!--   
+                         <!--
                             <tr class="govuk-table__row">
                                 <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
                                 <td class="govuk-table__cell ">Adam Kowalski v Aga<br><span class="govuk-caption-m govuk-!-font-size-16">9532-5530-6258-5049</span></th>
@@ -331,16 +339,17 @@ checked: false
                     <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
-      Why are some cases unselectable?
+      Can’t select a case?
     </span>
   </summary>
   <div class="govuk-details__text">
-    An explanation on why certain cases cannot be shared goes in here.
+    You might not be able to select and share some cases in your current case list. However, you'll be able to select any new cases you create and share them.
   </div>
 </details>
                 </div>
             </div>
         </div>
+
         {% endblock %}
         {% block pageScripts %}
         {{super()}}
