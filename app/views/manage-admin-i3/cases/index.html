@@ -45,14 +45,14 @@ active: false
 {% endblock %}
 {% block content %}
 <div class="hmcts-width-container">
-    {{ govukPhaseBanner({
+  {{ govukPhaseBanner({
     tag: {
     text: "beta"
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
-    <main role="main" class="govuk-main-wrapper">
-        {{ hmctsPageHeaderWithActions({
+  <main role="main" class="govuk-main-wrapper">
+    {{ hmctsPageHeaderWithActions({
         title: {
         html: '<span class="govuk-caption-xl">Wedlake Bell</span>
         <h1 class="govuk-heading-xl">Unassigned cases</h1>'
@@ -68,16 +68,18 @@ active: false
 
 
 
-        <div class="hmcts-filter-layout">
+    <div class="hmcts-filter-layout">
 
-            <div class="hmcts-filter-layout__filter">
+      <div class="hmcts-filter-layout__filter">
 
-            </div>
-            <div class="hmcts-filter-layout__content">
+      </div>
+      <div class="hmcts-filter-layout__content">
 
-<p class="govuk-!-margin-bottom-7">You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be<br> registered with your organisation and have access to Manage cases. You can remove access to a case at any time.</p><p></p>
-                <div class="hmcts-action-bar">
-<!--
+        <p class="govuk-!-margin-bottom-7">You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be<br> registered with your organisation and have access to Manage cases. You can remove access to a case
+          at any time.</p>
+        <p></p>
+        <div class="hmcts-action-bar">
+          <!--
         {{ hmctsMenu({
                     items: [{
                     text: 'Share case',
@@ -85,106 +87,107 @@ active: false
                     href: './share-org-new'
                     }]
                     }) }} -->
-                </div>
-                <div class="hmcts-scrollable-pane">
-                    <div class="hmcts-scrollable-pane__wrapper">
-                        {% set checkbox %}
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
-                            <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
-                            </label>
-                        </div>
-                        {% endset %}
-                        <nav class="hmcts-sub-navigation">
-                            <ul class="hmcts-sub-navigation__list">
-                                <li class="hmcts-sub-navigation__item">
-                                    <a class="hmcts-sub-navigation__link" aria-current="page" href="#">
-                                        Divorce
-                                    </a>
-                                </li>
-                                <li class="hmcts-sub-navigation__item">
-                                    <a class="hmcts-sub-navigation__link" href="#">
-                                        	Financial remedy
-                                    </a>
-                                </li>
-                                <li class="hmcts-sub-navigation__item">
-                                    <a class="hmcts-sub-navigation__link" href="#">
-                                        Probate
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <div>
-                            <p>Showing <b>3</b> unassigned cases</p>
-                        </div>
-                        <table class="govuk-table">
-                            <thead class="govuk-table__head">
-                                <tr class="govuk-table__row">
-                                    <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
-                                    <th class="govuk-table__header" scope="col">Reference</th>
-                                    <th class="govuk-table__header" scope="col"></th>
-                                    <th class="govuk-table__header" scope="col"></th>
-                                    <th class="govuk-table__header" scope="col"></th>
-                                    <th class="govuk-table__header" scope="col"></th>
-                                    <th class="govuk-table__header" scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody class="govuk-table__body">
-                                <tr class="govuk-table__row">
-                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
-                                    <td class="govuk-table__cell "><a href="#">ViewPaul Saddlebrook Vs Jennifer Saddlebrook</a><br><span class="govuk-caption-m govuk-!-font-size-16">4748-2828-7712-8233</span></td>
-                                    <td class="govuk-table__cell "></td>
-                                    <td class="govuk-table__cell "></td>
-                                    <td class="govuk-table__cell "></td>
-                                    <td class="govuk-table__cell "></td>
-                                    <td class="govuk-table__cell "></td>
-                                </tr>
-                                <tr class="govuk-table__row">
-                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
-                                    <td class="govuk-table__cell "><a href="#">Neha Venkatanarasimharaj Vs Sanjet Venkatanarasimharaj</a><br><span class="govuk-caption-m govuk-!-font-size-16">9417-3739-9576-5131</span></td>
-                                    <td class="govuk-table__cell "></td>
-                                    <td class="govuk-table__cell "></td>
-                                    <td class="govuk-table__cell "></td>
-                                    <td class="govuk-table__cell "></td>
-                                    <td class="govuk-table__cell "></td>
-                                </tr>
-                                <tr class="govuk-table__row">
-                                    <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
-                                    <td class="govuk-table__cell "><a href="#">Iain Curran v Robin Curran</a><br><span class="govuk-caption-m govuk-!-font-size-16">2877-6519-5618-9839</span></td>
-                                    <td class="govuk-table__cell "></td>
-                                    <td class="govuk-table__cell "></td>
-                                    <td class="govuk-table__cell "></td>
-                                    <td class="govuk-table__cell "></td>
-                                    <td class="govuk-table__cell "></td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        </div>
+        <div class="hmcts-scrollable-pane">
+          <div class="hmcts-scrollable-pane__wrapper">
+            {% set checkbox %}
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
+              <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
+              </label>
             </div>
-    </main>
+            {% endset %}
+            <nav class="hmcts-sub-navigation">
+              <ul class="hmcts-sub-navigation__list">
+                <li class="hmcts-sub-navigation__item">
+                  <a class="hmcts-sub-navigation__link" aria-current="page" href="#">
+                    Divorce
+                  </a>
+                </li>
+                <li class="hmcts-sub-navigation__item">
+                  <a class="hmcts-sub-navigation__link" href="#">
+                    Financial remedy
+                  </a>
+                </li>
+                <li class="hmcts-sub-navigation__item">
+                  <a class="hmcts-sub-navigation__link" href="#">
+                    Probate
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div>
+              <p>Showing <b>3</b> unassigned cases</p>
+            </div>
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
+                  <th class="govuk-table__header" scope="col">Reference</th>
+                  <th class="govuk-table__header" scope="col">Case title</th>
+                  <th class="govuk-table__header" scope="col"></th>
+                  <th class="govuk-table__header" scope="col"></th>
+                  <th class="govuk-table__header" scope="col"></th>
+                  <th class="govuk-table__header" scope="col"></th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                  <td class="govuk-table__cell "></td>
+                  <td class="govuk-table__cell "><a href="#">ViewPaul Saddlebrook Vs Jennifer Saddlebrook</a><br><span class="govuk-caption-m govuk-!-font-size-16">4748-2828-7712-8233</span></td>
+
+                  <td class="govuk-table__cell "></td>
+                  <td class="govuk-table__cell "></td>
+                  <td class="govuk-table__cell "></td>
+                  <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                  <td class="govuk-table__cell ">FAO Michele Serrano<br>EB-345-2020</td>
+                  <td class="govuk-table__cell "><a href="#">Neha Venkatanarasimharaj Vs Sanjet Venkatanarasimharaj</a><br><span class="govuk-caption-m govuk-!-font-size-16">9417-3739-9576-5131</span></td>
+                  <td class="govuk-table__cell "></td>
+                  <td class="govuk-table__cell "></td>
+                  <td class="govuk-table__cell "></td>
+                  <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+                  <td class="govuk-table__cell "></td>
+                  <td class="govuk-table__cell "><a href="#">Iain Curran v Robin Curran</a><br><span class="govuk-caption-m govuk-!-font-size-16">2877-6519-5618-9839</span></td>
+                  <td class="govuk-table__cell "></td>
+                  <td class="govuk-table__cell "></td>
+                  <td class="govuk-table__cell "></td>
+                  <td class="govuk-table__cell "></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </main>
 </div>
 {% endblock %}
 {% block pageScripts %}
 {{super()}}
 <script>
-new HMCTSFrontend.FilterToggleButton({
+  new HMCTSFrontend.FilterToggleButton({
     bigModeMediaQuery: '(min-width: 48.063em)',
     startHidden: true,
     toggleButton: {
-        container: $('.hmcts-action-bar__filter'),
-        showText: 'Show filter',
-        hideText: 'Hide filter',
-        classes: 'hmcts-button--secondary'
+      container: $('.hmcts-action-bar__filter'),
+      showText: 'Show filter',
+      hideText: 'Hide filter',
+      classes: 'hmcts-button--secondary'
     },
     closeButton: {
-        container: $('.hmcts-filter__header-action'),
-        text: 'Close'
+      container: $('.hmcts-filter__header-action'),
+      text: 'Close'
     },
     filter: {
-        container: $('.hmcts-filter')
+      container: $('.hmcts-filter')
     }
-});
+  });
 </script>
 {% endblock %}
