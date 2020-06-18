@@ -1,144 +1,154 @@
 {% extends "../layout.html" %}
 {% block header %}
 <header class="hmcts-header" role="banner">
-    <div class="hmcts-header__container">
-        <div class="govuk-header__logo">
-            <a href="/" class="govuk-header__link govuk-header__link--homepage">
-                <span class="govuk-header__logotype">
-                    <span class="govuk-header__logotype-text">
-                        MyHMCTS
-                    </span>
-                </span>
-            </a>
-        </div>
-        <a class="hmcts-header__link" href="#">Manage organisation</a>
-        <div class="hmcts-header__content">
-            <nav class="hmcts-header__navigation" aria-label="Account navigation">
-                <ul class="hmcts-header__navigation-list">
-                    <li class="hmcts-header__navigation-item">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
                         <a class="hmcts-header__navigation-link" href="#1">
-                            Sign out
+                            Profile
                         </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <nav class="hmcts-primary-navigation">
-            <ul class="hmcts-primary-navigation__list">
-                <li class="hmcts-primary-navigation__item">
-                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
-                        Organisation
-                    </a>
-                </li>
-                <li class="hmcts-primary-navigation__item">
-                    <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/users">
-                        Users
-                    </a>
-                </li>
-                <li class="hmcts-primary-navigation__item">
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+        <!--  <li class="hmcts-primary-navigation__item">
                     <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
                         Fee accounts
                     </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
 </header>
 {% endblock %}
 {% block content %}
 <div class="hmcts-width-container">
-    {% include "../includes/phase-banner.html" %}
-    {{govukBackLink({
+  {% include "../includes/phase-banner.html" %}
+  {{govukBackLink({
     href: './'
     })}}
-    <main role="main" class="govuk-main-wrapper">
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
-                    <h2 class="govuk-error-summary__title" id="error-summary-title">
-                        There is a problem
-                    </h2>
-                    <div class="govuk-error-summary__body">
-                        <ul class="govuk-list govuk-error-summary__list">
-                            <li>
-                                <a href="#nationality">You must select at least one action</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <h1 class="govuk-heading-xl">Invite user</h1>
-                <div class="govuk-form-group govuk-form-group--error">
-                    <fieldset class="govuk-fieldset" aria-describedby="nationality-hint nationality-error">
-                        <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
-                        <div class="govuk-form-group">
-                            <label class="govuk-label--m" for="first-name">
-                                First name
-                                <!--<span id="passport-issued-hint" class="govuk-hint">
+  <main role="main" class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+          <h2 class="govuk-error-summary__title" id="error-summary-title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#nationality">You must select at least one action</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h1 class="govuk-heading-xl">Invite user</h1>
+        <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset" aria-describedby="nationality-hint nationality-error">
+            <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
+            <div class="govuk-form-group">
+              <label class="govuk-label--m" for="first-name">
+                First name
+                <!--<span id="passport-issued-hint" class="govuk-hint">
                             Include all middle names.
                         </span> -->
-                            </label>
-                            <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Amy" disabled>
-                        </div>
-                        <div class="govuk-form-group">
-                            <label class="govuk-label--m" for="first-name">
-                                Last name </label>
-                            <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Venkatanarasimharaj" disabled>
-                        </div>
-                        <div class="govuk-form-group">
-                            <label class="govuk-label--m" for="first-name">
-                                Email address
-                            </label>
-                            <input class="govuk-input" id="emailaddress" name="full-name" type="text" autocomplete="name" spellcheck="false" value="amyvenkatanarasimharaj@wedlakebell.com" disabled>
-                        </div>
-                        <div class="govuk-form-group">
-                                     <fieldset class="govuk-fieldset" aria-describedby="nationality-hint nationality-error">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                            Permissions
-                        </legend>
-                        <span id="nationality-hint" class="govuk-hint">
-                            Choose at least one action the user can do. You can change this later.
-                        </span>
-                        <span id="nationality-error" class="govuk-error-message">
-                            <span class="govuk-visually-hidden">Error:</span> You must select at least one action
-                        </span>
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="permissions-1" name="permissions" value="checked" type="checkbox" value="cases" aria-describedby="permissions-1-item-hint">
-                            <label class="govuk-label govuk-checkboxes__label" for="permissions-1">
-                                Manage cases
-                            </label>
-                            <span id="permissions-1-item-hint" class="govuk-hint govuk-checkboxes__hint">
-                                View, create and progress cases.
-                            </span>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="permissions-3" name="permissions" type="checkbox" value="organisation" aria-describedby="permissions-3-item-hint">
-                            <label class="govuk-label govuk-checkboxes__label" for="permissions-3">
-                                Manage users
-                            </label>
-                            <span id="permissions-3-item-hint" class="govuk-hint govuk-checkboxes__hint">
-                                Invite users.
-                            </span>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="permissions-2" name="permissions" type="checkbox" value="users" aria-describedby="permissions-2-item-hint">
-                            <label class="govuk-label govuk-checkboxes__label" for="permissions-2">
-                                Manage organisation
-                            </label>
-                            <span id="permissions-2-item-hint" class="govuk-hint govuk-checkboxes__hint">
-                                View the organisation name and address.
-                            </span>
-                        </div>
-                        
+              </label>
+              <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Amy" disabled>
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label--m" for="first-name">
+                Last name </label>
+              <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Venkatanarasimharaj" disabled>
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label--m" for="first-name">
+                Email address
+              </label>
+              <input class="govuk-input" id="emailaddress" name="full-name" type="text" autocomplete="name" spellcheck="false" value="amyvenkatanarasimharaj@wedlakebell.com" disabled>
+            </div>
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="nationality-hint nationality-error">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  Permissions
+                </legend>
+                <span id="nationality-hint" class="govuk-hint">
+                  Choose at least one action the user can do. You can change this later.
+                </span>
+                <span id="nationality-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> You must select at least one action
+                </span>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="permissions-1" name="permissions" value="checked" type="checkbox" value="cases" aria-describedby="permissions-1-item-hint">
+                  <label class="govuk-label govuk-checkboxes__label" for="permissions-1">
+                    Manage cases
+                  </label>
+                  <span id="permissions-1-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    View, create and progress cases.
+                  </span>
                 </div>
-                </fieldset>
-                  {{govukButton({
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="permissions-3" name="permissions" type="checkbox" value="organisation" aria-describedby="permissions-3-item-hint">
+                  <label class="govuk-label govuk-checkboxes__label" for="permissions-3">
+                    Manage users
+                  </label>
+                  <span id="permissions-3-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    Invite users.
+                  </span>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="permissions-2" name="permissions" type="checkbox" value="users" aria-describedby="permissions-2-item-hint">
+                  <label class="govuk-label govuk-checkboxes__label" for="permissions-2">
+                    Manage organisation
+                  </label>
+                  <span id="permissions-2-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    View the organisation name and address.
+                  </span>
+                </div>
+
+            </div>
+          </fieldset>
+          {{govukButton({
                 text: 'Send invitation'
                 })}}
-                        </div>
-                    </fieldset>
-                </div>
-            </div>
         </div>
+        </fieldset>
+      </div>
+    </div>
+</div>
 </div>
 </main>
 </div>

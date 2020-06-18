@@ -1,97 +1,107 @@
 {% extends "../layout.html" %}
 {% block header %}
 <header class="hmcts-header" role="banner">
-    <div class="hmcts-header__container">
-        <div class="govuk-header__logo">
-            <a href="/" class="govuk-header__link govuk-header__link--homepage">
-                <span class="govuk-header__logotype">
-                    <span class="govuk-header__logotype-text">
-                        MyHMCTS
-                    </span>
-                </span>
-            </a>
-        </div>
-        <a class="hmcts-header__link" href="#">Manage organisation</a>
-        <div class="hmcts-header__content">
-            <nav class="hmcts-header__navigation" aria-label="Account navigation">
-                <ul class="hmcts-header__navigation-list">
-                    <li class="hmcts-header__navigation-item">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
                         <a class="hmcts-header__navigation-link" href="#1">
-                            Sign out
+                            Profile
                         </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <nav class="hmcts-primary-navigation">
-            <ul class="hmcts-primary-navigation__list">
-                <li class="hmcts-primary-navigation__item">
-                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
-                        Organisation
-                    </a>
-                </li>
-                <li class="hmcts-primary-navigation__item">
-                    <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/users">
-                        Users
-                    </a>
-                </li>
-                <li class="hmcts-primary-navigation__item">
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+        <!--  <li class="hmcts-primary-navigation__item">
                     <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
                         Fee accounts
                     </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
 </header>
 {% endblock %}
 {% block content %}
 <div class="hmcts-width-container">
-    {% include "../includes/phase-banner.html" %}
-    {{govukBackLink({
+  {% include "../includes/phase-banner.html" %}
+  {{govukBackLink({
     href: './'
     })}}
-    <main role="main" class="govuk-main-wrapper">
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                <div class="hmcts-banner hmcts-banner--warning">
-                    <svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-                        <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" /></svg>
-                    <div class="hmcts-banner__message">
-                        <span class="hmcts-banner__assistive">Warning</span>
-                        <p class="govuk-body">This user has already been invited in the last hour.</p>
-                        <p class="govuk-body">The recipient will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
-                    </div>
-                </div>
-            </div>
+  <main role="main" class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="hmcts-banner hmcts-banner--warning">
+          <svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" /></svg>
+          <div class="hmcts-banner__message">
+            <span class="hmcts-banner__assistive">Warning</span>
+            <p class="govuk-body">This user has already been invited in the last hour.</p>
+            <p class="govuk-body">The recipient will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
+          </div>
         </div>
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                <h1 class="govuk-heading-xl">Invite user</h1>
-                <div class="govuk-form-group">
-                    <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
-                    <div class="govuk-form-group">
-                        <label class="govuk-label--m" for="first-name">
-                            First name
-                            <!--<span id="passport-issued-hint" class="govuk-hint">
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Invite user</h1>
+        <div class="govuk-form-group">
+          <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
+          <div class="govuk-form-group">
+            <label class="govuk-label--m" for="first-name">
+              First name
+              <!--<span id="passport-issued-hint" class="govuk-hint">
                             Include all middle names.
                         </span> -->
-                        </label>
-                        <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Amy" disabled>
-                    </div>
-                    <div class="govuk-form-group">
-                        <label class="govuk-label--m" for="first-name">
-                            Last name </label>
-                        <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Venkatanarasimharaj" disabled>
-                    </div>
-                    <div class="govuk-form-group">
-                        <label class="govuk-label--m" for="first-name">
-                            Email address
-                        </label>
-                        <input class="govuk-input" id="emailaddress" name="full-name" type="text" autocomplete="name" spellcheck="false" value="amyvenkatanarasimharaj@wedlakebell.com" disabled>
-                    </div>
-                    <div class="govuk-form-group">
-                        <form action="#"> {{ govukCheckboxes({
+            </label>
+            <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Amy" disabled>
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label--m" for="first-name">
+              Last name </label>
+            <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Venkatanarasimharaj" disabled>
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label--m" for="first-name">
+              Email address
+            </label>
+            <input class="govuk-input" id="emailaddress" name="full-name" type="text" autocomplete="name" spellcheck="false" value="amyvenkatanarasimharaj@wedlakebell.com" disabled>
+          </div>
+          <div class="govuk-form-group">
+            <form action="#"> {{ govukCheckboxes({
                             idPrefix: "permissions",
                             name: "permissions",
                             fieldset: {
@@ -127,14 +137,14 @@
                             }
                             ]
                             }) }}
-                            {{govukButton({
+              {{govukButton({
                             text: 'Send invitation'
                             })}}
-                        </form>
-                    </div>
-                </div>
-            </div>
+            </form>
+          </div>
         </div>
+      </div>
+    </div>
 </div>
 </main>
 </div>

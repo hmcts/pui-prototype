@@ -6,18 +6,13 @@
 
 {% block page_title %}Create case{% endblock %}
 
-{% block header %}
-  {% include "./includes/header.html" %}
-  {% include "./includes/nav.html" %}
-{% endblock %}
 
 {% block mainContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/v1-1/divorce-application-start">
 
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-          <form action="/v1-1/divorce-application-start">
-
-            {{ govukRadios({
+      {{ govukRadios({
               idPrefix: "type",
               name: "type",
               fieldset: {
@@ -43,11 +38,11 @@
               ]
             }) }}
 
-            {{govukButton({
+      {{govukButton({
               text: 'Continue'
             })}}
-          </form>
-        </div>
-      </div>
+    </form>
+  </div>
+</div>
 
 {% endblock %}

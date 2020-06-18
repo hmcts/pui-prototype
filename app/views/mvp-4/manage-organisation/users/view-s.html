@@ -1,63 +1,68 @@
 {% extends "../layout.html" %}
 {% block header %}
 <header class="hmcts-header" role="banner">
-    <div class="hmcts-header__container">
-        <div class="govuk-header__logo">
-            <a href="/" class="govuk-header__link govuk-header__link--homepage">
-                <span class="govuk-header__logotype">
-                    <span class="govuk-header__logotype-text">
-                        MyHMCTS
-                    </span>
-                </span>
-            </a>
-        </div>
-        <a class="hmcts-header__link" href="#">Manage organisation</a>
-        <div class="hmcts-header__content">
-            <nav class="hmcts-header__navigation" aria-label="Account navigation">
-                <ul class="hmcts-header__navigation-list">
-                    <!-- <li class="hmcts-header__navigation-item">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
                         <a class="hmcts-header__navigation-link" href="#1">
                             Profile
                         </a>
                     </li> -->
-                    <li class="hmcts-header__navigation-item">
-                        <a class="hmcts-header__navigation-link" href="#1">
-                            Sign out
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <nav class="hmcts-primary-navigation">
-            <ul class="hmcts-primary-navigation__list">
-                <li class="hmcts-primary-navigation__item">
-                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
-                        Organisation
-                    </a>
-                </li>
-                <li class="hmcts-primary-navigation__item">
-                    <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/users">
-                        Users
-                    </a>
-                </li>
-                <li class="hmcts-primary-navigation__item">
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+        <!--  <li class="hmcts-primary-navigation__item">
                     <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
                         Fee accounts
                     </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
 </header>
 {% endblock %}
 {% block content %}
 <div class="hmcts-width-container">
-    {% include "../includes/phase-banner.html" %}
-    {{govukBackLink({
+  {% include "../includes/phase-banner.html" %}
+  {{govukBackLink({
     href: './'
     })}}
-    <main role="main" class="govuk-main-wrapper">
-        {{ hmctsPageHeaderWithActions({
+  <main role="main" class="govuk-main-wrapper">
+    {{ hmctsPageHeaderWithActions({
         title: {
         html: '<h1 class="govuk-heading-l">User details</h1>'
         },
@@ -67,34 +72,34 @@
         href: '/mvp-4/manage-organisation/users/view-revoked'
         }]
         }) }}
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                <table class="govuk-table">
-                    <tbody class="govuk-table__body">
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Name</th>
-                            <td class="govuk-table__cell">Amy Venkatanarasimharaj</td>
-                            <td class="govuk-table__cell">
-                                <!-- <a href="/manage-admin/users/update-name">Change</a> -->
-                            </td>
-                        </tr>
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Email address</th>
-                            <td class="govuk-table__cell">amyvenkatanarasimharaj@wedlakebell.com</td>
-                            <td class="govuk-table__cell">
-                                <!-- <a href="/manage-admin/users/update-email">Change</a> -->
-                            </td>
-                        </tr>
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Permissions</th>
-                            <td class="govuk-table__cell">
-                                Manage cases<br>
-                            </td>
-                            <td class="govuk-table__cell"><a href="#">Change</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!--
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">Name</th>
+              <td class="govuk-table__cell">Amy Venkatanarasimharaj</td>
+              <td class="govuk-table__cell">
+                <!-- <a href="/manage-admin/users/update-name">Change</a> -->
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">Email address</th>
+              <td class="govuk-table__cell">amyvenkatanarasimharaj@wedlakebell.com</td>
+              <td class="govuk-table__cell">
+                <!-- <a href="/manage-admin/users/update-email">Change</a> -->
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">Permissions</th>
+              <td class="govuk-table__cell">
+                Manage cases<br>
+              </td>
+              <td class="govuk-table__cell"><a href="#">Change</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <!--
 <ul class="govuk-list">
        <li>
           <details class="govuk-details" role="group">
@@ -140,8 +145,8 @@
         </li>
       </ul>
  -->
-            </div>
-        </div>
-    </main>
+      </div>
+    </div>
+  </main>
 </div>
 {% endblock %}

@@ -1,8 +1,8 @@
 {% set toggleSearchHtml %}
-  <div class="hmcts-search-toggle">
-    <div class="hmcts-search-toggle__toggle"></div>
-    <div class="hmcts-search-toggle__search">
-      {{ hmctsSearch({
+<div class="hmcts-search-toggle">
+  <div class="hmcts-search-toggle__toggle"></div>
+  <div class="hmcts-search-toggle__search">
+    {{ hmctsSearch({
         action: '/v1-1/search-results',
         classes: 'hmcts-search--ondark hmcts-search--toggle hmcts-hidden',
         input: {
@@ -20,9 +20,11 @@
           text: 'Search'
         }
       }) }}
-    </div>
   </div>
+</div>
 {% endset %}
+
+
 
 {{hmctsPrimaryNavigation({
   classes: "govuk-!-margin-bottom-0",

@@ -1,53 +1,58 @@
 {% extends "../layout.html" %}
 {% block header %}
 <header class="hmcts-header" role="banner">
-    <div class="hmcts-header__container">
-        <div class="govuk-header__logo">
-            <a href="/" class="govuk-header__link govuk-header__link--homepage">
-                <span class="govuk-header__logotype">
-                    <span class="govuk-header__logotype-text">
-                        MyHMCTS
-                    </span>
-                </span>
-            </a>
-        </div>
-        <a class="hmcts-header__link" href="#">Manage organisation</a>
-        <div class="hmcts-header__content">
-            <nav class="hmcts-header__navigation" aria-label="Account navigation">
-                <ul class="hmcts-header__navigation-list">
-                    <!-- <li class="hmcts-header__navigation-item">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
                         <a class="hmcts-header__navigation-link" href="#1">
                             Profile
                         </a>
                     </li> -->
-                    <li class="hmcts-header__navigation-item">
-                        <a class="hmcts-header__navigation-link" href="#1">
-                            Sign out
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <nav class="hmcts-primary-navigation">
-            <ul class="hmcts-primary-navigation__list">
-                <li class="hmcts-primary-navigation__item">
-                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
-                        Organisation
-                    </a>
-                </li>
-                <li class="hmcts-primary-navigation__item">
-                    <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/users">
-                        Users
-                    </a>
-                </li>
-                <li class="hmcts-primary-navigation__item">
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+        <!--  <li class="hmcts-primary-navigation__item">
                     <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
                         Fee accounts
                     </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
 </header>
 {% endblock %}
 {% block content %}
@@ -56,22 +61,22 @@
       href: '/mvp-4/manage-organisation/profile'
     }, -->
 <div class="hmcts-width-container">
-    {% include "../includes/phase-banner.html" %}
-    {{govukBackLink({
+  {% include "../includes/phase-banner.html" %}
+  {{govukBackLink({
     href: './'
     })}}
-    <main role="main" class="govuk-main-wrapper">
-        <!-- {{ hmctsBanner({
+  <main role="main" class="govuk-main-wrapper">
+    <!-- {{ hmctsBanner({
           type: 'warning',
           text: 'Invitation already sent previously.',
           iconFallbackText: 'Warning'
           }) }} -->
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                <h1 class="govuk-heading-xl">Invite user</h1>
-                <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
-                <form action="./confirmation">
-                    {{ govukInput({
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Invite user</h1>
+        <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
+        <form action="./confirmation">
+          {{ govukInput({
                     label: {
                     text: "First name",
                     classes: 'govuk-label--m'
@@ -82,7 +87,7 @@
                     id: "firstname",
                     name: "firstname"
                     }) }}
-                    {{ govukInput({
+          {{ govukInput({
                     label: {
                     text: "Last name",
                     classes: 'govuk-label--m'
@@ -90,7 +95,7 @@
                     id: "lastname",
                     name: "lastname"
                     }) }}
-                    {{ govukInput({
+          {{ govukInput({
                     label: {
                     text: "Email address",
                     classes: 'govuk-label--m'
@@ -98,7 +103,7 @@
                     id: "emailaddress",
                     name: "emailaddress"
                     }) }}
-                    {{ govukCheckboxes({
+          {{ govukCheckboxes({
                     idPrefix: "permissions",
                     name: "permissions",
                     fieldset: {
@@ -142,12 +147,12 @@
                     }
                     ]
                     }) }}
-                    {{govukButton({
+          {{govukButton({
                     text: 'Send invitation'
                     })}}
-                </form>
-            </div>
-        </div>
-    </main>
+        </form>
+      </div>
+    </div>
+  </main>
 </div>
 {% endblock %}

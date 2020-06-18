@@ -1,72 +1,77 @@
 {% extends "../layout.html" %}
 {% block header %}
 <header class="hmcts-header" role="banner">
-    <div class="hmcts-header__container">
-        <div class="govuk-header__logo">
-            <a href="/" class="govuk-header__link govuk-header__link--homepage">
-                <span class="govuk-header__logotype">
-                    <span class="govuk-header__logotype-text">
-                        MyHMCTS
-                    </span>
-                </span>
-            </a>
-        </div>
-        <a class="hmcts-header__link" href="#">Manage organisation</a>
-        <div class="hmcts-header__content">
-            <nav class="hmcts-header__navigation" aria-label="Account navigation">
-                <ul class="hmcts-header__navigation-list">
-                    <!-- <li class="hmcts-header__navigation-item">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
                         <a class="hmcts-header__navigation-link" href="#1">
                             Profile
                         </a>
                     </li> -->
-                    <li class="hmcts-header__navigation-item">
-                        <a class="hmcts-header__navigation-link" href="#1">
-                            Sign out
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <nav class="hmcts-primary-navigation">
-            <ul class="hmcts-primary-navigation__list">
-                <li class="hmcts-primary-navigation__item">
-                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
-                        Organisation
-                    </a>
-                </li>
-                <li class="hmcts-primary-navigation__item">
-                    <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/users">
-                        Users
-                    </a>
-                </li>
-                <li class="hmcts-primary-navigation__item">
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+        <!--  <li class="hmcts-primary-navigation__item">
                     <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
                         Fee accounts
                     </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
 </header>
 {% endblock %}
 {% block content %}
 <div class="hmcts-width-container">
-    {% include "../includes/phase-banner.html" %}
-    <main role="main" class="govuk-main-wrapper">
-        <div class="hmcts-page-heading">
-            <div class="hmcts-page-heading__title-wrapper">
-                <h1 class="hmcts-page-heading__title govuk-heading-xl">Users</h1>
-            </div>
-            <div class="hmcts-page-heading__actions-wrapper">
-                {{govukButton({
+  {% include "../includes/phase-banner.html" %}
+  <main role="main" class="govuk-main-wrapper">
+    <div class="hmcts-page-heading">
+      <div class="hmcts-page-heading__title-wrapper">
+        <h1 class="hmcts-page-heading__title govuk-heading-xl">Users</h1>
+      </div>
+      <div class="hmcts-page-heading__actions-wrapper">
+        {{govukButton({
                 text: 'Invite user',
                 href: '/mvp-4/manage-organisation/users/new',
                 classes: 'hmcts-page-heading__button'
                 })}}
-            </div>
-        </div>
-        {{ govukTable({
+      </div>
+    </div>
+    {{ govukTable({
         head: [
         {
         text: "Name"
@@ -80,7 +85,7 @@
         ],
         rows: rows
         }) }}
-    </main>
+  </main>
 </div>
 <!--     {
             text: "Manage fee accounts"
