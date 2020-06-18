@@ -1,0 +1,169 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header> {% endblock %} {% block content %} <div class="hmcts-width-container">
+  {% include "../includes/phase-banner.html" %}
+  <main role="main" class="govuk-main-wrapper">
+    <div class="hmcts-page-heading">
+      <div class="hmcts-page-heading__title-wrapper">
+        <h1 class="hmcts-page-heading__title govuk-heading-xl"> Unassigned cases</h1>
+      </div>
+      <div class="hmcts-page-heading__actions-wrapper">
+        {{govukButton({
+                text: 'Share case',
+                href: '/mvp-4/manage-organisation/cases/share',
+                classes: 'hmcts-page-heading__button'
+                })}}
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-!-margin-bottom-7">You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be registered with your organisation and have access to Manage cases. You can remove access to a case
+          at any time.</p>
+      </div>
+    </div>
+    <div class="hmcts-scrollable-pane">
+      <div class="hmcts-scrollable-pane__wrapper">
+        {% set checkbox %}
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
+          <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
+          </label>
+        </div>
+        {% endset %}
+        <nav class="hmcts-sub-navigation">
+          <ul class="hmcts-sub-navigation__list">
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="index">
+                Divorce
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" aria-current="page" href="#">
+                Financial remedy
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="#">
+                Probate
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          <!--  <p>Showing <b>3</b> unassigned cases</p> -->
+        </div>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
+              <th class="govuk-table__header" scope="col">Solicitor<br>reference</th>
+              <td class="govuk-table__cell "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              </td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+              <td class="govuk-table__cell ">JW 3401 ID</td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+</main>
+</div>
+{% endblock %}
+{% block pageScripts %}
+{{super()}}
+<script>
+  new HMCTSFrontend.FilterToggleButton({
+    bigModeMediaQuery: '(min-width: 48.063em)',
+    startHidden: true,
+    toggleButton: {
+      container: $('.hmcts-action-bar__filter'),
+      showText: 'Show filter',
+      hideText: 'Hide filter',
+      classes: 'hmcts-button--secondary'
+    },
+    closeButton: {
+      container: $('.hmcts-filter__header-action'),
+      text: 'Close'
+    },
+    filter: {
+      container: $('.hmcts-filter')
+    }
+  });
+</script>
+{% endblock %}
