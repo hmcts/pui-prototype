@@ -58,25 +58,11 @@
 </header> {% endblock %} {% block content %} <div class="hmcts-width-container">
   {% include "../includes/phase-banner.html" %}
   <main role="main" class="govuk-main-wrapper">
-    <div class="hmcts-page-heading">
-      <div class="hmcts-page-heading__title-wrapper">
-        <h1 class="hmcts-page-heading__title govuk-heading-xl"> Unassigned cases</h1>
-      </div>
-      <div class="hmcts-page-heading__actions-wrapper">
-        {{govukButton({
-                text: 'Share case',
-                href: '/mvp-4/manage-organisation/cases/share',
-                classes: 'hmcts-page-heading__button'
-                })}}
-      </div>
-    </div>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <p class="govuk-!-margin-bottom-7">You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be registered with your organisation and have access to Manage cases. You can remove access to a case
-          at any time.</p>
-      </div>
-    </div>
+    <h1 class="govuk-heading-xl">Unassigned cases</h1>
+    {{govukButton({
+            text: 'Share case',
+            href: '/mvp-4/manage-organisation/cases/share-a-case'
+            })}}
     <div class="hmcts-scrollable-pane">
       <div class="hmcts-scrollable-pane__wrapper">
         {% set checkbox %}
@@ -89,24 +75,24 @@
         <nav class="hmcts-sub-navigation">
           <ul class="hmcts-sub-navigation__list">
             <li class="hmcts-sub-navigation__item">
-              <a class="hmcts-sub-navigation__link" href="index">
-                Divorce
+              <a class="hmcts-sub-navigation__link" href="/mvp-4/manage-organisation/cases/">
+                Caveat
               </a>
             </li>
             <li class="hmcts-sub-navigation__item">
-              <a class="hmcts-sub-navigation__link" aria-current="page" href="#">
-                Financial remedy
+              <a class="hmcts-sub-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/cases/financial-remedy">
+                Grant of Representation
               </a>
             </li>
             <li class="hmcts-sub-navigation__item">
               <a class="hmcts-sub-navigation__link" href="#">
-                Probate
+                Contested Financial Remedy
               </a>
             </li>
           </ul>
         </nav>
         <div>
-          <!--  <p>Showing <b>3</b> unassigned cases</p> -->
+
         </div>
         <table class="govuk-table">
           <thead class="govuk-table__head">
@@ -137,8 +123,46 @@
               <td class="govuk-table__cell "></td>
               <td class="govuk-table__cell "></td>
             </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+              <td class="govuk-table__cell ">Something</td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+              <td class="govuk-table__cell ">Something else</td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+            </tr>
+
           </tbody>
         </table>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                About sharing an unassigned case with your organisation
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be registered with your organisation and have access to Manage cases. You can remove access to a
+              case
+              at any time.
+            </div>
+          </details>
+        </div>
       </div>
     </div>
 </div>
