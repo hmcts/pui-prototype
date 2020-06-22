@@ -63,10 +63,21 @@
   {% include "../includes/phase-banner.html" %}
   <main role="main" class="govuk-main-wrapper">
     <h1 class="govuk-heading-xl">Unassigned cases</h1>
-    {{govukButton({
-            text: 'Share case',
-            href: '/mvp-4/manage-organisation/cases/share-a-case'
-            })}}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <p>
+          You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be registered with your organisation and have access to Manage cases. You can remove access to a
+          case
+          at any time.
+        </p>
+
+
+      </div>
+    </div>
+
+
+
     <div class="hmcts-scrollable-pane">
       <div class="hmcts-scrollable-pane__wrapper">
         {% set checkbox %}
@@ -149,7 +160,11 @@
           </tbody>
         </table>
       </div>
-      <div class="govuk-grid-row">
+      {{govukButton({
+              text: 'Share case',
+              href: '/mvp-4/manage-organisation/cases/share-a-case'
+              })}}
+      <!--      <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
           <details class="govuk-details" data-module="govuk-details">
@@ -165,7 +180,7 @@
             </div>
           </details>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </main>
