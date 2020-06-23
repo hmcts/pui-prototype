@@ -76,116 +76,106 @@
         title: {
         html: '<span class="govuk-caption-xl">Wedlake Bell</span>
         <h1 class="govuk-heading-xl">Unassigned cases</h1>'
-      },
-      items: [{
-      text: 'Share case',
-      classes: 'hmcts-button govuk-!-margin-bottom-7',
-      href: '/manage-admin-i3/cases/share-org'
-      }]
+      }
         }) }}
 
-    <div class="hmcts-filter-layout">
-      <div class="hmcts-filter-layout__filter">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <p>
+          You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be registered with your organisation and have access to Manage cases.
+        </p>
       </div>
-      <div class="hmcts-filter-layout__content">
-        <p class="govuk-!-margin-bottom-7">You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be<br> registered with your organisation and have access to Manage cases. You can remove access to a case
-          at any time.</p>
-        <p></p>
-        <div class="hmcts-action-bar">
-          <!--
-        {{ hmctsMenu({
-                    items: [{
-                    text: 'Share case',
-                    classes: 'hmcts-button govuk-!-margin-bottom-7',
-                    href: './share-org-new'
-                    }]
-                    }) }} -->
+    </div>
+
+    <div class="hmcts-scrollable-pane">
+      <div class="hmcts-scrollable-pane__wrapper">
+        {% set checkbox %}
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
+          <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
+          </label>
         </div>
-        <div class="hmcts-scrollable-pane">
-          <div class="hmcts-scrollable-pane__wrapper">
-            {% set checkbox %}
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
-              <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
-              </label>
-            </div>
-            {% endset %}
-            <nav class="hmcts-sub-navigation">
-              <ul class="hmcts-sub-navigation__list">
-                <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" aria-current="page" href="#">
-                    Divorce
-                  </a>
-                </li>
-                <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" href="/manage-admin-i3/cases/financial-remedy.html">
-                    Financial remedy
-                  </a>
-                </li>
-                <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" href="#">
-                    Probate
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <div>
-              <!--  <p>Showing <b>3</b> unassigned cases</p> -->
-            </div>
-            <table class="govuk-table">
-              <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
-                  <th class="govuk-table__header" scope="col">Solicitor<br>reference</th>
-                  <th class="govuk-table__header" scope="col">Case<br>reference</th>
-                  <th class="govuk-table__header" scope="col">Case<br>created date</th>
-                  <th class="govuk-table__header" scope="col">Pet.<br>First name</th>
-                  <th class="govuk-table__header" scope="col">Pet.<br>Last name</th>
-                  <th class="govuk-table__header" scope="col">Resp.<br>First name</th>
-                  <th class="govuk-table__header" scope="col">Resp.<br>Last name</th>
-                  <th class="govuk-table__header" scope="col">Due Date</th>
-                </tr>
-              </thead>
-              <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
-                  <td class="govuk-table__cell "></td>
-                  <td class="govuk-table__cell ">4748-2828-7712-8233</td>
-                  <td class="govuk-table__cell ">16 Jun 2020</td>
-                  <td class="govuk-table__cell ">Paul</td>
-                  <td class="govuk-table__cell ">Saddlebrook</td>
-                  <td class="govuk-table__cell ">Jennifer</td>
-                  <td class="govuk-table__cell ">Saddlebrook</td>
-                  <td class="govuk-table__cell "></td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
-                  <td class="govuk-table__cell ">Michele Serrano<br>EB-345-2020</td>
-                  <td class="govuk-table__cell ">9417-3739-9576-5131</td>
-                  <td class="govuk-table__cell ">22 May 2020</td>
-                  <td class="govuk-table__cell ">Neha</td>
-                  <td class="govuk-table__cell ">Venkatanarasimharaj</td>
-                  <td class="govuk-table__cell ">Sanjet</td>
-                  <td class="govuk-table__cell ">Venkatanarasimharaj</td>
-                  <td class="govuk-table__cell ">17 Aug 2020</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
-                  <td class="govuk-table__cell "></td>
-                  <td class="govuk-table__cell ">2877-6519-5618-9839</td>
-                  <td class="govuk-table__cell ">9 Jun 2020</td>
-                  <td class="govuk-table__cell ">Iain</td>
-                  <td class="govuk-table__cell ">Curran</td>
-                  <td class="govuk-table__cell ">Robin</td>
-                  <td class="govuk-table__cell ">Curran</td>
-                  <td class="govuk-table__cell "></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        {% endset %}
+        <nav class="hmcts-sub-navigation">
+          <ul class="hmcts-sub-navigation__list">
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" aria-current="page" href="#">
+                Divorce
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="/manage-admin-i3/cases/financial-remedy.html">
+                Financial remedy
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="#">
+                Probate
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          <!--  <p>Showing <b>3</b> unassigned cases</p> -->
         </div>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
+              <th class="govuk-table__header" scope="col">Solicitor<br>reference</th>
+              <th class="govuk-table__header" scope="col">Case<br>reference</th>
+              <th class="govuk-table__header" scope="col">Case<br>created date</th>
+              <th class="govuk-table__header" scope="col">Pet.<br>First name</th>
+              <th class="govuk-table__header" scope="col">Pet.<br>Last name</th>
+              <th class="govuk-table__header" scope="col">Resp.<br>First name</th>
+              <th class="govuk-table__header" scope="col">Resp.<br>Last name</th>
+              <th class="govuk-table__header" scope="col">Due Date</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell ">4748-2828-7712-8233</td>
+              <td class="govuk-table__cell ">16 Jun 2020</td>
+              <td class="govuk-table__cell ">Paul</td>
+              <td class="govuk-table__cell ">Saddlebrook</td>
+              <td class="govuk-table__cell ">Jennifer</td>
+              <td class="govuk-table__cell ">Saddlebrook</td>
+              <td class="govuk-table__cell "></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+              <td class="govuk-table__cell ">Michele Serrano<br>EB-345-2020</td>
+              <td class="govuk-table__cell ">9417-3739-9576-5131</td>
+              <td class="govuk-table__cell ">22 May 2020</td>
+              <td class="govuk-table__cell ">Neha</td>
+              <td class="govuk-table__cell ">Venkatanarasimharaj</td>
+              <td class="govuk-table__cell ">Sanjet</td>
+              <td class="govuk-table__cell ">Venkatanarasimharaj</td>
+              <td class="govuk-table__cell ">17 Aug 2020</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell ">2877-6519-5618-9839</td>
+              <td class="govuk-table__cell ">9 Jun 2020</td>
+              <td class="govuk-table__cell ">Iain</td>
+              <td class="govuk-table__cell ">Curran</td>
+              <td class="govuk-table__cell ">Robin</td>
+              <td class="govuk-table__cell ">Curran</td>
+              <td class="govuk-table__cell "></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-  </main>
+      {{govukButton({
+                  text: 'Share case',
+                  href: '/manage-admin-i3/cases/share-org'
+                  })}}
+    </div>
+</div>
+</main>
 </div>
 {% endblock %}
 {% block pageScripts %}

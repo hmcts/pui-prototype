@@ -73,100 +73,90 @@
     }) }}
   <main role="main" class="govuk-main-wrapper">
     {{ hmctsPageHeaderWithActions({
-        title: {
-        html: '<span class="govuk-caption-xl">Wedlake Bell</span>
-        <h1 class="govuk-heading-xl">Unassigned cases</h1>'
-      },
-      items: [{
-      text: 'Share case',
-      classes: 'hmcts-button govuk-!-margin-bottom-7',
-      href: '/manage-admin-i3/cases/share-org'
-      }]
-        }) }}
+          title: {
+          html: '<span class="govuk-caption-xl">Wedlake Bell</span>
+          <h1 class="govuk-heading-xl">Unassigned cases</h1>'
+        }
+          }) }}
 
-    <div class="hmcts-filter-layout">
-      <div class="hmcts-filter-layout__filter">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <p>
+          You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be registered with your organisation and have access to Manage cases.
+        </p>
       </div>
-      <div class="hmcts-filter-layout__content">
-        <p class="govuk-!-margin-bottom-7">You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be<br> registered with your organisation and have access to Manage cases. You can remove access to a case
-          at any time.</p>
-        <p></p>
-        <div class="hmcts-action-bar">
-          <!--
-        {{ hmctsMenu({
-                    items: [{
-                    text: 'Share case',
-                    classes: 'hmcts-button govuk-!-margin-bottom-7',
-                    href: './share-org-new'
-                    }]
-                    }) }} -->
+    </div>
+
+    <div class="hmcts-scrollable-pane">
+      <div class="hmcts-scrollable-pane__wrapper">
+        {% set checkbox %}
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
+          <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
+          </label>
         </div>
-        <div class="hmcts-scrollable-pane">
-          <div class="hmcts-scrollable-pane__wrapper">
-            {% set checkbox %}
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
-              <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
-              </label>
-            </div>
-            {% endset %}
-            <nav class="hmcts-sub-navigation">
-              <ul class="hmcts-sub-navigation__list">
-                <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" href="index">
-                    Divorce
-                  </a>
-                </li>
-                <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" aria-current="page" href="#">
-                    Financial remedy
-                  </a>
-                </li>
-                <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" href="#">
-                    Probate
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <div>
-              <!--  <p>Showing <b>3</b> unassigned cases</p> -->
-            </div>
-            <table class="govuk-table">
-              <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
-                  <th class="govuk-table__header" scope="col">Solicitor<br>reference</th>
-                  <td class="govuk-table__cell "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                  </td>
-                  <td class="govuk-table__cell "></td>
-                  <td class="govuk-table__cell "></td>
-                  <td class="govuk-table__cell "></td>
-                  <td class="govuk-table__cell "></td>
-                  <td class="govuk-table__cell "></td>
-                  <td class="govuk-table__cell "></td>
-                </tr>
-              </thead>
-              <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
-                  <td class="govuk-table__cell ">JW 3401 ID</td>
-                  <td class="govuk-table__cell "></td>
-                  <td class="govuk-table__cell "></td>
-                  <td class="govuk-table__cell "></td>
-                  <td class="govuk-table__cell "></td>
-                  <td class="govuk-table__cell "></td>
-                  <td class="govuk-table__cell "></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        {% endset %}
+        <nav class="hmcts-sub-navigation">
+          <ul class="hmcts-sub-navigation__list">
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="index">
+                Divorce
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" aria-current="page" href="#">
+                Financial remedy
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="#">
+                Probate
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          <!--  <p>Showing <b>3</b> unassigned cases</p> -->
         </div>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
+              <th class="govuk-table__header" scope="col">Solicitor<br>reference</th>
+              <td class="govuk-table__cell "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              </td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+              <td class="govuk-table__cell ">JW 3401 ID</td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-  </main>
+      {{govukButton({
+                  text: 'Share case',
+                  href: '/manage-admin-i3/cases/share-org'
+                  })}}
+    </div>
+</div>
+</main>
 </div>
 {% endblock %}
 {% block pageScripts %}
