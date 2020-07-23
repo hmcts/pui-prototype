@@ -15,35 +15,35 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-<h1 class="govuk-heading-xl"><span class="govuk-caption-xl">Share a case</span>Add recipient </h1>
-                <div class="govuk-form-group">
-                    <label class="govuk-label govuk-!-font-weight-bold" for="email">
-                        Enter email address
-                    </label>
-                    <span id="email-hint" class="govuk-hint">
-                    Search by name or email address. You can only add people from your organisation individually – but you can add as many as you like.
-                    </span>
-                    <input class="govuk-input govuk-input--width-30" id="width-30" name="width-30" type="text"> {{govukButton({
+    <h1 class="govuk-heading-xl"><span class="govuk-caption-xl">Share a case</span>Add recipient </h1>
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-!-font-weight-bold" for="email">
+        Enter email address
+      </label>
+      <span id="email-hint" class="govuk-hint">
+        Search by name or email address. You can only add people from your organisation individually – but you can add as many as you like.
+      </span>
+      <input class="govuk-input govuk-input--width-30" id="width-30" name="width-30" type="text"> {{govukButton({
                     text: 'Add',
                     classes: 'hmcts-button--secondary',
                     href: '#'
                     })}}
-                                    <details class="govuk-details" data-module="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Can’t find an email address?
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-  If you can’t find your colleague’s email address, they will need to complete their registration. Contact your administrator for help.  </div>
-</details>
-                </div>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Can’t find an email address?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          If you can’t find your colleague’s email address, they will need to complete their registration. Contact your administrator for help. </div>
+      </details>
+    </div>
 
-                <h3 class="govuk-heading-m">Selected cases </h3>
+    <h3 class="govuk-heading-m">Selected cases </h3>
 
-            </div>
-        </div>
-        {{ govukAccordion({
+  </div>
+</div>
+{{ govukAccordion({
         id: "accordion-default",
         items: [
         {
@@ -70,12 +70,12 @@
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell">Ivy-Rose Ireland</td>
                     <td class="govuk-table__cell">ivy-rose.ireland@wedlakebell.com</td>
-                    <td class="govuk-table__cell"><a href="share-bulk-new-add-remove">Remove</a></td><td class="govuk-table__cell"></td>
+                    <td class="govuk-table__cell"><a href="share-bulk-new-add-remove"><!--Remove--></a></td><td class="govuk-table__cell"></td>
                 </tr>
                 <tr class="govuk-table__row">
                       <td class="govuk-table__cell">Jadene Harris</td>
                     <td class="govuk-table__cell">  jadene.harris@wedlakebell.com</td>
-                    <td class="govuk-table__cell"><a href="#">Remove</a></td>
+                    <td class="govuk-table__cell"><a href="#"><!--Remove--></a></td>
                     <td class="govuk-table__cell"></td>
                 </tr>
 
@@ -115,7 +115,7 @@
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell">Ivy-Rose Ireland</td>
                     <td class="govuk-table__cell">joe.bloggs@wedlakebell.com</td>
-                    <td class="govuk-table__cell"><a href="#">Remove</a></td><td class="govuk-table__cell"></td>
+                    <td class="govuk-table__cell"><a href="#"><!--Remove--></a></td><td class="govuk-table__cell"></td>
                 </tr>
 
                     <tr class="govuk-table__row">
@@ -134,8 +134,8 @@
         }
         ]
         }) }}
-        </form>
-        {{govukButton({
+</form>
+{{govukButton({
         text: 'Continue',
         href: './share-bulk-new-add-check'
         })}}
