@@ -76,23 +76,6 @@ active: false
                 </div>
 
                 <h3 class="govuk-heading-m">Selected cases </h3>
-
-             <!--      <h3 class="govuk-heading-m">Selected cases</h3>
-
-                    <select class="govuk-select" id="name" name="name">
-                        <option value="Joe Bloggs">Joe Bloggs - joe.bloggs@wedlakebell.com</option>
-                        <option value="Jill Smiths">Jill Smith - jill.smith@wedlakebell.com</option>
- <option value="Bonita Bannister">Bonita Bannister - bonita.bannister@wedlakebell.com</option>
-                        <option value="Dominika Garner">Dominika Garner - dominika.garnerh@wedlakebell.com</option>
-                        <option value="Eryn Marriott">Eryn Marriott - eryn.marriott@wedlakebell.com</option>
-                         <option value="Ivy-Rose Ireland">Ivy-Rose Irelands - ivy-rose.ireland@wedlakebell.com</option>
-                        <option value="Jadene Harris">Jadene Harris - jadene.harris@wedlakebell.com</option>
-                        <option value="Kaya Mccullough">Kaya Mccullough - kaya.mcculloughn@wedlakebell.com</option>
-                         <option value="Kofi Bowman">Kofi Bowman - kofi.bowman@wedlakebell.com</option>
-                        <option value="Lyndsey Mora">Lyndsey Mora - lyndsey.mora@wedlakebell.com</option>
-                         <option value="Michele Serrano">Michele Serrano - michele.serrano@wedlakebell.com</option>
-                        <option value="Terence Williams">Terence Williams - terence.williams@wedlakebell.com</option>
-                    </select> -->
             </div>
         </div>
         {{ govukAccordion({
@@ -103,27 +86,8 @@ active: false
         html: 'Paul Saddlebrook Vs Jennifer Saddlebrook<span class="govuk-caption-m govuk-!-font-size-16">4748-2828-7712-8233</span>'
         },
         content: {
-        html: '  <p class="govuk-body govuk-!-font-size-19">All users with access to this case.</p>
-        <table class="govuk-table">
-            <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="col">Name</th>
-                    <th class="govuk-table__header" scope="col">Email address</th>
-                    <th class="govuk-table__header" scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-
-                </tr>
-                <tr class="govuk-table__row">
-
-                </tr>
-                <tr class="govuk-table__row">
-
-                </tr>
-            </tbody>
-        </table>'
+        html: '  <p class="govuk-body govuk-!-font-size-19">No users from your organisation currently have access to this case.</p>
+      '
         }
         },
         {
@@ -131,28 +95,12 @@ active: false
         html: 'Neha Venkatanarasimharaj Vs Sanjet Venkatanarasimharaj<span class="govuk-caption-m govuk-!-font-size-16">9417-3739-9576-5131</span>'
         },
         content: {
-        html: '  <p class="govuk-body govuk-!-font-size-19">All users with access to this case.</p><table class="govuk-table">
-            <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
- <th class="govuk-table__header" scope="col">Name</th>
-                    <th class="govuk-table__header" scope="col">Email address</th>
-                    <th class="govuk-table__header" scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-
-                </tr>
-                <tr class="govuk-table__row">
-
-                </tr>
-            </tbody>
-        </table>'
+        html: '  <p class="govuk-body govuk-!-font-size-19">No users from your organisation currently have access to this case.'
         }
         }
         ]
         }) }}
-        </form>
+
         {{govukButton({
         text: 'Continue',
         disabled: true

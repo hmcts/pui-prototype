@@ -124,7 +124,7 @@ checked: false
     </div>
     <div>
       <p>
-        Displaying <b>1 - 10</b> out of 10 result &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Showing <b>1</b> to <b>10</b> of <b>300</b> results &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span class="govuk-label govuk-checkboxes__label" for="reset"><a href="#">Clear all selected items</a></span>
       </p>
     </div>
@@ -340,6 +340,44 @@ checked: false
           </div>
         </details>
       </div>
+
+      <nav class="<!--hmcts-pagination-->" id="pagination-label">
+
+      <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
+
+      <ul class="hmcts-pagination__list">
+
+      <li class="hmcts-pagination__item  hmcts-pagination__item--prev">
+        <a class="hmcts-pagination__link" href="">Previous<span class="govuk-visually-hidden"> set of pages</span></a>
+      </li>
+
+      <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="/page=1">1</a></li>
+
+      <li class="hmcts-pagination__item hmcts-pagination__item--dots">...</li>
+
+      <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="/page=5">5</a></li>
+
+      <li class="hmcts-pagination__item hmcts-pagination__item--active">6</li>
+
+      <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="/page=7">7</a></li>
+
+      <li class="hmcts-pagination__item hmcts-pagination__item--dots">...</li>
+
+      <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="/page=10">30</a></li>
+
+      <li class="hmcts-pagination__item  hmcts-pagination__item--next">
+        <a class="hmcts-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
+      </li>
+
+      </ul>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="hmcts-pagination__results">Go to page <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric">
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Showing <b>1</b> to <b>10</b> of <b>300</b> results</p>
+
+      </nav>
+
+
+
     </div>
   </div>
 
