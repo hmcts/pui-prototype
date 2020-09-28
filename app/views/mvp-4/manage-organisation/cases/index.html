@@ -47,6 +47,11 @@
             Unassigned cases
           </a>
         </li>
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/cases/case-list">
+                        Assigned cases
+                    </a>
+                </li>
         <!--  <li class="hmcts-primary-navigation__item">
                     <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
                         Fee accounts
@@ -96,16 +101,19 @@
               <a class="hmcts-sub-navigation__link" href="/mvp-4/manage-organisation/cases/financial-remedy">
                 Grant of Representation
               </a>
-            </li>
+            </li> <!--
             <li class="hmcts-sub-navigation__item">
               <a class="hmcts-sub-navigation__link" href="#">
                 Contested Financial Remedy
               </a>
-            </li>
+            </li> -->
           </ul>
         </nav>
         <div>
-
+          {{govukButton({
+                  text: 'Share case',
+                  href: '/mvp-4/manage-organisation/cases/share-a-case'
+                  })}}
         </div>
         <table class="govuk-table">
           <thead class="govuk-table__head">
@@ -158,31 +166,24 @@
           </tbody>
         </table>
       </div>
-      {{govukButton({
-              text: 'Share case',
-              href: '/mvp-4/manage-organisation/cases/share-a-case'
-              })}}
-      <!--      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-
+    </div>
+</div>
+<!--
           <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
-                About sharing an unassigned case with your organisation
+                Sharing an unassigned case
               </span>
             </summary>
             <div class="govuk-details__text">
-              You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be registered with your organisation and have access to Manage cases. You can remove access to a
-              case
-              at any time.
+              You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be registered with your organisation and have access to Manage cases.
             </div>
           </details>
         </div>
-      </div> -->
+      </div>
+-->
 
-    </div>
-  </main>
-</div>
+
 {% endblock %}
 {% block pageScripts %}
 {{super()}}

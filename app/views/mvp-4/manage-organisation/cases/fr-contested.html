@@ -43,12 +43,12 @@
           </a>
         </li>
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/cases/">
+          <a class="hmcts-primary-navigation__link"  href="/mvp-4/manage-organisation/cases/">
             Unassigned cases
           </a>
         </li>
         <li class="hmcts-primary-navigation__item">
-                    <a class="hmcts-primary-navigation__link"  href="/mvp-4/manage-organisation/cases/case-list">
+                    <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/cases/case-list">
                         Assigned cases
                     </a>
                 </li>
@@ -63,12 +63,12 @@
 </header> {% endblock %} {% block content %} <div class="hmcts-width-container">
   {% include "../includes/phase-banner.html" %}
   <main role="main" class="govuk-main-wrapper">
-    <h1 class="govuk-heading-xl">Unassigned cases</h1>
+    <h1 class="govuk-heading-xl">Assigned cases</h1>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <p>
-          You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be registered with your organisation and have access to Manage cases.
+        List of cases assigned to colleagues registered with your organisation who have access to manage cases.
         </p>
 
 
@@ -87,20 +87,25 @@
         <nav class="hmcts-sub-navigation">
           <ul class="hmcts-sub-navigation__list">
             <li class="hmcts-sub-navigation__item">
-              <a class="hmcts-sub-navigation__link" href="/mvp-4/manage-organisation/cases/">
-                Caveat
+              <a class="hmcts-sub-navigation__link" href="/mvp-4/manage-organisation/cases/case-list">
+                  Divorce case – v115.00
               </a>
             </li>
             <li class="hmcts-sub-navigation__item">
-              <a class="hmcts-sub-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/cases/financial-remedy">
-                Grant of Representation
-              </a>
-            </li><!--
-            <li class="hmcts-sub-navigation__item">
-              <a class="hmcts-sub-navigation__link" href="#">
+              <a class="hmcts-sub-navigation__link" href="/mvp-4/manage-organisation/cases/contested">
                 Contested Financial Remedy
               </a>
-            </li> -->
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" aria-current="page" href="/mvp-4/manage-organisation/cases/fr-contested">
+                Financial Remedy Contested
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="/mvp-4/manage-organisation/cases/grant">
+                Grant of Representation
+              </a>
+            </li>
           </ul>
         </nav>
         <div>
@@ -113,52 +118,71 @@
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
-<th class="govuk-table__header " scope="col">Solicitor reference</th>
-              <th class="govuk-table__header " scope="col">Case reference</th>
-              <th class="govuk-table__header " scope="col">Forename(s) of deceased</th>
-              <th class="govuk-table__header " scope="col"> Surname(s) of deceased</th>
-              <th class="govuk-table__header " scope="col">Date of death</th>
-              <th class="govuk-table__header " scope="col">Forename(s) of caveator</th>
-              <th class="govuk-table__header " scope="col">Surname(s) of caveator</th>
-              <th class="govuk-table__header " scope="col">Expiry date</th>
-              <th class="govuk-table__header " scope="col">Application type</th>
-              <th class="govuk-table__header " scope="col">Registry location</th>
+              <th class="govuk-table__header" scope="col">Case reference</th>
+              <th class="govuk-table__header" scope="col">Solicitor reference</th>
+                <th class="govuk-table__header" scope="col">Divorce Case Number</th>
+                <th class="govuk-table__header" scope="col">Applicant Name</th>
+                <th class="govuk-table__header" scope="col">Respondent Name</th>
+                <th class="govuk-table__header" scope="col">Date of Last Event </th>
+                <th class="govuk-table__header" scope="col">Status</th>
+
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
-  <td class="govuk-table__cell ">BD 123Y7</td>
-              <td class="govuk-table__cell ">1574-6826-6396-0416</td>
+  <td class="govuk-table__cell ">1574-9064-9104-6307</td>
+              <td class="govuk-table__cell ">Test Your reference (Optional)</td>
+<td class="govuk-table__cell ">
+SA8D00152</td>
+              <td class="govuk-table__cell ">Steve</td>
+              <td class="govuk-table__cell ">Adames</td>
+              <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+              <td class="govuk-table__cell ">
+Awaiting HWF Decision</td>
 
-              <td class="govuk-table__cell ">Michelle</td>
-              <td class="govuk-table__cell ">Thompson</td>
-              <td class="govuk-table__cell ">22 Sept 2020</td>
-              <td class="govuk-table__cell ">Malik</td>
-              <td class="govuk-table__cell ">Thompson</td>
-              <td class="govuk-table__cell ">3 Feb 2021</td>
-              <td class="govuk-table__cell ">Solicitor</td>
-              <td class="govuk-table__cell ">CTSC</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+              <td class="govuk-table__cell ">1574-3426-0627-8679</td>
+              <td class="govuk-table__cell ">Test Your reference (Optional)</td>
+<td class="govuk-table__cell ">
+CH12E011123</td>
+              <td class="govuk-table__cell ">Clare</td>
+              <td class="govuk-table__cell ">Halep</td>
+              <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+              <td class="govuk-table__cell ">
+Application Drafted</td>
 
             </tr>
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
-<td class="govuk-table__cell ">W&G RDSH</td>
-              <td class="govuk-table__cell ">1574-6871-3587-6041</td>
-
-              <td class="govuk-table__cell ">Robert</td>
-              <td class="govuk-table__cell ">Davies</td>
-                <td class="govuk-table__cell ">23 Sept 2020</td>
-              <td class="govuk-table__cell ">Sandy</td>
-              <td class="govuk-table__cell ">Hamlin</td>
+              <td class="govuk-table__cell ">1574-3445-9424-5462</td>
+              <td class="govuk-table__cell ">Test Your reference (Optional)</td>
+<td class="govuk-table__cell ">
+HL18D00789</td>
+              <td class="govuk-table__cell ">Harper</td>
+              <td class="govuk-table__cell ">Lang</td>
+              <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
               <td class="govuk-table__cell ">
-                15 Jan 2021</td>
-              <td class="govuk-table__cell ">Solicitor</td>
-              <td class="govuk-table__cell ">CTSC</td>
+Awaiting HWF Decision</td>
 
             </tr>
+
           </tbody>
         </table>
+        <!--
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Can’t select a case?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            You might not be able to select and share some cases in your current case list.<br> However, you'll be able to select any new cases you create and share them.
+          </div>
+        </details> -->
       </div>
 
     </div>
