@@ -113,7 +113,10 @@
           </ul>
         </nav>
         <div>
-          <!--  <p>Showing <b>3</b> unassigned cases</p> -->
+          {{govukButton({
+                      text: 'Share case',
+                      href: '/manage-admin-i3/cases/share-org'
+                      })}}
         </div>
         <table class="govuk-table">
           <thead class="govuk-table__head">
@@ -147,14 +150,10 @@
           </tbody>
         </table>
       </div>
-      {{govukButton({
-                  text: 'Share case',
-                  href: '/manage-admin-i3/cases/share-org'
-                  })}}
+
     </div>
 </div>
-</main>
-</div>
+
 {% endblock %}
 {% block pageScripts %}
 {{super()}}

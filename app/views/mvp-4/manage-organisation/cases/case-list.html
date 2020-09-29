@@ -71,9 +71,37 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <p>
+      <!--  <p>
           List of cases assigned to colleagues registered with your organisation who have access to manage cases.
-        </p>
+        </p> -->
+
+        <div class="hmcts-search">
+
+        <form action="" method="get">
+
+        <div class="govuk-form-group">
+
+
+          <span id="bill-hint"  class="govuk-body" >
+            Search your organisations assigned cases by name or unique reference
+          </span>
+
+          <input class="govuk-input hmcts-search__input " id="bill" name="bill" type="search" aria-describedby="bill-hint">
+        </div>
+
+        <button class="govuk-button hmcts-search__button " data-module="govuk-button">
+          Search
+        </button>
+        <button class="govuk-button govuk-button--secondary hmcts-search__button" data-module="govuk-button">
+          Reset
+        </button>
+
+        </form>
+        </div>
+
+        <p><br></p>
+
+
 
         <div class="hmcts-action-bar">
           <!--    {{ hmctsMenu({
@@ -121,6 +149,16 @@
             <li class="hmcts-sub-navigation__item">
               <a class="hmcts-sub-navigation__link" href="/mvp-4/manage-organisation/cases/grant">
                 Grant of Representation
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="/mvp-4/manage-organisation/cases/appeal">
+                Appeal
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="/mvp-4/manage-organisation/cases/caresupervisionepos">
+                  Care, Supervision, and EPOs
               </a>
             </li>
           </ul>
@@ -206,6 +244,193 @@
                         <td class="govuk-table__cell "></td>
 
                 </tr>
+
+
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+                  <td class="govuk-table__cell ">4748-2828-7712-8233</td>
+                  <td class="govuk-table__cell ">16 Jun 2020, 4:51:21 PM</td>
+                  <td class="govuk-table__cell ">Krzysztof </td>
+                  <td class="govuk-table__cell ">Schaefer</td>
+                  <td class="govuk-table__cell ">Yusra </td>
+                  <td class="govuk-table__cell ">Schaefer</td>
+                  <td class="govuk-table__cell "></td>
+                    <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                      <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                        <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+                  <td class="govuk-table__cell ">9417-3739-9576-5131</td>
+                  <td class="govuk-table__cell ">22 May 2020, 11:19:44 AM</td>
+                  <td class="govuk-table__cell ">Lesley </td>
+                  <td class="govuk-table__cell ">Ward</td>
+                  <td class="govuk-table__cell ">Jennifer</td>
+                  <td class="govuk-table__cell ">Ward</td>
+                  <td class="govuk-table__cell "></td>
+                    <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                      <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                        <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+                  <td class="govuk-table__cell ">2877-6519-5618-9839</td>
+                  <td class="govuk-table__cell ">9 Jun 2020, 08:37:12 AM</td>
+                  <td class="govuk-table__cell ">Rayhan </td>
+                  <td class="govuk-table__cell ">Shepherd</td>
+                  <td class="govuk-table__cell ">Tanisha </td>
+                  <td class="govuk-table__cell ">Shepherd</td>
+                  <td class="govuk-table__cell "></td>
+                    <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                      <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                        <td class="govuk-table__cell "></td>
+
+                </tr>
+
+
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+                  <td class="govuk-table__cell ">4748-2828-7712-8233</td>
+                  <td class="govuk-table__cell ">16 Jun 2020, 4:51:21 PM</td>
+                  <td class="govuk-table__cell ">  Maxim  </td>
+                  <td class="govuk-table__cell ">Atkins </td>
+                  <td class="govuk-table__cell ">Anniyah </td>
+                  <td class="govuk-table__cell ">Atkins </td>
+                  <td class="govuk-table__cell "></td>
+                    <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                      <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                        <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+                  <td class="govuk-table__cell ">9417-3739-9576-5131</td>
+                  <td class="govuk-table__cell ">22 May 2020, 11:19:44 AM</td>
+                  <td class="govuk-table__cell ">Arun  </td>
+                  <td class="govuk-table__cell ">Morales</td>
+                  <td class="govuk-table__cell ">Lilianna </td>
+                  <td class="govuk-table__cell ">Morales</td>
+                  <td class="govuk-table__cell "></td>
+                    <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                      <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                        <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+                  <td class="govuk-table__cell ">2877-6519-5618-9839</td>
+                  <td class="govuk-table__cell ">9 Jun 2020, 08:37:12 AM</td>
+                  <td class="govuk-table__cell ">Tayyib  </td>
+                  <td class="govuk-table__cell ">Bouvet</td>
+                  <td class="govuk-table__cell ">Callie  </td>
+                  <td class="govuk-table__cell ">Bouvet</td>
+                  <td class="govuk-table__cell "></td>
+                    <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                      <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                        <td class="govuk-table__cell "></td>
+
+                </tr>
+
+
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+                  <td class="govuk-table__cell ">4748-2828-7712-8233</td>
+                  <td class="govuk-table__cell ">16 Jun 2020, 4:51:21 PM</td>
+                  <td class="govuk-table__cell ">  Maksymilian  </td>
+                  <td class="govuk-table__cell ">Edwards </td>
+                  <td class="govuk-table__cell ">Mehdi  </td>
+                  <td class="govuk-table__cell ">Edwards </td>
+                  <td class="govuk-table__cell "></td>
+                    <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                      <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                        <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+                  <td class="govuk-table__cell ">9417-3739-9576-5131</td>
+                  <td class="govuk-table__cell ">22 May 2020, 11:19:44 AM</td>
+                  <td class="govuk-table__cell ">Harri   </td>
+                  <td class="govuk-table__cell ">Buckner</td>
+                  <td class="govuk-table__cell ">Tanya  </td>
+                  <td class="govuk-table__cell ">Buckner</td>
+                  <td class="govuk-table__cell "></td>
+                    <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                      <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                        <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+                  <td class="govuk-table__cell ">2877-6519-5618-9839</td>
+                  <td class="govuk-table__cell ">9 Jun 2020, 08:37:12 AM</td>
+                  <td class="govuk-table__cell ">Thomas   </td>
+                  <td class="govuk-table__cell ">Carson</td>
+                  <td class="govuk-table__cell ">Olivia-Mae   </td>
+                  <td class="govuk-table__cell ">Carson</td>
+                  <td class="govuk-table__cell "></td>
+                    <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                      <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                        <td class="govuk-table__cell "></td>
+
+                </tr>
+
+
+
+
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+                  <td class="govuk-table__cell ">4748-2828-7712-8233</td>
+                  <td class="govuk-table__cell ">16 Jun 2020, 4:51:21 PM</td>
+                  <td class="govuk-table__cell ">  Osman   </td>
+                  <td class="govuk-table__cell ">Salas </td>
+                  <td class="govuk-table__cell ">Zofia   </td>
+                  <td class="govuk-table__cell ">Salas </td>
+                  <td class="govuk-table__cell "></td>
+                    <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                      <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                        <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+                  <td class="govuk-table__cell ">9417-3739-9576-5131</td>
+                  <td class="govuk-table__cell ">22 May 2020, 11:19:44 AM</td>
+                  <td class="govuk-table__cell ">Floyd    </td>
+                  <td class="govuk-table__cell ">Coates</td>
+                  <td class="govuk-table__cell ">Anita   </td>
+                  <td class="govuk-table__cell ">Coates</td>
+                  <td class="govuk-table__cell "></td>
+                    <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                      <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                        <td class="govuk-table__cell "></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+                  <td class="govuk-table__cell ">2877-6519-5618-9839</td>
+                  <td class="govuk-table__cell ">9 Jun 2020, 08:37:12 AM</td>
+                  <td class="govuk-table__cell ">Jarrod    </td>
+                  <td class="govuk-table__cell ">Erickson</td>
+                  <td class="govuk-table__cell ">Kourtney    </td>
+                  <td class="govuk-table__cell ">Erickson</td>
+                  <td class="govuk-table__cell "></td>
+                    <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                      <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                        <td class="govuk-table__cell "></td>
+
+                </tr>
+
+
+
+
+
               </tbody>
             </table>
 
