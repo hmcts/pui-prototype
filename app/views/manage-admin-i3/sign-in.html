@@ -1,55 +1,56 @@
 {% extends "layouts/admin/base.html" %}
-
-{% set serviceName = 'Manage organisation details for civil and family law cases' %}
-
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="/">Manage organisation</a>
+  </div>
+</header>
+{% endblock %}
+{% set serviceName = 'Manage organisation' %}
 {% block content %}
-
 <div class="hmcts-width-container">
-
-    {{ govukPhaseBanner({
+  {{ govukPhaseBanner({
     tag: {
-      text: "beta"
+    text: "beta"
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-  }) }}
-
+    }) }}
   <main role="main" class="govuk-main-wrapper">
-
     <h1 class="govuk-heading-l">Sign in</h1>
-
-    <form method="get" action="/manage-admin-i3">
-
+    <form method="get" action="index">
       {{ govukInput({
-        label: {
-          html: "Email address",
-          classes: "govuk-!-width-one-third"
-        },
-        id: "email-address",
-        name: "email-address",
-        classes: 'govuk-!-width-one-third'
-      }) }}
-
+            label: {
+            html: "Email address",
+            classes: "govuk-!-width-one-third"
+            },
+            id: "email-address",
+            name: "email-address",
+            classes: 'govuk-!-width-one-third'
+            }) }}
       {{ govukInput({
-        label: {
-          html: "Password",
-          classes: "govuk-!-width-one-third"
-        },
-        id: "password",
-        name: "password",
-        type: "password",
-        classes: "govuk-!-width-one-third"
-      }) }}
-
+            label: {
+            html: "Password",
+            classes: "govuk-!-width-one-third"
+            },
+            id: "password",
+            name: "password",
+            type: "password",
+            classes: "govuk-!-width-one-third"
+            }) }}
       {{ govukButton({
-        "text": "Sign in"
-      }) }}
-
+            "text": "Sign in"
+            }) }}
     </form>
-
     <p class="govuk-body"><a href="">Forgotten your password?</a></p>
-
   </main>
-
 </div>
-
 {% endblock %}

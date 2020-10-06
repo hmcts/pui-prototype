@@ -6,40 +6,65 @@
 {% set pageId = 'users' %}
 
 {% block header %}
-{{hmctsHeader({
-  service: {
-    name: serviceName,
-    url: '/'
-  },
-  navigation: {
-    items: [{
-      text: 'Profile',
-      href: '/manage-admin/profile',
-      active: true
-    },{
-      text: 'Sign out',
-      href: '/sign-out'
-    }]
-  }
-})}}
-{{hmctsPrimaryNavigation({
-  classes: "govuk-!-margin-bottom-0",
-  items: [ {
-    text: 'Organisation',
-    href: '/manage-admin',
-    active: false
-  }, {
-    text: 'Users',
-    href: '/manage-admin/users',
-    active: false
-  },
-  {
-    text: 'Fee accounts',
-    href: '/manage-admin/payments',
-    active: false
-  }]
-})}}
-
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/manage-admin-i3">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/manage-admin-i3/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/manage-admin-i3/cases">
+            Unassigned cases
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+            <a class="hmcts-primary-navigation__link" href="/manage-admin-i3/cases/assigned-case-list">
+            Assigned cases
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/manage-admin-i3/payments">
+            Fee accounts
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
 
 {% endblock %}
@@ -69,12 +94,12 @@
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="row">Name</th>
               <td class="govuk-table__cell">Joe Bloggs</td>
-              <td class="govuk-table__cell"><a href="/manage-admin/profile-update-name">Change</a></td>
+              <td class="govuk-table__cell"><a href="/manage-admin-i3/profile-update-name">Change</a></td>
             </tr>
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="row">Email address</th>
               <td class="govuk-table__cell">joe.bloggs@email.com</td>
-              <td class="govuk-table__cell"><a href="/manage-admin/profile-update-email">Change</a></td>
+              <td class="govuk-table__cell"><a href="/manage-admin-i3/profile-update-email">Change</a></td>
             </tr>
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="row">Permissions</th>
