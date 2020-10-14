@@ -14,7 +14,7 @@ href: '/create-account/organisation-name'
         <form action="/mvp/register-organisation/organisation-dx" method="post">
             <h1 class="govuk-heading-xl">What's the address of your main office?</h1>
             <h2 class="govuk-heading-m">Postcode</h2>
-            <p>{{data['address-postcode']}} <a href="/mvp/register-organisation/organisation-address-postcode">Change</a></p>
+            <p>{{data['address-postcode']|upper}} <a href="/mvp/register-organisation/organisation-address">Change</a></p>
             {{ govukSelect({
             id: "address-line-1",
             name: "address-line-1",
@@ -28,8 +28,8 @@ href: '/create-account/organisation-name'
             text: "1 address found"
             },
             {
-            value: "Market Street, Newbury",
-            text: "Market Street, Newbury"
+            value: "8 Market Street, Newbury, " + data['address-postcode'],
+            text: "8 Market Street, Newbury, " + data['address-postcode']
             }
             ]
             }) }}
@@ -67,7 +67,7 @@ href: '/create-account/organisation-name'
             }
           ]
         }) }} -->
-            <p class="govuk-body"><a href="./organisation-address">Can't find your address?</a></p>
+            <p class="govuk-body"><a href="./organisation-address-full">Can't find your address?</a></p>
             {{govukButton({
             text: 'Continue'
             })}}
