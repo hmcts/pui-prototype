@@ -1,0 +1,139 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/oct-2020/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+  {% include "./includes/phase-banner.html" %}
+  <main role="main" class="govuk-main-wrapper">
+    <div class="hmcts-page-heading">
+      <h1 class="govuk-heading-xl">Organisation</h1>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Wedlake Bell
+            </dd>
+            <span class="govuk-summary-list__actions">
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              72 Guild Street<br>London<br>SE23 6FH
+            </dd>
+            <span class="govuk-summary-list__actions">
+          </div>
+          <!--           <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            PBA number
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            PBA1234567<br><span class="govuk-caption-m govuk-!-font-size-16">Account name: Account A</span>PBA2233444<span class="govuk-caption-m govuk-!-font-size-16">Account name: Account B</span>
+                        </dd>
+                        <span class="govuk-summary-list__actions">
+                    </div>
+                   <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            DX number
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            12345567
+                        </dd>
+                        <span class="govuk-summary-list__actions"></span>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            DX exchange
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            12345567
+                        </dd>
+                        <span class="govuk-summary-list__actions"></span>
+                    </div> -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Administrator
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Peter Gold<br><span class="govuk-caption-m govuk-!-font-size-16">peter.gold@wedlakebell.com</span>
+            </dd>
+            <span class="govuk-summary-list__actions"></span>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              SRA ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              SRA3347232
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}

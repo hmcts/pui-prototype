@@ -1,0 +1,182 @@
+{% extends "../layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="#">Manage organisation</a>
+        <div class="hmcts-header__content">
+            <nav class="hmcts-header__navigation" aria-label="Account navigation">
+                <ul class="hmcts-header__navigation-list">
+                    <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+                    <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Sign out
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <nav class="hmcts-primary-navigation">
+            <ul class="hmcts-primary-navigation__list">
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation">
+                        Organisation
+                    </a>
+                </li>
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/users">
+                        Users
+                    </a>
+                </li>
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" aria-current="page" href="/oct-2020/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="hmcts-width-container">
+    {% include "../includes/phase-banner.html" %}
+</div>
+<!-- 
+{{ hmctsIdentityBar({
+  title: { html: 'Wedlake Bell - Account A' }
+}) }}
+-->
+{% endblock %}}
+{% block content %}
+<style>
+#no-underline {
+    underline: none;
+}
+
+/* // RESPONSIVE table */
+
+body {
+    line-height: 1.25;
+}
+
+table {
+    border-bottom: 1px solid #fff;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    table-layout: auto;
+}
+
+table caption {
+    /* font-size: 1.5em; */
+    margin: .5em 0 .75em;
+}
+
+table tr {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: .35em;
+}
+
+table th,
+table td {
+    padding: .625em 0;
+    text-align: left;
+
+}
+
+table th {}
+
+@media screen and (max-width: 650px) {
+    table {
+        border: 0;
+    }
+
+    table caption {
+        /* font-size: 1.3em; */
+    }
+
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+
+    }
+
+    table tr {
+        border-bottom: 5px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+
+    }
+
+    table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        /* font-size: .8em; */
+        text-align: right;
+    }
+
+    table td::before {
+        /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+
+    }
+}
+</style>
+<div class="hmcts-width-container">
+    {{govukBackLink({
+    href: './'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        {{hmctsSubNavigation({
+        items: [ {
+        text: 'Summary',
+        href: '/oct-2020/manage-organisation/payments/summary-933',
+        active: false
+        }, {
+        text: 'Transactions',
+        href: '/oct-2020/manage-organisation/payments/transactions-933',
+        active: true
+        }
+        ]
+        })}}
+        <div class="hmcts-page-heading">
+            <div class="hmcts-page-heading__title-wrapper">
+                <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold"> <span class="govuk-caption-xl">Wedlake Bell - Account A</span>
+                    Transactions
+                </h1>
+            </div>
+        </div>
+        <p>Last updated on 15 October 2018 at 3:12pm</p>
+        <p>No transactions found.</p>
+    </main>
+</div>
+{% endblock %}

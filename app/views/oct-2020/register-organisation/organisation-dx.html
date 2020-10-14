@@ -1,0 +1,72 @@
+{% extends "oct-2020/manage-organisation/layout.html" %}
+{% set serviceName = 'Register to manage civil and family law cases' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
+    </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'organisation-dx-pre'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <form action="/oct-2020/register-organisation/organisation-sra-pre">
+                    {% call govukFieldset({
+                    legend: {
+                    text: "What's the DX reference for your main office?",
+                    classes: "govuk-fieldset__legend--xl",
+                    isPageHeading: true
+                    }
+                    }) %}
+                    {{ govukInput({
+                    label: {
+                    text: "DX number",
+                    classes: 'govuk-label--m'
+                    },
+                    hint: {
+                    text: "This can be up to 13 characters (including letters and numbers). For example 931NR. You don't need to include 'DX'."
+                    },
+                    id: "dx-number",
+                    name: "dx-number"
+                    }) }}
+                    {{ govukInput({
+                    label: {
+                    text: "DX exchange",
+                    classes: 'govuk-label--m'
+                    },
+                    hint: {
+                    text: "This can be up to 20 characters (including letters, numbers and symbols). For example: HAYES (MIDDLESEX)."
+                    },
+                    id: "dx-exchange",
+                    name: "dx-exchange"
+                    }) }}
+                    {% endcall %}
+                    {{govukButton({
+                    text: 'Continue'
+                    })}}
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

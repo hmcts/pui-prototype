@@ -1,0 +1,120 @@
+{% extends "../layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="#">Manage cases</a>
+        <div class="hmcts-header__content">
+            <nav class="hmcts-header__navigation" aria-label="Account navigation">
+                <ul class="hmcts-header__navigation-list">
+                    <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+                    <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Sign out
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <nav class="hmcts-primary-navigation">
+            <ul class="hmcts-primary-navigation__list">
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation">
+                        Case list
+                    </a>
+                </li>
+                <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/users">
+                        Create case
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+{% endblock %}
+{% set serviceName = 'Manage organisation' %}
+{% block content %}
+<div class="hmcts-width-container">
+  
+    {% include "../includes/phase-banner.html" %}
+    {{govukBackLink({
+    href: './'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="hmcts-banner">
+
+<svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+<path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" /></svg>
+
+<div class="hmcts-banner__message">
+<span class="hmcts-banner__assistive">information</span>
+This case is located outside your working region. Access to this case is logged for auditing purposes.
+</div>
+
+</div> 
+        <span class="govuk-caption-xl">Case details</span>
+<h1 class="govuk-heading-xl">#1574-2600-2616-6839</h1>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+               <dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Type
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Petition
+    </dd>
+  
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Created date
+    </dt>
+    <dd class="govuk-summary-list__value">      
+20 Nov 2019
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      RDC
+    </dt>
+    <dd class="govuk-summary-list__value">
+        
+East Midlands Divorce Unit (Nottingham)
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Author
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">    Peter PARKER</p>
+    </dd>
+
+  </div>
+</dl>
+
+{{govukButton({
+        text: 'Request access',
+        href: 'request-access-2'
+        })}}
+
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

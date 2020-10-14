@@ -1,0 +1,168 @@
+{% extends "oct-2020/manage-organisation/layout.html" %}
+{% set serviceName = 'Register to manage civil and family law cases' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
+    </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'email'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                {{ govukErrorSummary({
+                "titleText": "There is a problem",
+                "errorList": [
+                {
+                "html": "This PBA has already been used.
+                ",
+                "href": "#dx-number"
+                }
+                ]
+                }) }}
+                <h1 class="govuk-heading-xl">Check your answers before you register</h1>
+                <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+                    <div class="govuk-form-group govuk-form-group--error">
+                        <div class="govuk-check-your-answers__contents">
+                            <dt class="govuk-check-your-answers__question">Organisation name</dt>
+                            <dd class="govuk-check-your-answers__answer">
+                                {{data['org-name']}}
+                            </dd>
+                            <dd class="govuk-check-your-answers__change">
+                                <a href="/oct-2020/register-organisation/organisation-name">Change <span class="govuk-visually-hidden">organisation name</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-check-your-answers__contents">
+                            <dt class="govuk-check-your-answers__question">Organisation address</dt>
+                            <dd class="govuk-check-your-answers__answer">
+                                {{data['address-line-1']}}<br>
+                                {{data['address-line-2']}}<br>
+                                {{data['address-town']}}<br>
+                                {{data['address-postcode']}}<br>
+                            </dd>
+                            <dd class="govuk-check-your-answers__change">
+                                <a href="/oct-2020/register-organisation/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-check-your-answers__contents">
+                            <dt class="govuk-check-your-answers__question">PBA number</dt>
+                              <dd class="govuk-check-your-answers__answer">
+                                PBA1234567<br>
+                                   <span id="passport-issued-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span>This PBA has already been used.<br>
+You should check that the PBA has been entered correctly.<br>
+You should also check if your organisation has already been registered.<br>
+If you're still having problems, contact HMCTS.<br>
+                                </span>
+                                
+                            </dd>
+                            <!--<dd class="govuk-check-your-answers__answer">
+                                {{data['org-pba']}}
+                            </dd>-->
+                            <dd class="govuk-check-your-answers__change">
+                                <a href="/oct-2020/register-organisation/organisation-pba">Change <span class="govuk-visually-hidden">PBA number</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-check-your-answers__contents">
+                            <dt class="govuk-check-your-answers__question">Do you have a DX reference for your main office?</dt>
+                            <dd class="govuk-check-your-answers__answer">
+                                {{data['has-dx']}}
+                            </dd>
+                            <dd class="govuk-check-your-answers__change">
+                                <a href="/oct-2020/register-organisation/organisation-dx-pre">Change <span class="govuk-visually-hidden">do you have a DX reference for your main office</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-check-your-answers__contents">
+                            <dt class="govuk-check-your-answers__question">DX reference</dt>
+                            <dd class="govuk-check-your-answers__answer">
+                                DX number: {{data['dx-number']}}<br>
+                                DX exchange: {{data['dx-exchange']}}
+                            </dd>
+                            <dd class="govuk-check-your-answers__change">
+                                <a href="/oct-2020/register-organisation/organisation-dx">Change <span class="govuk-visually-hidden">organistaion dx</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-check-your-answers__contents">
+                            <dt class="govuk-check-your-answers__question">Do you have an SRA number?</dt>
+                            <dd class="govuk-check-your-answers__answer">
+                                {{data['has-sra']}}
+                            </dd>
+                            <dd class="govuk-check-your-answers__change">
+                                <a href="/oct-2020/register-organisation/organisation-sra-pre">Change <span class="govuk-visually-hidden">do you have an organisation SRA ID?
+                                    </span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-check-your-answers__contents">
+                            <dt class="govuk-check-your-answers__question ">SRA number</dt>
+                            <dd class="govuk-check-your-answers__answer">596723<br>
+                             
+                            </dd>
+                            <dd class="govuk-check-your-answers__change">
+                                <a href="/oct-2020/register-organisation/organisation-sra">Change <span class="govuk-visually-hidden">organistaion sra</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-check-your-answers__contents">
+                            <dt class="govuk-check-your-answers__question">First name(s)</dt>
+                            <dd class="govuk-check-your-answers__answer">
+                                {{data.firstname}}
+                            </dd>
+                            <dd class="govuk-check-your-answers__change">
+                                <a href="/oct-2020/register-organisation/name">Change <span class="govuk-visually-hidden">name</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-check-your-answers__contents">
+                            <dt class="govuk-check-your-answers__question">Last name</dt>
+                            <dd class="govuk-check-your-answers__answer">
+                                {{data.lastname}}
+                            </dd>
+                            <dd class="govuk-check-your-answers__change">
+                                <a href="/oct-2020/register-organisation/name">Change <span class="govuk-visually-hidden">name</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-check-your-answers__contents">
+                            <dt class="govuk-check-your-answers__question">Email address</dt>
+                            <dd class="govuk-check-your-answers__answer">
+                                {{data['email-address']}}
+                            </dd>
+                            <dd class="govuk-check-your-answers__change">
+                                <a href="/oct-2020/register-organisation/email">Change <span class="govuk-visually-hidden">name</span></a>
+                            </dd>
+                        </div>
+                </dl>
+                <h2 class="govuk-heading-l">Now submit your registration details</h2>
+                <ul class="govuk-list">
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Your personal and organisation details are correct</li>
+                        <li>You are creating an account for your organisation for the first time</li>
+                        <li>You have read and understood the <a href="terms" rel="noopener noreferrer" target="_blank">terms and conditions</a> and are eligible for an account to manage your organisation and cases</li>
+                        <li>You will be asked to accept the terms and conditions again when logging into a MyHMCTS application for the first time</li>
+                    </ul>
+                    {{ govukButton({
+                    "text": "Confirm and submit",
+                    href: '/oct-2020/register-organisation/confirmation'
+                    }) }}
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

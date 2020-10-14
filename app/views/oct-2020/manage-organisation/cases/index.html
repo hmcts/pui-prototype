@@ -1,0 +1,208 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/oct-2020/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/cases/case-list">
+                        Assigned cases
+                    </a>
+                </li>
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="hmcts-width-container">
+  {% include "../includes/phase-banner.html" %}
+  <main role="main" class="govuk-main-wrapper">
+    <h1 class="govuk-heading-xl">Unassigned cases</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <p>
+          You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be registered with your organisation and have access to Manage cases.
+        </p>
+
+      </div>
+    </div>
+
+
+
+    <div class="hmcts-scrollable-pane">
+      <div class="hmcts-scrollable-pane__wrapper">
+        {% set checkbox %}
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
+          <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
+          </label>
+        </div>
+        {% endset %}
+        <nav class="hmcts-sub-navigation">
+          <ul class="hmcts-sub-navigation__list">
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" aria-current="page" href="#">
+                Caveat
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="/oct-2020/manage-organisation/cases/financial-remedy">
+                Grant of Representation
+              </a>
+            </li> <!--
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="#">
+                Contested Financial Remedy
+              </a>
+            </li> -->
+          </ul>
+        </nav>
+        <div>
+          {{govukButton({
+                  text: 'Share case',
+                  href: '/oct-2020/manage-organisation/cases/share-a-case'
+                  })}}
+        </div>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
+              <th class="govuk-table__header" scope="col">Solicitor<br>reference</th>
+              <th class="govuk-table__header" scope="col">Case<br>reference</th>
+              <th class="govuk-table__header" scope="col">Case<br>created date</th>
+              <th class="govuk-table__header" scope="col">Pet.<br>First name</th>
+              <th class="govuk-table__header" scope="col">Pet.<br>Last name</th>
+              <th class="govuk-table__header" scope="col">Resp.<br>First name</th>
+              <th class="govuk-table__header" scope="col">Resp.<br>Last name</th>
+              <th class="govuk-table__header" scope="col">Due Date</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell ">4748-2828-7712-8233</td>
+              <td class="govuk-table__cell ">16 Jun 2020</td>
+              <td class="govuk-table__cell ">Paul</td>
+              <td class="govuk-table__cell ">Saddlebrook</td>
+              <td class="govuk-table__cell ">Jennifer</td>
+              <td class="govuk-table__cell ">Saddlebrook</td>
+              <td class="govuk-table__cell "></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+              <td class="govuk-table__cell ">Michele Serrano<br>EB-345-2020</td>
+              <td class="govuk-table__cell ">9417-3739-9576-5131</td>
+              <td class="govuk-table__cell ">22 May 2020</td>
+              <td class="govuk-table__cell ">Neha</td>
+              <td class="govuk-table__cell ">Venkatanarasimharaj</td>
+              <td class="govuk-table__cell ">Sanjet</td>
+              <td class="govuk-table__cell ">Venkatanarasimharaj</td>
+              <td class="govuk-table__cell ">17 Aug 2020</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell ">2877-6519-5618-9839</td>
+              <td class="govuk-table__cell ">9 Jun 2020</td>
+              <td class="govuk-table__cell ">Iain</td>
+              <td class="govuk-table__cell ">Curran</td>
+              <td class="govuk-table__cell ">Robin</td>
+              <td class="govuk-table__cell ">Curran</td>
+              <td class="govuk-table__cell "></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+<!--
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Sharing an unassigned case
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              You can share a case from your unassigned case list with yourself or a colleague. Your colleague must be registered with your organisation and have access to Manage cases.
+            </div>
+          </details>
+        </div>
+      </div>
+-->
+
+
+{% endblock %}
+{% block pageScripts %}
+{{super()}}
+<script>
+  new HMCTSFrontend.FilterToggleButton({
+    bigModeMediaQuery: '(min-width: 48.063em)',
+    startHidden: true,
+    toggleButton: {
+      container: $('.hmcts-action-bar__filter'),
+      showText: 'Show filter',
+      hideText: 'Hide filter',
+      classes: 'hmcts-button--secondary'
+    },
+    closeButton: {
+      container: $('.hmcts-filter__header-action'),
+      text: 'Close'
+    },
+    filter: {
+      container: $('.hmcts-filter')
+    }
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+{{hmctsHeader({
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+items: [{
+text: 'Profile',
+href: '/manage-admin/profile'
+},{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
+})}}
+{{hmctsPrimaryNavigation({
+classes: "govuk-!-margin-bottom-0",
+items: [ {
+text: 'Organisation',
+href: '/manage-admin',
+active: false
+}, {
+text: 'Users',
+href: '/manage-admin/users',
+active: true
+},
+{
+text: 'Fee accounts',
+href: '/manage-admin/payments',
+active: false
+}]
+})}}
+{{ hmctsIdentityBar({
+title: { html: 'Joe Bloggs (joe.bloggs@email.com)' }
+}) }}
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {{govukBackLink({
+    href: './'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-l">User details</h1>
+                <form action="/manage-admin/users/view" method="post">
+                    {{ govukInput({
+                    label: {
+                    text: "First name",
+                    classes: 'govuk-label--m'
+                    },
+                    id: "firstname",
+                    name: "firstname",
+                    value: "Joe"
+                    }) }}
+                    {{ govukInput({
+                    label: {
+                    text: "Last name",
+                    classes: 'govuk-label--m'
+                    },
+                    id: "lastname",
+                    name: "lastname",
+                    value: "Bloggs"
+                    }) }}
+                    {{govukButton({
+                    text: 'Save'
+                    })}}
+                </form>
+            </div>
+        </div>
+</div>
+</main>
+</div>
+{% endblock %}
