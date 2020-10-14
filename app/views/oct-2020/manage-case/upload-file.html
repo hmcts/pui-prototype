@@ -15,7 +15,7 @@
   navigation: {
     items: [{
       text: 'Profile',
-      href: '/mvp/manage-case/profile'
+      href: '/oct-2020/manage-case/profile'
     },{
       text: 'Sign out',
       href: '/sign-out'
@@ -26,11 +26,11 @@
   classes: "govuk-!-margin-bottom-0",
   items: [ {
     text: 'Your cases',
-    href: '/mvp/manage-case/case-list',
+    href: '/oct-2020/manage-case/case-list',
     active: primaryNavId == 'cases'
   }, {
     text: 'Organisation\'s cases',
-    href: '/mvp/manage-case/organisation-case-list',
+    href: '/oct-2020/manage-case/organisation-case-list',
     active: primaryNavId == 'organisationCases'
   }]
 })}}
@@ -48,7 +48,7 @@
 
 <div class="hmcts-width-container">
   {{govukBackLink({
-    href: '/mvp/manage-case/case-summary',
+    href: '/oct-2020/manage-case/case-summary',
     text: 'Back'
   })}}
 
@@ -62,7 +62,7 @@
           Upload file
         </h1>
 
-        <form method="get" action="/mvp/manage-case/upload-confirmation">
+        <form method="get" action="/oct-2020/manage-case/upload-confirmation">
 
           {{ govukFileUpload({
             id: 'selectfile',

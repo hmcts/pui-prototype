@@ -11,10 +11,10 @@ href: '/create-account/organisation-name'
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form action="/mvp/register-organisation/organisation-dx" method="post">
+        <form action="/oct-2020/register-organisation/organisation-dx" method="post">
             <h1 class="govuk-heading-xl">What's the address of your main office?</h1>
             <h2 class="govuk-heading-m">Postcode</h2>
-            <p>{{data['address-postcode']|upper}} <a href="/mvp/register-organisation/organisation-address">Change</a></p>
+            <p>{{data['address-postcode']|upper}} <a href="/oct-2020/register-organisation/organisation-address">Change</a></p>
             {{ govukSelect({
             id: "address-line-1",
             name: "address-line-1",
