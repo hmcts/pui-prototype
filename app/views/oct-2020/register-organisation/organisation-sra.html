@@ -30,15 +30,16 @@
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="/oct-2020/register-organisation/name">
+                <form action="/oct-2020/register-organisation/organisation-address">
                     {{ govukInput({
                     label: {
-                    text: "Enter your organisation SRA ID",
+                    text: "Enter your organisation's SRA ID (optional)",
                     classes: 'govuk-label--xl',
                     isPageHeading: true
                     },
                     id: "sra-number",
-                    name: "sra-number"
+                    name: "sra-number",
+                    classes: "govuk-input--width-10"
                     }) }}
                     {{govukButton({
                     text: 'Continue'

@@ -33,15 +33,13 @@
                 <form action="/oct-2020/register-organisation/check">
                     {{ govukInput({
                     label: {
-                    text: "What's your email address?",
+                    text: "What's your work email address?",
                     classes: 'govuk-label--xl',
                     isPageHeading: true
                     },
-                     hint: {
-                    text: 'You should use your business email address wherever possible.'
-                    },
                     id: "email-address",
-                    name: "email-address"
+                    name: "email-address",
+                    classes: "govuk-input--width-30"
                     }) }}
                     <!-- <p class="govuk-body"><a href="#">Can't find your organistaion?</a></p> -->
                     {{govukButton({
