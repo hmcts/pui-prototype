@@ -1,42 +1,61 @@
-{% extends "layouts/service/base.html" %}
-{% from "input/macro.njk" import govukInput %}
-{% from "fieldset/macro.njk" import govukFieldset %}
+{% extends "oct-2020/manage-organisation/layout.html" %}
 {% set serviceName = 'Register to manage civil and family law cases' %}
-{% block beforeContent %}
-{{ super() }}
-{{govukBackLink({
-href: '/create-account/organisation-name'
-})}}
-{% endblock %}
-{% block content %}
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <form action="/oct-2020/register-organisation/organisation-address-postcode-results">
-            {% call govukFieldset({
-            legend: {
-            text: "What's the address of your main office?",
-            classes: "govuk-fieldset__legend--xl",
-            isPageHeading: true
-            }
-            }) %}
-            <p class="govuk-body-s">You'll be able to add more office addresses later.</p>
-            <br>
-            {{ govukInput({
-            label: {
-            text: 'Postcode',
-            classes: 'govuk-label--m'
-            },
-            classes: "govuk-input--width-10",
-            id: "address-postcode",
-            name: "address-postcode"
-            }) }}
-            {% endcall %}
-            {{govukButton({
-            text: 'Find address'
-            })}}
-        </form>
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
     </div>
-</div>
-</main>
+</header>
+{% endblock %}
+{% block content%}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'organisation-sra-pre'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <form action="/oct-2020/register-organisation/organisation-address-postcode-results">
+                    {% call govukFieldset({
+                    legend: {
+                    text: "What's the address of your main office?",
+                    classes: "govuk-fieldset__legend--xl",
+                    isPageHeading: true
+                    }
+                    }) %}
+                    <p class="govuk-body-s">You'll be able to add more office addresses later.</p>
+                    <br>
+                    {{ govukInput({
+                    label: {
+                    text: 'Postcode',
+                    classes: 'govuk-label--m'
+                    },
+                    classes: "govuk-input--width-10",
+                    id: "address-postcode",
+                    name: "address-postcode"
+                    }) }}
+                    {% endcall %}
+                    {{govukButton({
+                    text: 'Find address'
+                    })}}
+                </form>
+            </div>
+        </div>
+    </main>
 </div>
 {% endblock %}

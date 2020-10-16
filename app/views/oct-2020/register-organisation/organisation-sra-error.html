@@ -25,27 +25,20 @@
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
     {{govukBackLink({
-    href: 'organisation-sra-pre'
+    href: 'organisation-address'
     })}}
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="/oct-2020/register-organisation/organisation-sra-check" method="post">
-                    {{ govukInput({
-                    label: {
-                    text: "Enter your organisation's SRA ID (optional)",
-                    classes: 'govuk-label--xl',
-                    isPageHeading: true
-                    },
-                    id: "sra-number",
-                    name: "sra-number",
-                    classes: "govuk-input--width-10"
-                    }) }}
-                    {{govukButton({
-                    text: 'Continue'
-                    })}}
-                </form>
-            </div>
+
+                <h1 class="govuk-heading-xl">This organisation is already registered</h1>
+
+                <p>You are registering an organisation account, not a user account.</p>
+                <p>If you want to create a user account for {{ data['org-name'] or 'Smith & Co' }}, contact Jim Smith, your organisation administrator and ask them to invite you to the organisation.</p>
+
+                <p>If you are sure you want to set up a second organisational account for Smith & Co, you can <a href="/oct-2020/register-organisation/organisation-address">continue your registration</a>.</p>
+
+        </div>
         </div>
     </main>
 </div>
