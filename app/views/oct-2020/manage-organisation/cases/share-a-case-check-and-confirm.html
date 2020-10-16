@@ -1,0 +1,157 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/oct-2020/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="hmcts-width-container">
+  {% include "../includes/phase-banner.html" %}
+  {{govukBackLink({
+  href: 'share-a-case-users'
+  })}}
+  <main role="main" class="govuk-main-wrapper">
+    <div class="hmcts-page-heading">
+      <div class="hmcts-page-heading__title-wrapper">
+        <h1 class="govuk-heading-xl"><span class="govuk-caption-xl">Share a case</span>Check and confirm your case</h1>
+        <h2 class="govuk-heading-l">Cases</h2>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header govuk-!-font-size-27" scope="col" colspan="4">Paul Saddlebrook Vs Jennifer
+                Saddlebrook&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                  class="govuk-caption-m govuk-!-font-size-19">4748-2828-7712-8233</span></th>
+              <th class="govuk-table__header" scope="col"><a class="govuk-link govuk-body" href="share-a-case-users">Change</a></th>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">Name</th>
+              <th class="govuk-table__header" scope="col">Email address</th>
+              <th class="govuk-table__header" scope="col" colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Michele Serrano</td>
+              <td class="govuk-table__cell"> michele.serrano@wedlakebell.com</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell" colspan="3"><span class="hmcts-badge">To be added</span></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Terence Williams</td>
+              <td class="govuk-table__cell"> terence.williams@wedlakebell.com</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell" colspan="3"><span class="hmcts-badge">To be added</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header govuk-!-font-size-27" scope="col" colspan="4">Neha Venkatanarasimharaj Vs Sanjet Venkatanarasimharaj<span class="govuk-caption-m govuk-!-font-size-19">9417-3739-9576-5131</span></th>
+              <th class="govuk-table__header" scope="col"><a class="govuk-link govuk-body" href="share-a-case-users">Change</a></th>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">Name</th>
+              <th class="govuk-table__header" scope="col">Email address</th>
+              <th class="govuk-table__header" scope="col" colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Michele Serrano</td>
+              <td class="govuk-table__cell"> michele.serrano@wedlakebell.com</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell" colspan="3"><span class="hmcts-badge">To be added</span></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Terence Williams</td>
+              <td class="govuk-table__cell"> terence.williams@wedlakebell.com</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell" colspan="3"><span class="hmcts-badge">To be added</span></td>
+            </tr>
+          </tbody>
+        </table>
+        {{govukButton({
+        text: 'Confirm',
+        href: 'share-a-case-confirmation'
+        })}}
+  </main>
+</div>
+{% endblock %}
+{% block pageScripts %}
+{{super()}}
+<script>
+  new HMCTSFrontend.FilterToggleButton({
+    bigModeMediaQuery: '(min-width: 48.063em)',
+    startHidden: true,
+    toggleButton: {
+      container: $('.hmcts-action-bar__filter'),
+      showText: 'Show filter',
+      hideText: 'Hide filter',
+      classes: 'hmcts-button--secondary'
+    },
+    closeButton: {
+      container: $('.hmcts-filter__header-action'),
+      text: 'Close'
+    },
+    filter: {
+      container: $('.hmcts-filter')
+    }
+  });
+</script>
+{% endblock %}

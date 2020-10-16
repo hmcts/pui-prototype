@@ -1,0 +1,91 @@
+{% extends "./layout.html" %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/oct-2020/manage-case/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '/oct-2020/manage-case/case-list',
+    active: primaryNavId == 'cases'
+  }, {
+    text: 'Organisation\'s cases',
+    href: '/oct-2020/manage-case/organisation-case-list',
+    active: primaryNavId == 'organisationCases'
+  }]
+})}}
+{% endblock %}
+
+
+{% set serviceName = 'Manage your civil and family law cases' %}
+
+{% set primaryNavId = 'organisationCases' %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block mainContent %}
+
+  <div class="hmcts-page-heading">
+    <div class="hmcts-page-heading__title-wrapper">
+      <h1 class="hmcts-page-heading__title govuk-heading-xl">Organisation's cases</h1>
+    </div>
+    <div class="hmcts-page-heading__actions-wrapper">
+        {{govukButton({
+          text: 'Create case',
+          href: '/oct-2020/manage-case/create-case',
+          classes: 'hmcts-page-heading__button'
+        })}}
+    </div>
+  </div>
+
+  <table class="govuk-table">
+  <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="col">Reference</th>
+        <th class="govuk-table__header" scope="col">Parties</th>
+        <th class="govuk-table__header" scope="col">Type</th>
+        <th class="govuk-table__header" scope="col">Status</th>
+        <th class="govuk-table__header" scope="col">Last updated</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="row">1536-7597-1594-4593<!-- <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> --></th>
+        <td class="govuk-table__cell ">John Smith<br> v Jane Smith</td>
+        <td class="govuk-table__cell ">Divorce</td>
+        <td class="govuk-table__cell ">Application drafted</td>
+        <td class="govuk-table__cell ">12 Sep 2018 at 2:41pm</td>
+      </tr>
+      <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="row">7883-8901-1826-2772<!-- <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> --></th>
+          <td class="govuk-table__cell ">Alice Harmsworth<br> v Scott Harmsworth</td>
+          <td class="govuk-table__cell ">Divorce</td>
+          <td class="govuk-table__cell ">Petition paid</td>
+          <td class="govuk-table__cell ">1 Sep 2018 at 11:19am</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">2902-7994-8991-3439<!-- <span class="jui-status  jui-status--urgent  govuk-!-ml-r1">Urgent</span> --></th>
+            <td class="govuk-table__cell ">Paolo Ghirardani<br> v Emma Ghirardani</td>
+            <td class="govuk-table__cell ">Financial remedy</td>
+            <td class="govuk-table__cell ">Awaiting payment</td>
+            <td class="govuk-table__cell ">17 Aug 2018 at 4:23pm</td>
+          </tr>
+
+    </tbody>
+  </table>
+{% endblock %}

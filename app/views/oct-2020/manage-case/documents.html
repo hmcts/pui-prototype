@@ -1,0 +1,286 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage your civil and family law cases' %}
+
+{% set pageId = 'cases' %}
+
+{% block page_title %}Documents{% endblock %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/oct-2020/manage-case/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '/oct-2020/manage-case/case-list',
+    active: primaryNavId == 'cases'
+  }, {
+    text: 'Organisation\'s cases',
+    href: '/oct-2020/manage-case/organisation-case-list',
+    active: primaryNavId == 'organisationCases'
+  }]
+})}}
+{% endblock %}
+
+
+{% block beforeContent %}
+{{ hmctsIdentityBar({
+
+  title: { html: '<b>John Smith</b> and <b>Jane Smith</b> (Divorce)' }
+}) }}
+{{super()}}
+{% endblock %}
+
+{% block content %}
+  <main class="govuk-main-wrapper govuk-!-padding-bottom-0">
+    <div class="hmcts-width-container">
+
+      {{hmctsSubNavigation({
+        items: [ {
+          text: 'Summary',
+          href: '/oct-2020/manage-case/case-summary',
+          active: false
+        },  {
+          text: 'Application details',
+          href: '/oct-2020/manage-case/case-details',
+          active: false
+        }, {
+          text: 'Documents',
+          href: '/oct-2020/manage-case/documents',
+          active: true
+        }]
+      })}}
+
+      {{ hmctsPageHeaderWithActions({
+        title: {
+          html: '<h1 class="govuk-heading-xl">Documents</h1>'
+        },
+        items: [{
+          classes: 'hmcts-button--secondary',
+          text: 'Upload file',
+          href: '/oct-2020/manage-case/upload-file'
+        }]
+      }) }}
+    </div>
+
+    <div class="jui-cf">
+      <div class="jui-cf__toolbar" role="toolbar">
+        <div class="jui-cf__toolbar-container">
+          <button class="jui-cf__toolbar-button jui-cf__toolbar-button--items" type="button" aria-controls="files" aria-pressed="true">All items</button>
+          <button class="jui-cf__toolbar-button jui-cf__toolbar-button--comments" type="button" aria-controls="comments" aria-pressed="false">Comments</button>
+        </div>
+      </div>
+
+      <div class="jui-cf__window">
+        <div class="jui-cf__window-container">
+          <div class="jui-cf__files" id="files">
+            <h2 class="govuk-visually-hidden" id="all-items">All items</h2>
+
+            <ul class="jui-tree" aria-labelledby="all-items">
+
+              <li class="jui-tree__item jui-tree__item--open">
+
+                <span class="jui-tree__folder">Draft consent orders</span>
+
+                <ul class="jui-tree__folder-group">
+
+                  <li class="jui-tree__doc">
+                    <a class="jui-tree__doc-link" href="/app/cases/FR1231612322/documents/draft-consent-order" aria-current="true">
+                      <span class="jui-tree__doc-name">Draft consent order</span>
+                      <span class="jui-tree__doc-meta">Added 27 Jan 2018 at 2:31pm</span>
+                    </a>
+                  </li>
+
+                </ul>
+              </li>
+
+              <li class="jui-tree__item">
+
+                <span class="jui-tree__folder">Statements of information</span>
+
+                <ul class="jui-tree__folder-group">
+
+                  <li class="jui-tree__doc">
+                    <a class="jui-tree__doc-link" href="/app/cases/FR1231612322/documents/statement-of-information">
+                      <span class="jui-tree__doc-name">Form D81 application document</span>
+                      <span class="jui-tree__doc-meta">Added 27 Jan 2018 at 2:15pm</span>
+                    </a>
+                  </li>
+
+                  <li class="jui-tree__doc">
+                    <a class="jui-tree__doc-link" href="#!">
+                      <span class="jui-tree__doc-name">Form D81 respondent document</span>
+                      <span class="jui-tree__doc-meta">Added 27 Jan 2018 at 2:23pm</span>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+
+              <li class="jui-tree__item">
+
+                <span class="jui-tree__folder">Form A</span>
+
+                <ul class="jui-tree__folder-group">
+
+                  <li class="jui-tree__doc">
+                    <a class="jui-tree__doc-link" href="/app/cases/FR1231612322/documents/form-a">
+                      <span class="jui-tree__doc-name">Form A</span>
+                      <span class="jui-tree__doc-meta">Added 26 Jan 2018 at 9:56am</span>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+
+
+              <li class="jui-tree__item">
+
+                <span class="jui-tree__folder">Decree nisi</span>
+
+                <ul class="jui-tree__folder-group">
+
+                  <li class="jui-tree__doc">
+                    <a class="jui-tree__doc-link" href="/app/cases/FR1231612322/documents/decree-nisi">
+                      <span class="jui-tree__doc-name">Grant of decree nisi</span>
+                      <span class="jui-tree__doc-meta">Added 26 Jan 2018 at 10:01am</span>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+
+              <li class="jui-tree__item">
+
+                <span class="jui-tree__folder">Pension forms</span>
+
+                <ul class="jui-tree__folder-group">
+
+                  <li class="jui-tree__doc">
+                    <a class="jui-tree__doc-link" href="#!">
+                      <span class="jui-tree__doc-name">Form P1</span>
+                      <span class="jui-tree__doc-meta">Added 26 Jan 2018 at 11:01am</span>
+                    </a>
+                  </li>
+
+                  <li class="jui-tree__doc">
+                    <a class="jui-tree__doc-link" href="#!">
+                      <span class="jui-tree__doc-name">Form P2</span>
+                      <span class="jui-tree__doc-meta">Added 26 Jan 2018 at 11:02am</span>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+
+              <li class="jui-tree__item">
+
+                <span class="jui-tree__folder">Letters</span>
+
+                <ul class="jui-tree__folder-group">
+
+                  <li class="jui-tree__doc">
+                    <a class="jui-tree__doc-link" href="#!">
+                      <span class="jui-tree__doc-name">Solicitor letter</span>
+                      <span class="jui-tree__doc-meta">Added 27 Jan 2018 at 2:31pm</span>
+                    </a>
+                  </li>
+
+                  <li class="jui-tree__doc">
+                    <a class="jui-tree__doc-link" href="#!">
+                      <span class="jui-tree__doc-name">Notice of acting</span>
+                      <span class="jui-tree__doc-meta">Added 27 Jan 2018 at 2:31pm</span>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+
+              <li class="jui-tree__item">
+
+                <span class="jui-tree__folder">Other evidence</span>
+
+                <ul class="jui-tree__folder-group">
+
+                  <li class="jui-tree__doc">
+                    <a class="jui-tree__doc-link" href="#!">
+                      <span class="jui-tree__doc-name">Schedule of assets</span>
+                      <span class="jui-tree__doc-meta">Added 27 Jan 2018 at 2:31pm</span>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          <div class="jui-cf__document">
+
+            <div class="jui-cf__document-comments" id="comments">
+
+              {{ hmctsBanner({
+                type: 'information',
+                text: 'Select text to add a comment.',
+                iconFallbackText: 'Success'
+              }) }}
+
+              <div class="jui-comment">
+
+                <div class="jui-comment__header">
+                  <span class="jui-comment__author">Judge Prita Shah</span>
+                  <time class="jui-comment__meta" datetime="2018-08-23T16:48">23 August 2018 at 4:48pm</time>
+                </div>
+
+                <div class="jui-comment__content"><p>Please provide more details on the contents of family home.</p></div>
+
+                <div class="jui-comment__footer">
+                  <button class="govuk-button" type="submit">Edit</button>
+                  <button class="govuk-button hmcts-button--secondary" type="submit">Delete</button>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="jui-cf__document-pages">
+              <div class="jui-cf__document-page"><img src="/public/images/casefile/draft-consent-order-p1.jpg" alt="Draft consent order page 1"></div>
+              <div class="jui-cf__document-page"><img src="/public/images/casefile/draft-consent-order-p2.jpg" alt="Draft consent order page 2"></div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script>
+    new Casefile($('.jui-cf'));
+    new Tree($('.jui-tree'));
+  </script>
+{% endblock %}

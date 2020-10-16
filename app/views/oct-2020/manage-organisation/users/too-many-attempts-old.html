@@ -1,0 +1,166 @@
+{% extends "../layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/oct-2020/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+  {% include "../includes/phase-banner.html" %}
+  {{govukBackLink({
+    href: './'
+    })}}
+  <main role="main" class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+          <h2 class="govuk-error-summary__title" id="error-summary-title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#user-error">This user has already been invited in the last hour</a>
+              </li>
+              <li><a href="#user-error">The recipient will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Invite user</h1>
+        <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset" aria-describedby="nationality-hint nationality-error">
+            <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
+            <div class="govuk-form-group">
+              <label class="govuk-label--m" for="first-name">
+                First name
+                <!--<span id="passport-issued-hint" class="govuk-hint">
+                            Include all middle names.
+                        </span> -->
+              </label>
+              <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Amy" disabled>
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label--m" for="first-name">
+                Last name </label>
+              <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Venkatanarasimharaj" disabled>
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label--m" for="first-name">
+                Email address
+              </label>
+              <input class="govuk-input" id="emailaddress" name="full-name" type="text" autocomplete="name" spellcheck="false" value="amyvenkatanarasimharaj@wedlakebell.com" disabled>
+            </div>
+            <div class="govuk-form-group">
+              <form action="#"> {{ govukCheckboxes({
+                            idPrefix: "permissions",
+                            name: "permissions",
+                            fieldset: {
+                            legend: {
+                            text: "Permissions",
+                            classes: "govuk-fieldset__legend--m"
+                            }
+                            },
+                            hint: {
+                            text: "Choose at least one action the user can do. You can change this later."
+                            },
+                            items: [
+                            {
+                            value: "cases",
+                            text: "Manage cases",
+                            hint: {
+                            text: "View, create and progress cases."
+                            }
+                            },
+                            {
+                            value: "users",
+                            text: "Manage users",
+                            hint: {
+                            text: "Invite users."
+                            }
+                            },
+                            {
+                            value: "organisation",
+                            text: "Manage organisation",
+                            hint: {
+                            text: "View the organisation name and address."
+                            }
+                            }
+                            ]
+                            }) }} <span id="user-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> This user has already been invited in the last hour<br>The recipient will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account
+                </span>
+                {{govukButton({
+                            text: 'Send invitation'
+                            })}}
+              </form>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+</div>
+</main>
+</div>
+<!--,{
+                            value: "payment",
+                            text: "Manage fee accounts",
+                            checked: false,
+                            hint: {
+                            text: "View payments, account balances, available credit and transactions."
+                            } -->
+{% endblock %}

@@ -4,7 +4,29 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">Professional user interface prototypes</h1>
     <p class="govuk-body">This prototype shows a number of experiments and iterations for professional users including registering an organisation, managing and organisation and managing cases and applications on behalf of citizens.</p>
+
+
     <h2 class="govuk-heading-m">Latest wireframe additions</h2>
+
+    {% set releaseZeroHtml %}
+    <p class="govuk-body"></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="/oct-2020/register-organisation/">Register</a><br>
+        <span class="form-hint">Registration, lastest prototype design</span><br></li>
+      <li><a href="/oct-2020/manage-organisation/sign-in-mo">Manage organisation</a><br>
+        <span class="form-hint">Manage organisation, lastest prototype design</span></li>
+    </ul>
+    {% endset %}
+    {{ govukDetails({
+        summaryHtml: "October 2020 (Pete)",
+        html: releaseZeroHtml
+        }) }}
+
+    <!-- HISTORICAL CONTENT -->
+    <h2 class="govuk-heading-l">Historical iterations</h2>
+
+
+    <h2 class="govuk-heading-m">MVP 4</h2>
     <details class="govuk-details" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
@@ -211,16 +233,8 @@
         </ul>
       </div>
     </details>
-    <h2 class="govuk-heading-l">Latest wireframe (Unassigned & assigned cases)</h2>
-    <div class="govuk-warning-text">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-warning-text__assistive">Warning</span>
-        Fee accounts has been hidden from top navigation. You can still access these pages from, Latest wireframee additions - What's new.
-      </strong>
-    </div>
     <!-- LATEST WIREFRAME -->
-    {% set releaseZeroHtml %}
+    {% set mvp4Html %}
     <p class="govuk-body"></p>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="/mvp-4/register-organisation/">Register</a><br>
@@ -231,8 +245,15 @@
     {% endset %}
     {{ govukDetails({
         summaryHtml: "Iteration 4 (Beta Phase 1)",
-        html: releaseZeroHtml
+        html: mvp4Html
         }) }}
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        Fee accounts has been hidden from top navigation. You can still access these pages from, Latest wireframee additions - What's new.
+      </strong>
+    </div>
     <!--
 
 LATEST CONTENT
@@ -312,9 +333,12 @@ LATEST CONTENT
         }) }}
     <!-- END OF WIP -->
 
+<<<<<<< HEAD
 
     <!-- HISTORICAL CONTENT
     <h2 class="govuk-heading-l">Historical iterations</h2>
+=======
+>>>>>>> e053c2a720658bda21ed744913f78ed754328b5a
     <h2 class="govuk-heading-m">Beta - phase 2</h2>
     {% set iterationBetaHtml %}
     <p class="govuk-body">Includes case filter, search, share a case, editing organisation and profile.</p>

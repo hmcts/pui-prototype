@@ -1,0 +1,256 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/oct-2020/manage-organisation/cases/case-list">
+            Assigned cases
+          </a>
+        </li>
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header> {% endblock %} {% block content %} <div class="hmcts-width-container">
+  {% include "../includes/phase-banner.html" %}
+  <main role="main" class="govuk-main-wrapper">
+    <h1 class="govuk-heading-xl">Assigned cases</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <!--  <p>
+            List of cases assigned to colleagues registered with your organisation who have access to manage cases.
+          </p> -->
+
+          <div class="hmcts-search">
+
+          <form action="" method="get">
+
+          <div class="govuk-form-group">
+
+
+            <span id="bill-hint"  class="govuk-body" >
+              Search your organisations assigned cases by name or unique reference
+            </span>
+
+            <input class="govuk-input hmcts-search__input " id="bill" name="bill" type="search" aria-describedby="bill-hint">
+          </div>
+
+          <button class="govuk-button hmcts-search__button " data-module="govuk-button">
+            Search
+          </button>
+          <button class="govuk-button govuk-button--secondary hmcts-search__button" data-module="govuk-button">
+            Reset
+          </button>
+
+          </form>
+          </div>
+
+  <p><br></p>
+
+
+      </div>
+    </div>
+
+    <div class="hmcts-scrollable-pane">
+      <div class="hmcts-scrollable-pane__wrapper">
+        {% set checkbox %}
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
+          <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
+          </label>
+        </div>
+        {% endset %}
+        <nav class="hmcts-sub-navigation">
+          <ul class="hmcts-sub-navigation__list">
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="/oct-2020/manage-organisation/cases/case-list">
+                Divorce case – v115.00
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="/oct-2020/manage-organisation/cases/contested">
+                Contested Financial Remedy
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="/oct-2020/manage-organisation/cases/fr-contested">
+                Financial Remedy Contested
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" aria-current="page" href="/oct-2020/manage-organisation/cases/grant">
+                Grant of Representation
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="/oct-2020/manage-organisation/cases/appeal">
+                Appeal
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="/oct-2020/manage-organisation/cases/caresupervisionepos">
+                  Care, Supervision, and EPOs
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          {{govukButton({
+                  text: 'Share case',
+                  href: '/oct-2020/manage-organisation/cases/share-a-case'
+                  })}}
+        </div>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
+
+              <th class="govuk-table__header " scope="col">Case reference</th>
+              <th class="govuk-table__header " scope="col">Forename(s) of deceased</th>
+              <th class="govuk-table__header " scope="col"> Surname(s) of deceased</th>
+              <th class="govuk-table__header " scope="col">Date of death</th>
+              <th class="govuk-table__header " scope="col">Forename(s) of caveator</th>
+              <th class="govuk-table__header " scope="col">Surname(s) of caveator</th>
+              <th class="govuk-table__header " scope="col">Expiry date</th>
+              <th class="govuk-table__header " scope="col">Application type</th>
+              <th class="govuk-table__header " scope="col">Registry location</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+              <td class="govuk-table__cell ">4748-2828-7712-8233</td>
+
+              <td class="govuk-table__cell ">Michelle</td>
+              <td class="govuk-table__cell ">Thompson</td>
+                <td class="govuk-table__cell ">16 Aug 2020</td>
+              <td class="govuk-table__cell ">Malik</td>
+              <td class="govuk-table__cell ">Thompson</td>
+              <td class="govuk-table__cell ">3 Feb 2021</td>
+              <td class="govuk-table__cell ">Solicitor</td>
+              <td class="govuk-table__cell ">CTSC</td>
+
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+              <td class="govuk-table__cell ">9417-3739-9576-5131</td>
+
+              <td class="govuk-table__cell ">Robert</td>
+              <td class="govuk-table__cell ">Davies</td>
+                <td class="govuk-table__cell ">1 Sept 2020</td>
+              <td class="govuk-table__cell ">Sandy</td>
+              <td class="govuk-table__cell ">Hamlin</td>
+              <td class="govuk-table__cell ">
+                15 Jan 2021</td>
+              <td class="govuk-table__cell ">Solicitor</td>
+              <td class="govuk-table__cell ">CTSC</td>
+
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+              <td class="govuk-table__cell ">2877-6519-5618-9839</td>
+
+              <td class="govuk-table__cell ">Surena</td>
+              <td class="govuk-table__cell ">Caledon</td>
+                <td class="govuk-table__cell ">9 Sept 2020</td>
+              <td class="govuk-table__cell ">Maybell</td>
+              <td class="govuk-table__cell ">Maclure</td>
+              <td class="govuk-table__cell ">4 Dec 2020</td>
+              <td class="govuk-table__cell ">Solicitor</td>
+              <td class="govuk-table__cell ">CTSC</td>
+
+
+            </tr>
+          </tbody>
+    </table>
+      <!--      <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Can’t select a case?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            You might not be able to select and share some cases in your current case list.<br> However, you'll be able to select any new cases you create and share them.
+          </div>
+        </details> -->
+      </div>
+
+    </div>
+</div>
+
+{% endblock %}
+{% block pageScripts %}
+{{super()}}
+<script>
+  new HMCTSFrontend.FilterToggleButton({
+    bigModeMediaQuery: '(min-width: 48.063em)',
+    startHidden: true,
+    toggleButton: {
+      container: $('.hmcts-action-bar__filter'),
+      showText: 'Show filter',
+      hideText: 'Hide filter',
+      classes: 'hmcts-button--secondary'
+    },
+    closeButton: {
+      container: $('.hmcts-filter__header-action'),
+      text: 'Close'
+    },
+    filter: {
+      container: $('.hmcts-filter')
+    }
+  });
+</script>
+{% endblock %}

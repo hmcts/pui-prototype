@@ -1,0 +1,57 @@
+{% extends "./layout.html" %}
+
+{% set serviceName = 'Manage your civil and family law cases' %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Profile',
+      href: '/oct-2020/manage-case/profile'
+    },{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Your cases',
+    href: '/oct-2020/manage-case/case-list',
+    active: primaryNavId == 'cases'
+  }, {
+    text: 'Organisation\'s cases',
+    href: '/oct-2020/manage-case/organisation-case-list',
+    active: primaryNavId == 'organisationCases'
+  }]
+})}}
+{% endblock %}
+
+
+{% block beforeContent %}
+{{ hmctsIdentityBar({
+  reference: 'PBA0241163',
+  title: { html: '<b>John Smith</b> and <b>Jane Smith</b> (Divorce)' },
+  items: [
+  {
+    classes: 'hmcts-button--secondary',
+    text: 'Upload file',
+    href: '/oct-2020/manage-case/upload-file'
+  }
+  ]
+}) }}
+{{super()}}
+{% endblock %}
+
+{% block mainContent %}
+
+  {{govukBackLink({
+    href: '/oct-2020/manage-case/case-summary'
+  })}}
+      <img src="/public/images/upload-file-ccd.png" width="100%">
+{% endblock %}
