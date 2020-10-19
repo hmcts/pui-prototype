@@ -30,47 +30,27 @@
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="/oct-2020/register-organisation/organisation-dx-pre">
+                <form action="/oct-2020/register-organisation/name">
                     {% call govukFieldset({
                     legend: {
-                    text: "What's the payment by account (PBA) number for your organisation?",
-                    classes: "govuk-fieldset__legend--xl",
-                    isPageHeading: true
+                        text: "What's the payment by account (PBA) number for your organisation?",
+                        classes: "govuk-fieldset__legend--xl",
+                        isPageHeading: true
                     }
                     }) %}
-                    {{ govukInput({
-                    label: {
-                    html: 'PBA number 1 (optional)',
-                    classes: 'govuk-label--m'
-                    },
-                    id: "address-line-1",
-                    name: "address-line-1",
-                    classes: 'govuk-input--width-20'
-                    }) }}
-                    {{ govukInput({
-                    label: {
-                    html: 'PBA number 2 (optional)',
-                    classes: 'govuk-label--m'
-                    },
-                    id: "address-line-1",
-                    name: "address-line-1",
-                    classes: 'govuk-input--width-20'
-                    }) }}
-                    <details class="govuk-details" data-module="govuk-details">
-                        <summary class="govuk-details__summary">
-                            <span class="govuk-details__summary-text">
-                                Why add a PBA number?
-                            </span>
-                        </summary>
-                        <div class="govuk-details__text">
-                            <p class="govuk-body">Adding a PBA number for your organisation will allow you to view your:</p>
-                            <ul class="govuk-list govuk-list--bullet">
-                                <li>account balance</li>
-                                <li>available credit</li>
-                                <li>transactions</li>
-                            </ul>
-                        </div>
-                    </details>
+                    <fieldset id="pbas" class="govuk-fieldset">
+                        {{ govukInput({
+                        label: {
+                        html: 'PBA number (optional)',
+                        classes: 'govuk-label--m'
+                        },
+                        id: "pba-1",
+                        name: "pba-1",
+                        classes: 'govuk-input--width-20'
+                        }) }}
+                    </fieldset>
+                    <p><a href="#" onclick="return addAnotherPBA();">Add another PBA number</a></p>
+
                     {% endcall %}
                     {{govukButton({
                     text: 'Continue'
@@ -80,4 +60,12 @@
         </div>
     </main>
 </div>
+<script>
+    function addAnotherPBA() {
+
+        $('#pba-1').parent().clone().appendTo('fieldset#pbas');
+
+        return false;
+    }
+</script>
 {% endblock %}
