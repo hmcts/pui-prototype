@@ -69,33 +69,58 @@
     <h1 class="govuk-heading-xl">Organisation</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        {{ govukTable({
-                firstCellIsHeader: true,
-                rows: [
-                [
-                {
-                text: "Name"
-                },
-                {
-                text: "Wedlake Bell"
-                },
-                {
-                html: ''
-                }
-                ],
-                [
-                {
-                text: "Address"
-                },
-                {
-                html: "Market Street<br>Newbury<br>RG14 5LD"
-                },
-                {
-                html: ''
-                }
-                ]
-                ]
-                }) }}
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+       
+
+
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Name</dt>
+              <dd class="govuk-check-your-answers__answer">{{ data['org-name'] or 'Wedlake Bell' }}</dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="manage-organisation/update-name">Change <span class="govuk-visually-hidden">organisation name</span></a>
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">SRA ID</dt>
+              <dd class="govuk-check-your-answers__answer">{{ data['sra-number'] or 'SRA3347232' }}</dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="manage-organisation/update-sra">Change <span class="govuk-visually-hidden">organistaion sra</span></a>
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Address</dt>
+              <dd class="govuk-check-your-answers__answer">
+                    72 Guild Street<br />
+                    London<br />
+                    SE23 6FH
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="manage-organisation/update-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">DX address</dt>
+              <dd class="govuk-check-your-answers__answer">
+                  DX number: {{ data['dx-number'] or '931NR' }}<br />
+                  DX exchange: {{ data['dx-exchange'] or 'HAYES (MIDDLESEX)' }}
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="manage-organisation/update-dx">Change <span class="govuk-visually-hidden">organistaion dx</span></a>
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">PBA numbers</dt>
+              <dd class="govuk-check-your-answers__answer">
+                  PBA1234567<br />
+                  PBA2233444
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="manage-organisation/update-pba">Change <span class="govuk-visually-hidden">PBA number</span></a>
+              </dd>
+          </div>
+        </dl>
+
+
       </div>
     </div>
   </main>
