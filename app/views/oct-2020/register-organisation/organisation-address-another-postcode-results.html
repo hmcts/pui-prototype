@@ -1,0 +1,65 @@
+{% extends "oct-2020/manage-organisation/layout.html" %}
+{% set serviceName = 'Register to manage civil and family law cases' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
+    </div>
+</header>
+{% endblock %}
+{% block content%}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'organisation-sra-pre'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+              <form action="/oct-2020/register-organisation/organisation-dx" method="post">
+                  <h1 class="govuk-heading-xl">What's the address of '{{ data['office-name'] }}'?</h1>
+                  <h2 class="govuk-heading-m">Postcode</h2>
+                  <p>{{ data['address-postcode']|upper or 'GU3 3JU' }} <a href="/oct-2020/register-organisation/organisation-address">Change</a></p>
+                  {{ govukSelect({
+                  id: "address-line-1",
+                  name: "address-line-1",
+                  label: {
+                  text: "Select address",
+                  classes: 'govuk-label--m'
+                  },
+                  items: [
+                  {
+                  value: "",
+                  text: "1 address found"
+                  },
+                  {
+                  value: "8 Market Street, Newbury, " + data['address-postcode'],
+                  text: "8 Market Street, Newbury, " + data['address-postcode']
+                  }
+                  ]
+                  }) }}
+
+                  <p class="govuk-body"><a href="./organisation-address-full">Can't find your address?</a></p>
+                  {{govukButton({
+                  text: 'Continue'
+                  })}}
+              </form>
+          </div>
+      </div>
+    </main>
+</div>
+{% endblock %}

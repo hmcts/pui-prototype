@@ -33,7 +33,7 @@
                 <form action="/oct-2020/register-organisation/organisation-address-another">
                     {% call govukFieldset({
                     legend: {
-                    text: "What's the DX reference for your main office? (optional)",
+                    text: "What's the DX reference of '" + data['office-name'] + "'? (optional)",
                     classes: "govuk-fieldset__legend--xl",
                     isPageHeading: true
                     }

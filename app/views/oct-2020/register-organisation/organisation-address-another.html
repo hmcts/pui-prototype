@@ -1,0 +1,117 @@
+{% extends "oct-2020/manage-organisation/layout.html" %}
+{% set serviceName = 'Register to manage civil and family law cases' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
+    </div>
+</header>
+{% endblock %}
+{% block content%}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'organisation-sra-pre'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <form action="/oct-2020/register-organisation/organisation-address-another-check" method="post">
+                    {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    idPrefix: "add-another",
+                    name: "add-another",
+                    fieldset: {
+                    legend: {
+                    text: "Do you want to add another office address?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                    },
+                    items: [
+                    {
+                    value: "yes",
+                    text: "Yes"
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                    ]
+                    }) }}
+
+                    <h3 class="govuk-heading-m">Already added</h3>
+
+
+                    {{ govukTable({
+                      firstCellIsHeader: true,
+                      head: [
+                        {
+                          text: "Name"
+                        },
+                        {
+                          text: "Address"
+                        },
+                        {
+                          text: "DX reference"
+                        },
+                        {
+                          text: ""
+                        }
+                      ],
+                      rows: [
+                        [
+                          {
+                            text: "Main office"
+                          },
+                          {
+                            html: "102 Petty France<br />London<br />SW1H 9AJ"
+                          },
+                          {
+                            text: "152380 Westminster 8"
+                          },
+                          {
+                            html: '<a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a>'
+                          }
+                        ],
+                        [
+                          {
+                            text: "Newbury office"
+                          },
+                          {
+                            html: "8 Market Street<br />Newbury<br />RG14 5BN"
+                          },
+                          {
+                            text: "931NR, Hayes"
+                          },
+                          {
+                            html: '<a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a>'
+                          }
+                        ]
+                      ]
+                    }) }}
+
+
+                    {{govukButton({
+                    text: 'Continue'
+                    })}}
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

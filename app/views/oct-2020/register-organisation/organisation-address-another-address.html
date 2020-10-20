@@ -16,7 +16,7 @@
     </div>
 </header>
 {% endblock %}
-{% block content %}
+{% block content%}
 <div class="hmcts-width-container">
     {{ govukPhaseBanner({
     tag: {
@@ -25,46 +25,33 @@
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
     {{govukBackLink({
-    href: 'organisation-dx-pre'
+    href: 'organisation-sra-pre'
     })}}
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="/oct-2020/register-organisation/organisation-address-another">
+                <form action="/oct-2020/register-organisation/organisation-address-postcode-results">
                     {% call govukFieldset({
                     legend: {
-                    text: "What's the DX reference for your main office? (optional)",
+                    text: "What's the address of " + data['office-name'] + "?",
                     classes: "govuk-fieldset__legend--xl",
                     isPageHeading: true
                     }
                     }) %}
+                    <p class="govuk-body-s">You'll be able to add more office addresses later.</p>
+                    <br>
                     {{ govukInput({
                     label: {
-                    text: "DX number",
+                    text: 'Postcode',
                     classes: 'govuk-label--m'
                     },
-                    hint: {
-                    text: "For example 931NR. You don't need to include 'DX'."
-                    },
-                    id: "dx-number",
-                    name: "dx-number",
-                    classes: "govuk-input--width-20"
-                    }) }}
-                    {{ govukInput({
-                    label: {
-                    text: "DX exchange",
-                    classes: 'govuk-label--m'
-                    },
-                    hint: {
-                    text: "For example: HAYES (MIDDLESEX)."
-                    },
-                    id: "dx-exchange",
-                    name: "dx-exchange",
-                    classes: "govuk-input--width-20"
+                    classes: "govuk-input--width-10",
+                    id: "address-postcode",
+                    name: "address-postcode"
                     }) }}
                     {% endcall %}
                     {{govukButton({
-                    text: 'Continue'
+                    text: 'Find address'
                     })}}
                 </form>
             </div>

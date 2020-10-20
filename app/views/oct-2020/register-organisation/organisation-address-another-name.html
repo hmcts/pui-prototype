@@ -25,44 +25,31 @@
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
     {{govukBackLink({
-    href: 'organisation-dx-pre'
+    href: 'start'
     })}}
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="/oct-2020/register-organisation/organisation-address-another">
+                <form action="/oct-2020/register-organisation/organisation-address-another-address">
                     {% call govukFieldset({
                     legend: {
-                    text: "What's the DX reference for your main office? (optional)",
+                    text: "Enter a name for this office",
                     classes: "govuk-fieldset__legend--xl",
                     isPageHeading: true
                     }
                     }) %}
+                    <div id="event-name-hint" class="govuk-hint">
+                        For example 'Manchester office', 'Probate office' etc.<br />
+                        This will be used when searching for cases and so on.
+                    </div>
+                    <br>
                     {{ govukInput({
-                    label: {
-                    text: "DX number",
-                    classes: 'govuk-label--m'
-                    },
-                    hint: {
-                    text: "For example 931NR. You don't need to include 'DX'."
-                    },
-                    id: "dx-number",
-                    name: "dx-number",
-                    classes: "govuk-input--width-20"
-                    }) }}
-                    {{ govukInput({
-                    label: {
-                    text: "DX exchange",
-                    classes: 'govuk-label--m'
-                    },
-                    hint: {
-                    text: "For example: HAYES (MIDDLESEX)."
-                    },
-                    id: "dx-exchange",
-                    name: "dx-exchange",
-                    classes: "govuk-input--width-20"
+                    classes: "govuk-input--width-40",
+                    id: "office-name",
+                    name: "office-name"
                     }) }}
                     {% endcall %}
+                    <!-- <p class="govuk-body"><a href="#">Can't find your organistaion?</a></p> -->
                     {{govukButton({
                     text: 'Continue'
                     })}}

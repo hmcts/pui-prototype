@@ -10,4 +10,12 @@ router.post( '/' + strPath + '/register-organisation/organisation-sra-check', (r
 	}
 });
 
+router.post( '/' + strPath + '/register-organisation/organisation-address-another-check', (req, res) => {
+	if (req.body['add-another'] === 'yes') {
+		res.redirect('/' + strPath + '/register-organisation/organisation-address-another-name');
+	} else {
+		res.redirect('/' + strPath + '/register-organisation/organisation-pba');
+	}
+});
+
 module.exports = router;
