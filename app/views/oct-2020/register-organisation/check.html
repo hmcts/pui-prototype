@@ -51,25 +51,26 @@
                         </dd>
                     </div>
                     <div class="govuk-check-your-answers__contents">
-                        <dt class="govuk-check-your-answers__question">Organisation address</dt>
+                        <dt class="govuk-check-your-answers__question">Organisation addresses</dt>
                         <dd class="govuk-check-your-answers__answer">
-                            {{data['address-line-1']}}<br>
-                            {{data['address-line-2']}}<br>
-                            {{data['address-town']}}<br>
-                            {{data['address-postcode']}}<br>
+                            <h4 class="govuk-heading-s">Main office</h4>
+                            {{data['address-line-1'] or '102 Petty France' }}<br>
+                            {{data['address-line-2'] or 'Westminster' }}<br>
+                            {{data['address-town'] or 'London' }}<br>
+                            {{data['address-postcode'] or 'SW1H 9AJ' }}<br><br/>
+
+                            DX address: 152380 Westminster 8<br><br/>
+
+
+                            <h4 class="govuk-heading-s">Newbury office</h4>
+                            8 Market Street<br/>
+                            Newbury<br/>
+                            RG14 5BN<br><br/>
+
+                            DX address: 931NR, Hayes<br><br/>
                         </dd>
                         <dd class="govuk-check-your-answers__change">
-                            <a href="/oct-2020/register-organisation/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
-                        </dd>
-                    </div>
-                    <div class="govuk-check-your-answers__contents">
-                        <dt class="govuk-check-your-answers__question">DX reference</dt>
-                        <dd class="govuk-check-your-answers__answer">
-                            DX number: {{data['dx-number']}}<br>
-                            DX exchange: {{data['dx-exchange']}}
-                        </dd>
-                        <dd class="govuk-check-your-answers__change">
-                            <a href="/oct-2020/register-organisation/organisation-dx">Change <span class="govuk-visually-hidden">organistaion dx</span></a>
+                            <a href="/oct-2020/register-organisation/organisation-address-another">Change <span class="govuk-visually-hidden">organistaion address</span></a>
                         </dd>
                     </div>
                     <div class="govuk-check-your-answers__contents">
