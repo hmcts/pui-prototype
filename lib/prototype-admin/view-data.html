@@ -1,0 +1,31 @@
+{% extends "layouts/service/base.html" %}
+
+{% block page_title %}
+  View data
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  
+  <h1 class="heading-medium">
+    View session data
+  </h1>
+
+  <pre>
+    {{data}}
+  </pre>
+
+  <p>
+    <a href="/">
+      Prototype home page
+    </a>
+  </p>
+  
+  <p>
+    Querystring:<br /> ?{{ querystring }}
+  </p>
+  
+</main>
+
+{% endblock %}

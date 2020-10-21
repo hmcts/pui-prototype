@@ -57,7 +57,65 @@
                     <h3 class="govuk-heading-m">Already added</h3>
 
 
+{% if data['second-address'] %}
+{%
+                    set rows = [
+                      [
+                        {
+                          text: "Main office"
+                        },
+                        {
+                          html: "102 Petty France<br />London<br />SW1H 9AJ"
+                        },
+                        {
+                          text: "152380 Westminster 8"
+                        },
+                        {
+                          html: '<a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a>'
+                        }
+                      ],                      
+                      [
+                        {
+                          text: "Newbury office"
+                        },
+                        {
+                          html: "8 Market Street<br />Newbury<br />RG14 5BN"
+                        },
+                        {
+                          text: "931NR, Hayes"
+                        },
+                        {
+                          html: '<a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a>'
+                        }
+                      ]
+                    ]
+                  %}
+
+{% else %}
+{%
+                    set rows = [
+                      [
+                        {
+                          text: "Main office"
+                        },
+                        {
+                          html: "102 Petty France<br />London<br />SW1H 9AJ"
+                        },
+                        {
+                          text: "152380 Westminster 8"
+                        },
+                        {
+                          html: '<a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a>'
+                        }
+                      ]
+                    ]
+                  %}
+{% endif %}
+
+
+
                     {{ govukTable({
+                      
                       firstCellIsHeader: true,
                       head: [
                         {
@@ -73,38 +131,8 @@
                           text: ""
                         }
                       ],
-                      rows: [
-                        [
-                          {
-                            text: "Main office"
-                          },
-                          {
-                            html: "102 Petty France<br />London<br />SW1H 9AJ"
-                          },
-                          {
-                            text: "152380 Westminster 8"
-                          },
-                          {
-                            html: '<a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a>'
-                          }
-                        ],
-                        [
-                          {
-                            text: "Newbury office"
-                          },
-                          {
-                            html: "8 Market Street<br />Newbury<br />RG14 5BN"
-                          },
-                          {
-                            text: "931NR, Hayes"
-                          },
-                          {
-                            html: '<a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a>'
-                          }
-                        ]
-                      ]
+                      rows: rows
                     }) }}
-
 
                     {{govukButton({
                     text: 'Continue'
