@@ -38,6 +38,44 @@ $govuk-global-styles: true;
 }
 
 
+.govuk-accordion-wa__icon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  margin-left: 30px;
+}
+
+.govuk-accordion-wa__icon:after,
+.govuk-accordion-wa__icon:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 25%;
+  height: 25%;
+  margin: auto;
+  border: 2px solid transparent;
+  background-color: govuk-colour("black");
+}
+
+.govuk-accordion-wa__icon:before {
+  width: 100%;
+}
+
+.govuk-accordion-wa__icon:after {
+  height: 100%;
+}
+
+
+
+.hmcts-badge--orange {
+  border-color: govuk-colour("orange");
+  color: govuk-colour("orange");
+}
 
 // PBA styles
 @import "pui/pba";
