@@ -170,7 +170,7 @@ table th {
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <p>Choose the tasks you'd like to view.</p>
+        <p>See your tasks and view tasks available for you to pick up.</p>
 
         <div class="hmcts-scrollable-pane">
           <div class="hmcts-scrollable-pane__wrapper">
@@ -195,40 +195,43 @@ table th {
                   Filter by location
                 </span>
               </summary>
-      <!--        <div class="govuk-form-group">
-  <fieldset class="govuk-fieldset">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-    </legend>
-    <div class="govuk-checkboxes govuk-checkboxes--small">
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
-        <label class="govuk-label govuk-checkboxes__label" for="organisation">
-        All
-        </label>
-      </div>
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
-        <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
-          Birmingham
-        </label>
-      </div>
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="MOD">
-        <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
-        Bradford
-        </label>
-      </div>
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
-        <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
-          Cardiff
-        </label>
-      </div>
-    </div>
+              <div class="govuk-form-group">
+                <p>
+                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
 
-  </fieldset>
-</div> -->
+
+                  <div class="govuk-date-input" id="passport-issued">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint">
+Bradford
+Hatton Cross
+Manchester
+Newport</textarea></div>
+                        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Add >>
+</button>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+
+                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint">Taylor House</textarea></div>
+                        <button class="govuk-button govuk-button--secondary" data-module="govuk-button"> << Remove
+</button>
+                    </div>
+
+                  </div>
+
+                </fieldset>
+                <button class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+                  Apply
+                </button><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Cancel</button>
+
+              </div>
+
             </details>
+
             <table class="govuk-body" id="transactionstable">
                 <p class="govuk-body">
 
@@ -243,7 +246,7 @@ table th {
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Due</button></th>
 
                         <th scope="col" class="govuk-table__header" aria-sort="none"></th>
-                        <th scope="col"><button type="button" class="govuk-accordion__open-all" aria-expanded="false">Open all<span class="govuk-visually-hidden"> sections</span></button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none">&nbsp;&nbsp;&nbsp;&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -309,6 +312,7 @@ table th {
                     </tr>
                 </tbody>
             </table>
+            <!--
             <nav class="hmcts-pagination" id="pagination-label">
                 <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
                 <ul class="hmcts-pagination__list">
@@ -322,7 +326,7 @@ table th {
                         <a class="hmcts-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
                     </li>
                 </ul>
-            </nav>
+            </nav> -->
           </div>
         </div>
   </main>

@@ -63,6 +63,103 @@
 </header>
 {% endblock %}
 {% block content %}
+
+<style>
+    #no-underline{
+  underline: none;
+}
+
+/* // RESPONSIVE table */
+
+body {
+  line-height: 1.25;
+}
+
+table {
+  border-bottom: 1px solid #fff;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  table-layout: auto;
+}
+
+table caption {
+  /* font-size: 1.5em; */
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em 0;
+  text-align: left;
+
+}
+
+table th {
+
+}
+
+@media screen and (max-width: 650px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    /* font-size: 1.3em; */
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+  }
+
+  table tr {
+    border-bottom: 5px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    /* font-size: .8em; */
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+
+  }
+}
+
+</style>
+
 <div class="hmcts-width-container">
   {% include "./includes/phase-banner-alpha.html" %}
   <main role="main" class="govuk-main-wrapper">
@@ -70,26 +167,96 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <p></p>
+          <p>Filter tasks by name and location.</p>
 
         <div class="hmcts-scrollable-pane">
           <div class="hmcts-scrollable-pane__wrapper">
 
-            <nav class="hmcts-sub-navigation">
-              <ul class="hmcts-sub-navigation__list">
-                <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" aria-current="page" href="#">
-                    Label
-                  </a>
-                </li>
-                <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" href="#">
-                    Label
-                  </a>
-                </li>
-              </ul>
-            </nav>
 
+
+
+
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+
+
+                <div class="govuk-date-input" id="passport-issued">
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Name
+                      </label>
+                      <select class="govuk-select" id="sort" name="sort">
+                        <option value="published">All</option>
+                        <option value="updated" selected>None (unassigned tasks)</option>
+                        <option value="views">Bisa Butler</option>
+                        <option value="comments">Ralf Randlesman</option>
+                        <option value="comments">Yasmin Alrais</option>
+                      </select></div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Location
+                      </label>
+                      <select class="govuk-select" id="sort" name="sort">
+                        <option value="published">Birmingham</option>
+
+                        <option value="views">Cambridge</option>
+                        <option value="comments">Newport</option>
+                        <option value="updated" selected>Taylor House</option>
+                      </select></div>
+                  </div>
+
+                </div>
+
+              </fieldset>
+            </div>
+
+
+            <table class="govuk-body" id="transactionstable">
+                <p class="govuk-body">
+
+                </p>
+                <thead>
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header" aria-sort="ascending"><button type="button" data-index="0">Case reference</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case name</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case category</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Location</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Task</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Due</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none">&nbsp;&nbsp;&nbsp;&nbsp;</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Payment reference"><a href="#">1542-5226-7383-2772</a></td>
+                        <td data-label="Case">Robert Saddlebrook</td>
+                        <td data-label="Reference">Protection</td>
+                        <td data-label="Status">Taylor House</td>
+                        <td data-label="Date">Review respondent evidence</td>
+                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span> </td>
+
+                        <td data-label="Amount">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Manage</a></td>
+                          <th scope="col" class="govuk-table__header" aria-sort="none"><span class="govuk-accordion-wa__icon"></span></th>
+                    </tr>
+                    <tr>
+                        <td data-label="Payment reference"><a href="#">1526-8943-7271-8327</a></td>
+                        <td data-label="Case">Hudson Remi </td>
+                        <td data-label="Reference">Protection</td>
+                        <td data-label="Status">Taylor House</td>
+                        <td data-label="Date">Review appellant case</td>
+                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--green">9 nov</span> </td>
+                        <td data-label="Amount">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Manage</a></td>
+                          <th scope="col" class="govuk-table__header" aria-sort="none"><span class="govuk-accordion-wa__icon"></span></th>
+                    </tr>
+
+                </tbody>
+            </table>
 
           </div>
         </div>

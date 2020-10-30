@@ -19,6 +19,7 @@ $govuk-global-styles: true;
 @import "pui/all";
 
 
+
 // close button for banner messages
 
 #close-banner {
@@ -43,7 +44,7 @@ $govuk-global-styles: true;
   width: 16px;
   height: 16px;
   margin-top: -8px;
-  margin-left: 30px;
+  margin-left: -5px;
 }
 
 .govuk-accordion-wa__icon:after,

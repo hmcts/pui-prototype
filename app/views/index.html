@@ -331,6 +331,36 @@ LATEST CONTENT
         summaryHtml: "Manage Organisation MVP +1",
         html: iterationWipHtml
         }) }}
+
+        {% set MVPWA %}
+        <p class="govuk-body"></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="/mvp-4-WA/task-list/">My tasks</a><br>
+            <span class="form-hint">Task list of items assigned to you</span><br></li>
+            <li><a href="/mvp-4-WA/task-list/available">Available tasks</a><br>
+              <span class="form-hint">List of available tasks for you to pick up</span><br></li>
+          <li><a href="/mvp-4-WA/task-manager/">Task manager</a><br>
+            <span class="form-hint">Filter tasks by name and location.</span></li>
+
+            <li><a href="/mvp-4-WA/task-list/mytasks-none">My tasks (empty)</a><br>
+              <span class="form-hint">No assigned taks</span><br></li>
+              <li><a href="/mvp-4-WA/task-list/available-none">Available tasks (empty)</a><br>
+                <span class="form-hint"></span>Change your location filter to view available tasks<br></li>
+            <li><a href="/mvp-4-WA/task-manager/taskmanager-none">Task manager (empty)</a><br>
+              <span class="form-hint">Change your selections to view available tasks</span></li>
+        </ul>
+        {% endset %}
+        {{ govukDetails({
+            summaryHtml: "Work allocation MVP 1.4",
+            html: MVPWA
+            }) }}
+
+
+
+
+
+
+
     <!-- END OF WIP -->
 
 
