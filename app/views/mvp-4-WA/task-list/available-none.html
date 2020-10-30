@@ -195,11 +195,40 @@ table th {
                   Filter by location
                 </span>
               </summary>
-<br>
-<img src="/public/images/filter.png" alt="filter layout">
+              <div class="govuk-form-group">
+                <p>
+                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
 
 
+                  <div class="govuk-date-input" id="passport-issued">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint">
+Bradford
+Hatton Cross
+Manchester
+Newport</textarea></div>
+                        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Add >>
+</button>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
 
+                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint">Taylor House</textarea></div>
+                        <button class="govuk-button govuk-button--secondary" data-module="govuk-button"> << Remove
+</button>
+                    </div>
+
+                  </div>
+
+                </fieldset>
+                <button class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+                  Apply
+                </button><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Cancel</button>
+
+              </div>
 
             </details>
             <table class="govuk-body" id="transactionstable">
