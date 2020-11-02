@@ -103,6 +103,36 @@
                     id: "emailaddress",
                     name: "emailaddress"
                     }) }}
+
+          {{ govukRadios({
+                    classes: "govuk-radios",
+                    idPrefix: "changed-name",
+                    name: "changed-name",
+                    fieldset: {
+                      legend: {
+                        text: "Usual office location",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--m"
+                      }
+                    },
+                    hint: {
+                      text: "This will be used as their default service address."
+                    },
+                    items: [
+                      {
+                        value: "main",
+                        text: "Main office (London)"
+                      },
+                      {
+                        value: "reading",
+                        text: "Reading office"
+                      },
+                      {
+                        value: "stockport",
+                        text: "Stockport office"
+                      }
+                    ]
+                  }) }}
           {{ govukCheckboxes({
                     idPrefix: "permissions",
                     name: "permissions",
