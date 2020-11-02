@@ -1,53 +1,71 @@
-{% extends "manage-admin/layout.html" %}
-{% set serviceName = 'Manage organisation' %}
-{% set pageId = 'users' %}
+{% extends "../layout.html" %}
 {% block header %}
-{{hmctsHeader({
-service: {
-name: serviceName,
-url: '/'
-},
-navigation: {
-items: [{
-text: 'Profile',
-href: '/manage-admin/profile'
-},{
-text: 'Sign out',
-href: '/sign-out'
-}]
-}
-})}}
-{{hmctsPrimaryNavigation({
-classes: "govuk-!-margin-bottom-0",
-items: [ {
-text: 'Organisation',
-href: '/manage-admin',
-active: false
-}, {
-text: 'Users',
-href: '/manage-admin/users',
-active: true
-},
-{
-text: 'Fee accounts',
-href: '/manage-admin/payments',
-active: false
-}]
-})}}
-{{ hmctsIdentityBar({
-title: { html: 'Joe Bloggs (joe.bloggs@email.com)' }
-}) }}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/oct-2020/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
 {% endblock %}
 {% block content %}
 <div class="hmcts-width-container">
-    {{govukBackLink({
-    href: './'
+  {% include "../includes/phase-banner.html" %}
+  {{govukBackLink({
+    href: './view'
     })}}
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 <h1 class="govuk-heading-l">User details</h1>
-                <form action="/manage-admin/users/view" method="post">
+                <form action="./view-updated" method="post">
                     {{ govukInput({
                     label: {
                     text: "Email address",
@@ -58,7 +76,7 @@ title: { html: 'Joe Bloggs (joe.bloggs@email.com)' }
                     value: "joe.bloggs@email.com"
                     }) }}
                     {{govukButton({
-                    text: 'Save'
+                    text: 'Update'
                     })}}
                 </form>
             </div>

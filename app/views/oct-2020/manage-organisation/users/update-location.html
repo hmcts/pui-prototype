@@ -65,7 +65,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Joe Bloggs</h1>
-        <form action="./view" method="post">
+        <form action="./view-updated" method="post">
 
           {{ govukRadios({
                     classes: "govuk-radios",
@@ -97,6 +97,7 @@
                       }
                     ]
                   }) }}
+                    <input type="hidden" name="field-updated" value="usual office location" />
           {{govukButton({
                     text: 'Update'
                     })}}
