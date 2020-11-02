@@ -62,6 +62,7 @@
     href: './'
     })}}
   <main role="main" class="govuk-main-wrapper">
+
     {{ hmctsPageHeaderWithActions({
         title: {
         html: '<h1 class="govuk-heading-l">User details</h1>'
@@ -72,6 +73,14 @@
         href: '/oct-2020/manage-organisation/users/confirm-suspension'
         }]
         }) }}
+
+        {% from "hmcts-banner/macro.njk" import hmctsBanner %}
+        {{ hmctsBanner({
+        type: 'success',
+        text: ' Joe Bloggs\' '+ ( data['field-updated'] or 'email address' ) + ' successfully updated.',
+        iconFallbackText: 'Success'
+        }) }} 
+        
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <table class="govuk-table">

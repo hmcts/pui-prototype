@@ -81,6 +81,12 @@
 
                     <h1 class="govuk-heading-l">Manage office addresses</h1>
 
+                    {% from "hmcts-banner/macro.njk" import hmctsBanner %}
+                    {{ hmctsBanner({
+                    type: 'success',
+                    text: ' Primary office updated.',
+                    iconFallbackText: 'Success'
+                    }) }} 
 
                     {{ govukTable({
                       firstCellIsHeader: true,
@@ -113,7 +119,7 @@
                             text: "152380 Westminster 8"
                           },
                           {
-                            text: "Primary address"
+                            html: '<a href="">Make primary address</a>'
                           },
                           {
                             html: '<a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a>'
@@ -130,7 +136,7 @@
                             text: "931NR, Hayes"
                           },
                           {
-                            html: '<a href="./organisation-address-updated">Make primary address</a>'
+                            text: "Primary address"
                           },
                           {
                             html: '<a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a>'
