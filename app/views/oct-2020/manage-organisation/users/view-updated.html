@@ -63,9 +63,6 @@
     })}}
   <main role="main" class="govuk-main-wrapper">
 
-    {% from "hmcts-banner/macro.njk" import hmctsBanner %}
-
-
     {{ hmctsPageHeaderWithActions({
         title: {
         html: '<h1 class="govuk-heading-l">User details</h1>'
@@ -77,11 +74,13 @@
         }]
         }) }}
 
-    {{ hmctsBanner({
-    type: 'success',
-    text: ' Joe Bloggs\' '+ ( data['field-updated'] or 'email address' ) + ' successfully updated.',
-    iconFallbackText: 'Success'
-    }) }} 
+        {% from "hmcts-banner/macro.njk" import hmctsBanner %}
+        {{ hmctsBanner({
+        type: 'success',
+        text: ' Joe Bloggs\' '+ ( data['field-updated'] or 'email address' ) + ' successfully updated.',
+        iconFallbackText: 'Success'
+        }) }} 
+        
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <table class="govuk-table">
