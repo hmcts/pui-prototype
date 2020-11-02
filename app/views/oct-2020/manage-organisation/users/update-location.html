@@ -66,75 +66,37 @@
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Joe Bloggs</h1>
         <form action="./view" method="post">
-          {% set caseLevelsHtml %}
+
           {{ govukRadios({
-                    idPrefix: "where-do-you-live",
-                    name: "Level",
+                    classes: "govuk-radios",
+                    idPrefix: "changed-name",
+                    name: "changed-name",
                     fieldset: {
-                    legend: {
-                    text: ""
-                    }
+                      legend: {
+                        text: "Usual office location",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--m"
+                      }
+                    },
+                    hint: {
+                      text: "This will be used as their default service address."
                     },
                     items: [
-                    {
-                    value: "org",
-                    text: "Own cases only",
-                    checked: true
-                    },
-                    {
-                    value: "scotland",
-                    text: "All the organisation's cases"
-                    }
+                      {
+                        value: "main",
+                        text: "Main office (London)",
+                        checked: "checked"
+                      },
+                      {
+                        value: "reading",
+                        text: "Reading office"
+                      },
+                      {
+                        value: "stockport",
+                        text: "Stockport office"
+                      }
                     ]
-                    }) }}
-          {% endset %}
-          {{ govukCheckboxes({
-                    idPrefix: "permissions",
-                    name: "permissions",
-                    fieldset: {
-                    legend: {
-                    text: "Permissions",
-                    classes: "govuk-fieldset__legend--m"
-                    }
-                    },
-                    hint: {
-                    text: "Choose at least one action the user can do. You can change this later."
-                    },
-                    items: [
-                    {
-                    value: "cases",
-                    text: "Manage cases",
-                    checked: true,
-                    hint: {
-                    text: "View, create and progress cases."
-                    }
-                    },
-                    {
-                    value: "users",
-                    text: "Manage users",
-                    checked: true,
-                    hint: {
-                    text: "Invite users."
-                    }
-                    },
-                    {
-                    value: "organisation",
-                    text: "Manage organisation",
-                    checked: true,
-                    hint: {
-                    text: "View the organisation name and address."
-                    }
-                    },
-                    {
-                    value: "payment",
-                    text: "Manage fee accounts",
-                    checked: true,
-                    hint: {
-                    text: "View payments, account balances, available credit and transactions."
-                    }
-                    }
-                    ]
-                    }) }}
+                  }) }}
           {{govukButton({
                     text: 'Submit'
                     })}}
