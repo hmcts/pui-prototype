@@ -76,53 +76,54 @@
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="../manage-organisation">
-                    {% call govukFieldset({
-                    legend: {
-                        text: "What's the payment by account (PBA) number for your organisation?",
-                        classes: "govuk-fieldset__legend--xl",
-                        isPageHeading: true
-                    }
-                    }) %}
-                    <fieldset id="pbas" class="govuk-fieldset">
-                        {{ govukInput({
-                        label: {
-                        html: 'PBA number (optional)',
-                        classes: 'govuk-label--m'
-                        },
-                        id: "pba-1",
-                        name: "pba-1",
-                        classes: 'govuk-input--width-20',
-                        value: 'PBA1234567'
-                        }) }}
-                        {{ govukInput({
-                        label: {
-                        html: 'PBA number (optional)',
-                        classes: 'govuk-label--m'
-                        },
-                        id: "pba-2",
-                        name: "pba-2",
-                        classes: 'govuk-input--width-20',
-                        value: 'PBA2233444'
-                        }) }}
-                    </fieldset>
-                    <p><a href="#" onclick="return addAnotherPBA();">Add another PBA number</a></p>
 
-                    {% endcall %}
-                    {{govukButton({
-                    text: 'Update'
-                    })}}
+                {% from "fieldset/macro.njk" import govukFieldset %}
+                {% from "input/macro.njk" import govukInput %}
+                {% from "textarea/macro.njk" import govukTextarea %}
+                {% from "button/macro.njk" import govukButton %}
+
+                <div class="hmcts-add-another">
+
+                <h1 class="govuk-heading-xl hmcts-add-another__heading">What's the payment by account (PBA) number for your organisation?</h1>
+
+                <form action="/oct-2020/register-organisation/name">
+
+                    <fieldset class="govuk-fieldset hmcts-add-another__item">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--m" for="pba-1">PBA number (optional)</label>
+                            <input class="govuk-input govuk-input--width-20" id="pba-1" name="pba-1" type="text" value="PBA1234567" data-name="pba-[%index%]" data-id="pba-[%index%]">
+                        </div>
+                        <button type="button" class="govuk-button hmcts-button--secondary hmcts-add-another__remove-button">Remove</button>
+                    </fieldset>
+
+                    <fieldset class="govuk-fieldset hmcts-add-another__item">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--m" for="pba-[1]">PBA number (optional)</label>
+                            <input class="govuk-input govuk-input--width-20" id="pba-[1]" name="pba-[1]" type="text" value="PBA789415" data-name="pba-[%index%]" data-id="pba-[%index%]">
+                        </div>
+                        <button type="button" class="govuk-button hmcts-button--secondary hmcts-add-another__remove-button">Remove</button>
+                    </fieldset>
+
+                    <div class="hmcts-button-action">
+                        <button type="button" class="govuk-button hmcts-button--secondary  hmcts-add-another__add-button  govuk-!-margin-bottom-4">
+                        Add another PBA number
+                        </button>
+                    </div>
+
+                    <button type="submit" class="govuk-button">
+                        Update
+                    </button>
+
                 </form>
+
             </div>
         </div>
     </main>
 </div>
+{% endblock %}
+
+{% block pageScripts %}
 <script>
-    function addAnotherPBA() {
-
-        $('#pba-1').parent().clone().appendTo('fieldset#pbas').find('input').val('');
-
-        return false;
-    }
+  new HMCTSFrontend.AddAnother($('.hmcts-add-another'));
 </script>
 {% endblock %}
