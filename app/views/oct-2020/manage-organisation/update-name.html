@@ -76,7 +76,7 @@
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="../manage-organisation">
+                <form action="../manage-organisation/updated">
                     {{ govukInput({
                     label: {
                     text: "What's the name of your organisation?",
@@ -91,6 +91,7 @@
                     {{govukButton({
                     text: 'Update'
                     })}}
+                    <input type="hidden" name="field-updated" value="name" />
                 </form>
             </div>
         </div>
