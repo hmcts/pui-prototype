@@ -1,0 +1,221 @@
+{% extends "./layout.html" %}
+{% from "table/macro.njk" import govukTable %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <a class="hmcts-header__link" href="/">Manage cases</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/senior-TCW/task-list/">
+            Task list
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link"  href="#">
+            Task manager
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/senior-TCW/case-list/">
+            Case list
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Create case
+          </a>
+        </li>
+
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<style>
+  #no-underline {
+    underline: none;
+  }
+
+  /* // RESPONSIVE table */
+
+  body {
+    line-height: 1.25;
+  }
+
+  table {
+    border-bottom: 1px solid #fff;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    table-layout: auto;
+  }
+
+  table caption {
+    /* font-size: 1.5em; */
+    margin: .5em 0 .75em;
+  }
+
+  table tr {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: .35em;
+  }
+
+  table th,
+  table td {
+    padding: .625em 0;
+    text-align: left;
+
+  }
+
+  table th {}
+
+  @media screen and (max-width: 650px) {
+    table {
+      border: 0;
+    }
+
+    table caption {
+      /* font-size: 1.3em; */
+    }
+
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+
+    }
+
+    table tr {
+      border-bottom: 5px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+
+    }
+
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      /* font-size: .8em; */
+      text-align: right;
+    }
+
+    table td::before {
+      /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+    }
+
+    table td:last-child {
+      border-bottom: 0;
+
+    }
+  }
+</style>
+
+
+<div class="hmcts-width-container">
+  {% include "./includes/phase-banner-alpha.html" %}
+  <main role="main" class="govuk-main-wrapper">
+
+    <h1 class="govuk-heading-xl">Allocate the case</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="hmcts-scrollable-pane">
+          <div class="hmcts-scrollable-pane__wrapper">
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <p>Choose a location to find a caseworker.</p>
+                </legend>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                      <strong>Location</strong>
+                    </label>
+                    <select class="govuk-select" id="sort" name="sort">
+                      <option value="index">Select a value</option>
+                      <option value="#">Birmingham</option>
+                      <option value="#">Cambridge</option>
+                      <option value="#">Newport</option>
+                      <option value="#" selected>Taylor House</option>
+                    </select></div>
+                </div>
+              </fieldset>
+            </div>
+        <form>
+
+
+          {{ govukButton({
+            text: 'Previous',
+            classes: "govuk-button--secondary",
+            href: "/mvp-4-WA/senior-TCW/case-list/allocate-s"
+            }) }}
+
+            {{ govukButton({
+              text: 'Continue',
+              href: "/mvp-4-WA/senior-TCW/case-list/allocate-3s"
+              }) }}
+
+
+
+        </form>
+<p><a href="/mvp-4-WA/senior-TCW/case-list/7683-5391-8812-0980">Cancel</a></p>
+
+  </main>
+</div>
+{% endblock %}
+{% block pageScripts %}
+{{super()}}
+<script>
+  new HMCTSFrontend.FilterToggleButton({
+    bigModeMediaQuery: '(min-width: 48.063em)',
+    startHidden: true,
+    toggleButton: {
+      container: $('.hmcts-action-bar__filter'),
+      showText: 'Show filter',
+      hideText: 'Hide filter',
+      classes: 'hmcts-button--secondary'
+    },
+    closeButton: {
+      container: $('.hmcts-filter__header-action'),
+      text: 'Close'
+    },
+    filter: {
+      container: $('.hmcts-filter')
+    }
+  });
+</script>
+{% endblock %}

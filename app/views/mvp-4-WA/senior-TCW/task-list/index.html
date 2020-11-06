@@ -31,17 +31,17 @@
     <nav class="hmcts-primary-navigation">
       <ul class="hmcts-primary-navigation__list">
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/task-list/">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/senior-TCW/task-list/">
             Task list
           </a>
         </li>
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/task-manager/">
+          <a class="hmcts-primary-navigation__link" href="#/">
             Task manager
           </a>
         </li>
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/case-list/">
+          <a class="hmcts-primary-navigation__link"  href="/mvp-4-WA//senior-TCW/case-list/">
             Case list
           </a>
         </li>
@@ -63,7 +63,6 @@
 </header>
 {% endblock %}
 {% block content %}
-
 <style>
     #no-underline{
   underline: none;
@@ -160,48 +159,34 @@ table th {
 
 </style>
 
+
 <div class="hmcts-width-container">
   {% include "./includes/phase-banner-alpha.html" %}
   <main role="main" class="govuk-main-wrapper">
-    <h1 class="govuk-heading-xl">Task manager</h1>
+    <h1 class="govuk-heading-xl">Task list</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-          <p>Filter tasks by name and location.</p>
+
+        <p>See your tasks and view tasks available for you to pick up.</p>
+
         <div class="hmcts-scrollable-pane">
           <div class="hmcts-scrollable-pane__wrapper">
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-                <div class="govuk-date-input" id="passport-issued">
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-                        <strong>Name</strong>
-                      </label>
-                      <select class="govuk-select" id="sort" name="sort">
-                        <option value="published">All</option>
-                        <option value="updated" selected>None (unassigned tasks)</option>
-                        <option value="views">Bisa Butler</option>
-                        <option value="comments">Ralf Randlesman</option>
-                        <option value="comments">Yasmin Alrais</option>
-                      </select></div>
-                  </div>
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-                          <strong>Location</strong>
-                      </label>
-                      <select class="govuk-select" id="sort" name="sort">
-                        <option value="published">Birmingham</option>
-                        <option value="views">Cambridge</option>
-                        <option value="comments">Newport</option>
-                        <option value="updated" selected>Taylor House</option>
-                      </select></div>
-                  </div>
 
-                </div>
+            <nav class="hmcts-sub-navigation">
+              <ul class="hmcts-sub-navigation__list">
+                <li class="hmcts-sub-navigation__item">
+                  <a class="hmcts-sub-navigation__link" aria-current="page" href="/mvp-4-WA/senior-TCW/task-list/">
+                    My tasks
+                  </a>
+                </li>
+                <li class="hmcts-sub-navigation__item">
+                  <a class="hmcts-sub-navigation__link" href="#">
+                    Available tasks
+                  </a>
+                </li>
+              </ul>
+            </nav>
 
-              </fieldset>
-            </div>
 
 
             <table class="govuk-body" id="transactionstable">
@@ -216,27 +201,37 @@ table th {
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Location</button></th>
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Task</button></th>
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Due</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Worker</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"></th>
                         <th scope="col" class="govuk-table__header" aria-sort="none">&nbsp;&nbsp;&nbsp;&nbsp;</th>
 
                     </tr>
                 </thead>
                 <tbody>
-
                     <tr>
-                      <td data-label="Payment reference">Change your selections to view available tasks.</td>
-                      <td data-label="Case"></td>
-                      <td data-label="Reference"></td>
-                      <td data-label="Status"></td>
-                      <td data-label="Date"></td>
-                      <td data-label="Amount"></td>
-                      <td data-label="Amount"></td>
-                      <td data-label="Amount"></td>
+                        <td data-label="Payment reference">You have no assigned tasks.</td>
+                        <td data-label="Case"></td>
+                        <td data-label="Reference"></td>
+                        <td data-label="Status"></td>
+                        <td data-label="Date"></td>
+                        <td data-label="Amount"></td>
+                        <td data-label="Amount"></td>
+                        <td data-label="Amount"></td>
                     </tr>
+
 
                 </tbody>
             </table>
-
+            <!--
+            <nav class="hmcts-pagination" id="pagination-label">
+                <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
+                <ul class="hmcts-pagination__list">
+                    <li class="hmcts-pagination__item hmcts-pagination__item--active">1</li>
+                    <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="#">2</a></li>
+                    <li class="hmcts-pagination__item  hmcts-pagination__item--next">
+                    <a class="hmcts-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
+                    </li>
+                </ul>
+            </nav> -->
           </div>
         </div>
   </main>

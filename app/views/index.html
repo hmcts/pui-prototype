@@ -333,7 +333,13 @@ LATEST CONTENT
         }) }}
 
         {% set MVPWA %}
-        <p class="govuk-body"></p>
+        <p class="govuk-body">Senior TCW</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="/mvp-4-WA/senior-TCW/case-list/">Case list</a><br>
+            <span class="form-hint">Senior TCW allocates case</span><br></li>
+
+        </ul>
+        <p class="govuk-body">Static Examples </p>
         <ul class="govuk-list govuk-list--bullet">
           <li><a href="/mvp-4-WA/task-list/">My tasks</a><br>
             <span class="form-hint">Task list of items assigned to you</span><br></li>
@@ -349,6 +355,7 @@ LATEST CONTENT
             <li><a href="/mvp-4-WA/task-manager/taskmanager-none">Task manager (empty)</a><br>
               <span class="form-hint">Change your selections to view available tasks</span></li>
         </ul>
+
         {% endset %}
         {{ govukDetails({
             summaryHtml: "Work allocation MVP 1.4",

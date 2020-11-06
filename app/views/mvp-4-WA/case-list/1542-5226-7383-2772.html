@@ -11,7 +11,7 @@
         </span>
       </a>
     </div> -->
-    <a class="hmcts-header__link" href="#">Manage cases</a>
+    <a class="hmcts-header__link" href="/">Manage cases</a>
     <div class="hmcts-header__content">
       <nav class="hmcts-header__navigation" aria-label="Account navigation">
         <ul class="hmcts-header__navigation-list">
@@ -21,7 +21,7 @@
                         </a>
                     </li> -->
           <li class="hmcts-header__navigation-item">
-            <a class="hmcts-header__navigation-link" href="#1">
+            <a class="hmcts-header__navigation-link" href="#">
               Sign out
             </a>
           </li>
@@ -41,7 +41,7 @@
           </a>
         </li>
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" aria-current="page" href="#">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/case-list/">
             Case list
           </a>
         </li>
@@ -67,287 +67,6 @@
 
 <div class="hmcts-width-container">
   {% include "./includes/phase-banner-alpha.html" %}
-  <!--  <a href="/mvp-4-WA/task-list/" class="govuk-back-link">Back</a> -->
-  <!-- <main role="main" class="govuk-main-wrapper"> -->
-  <!--  <main class="govuk-main-wrapper " id="main-content" role="main">
-
-
-        <div class="govuk-grid-row">
-              <div class="govuk-grid-column-one-half">
-                <h1 class="govuk-heading-xl">PA/00321/2018</h1>
-              </div>
-                <div class="govuk-grid-column-one-half">
-                  <div class="govuk-grid-row">
-                    <div class="govuk-grid-column-three-quarters">
-
-
-        <div class="govuk-form-group">
-          <label class="govuk-label ccd-dropdown-label" for="nextSteps">
-            Next steps
-          </label>
-
-
-          <select class="govuk-select ccd-dropdown" id="nextSteps" name="Next steps">
-
-
-              <option value="selectAction">Select action</option>
-
-
-
-              <option value="editAppeal">Edit appeal</option>
-
-
-          </select>
-        </div>
-
-                    </div>
-                    <div class="govuk-grid-column-one-quarter">
-
-
-
-
-
-
-
-
-        <button data-prevent-double-click="true" class="govuk-button next-step-govuk-button" data-module="govuk-button">
-          Go
-        </button>
-
-                    </div>
-                  </div>
-                </div>
-          </div>
-
-
-
-
-          <div class="govuk-tabs" data-module="govuk-tabs">
-          <h2 class="govuk-tabs__title">
-            Contents
-          </h2>
-
-          <ul class="govuk-tabs__list" role="tablist">
-
-
-
-                <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
-                  <a class="govuk-tabs__tab" href="#overview" id="tab_overview" role="tab" aria-controls="overview" aria-selected="true" tabindex="0">
-                    Overview
-                  </a>
-                </li>
-
-
-
-
-                <li class="govuk-tabs__list-item" role="presentation">
-                  <a class="govuk-tabs__tab" href="#appeal" id="tab_appeal" role="tab" aria-controls="appeal" aria-selected="false" tabindex="-1">
-                    Appeal
-                  </a>
-                </li>
-
-
-
-
-                <li class="govuk-tabs__list-item" role="presentation">
-                  <a class="govuk-tabs__tab" href="#appellant" id="tab_appellant" role="tab" aria-controls="appellant" aria-selected="false" tabindex="-1">
-                    Appellant
-                  </a>
-                </li>
-
-
-
-
-                <li class="govuk-tabs__list-item" role="presentation">
-                  <a class="govuk-tabs__tab" href="#documents" id="tab_documents" role="tab" aria-controls="documents" aria-selected="false" tabindex="-1">
-                    Documents
-                  </a>
-                </li>
-
-
-
-
-                <li class="govuk-tabs__list-item" role="presentation">
-                  <a class="govuk-tabs__tab" href="#directions" id="tab_directions" role="tab" aria-controls="directions" aria-selected="false" tabindex="-1">
-                    Directions
-                  </a>
-                </li>
-
-
-
-
-                <li class="govuk-tabs__list-item" role="presentation">
-                  <a class="govuk-tabs__tab" href="#applications" id="tab_applications" role="tab" aria-controls="applications" aria-selected="false" tabindex="-1">
-                    Applications
-                  </a>
-                </li>
-
-
-
-
-                <li class="govuk-tabs__list-item" role="presentation">
-                  <a class="govuk-tabs__tab" href="#caseNotes" id="tab_caseNotes" role="tab" aria-controls="caseNotes" aria-selected="false" tabindex="-1">
-                    Case notes
-                  </a>
-                </li>
-
-
-
-
-                <li class="govuk-tabs__list-item" role="presentation">
-                  <a class="govuk-tabs__tab" href="#hearing" id="tab_hearing" role="tab" aria-controls="hearing" aria-selected="false" tabindex="-1">
-                    Hearing
-                  </a>
-                </li>
-
-
-          </ul>
-
-
-
-
-              <div class="govuk-tabs__panel" id="overview" role="tabpanel" aria-labelledby="tab_overview">
-
-            <h2 class="govuk-heading-l">Overview</h2>
-            <h2 class="govuk-heading-m">Current progress of the case</h2>
-
-            <div class="status-bar">
-
-                    <div class="status-bar__stage stage--active stage--ticked ">
-                        <div class="status-bar__ring"></div>
-                        <h4 class="govuk-heading-s">Appeal submitted</h4>
-                    </div>
-
-                    <div class="status-bar__stage stage--active stage--ticked --leg">
-                        <div class="status-bar__ring"></div>
-                        <h4 class="govuk-heading-s">Awaiting respondent evidence</h4>
-                    </div>
-
-                    <div class="status-bar__stage stage--active stage--ticked --leg">
-                        <div class="status-bar__ring"></div>
-                        <h4 class="govuk-heading-s">Case building</h4>
-                    </div>
-
-                    <div class="status-bar__stage stage--active stage--ticked --leg">
-                        <div class="status-bar__ring"></div>
-                        <h4 class="govuk-heading-s">Case under review</h4>
-                    </div>
-
-                    <div class="status-bar__stage stage--active  --leg">
-                        <div class="status-bar__ring"></div>
-                        <h4 class="govuk-heading-s">Respondent review</h4>
-                    </div>
-
-                    <div class="status-bar__stage   --leg">
-                        <div class="status-bar__ring"></div>
-                        <h4 class="govuk-heading-s">Submit hearing requirements</h4>
-                    </div>
-
-                    <div class="status-bar__stage   --leg">
-                        <div class="status-bar__ring"></div>
-                        <h4 class="govuk-heading-s">Listing</h4>
-                    </div>
-
-                    <div class="status-bar__stage   --leg">
-                        <div class="status-bar__ring"></div>
-                        <h4 class="govuk-heading-s">Prepare for hearing</h4>
-                    </div>
-
-                    <div class="status-bar__stage   --leg">
-                        <div class="status-bar__ring"></div>
-                        <h4 class="govuk-heading-s">Final bundling</h4>
-                    </div>
-
-                    <div class="status-bar__stage   --leg">
-                        <div class="status-bar__ring"></div>
-                        <h4 class="govuk-heading-s">Pre hearing</h4>
-                    </div>
-
-                    <div class="status-bar__stage   --leg">
-                        <div class="status-bar__ring"></div>
-                        <h4 class="govuk-heading-s">Decision</h4>
-                    </div>
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </div>
-
-
-
-
-              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="appeal" role="tabpanel" aria-labelledby="tab_appeal">
-                Appeal
-              </div>
-
-
-
-
-              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="appellant" role="tabpanel" aria-labelledby="tab_appellant">
-                appellant
-              </div>
-
-
-
-
-              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="documents" role="tabpanel" aria-labelledby="tab_documents">
-                documents
-              </div>
-
-
-
-
-              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="directions" role="tabpanel" aria-labelledby="tab_directions">
-                directions
-              </div>
-
-
-
-
-              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="applications" role="tabpanel" aria-labelledby="tab_applications">
-                applications
-              </div>
-
-
-
-
-              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="caseNotes" role="tabpanel" aria-labelledby="tab_caseNotes">
-                case notes
-              </div>
-
-
-
-
-              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="hearing" role="tabpanel" aria-labelledby="tab_hearing">
-                hearing
-              </div>
-
-
-        </div>
-
-
-
-
-
-
-
-  </main> -->
 
 
   <main class="govuk-main-wrapper " id="main-content" role="main">
@@ -359,13 +78,6 @@
         <div class="govuk-grid-row" style="width:1220px; margin-left: 0px;">
           <div class="" style="display: flex; justify-content: space-between; ">
 
-            <!--    <div style="display: flex; ">
-              <p class="">3689264258577069: Smith vs Blythe &nbsp; </p>
-
-              <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                Print
-              </button>
-            </div> -->
 
             <div>
               <h1 class="govuk-heading-xl">PA/00321/2018</h1>
@@ -441,11 +153,13 @@
               </li>
             </ul>
 
-            <div class="govuk-tabs__panel" id="event" style="display:padding: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+            <div class="govuk-tabs__panel" id="event" style="display: padding: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
               <div >
                 <h2 class="govuk-heading-l">Overview</h2>
 
                 <h3 class="govuk-heading-m">Current progress of the case</h3>
+
+
 
                 <div class="hmcts-progress-bar">
                 <ol class="hmcts-progress-bar__list">
@@ -500,12 +214,9 @@
                   <span class="hmcts-progress-bar__icon"></span>
                   <span class="hmcts-progress-bar__label">Decision</span>
                 </li>
-
-
-
-
                 </ol>
                 </div>
+
 
                 <h2 class="govuk-heading-m">Do this next</h2>
 
@@ -583,11 +294,7 @@
 
         </div>
       </main>
-    </div>
-
-
-  </main>
-
+</div>
 
 
 
