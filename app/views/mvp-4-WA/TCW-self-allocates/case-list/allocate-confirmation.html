@@ -1,0 +1,84 @@
+{% extends "./layout.html" %}
+{% from "table/macro.njk" import govukTable %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <a class="hmcts-header__link" href="/">Manage cases</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/TCW-self-allocates/task-list/">
+            Task list
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link"  href="#">
+            Task manager
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/TCW-self-allocates/case-list/index-a">
+            Case list
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Create case
+          </a>
+        </li>
+
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-width-container">
+      {% include "./includes/phase-banner-alpha.html" %}
+    <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              You have allocated the case
+            </h1>
+            <div class="govuk-panel__body">
+            </div>
+          </div>
+          <h2 class="govuk-heading-m">What happens next</h2>
+
+          <p class="govuk-body">
+            The tasks for this case will now appear in your task list.
+          </p>
+          <p class="govuk-body">
+            Should you wish, you can write <a href="#" class="govuk-link"> a case note</a>.
+        </div>
+      </div>
+      <form>
+          {{ govukButton({
+            text: 'Close and return to case details',
+            href: "/mvp-4-WA/TCW-self-allocates/case-list/7683-5391-8812-0980-a"
+            }) }}
+      </form>
+    </main>
+  </div>
+{% endblock %}

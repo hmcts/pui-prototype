@@ -19,17 +19,17 @@
     <nav class="hmcts-primary-navigation">
       <ul class="hmcts-primary-navigation__list">
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/senior-TCW/task-list/">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/task-list/">
             Task list
           </a>
         </li>
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" href="#">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/task-manager/">
             Task manager
           </a>
         </li>
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/senior-TCW/case-list/">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/case-list/">
             Case list
           </a>
         </li>
@@ -148,70 +148,76 @@
 <div class="hmcts-width-container">
   {% include "./includes/phase-banner-alpha.html" %}
   <main role="main" class="govuk-main-wrapper">
-    <h1 class="govuk-heading-xl">Case list</h1>
-    <div class="hmcts-filter-layout">
-      <div class="hmcts-filter-layout__filter">
-        <div class="hmcts-filter hmcts-hidden" tabindex="-1">
-          <div class="hmcts-filter__header">
-            <div class="hmcts-filter__header-title">
-              <h2 class="govuk-heading-m">Filters</h2>
-            </div>
-            <div class="hmcts-filter__header-action">
-            </div>
-          </div>
-          <div class="hmcts-filter__content">
-            <div class="hmcts-filter__options">
-              <button class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
-                Apply
-              </button>
-              <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                Reset
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hmcts-filter-layout__content">
-        <div class="hmcts-action-bar">
-          <div class="hmcts-action-bar__filter"></div>
-        </div>
-        <div>
-          <h2 class="govuk-heading-m">Case list</h2>
-          <p>
-            Displaying <strong>1</strong> to <strong>2</strong> out of <strong>2</strong> results
-          </p>
-          <div class="hmcts-scrollable-pane">
-            <div class="hmcts-scrollable-pane__wrapper">
-              <table class="govuk-body" id="transactionstable">
-                <p class="govuk-body">
-                </p>
-                <thead>
-                  <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header" aria-sort="ascending"><button type="button" data-index="0">HMCTS reference</button></th>
-                    <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Appellant name</button></th>
-                    <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Status</button></th>
-                    <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Hearing date</button></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="govuk-table__cell "><a href="/mvp-4-WA/senior-TCW/case-list/7683-5391-8812-0980">7683-5391-8812-0980</a></td>
-                    <td class="govuk-table__cell ">Elisabet Borgen</td>
-                    <td class="govuk-table__cell ">Respondent
-                      review</td>
-                    <td class="govuk-table__cell "></td>
-                  </tr>
-                  <tr>
-                    <td class="govuk-table__cell "><a href="">9067-3421-8342-0092</a></td>
 
-                    <td class="govuk-table__cell ">Geoffrey Nava</td>
-                    <td class="govuk-table__cell ">Create case summary</td>
-                    <td class="govuk-table__cell "></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+    <h1 class="govuk-heading-xl">Cancel a task</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <p>Cancel a task if it's no longer required.</p>
+
+
+        <h2 class="govuk-heading-m">Task summary</h2>
+
+        <div class="hmcts-scrollable-pane">
+          <div class="hmcts-scrollable-pane__wrapper">
+
+            <table class="govuk-body" id="transactionstable">
+              <p class="govuk-body">
+
+              </p>
+              <thead>
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header" aria-sort="ascending"><button type="button" data-index="0">Case reference</button></th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case name</button></th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case category</button></th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Location</button></th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Task</button></th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Due</button></th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Worker</button></th>
+
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Payment reference"><a href="#">1542-5226-7383-2772</a></td>
+                  <td data-label="Case">Robert Doors</td>
+                  <td data-label="Reference">Protection</td>
+                  <td data-label="Status">Taylor House</td>
+                  <td data-label="Date">Review respondent evidence</td>
+                  <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span> </td>
+                  <td data-label="Date">Bisa Butler</td>
+
+
+                </tr>
+
+              </tbody>
+            </table>
+
           </div>
+          <p></p>
+
+        </div>
+
+
+
+        <form>
+          {{ govukButton({
+            text: 'Cancel',
+            href: "#"
+            }) }}
+
+
+          {{ govukButton({
+            text: 'Cancel and go back',
+            classes: "govuk-button--secondary",
+            href: "/mvp-4-WA/task-manager/taskmanager-open"
+            }) }}
+
+
+        </form>
+
+
   </main>
 </div>
 {% endblock %}
@@ -226,6 +232,10 @@
       showText: 'Show filter',
       hideText: 'Hide filter',
       classes: 'hmcts-button--secondary'
+    },
+    closeButton: {
+      container: $('.hmcts-filter__header-action'),
+      text: 'Close'
     },
     filter: {
       container: $('.hmcts-filter')

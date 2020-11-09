@@ -2,15 +2,15 @@
 {% block header %}
 <header class="hmcts-header" role="banner">
   <div class="hmcts-header__container">
-    <!--  <div class="govuk-header__logo">
-        <a href="/" class="govuk-header__link govuk-header__link--homepage">
-          <span class="govuk-header__logotype">
-            <span class="govuk-header__logotype-text">
-              MyHMCTS
-            </span>
+  <!--  <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
           </span>
-        </a>
-      </div> -->
+        </span>
+      </a>
+    </div> -->
     <a class="hmcts-header__link" href="/">Manage cases</a>
     <div class="hmcts-header__content">
       <nav class="hmcts-header__navigation" aria-label="Account navigation">
@@ -31,7 +31,7 @@
     <nav class="hmcts-primary-navigation">
       <ul class="hmcts-primary-navigation__list">
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/senior-TCW/task-list/">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/TCW-self-allocates/task-list/">
             Task list
           </a>
         </li>
@@ -41,7 +41,7 @@
           </a>
         </li>
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link"  href="/mvp-4-WA/senior-TCW/case-list/">
+          <a class="hmcts-primary-navigation__link"  href="/mvp-4-WA/TCW-self-allocates/case-list/">
             Case list
           </a>
         </li>
@@ -175,7 +175,7 @@ table th {
             <nav class="hmcts-sub-navigation">
               <ul class="hmcts-sub-navigation__list">
                 <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" aria-current="page" href="/mvp-4-WA/senior-TCW/task-list/">
+                  <a class="hmcts-sub-navigation__link" aria-current="page" href="/mvp-4-WA/TCW-self-allocates/task-list/mytasks-open">
                     My tasks
                   </a>
                 </li>
@@ -186,12 +186,8 @@ table th {
                 </li>
               </ul>
             </nav>
-
-
-
             <table class="govuk-body" id="transactionstable">
                 <p class="govuk-body">
-
                 </p>
                 <thead>
                     <tr class="govuk-table__row">
@@ -201,26 +197,26 @@ table th {
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Location</button></th>
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Task</button></th>
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Due</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"></th>
                         <th scope="col" class="govuk-table__header" aria-sort="none">&nbsp;&nbsp;&nbsp;&nbsp;</th>
-
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td data-label="Payment reference">You have no assigned tasks.</td>
-                        <td data-label="Case"></td>
-                        <td data-label="Reference"></td>
-                        <td data-label="Status"></td>
-                        <td data-label="Date"></td>
-                        <td data-label="Amount"></td>
-                        <td data-label="Amount"></td>
-                        <td data-label="Amount"></td>
+                        <td data-label="Payment reference"><a href="/mvp-4-WA/TCW-self-allocates/case-list/7683-5391-8812-0980-a">7683-5391-8812-0980</a></td>
+                        <td data-label="Case">Elisabet Borgen</td>
+                        <td data-label="Reference">Protection</td>
+                        <td data-label="Status">Taylor House</td>
+                        <td data-label="Date">Review respondent response</td>
+                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span> </td>
+<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="/mvp-4-WA/TCW-self-allocates/task-list/">Manage</a><span class="govuk-accordion-wa__iconc"></span></td>
                     </tr>
-
-
+                    <tr>
+                        <td colspan="7" class="right"> <a href="#" class="right">Reassign task</a> <a href="#">Unassign task</a></td>
+                    </tr>
                 </tbody>
             </table>
+
+
             <!--
             <nav class="hmcts-pagination" id="pagination-label">
                 <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>

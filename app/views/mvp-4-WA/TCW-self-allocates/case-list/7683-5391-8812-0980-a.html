@@ -1,0 +1,329 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <!--  <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div> -->
+    <a class="hmcts-header__link" href="/">Manage cases</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/TCW-self-allocates/task-list/">
+            Task list
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Task manager
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/TCW-self-allocates/case-list/index-a">
+            Case list
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Create case
+          </a>
+        </li>
+
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+
+
+<div class="hmcts-width-container">
+  {% include "./includes/phase-banner-alpha.html" %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+    <div class="govuk-width-container">
+
+      <main class="" id="main-content" role="main">
+        <div class="govuk-grid-row" style="width:1220px; margin-left: 0px;">
+          <div class="" style="display: flex; justify-content: space-between; ">
+
+
+            <div>
+              <h1 class="govuk-heading-xl">PA/00321/2018</h1>
+            </div>
+
+            <form action="/mvp-4-WA/TCW-self-allocates/case-list/allocate">
+            <div style="display: flex; align-items:right">
+              <p class="govuk-!-margin-top-2">Next step &nbsp;</p>
+
+              <select class="govuk-select" id="sort" name="sort" >
+                <option value="select" selected="">Select action</option>
+                <option value="allocate">Allocate the case</option>
+
+              </select>
+
+              <form name="aspnetForm" method="post" id="aspnetForm" autocomplete="off">
+                <button class="govuk-button govuk-!-margin-left-1" data-module="govuk-button">
+                  Go
+                </button>
+              </form>
+            </div>
+
+          </div>
+
+          <div class="govuk-tabs" data-module="govuk-tabs">
+            <h2 class="govuk-tabs__title">
+              Contents
+            </h2>
+            <ul class="govuk-tabs__list">
+              <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                <a class="govuk-tabs__tab" href="#event">
+                  Overview
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Appeal
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Appellent
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Documents
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Directions
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Applications
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Case notes
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Hearing
+                </a>
+              </li>
+            </ul>
+
+            <div class="govuk-tabs__panel" id="event" style="display: padding: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+              <div >
+                <h2 class="govuk-heading-l">Overview</h2>
+
+                <h3 class="govuk-heading-m">Current progress of the case</h3>
+
+
+
+                <div class="hmcts-progress-bar">
+                <ol class="hmcts-progress-bar__list">
+
+                <li class="hmcts-progress-bar__list-item">
+                  <span class="hmcts-progress-bar__icon hmcts-progress-bar__icon--complete"></span>
+                  <span class="hmcts-progress-bar__label">Appeal<br>submitted</span>
+                </li>
+
+                <li class="hmcts-progress-bar__list-item">
+                    <span class="hmcts-progress-bar__icon hmcts-progress-bar__icon--complete"></span>
+                  <span class="hmcts-progress-bar__label">Awaiting<br>respondent<br>evidence</span>
+                </li>
+
+                <li class="hmcts-progress-bar__list-item">
+                    <span class="hmcts-progress-bar__icon hmcts-progress-bar__icon--complete"></span>
+                  <span class="hmcts-progress-bar__label">Case<br>building</span>
+                </li>
+
+                <li class="hmcts-progress-bar__list-item">
+                  <span class="hmcts-progress-bar__icon hmcts-progress-bar__icon--complete"></span>
+                  <span class="hmcts-progress-bar__label">Case<br>under<br>review</span>
+                </li>
+
+                <li class="hmcts-progress-bar__list-item" aria-current="step">
+                  <span class="hmcts-progress-bar__icon"></span>
+                  <span class="hmcts-progress-bar__label">Respondent<br>review</span>
+                </li>
+
+                <li class="hmcts-progress-bar__list-item">
+                  <span class="hmcts-progress-bar__icon"></span>
+                  <span class="hmcts-progress-bar__label">Submit<br>hearing<br>requirements</span>
+                </li>
+
+                <li class="hmcts-progress-bar__list-item">
+                  <span class="hmcts-progress-bar__icon"></span>
+                  <span class="hmcts-progress-bar__label">Listing</span>
+                </li>
+                <li class="hmcts-progress-bar__list-item">
+                  <span class="hmcts-progress-bar__icon"></span>
+                  <span class="hmcts-progress-bar__label">Prepare<br>for<br>hearing</span>
+                </li>
+                <li class="hmcts-progress-bar__list-item">
+                  <span class="hmcts-progress-bar__icon"></span>
+                  <span class="hmcts-progress-bar__label">Final<br>bundling</span>
+                </li>
+                <li class="hmcts-progress-bar__list-item">
+                  <span class="hmcts-progress-bar__icon"></span>
+                  <span class="hmcts-progress-bar__label">Pre<br>hearing</span>
+                </li>
+                <li class="hmcts-progress-bar__list-item">
+                  <span class="hmcts-progress-bar__icon"></span>
+                  <span class="hmcts-progress-bar__label">Decision</span>
+                </li>
+                </ol>
+                </div>
+
+
+                <h2 class="govuk-heading-m">Do this next</h2>
+
+                <p class="govuk-body">Check the response uploaded by the respondent.</p>
+                <p class="govuk-body">If it complies with the Procedure Rules and Practice Directions, <a href="#" class="govuk-link">direct the appellant to review the Home Office response</a></p>
+                <p class="govuk-body">If it does not comply, direct the respondent to <a href="#" class="govuk-link">amend the appeal response</a></p>
+
+                <br>
+
+                 <h2 class="govuk-heading-m">Case details</h2>
+                 <dl class="govuk-summary-list">
+                       <div class="govuk-summary-list__row">
+                         <dt class="govuk-summary-list__key summary-key">
+                           Appeal reference
+                         </dt>
+                         <dd class="govuk-summary-list__value">
+                           PA/00321/2018
+                         </dd>
+                       </div>
+                       <div class="govuk-summary-list__row">
+                         <dt class="govuk-summary-list__key summary-key">
+                           Appellant
+                         </dt>
+                         <dd class="govuk-summary-list__value">
+                           Elisabet Borgen
+                       </dd>
+                       </div>
+                       <div class="govuk-summary-list__row">
+                         <dt class="govuk-summary-list__key summary-key">
+                           Date of birth
+                         </dt>
+                         <dd class="govuk-summary-list__value">
+                           05/05/1992
+                         </dd>
+                       </div>
+                       <div class="govuk-summary-list__row">
+                         <dt class="govuk-summary-list__key summary-key">
+                           Nationalities
+                         </dt>
+                         <dd class="govuk-summary-list__value">
+                           Swedish
+                         </dd>
+                       </div>
+                       <div class="govuk-summary-list__row">
+                         <dt class="govuk-summary-list__key summary-key">
+                           Type of appeal
+                         </dt>
+                         <dd class="govuk-summary-list__value">
+                           EEA
+                         </dd>
+
+                       </div>
+                       <div class="govuk-summary-list__row">
+                         <dt class="govuk-summary-list__key summary-key">
+                           Home Office reference
+                         </dt>
+                         <dd class="govuk-summary-list__value">
+                           X9875HD
+                         </dd>
+                       </div>
+                       <div class="govuk-summary-list__row">
+                         <dt class="govuk-summary-list__key summary-key">
+                           Linked appeal
+                         </dt>
+                         <dd class="govuk-summary-list__value">
+                           Familial
+                         </dd>
+                       </div>
+                 </dl>
+              </div>
+
+              <h2 class="govuk-heading-m">Legal representative</h2>
+              <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key summary-key">
+                      Company name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Duncan Lewis
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key summary-key">
+                        Email
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        appeals@duncanlewis.com
+                    </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key summary-key">
+                        Legal representative reference
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        DL023438A
+                      </dd>
+                    </div>
+              </dl>
+           </div>
+
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </main>
+</div>
+
+
+
+</div>
+{% endblock %}
