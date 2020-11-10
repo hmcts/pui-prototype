@@ -7,7 +7,6 @@
     <div class="hmcts-header__content">
       <nav class="hmcts-header__navigation" aria-label="Account navigation">
         <ul class="hmcts-header__navigation-list">
-
           <li class="hmcts-header__navigation-item">
             <a class="hmcts-header__navigation-link" href="#">
               Sign out
@@ -24,7 +23,7 @@
           </a>
         </li>
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link"  href="#">
+          <a class="hmcts-primary-navigation__link" href="#">
             Task manager
           </a>
         </li>
@@ -33,13 +32,11 @@
             Case list
           </a>
         </li>
-
         <li class="hmcts-primary-navigation__item">
           <a class="hmcts-primary-navigation__link" href="#">
             Create case
           </a>
         </li>
-
         <!--  <li class="hmcts-primary-navigation__item">
                     <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
                         Fee accounts
@@ -55,52 +52,40 @@
   #no-underline {
     underline: none;
   }
-
   /* // RESPONSIVE table */
-
   body {
     line-height: 1.25;
   }
-
   table {
     border-bottom: 1px solid #fff;
     border-collapse: collapse;
     margin: 0;
     padding: 0;
     width: 100%;
-
     table-layout: auto;
   }
-
   table caption {
     /* font-size: 1.5em; */
     margin: .5em 0 .75em;
   }
-
   table tr {
     background-color: #fff;
     border-bottom: 1px solid #ddd;
     padding: .35em;
   }
-
   table th,
   table td {
     padding: .625em 0;
     text-align: left;
-
   }
-
   table th {}
-
   @media screen and (max-width: 650px) {
     table {
       border: 0;
     }
-
     table caption {
       /* font-size: 1.3em; */
     }
-
     table thead {
       border: none;
       clip: rect(0 0 0 0);
@@ -110,23 +95,18 @@
       padding: 0;
       position: absolute;
       width: 1px;
-
     }
-
     table tr {
       border-bottom: 5px solid #ddd;
       display: block;
       margin-bottom: .625em;
-
     }
-
     table td {
       border-bottom: 1px solid #ddd;
       display: block;
       /* font-size: .8em; */
       text-align: right;
     }
-
     table td::before {
       /*
     * aria-label has no advantage, it won't be read inside a table
@@ -136,54 +116,38 @@
       float: left;
       font-weight: bold;
     }
-
     table td:last-child {
       border-bottom: 0;
-
     }
   }
 </style>
-
-
-
-
-  <div class="govuk-width-container">
-      {% include "./includes/phase-banner-alpha.html" %}
-    <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-          <div class="govuk-panel govuk-panel--confirmation">
-            <h1 class="govuk-panel__title">
-              You have allocated the case
-            </h1>
-            <div class="govuk-panel__body">
-
-            </div>
+<div class="govuk-width-container">
+  {% include "./includes/phase-banner-alpha.html" %}
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            You have allocated the case
+          </h1>
+          <div class="govuk-panel__body">
           </div>
-
-
-          <h2 class="govuk-heading-m">What happens next</h2>
-
-          <p class="govuk-body">
-            The tasks for this case will now appear in the caseworker's task list.
-          </p>
-          <p class="govuk-body">
-            Should you wish, you can  <a href="#" class="govuk-link">write them a case note</a>. They will be notified that the case has been allocated to them.
-          </p>
         </div>
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p class="govuk-body">
+          The tasks for this case will now appear in the caseworker's task list.
+        </p>
+        <p class="govuk-body">
+          Should you wish, you can <a href="7683-5391-8812-0980-n" class="govuk-link">write them a case note</a>. They will be notified that the case has been allocated to them.
+        </p>
       </div>
-      <form>
-
-
-
-          {{ govukButton({
+    </div>
+    <form>
+      {{ govukButton({
             text: 'Close and return to case details',
             href: "/mvp-4-WA/senior-TCW/case-list/7683-5391-8812-0980"
             }) }}
-
-
-
-      </form>
-    </main>
-  </div>
+    </form>
+  </main>
+</div>
 {% endblock %}
