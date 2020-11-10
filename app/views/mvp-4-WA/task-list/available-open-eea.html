@@ -157,22 +157,9 @@ table th {
 <div class="hmcts-width-container">
   {% include "./includes/phase-banner-alpha.html" %}
   <main role="main" class="govuk-main-wrapper">
-
-    <div class="hmcts-banner hmcts-banner--success">
-
-<svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-<path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
-
-<div class="hmcts-banner__message">
-<span class="hmcts-banner__assistive">Success</span>
-You've assigned yourself 1 task. Check your My tasks list for details.
-</div>
-
-</div>
     <h1 class="govuk-heading-xl">Task list</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-
 
         <p>See your tasks and view tasks available for you to pick up.</p>
 
@@ -182,12 +169,12 @@ You've assigned yourself 1 task. Check your My tasks list for details.
             <nav class="hmcts-sub-navigation">
               <ul class="hmcts-sub-navigation__list">
                 <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" href="/mvp-4-WA/task-list/index-a">
+                  <a class="hmcts-sub-navigation__link" href="/mvp-4-WA/task-list/">
                     My tasks
                   </a>
                 </li>
                 <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" aria-current="page" href="/mvp-4-WA/task-list/available-open-a">
+                  <a class="hmcts-sub-navigation__link" aria-current="page" href="/mvp-4-WA/task-list/available">
                     Available tasks
                   </a>
                 </li>
@@ -318,7 +305,15 @@ You've assigned yourself 1 task. Check your My tasks list for details.
                     </tr>
                 </thead>
                 <tbody>
-
+                    <tr>
+                        <td data-label="Payment reference">9087-2312-8765-0110</td>
+                        <td data-label="Case">Lacey-May Sanders</td>
+                        <td data-label="Reference">Protection</td>
+                        <td data-label="Status">Taylor House</td>
+                        <td data-label="Date">Review respondent evidence</td>
+                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--red">+2 Day</span> </td>
+                        <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+                    </tr>
 
                     <tr>
                         <td data-label="Payment reference">987-1234-7654-3687</td>
@@ -327,10 +322,8 @@ You've assigned yourself 1 task. Check your My tasks list for details.
                         <td data-label="Status">Taylor House</td>
                         <td data-label="Date">Review respondent evidence</td>
                         <td data-label="Amount"><span class="hmcts-badge hmcts-badge--red">+1 Day</span> </td>
-<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="/mvp-4-WA/task-list/available-open-a2">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
                     </tr>
-
-
                     <tr>
                         <td data-label="Payment reference">1562-1578-3622-1589</td>
                         <td data-label="Case">John Pickering</td>
@@ -338,9 +331,11 @@ You've assigned yourself 1 task. Check your My tasks list for details.
                         <td data-label="Status">Taylor House</td>
                         <td data-label="Date">Create case summary</td>
                         <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span></td>
-<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="/mvp-4-WA/task-list/available">Manage</a><span class="govuk-accordion-wa__iconc"></span></td>
                     </tr>
-
+                    <tr>
+                        <td colspan="7" class="right"> <a href="/mvp-4-WA/task-list/available-open-eea-e" class="right">Assign to me</a> <a href="#">Assign to me and go to case</a></td>
+                    </tr>
                     <tr>
                         <td data-label="Payment reference">1538-3893-8483-8337</td>
                         <td data-label="Case">Neha Venkatanarasimharaj</td>

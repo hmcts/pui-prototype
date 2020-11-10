@@ -55,99 +55,97 @@
 {% endblock %}
 {% block content %}
 <style>
-    #no-underline{
-  underline: none;
-}
+  #no-underline {
+    underline: none;
+  }
 
-/* // RESPONSIVE table */
+  /* // RESPONSIVE table */
 
-body {
-  line-height: 1.25;
-}
+  body {
+    line-height: 1.25;
+  }
 
-table {
-  border-bottom: 1px solid #fff;
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-
-  table-layout: auto;
-}
-
-table caption {
-  /* font-size: 1.5em; */
-  margin: .5em 0 .75em;
-}
-
-table tr {
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
-  padding: .35em;
-}
-
-table th,
-table td {
-  padding: .625em 0;
-  text-align: left;
-
-}
-
-table th {
-
-}
-
-@media screen and (max-width: 650px) {
   table {
-    border: 0;
+    border-bottom: 1px solid #fff;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    table-layout: auto;
   }
 
   table caption {
-    /* font-size: 1.3em; */
-  }
-
-  table thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-
+    /* font-size: 1.5em; */
+    margin: .5em 0 .75em;
   }
 
   table tr {
-    border-bottom: 5px solid #ddd;
-    display: block;
-    margin-bottom: .625em;
-
-  }
-
-  table td {
+    background-color: #fff;
     border-bottom: 1px solid #ddd;
-    display: block;
-    /* font-size: .8em; */
-    text-align: right;
+    padding: .35em;
   }
 
-  table td::before {
-    /*
+  table th,
+  table td {
+    padding: .625em 0;
+    text-align: left;
+
+  }
+
+  table th {}
+
+  @media screen and (max-width: 650px) {
+    table {
+      border: 0;
+    }
+
+    table caption {
+      /* font-size: 1.3em; */
+    }
+
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+
+    }
+
+    table tr {
+      border-bottom: 5px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+
+    }
+
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      /* font-size: .8em; */
+      text-align: right;
+    }
+
+    table td::before {
+      /*
     * aria-label has no advantage, it won't be read inside a table
     content: attr(aria-label);
     */
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+    }
+
+    table td:last-child {
+      border-bottom: 0;
+    }
+
+
   }
-
-  table td:last-child {
-    border-bottom: 0;
-
-  }
-}
-
 </style>
 
 
@@ -158,21 +156,13 @@ table th {
   {% include "./includes/phase-banner-alpha.html" %}
   <main role="main" class="govuk-main-wrapper">
 
-    <div class="hmcts-banner hmcts-banner--success">
 
-<svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
-<path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
 
-<div class="hmcts-banner__message">
-<span class="hmcts-banner__assistive">Success</span>
-You've assigned yourself 1 task. Check your My tasks list for details.
-</div>
 
-</div>
+
     <h1 class="govuk-heading-xl">Task list</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-
 
         <p>See your tasks and view tasks available for you to pick up.</p>
 
@@ -182,12 +172,12 @@ You've assigned yourself 1 task. Check your My tasks list for details.
             <nav class="hmcts-sub-navigation">
               <ul class="hmcts-sub-navigation__list">
                 <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" href="/mvp-4-WA/task-list/index-a">
+                  <a class="hmcts-sub-navigation__link" href="/mvp-4-WA/task-list/">
                     My tasks
                   </a>
                 </li>
                 <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" aria-current="page" href="/mvp-4-WA/task-list/available-open-a">
+                  <a class="hmcts-sub-navigation__link" aria-current="page" href="/mvp-4-WA/task-list/available">
                     Available tasks
                   </a>
                 </li>
@@ -210,7 +200,7 @@ You've assigned yourself 1 task. Check your My tasks list for details.
                       <label class="govuk-label govuk-checkboxes__label" for="organisation">
                         Select all / Deselect all
                       </label>
-                  </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -289,12 +279,12 @@ You've assigned yourself 1 task. Check your My tasks list for details.
                 <div class="govuk-grid-column-full">
                   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
                   <button class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
-              Apply
-            </button>
+                    Apply
+                  </button>
 
-            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-              Cancel
-            </button>
+                  <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    Cancel
+                  </button>
                 </div>
               </div>
 
@@ -302,64 +292,61 @@ You've assigned yourself 1 task. Check your My tasks list for details.
             </details>
 
             <table class="govuk-body" id="transactionstable">
-                <p class="govuk-body">
+              <p class="govuk-body">
 
-                </p>
-                <thead>
-                    <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header" aria-sort="ascending"><button type="button" data-index="0">Case reference</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case name</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case category</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Location</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Task</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Due</button></th>
+              </p>
+              <thead>
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header" aria-sort="ascending"><button type="button" data-index="0">Case reference</button></th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case name</button></th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case category</button></th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Location</button></th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Task</button></th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Due</button></th>
 
-                        <th scope="col" class="govuk-table__header" aria-sort="none">&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody>
+                  <th scope="col" class="govuk-table__header" aria-sort="none">&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Payment reference">9087-2312-8765-0110</td>
+                  <td data-label="Case">Lacey-May Sanders</td>
+                  <td data-label="Reference">Protection</td>
+                  <td data-label="Status">Taylor House</td>
+                  <td data-label="Date">Review respondent evidence</td>
+                  <td data-label="Amount"><span class="hmcts-badge hmcts-badge--red">+2 Day</span> </td>
+                  <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+                </tr>
 
-
-                    <tr>
-                        <td data-label="Payment reference">987-1234-7654-3687</td>
-                        <td data-label="Case">Olivia-Rose Olsen</td>
-                        <td data-label="Reference">Protection</td>
-                        <td data-label="Status">Taylor House</td>
-                        <td data-label="Date">Review respondent evidence</td>
-                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--red">+1 Day</span> </td>
-<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="/mvp-4-WA/task-list/available-open-a2">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-                    </tr>
-
-
-                    <tr>
-                        <td data-label="Payment reference">1562-1578-3622-1589</td>
-                        <td data-label="Case">John Pickering</td>
-                        <td data-label="Reference">EEA</td>
-                        <td data-label="Status">Taylor House</td>
-                        <td data-label="Date">Create case summary</td>
-                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span></td>
-<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Payment reference">1538-3893-8483-8337</td>
-                        <td data-label="Case">Neha Venkatanarasimharaj</td>
-                        <td data-label="Reference">HR</td>
-                        <td data-label="Status">Taylor House</td>
-                        <td data-label="Date">	Review appellant case</td>
-                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span></td>
-<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-                    </tr>
-                    <tr>
-                        <td data-label="Payment reference">1574-2379-9760-0643</td>
-                        <td data-label="Case">Amanda Curran</td>
-                        <td data-label="Reference">HR</td>
-                        <td data-label="Status">Taylor House</td>
-                        <td data-label="Date">Create hearing bundle</td>
-                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--green">2 Dec</span></td>
-<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-                    </tr>
-                </tbody>
+                <tr>
+                  <td data-label="Payment reference">987-1234-7654-3687</td>
+                  <td data-label="Case">Olivia-Rose Olsen</td>
+                  <td data-label="Reference">Protection</td>
+                  <td data-label="Status">Taylor House</td>
+                  <td data-label="Date">Review respondent evidence</td>
+                  <td data-label="Amount"><span class="hmcts-badge hmcts-badge--red">+1 Day</span> </td>
+                  <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+                </tr>
+      
+                <tr>
+                  <td data-label="Payment reference">1538-3893-8483-8337</td>
+                  <td data-label="Case">Neha Venkatanarasimharaj</td>
+                  <td data-label="Reference">HR</td>
+                  <td data-label="Status">Taylor House</td>
+                  <td data-label="Date"> Review appellant case</td>
+                  <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span></td>
+                  <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+                </tr>
+                <tr>
+                  <td data-label="Payment reference">1574-2379-9760-0643</td>
+                  <td data-label="Case">Amanda Curran</td>
+                  <td data-label="Reference">HR</td>
+                  <td data-label="Status">Taylor House</td>
+                  <td data-label="Date">Create hearing bundle</td>
+                  <td data-label="Amount"><span class="hmcts-badge hmcts-badge--green">2 Dec</span></td>
+                  <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+                </tr>
+              </tbody>
             </table>
             <!--
             <nav class="hmcts-pagination" id="pagination-label">
