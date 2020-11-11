@@ -149,11 +149,11 @@
   {% include "./includes/phase-banner-alpha.html" %}
   <main role="main" class="govuk-main-wrapper">
 
-    <h1 class="govuk-heading-xl">Mark the task as done</h1>
+    <h1 class="govuk-heading-xl">Unassign a task</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <p>Mark a task as done if something has gone wrong and it has already been completed.</p>
+        <p>Unassign a task and send it back to the 'available' tasks list.</p>
 
 
         <h2 class="govuk-heading-m">Task summary</h2>
@@ -193,17 +193,13 @@
 
               </tbody>
             </table>
-
           </div>
           <p></p>
-
         </div>
-
-
         <form>
             {{ govukButton({
-            text: 'Mark as done',
-            href: "#"
+            text: 'Unassign',
+            href: "/mvp-4-WA/task-manager/index-u"
             }) }}
 
 

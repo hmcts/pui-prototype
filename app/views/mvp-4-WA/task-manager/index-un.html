@@ -2,16 +2,7 @@
 {% block header %}
 <header class="hmcts-header" role="banner">
   <div class="hmcts-header__container">
-  <!--  <div class="govuk-header__logo">
-      <a href="/" class="govuk-header__link govuk-header__link--homepage">
-        <span class="govuk-header__logotype">
-          <span class="govuk-header__logotype-text">
-            MyHMCTS
-          </span>
-        </span>
-      </a>
-    </div> -->
-    <a class="hmcts-header__link"a href="/" >Manage cases</a>
+    <a class="hmcts-header__link" href="/">Manage cases</a>
     <div class="hmcts-header__content">
       <nav class="hmcts-header__navigation" aria-label="Account navigation">
         <ul class="hmcts-header__navigation-list">
@@ -31,12 +22,12 @@
     <nav class="hmcts-primary-navigation">
       <ul class="hmcts-primary-navigation__list">
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/task-list/">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/task-list/">
             Task list
           </a>
         </li>
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/task-manager/">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/task-manager/">
             Task manager
           </a>
         </li>
@@ -63,6 +54,7 @@
 </header>
 {% endblock %}
 {% block content %}
+
 <style>
     #no-underline{
   underline: none;
@@ -159,39 +151,63 @@ table th {
 
 </style>
 
-
 <div class="hmcts-width-container">
   {% include "./includes/phase-banner-alpha.html" %}
   <main role="main" class="govuk-main-wrapper">
-    <h1 class="govuk-heading-xl">Task list</h1>
+    <h1 class="govuk-heading-xl">Task manager</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <p>See your tasks and view tasks available for you to pick up.</p>
+          <p>Filter tasks by name and location.</p>
 
         <div class="hmcts-scrollable-pane">
           <div class="hmcts-scrollable-pane__wrapper">
 
-            <nav class="hmcts-sub-navigation">
-              <ul class="hmcts-sub-navigation__list">
-                <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" aria-current="page" href="/mvp-4-WA/task-list/index-a2">
-                    My tasks
-                  </a>
-                </li>
-                <li class="hmcts-sub-navigation__item">
-                  <a class="hmcts-sub-navigation__link" href="/mvp-4-WA/task-list/available-open-a2ar">
-                    Available tasks
-                  </a>
-                </li>
-              </ul>
-            </nav>
 
+
+
+
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+
+
+                <div class="govuk-date-input" id="passport-issued">
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        <strong>Name</strong>
+                      </label>
+                      <select class="govuk-select" id="sort" name="sort" onchange="location = this.value;">
+                        <option value="index-u">All</option>
+                        <option value="index-u" selected>None (unassigned tasks)</option>
+                        <option value="#">Bisa Butler</option>
+                        <option value="#">Ralf Beck</option>
+                        <option value="#">Yasmin Alrais</option>
+                      </select></div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        <strong>Location</strong>
+                      </label>
+                      <select class="govuk-select" id="sort" name="sort">
+                        <option value="index" selected>All</option>
+                        <option value="#">Birmingham</option>
+                        <option value="#">Cambridge</option>
+                        <option value="#">Newport</option>
+                        <option value="#">Taylor House</option>
+                      </select></div>
+                  </div>
+
+                </div>
+
+              </fieldset>
+            </div>
 
 
             <table class="govuk-body" id="transactionstable">
                 <p class="govuk-body">
-
                 </p>
                 <thead>
                     <tr class="govuk-table__row">
@@ -201,70 +217,28 @@ table th {
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Location</button></th>
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Task</button></th>
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Date</button></th>
-
-                        <th scope="col" class="govuk-table__header" aria-sort="none">&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Worker</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"></th>
 
                     </tr>
                 </thead>
                 <tbody>
-
-
-                  <tr>
-                      <td data-label="Payment reference"><a href="">9087-2312-8765-0110</a></td>
-                      <td data-label="Case">Lacey-May Sanders</td>
-                      <td data-label="Reference">Protection</td>
-                      <td data-label="Status">Taylor House</td>
-                      <td data-label="Date">Review respondent evidence</td>
-                      <td data-label="Amount"><span class="hmcts-badge hmcts-badge--red">+2 Day</span> </td>
-                      <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="/mvp-4-WA/task-list/index-a2o">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-
-                  </tr>
-
-
-                  <tr>
-                      <td data-label="Payment reference"><a href="">987-1234-7654-3687</a></td>
-                      <td data-label="Case">Olivia-Rose Olsen</td>
-                      <td data-label="Reference">Protection</td>
-                      <td data-label="Status">Taylor House</td>
-                      <td data-label="Date">Review respondent evidence</td>
-                      <td data-label="Amount"><span class="hmcts-badge hmcts-badge--red">+1 Day</span> </td>
-<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-                  </tr>
-
-
-
                     <tr>
                         <td data-label="Payment reference"><a href="#">1542-5226-7383-2772</a></td>
-                        <td data-label="Case">Robert Saddlebrook</td>
+                        <td data-label="Case">Robert Doors</td>
                         <td data-label="Reference">Protection</td>
                         <td data-label="Status">Taylor House</td>
                         <td data-label="Date">Review respondent evidence</td>
                         <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span> </td>
-<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+                        <td data-label="Date"></td>
+                        <td data-label="Amount"><a href="/mvp-4-WA/task-manager/index-uno">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+
                     </tr>
-                    <tr>
-                        <td data-label="Payment reference"><a href="#">1526-8943-7271-8327</a></td>
-                        <td data-label="Case">Hudson Remi </td>
-                        <td data-label="Reference">Protection</td>
-                        <td data-label="Status">Taylor House</td>
-                        <td data-label="Date">Review appellant case</td>
-                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--green">9 nov</span> </td>
-                      <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-                    </tr>
+
 
                 </tbody>
             </table>
-            <!--
-            <nav class="hmcts-pagination" id="pagination-label">
-                <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
-                <ul class="hmcts-pagination__list">
-                    <li class="hmcts-pagination__item hmcts-pagination__item--active">1</li>
-                    <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="#">2</a></li>
-                    <li class="hmcts-pagination__item  hmcts-pagination__item--next">
-                    <a class="hmcts-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
-                    </li>
-                </ul>
-            </nav> -->
+
           </div>
         </div>
   </main>
