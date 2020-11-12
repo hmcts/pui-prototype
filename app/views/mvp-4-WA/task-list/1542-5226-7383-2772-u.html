@@ -19,7 +19,7 @@
     <nav class="hmcts-primary-navigation">
       <ul class="hmcts-primary-navigation__list">
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/task-list/">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/task-list/index-ao">
             Task list
           </a>
         </li>
@@ -149,11 +149,11 @@
   {% include "./includes/phase-banner-alpha.html" %}
   <main role="main" class="govuk-main-wrapper">
 
-    <h1 class="govuk-heading-xl">Reassign a task</h1>
+    <h1 class="govuk-heading-xl">Unassign a task</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <p>Reassign a task to a colleague.</p>
+        <p>Unassign a task and send it back to the 'available' tasks list.</p>
 
 
         <h2 class="govuk-heading-m">Task summary</h2>
@@ -185,7 +185,7 @@
                   <td data-label="Reference">Protection</td>
                   <td data-label="Status">Taylor House</td>
                   <td data-label="Date">Review respondent evidence</td>
-                  <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span> </td>
+                    <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span> </td>
 
 
 
@@ -193,64 +193,17 @@
 
               </tbody>
             </table>
-
           </div>
           <p></p>
-
         </div>
-
-        <h2 class="govuk-heading-m">Choose a colleague</h2>
-
-        <div class="govuk-form-group">
-          <div class="govuk-date-input" id="passport-issued">
-
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-                  <strong>Location</strong>
-                </label>
-                <select class="govuk-select" id="sort" name="sort">
-                  <option value="#">All</option>
-                  <option value="#">Birmingham</option>
-                  <option value="#">Cambridge</option>
-                  <option value="#">Newport</option>
-                  <option value="#" selected>Taylor House</option>
-                </select>
-              </div>
-
-            </div>
-
-            <p></p>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-                  <strong>Name</strong>
-                </label>
-                <select class="govuk-select" id="sort" name="sort" onchange="location = this.value;">
-                  <option value="index" selected>Select a value</option>
-
-                  <option value="#">Bisa Butler</option>
-                  <option value="#">Ralf Beck</option>
-                  <option value="#">Yasmin Alrais</option>
-                </select>
-              </div>
-            </div>
-
-          </div>
-
-
-        </div>
-
-
         <form>
-          {{ govukButton({
-            text: 'Reassign',
-            href: "/mvp-4-WA/task-list/mytasks-open-r"
+            {{ govukButton({
+            text: 'Unassign',
+            href: "/mvp-4-WA/task-list/index-aou2"
             }) }}
 
 
-          {{ govukButton({
+            {{ govukButton({
             text: 'Cancel and go back',
             classes: "govuk-button--secondary",
             href: "/mvp-4-WA/task-list/mytasks-open"
