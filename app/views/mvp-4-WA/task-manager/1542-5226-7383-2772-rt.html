@@ -149,6 +149,8 @@
   {% include "./includes/phase-banner-alpha.html" %}
   <main role="main" class="govuk-main-wrapper">
 
+
+
     <h1 class="govuk-heading-xl">Reassign a task</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
@@ -201,6 +203,12 @@
 
         <h2 class="govuk-heading-m">Choose a colleague</h2>
 
+
+
+
+
+
+
         <div class="govuk-form-group">
           <div class="govuk-date-input" id="passport-issued">
 
@@ -218,37 +226,29 @@
                   <option value="#" selected>Taylor House</option>
                 </select>
               </div>
-
             </div>
-
             <p></p>
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
                 <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
                   <strong>Name</strong>
                 </label>
-                <select class="govuk-select" id="sort" name="sort" onchange="location = this.value;">
-                  <option value="index" selected>Select a value</option>
-
-                  <option value="#">Bisa Butler</option>
-                  <option value="#">Ralf Beck</option>
-                  <option value="#">Yasmin Alrais</option>
-                </select>
+                      <h2>pick an option</h2>
+                      <select class="govuk-select" id="wa-name" name="wa-name">
+                          <option value="/mvp-4-WA/task-manager/1542-5226-7383-2772-rte">Select a value</option>
+                          <option value="/mvp-4-WA/task-manager/taskmanager-open-r">Ralf Beck</option>
+                          <option value="/mvp-4-WA/task-manager/taskmanager-open-r">Yasmin Alrais</option>
+                      </select>
               </div>
             </div>
-
           </div>
-
-
         </div>
 
 
-        <form>
-          {{ govukButton({
-            text: 'Reassign',
-            href: "/mvp-4-WA/task-manager/taskmanager-open-r"
-            }) }}
 
+          <button class="govuk-button" type="submit">
+          Reassign
+          </button>
 
           {{ govukButton({
             text: 'Cancel and go back',
@@ -257,7 +257,8 @@
             }) }}
 
 
-        </form>
+  <form>
+
 
 
   </main>
@@ -283,5 +284,10 @@
       container: $('.hmcts-filter')
     }
   });
+</script>
+<script>
+$('.govuk-button').click(function() {
+    window.location = $('#wa-name').val();
+});
 </script>
 {% endblock %}

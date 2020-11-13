@@ -153,7 +153,19 @@
   {% include "./includes/phase-banner-alpha.html" %}
   <main role="main" class="govuk-main-wrapper">
 
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#passport-issued-error">You must select a name</a>
+          </li>
 
+        </ul>
+      </div>
+    </div>
 
 
 
@@ -233,29 +245,37 @@
                   <option value="#" selected>Taylor House</option>
                 </select>
               </div>
+
             </div>
+
             <p></p>
             <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
+              <div class="govuk-form-group govuk-form-group--error">
                 <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
                   <strong>Name</strong>
                 </label>
-                      <h2>pick an option</h2>
-                      <select class="govuk-select" id="wa-name" name="wa-name">
+                      <span id="national-insurance-number-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> You must select a name
+                      </span>
+                      <select class="govuk-select govuk-select--error" id="wa-name" name="wa-name">
                           <option value="/mvp-4-WA/case-list/1542-5226-7383-2772-rte">Select a value</option>
                           <option value="/mvp-4-WA/task-list/mytasks-open-r">Ralf Beck</option>
                           <option value="/mvp-4-WA/task-list/mytasks-open-r">Yasmin Alrais</option>
                       </select>
+
+
               </div>
             </div>
+
           </div>
+
+
         </div>
-
-
 
           <button class="govuk-button" type="submit">
           Reassign
           </button>
+
           {{ govukButton({
             text: 'Cancel and go back',
             classes: "govuk-button--secondary",
