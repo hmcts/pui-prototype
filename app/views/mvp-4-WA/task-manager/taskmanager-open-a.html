@@ -154,19 +154,26 @@ table th {
 <div class="hmcts-width-container">
   {% include "./includes/phase-banner-alpha.html" %}
   <main role="main" class="govuk-main-wrapper">
+
+    <div class="hmcts-banner hmcts-banner--success">
+
+<svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+<path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
+
+<div class="hmcts-banner__message">
+<span class="hmcts-banner__assistive">Success</span>
+You've assigned a task.
+
+</div>
+</div>
     <h1 class="govuk-heading-xl">Task manager</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-
           <p>Filter tasks by name and location.</p>
-
         <div class="hmcts-scrollable-pane">
           <div class="hmcts-scrollable-pane__wrapper">
-
             <div class="govuk-form-group">
               <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-
-
                 <div class="govuk-date-input" id="passport-issued">
                   <div class="govuk-date-input__item">
                     <div class="govuk-form-group">
@@ -194,13 +201,9 @@ table th {
                         <option value="#">Taylor House</option>
                       </select></div>
                   </div>
-
                 </div>
-
               </fieldset>
             </div>
-
-
             <table class="govuk-body" id="transactionstable">
                 <p class="govuk-body">
                 </p>
@@ -225,10 +228,10 @@ table th {
                         <td data-label="Status">Taylor House</td>
                         <td data-label="Date">Review respondent evidence</td>
                         <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span> </td>
-                        <td data-label="Date">Bisa Butler</td>
-                        <td data-label="Amount"><a href="/mvp-4-WA/task-manager/taskmanager-open" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-
+                        <td data-label="Date">Ralf Beck</td>
+                        <td data-label="Amount"><a href="/mvp-4-WA/task-manager/index" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
                     </tr>
+
                     <tr>
                         <td data-label="Payment reference"><a href="#">1526-8943-7271-8327</a></td>
                         <td data-label="Case">Hudson Remi </td>
@@ -237,9 +240,8 @@ table th {
                         <td data-label="Date">Review appellant case</td>
                         <td data-label="Amount"><span class="hmcts-badge hmcts-badge--green">9 nov</span> </td>
                         <td data-label="Date">Yasmin Alrais</td>
-                        <td data-label="Amount"><a href="/mvp-4-WA/task-manager/taskmanager-open-b" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+                        <td data-label="Amount"><a href="#" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
                     </tr>
-
                     <tr>
                         <td data-label="Payment reference"><a href="#">1526-8943-7271-8327</a></td>
                         <td data-label="Case">Niki Shana </td>
@@ -261,10 +263,8 @@ table th {
                         <td data-label="Date">Yasmin Alrais</td>
                         <td data-label="Amount"><a href="#" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
                     </tr>
-
                 </tbody>
             </table>
-
           </div>
         </div>
   </main>
