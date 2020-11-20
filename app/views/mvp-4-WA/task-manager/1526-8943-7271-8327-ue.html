@@ -161,7 +161,7 @@ table th {
 
    <div class="hmcts-banner__message">
    <span class="hmcts-banner__assistive" style="vertical-align: middle;" >Warning</span>
-   <span style="float: left; vertical-align: middle;">The task has already been unassigned.</span>
+   <span style="float: left; vertical-align: middle;">The task is no  longer available. </span>
 
    </div>
 
@@ -182,7 +182,7 @@ table th {
    <h1 class="govuk-heading-xl">Task manager</h1>
    <div class="govuk-grid-row">
      <div class="govuk-grid-column-full">
-         <p>Filter tasks by name and location.</p>
+         <p>Filter tasks by assignee and location. Select unassigned from the asignee dropdown to see available tasks.</p>
        <div class="hmcts-scrollable-pane">
          <div class="hmcts-scrollable-pane__wrapper">
            <div class="govuk-form-group">
@@ -191,20 +191,22 @@ table th {
                  <div class="govuk-date-input__item">
                    <div class="govuk-form-group">
                      <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-                       <strong>Name</strong>
+                       <strong>Assignee</strong>
                      </label>
                      <select class="govuk-select" id="sort" name="sort" onchange="location = this.value;">
                        <option value="index" selected >All caseworkers</option>
                        <option value="#">None (unassigned tasks)</option>
-                       <option value="bisa">Bisa Butler</option>
-                       <option value="#">Ralf Beck</option>
-                       <option value="#">Yasmin Alrais</option>
+
+                       <option value="bisa">Bisa Butler - bisa.butler@mail.com</option>
+                       <option value="#">Ralf Beck - ralf.beck@mail.com</option>
+                       <option value="#">Yasmin Alrais - Yasmin.alrais@mail.com</option>
+
                      </select></div>
                  </div>
                  <div class="govuk-date-input__item">
                    <div class="govuk-form-group">
                      <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-                       <strong>Location</strong>
+                       <strong>Task location</strong>
                      </label>
                      <select class="govuk-select" id="sort" name="sort">
                        <option value="index" selected>All locations</option>

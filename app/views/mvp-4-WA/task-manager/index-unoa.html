@@ -170,7 +170,7 @@ You've assigned a task.
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-          <p>Filter tasks by name and location.</p>
+          <p>Filter tasks by assignee and location. Select unassigned from the asignee dropdown to see available tasks.</p>
 
         <div class="hmcts-scrollable-pane">
           <div class="hmcts-scrollable-pane__wrapper">
@@ -188,20 +188,23 @@ You've assigned a task.
                   <div class="govuk-date-input__item">
                     <div class="govuk-form-group">
                       <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-                        <strong>Name</strong>
+                        <strong>Assignee</strong>
                       </label>
                       <select class="govuk-select" id="sort" name="sort" onchange="location = this.value;">
-                        <option value="index-u">All caseworkers</option>
+                        <option value="taskmanager-open-r">All caseworkers</option>
                         <option value="index-u" selected>None (unassigned tasks)</option>
-                        <option value="#">Bisa Butler</option>
-                        <option value="#">Ralf Beck</option>
-                        <option value="#">Yasmin Alrais</option>
+
+
+                        <option value="#">Bisa Butler - bisa.butler@mail.com</option>
+                        <option value="#">Ralf Beck - ralf.beck@mail.com</option>
+                        <option value="#">Yasmin Alrais - Yasmin.alrais@mail.com</option>
+
                       </select></div>
                   </div>
                   <div class="govuk-date-input__item">
                     <div class="govuk-form-group">
                       <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-                        <strong>Location</strong>
+                        <strong>Task location</strong>
                       </label>
                       <select class="govuk-select" id="sort" name="sort">
                         <option value="index" selected>All locations</option>
@@ -236,7 +239,7 @@ You've assigned a task.
                 </thead>
                 <tbody>
                     <tr>
-                      <td data-label="Payment reference">No unassigned cases - message to be confirmed - Frank H</td>
+                      <td data-label="Payment reference">No unassigned cases - Change your selection to view tasks.</td>
                       <td data-label="Case"></td>
                       <td data-label="Reference"></td>
                       <td data-label="Status"></td>
