@@ -1,3 +1,6 @@
+
+
+
 {% extends "./layout.html" %}
 {% block header %}
 <header class="hmcts-header" role="banner">
@@ -101,20 +104,15 @@ table td {
   text-align: left;
 
 }
-
 table th {
-
 }
-
 @media screen and (max-width: 650px) {
   table {
     border: 0;
   }
-
   table caption {
     /* font-size: 1.3em; */
   }
-
   table thead {
     border: none;
     clip: rect(0 0 0 0);
@@ -124,23 +122,18 @@ table th {
     padding: 0;
     position: absolute;
     width: 1px;
-
   }
-
   table tr {
     border-bottom: 5px solid #ddd;
     display: block;
     margin-bottom: .625em;
-
   }
-
   table td {
     border-bottom: 1px solid #ddd;
     display: block;
     /* font-size: .8em; */
     text-align: right;
   }
-
   table td::before {
     /*
     * aria-label has no advantage, it won't be read inside a table
@@ -150,28 +143,37 @@ table th {
     float: left;
     font-weight: bold;
   }
-
   table td:last-child {
     border-bottom: 0;
-
   }
 }
-
 </style>
-
-
 <div class="hmcts-width-container">
   {% include "./includes/phase-banner-alpha.html" %}
   <main role="main" class="govuk-main-wrapper">
+    <div class="hmcts-banner hmcts-banner--warning">
+    <svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+    <path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" /></svg>
+    <div class="hmcts-banner__message">
+    <span class="hmcts-banner__assistive" style="vertical-align: middle;" >Warning</span>
+    <span style="float: left; vertical-align: middle;">The task is no longer available.</span>
+    </div>
+    </div>
+    <div class="hmcts-banner">
+    <svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25" >
+    <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+    C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" /></svg>
+    <div class="hmcts-banner__message">
+    <span class="hmcts-banner__assistive">information</span>
+    The list has been refreshed.
+    </div>
+    </div>
     <h1 class="govuk-heading-xl">Task list</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-
         <p>See your tasks and view tasks available for you to pick up.</p>
-
         <div class="hmcts-scrollable-pane">
           <div class="hmcts-scrollable-pane__wrapper">
-
             <nav class="hmcts-sub-navigation">
               <ul class="hmcts-sub-navigation__list">
                 <li class="hmcts-sub-navigation__item">
@@ -186,12 +188,8 @@ table th {
                 </li>
               </ul>
             </nav>
-
-
-
             <table class="govuk-body" id="transactionstable">
                 <p class="govuk-body">
-
                 </p>
                 <thead>
                     <tr class="govuk-table__row">
@@ -204,7 +202,6 @@ table th {
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Date</button></th>
 
                         <th scope="col" class="govuk-table__header" aria-sort="none">&nbsp;&nbsp;&nbsp;&nbsp;</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -216,43 +213,12 @@ table th {
                           <td data-label=""></td>
                         <td data-label="Date">Review respondent evidence</td>
                         <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span> </td>
-<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="/mvp-4-WA/task-list/" class="right_m">Manage</a><span class="govuk-accordion-wa__iconc"></span></td>
-                    </tr>
-
-                    <tr>
-
-                        <td colspan="8" class="right"> <a href="/mvp-4-WA/task-list/1542-5226-7383-2772-rt" class="right">Reassign task</a> <a href="/mvp-4-WA/task-list/1542-5226-7383-2772-u" class="right">Unassign task</a> <a href="/mvp-4-WA/case-list/1542-5226-7383-2772" class="right_tl">Go to case</a></td>
-                    </tr>
-
-
-                    <tr>
-                        <td data-label="Payment reference"><a href="#">1526-8943-7271-8327</a></td>
-                        <td data-label="Case">Hudson Remi </td>
-                        <td data-label="Reference">Protection</td>
-                        <td data-label="Status">Taylor House</td>
-                        <td data-label="info"> <svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25" path style="fill: orange">
-                        <title>This case has more than one task. Review needed.</title><path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
-                        C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" /></svg> </td>
-                        <td data-label="Date">Review appellant case</td>
-                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--green">9 nov</span> </td>
-                      <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="/mvp-4-WA/task-list/mytasks-open-e" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="/mvp-4-WA/task-list/" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
                     </tr>
 
                 </tbody>
             </table>
 
-
-            <!--
-            <nav class="hmcts-pagination" id="pagination-label">
-                <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
-                <ul class="hmcts-pagination__list">
-                    <li class="hmcts-pagination__item hmcts-pagination__item--active">1</li>
-                    <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="#">2</a></li>
-                    <li class="hmcts-pagination__item  hmcts-pagination__item--next">
-                    <a class="hmcts-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
-                    </li>
-                </ul>
-            </nav> -->
           </div>
         </div>
   </main>
