@@ -52,29 +52,39 @@
 </header>
 {% endblock %}
 {% block content %}
+
   <div class="govuk-width-container">
       {% include "./includes/phase-banner-alpha.html" %}
     <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+
+      <div class="hmcts-banner hmcts-banner--warning">
+
+<svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+<path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" /></svg>
+
+<div class="hmcts-banner__message">
+  <span class="hmcts-banner__assistive govuk-body govuk-!-font-weight-bold">Warning</span>
+<span class="govuk-body govuk-!-font-weight-bold">The tasks could not be completed automatically. Please complete all the tasks associated with the case manually.</span>
+</div>
+
+</div>
       <div class="govuk-grid-row">
+
+
+
         <div class="govuk-grid-column-two-thirds">
+
+
           <div class="govuk-panel govuk-panel--confirmation">
             <h1 class="govuk-panel__title">
-              You have allocated the case
+              You've updated the legal representative's details
             </h1>
-            <div class="govuk-panel__body">
+            <div class="govuk-panel__body">#1547-5669-3418-7350
             </div>
           </div>
 
-          <div class="govuk-warning-text">
-            <svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="40" width="40" path style="fill: orange">
-            <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
-            C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" /></svg>
-            <strong class="govuk-warning-text__text">
-              <span class="govuk-warning-text__assistive">Warning</span>
-                The tasks could not be completed automatically. Please complete all the tasks associated with the case manually.
-            </strong>
-          </div>
 
+  <p class="govuk-body"></p>
 
 
           <h2 class="govuk-heading-m">What happens next</h2>
@@ -83,10 +93,10 @@
 
 
           <p class="govuk-body">
-            The tasks for this case will now appear in your task list.
+            The service will be updated. The new details will be used on all future correspondence and documents.
           </p>
           <p class="govuk-body">
-            Should you wish, you can write <a href="/mvp-4-WA/TCW-self-allocates/case-list/7683-5391-8812-0980-an" class="govuk-link"> a case note</a>.
+
         </div>
       </div>
       <form>
