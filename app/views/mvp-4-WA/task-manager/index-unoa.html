@@ -1,0 +1,255 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <a class="hmcts-header__link" href="/">Manage cases</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/task-list/">
+            Task list
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/task-manager/">
+            Task manager
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/case-list/">
+            Case list
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Create case
+          </a>
+        </li>
+
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+
+<style>
+    #no-underline{
+  underline: none;
+}
+
+/* // RESPONSIVE table */
+
+body {
+  line-height: 1.25;
+}
+
+table {
+  border-bottom: 1px solid #fff;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  table-layout: auto;
+}
+
+table caption {
+  /* font-size: 1.5em; */
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em 0;
+  text-align: left;
+
+}
+
+table th {
+
+}
+
+@media screen and (max-width: 650px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    /* font-size: 1.3em; */
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+  }
+
+  table tr {
+    border-bottom: 5px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    /* font-size: .8em; */
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+
+  }
+}
+
+</style>
+
+<div class="hmcts-width-container">
+  {% include "./includes/phase-banner-alpha.html" %}
+  <main role="main" class="govuk-main-wrapper">
+
+    <div class="hmcts-banner hmcts-banner--success">
+
+<svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+<path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
+
+<div class="hmcts-banner__message">
+<span class="hmcts-banner__assistive">Success</span>
+You've assigned a task.
+
+</div>
+</div>
+    <h1 class="govuk-heading-xl">Task manager</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+          <p>Filter tasks by assignee and location. Select unassigned from the asignee dropdown to see available tasks.</p>
+
+        <div class="hmcts-scrollable-pane">
+          <div class="hmcts-scrollable-pane__wrapper">
+
+
+
+
+
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+
+
+                <div class="govuk-date-input" id="passport-issued">
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        <strong>Assignee</strong>
+                      </label>
+                      <select class="govuk-select" id="sort" name="sort" onchange="location = this.value;">
+                        <option value="taskmanager-open-r">All caseworkers</option>
+                        <option value="index-u" selected>None (unassigned tasks)</option>
+
+
+                        <option value="#">Bisa Butler - bisa.butler@mail.com</option>
+                        <option value="#">Ralf Beck - ralf.beck@mail.com</option>
+                        <option value="#">Yasmin Alrais - Yasmin.alrais@mail.com</option>
+
+                      </select></div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        <strong>Task location</strong>
+                      </label>
+                      <select class="govuk-select" id="sort" name="sort">
+                        <option value="index" selected>All locations</option>
+                        <option value="#">Birmingham</option>
+                        <option value="#">Bradford</option>
+                        <option value="#">Glasgow</option>
+                        <option value="#">Manchester</option>
+                        <option value="#">Newport</option>
+                        <option value="#">Nottingham</option>
+                        <option value="#">Northshields</option>
+                        <option value="#">Taylor House</option>
+                      </select></div>
+                  </div>
+
+                </div>
+
+              </fieldset>
+            </div>
+<p>Displaying <Strong> 0 </strong>tasks</p>
+
+            <table class="govuk-body" id="transactionstable">
+                <p class="govuk-body">
+                </p>
+                <thead>
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header" aria-sort="ascending"><button type="button" data-index="0">Case reference</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case name</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case category</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Location</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Task</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Date</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Assignee</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                      <tr>
+                          <td colspan="8">Change your selection to view tasks.</td>
+                      </tr>
+                </tbody>
+            </table>
+
+          </div>
+        </div>
+  </main>
+</div>
+{% endblock %}

@@ -2,7 +2,7 @@
 {% block header %}
 <header class="hmcts-header" role="banner">
   <div class="hmcts-header__container">
-    <a class="hmcts-header__link" href="#">Manage cases</a>
+    <a class="hmcts-header__link" href="/">Manage cases</a>
     <div class="hmcts-header__content">
       <nav class="hmcts-header__navigation" aria-label="Account navigation">
         <ul class="hmcts-header__navigation-list">
@@ -12,7 +12,7 @@
                         </a>
                     </li> -->
           <li class="hmcts-header__navigation-item">
-            <a class="hmcts-header__navigation-link" href="#1">
+            <a class="hmcts-header__navigation-link" href="#">
               Sign out
             </a>
           </li>
@@ -32,7 +32,7 @@
           </a>
         </li>
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" href="#">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/case-list/">
             Case list
           </a>
         </li>
@@ -54,99 +54,96 @@
 {% endblock %}
 {% block content %}
 <style>
-    #no-underline{
-  underline: none;
-}
+  #no-underline {
+    underline: none;
+  }
 
-/* // RESPONSIVE table */
+  /* // RESPONSIVE table */
 
-body {
-  line-height: 1.25;
-}
+  body {
+    line-height: 1.25;
+  }
 
-table {
-  border-bottom: 1px solid #fff;
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-
-  table-layout: auto;
-}
-
-table caption {
-  /* font-size: 1.5em; */
-  margin: .5em 0 .75em;
-}
-
-table tr {
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
-  padding: .35em;
-}
-
-table th,
-table td {
-  padding: .625em 0;
-  text-align: left;
-
-}
-
-table th {
-
-}
-
-@media screen and (max-width: 650px) {
   table {
-    border: 0;
+    border-bottom: 1px solid #fff;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    table-layout: auto;
   }
 
   table caption {
-    /* font-size: 1.3em; */
-  }
-
-  table thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-
+    /* font-size: 1.5em; */
+    margin: .5em 0 .75em;
   }
 
   table tr {
-    border-bottom: 5px solid #ddd;
-    display: block;
-    margin-bottom: .625em;
-
-  }
-
-  table td {
+    background-color: #fff;
     border-bottom: 1px solid #ddd;
-    display: block;
-    /* font-size: .8em; */
-    text-align: right;
+    padding: .35em;
   }
 
-  table td::before {
-    /*
+  table th,
+  table td {
+    padding: .625em 0;
+    text-align: left;
+
+  }
+
+  table th {}
+
+  @media screen and (max-width: 650px) {
+    table {
+      border: 0;
+    }
+
+    table caption {
+      /* font-size: 1.3em; */
+    }
+
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+
+    }
+
+    table tr {
+      border-bottom: 5px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+
+    }
+
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      /* font-size: .8em; */
+      text-align: right;
+    }
+
+    table td::before {
+      /*
     * aria-label has no advantage, it won't be read inside a table
     content: attr(aria-label);
     */
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+    }
+
+    table td:last-child {
+      border-bottom: 0;
+
+    }
   }
-
-  table td:last-child {
-    border-bottom: 0;
-
-  }
-}
-
 </style>
 
 
@@ -179,132 +176,198 @@ table th {
                 </li>
               </ul>
             </nav>
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Filter by location
-                </span>
-              </summary>
-              <div class="govuk-form-group">
-                <p>
-                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
 
 
-                  <div class="govuk-date-input" id="passport-issued">
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group">
-                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint">
-Bradford
-Hatton Cross
-Manchester
-Newport</textarea></div>
-                        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-  Add >>
-</button>
-                    </div>
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group">
 
-                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint">Taylor House</textarea></div>
-                        <button class="govuk-button govuk-button--secondary" data-module="govuk-button"> << Remove
-</button>
-                    </div>
 
-                  </div>
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Filter by location
+    </span>
+  </summary>
 
-                </fieldset>
-                <button class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
-                  Apply
-                </button><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-  Cancel</button>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-checkboxes govuk-checkboxes--small">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+          <label class="govuk-label govuk-checkboxes__label" for="organisation">
+            Select all / Deselect all
+          </label>
+      </div>
+      </div>
+    </div>
+  </div>
 
-              </div>
-
-            </details>
-
-            <table class="govuk-body" id="transactionstable">
-                <p class="govuk-body">
-
-                </p>
-                <thead>
-                    <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header" aria-sort="ascending"><button type="button" data-index="0">Case reference</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case name</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case category</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Location</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Task</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Due</button></th>
-
-                        <th scope="col" class="govuk-table__header" aria-sort="none">&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="Payment reference">9087-2312-8765-0110</td>
-                        <td data-label="Case">Lacey-May Sanders</td>
-                        <td data-label="Reference">Protection</td>
-                        <td data-label="Status">Taylor House</td>
-                        <td data-label="Date">Review respondent evidence</td>
-                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--red">+2 Day</span> </td>
-                        <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="/mvp-4-WA/task-list/available-open">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-
-                    </tr>
-                    <tr>
-                        <td data-label="Payment reference">987-1234-7654-3687</td>
-                        <td data-label="Case">Olivia-Rose Olsen</td>
-                        <td data-label="Reference">Protection</td>
-                        <td data-label="Status">Taylor House</td>
-                        <td data-label="Date">Review respondent evidence</td>
-                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--red">+1 Day</span> </td>
-<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-                    </tr>
-                    <tr>
-                        <td data-label="Payment reference">1562-1578-3622-1589</td>
-                        <td data-label="Case">John Pickering</td>
-                        <td data-label="Reference">EEA</td>
-                        <td data-label="Status">Taylor House</td>
-                        <td data-label="Date">Create case summary</td>
-                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span></td>
-<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Payment reference">1538-3893-8483-8337</td>
-                        <td data-label="Case">Neha Venkatanarasimharaj</td>
-                        <td data-label="Reference">HR</td>
-                        <td data-label="Status">Taylor House</td>
-                        <td data-label="Date">	Review appellant case</td>
-                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span></td>
-<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-                    </tr>
-                    <tr>
-                        <td data-label="Payment reference">1574-2379-9760-0643</td>
-                        <td data-label="Case">Amanda Curran</td>
-                        <td data-label="Reference">HR</td>
-                        <td data-label="Status">Taylor House</td>
-                        <td data-label="Date">Create hearing bundle</td>
-                        <td data-label="Amount"><span class="hmcts-badge hmcts-badge--green">2 Dec</span></td>
-<td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-                    </tr>
-                </tbody>
-            </table>
-            <!--
-            <nav class="hmcts-pagination" id="pagination-label">
-                <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
-                <ul class="hmcts-pagination__list">
-                    <li class="hmcts-pagination__item  hmcts-pagination__item--prev">
-                        <a class="hmcts-pagination__link" href="">Previous<span class="govuk-visually-hidden"> set of pages</span></a>
-                    </li>
-                    <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="#">1</a></li>
-                    <li class="hmcts-pagination__item hmcts-pagination__item--active">2</li>
-                    <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="#">3</a></li>
-                    <li class="hmcts-pagination__item  hmcts-pagination__item--next">
-                        <a class="hmcts-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
-                    </li>
-                </ul>
-            </nav> -->
-          </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <div class="govuk-checkboxes govuk-checkboxes--small">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+          <label class="govuk-label govuk-checkboxes__label" for="organisation">
+            Birmingham
+          </label>
         </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+          <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+            Bradford
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="MOD">
+          <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
+            Glasgow
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+          <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+            Manchester
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter">
+
+
+
+
+
+      <div class="govuk-checkboxes govuk-checkboxes--small">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+          <label class="govuk-label govuk-checkboxes__label" for="organisation">
+            Newport
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+          <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+            Nottingham
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="MOD">
+          <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
+            Northshields
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="TH" checked>
+          <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+            Taylor House
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter">
+      <p></p>
+    </div>
+    <div class="govuk-grid-column-one-quarter">
+      <p></p>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      <button class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+  Apply
+</button>
+
+<button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Cancel
+</button>
+    </div>
+  </div>
+
+
+</details>
+
+
+
+
+
+
+
+
+        <table class="govuk-body" id="transactionstable">
+          <p class="govuk-body">
+          </p>
+          <thead>
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" aria-sort="ascending"><button type="button" data-index="0">Case reference</button></th>
+              <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case name</button></th>
+              <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case category</button></th>
+              <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Location</button></th>
+                <th scope="col" class="govuk-table__header" aria-sort="none"></th>
+              <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Task</button></th>
+              <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Date</button></th>
+
+              <th scope="col" class="govuk-table__header" aria-sort="none">&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Payment reference">9087-2312-8765-0110</td>
+              <td data-label="Case">Lacey-May Sanders</td>
+              <td data-label="Reference">Protection</td>
+              <td data-label="Status">Taylor House</td>
+                <td data-label="info"></td>
+              <td data-label="Date">Review respondent evidence</td>
+              <td data-label="Amount"><span class="hmcts-badge hmcts-badge--red">+2 Day</span> </td>
+              <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="/mvp-4-WA/task-list/available-open" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+
+            </tr>
+            <tr>
+              <td data-label="Payment reference">987-1234-7654-3687</td>
+              <td data-label="Case">Olivia-Rose Olsen</td>
+              <td data-label="Reference">Protection</td>
+              <td data-label="Status">Taylor House</td>
+                <td data-label="info"></td>
+              <td data-label="Date">Review respondent evidence</td>
+              <td data-label="Amount"><span class="hmcts-badge hmcts-badge--red">+1 Day</span> </td>
+              <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+            </tr>
+            <tr>
+              <td data-label="Payment reference">1562-1578-3622-1589</td>
+              <td data-label="Case">John Pickering</td>
+              <td data-label="Reference">EEA</td>
+              <td data-label="Status">Taylor House</td>
+                <td data-label="info"></td>
+              <td data-label="Date">Create case summary</td>
+              <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span></td>
+              <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="/mvp-4-WA/task-list/available-open-eea" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+            </tr>
+
+            <tr>
+              <td data-label="Payment reference">1538-3893-8483-8337</td>
+              <td data-label="Case">Neha Venkatanarasimharaj</td>
+              <td data-label="Reference">HR</td>
+              <td data-label="Status">Taylor House</td>
+              <td data-label="info"> <svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25" path style="fill: orange">
+              <title>This case has more than one task. Review needed.</title><path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+              C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" /></svg> </td>
+              <td data-label="Date"> Review appellant case</td>
+              <td data-label="Amount"><span class="hmcts-badge hmcts-badge--orange">Today</span></td>
+              <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+            </tr>
+            <tr>
+              <td data-label="Payment reference">1574-2379-9760-0643</td>
+              <td data-label="Case">Amanda Curran</td>
+              <td data-label="Reference">HR</td>
+              <td data-label="Status">Taylor House</td>
+                <td data-label="info"></td>
+              <td data-label="Date">Create hearing bundle</td>
+              <td data-label="Amount"><span class="hmcts-badge hmcts-badge--green">2 Dec</span></td>
+              <td data-label="Amount">&nbsp;&nbsp;&nbsp;<a href="#" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </main>
 </div>
 {% endblock %}

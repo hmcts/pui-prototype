@@ -1,0 +1,280 @@
+{% extends "./layout.html" %}
+{% from "table/macro.njk" import govukTable %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <a class="hmcts-header__link" href="/">Manage cases</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/task-list/">
+            Task list
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/task-manager/">
+            Task manager
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/case-list/">
+            Case list
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Create case
+          </a>
+        </li>
+
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<style>
+  #no-underline {
+    underline: none;
+  }
+
+  /* // RESPONSIVE table */
+
+  body {
+    line-height: 1.25;
+  }
+
+  table {
+    border-bottom: 1px solid #fff;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    table-layout: auto;
+  }
+
+  table caption {
+    /* font-size: 1.5em; */
+    margin: .5em 0 .75em;
+  }
+
+  table tr {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: .35em;
+  }
+
+  table th,
+  table td {
+    padding: .625em 0;
+    text-align: left;
+
+  }
+
+  table th {}
+
+  @media screen and (max-width: 650px) {
+    table {
+      border: 0;
+    }
+
+    table caption {
+      /* font-size: 1.3em; */
+    }
+
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+
+    }
+
+    table tr {
+      border-bottom: 5px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+
+    }
+
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      /* font-size: .8em; */
+      text-align: right;
+    }
+
+    table td::before {
+      /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+    }
+
+    table td:last-child {
+      border-bottom: 0;
+
+    }
+  }
+</style>
+
+
+<div class="hmcts-width-container">
+  {% include "./includes/phase-banner-alpha.html" %}
+  <main role="main" class="govuk-main-wrapper">
+
+  <h1 class="govuk-heading-xl">Case list</h1>
+
+    <div class="hmcts-filter-layout">
+
+      <div class="hmcts-filter-layout__filter">
+
+
+  <div class="hmcts-filter hmcts-hidden" tabindex="-1">
+
+    <div class="hmcts-filter__header">
+
+      <div class="hmcts-filter__header-title">
+        <h2 class="govuk-heading-m">Filters</h2>
+      </div>
+
+      <div class="hmcts-filter__header-action">
+
+      </div>
+
+    </div>
+
+    <div class="hmcts-filter__content">
+
+
+
+      <div class="hmcts-filter__options">
+
+
+
+
+
+
+        <button class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+          Apply
+        </button>
+
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Reset
+        </button>
+
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+        </div>
+
+
+
+      <div class="hmcts-filter-layout__content">
+        <div class="hmcts-action-bar">
+          <div class="hmcts-action-bar__filter"></div>
+
+        </div>
+        <div>
+          <p>
+            Displaying <strong>1</strong> to <strong>3</strong> out of <strong>3</strong> results
+
+          </p>
+
+          <div class="hmcts-scrollable-pane">
+            <div class="hmcts-scrollable-pane__wrapper">
+
+              <table class="govuk-body" id="transactionstable">
+                <p class="govuk-body">
+                </p>
+                <thead>
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header" aria-sort="ascending"><button type="button" data-index="0">HMCTS reference</button></th>
+                    <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Appellant name</button></th>
+                    <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Status</button></th>
+                    <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Hearing date</button></th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="govuk-table__cell ">DRAFT</td>
+                    <td class="govuk-table__cell ">Shannen Calderon</td>
+                    <td class="govuk-table__cell ">Appeal started</td>
+                    <td class="govuk-table__cell ">16 Aug 2020</td>
+
+                  </tr>
+                  <tr>
+                    <td class="govuk-table__cell ">DRAFT</td>
+                    <td class="govuk-table__cell ">Shannen Calderon</td>
+                    <td class="govuk-table__cell ">Appeal started</td>
+                    <td class="govuk-table__cell ">16 Aug 2020</td>
+                  </tr>
+
+                  <tr>
+                    <td class="govuk-table__cell ">DRAFT</td>
+                    <td class="govuk-table__cell ">Geoffrey Nava</td>
+                    <td class="govuk-table__cell ">Appeal started</td>
+                    <td class="govuk-table__cell ">9 Sept 2020</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+  </main>
+</div>
+{% endblock %}
+{% block pageScripts %}
+{{super()}}
+<script>
+  new HMCTSFrontend.FilterToggleButton({
+    bigModeMediaQuery: '(min-width: 48.063em)',
+    startHidden: true,
+    toggleButton: {
+      container: $('.hmcts-action-bar__filter'),
+      showText: 'Show filter',
+      hideText: 'Hide filter',
+      classes: 'hmcts-button--secondary'
+    },
+    closeButton: {
+      container: $('.hmcts-filter__header-action'),
+      text: 'Close'
+    },
+    filter: {
+      container: $('.hmcts-filter')
+    }
+  });
+</script>
+{% endblock %}

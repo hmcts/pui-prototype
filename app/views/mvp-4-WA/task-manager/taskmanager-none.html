@@ -11,7 +11,7 @@
           </span>
         </a>
       </div> -->
-    <a class="hmcts-header__link" href="#">Manage cases</a>
+    <a class="hmcts-header__link" href="/">Manage cases</a>
     <div class="hmcts-header__content">
       <nav class="hmcts-header__navigation" aria-label="Account navigation">
         <ul class="hmcts-header__navigation-list">
@@ -21,7 +21,7 @@
                         </a>
                     </li> -->
           <li class="hmcts-header__navigation-item">
-            <a class="hmcts-header__navigation-link" href="#1">
+            <a class="hmcts-header__navigation-link" href="#">
               Sign out
             </a>
           </li>
@@ -41,7 +41,7 @@
           </a>
         </li>
         <li class="hmcts-primary-navigation__item">
-          <a class="hmcts-primary-navigation__link" href="#">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/case-list/">
             Case list
           </a>
         </li>
@@ -166,7 +166,7 @@ table th {
     <h1 class="govuk-heading-xl">Task manager</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-          <p>Filter tasks by name and location.</p>
+          <p>Filter tasks by assignee and location. Select unassigned from the asignee dropdown to see available tasks.</p>
         <div class="hmcts-scrollable-pane">
           <div class="hmcts-scrollable-pane__wrapper">
             <div class="govuk-form-group">
@@ -175,25 +175,70 @@ table th {
                   <div class="govuk-date-input__item">
                     <div class="govuk-form-group">
                       <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-                        <strong>Name</strong>
+                        <strong>Asignee</strong>
                       </label>
                       <select class="govuk-select" id="sort" name="sort">
-                        <option value="published">All</option>
-                        <option value="updated" selected>None (unassigned tasks)</option>
-                        <option value="views">Bisa Butler</option>
-                        <option value="comments">Ralf Randlesman</option>
-                        <option value="comments">Yasmin Alrais</option>
+                        <option value="#">All caseworkers</option>
+                        <option value="#" selected>None (unassigned tasks)</option>
+                        <option value="#">Bisa Butler - bisa.butler@mail.com</option>
+                        <option value="#"> Brandi Halliday - firstname.lastname@mail.com</option>
+                        <option value="#"> Caris Wicks - firstname.lastname@mail.com</option>
+                        <option value="#"> Charmaine Howe - firstname.lastname@mail.com</option>
+                        <option value="#"> Darrell Calhoun - firstname.lastname@mail.com</option>
+                        <option value="#"> Derrick Bradley - firstname.lastname@mail.com</option>
+                        <option value="#"> Dominick Hudson - firstname.lastname@mail.com</option>
+                        <option value="#"> Dylan Brett - firstname.lastname@mail.com</option>
+                        <option value="#"> Eleni Pollard - firstname.lastname@mail.com</option>
+                        <option value="#"> Ellesha Mcguire - firstname.lastname@mail.com</option>
+                        <option value="#"> Ferne Xiong - firstname.lastname@mail.com</option>
+                        <option value="#"> Gabriela Oliver - firstname.lastname@mail.com</option>
+                        <option value="#"> Grover Hume - firstname.lastname@mail.com</option>
+                        <option value="#"> Hania Wong - firstname.lastname@mail.com</option>
+                        <option value="#"> Hashir Vega - firstname.lastname@mail.com</option>
+                        <option value="#"> Issa Gale - firstname.lastname@mail.com</option>
+                        <option value="#"> Izabela Gay - firstname.lastname@mail.com</option>
+                        <option value="#"> Jamie-Lee O'Reilly - firstname.lastname@mail.com</option>
+                        <option value="#"> Jasmin Field - firstname.lastname@mail.com</option>
+                        <option value="#"> Joan Brock - firstname.lastname@mail.com</option>
+                        <option value="#"> Kacy Kavanagh - firstname.lastname@mail.com</option>
+                        <option value="#"> Kaif Le - firstname.lastname@mail.com</option>
+                        <option value="#"> Keanan Wills - firstname.lastname@mail.com</option>
+                        <option value="#"> Kiara Braun - firstname.lastname@mail.com</option>
+                        <option value="#"> Konrad Pate - firstname.lastname@mail.com</option>
+                        <option value="#"> Kwabena Pritchard - firstname.lastname@mail.com</option>
+                        <option value="#"> Lee Neale - firstname.lastname@mail.com</option>
+                        <option value="#"> Lilly-Ann Pitts - firstname.lastname@mail.com</option>
+                        <option value="#"> Maggie Vinson - firstname.lastname@mail.com</option>
+                        <option value="#"> Nadeem Wiley - firstname.lastname@mail.com</option>
+                        <option value="#"> Noel Lynch - firstname.lastname@mail.com</option>
+                        <option value="#"> Nicholas Boyce - firstname.lastname@mail.com</option>
+                        <option value="#"> Beck - ralf.beck@mail.com</option>
+                        <option value="#"> Rahma Alvarado - firstname.lastname@mail.com</option>
+                        <option value="#"> Rodney Herbert - firstname.lastname@mail.com</option>
+                        <option value="#"> Shiloh Zamora - firstname.lastname@mail.com</option>
+                        <option value="#"> Star Gilmore - firstname.lastname@mail.com</option>
+                        <option value="#"> Tiya Sears - firstname.lastname@mail.com</option>
+                        <option value="#"> Tobias Durham - firstname.lastname@mail.com</option>
+                        <option value="#">Yasmin Alrais - yasmin.alrais@mail.com</option>
+
                       </select></div>
                   </div>
                   <div class="govuk-date-input__item">
                     <div class="govuk-form-group">
                       <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-                          <strong>Location</strong>
+                          <strong>Task location</strong>
                       </label>
                       <select class="govuk-select" id="sort" name="sort">
-                        <option value="published">Birmingham</option>
-                        <option value="views">Cambridge</option>
-                        <option value="comments">Newport</option>
+
+                        <option value="#">All locations</option>
+                        <option value="#">Birmingham</option>
+                        <option value="#">Bradford</option>
+                        <option value="#">Glasgow</option>
+                        <option value="#">Manchester</option>
+                        <option value="#">Newport</option>
+                        <option value="#">Nottingham</option>
+                        <option value="#">Northshields</option>
+
                         <option value="updated" selected>Taylor House</option>
                       </select></div>
                   </div>
@@ -203,7 +248,7 @@ table th {
               </fieldset>
             </div>
 
-
+<p>Displaying <Strong> 0 </strong>tasks</p>
             <table class="govuk-body" id="transactionstable">
                 <p class="govuk-body">
 
@@ -215,8 +260,8 @@ table th {
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case category</button></th>
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Location</button></th>
                         <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Task</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Due</button></th>
-                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Worker</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Date</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Assignee</button></th>
                         <th scope="col" class="govuk-table__header" aria-sort="none">&nbsp;&nbsp;&nbsp;&nbsp;</th>
 
                     </tr>
@@ -224,7 +269,7 @@ table th {
                 <tbody>
 
                     <tr>
-                      <td data-label="Payment reference">Change your selections to view available tasks.</td>
+                      <td data-label="Payment reference">Change your selection to view tasks.</td>
                       <td data-label="Case"></td>
                       <td data-label="Reference"></td>
                       <td data-label="Status"></td>

@@ -1,0 +1,239 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <!--  <div class="govuk-header__logo">
+        <a href="/" class="govuk-header__link govuk-header__link--homepage">
+          <span class="govuk-header__logotype">
+            <span class="govuk-header__logotype-text">
+              MyHMCTS
+            </span>
+          </span>
+        </a>
+      </div> -->
+    <a class="hmcts-header__link" href="/">Manage cases</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/senior-TCW/task-list/">
+            Task list
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#/">
+            Task manager
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link"  href="/mvp-4-WA/senior-TCW/case-list/">
+            Case list
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Create case
+          </a>
+        </li>
+
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<style>
+    #no-underline{
+  underline: none;
+}
+
+/* // RESPONSIVE table */
+
+body {
+  line-height: 1.25;
+}
+
+table {
+  border-bottom: 1px solid #fff;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  table-layout: auto;
+}
+
+table caption {
+  /* font-size: 1.5em; */
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em 0;
+  text-align: left;
+
+}
+
+table th {
+
+}
+
+@media screen and (max-width: 650px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    /* font-size: 1.3em; */
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+  }
+
+  table tr {
+    border-bottom: 5px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    /* font-size: .8em; */
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+
+  }
+}
+
+</style>
+
+
+<div class="hmcts-width-container">
+  {% include "./includes/phase-banner-alpha.html" %}
+  <main role="main" class="govuk-main-wrapper">
+    <h1 class="govuk-heading-xl">Task list</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <p>See your tasks and view tasks available for you to pick up.</p>
+
+        <div class="hmcts-scrollable-pane">
+          <div class="hmcts-scrollable-pane__wrapper">
+
+            <nav class="hmcts-sub-navigation">
+              <ul class="hmcts-sub-navigation__list">
+                <li class="hmcts-sub-navigation__item">
+                  <a class="hmcts-sub-navigation__link" aria-current="page" href="/mvp-4-WA/senior-TCW/task-list/">
+                    My tasks
+                  </a>
+                </li>
+                <li class="hmcts-sub-navigation__item">
+                  <a class="hmcts-sub-navigation__link" href="#">
+                    Available tasks
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+
+
+            <table class="govuk-body" id="transactionstable">
+                <p class="govuk-body">
+
+                </p>
+                <thead>
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header" aria-sort="ascending"><button type="button" data-index="0">Case reference</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case name</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Case category</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Location</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Task</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"><button type="button" data-index="1">Date</button></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none"></th>
+                        <th scope="col" class="govuk-table__header" aria-sort="none">&nbsp;&nbsp;&nbsp;&nbsp;</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Payment reference">You have no assigned tasks.</td>
+                        <td data-label="Case"></td>
+                        <td data-label="Reference"></td>
+                        <td data-label="Status"></td>
+                        <td data-label="Date"></td>
+                        <td data-label="Amount"></td>
+                        <td data-label="Amount"></td>
+                        <td data-label="Amount"></td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+            <!--
+            <nav class="hmcts-pagination" id="pagination-label">
+                <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
+                <ul class="hmcts-pagination__list">
+                    <li class="hmcts-pagination__item hmcts-pagination__item--active">1</li>
+                    <li class="hmcts-pagination__item"><a class="hmcts-pagination__link" href="#">2</a></li>
+                    <li class="hmcts-pagination__item  hmcts-pagination__item--next">
+                    <a class="hmcts-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
+                    </li>
+                </ul>
+            </nav> -->
+          </div>
+        </div>
+  </main>
+</div>
+{% endblock %}

@@ -1,0 +1,166 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <!--  <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div> -->
+    <a class="hmcts-header__link" href="/">Manage cases</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/mvp-4-WA/senior-TCW/task-list/">
+            Task list
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Task manager
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/mvp-4-WA/senior-TCW/case-list/">
+            Case list
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Create case
+          </a>
+        </li>
+
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/mvp-4/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+
+
+<div class="hmcts-width-container">
+  {% include "./includes/phase-banner-alpha.html" %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+    <div class="govuk-width-container">
+
+      <main class="" id="main-content" role="main">
+        <div class="govuk-grid-row" style="width:1220px; margin-left: 0px;">
+          <div class="" style="display: flex; justify-content: space-between; ">
+
+
+            <div>
+              <h1 class="govuk-heading-xl">PA/00321/2018</h1>
+            </div>
+
+            <form action="/mvp-4-WA/senior-TCW/case-list/allocate">
+            <div style="display: flex; align-items:right">
+              <p class="govuk-!-margin-top-2">Next step &nbsp;</p>
+
+              <select class="govuk-select" id="sort" name="sort" >
+                <option value="select" selected="">Select action</option>
+                <option value="allocate">Allocate the case</option>
+
+              </select>
+
+              <form name="aspnetForm" method="post" id="aspnetForm" autocomplete="off">
+                <button class="govuk-button govuk-!-margin-left-1" data-module="govuk-button">
+                  Go
+                </button>
+              </form>
+            </div>
+
+          </div>
+
+          <div class="govuk-tabs" data-module="govuk-tabs">
+            <h2 class="govuk-tabs__title">
+              Contents
+            </h2>
+            <ul class="govuk-tabs__list">
+              <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                <a class="govuk-tabs__tab" href="7683-5391-8812-0980">
+                  Overview
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Appeal
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Appellent
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Documents
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Directions
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Applications
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="7683-5391-8812-0980-n">
+                  Case notes
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Hearing
+                </a>
+              </li>
+            </ul>
+
+            <div class="govuk-tabs__panel" id="event" style="display: padding: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+              <div >
+                <h2 class="govuk-heading-l">Case notes</h2>
+
+                
+
+
+        </div>
+      </main>
+</div>
+
+
+
+</div>
+{% endblock %}
