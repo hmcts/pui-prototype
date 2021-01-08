@@ -1,0 +1,46 @@
+{% extends "oct-2020/manage-organisation/layout.html" %}
+{% set serviceName = 'Register to manage civil and family law cases' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
+    </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                {{ govukPanel({
+                titleText: "PBA changes submitted"
+                }) }}
+                
+                <h2 class="govuk-heading-m">What happens next</h2>
+                <p class="govuk-body">
+                    We'll check the PBA numbers you have added and approve them within 10 working days.
+                </p>
+                <p class="govuk-body">
+                    We'll email you when they are approved.
+                </p>
+            </div>
+        </div>
+        <p><a style="color:white" href="confirmation-email">Link to email</a></p>
+    </main>
+</div>
+{% endblock %}
