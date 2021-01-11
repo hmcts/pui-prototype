@@ -74,7 +74,7 @@
         {% from "hmcts-banner/macro.njk" import hmctsBanner %}
         {{ hmctsBanner({
         type: 'success',
-        text: 'Organisation ' + ( data['field-updated'] or 'PBA numbers' ) + ' successfully updated.',
+        text: ( data['field-updated'] or 'PBA numbers' ) + ' updated.',
         iconFallbackText: 'Success'
         }) }} 
 
