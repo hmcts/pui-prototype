@@ -1,0 +1,151 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/oct-2020/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="/oct-2020/manage-organisation/cases/case-list">
+                        Assigned cases
+                    </a>
+                </li>
+
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'organisation-address'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+                {% from "fieldset/macro.njk" import govukFieldset %}
+                {% from "input/macro.njk" import govukInput %}
+                {% from "textarea/macro.njk" import govukTextarea %}
+                {% from "button/macro.njk" import govukButton %}
+ 
+                <div class="hmcts-add-another">
+
+                <h1 class="govuk-heading-xl hmcts-add-another__heading">Add PBA accounts</h1>
+
+                <p>If you add a PBA, it can take-up to 10 days for us to approve your account.<br />We’ll send you an email confirming your PBA account is active and ready to use.</p>
+
+                <form action="../manage-organisation/update-pba-check-and-send">
+
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-two-thirds">
+
+                        <fieldset class="govuk-fieldset hmcts-add-another__item" id="add-another">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-label--m" for="pba-1">PBA number</label>
+                                <input class="govuk-input govuk-input--width-20" id="pba-1" name="pba-1" type="text" value="" data-name="pba-[%index%]" data-id="pba-[%index%]">
+                            </div>
+                        </fieldset>
+
+                        <div class="hmcts-button-action">
+                            <button type="button" class="govuk-button hmcts-button--secondary  hmcts-add-another__add-button  govuk-!-margin-bottom-4" onclick="$(this).text('Add another PBA number'); addAnother()" >
+                            Add another PBA number
+                            </button>
+                        </div>
+
+                        <button type="submit" class="govuk-button">
+                            Continue
+                        </button>
+
+
+                      </div>
+                    </div>
+
+                    <input type="hidden" name="field-updated" value="PBA numbers" />
+                </form>
+
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+
+  function addAnother() {
+
+    if ( $('#add-another').is(":hidden") ) {
+      $('#add-another').show();
+      return false;
+    } else {
+      new HMCTSFrontend.AddAnother($('.hmcts-add-another'));
+      return false;
+    }
+  }
+
+  function checkEmpty() {
+
+
+    if ( $('.govuk-check-your-answers div').length === 1) {
+      $('#empty-state').show();
+      $('.hmcts-button-action button').text('Add a PBA number');
+    }
+    return false;
+  }
+
+</script>
+{% endblock %}

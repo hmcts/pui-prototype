@@ -1,9 +1,3 @@
-{% from "back-link/macro.njk" import govukBackLink %}
-{% from "summary-list/macro.njk" import govukSummaryList %}
-{% from "button/macro.njk" import govukButton %}
-{% from "warning-text/macro.njk" import govukWarningText %}
-
-
 {% extends "./layout.html" %}
 {% block header %}
 <header class="hmcts-header" role="banner">
@@ -68,74 +62,64 @@
   </div>
 </header>
 {% endblock %}
-
 {% block content %}
-
-
 <div class="hmcts-width-container">
+  {% include "./includes/phase-banner.html" %}
   <main role="main" class="govuk-main-wrapper">
-
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <form action="updated-pba" method="post">
-
-        <h1 class="govuk-heading-l">Check your PBA accounts</h1>
-
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Accounts to be added
-            </dt>
-            <dd class="govuk-summary-list__value">
-              PBA1567534<br >
-              PBA5483125
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> name</span>
-              </a>
-            </dd>
+    <h1 class="govuk-heading-xl">Organisation</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+       
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Name</dt>
+              <dd class="govuk-check-your-answers__answer">{{ data['org-name'] or 'Wedlake Bell' }}</dd>
+              <dd class="govuk-check-your-answers__change">
+              </dd>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key" style="border: none">
-              Accounts to be removed
-            </dt>
-            <dd class="govuk-summary-list__value" style="border: none">
-              PBA4826433<br >
-              PBA5112325
-            </dd>
-            <dd class="govuk-summary-list__actions" style="border: none">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> date of birth</span>
-              </a>
-            </dd>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">SRA ID</dt>
+              <dd class="govuk-check-your-answers__answer">{{ data['sra-number'] or 'SRA3347232' }}</dd>
+              <dd class="govuk-check-your-answers__change">
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Organisation addresses</dt>
+              <dd class="govuk-check-your-answers__answer">
+                  <h4 class="govuk-heading-s">Main office</h4>
+                  {{data['address-line-1'] or '102 Petty France' }}<br>
+                  {{data['address-line-2'] or 'Westminster' }}<br>
+                  {{data['address-town'] or 'London' }}<br>
+                  {{data['address-postcode'] or 'SW1H 9AJ' }}<br><br/>
+
+                  DX address: 152380, Westminster 8<br><br/>
+
+
+                  <h4 class="govuk-heading-s">Newbury office</h4>
+                  8 Market Street<br/>
+                  Newbury<br/>
+                  RG14 5BN<br><br/>
+
+                  DX address: 931NR, Hayes<br><br/>
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="/oct-2020/manage-organisation/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">PBA numbers</dt>
+              <dd class="govuk-check-your-answers__answer">
+                  No PBA accounts registered
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="/oct-2020/manage-organisation/add-pba">Change <span class="govuk-visually-hidden">PBA number</span></a>
+              </dd>
           </div>
         </dl>
 
-        <div class="govuk-warning-text" style="margin-bottom: 0; border-bottom: 1px solid #bfc1c3; margin-bottom: 30px">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            You won't be able to use these PBA accounts without getting them reapproved.
-          </strong>
-        </div>
 
-
-
-
-        {{ govukButton({
-          text: "Submit PBA accounts"
-        }) }}
-
-      </form>
-
+      </div>
     </div>
-  </div>
-</main>
+  </main>
 </div>
 {% endblock %}
-
-
