@@ -87,23 +87,25 @@
                 <h1 class="govuk-heading-xl hmcts-add-another__heading">Add or remove PBA accounts</h1>
 
                 <p>If you add a PBA, it can take-up to 10 days for us to approve your account.<br />We’ll send you an email confirming your PBA account is active and ready to use.</p>
-                
-                <form action="../manage-organisation/updated-pba">
+
+                <form action="../manage-organisation/update-pba-check-and-send">
 
                     <div class="govuk-grid-row">
                       <div class="govuk-grid-column-two-thirds">
                         <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
-                       
+                        
+                          <div id="empty-state" style="display: none;">No PBA accounts added.</div>
+
                           <div class="govuk-check-your-answers__contents">
                               <dt class="govuk-check-your-answers__question">PBA1234567</dt>
                               <dd class="govuk-check-your-answers__change">
-                                  <a href="manage-organisation/update-pba">Remove <span class="govuk-visually-hidden">PBA number</span></a>
+                                  <a href="manage-organisation/update-pba" onclick="$(this).parent().parent().remove(); return checkEmpty();">Remove <span class="govuk-visually-hidden">PBA number</span></a>
                               </dd>
                           </div>
                           <div class="govuk-check-your-answers__contents">
                               <dt class="govuk-check-your-answers__question">PBA7894561</dt>
                               <dd class="govuk-check-your-answers__change">
-                                  <a href="manage-organisation/update-pba">Remove <span class="govuk-visually-hidden">PBA number</span></a>
+                                  <a href="manage-organisation/update-pba" onclick="$(this).parent().parent().remove(); return checkEmpty();">Remove <span class="govuk-visually-hidden">PBA number</span></a>
                               </dd>
                           </div>
                         </dl>
@@ -117,13 +119,13 @@
                         </fieldset>
 
                         <div class="hmcts-button-action">
-                            <button type="button" class="govuk-button hmcts-button--secondary  hmcts-add-another__add-button  govuk-!-margin-bottom-4" onclick="addAnother()" >
+                            <button type="button" class="govuk-button hmcts-button--secondary  hmcts-add-another__add-button  govuk-!-margin-bottom-4" onclick="$(this).text('Add another PBA number'); addAnother()" >
                             Add another PBA number
                             </button>
                         </div>
 
                         <button type="submit" class="govuk-button">
-                            Update
+                            Continue
                         </button>
 
 
@@ -151,6 +153,16 @@
       new HMCTSFrontend.AddAnother($('.hmcts-add-another'));
       return false;
     }
+  }
+
+  function checkEmpty() {
+
+
+    if ( $('.govuk-check-your-answers div').length === 1) {
+      $('#empty-state').show();
+      $('.hmcts-button-action button').text('Add a PBA number');
+    }
+    return false;
   }
 
 </script>

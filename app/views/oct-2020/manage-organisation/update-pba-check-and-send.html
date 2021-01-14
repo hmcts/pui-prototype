@@ -1,0 +1,141 @@
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "summary-list/macro.njk" import govukSummaryList %}
+{% from "button/macro.njk" import govukButton %}
+{% from "warning-text/macro.njk" import govukWarningText %}
+
+
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/oct-2020/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="/oct-2020/manage-organisation/cases/case-list">
+                        Assigned cases
+                    </a>
+                </li>
+
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="hmcts-width-container">
+  <main role="main" class="govuk-main-wrapper">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      <h1 class="govuk-heading-l">Check your PBA accounts</h1>
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Accounts to be added
+            </dt>
+            <dd class="govuk-summary-list__value">
+              PBA1567534<br >
+              PBA5483125
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="border: none">
+              Accounts to be removed
+            </dt>
+            <dd class="govuk-summary-list__value" style="border: none">
+              PBA4826433<br >
+              PBA5112325
+            </dd>
+            <dd class="govuk-summary-list__actions" style="border: none">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+            <div class="govuk-warning-text" style="margin-bottom: 0; border-bottom: 1px solid #bfc1c3; margin-bottom: 30px">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                You won't be able to use these PBA accounts without getting them reapproved.
+              </strong>
+            </div>
+
+
+
+
+        {{ govukButton({
+          text: "Submit PBA accounts"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+</main>
+</div>
+{% endblock %}
+
+
