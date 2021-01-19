@@ -75,7 +75,7 @@
 
         {{ hmctsBanner({
         type: 'success',
-        text: 'New PBA numbers submitted. We aim to approve these within 10 days.',
+        text: 'PBA numbers submitted. These will be updated below when approved.',
         iconFallbackText: 'Success'
         }) }} 
 
@@ -85,14 +85,12 @@
               <dt class="govuk-check-your-answers__question">Name</dt>
               <dd class="govuk-check-your-answers__answer">{{ data['org-name'] or 'Wedlake Bell' }}</dd>
               <dd class="govuk-check-your-answers__change">
-                  <a href="./update-name">Change <span class="govuk-visually-hidden">organisation name</span></a>
               </dd>
           </div>
           <div class="govuk-check-your-answers__contents">
               <dt class="govuk-check-your-answers__question">SRA ID</dt>
               <dd class="govuk-check-your-answers__answer">{{ data['sra-number'] or 'SRA3347232' }}</dd>
               <dd class="govuk-check-your-answers__change">
-                  <a href="./update-sra">Change <span class="govuk-visually-hidden">organistaion sra</span></a>
               </dd>
           </div>
           <div class="govuk-check-your-answers__contents">

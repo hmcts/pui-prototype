@@ -73,6 +73,15 @@
 
 
 <div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'organisation-address'
+    })}}
   <main role="main" class="govuk-main-wrapper">
 
 
@@ -94,7 +103,7 @@
               PBA5483125
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="javascript:history.go(-1);">
                 Change<span class="govuk-visually-hidden"> name</span>
               </a>
             </dd>
@@ -108,7 +117,7 @@
               PBA5112325
             </dd>
             <dd class="govuk-summary-list__actions" style="border: none">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="javascript:history.go(-1);">
                 Change<span class="govuk-visually-hidden"> date of birth</span>
               </a>
             </dd>
@@ -116,11 +125,7 @@
         </dl>
 
         <div class="govuk-warning-text" style="margin-bottom: 0; border-bottom: 1px solid #bfc1c3; margin-bottom: 30px">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            You won't be able to use these PBA accounts without getting them reapproved.
-          </strong>
+          You won't be able to use these PBA accounts without getting them reapproved.
         </div>
 
 
