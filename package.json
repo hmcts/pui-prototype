@@ -13,7 +13,6 @@
     "test": "gulp test && npm run lint"
   },
   "dependencies": {
-    "govuk-frontend": "^2.10.0",
     "@hmcts/frontend": "0.0.34-alpha",
     "basic-auth": "^1.0.3",
     "basic-auth-connect": "^1.0.0",
@@ -25,6 +24,7 @@
     "express": "4.15.2",
     "express-session": "^1.13.0",
     "express-writer": "0.0.4",
+    "govuk-frontend": "^2.10.0",
     "govuk_template_jinja": "0.22.3",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
@@ -38,6 +38,7 @@
     "moment": "^2.22.1",
     "notifications-node-client": "^3.0.0",
     "nunjucks": "^3.0.1",
+    "nunjucks-date-filter": "^0.1.1",
     "portscanner": "^2.1.1",
     "prompt": "^1.0.0",
     "readdir": "0.0.13",
