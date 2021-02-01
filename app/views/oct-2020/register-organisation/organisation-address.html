@@ -30,32 +30,259 @@
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="/oct-2020/register-organisation/organisation-address-postcode-results">
-                    {% call govukFieldset({
+                <form action="/oct-2020/register-organisation/organisation-dx">
+                    {{ govukFieldset({
                     legend: {
                     text: "What's the address of your organisation's main office?",
                     classes: "govuk-fieldset__legend--xl",
                     isPageHeading: true
                     }
-                    }) %}
+                    }) }}
                     <p class="govuk-body">You'll be able to add more office addresses later.</p>
                     <br>
-                    {{ govukInput({
-                    label: {
-                    text: 'Postcode',
-                    classes: 'govuk-label--m'
-                    },
-                    classes: "govuk-input--width-10",
-                    id: "address-postcode",
-                    name: "address-postcode"
-                    }) }}
-                    {% endcall %}
-                    {{govukButton({
-                    text: 'Find address'
-                    })}}
+
+
+
+                    <div class="govuk-form-group" id="defendant_postcode-finder">
+                        <label class="govuk-label govuk-label--m" for="address-postcode">
+                        Enter a UK postcode
+                        </label>
+
+                        <input class="govuk-input govuk-input--width-10 postcode" id="defendant_postcode" name="postcodeFinder" type="text">
+
+                        <button class="govuk-button govuk-button--secondary find-button" data-module="govuk-button" onclick="showSelectAddress( 'defendant' )" style="margin-bottom: 0;">
+                          Find address
+                        </button>
+                    </div>
+
+                    <div class="form-group error" id="defendant_postcode-seach-error" class="postcode-seach-error" style="display:none; margin-top: 20px;">
+                          <span class="error-message">
+                            We can't find an address for that postcode. Try again or enter the address manually.
+                          </span>
+                    </div>
+
+                    <div id="defendant_select-address" class="form-group select-address" style="display: none;">
+                        <label class="govuk-label govuk-label--s">
+                        Pick an address
+                        </label>
+
+                      <select id="defendant_addressList" class="govuk-select" name="addressSelect" onchange="updateAddress(this.value, 'defendant')" title="Pick an address" style="margin-bottom: 20px;">
+                        <option value="">Select an address</option>
+
+                      </select>
+
+                    </div>
+
+
+                    <fieldset class="govuk-fieldset" id="defendant_manual-address" class="manual-address" style="display: none;">
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="defendant_street-1">
+                          Address <span class="govuk-visually-hidden">line 1 of 3</span>
+                        </label>
+                        <input class="govuk-input" id="defendant_street-1" name="defendant_AddressLine1" type="text"></div>
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="defendant_street-2">
+                          <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+                        </label>
+                        <input class="govuk-input" id="defendant_street-2" name="defendant_AddressLine2" type="text"></div>
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="defendant_street-3">
+                        </label>
+                        <input class="govuk-input" id="defendant_street-3" name="defendant_AddressLine3" type="text"></div>
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="defendant_town">
+                          Town or city
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="defendant_town" name="defendant_city" type="text"></div>
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="defendant_postcode-full">
+                          Postcode
+                        </label>
+                        <input class="govuk-input govuk-input--width-10" id="defendant_postcode-full" name="defendant_Postcode" type="text"></div>
+
+                    </fieldset>
+
+
+                      <div id="defendant_enter-manually" class="enter-manually">
+                        <p><a class="link" href="#" onclick="return showAbroadAddress( 'defendant' );">Enter address manually</a></p>
+                      </div>
+
+
+
+                  {{govukButton({
+                  text: 'Continue'
+                  })}}
+
+
+
+
                 </form>
             </div>
         </div>
     </main>
 </div>
+
+
+
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script>
+
+$( document ).ready(function() {
+
+
+
+    $(".summary-link").click(function(){
+        $(".sub").toggle();
+
+
+    });
+
+        $(".summary-link2").click(function(){
+        $(".sub2").toggle();
+
+
+    });
+
+
+
+
+    if ($('form.postcode')) {
+
+        $('#continue-button').removeClass('button');
+        $('#continue-button').addClass('secondary-button');
+        $('.find-button').click(function(e){
+          e.preventDefault();
+          showSelectAddress();
+        });
+          $('#continue-button').click(function(e){
+            e.preventDefault();
+            $('.select-address').addClass('error');
+            $('.select-address .error-message').show();
+          });
+        $('#postcode-seach-error').hide();
+    }
+
+
+
+});
+
+function showSelectAddress( strPrefix ) {
+
+    $('#' + strPrefix + '_address-select-container').removeClass('error');
+    $('#' + strPrefix + '_address-select-container .error-message').hide();
+    $('#' + strPrefix + '_enter-manually').show();
+
+
+    $.ajax({
+      url: "/postcode-lookup?postcode=" + encodeURIComponent($('#' + strPrefix + '_postcode').val()),
+      method: "GET",
+      success: function(data, status, xhr){
+        if(status === "success" && data.results && data.results.length){
+
+          var html = '<option>' + data.results.length + ' addresses found </option>';
+          jQuery.each( data.results, function(key, value){
+            var details = value.DPA;
+            var formatted_address = [
+              ( details.ORGANISATION_NAME || details.SUB_BUILDING_NAME || '' ) + ' ' + ( details.BUILDING_NUMBER || details.BUILDING_NAME || ''),
+              details.THOROUGHFARE_NAME || details.DEPENDENT_LOCALITY,
+              details.POST_TOWN,
+              details.POSTCODE
+            ];
+            html += '<option value="' + formatted_address.join(', ').trim() + '">' + formatted_address.join(', ').trim() + '</option>';
+          });
+
+          $('#' + strPrefix + '_addressList').html(html);
+
+          $('.postcode-as-text p').html($('#' + strPrefix + '_postcode').val());
+          $('#' + strPrefix + '_enter-postcode').hide();
+          $('#' + strPrefix + '_select-address').show();
+          $('#' + strPrefix + '_selected-address').hide();
+          $('#' + strPrefix + '_manual-address').hide();
+          $('#' + strPrefix + '_postcode-seach-error').hide();
+          $('#' + strPrefix + '_continue-button').unbind('click').click(function(e){
+            e.preventDefault();
+            $('#' + strPrefix + '_address-select-container').addClass('error');
+            $('#' + strPrefix + '_address-select-container .error-message').show();
+          });
+
+        } else {
+          $('#' + strPrefix + '_postcode-seach-error').show();
+          showManaulEntry( strPrefix );
+
+        }
+
+      },
+      dataType: 'JSON'
+    });
+  }
+
+ function showSelectedAddress( strPrefix ) {
+    $('#' + strPrefix + '_address-select-container').removeClass('error');
+    $('#' + strPrefix + '_address-select-container .error-message').hide();
+    $('#' + strPrefix + '_enter-postcode').hide();
+    $('#' + strPrefix + '_select-address').show();
+    $('#' + strPrefix + '_selected-address').hide();
+    $('#' + strPrefix + '_manual-address').show();
+  }
+
+  function updateAddress( address, strPrefix ) {
+    showSelectedAddress( strPrefix );
+    var addresses = $('#' + strPrefix + '_addressList').val().split(', ');
+console.log( addresses);
+    $('#' + strPrefix  + "_street-1").val(addresses[0]);
+    $('#' + strPrefix  + "_street-2").val(addresses[1]);
+    $('#' + strPrefix  + "_town").val(addresses[2]);
+    $('#' + strPrefix  + "_postcode-full, #" + strPrefix  + "_postcode-full-auto").val(addresses[3]);
+    $('#' + strPrefix + '_continue-button').unbind('click');
+    $('#' + strPrefix + '_find-button').addClass('secondary-button');
+    $('#' + strPrefix + '_continue-button').removeClass('secondary-button');
+    $('#' + strPrefix + '_continue-button').addClass('button');
+    $('#' + strPrefix + '_enter-manually').hide();
+  }
+
+  function showAbroadAddress( strPrefix ) {
+    $('#' + strPrefix + '_street-label').html('Address');
+    $('#' + strPrefix + '_postcode-label').html('Postcode');
+    $('#' + strPrefix + '_manual-address').show();
+    $('#' + strPrefix + '_country').attr('type', 'text');
+    $('#' + strPrefix + '_manual-address').addClass( 'abroad' );
+    $('#' + strPrefix + '_enter-manually').hide();
+    $('#' + strPrefix + '_postcode-finder').hide();
+    $('#' + strPrefix + '_enter-automatic').show();
+    $('#' + strPrefix + '_select-address').hide();
+
+    $('#' + strPrefix + '_continue-button').unbind('click');
+    $('#' + strPrefix + '_continue-button').removeClass('secondary-button');
+    $('#' + strPrefix + '_continue-button').addClass('button');
+    return false
+  }
+
+ function showPostcodeLookup( strPrefix ) {
+    $('#' + strPrefix + '_manual-address').hide();
+    $('#' + strPrefix + '_enter-manually').show();
+    $('#' + strPrefix + '_postcode-finder').show();
+    $('#' + strPrefix + '_enter-automatic').hide();
+
+    return false
+  }
+
+
+  function showManaulEntry( strPrefix ) {
+    console.log(strPrefix);
+    $('#' + strPrefix + '_manual-address').show();
+    $('#' + strPrefix  + "_postcode-full").val( $('#' + strPrefix + '_postcode').val() );
+    $('#' + strPrefix + '_continue-button').unbind('click');
+    $('#' + strPrefix + '_find-button').addClass('secondary-button');
+    $('#' + strPrefix + '_continue-button').removeClass('secondary-button');
+    $('#' + strPrefix + '_continue-button').addClass('button');
+    return false;
+
+  }
+
+</script>
 {% endblock %}

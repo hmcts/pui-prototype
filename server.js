@@ -18,6 +18,7 @@ const documentationRoutes = require('./docs/documentation_routes.js')
 const packageJson = require('./package.json')
 const routes = require('./app/routes.js')
 const utils = require('./lib/utils.js')
+var postcodeLookup = require('./app/assets/javascripts/postcodeLookup.js')
 
 const app = express()
 const documentationApp = express()
@@ -158,6 +159,10 @@ app.get('/prototype-admin/clear-data', function (req, res) {
   req.session.destroy()
   res.render('prototype-admin/clear-data')
 })
+
+
+app.get('/postcode-lookup', postcodeLookup);
+
 
 // Redirect root to /docs when in promo mode.
 if (promoMode === 'true') {
