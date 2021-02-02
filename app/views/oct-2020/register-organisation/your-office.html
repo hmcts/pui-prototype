@@ -16,7 +16,7 @@
     </div>
 </header>
 {% endblock %}
-{% block content %}
+{% block content%}
 <div class="hmcts-width-container">
     {{ govukPhaseBanner({
     tag: {
@@ -25,26 +25,44 @@
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
     {{govukBackLink({
-    href: 'name'
+    href: 'organisation-dx'
     })}}
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="/oct-2020/register-organisation/your-office">
-                    {{ govukInput({
-                    label: {
-                    text: "What's your work email address?",
-                    classes: 'govuk-label--xl',
-                    isPageHeading: true
-                    },
-                    id: "email-address",
-                    name: "email-address",
-                    classes: "govuk-input--width-30"
-                    }) }}
-                    <!-- <p class="govuk-body"><a href="#">Can't find your organistaion?</a></p> -->
+                <form action="/oct-2020/register-organisation/check" method="post">
+
+
+                    <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                          <h1 class="govuk-fieldset__heading">
+                            Which office do you normally work from?
+                          </h1>
+                        </legend>
+                        <div class="govuk-radios">
+
+                          {% for address in data['addresses'] %}
+
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="office{{ address.addressNo }}" name="office" type="radio" value="{{ address.address }}">
+                            <label class="govuk-label govuk-radios__label" for="office{{ address.addressNo }}">
+                              {{ address.address }}
+                            </label>
+                          </div>
+
+                          {% endfor %}
+
+                        </div>
+
+                      </fieldset>
+                    </div>
+
+
                     {{govukButton({
                     text: 'Continue'
                     })}}
+
                 </form>
             </div>
         </div>
