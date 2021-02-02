@@ -13,7 +13,7 @@ router.get('/mvp-4/manage-organisation/users', (req, res) => {
 				html: '<a href="/mvp-4/manage-organisation/users/view">Peter Gold</a>'
 			},
 			{
-				text: 'peter.gold@wedlakebell.com'
+				text: 'peter.gSold@wedlakebell.com'
 			},
 	
 
@@ -68,33 +68,27 @@ router.get('/oct-2020/manage-organisation/users', (req, res) => {
 
 	var permissions = req.session.data.permissions || [];
 
+	var fullName = 'Peter Gold';
+
+	if ( req.session.data.firstname ) {
+		fullName = req.session.data.firstname + ' ' + req.session.data.lastname
+	}
+
 	var rows = [
 		[
 
-		{
-				html: '<a href="/oct-2020/manage-organisation/users/view">Peter Gold</a>'
+			{
+				html: '<a href="/oct-2020/manage-organisation/users/view">' + fullName + '</a>'
 			},
 			{
-				text: 'peter.gold@wedlakebell.com'
+				text: req.session.data['email-address'] || 'peter.Xgold@wedlakebell.com'
 			},
 	
 
 			{
 				text: "Active"
 			}
-		],
-		[
-		{
-				html: '<a href="/oct-2020/manage-organisation/users/view-pending">Amy Venkatanarasimharaj</a>'
-			},
-			{
-				text: 'amyvenkatanarasimharaj@wedlakebell.com'
-			},
-
-			{
-				text: "Pending"
-			}
-		],
+		]
 	];
 
 	var newRows = [
