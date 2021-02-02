@@ -69,10 +69,15 @@
         <h1 class="govuk-heading-l">Joe Bloggs</h1>
         <form action="./view-updated" method="post">
 
+          {% set offices = [] %}
+          {% for address in data['addresses'] %}
+             {% set offices = ( offices.push({ text: address.address, value: address.address }), offices ) %}
+          {% endfor %}
+
           {{ govukRadios({
                     classes: "govuk-radios",
-                    idPrefix: "changed-name",
-                    name: "changed-name",
+                    idPrefix: "changed-office",
+                    name: "changed-office",
                     fieldset: {
                       legend: {
                         text: "Usual office location",
@@ -83,21 +88,7 @@
                     hint: {
                       text: "This will be used as their default service address."
                     },
-                    items: [
-                      {
-                        value: "main",
-                        text: "Main office (London)",
-                        checked: "checked"
-                      },
-                      {
-                        value: "reading",
-                        text: "Reading office"
-                      },
-                      {
-                        value: "stockport",
-                        text: "Stockport office"
-                      }
-                    ]
+                    items: offices
                   }) }}
                     <input type="hidden" name="field-updated" value="usual office location" />
           {{govukButton({

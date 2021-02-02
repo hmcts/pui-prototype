@@ -107,6 +107,13 @@ router.get( '/' + strPath + '/manage-organisation/users/new', function(req, res)
 
 });
 
+router.get( '/' + strPath + '/manage-organisation/users/update-location', function(req, res) {
+
+	req.session.data.addresses = req.session.data.addresses || getDummyAddresses( req, res );
+  	res.render( strPath + '/manage-organisation/users/update-location',  { data: req.session.data } );
+
+});
+
 
 let getDummyAddresses = function ( req, res ) {
 

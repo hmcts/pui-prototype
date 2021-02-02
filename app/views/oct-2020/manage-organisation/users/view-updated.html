@@ -94,7 +94,7 @@
             </tr>
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="row">Email address</th>
-              <td class="govuk-table__cell">joe.bloggs@email.com</td>
+              <td class="govuk-table__cell">joe@bloggs.com</td>
               <td class="govuk-table__cell">
                 <a href="./update-email">Change</a>
               </td>
@@ -103,7 +103,7 @@
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="row">Usual office location</th>
               <td class="govuk-table__cell">
-                Main office (London)
+                {{ data['changed-office'] or data['addresses'][0].address }}
               </td>
               <td class="govuk-table__cell"><a href="./update-location">Change</a></td>
             </tr>

@@ -88,6 +88,20 @@ router.get('/oct-2020/manage-organisation/users', (req, res) => {
 			{
 				text: "Active"
 			}
+		],
+		[
+
+			{
+				html: '<a href="/oct-2020/manage-organisation/users/view2">Joe Bloggs</a>'
+			},
+			{
+				text: 'steve@smith.com'
+			},
+	
+
+			{
+				text: "Active"
+			}
 		]
 	];
 
@@ -100,7 +114,7 @@ router.get('/oct-2020/manage-organisation/users', (req, res) => {
 		rows.push([
 
 {
-	html:'<a href="">First Name Last Name</a>'
+	html:'<a href="">Firstname Lastname</a>'
 },
 
 		{
