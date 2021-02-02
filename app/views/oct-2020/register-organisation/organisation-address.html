@@ -38,10 +38,11 @@
                     isPageHeading: true
                     }
                     }) }}
+
+                    {% if data['add-new'] != 'true' %}
                     <p class="govuk-body">This should be the main address for your organisation. You’ll be able to add more office addresses later.</p>
                     <br>
-
-
+                    {% endif %}
 
                     <div class="govuk-form-group" id="address_postcode-finder">
                         <label class="govuk-label govuk-label--m" for="address-postcode">

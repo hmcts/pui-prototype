@@ -30,7 +30,14 @@
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
+
+                {% if data['add-new'] == 'true' %}
+                <form action="/oct-2020/manage-organisation/organisation-address-updated" method="post">
+                  <input type="hidden" name="add-new" value="false" />
+                {% else %}
                 <form action="/oct-2020/register-organisation/organisation-address-add" method="post">
+                {% endif %}
+                
                     {% call govukFieldset({
                     legend: {
                     text: "What's the DX reference for this office? (optional)",

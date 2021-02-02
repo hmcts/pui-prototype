@@ -40,6 +40,9 @@
             Users
           </a>
         </li>
+
+        <!--
+
         <li class="hmcts-primary-navigation__item">
           <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/cases/">
             Unassigned cases
@@ -51,6 +54,7 @@
                         Assigned cases
                     </a>
                 </li>
+        -->
 
         <!--  <li class="hmcts-primary-navigation__item">
                     <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/payments">
@@ -76,70 +80,41 @@
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-full-width">
-                <form action="/oct-2020/register-organisation/organisation-address-another-name" method="post">
+                <form action="/oct-2020/register-organisation/organisation-address" method="get">
+                  <input type="hidden" name="addNew" value="true" />
 
+                    {% if showConfirm == true %}
+                      {% from "hmcts-banner/macro.njk" import hmctsBanner %}
+                      {{ hmctsBanner({
+                      type: 'success',
+                      text: 'New office added.',
+                      iconFallbackText: 'Success'
+                      }) }} 
+                    {% endif %}
 
                     <h1 class="govuk-heading-l">Manage office addresses</h1>
 
+                    <table class="govuk-table">
+                      <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">                        
+                          <th class="govuk-table__header" scope="col">Address</th>
+                          <th class="govuk-table__header" scope="col">DX reference</th>
+                          <th class="govuk-table__header" scope="col"></th>
+                        </tr>
+                      </thead>
 
-                    {{ govukTable({
-                      firstCellIsHeader: true,
-                      head: [
-                        {
-                          text: "Name"
-                        },
-                        {
-                          text: "Address"
-                        },
-                        {
-                          text: "DX reference"
-                        },
-                        {
-                          text: ""
-                        },
-                        {
-                          text: ""
-                        }
-                      ],
-                      rows: [
-                        [
-                          {
-                            text: "Main office"
-                          },
-                          {
-                            html: "102 Petty France<br />London<br />SW1H 9AJ"
-                          },
-                          {
-                            text: "152380 Westminster 8"
-                          },
-                          {
-                            text: "Primary address"
-                          },
-                          {
-                            html: '<a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a>'
-                          }
-                        ],
-                        [
-                          {
-                            text: "Newbury office"
-                          },
-                          {
-                            html: "8 Market Street<br />Newbury<br />RG14 5BN"
-                          },
-                          {
-                            text: "931NR, Hayes"
-                          },
-                          {
-                            html: '<a href="./organisation-address-updated">Make primary address</a>'
-                          },
-                          {
-                            html: '<a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a>'
-                          }
-                        ]
-                      ]
-                    }) }}
+                      <tbody>
+                        {% for address in data['addresses'] %}
 
+                        <tr class="govuk-table__row">
+                          <td class="govuk-table__cell">{{ address.address }}</td>        
+                          <td class="govuk-table__cell">{{ address.addressDX }}, {{ address.addressDXExchange }}</td>        
+                          <td class="govuk-table__cell"><a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a></td>
+                        </tr>
+                        {% endfor %}
 
+                      </tbody>
+                    </table>
                     {{govukButton({
                     text: 'Add another address'
                     })}}

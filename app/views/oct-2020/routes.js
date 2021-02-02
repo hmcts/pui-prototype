@@ -34,7 +34,11 @@ router.post( '/' + strPath + '/register-organisation/organisation-address-add', 
 	addresses.push({'addressNo': addressNo, 'address': address, 'addressDX': addressDX, 'addressDXExchange': addressDXExchange });
 	req.session.data.addresses = addresses;
 
-	res.redirect('/' + strPath + '/register-organisation/organisation-address-another');
+	if ( req.session.data.addNew == "true" ) {
+		res.redirect('/' + strPath + '/manage-organisation/organisation-address');
+	} else {
+		res.redirect('/' + strPath + '/register-organisation/organisation-address-another');
+	}
 
 });
 
@@ -50,6 +54,21 @@ router.get( '/' + strPath + '/register-organisation/check', function(req, res) {
 
 	req.session.data.addresses = req.session.data.addresses || getDummyAddresses( req, res );
   	res.render( strPath + '/register-organisation/check',  { data: req.session.data} );
+
+});
+
+
+router.get( '/' + strPath + '/manage-organisation/organisation-address', function(req, res) {
+
+	var showConfirm = false;
+
+	if ( req.session.data.addNew == "true" ) {
+		req.session.data.addNew = "false";
+		showConfirm = true;
+	}
+
+	req.session.data.addresses = req.session.data.addresses || getDummyAddresses( req, res );
+  	res.render( strPath + '/manage-organisation/organisation-address',  { data: req.session.data, showConfirm: showConfirm } );
 
 });
 
