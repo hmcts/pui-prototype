@@ -80,7 +80,7 @@ router.get( '/' + strPath + '/manage-organisation/users/view', function(req, res
 	if ( req.session.data.firstname ) {
 		req.session.data.fullname = req.session.data.firstname + " "+ req.session.data.lastname;
 	}
-	
+
   	res.render( strPath + '/manage-organisation/users/view',  { data: req.session.data} );
 
 });
@@ -97,6 +97,13 @@ router.get( '/' + strPath + '/manage-organisation/organisation-address', functio
 
 	req.session.data.addresses = req.session.data.addresses || getDummyAddresses( req, res );
   	res.render( strPath + '/manage-organisation/organisation-address',  { data: req.session.data, showConfirm: showConfirm } );
+
+});
+
+router.get( '/' + strPath + '/manage-organisation/users/new', function(req, res) {
+
+	req.session.data.addresses = req.session.data.addresses || getDummyAddresses( req, res );
+  	res.render( strPath + '/manage-organisation/users/new',  { data: req.session.data } );
 
 });
 

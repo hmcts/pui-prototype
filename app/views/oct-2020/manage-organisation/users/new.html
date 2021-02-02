@@ -79,6 +79,10 @@
         <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
         <form action="./confirmation">
 
+          {% set offices = [] %}
+          {% for address in data['addresses'] %}
+             {% set offices = ( offices.push({ text: address.address }), offices ) %}
+          {% endfor %}
 
 
           {{ govukInput({
@@ -123,20 +127,7 @@
                     hint: {
                       text: "This will be used as their default service address."
                     },
-                    items: [
-                      {
-                        value: "main",
-                        text: "Main office (London)"
-                      },
-                      {
-                        value: "reading",
-                        text: "Reading office"
-                      },
-                      {
-                        value: "stockport",
-                        text: "Stockport office"
-                      }
-                    ]
+                    items: offices
                   }) }}
           {{ govukCheckboxes({
                     idPrefix: "permissions",
