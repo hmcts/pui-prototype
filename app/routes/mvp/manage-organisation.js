@@ -13,7 +13,7 @@ router.get('/mvp-4/manage-organisation/users', (req, res) => {
 				html: '<a href="/mvp-4/manage-organisation/users/view">Peter Gold</a>'
 			},
 			{
-				text: 'peter.gSold@wedlakebell.com'
+				text: 'peter.gold@wedlakebell.com'
 			},
 	
 
@@ -81,7 +81,7 @@ router.get('/oct-2020/manage-organisation/users', (req, res) => {
 				html: '<a href="/oct-2020/manage-organisation/users/view">' + fullName + '</a>'
 			},
 			{
-				text: req.session.data['email-address'] || 'peter.Xgold@wedlakebell.com'
+				text: req.session.data['email-address'] || 'peter.gold@wedlakebell.com'
 			},
 	
 
