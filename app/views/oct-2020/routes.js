@@ -73,6 +73,19 @@ router.get( '/' + strPath + '/manage-organisation/updated-pba', function(req, re
 });
 
 
+router.get( '/' + strPath + '/manage-organisation/users/view', function(req, res) {
+
+	req.session.data.fullname = 'Peter Gold';
+
+	if ( req.session.data.firstname ) {
+		req.session.data.fullname = req.session.data.firstname + " "+ req.session.data.lastname;
+	}
+	
+  	res.render( strPath + '/manage-organisation/users/view',  { data: req.session.data} );
+
+});
+
+
 router.get( '/' + strPath + '/manage-organisation/organisation-address', function(req, res) {
 
 	var showConfirm = false;

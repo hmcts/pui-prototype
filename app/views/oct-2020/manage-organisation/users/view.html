@@ -82,7 +82,7 @@
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="row">Name</th>
-              <td class="govuk-table__cell">{{ ( data['firstname'] + ' ' + data['lastname'] ) or 'Peter Gold' }}</td>
+              <td class="govuk-table__cell">{{ data['fullname'] or 'Peter Gold' }}</td>
               <td class="govuk-table__cell">
                 <a href="./update-name">Change</a>
               </td>
