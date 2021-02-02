@@ -56,87 +56,32 @@
 
                     <h3 class="govuk-heading-m">Already added</h3>
 
+                    <table class="govuk-table">
+                      <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">                        
+                          <th class="govuk-table__header" scope="col">Address</th>
+                          <th class="govuk-table__header" scope="col">DX reference</th>
+                          <th class="govuk-table__header" scope="col"></th>
+                        </tr>
+                      </thead>
 
-{% if data['second-address'] %}
-{%
-                    set rows = [
-                      [
-                        {
-                          text: "Main office"
-                        },
-                        {
-                          html: "102 Petty France<br />London<br />SW1H 9AJ"
-                        },
-                        {
-                          text: "152380 Westminster 8"
-                        },
-                        {
-                          html: '<a class="change link" href="">Change</a>'
-                        }
-                      ],                      
-                      [
-                        {
-                          text: "Newbury office"
-                        },
-                        {
-                          html: "8 Market Street<br />Newbury<br />RG14 5BN"
-                        },
-                        {
-                          text: "931NR, Hayes"
-                        },
-                        {
-                          html: '<a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a>'
-                        }
-                      ]
-                    ]
-                  %}
+                        {% for address in data['addresses'] %}
 
-{% else %}
-{%
-                    set rows = [
-                      [
-                        {
-                          text: "Main office"
-                        },
-                        {
-                          html: "102 Petty France<br />London<br />SW1H 9AJ"
-                        },
-                        {
-                          text: "152380 Westminster 8"
-                        },
-                        {
-                          html: '<a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a>'
-                        }
-                      ]
-                    ]
-                  %}
-{% endif %}
+                        <tr class="govuk-table__row">
+                          <td class="govuk-table__cell">{{ address.address }}</td>        
+                          <td class="govuk-table__cell">{{ address.addressDX }}, {{ address.addressDXExchange }}</td>        
+                          <td class="govuk-table__cell"><a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a></td>
+                        </tr>
+                        {% endfor %}
 
+                      </tbody>
+                    </table>
 
-
-                    {{ govukTable({
-                      
-                      firstCellIsHeader: true,
-                      head: [
-                        {
-                          text: "Name"
-                        },
-                        {
-                          text: "Address"
-                        },
-                        {
-                          text: "DX reference"
-                        },
-                        {
-                          text: ""
-                        }
-                      ],
-                      rows: rows
-                    }) }}
 
                     {{govukButton({
                     text: 'Continue'
                     })}}
+                    
                 </form>
             </div>
         </div>

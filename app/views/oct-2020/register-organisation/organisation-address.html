@@ -33,7 +33,7 @@
                 <form action="/oct-2020/register-organisation/organisation-dx">
                     {{ govukFieldset({
                     legend: {
-                    text: "What's the address of your organisation's main office?",
+                    text: "What's your organisation's address?",
                     classes: "govuk-fieldset__legend--xl",
                     isPageHeading: true
                     }
@@ -43,30 +43,30 @@
 
 
 
-                    <div class="govuk-form-group" id="defendant_postcode-finder">
+                    <div class="govuk-form-group" id="address_postcode-finder">
                         <label class="govuk-label govuk-label--m" for="address-postcode">
                         Enter a UK postcode
                         </label>
 
-                        <input class="govuk-input govuk-input--width-10 postcode" id="defendant_postcode" name="postcodeFinder" type="text">
+                        <input class="govuk-input govuk-input--width-10 postcode" id="address_postcode" name="postcodeFinder" type="text">
 
-                        <button class="govuk-button govuk-button--secondary find-button" data-module="govuk-button" onclick="showSelectAddress( 'defendant' )" style="margin-bottom: 0;">
+                        <button class="govuk-button govuk-button--secondary find-button" data-module="govuk-button" onclick="showSelectAddress( 'address' )" style="margin-bottom: 0;">
                           Find address
                         </button>
                     </div>
 
-                    <div class="form-group error" id="defendant_postcode-seach-error" class="postcode-seach-error" style="display:none; margin-top: 20px;">
+                    <div class="form-group error" id="address_postcode-seach-error" class="postcode-seach-error" style="display:none; margin-top: 20px;">
                           <span class="error-message">
                             We can't find an address for that postcode. Try again or enter the address manually.
                           </span>
                     </div>
 
-                    <div id="defendant_select-address" class="form-group select-address" style="display: none;">
+                    <div id="address_select-address" class="form-group select-address" style="display: none;">
                         <label class="govuk-label govuk-label--s">
                         Pick an address
                         </label>
 
-                      <select id="defendant_addressList" class="govuk-select" name="addressSelect" onchange="updateAddress(this.value, 'defendant')" title="Pick an address" style="margin-bottom: 20px;">
+                      <select id="address_addressList" class="govuk-select" name="addressSelect" onchange="updateAddress(this.value, 'address')" title="Pick an address" style="margin-bottom: 20px;">
                         <option value="">Select an address</option>
 
                       </select>
@@ -74,42 +74,42 @@
                     </div>
 
 
-                    <fieldset class="govuk-fieldset" id="defendant_manual-address" class="manual-address" style="display: none;">
+                    <fieldset class="govuk-fieldset" id="address_manual-address" class="manual-address" style="display: none;">
 
                       <div class="govuk-form-group">
-                        <label class="govuk-label" for="defendant_street-1">
+                        <label class="govuk-label" for="address_street-1">
                           Address <span class="govuk-visually-hidden">line 1 of 3</span>
                         </label>
-                        <input class="govuk-input" id="defendant_street-1" name="defendant_AddressLine1" type="text"></div>
+                        <input class="govuk-input" id="address_street-1" name="address_Line1" type="text"></div>
 
                       <div class="govuk-form-group">
-                        <label class="govuk-label" for="defendant_street-2">
+                        <label class="govuk-label" for="address_street-2">
                           <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
                         </label>
-                        <input class="govuk-input" id="defendant_street-2" name="defendant_AddressLine2" type="text"></div>
+                        <input class="govuk-input" id="address_street-2" name="address_Line2" type="text"></div>
 
                       <div class="govuk-form-group">
-                        <label class="govuk-label" for="defendant_street-3">
+                        <label class="govuk-label" for="address_street-3">
                         </label>
-                        <input class="govuk-input" id="defendant_street-3" name="defendant_AddressLine3" type="text"></div>
+                        <input class="govuk-input" id="address_street-3" name="address_Line3" type="text"></div>
 
                       <div class="govuk-form-group">
-                        <label class="govuk-label" for="defendant_town">
+                        <label class="govuk-label" for="address_town">
                           Town or city
                         </label>
-                        <input class="govuk-input govuk-!-width-two-thirds" id="defendant_town" name="defendant_city" type="text"></div>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="address_town" name="address_city" type="text"></div>
 
                       <div class="govuk-form-group">
-                        <label class="govuk-label" for="defendant_postcode-full">
+                        <label class="govuk-label" for="address_postcode-full">
                           Postcode
                         </label>
-                        <input class="govuk-input govuk-input--width-10" id="defendant_postcode-full" name="defendant_Postcode" type="text"></div>
+                        <input class="govuk-input govuk-input--width-10" id="address_postcode-full" name="address_Postcode" type="text"></div>
 
                     </fieldset>
 
 
-                      <div id="defendant_enter-manually" class="enter-manually">
-                        <p><a class="link" href="#" onclick="return showAbroadAddress( 'defendant' );">Enter address manually</a></p>
+                      <div id="address_enter-manually" class="enter-manually">
+                        <p><a class="link" href="#" onclick="return showAbroadAddress( 'address' );">Enter address manually</a></p>
                       </div>
 
 
