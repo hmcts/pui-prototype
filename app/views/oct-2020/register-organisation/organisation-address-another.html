@@ -32,26 +32,29 @@
             <div class="govuk-grid-column-two-thirds">
                 <form action="/oct-2020/register-organisation/organisation-address-another-check" method="post">
                     {{ govukRadios({
-                    classes: "govuk-radios--inline",
-                    idPrefix: "add-another",
-                    name: "add-another",
-                    fieldset: {
-                    legend: {
-                    text: "Do you want to add another office address?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--xl"
-                    }
-                    },
-                    items: [
-                    {
-                    value: "yes",
-                    text: "Yes"
-                    },
-                    {
-                    value: "no",
-                    text: "No"
-                    }
-                    ]
+                        classes: "govuk-radios--inline",
+                        idPrefix: "add-another",
+                        name: "add-another",
+                        fieldset: {
+                            legend: {
+                                text: "Do you want to add another office address?",
+                                isPageHeading: true,
+                                classes: "govuk-fieldset__legend--xl"
+                            }
+                        },
+                        hint: {
+                            text : 'You can add as many office addresses as you like - but you’ll only be able to select the first one when creating a case. If you need to use another address, you’ll be able to enter it manually.'
+                        },
+                        items: [
+                            {
+                                value: "yes",
+                                text: "Yes"
+                            },
+                            {
+                                value: "no",
+                                text: "No"
+                            }
+                        ]
                     }) }}
 
                     <h3 class="govuk-heading-m">Already added</h3>
