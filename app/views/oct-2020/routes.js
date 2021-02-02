@@ -57,6 +57,13 @@ router.get( '/' + strPath + '/register-organisation/check', function(req, res) {
 
 });
 
+router.get( '/' + strPath + '/manage-organisation/updated-pba', function(req, res) {
+
+	req.session.data.addresses = req.session.data.addresses || getDummyAddresses( req, res );
+  	res.render( strPath + '/manage-organisation/updated-pba',  { data: req.session.data} );
+
+});
+
 
 router.get( '/' + strPath + '/manage-organisation/organisation-address', function(req, res) {
 
