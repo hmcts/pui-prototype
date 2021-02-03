@@ -95,7 +95,7 @@ router.get('/oct-2020/manage-organisation/users', (req, res) => {
 				html: '<a href="/oct-2020/manage-organisation/users/view2">Joe Bloggs</a>'
 			},
 			{
-				text: 'steve@smith.com'
+				text: 'joe@bloggs.com'
 			},
 	
 
