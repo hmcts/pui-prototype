@@ -49,7 +49,7 @@
                         Enter a UK postcode
                         </label>
 
-                        <input class="govuk-input govuk-input--width-10 postcode" id="address_postcode" name="postcodeFinder" type="text">
+                        <input class="govuk-input govuk-input--width-10 postcode" id="address_postcode" name="postcodeFinder" type="text" value="{{ data['addresses'][ data['changeAddress'] ]['addressPostcode'] }}" />
 
                         <button class="govuk-button govuk-button--secondary find-button" data-module="govuk-button" onclick="showSelectAddress( 'address' )" style="margin-bottom: 0;">
                           Find address

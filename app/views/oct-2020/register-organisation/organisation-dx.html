@@ -55,7 +55,8 @@
                     },
                     id: "dx-number",
                     name: "dx-number",
-                    classes: "govuk-input--width-20"
+                    classes: "govuk-input--width-20",
+                    value: data['addresses'][ data['changeAddress'] ]['addressDX']
                     }) }}
                     {{ govukInput({
                     label: {
@@ -67,7 +68,8 @@
                     },
                     id: "dx-exchange",
                     name: "dx-exchange",
-                    classes: "govuk-input--width-20"
+                    classes: "govuk-input--width-20",
+                    value: data['addresses'][ data['changeAddress'] ]['addressDXExchange']
                     }) }}
                     {% endcall %}
                     {{govukButton({

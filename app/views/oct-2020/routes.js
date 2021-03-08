@@ -21,7 +21,7 @@ router.post( '/' + strPath + '/register-organisation/organisation-address-anothe
 router.post( '/' + strPath + '/register-organisation/organisation-address-add', (req, res) => {
 
 	var addresses = req.session.data.addresses || [];
-	var addressNo = addresses.length + 1;
+	var addressNo = addresses.length;
 	var addressAddress1 = (req.session.data['address_Line1']) ? req.session.data['address_Line1'] : '-'
 	var addressAddress2 = (req.session.data['address_Line2']) ? req.session.data['address_Line2'] : ''
 	var addressTown = (req.session.data['address_city']) ? req.session.data['address_city'] : ''
@@ -31,7 +31,12 @@ router.post( '/' + strPath + '/register-organisation/organisation-address-add', 
 	var addressDX = (req.session.data['dx-number']) ? req.session.data['dx-number'] : ''
 	var addressDXExchange = (req.session.data['dx-exchange']) ? req.session.data['dx-exchange'] : ''
 
-	addresses.push({'addressNo': addressNo, 'address': address, 'addressDX': addressDX, 'addressDXExchange': addressDXExchange });
+	if ( typeof req.session.data['changeAddress'] !== 'undefined' && req.session.data['changeAddress'] ) {
+		addresses[ req.session.data['changeAddress'] ] = {'addressNo': addressNo, 'address': address, 'addressDX': addressDX, 'addressDXExchange': addressDXExchange, 'addressPostcode': addressPostcode };
+	} else {
+		addresses.push({'addressNo': addressNo, 'address': address, 'addressDX': addressDX, 'addressDXExchange': addressDXExchange, 'addressPostcode': addressPostcode });
+	}
+
 	req.session.data.addresses = addresses;
 
 	if ( req.session.data.addNew == "true" ) {
@@ -128,12 +133,12 @@ let getDummyAddresses = function ( req, res ) {
 	var addressNo = addresses.length + 1;
 	var address = '102 Petty France, London, SW1H 9AJ';
 
-	addresses.push({'addressNo': addressNo, 'address': address, 'addressDX': '152380', 'addressDXExchange': 'Westminster 8' });
+	addresses.push({'addressNo': addressNo, 'address': address, 'addressDX': '152380', 'addressDXExchange': 'Westminster 8', 'addressPostcode': 'SW1H 9AJ' });
 
 	var addressNo = addresses.length + 1;
 	var address = '46 High Street, Guildford, GU1 1AH';
 
-	addresses.push({'addressNo': addressNo, 'address': address, 'addressDX': '165731', 'addressDXExchange': 'Guildford 14' });
+	addresses.push({'addressNo': addressNo, 'address': address, 'addressDX': '165731', 'addressDXExchange': 'Guildford 14', 'addressPostcode': 'GU1 1AH' });
 
 	req.session.data.addresses = addresses;
 

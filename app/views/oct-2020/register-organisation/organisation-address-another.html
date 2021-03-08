@@ -70,13 +70,14 @@
                         <tr class="govuk-table__row">
                           <td class="govuk-table__cell">{{ address.address }}</td>        
                           <td class="govuk-table__cell">{{ address.addressDX }}, {{ address.addressDXExchange }}</td>        
-                          <td class="govuk-table__cell"><a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a></td>
+                          <td class="govuk-table__cell"><a class="change link" href="organisation-address?changeAddress={{ address.addressNo }}">Change</a> &nbsp; <a href="remove-address?address={{ address.addressNo }}">Remove</a></td>
                         </tr>
                         {% endfor %}
 
                       </tbody>
                     </table>
 
+                    <inupt type="hidden" name="changeAddress" value="" />
 
                     {{govukButton({
                     text: 'Continue'
