@@ -18,6 +18,19 @@ router.post( '/' + strPath + '/register-organisation/organisation-address-anothe
 	}
 });
 
+
+router.post( '/' + strPath + '/register-organisation/remove-address', (req, res) => {
+
+	var addresses = req.session.data.addresses || [];
+	var removed = addresses.splice( req.session.data.removeAddress, 1 );
+//	delete addresses[ req.session.data.removeAddress ];
+	req.session.data.addresses = addresses;
+
+	res.redirect('/' + strPath + '/register-organisation/organisation-address-another');
+
+});
+
+
 router.post( '/' + strPath + '/register-organisation/organisation-address-add', (req, res) => {
 
 	var addresses = req.session.data.addresses || [];
@@ -32,12 +45,13 @@ router.post( '/' + strPath + '/register-organisation/organisation-address-add', 
 	var addressDXExchange = (req.session.data['dx-exchange']) ? req.session.data['dx-exchange'] : ''
 
 	if ( typeof req.session.data['changeAddress'] !== 'undefined' && req.session.data['changeAddress'] ) {
-		addresses[ req.session.data['changeAddress'] ] = {'addressNo': addressNo, 'address': address, 'addressDX': addressDX, 'addressDXExchange': addressDXExchange, 'addressPostcode': addressPostcode };
+		addresses[ req.session.data['changeAddress'] ] = {'addressNo': req.session.data['changeAddress'], 'address': address, 'addressDX': addressDX, 'addressDXExchange': addressDXExchange, 'addressPostcode': addressPostcode };
 	} else {
 		addresses.push({'addressNo': addressNo, 'address': address, 'addressDX': addressDX, 'addressDXExchange': addressDXExchange, 'addressPostcode': addressPostcode });
 	}
 
 	req.session.data.addresses = addresses;
+	req.session.data.changeAddress = null;
 
 	if ( req.session.data.addNew == "true" ) {
 		res.redirect('/' + strPath + '/manage-organisation/organisation-address');

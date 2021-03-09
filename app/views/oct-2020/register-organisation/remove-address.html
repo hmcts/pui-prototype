@@ -30,14 +30,14 @@
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="/oct-2020/register-organisation/organisation-address-another-check" method="post">
+                <form action="/oct-2020/register-organisation/remove-address" method="post">
                     {{ govukRadios({
                         classes: "govuk-radios--inline",
                         idPrefix: "add-another",
                         name: "add-another",
                         fieldset: {
                             legend: {
-                                text: "Do you want to add another office address?",
+                                text: "Do you want to remove the address " + data['addresses'][ data['removeAddress'] ]['address'] + "?" ,
                                 isPageHeading: true,
                                 classes: "govuk-fieldset__legend--xl"
                             }
@@ -54,33 +54,7 @@
                         ]
                     }) }}
 
-                    {% if data['addresses'].length %}
-                    <h3 class="govuk-heading-m">Already added</h3>
-
-                    <table class="govuk-table">
-                      <thead class="govuk-table__head">
-                        <tr class="govuk-table__row">                        
-                          <th class="govuk-table__header" scope="col">Address</th>
-                          <th class="govuk-table__header" scope="col">DX reference</th>
-                          <th class="govuk-table__header" scope="col"></th>
-                        </tr>
-                      </thead>
-
-                        {% for address in data['addresses'] %}
-                        {% if address != null %}
-                        <tr class="govuk-table__row">
-                          <td class="govuk-table__cell">{{ address.address }}</td>        
-                          <td class="govuk-table__cell">{{ address.addressDX }}, {{ address.addressDXExchange }}</td>        
-                          <td class="govuk-table__cell"><a class="change link" href="organisation-address?changeAddress={{ loop.index0 }}">Change</a> &nbsp; <a href="remove-address?removeAddress={{ loop.index0 }}">Remove</a></td>
-                        </tr>
-                        {% endif %}
-                        {% endfor %}
-
-                      </tbody>
-                    </table>
-                    {% endif %}
-
-                    <inupt type="hidden" name="changeAddress" value="X" />
+                    <inupt type="hidden" name="removeAddress" value="" />
 
                     {{govukButton({
                     text: 'Continue'
