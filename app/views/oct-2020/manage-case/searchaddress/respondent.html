@@ -300,6 +300,8 @@
                             document.getElementById("noresults").style.display = "none";
                             document.getElementById("results-wrapper").style.display = "block";
                         }
+                        
+                        $('#address-wrapper').hide();
 
                     }
                 }
@@ -380,7 +382,7 @@
             document.getElementById("noresults").style.display = "none";
 
             if ( $( '#' + buttonname + itemnumber ).parent().parent().find('span').text() == 'Multiple addresses found' ) {
-                $('#address-wrapper').show();           
+                $('#address-wrapper').show();
             }
             $('#results-wrapper h3').text('Selected firm');
             $('#results-wrapper h3').removeClass('govuk-!-margin-bottom-4');
