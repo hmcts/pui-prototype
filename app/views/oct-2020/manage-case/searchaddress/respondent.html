@@ -268,10 +268,10 @@
                                 // If match then build HTML to match tbe poor layout in the live service
                                 if ( templowercase.includes(enteredtext) ) {
 
-                                    if ( Math.floor(i)%2 == 0) { 
-                                        var strAddress = row1.substr( row1.indexOf('</span>') + 11 )  + '<br />DX: ' + ( Math.floor(Math.random()*90000) + 10000 );
-                                    } else {
+                                    if ( Math.floor(i)%3 == 0) { 
                                         var strAddress = 'Multiple addresses found';
+                                    } else {
+                                        var strAddress = row1.substr( row1.indexOf('</span>') + 11 )  + '<br />DX: ' + ( Math.floor(Math.random()*90000) + 10000 );
                                     }
 
                                     divonpage.innerHTML +=
