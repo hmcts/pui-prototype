@@ -1,0 +1,88 @@
+{% extends "oct-2020/manage-organisation/layout.html" %}
+{% set serviceName = 'Manage Cases' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Manage Cases</a>
+    </div>
+</header>
+{% endblock %}
+{% block content%}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'organisation-sra-pre'
+    })}}
+
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+                <h1 class="govuk-heading-l">
+                    Consent Order Application
+                </h1>
+
+                  {% set offices = [] %}
+                  {% for address in data['addresses'] %}
+                     {% set offices = ( offices.push({ text: address.address }), offices ) %}
+                  {% endfor %}
+
+
+                  {% from "radios/macro.njk" import govukRadios %}
+                  {% from "input/macro.njk" import govukInput %}
+
+                  {{ govukRadios({
+                    idPrefix: "contact",
+                    name: "contact",
+                    fieldset: {
+                      legend: {
+                        text: "What is your service address?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--m"
+                      }
+                    },
+                    items: offices
+                  }) }}
+
+
+              <div class="govuk-form-group">
+                  <div  class="form-group form-group-related">
+                      <form
+                              action="searchaddress/respondent"
+                              name="aspnetForm"
+                              method="post"
+                              id="aspnetForm"
+                              autocomplete="off">
+
+                          <a  class="govuk-button govuk-button--secondary" href="fr1"   style=" font-size: 1.05rem;">Previous</a>
+                          <button  class="govuk-button" type="submit" style=" font-size: 1.05rem;">Continue</button>
+                      </form>
+
+
+                  </div>
+
+                  <p class="cancel" >
+                      <a  href="/searchorgs/search/caselist">Cancel</a>
+                  </p>
+
+
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

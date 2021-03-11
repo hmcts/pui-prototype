@@ -11,6 +11,9 @@ router.post( '/' + strPath + '/register-organisation/organisation-sra-check', (r
 });
 
 router.post( '/' + strPath + '/register-organisation/organisation-address-another-check', (req, res) => {
+	
+	req.session.data.changeAddress = null;
+
 	if (req.body['add-another'] === 'yes') {
 		res.redirect('/' + strPath + '/register-organisation/organisation-address');
 	} else {
@@ -60,6 +63,14 @@ router.post( '/' + strPath + '/register-organisation/organisation-address-add', 
 	}
 
 });
+
+router.get( '/' + strPath + '/manage-case/searchaddress', function(req, res) {
+
+	req.session.data.addresses = req.session.data.addresses || getDummyAddresses( req, res );
+  	res.render( strPath + '/manage-case/searchaddress/index',  { data: req.session.data} );
+
+});
+
 
 router.get( '/' + strPath + '/register-organisation/your-office', function(req, res) {
 
@@ -145,7 +156,7 @@ let getDummyAddresses = function ( req, res ) {
 
 	var addresses = [];
 	var addressNo = addresses.length + 1;
-	var address = '102 Petty France, London, SW1H 9AJ';
+	var address = '102 Cornhill, London, SW1H 9AJ';
 
 	addresses.push({'addressNo': addressNo, 'address': address, 'addressDX': '152380', 'addressDXExchange': 'Westminster 8', 'addressPostcode': 'SW1H 9AJ' });
 
