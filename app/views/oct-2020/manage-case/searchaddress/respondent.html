@@ -151,68 +151,6 @@
 
 
                             <dl class="govuk-summary-list" id="addresses">
-
-                              <div class="govuk-summary-list__row" id="address0" >
-                                <dd class="govuk-summary-list__value">
-                                    <p>
-                                        90 High Holborn<br />
-                                        London<br />
-                                        WC1V 6LJ
-                                    </p>
-                                    <p>
-                                        DX: 347 London
-                                    </p>
-                                </dd>
-                                <dd class="govuk-summary-list__actions">
-                                <p id="address-button0" style="color:#005ea5; cursor:pointer; text-decoration:underline; margin: 0px;" data-module="govuk-button" onclick="showSelectedAddress(0)">Select</p>
-                                </dd>
-                              </div>
-                              <div class="govuk-summary-list__row" id="address1" >
-                                <dd class="govuk-summary-list__value">
-                                    <p>
-                                        123 High Street<br />
-                                        Guildford<br />
-                                        GU1 1QP
-                                    </p>
-                                    <p>
-                                        DX: 543 Guildford
-                                    </p>
-                                </dd>
-                                <dd class="govuk-summary-list__actions">
-                                <p id="address-button1" style="color:#005ea5; cursor:pointer; text-decoration:underline; margin: 0px;" data-module="govuk-button" onclick="showSelectedAddress(1)">Select</p>
-                                </dd>
-                              </div>
-                              <div class="govuk-summary-list__row" id="address2" >
-                                <dd class="govuk-summary-list__value">
-                                    <p>
-                                        72 Oxford Road<br />
-                                        Reading<br />
-                                        RG30 2DN
-                                    </p>
-                                    <p>
-                                        DX: 24 Reading
-                                    </p>
-                                </dd>
-                                <dd class="govuk-summary-list__actions">
-                                <p id="address-button2" style="color:#005ea5; cursor:pointer; text-decoration:underline; margin: 0px;" data-module="govuk-button" onclick="showSelectedAddress(2)">Select</p>
-                                </dd>
-                              </div>
-                              <div class="govuk-summary-list__row" id="address3" >
-                                <dd class="govuk-summary-list__value">
-                                    <p>
-                                        354 London Road<br />
-                                        Oxford<br />
-                                        OX5 9HS
-                                    </p>
-                                    <p>
-                                        DX: 934 Oxford
-                                    </p>
-                                </dd>
-                                <dd class="govuk-summary-list__actions">
-                                <p id="address-button3" style="color:#005ea5; cursor:pointer; text-decoration:underline; margin: 0px;" data-module="govuk-button" onclick="showSelectedAddress(3)">Select</p>
-                                </dd>
-                              </div>
-
                             </dl>
 
                             <div id="noresults" class="govuk-!-margin-top-1" style="display: none;">
@@ -422,21 +360,18 @@
 
             var divonpage = document.getElementById('addresses');
             divonpage.innerHTML = '';
+    
+            for (i=0; i< (  Math.floor( Math.random() * 5 )+2 ); i++) {
+                
+                row1 = allRows[ Math.floor( Math.random() * (allRows.length-2) ) ];
 
-console.log( allRows.length );
-
-
-            for (i=2; i<5; i++) {
-
-                row1 = allRows[ allRows.length -i ];
-
-                divonpage.innerHTML += '<div class="govuk-summary-list__row" id="address0" >' + 
+                divonpage.innerHTML += '<div class="govuk-summary-list__row" id="address' + i + '" >' + 
                                        '     <dd class="govuk-summary-list__value">' + 
-                                       '         <p>' + row1.substr( row1.indexOf('</span>') + 11 )  + '<br />DX: ' + ( Math.floor(Math.random()*90000) + 10000 ); + 
+                                       '         <p>' + row1.substr( row1.indexOf('</span>') + 11 )  + '<br />DX: ' + ( Math.floor(Math.random()*90000) + 10000 ) + 
                                        '         </p>' +
                                        '     </dd>' + 
                                        '     <dd class="govuk-summary-list__actions">' + 
-                                       '     <p id="address-button0" style="color:#005ea5; cursor:pointer; text-decoration:underline; margin: 0px;" data-module="govuk-button" onclick="showSelectedAddress(0)">Select</p>' + 
+                                       '        <p id="address-button' + i + '" style="color:#005ea5; cursor:pointer; text-decoration:underline; margin: 0px;" data-module="govuk-button" onclick="showSelectedAddress(' + i + ')">Select</p>' + 
                                        '     </dd>' + 
                                        '   </div>';
 
