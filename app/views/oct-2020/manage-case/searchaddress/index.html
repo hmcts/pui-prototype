@@ -36,10 +36,27 @@
                     Consent Order Application
                 </h1>
 
+
+                  {% set addressHTML %}
+<div class="govuk-form-group" id="address_postcode-finder">
+    <label class="govuk-label govuk-label--m" for="address-postcode">
+    Enter a UK postcode
+    </label>
+
+    <input class="govuk-input govuk-input--width-10 postcode" id="address_postcode" name="postcodeFinder" type="text" value="">
+
+    <button class="govuk-button govuk-button--secondary find-button" data-module="govuk-button" onclick="showSelectAddress( 'address' )" style="margin-bottom: 0;">
+      Find address
+    </button>
+</div>
+                  {% endset -%}
+
+
                   {% set offices = [] %}
                   {% for address in data['addresses'] %}
                      {% set offices = ( offices.push({ text: address.address }), offices ) %}
                   {% endfor %}
+                  {% set offices = ( offices.push({ text: 'Other' }), offices ) %}
 
 
                   {% from "radios/macro.njk" import govukRadios %}
