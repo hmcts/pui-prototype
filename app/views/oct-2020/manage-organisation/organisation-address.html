@@ -87,14 +87,14 @@
                       {% from "hmcts-banner/macro.njk" import hmctsBanner %}
                       {{ hmctsBanner({
                       type: 'success',
-                      text: 'New office added.',
+                      text: 'New address added.',
                       iconFallbackText: 'Success'
                       }) }} 
                     {% elseif data['showConfirmRemoved'] == 'true' %}
                       {% from "hmcts-banner/macro.njk" import hmctsBanner %}
                       {{ hmctsBanner({
                       type: 'success',
-                      text: 'Office removed.',
+                      text: 'Address removed.',
                       iconFallbackText: 'Success'
                       }) }} 
                     {% elseif data['showConfirmUpdated'] == 'true' %}
@@ -117,13 +117,17 @@
                         </tr>
                       </thead>
 
+                        {% set addressCount = 0 %}
+                        {% for address in data['addresses'] %}
+                        {% set addressCount = addressCount +1  %}
+                        {% endfor %}
+
                       <tbody>
                         {% for address in data['addresses'] %}
-
                         <tr class="govuk-table__row">
                           <td class="govuk-table__cell">{{ address.address }}</td>        
                           <td class="govuk-table__cell">{{ address.addressDX }}, {{ address.addressDXExchange }}</td>        
-                          <td class="govuk-table__cell"><a class="change link" href="../register-organisation/organisation-address?changeAddress={{ loop.index0 }}&return=manage">Change</a> &nbsp; <a href="../register-organisation/remove-address?removeAddress={{ loop.index0 }}&return=manage">Remove</a></td>
+                          <td class="govuk-table__cell"><a class="change link" href="../register-organisation/organisation-address?changeAddress={{ loop.index0 }}&return=manage">Change</a>{% if addressCount > 1 %} &nbsp; <a href="../register-organisation/remove-address?removeAddress={{ loop.index0 }}&return=manage">Remove</a>{% endif %}</td>
                         </tr>
                         {% endfor %}
 

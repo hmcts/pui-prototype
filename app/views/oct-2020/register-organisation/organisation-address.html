@@ -234,7 +234,7 @@ function showSelectAddress( strPrefix ) {
   function updateAddress( address, strPrefix ) {
     showSelectedAddress( strPrefix );
     var addresses = $('#' + strPrefix + '_addressList').val().split(', ');
-console.log( addresses);
+    
     $('#' + strPrefix  + "_street-1").val(addresses[0]);
     $('#' + strPrefix  + "_street-2").val(addresses[1]);
     $('#' + strPrefix  + "_town").val(addresses[2]);
