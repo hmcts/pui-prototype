@@ -173,18 +173,18 @@
 
 
 
-                        <label class="govuk-label" for="solref">
-                            Their reference (Optional)
-                        </label>
-                        <input class="govuk-input " id="solref" name="solref" type="text"
-                               style="border: solid 1px; height:32px; font-size:18px; margin-bottom: 30px">
+                        </div>
 
 
+                        <div class="govuk-form-group" id="ref" style="display: none;">
+                            <label class="govuk-label" for="solref">
+                                Their reference (Optional)
+                            </label>
+                            <input class="govuk-input " id="solref" name="solref" type="text"
+                                   style="border: solid 1px; height:32px; font-size:18px; margin-bottom: 30px">
+                            </div>
                         </div>
                         
-
-            </div>
-
 
 
         </div>
@@ -389,6 +389,7 @@
             $('#results-wrapper h3').addClass('govuk-!-margin-bottom-0');
             $('#results-wrapper hr').hide();
             $('#results-wrapper details').hide();
+            $('#ref').show();
 
         } else {
             // clear all the results
@@ -400,6 +401,7 @@
 
             $('#results-wrapper, #address-wrapper').hide();
             $( '#searchinput' ).focus();
+            $('#ref').hide();
         }
 
     }
@@ -428,7 +430,6 @@
             $('#address-wrapper h3').addClass('govuk-!-margin-bottom-0');
             $('#address-wrapper hr').hide();
             $('#address-wrapper details').hide();
-            $('#their-ref').show();
 
         } else {
             // clear all the results

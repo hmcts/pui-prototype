@@ -29,7 +29,11 @@ router.post( '/' + strPath + '/register-organisation/remove-address', (req, res)
 //	delete addresses[ req.session.data.removeAddress ];
 	req.session.data.addresses = addresses;
 
-	res.redirect('/' + strPath + '/register-organisation/organisation-address-another');
+    if ( req.session.data.return == 'manage' ) {
+		res.redirect('/' + strPath + '/manage-organisation/organisation-address?showConfirmRemoved=true');
+	} else {
+		res.redirect('/' + strPath + '/register-organisation/organisation-address-another');
+	}
 
 });
 
@@ -58,6 +62,8 @@ router.post( '/' + strPath + '/register-organisation/organisation-address-add', 
 
 	if ( req.session.data.addNew == "true" ) {
 		res.redirect('/' + strPath + '/manage-organisation/organisation-address');
+	} else if ( req.session.data.return == 'manage' ) {
+		res.redirect('/' + strPath + '/manage-organisation/organisation-address?showConfirmUpdated=true');
 	} else {
 		res.redirect('/' + strPath + '/register-organisation/organisation-address-another');
 	}
