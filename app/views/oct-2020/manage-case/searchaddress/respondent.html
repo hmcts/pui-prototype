@@ -143,6 +143,13 @@
                             <dl class="govuk-summary-list" id="addresses">
                             </dl>
 
+
+                            <p id="address-not-found">
+                              Can’t find the address you're looking for?<br />
+                              <a href="#" onclick="return enterAddressDetails();">Enter the address manually</a>
+                            </p>
+
+
                         </div>
 
 
@@ -160,6 +167,38 @@
                             </label>
                             <input class="govuk-input " id="solname" name="solname" type="text" style="border: solid 1px; height:32px; font-size:18px; margin-bottom: 30px">
 
+
+                            <div class="govuk-form-group" id="address_postcode-finder" style="margin-bottom: 10px;">
+                                <label class="govuk-label" for="address-postcode">
+                                Enter their postcode
+                                </label>
+
+                                <input class="govuk-input govuk-input--width-10 postcode" id="address_postcode" name="postcodeFinder" type="text" value="{{ data['addresses'][ data['changeAddress'] ]['addressPostcode'] }}" style="border-width: 1px" />
+
+                                <button class="govuk-button govuk-button--secondary find-button" data-module="govuk-button" onclick="showSelectAddress( 'address' )" style="margin-bottom: 0;">
+                                  Find address
+                                </button>
+                            </div>
+
+                            <div class="govuk-form-group">
+                              <div id="address_enter-manually" class="enter-manually">
+                                <p><a class="link" href="#" onclick="return showAbroadAddress( 'address' );">Enter address manually</a></p>
+                              </div>
+                            </div>
+
+
+                            <label class="govuk-label" for="solname">
+                                Their DX number
+                            </label>
+                            <input class="govuk-input " id="solname" name="solname" type="text" style="border: solid 1px; height:32px; font-size:18px; margin-bottom: 30px">
+
+                        </div>
+
+
+
+
+                        <div class="govuk-form-group" id="address-manual" style="display: none;">
+                            <h3 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-4">Enter firm's address</h3>
 
                             <div class="govuk-form-group" id="address_postcode-finder" style="margin-bottom: 10px;">
                                 <label class="govuk-label" for="address-postcode">
@@ -473,6 +512,7 @@
             $('#address-wrapper h3').addClass('govuk-!-margin-bottom-0');
             $('#address-wrapper hr').hide();
             $('#address-wrapper details').hide();
+            $('#address-not-found').hide();
 
         } else {
             // clear all the results
@@ -488,9 +528,11 @@
             $('#address-wrapper hr').show();
             $('#address-wrapper details').show();
             $('#address-wrapper .govuk-summary-list__row').show();
+            $('#address-not-found').show();
 
         }
 
+        $('#address-manual').hide();
 
 
     }
@@ -498,6 +540,13 @@
 
     function enterDetails() {
         $('#manual').show();
+        $('#ref').show();
+
+        return false;
+    }
+
+    function enterAddressDetails() {
+        $('#address-manual').show();
         $('#ref').show();
 
         return false;
