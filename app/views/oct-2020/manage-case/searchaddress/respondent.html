@@ -199,7 +199,7 @@
                     id="aspnetForm"
                     autocomplete="off">
 
-                    <a  class="govuk-button govuk-button--secondary" href="fr4"   style=" font-size: 1.05rem;">Previous</a>
+                    <a class="govuk-button govuk-button--secondary" href="../searchaddress" style="font-size: 1.05rem;">Previous</a>
                     <button  class="govuk-button" type="submit" style=" font-size: 1.05rem;">Continue</button>
                 </form>
             </div>
@@ -281,7 +281,7 @@
                                             '<br /><span>' + strAddress + '</span></p>' +
                                           '  </dd>' +
                                           '  <dd class="govuk-summary-list__actions">' +
-                                          '<p id="selectbutton'+resultscounter+'" style="color:#005ea5; cursor:pointer; text-decoration:underline; margin: 0px;" data-module="govuk-button" onclick="showselectedresult('+resultscounter+')">Select</p>' +
+                                          '<p id="selectbutton'+resultscounter+'" style="color:#005ea5; cursor:pointer; text-decoration:underline; margin: 0px;" data-module="govuk-button" onclick="showselectedresult('+resultscounter+', ' + i + ')">Select</p>' +
                                           '  </dd>' +
                                           '</div>';
 
@@ -344,7 +344,7 @@
     }, 500));
 
 
-    function showselectedresult(itemnumber) {
+    function showselectedresult(itemnumber, rowCount ) {
 
         var prefixaddresscontainer = 'result';
         var buttonname = 'selectbutton';
@@ -361,7 +361,17 @@
 
 
             var divonpage = document.getElementById('addresses');
-            divonpage.innerHTML = '';
+            row1 = allRows[ rowCount ];
+
+            divonpage.innerHTML = '<div class="govuk-summary-list__row" id="address' + i + '" >' + 
+                                   '     <dd class="govuk-summary-list__value">' + 
+                                   '         <p>' + row1.substr( row1.indexOf('</span>') + 11 )  + '<br />DX: ' + ( Math.floor(Math.random()*90000) + 10000 ) + 
+                                   '         </p>' +
+                                   '     </dd>' + 
+                                   '     <dd class="govuk-summary-list__actions">' + 
+                                   '        <p id="address-button' + i + '" style="color:#005ea5; cursor:pointer; text-decoration:underline; margin: 0px;" data-module="govuk-button" onclick="showSelectedAddress(' + i + ')">Select</p>' + 
+                                   '     </dd>' + 
+                                   '   </div>';
     
             for (i=0; i< (  Math.floor( Math.random() * 5 )+2 ); i++) {
                 

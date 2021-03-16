@@ -56,37 +56,39 @@
                   {% for address in data['addresses'] %}
                      {% set offices = ( offices.push({ text: address.address }), offices ) %}
                   {% endfor %}
-                  {% set offices = ( offices.push({ text: 'Other' }), offices ) %}
+                  {% set offices = ( offices.push({ text: 'Other', value: 'other' }), offices ) %}
 
-
-                  {% from "radios/macro.njk" import govukRadios %}
-                  {% from "input/macro.njk" import govukInput %}
-
-                  {{ govukRadios({
-                    idPrefix: "contact",
-                    name: "contact",
-                    fieldset: {
-                      legend: {
-                        text: "What is your service address?",
-                        isPageHeading: true,
-                        classes: "govuk-fieldset__legend--m"
-                      }
-                    },
-                    items: offices
-                  }) }}
 
 
               <div class="govuk-form-group">
                   <div  class="form-group form-group-related">
                       <form
-                              action="searchaddress/respondent"
+                              action="searchaddress"
                               name="aspnetForm"
                               method="post"
                               id="aspnetForm"
                               autocomplete="off">
 
-                          <a  class="govuk-button govuk-button--secondary" href="fr1"   style=" font-size: 1.05rem;">Previous</a>
-                          <button  class="govuk-button" type="submit" style=" font-size: 1.05rem;">Continue</button>
+                              {% from "radios/macro.njk" import govukRadios %}
+                              {% from "input/macro.njk" import govukInput %}
+
+                              {{ govukRadios({
+                                idPrefix: "serviceAddress",
+                                name: "serviceAddress",
+                                fieldset: {
+                                  legend: {
+                                    text: "What is your service address?",
+                                    isPageHeading: true,
+                                    classes: "govuk-fieldset__legend--m"
+                                  }
+                                },
+                                items: offices
+                              }) }}
+
+                          <div class="govuk-form-group">
+                            <a  class="govuk-button govuk-button--secondary" href="fr1"   style=" font-size: 1.05rem;">Previous</a>
+                            <button  class="govuk-button" type="submit" style=" font-size: 1.05rem;">Continue</button>
+                          </div>
                       </form>
 
 
@@ -97,7 +99,6 @@
                   </p>
 
 
-                </form>
             </div>
         </div>
     </main>

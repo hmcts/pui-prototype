@@ -158,6 +158,18 @@ router.get( '/' + strPath + '/manage-organisation/users/update-location', functi
 });
 
 
+
+router.post( '/' + strPath + '/manage-case/searchaddress', (req, res) => {
+
+console.log( req.session.data );
+    if ( req.session.data['serviceAddress'] == 'other' ) {
+		res.redirect('/' + strPath + '/manage-case/searchaddress/other-address');
+	} else {
+		res.redirect('/' + strPath + '/manage-case/searchaddress/respondent');
+	}
+
+});
+
 let getDummyAddresses = function ( req, res ) {
 
 	var addresses = [];
