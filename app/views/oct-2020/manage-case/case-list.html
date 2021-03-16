@@ -1,354 +1,316 @@
-{% extends "./layout.html" %}
+{% extends "./layout-mc.html" %}
 
 
 
+{% block content %}
+
+<div style="width:1220px; display: flex; margin: 0 auto;">
+  <div class="govuk-width-container">
+    
+    <main class="govuk-main-wrapper " id="main-content" role="main">
 
 
-{% block mainContent %}
+    <div class="hmcts-page-heading">
+          <div class="hmcts-page-heading__title">
+               <h1 class="govuk-heading-xl">Case Lists</h1>
+          </div>
+    </div>
 
-  {{ hmctsPageHeaderWithActions({
-    title: {
-      html: '<h1 class="govuk-heading-xl">Your cases</h1>'
-    },
-    classes: 'govuk-!-margin-bottom-7',
-    items: [{
-      text: 'Create case',
-      href: '/oct-2020/manage-case/create-case'
-    }]
-  }) }}
+    <button class="govuk-button govuk-button--secondary govuk-!-margin-top-3 " data-module="govuk-button">
+          Show filter
+    </button>
 
-        <!-- <div class="govuk-grid-row">
-          <div class="govuk-grid-column-one-third"> -->
 
-            <!-- {% set filterOptionsHtml %}
-            {{ govukCheckboxes({
-              idPrefix: 'type',
-              name: 'type',
-              fieldset: {
-                legend: {
-                  text: 'Type',
-                  classes: 'govuk-fieldset__legend--m'
-                }
-              },
-              items: [
-                {
-                  value: '1',
-                  text: 'Divorce (18)',
-                  checked: true
-                },
-                {
-                  value: '2',
-                  text: 'Financial remedy (5)',
-                  checked: true
-                },
-                {
-                  value: '3',
-                  text: 'Probate (2)'
-                }
-              ]
-            }) }}
+    <h2 class="govuk-heading-m  govuk-!-margin-top-4">Case list</h2>
 
-            {{ govukCheckboxes({
-              idPrefix: 'status',
-              name: 'status',
-              fieldset: {
-                legend: {
-                  text: 'Status',
-                  classes: 'govuk-fieldset__legend--m'
-                }
-              },
-              items: [
-                {
-                  value: '1',
-                  text: 'Application drafted',
-                  checked: true
-                },
-                {
-                  value: '2',
-                  text: 'Awaiting payment'
-                },
-                {
-                  value: 'magistrate',
-                  text: 'Petition paid',
-                  checked: true
-                }
-              ]
-            }) }}
-          {% endset %}
+    {% if  data.hideone == 'true'  and  data.hidetwo == 'true'  and  data.hidethree == 'true'  %}
+        <p>Displaying 0 out of 0 results</p>
+    {% else %}
+        <p>Displaying 1 - 3 out of 3 results</p>
+    {% endif %}
 
-          {{ hmctsFilter({
-            heading: {
-              text: 'Filter'
-            },
-            selectedFilters: {
 
-              heading: {
-                text: 'Selected filters'
-              },
 
-              clearLink: {
-                text: 'Clear filters'
-              },
+        {% if data.caselist == 'probate' %}
 
-              categories: [
-                {
-                  heading: {
-                    text: 'Type'
-                  },
-                  items: [{
-                    href: '/path/to/remove/this',
-                    text: 'Divorce'
-                  }, {
-                    href: '/path/to/remove/this',
-                    text: 'Financial remedy'
-                  }]
-                },
-                {
-                  heading: {
-                    text: 'Status'
-                  },
-                  items: [{
-                    href: '/path/to/remove/this',
-                    text: 'Application drafted'
-                  }]
-                }
-              ]
-            },
-            optionsHtml: filterOptionsHtml
-          }) }}
-        </div>
-        <div class="govuk-grid-column-two-thirds"> -->
+            <table class="govuk-table ">
+                <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16">Case reference</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Your reference</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">First name(s) of deceased</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Last name(s) of deceased</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Date of death</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Case printed</th>
+                </tr>
+                </thead>
 
-          <!-- <div class="hmcts-action-bar">
-            <div class="hmcts-filter-menu"></div>
-            {{hmctsMenu({
-              items: [{
-                text: 'Reassign',
-                classes: 'hmcts-button--secondary'
-              }, {
-                text: 'Archive',
-                classes: 'hmcts-button--secondary'
-              }, {
-                text: 'Delete',
-                classes: 'hmcts-button--secondary'
-              }]
-            })}}
-          </div> -->
+                <tbody class="govuk-table__body">
+                {% if data.caseadded == 'true' %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsprobate?newcaseselected=true">{{ data.casenumber }}</a></td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">825784LL</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Martin</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Narran</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">20 June 2020</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                    </tr>
+                {% endif %}
 
-          <table class="govuk-table">
-             <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="col">Reference</th>
-                  <th class="govuk-table__header" scope="col">Parties</th>
-                  <th class="govuk-table__header" scope="col">Type</th>
-                  <th class="govuk-table__header" scope="col">Status</th>
-                  <th class="govuk-table__header" scope="col">Last updated</th>
-                </tr>
-              </thead>
-              <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="/oct-2020/manage-case/case-summary">4458-8429-2491-3791</a></th>
-                  <td class="govuk-table__cell ">John Smith v Jane Smith</td>
-                  <td class="govuk-table__cell ">Divorce</td>
-                  <td class="govuk-table__cell ">Application drafted</td>
-                  <td class="govuk-table__cell ">5 Nov 2018 at 4:48pm</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">1262-2963-5085-2609</a></th>
-                  <td class="govuk-table__cell ">Gregory Fox</td>
-                  <td class="govuk-table__cell ">Probate</td>
-                  <td class="govuk-table__cell ">Ready to issue</td>
-                  <td class="govuk-table__cell ">5 Nov 2018 at 2:01pm</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">1117-5086-2665-7395</a></th>
-                  <td class="govuk-table__cell ">Warren Sutton</td>
-                  <td class="govuk-table__cell ">Probate</td>
-                  <td class="govuk-table__cell ">Application created</td>
-                  <td class="govuk-table__cell ">2 Nov 2018 at 10:03am</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">8934-2347-6091-2028</a></th>
-                  <td class="govuk-table__cell ">Carlos Fisk v Jill Fisk</td>
-                  <td class="govuk-table__cell ">Financial remedy</td>
-                  <td class="govuk-table__cell ">Awaiting Payment Response</td>
-                  <td class="govuk-table__cell ">1 Nov 2018 at 12:42pm</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">7725-2075-8562-8971</a></th>
-                  <td class="govuk-table__cell ">Alan Jones</td>
-                  <td class="govuk-table__cell ">Probate</td>
-                  <td class="govuk-table__cell ">Awaiting documentation</td>
-                  <td class="govuk-table__cell ">1 Nov 2018 at 11:05am</td>
-                </tr>
-                 <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">6030-1597-1298-9715</a></th>
-                  <td class="govuk-table__cell ">David Francis v Susan Francis</td>
-                  <td class="govuk-table__cell ">Divorce</td>
-                  <td class="govuk-table__cell ">Statement of Truth, Pay and Submit Required</td>
-                  <td class="govuk-table__cell ">31 Oct 2018 at 4:22pm</td>
-                </tr>
-                   </tr>
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">6282-6988-9181-9176</a></th>
-                  <td class="govuk-table__cell ">Violet Smith v Alan Smith</td>
-                  <td class="govuk-table__cell ">Divorce</td>
-                  <td class="govuk-table__cell ">Awaiting petitioner</td>
-                  <td class="govuk-table__cell ">31 Oct 2018 at 1:32pm</td>
-                </tr>
-                  <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">6925-5792-4576-3319</a></th>
-                  <td class="govuk-table__cell ">Cheryl Holt v John Holt</td>
-                  <td class="govuk-table__cell ">Financial remedy</td>
-                  <td class="govuk-table__cell ">Consent Order Made</td>
-                  <td class="govuk-table__cell ">31 Oct 2018 at 11:23am</td>
-                </tr>
-                 <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">5310-5186-1231-4639</a></th>
-                  <td class="govuk-table__cell ">Damien Salmon v Patricia Salmon</td>
-                  <td class="govuk-table__cell ">Financial remedy</td>
-                  <td class="govuk-table__cell ">Awaiting Judicial Response</td>
-                  <td class="govuk-table__cell ">29 Oct 2018 at 10:33am</td>
+                {% if data.hideone == 'true' %}
+                {% else %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsprobate?casenumberselected=3689-2642-5857-7069&casenumberselectedccdformat=3689-2642-5857-7069&newcaseselected=false&casetohide=a&clientname=Anne Yang&">3689-2642-5857-7069</a></td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">AY-34137102</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Anne</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Yang</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">24 Jan 2020</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                    </tr>
+                {% endif %}
 
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">3831-6409-8169-2204</a></th>
-                  <td class="govuk-table__cell ">Timothy Greenway</td>
-                  <td class="govuk-table__cell ">Probate</td>
-                  <td class="govuk-table__cell ">Examining</td>
-                  <td class="govuk-table__cell ">29 Oct 2018 at 9:01am</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">9532-5530-6258-5049</a></th>
-                  <td class="govuk-table__cell ">Adam Kowalski v Agata Kowalski</td>
-                  <td class="govuk-table__cell ">Divorce</td>
-                  <td class="govuk-table__cell ">Petition submitted</td>
-                  <td class="govuk-table__cell ">25 Oct 2018 at 6:10pm</td>
-                </tr>
-                </tr>
-                 <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">7625-1181-7909-5287</a></th>
-                  <td class="govuk-table__cell ">Sarah Kinnear</td>
-                  <td class="govuk-table__cell ">Probate</td>
-                  <td class="govuk-table__cell ">Stopped</td>
-                  <td class="govuk-table__cell ">24 Oct 2018 at 3:10pm</td>
-                </tr>
-                 <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">9376-7001-9175-1413</a></th>
-                  <td class="govuk-table__cell ">Rukhsana Khan v Ali Khan</td>
-                  <td class="govuk-table__cell ">Divorce</td>
-                  <td class="govuk-table__cell ">Awaiting AOS</td>
-                  <td class="govuk-table__cell ">19 Oct 2018 at 5:56pm</td>
-                </tr>
-                 <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">3967-8498-9343-2045</a></th>
-                  <td class="govuk-table__cell ">Kieran Flick</td>
-                  <td class="govuk-table__cell ">Probate</td>
-                  <td class="govuk-table__cell ">Stopped</td>
-                  <td class="govuk-table__cell ">18 Oct 2018 at 11:43am</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">7372-5134-7441-3921</a></th>
-                  <td class="govuk-table__cell ">Francesca Dove</td>
-                  <td class="govuk-table__cell ">Probate</td>
-                  <td class="govuk-table__cell ">Grant issued</td>
-                  <td class="govuk-table__cell ">16 Oct 2018 at 3pm</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">2877-6519-5618-9839</a></th>
-                  <td class="govuk-table__cell ">Iain Curran v Robin Curran</td>
-                  <td class="govuk-table__cell ">Financial remedy</td>
-                  <td class="govuk-table__cell ">Awaiting Judicial Response</td>
-                  <td class="govuk-table__cell ">16 Oct 2018 at 1:27pm</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="row"><a href="">8768-9687-5469-7731</a></th>
-                    <td class="govuk-table__cell ">Graham Edgar v Katherine Edgar</td>
-                    <td class="govuk-table__cell ">Financial remedy</td>
-                    <td class="govuk-table__cell ">Awaiting HWF Decision</td>
-                    <td class="govuk-table__cell ">11 Oct 2018 at 3:27pm</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="row"><a href="">5464-3800-8459-8477</a></th>
-                    <td class="govuk-table__cell ">Francesca Bianchi</td>
-                    <td class="govuk-table__cell ">Probate</td>
-                    <td class="govuk-table__cell ">Stopped</td>
-                    <td class="govuk-table__cell ">10 Oct 2018 at 5:01pm</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="row"><a href="">4748-2828-7712-8233</a></th>
-                    <td class="govuk-table__cell ">Alejandro Romero</td>
-                    <td class="govuk-table__cell ">Probate</td>
-                    <td class="govuk-table__cell ">Examining</td>
-                    <td class="govuk-table__cell ">3 Oct 2017 at 10:53pm</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="row"><a href="">6028-8467-4793-8075</a></th>
-                    <td class="govuk-table__cell ">Nazia Lashkar v Ashik Lashkar</td>
-                    <td class="govuk-table__cell ">Divorce</td>
-                    <td class="govuk-table__cell ">Awaiting Decree Nisi</td>
-                    <td class="govuk-table__cell ">3 Oct 2018 at 9am</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="row"><a href="">9417-3739-9576-5131</a></th>
-                    <td class="govuk-table__cell ">Karen Gallagher v Glenn Gallagher</td>
-                    <td class="govuk-table__cell ">Divorce</td>
-                    <td class="govuk-table__cell ">AOS Completed</td>
-                    <td class="govuk-table__cell ">17 Sep 2018 at 3:03pm</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="row"><a href="">3858-2644-5670-5587</a></th>
-                    <td class="govuk-table__cell ">Darren Wright v Gillian Wright</td>
-                    <td class="govuk-table__cell ">Financial remedy</td>
-                    <td class="govuk-table__cell ">Consent Order Made</td>
-                    <td class="govuk-table__cell ">5 Sep 2018 at 1:49pm</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="row"><a href="">9781-9466-6623-9191</a></th>
-                    <td class="govuk-table__cell ">Terence Yorke</td>
-                    <td class="govuk-table__cell ">Probate</td>
-                    <td class="govuk-table__cell ">Stopped</td>
-                    <td class="govuk-table__cell ">9 Aug 2018 at 4:24pm</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="row"><a href="">2427-6452-8238-1837</a></th>
-                    <td class="govuk-table__cell ">John Smith v Jane Smith</td>
-                    <td class="govuk-table__cell ">Divorce</td>
-                    <td class="govuk-table__cell ">Petition issued</td>
-                    <td class="govuk-table__cell ">6 Aug 2018 at 11am</td>
-                </tr>
-                 <tr class="govuk-table__row">
-                  <th class="govuk-table__header" scope="row"><a href="">4906-3581-7653-7996</a></th>
-                  <td class="govuk-table__cell ">Sally Lane v James Lane</td>
-                  <td class="govuk-table__cell ">Divorce</td>
-                  <td class="govuk-table__cell ">Awaiting help with fees decision</td>
-                  <td class="govuk-table__cell ">1 Aug 2018 at 2:02pm</td>
-                </tr>
-              </tbody>
+                {% if data.hidetwo == 'true' %}
+                {% else %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsprobate?casenumberselected=1593-0136-4696-9976&casenumberselectedccdformat=1593-0136-4696-9976&newcaseselected=false&casetohide=b&clientname=Ethel Williams&">1593-0136-4696-9976</a></td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">EW-6671238</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Ethel</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Williams</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">1 May 2020</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"> </td>
+                    </tr>
+                {% endif %}
+
+                {% if data.hidethree == 'true' %}
+                {% else %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsprobate?casenumberselected=3827-2010-3565-3933&casenumberselectedccdformat=3827-2010-3565-3933&newcaseselected=false&casetohide=c&clientname=Neil Higham&">3827-2010-3565-3933</a></td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">NJ-7982475</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Neil</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Higham</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 Mar 2020 </td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"> </td>
+                    </tr>
+                {% endif %}
+
+
+                </tbody>
             </table>
 
+        {% elseif data.caselist == 'publiclaw' %}
+            <table class="govuk-table ">
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16">Case Reference Number</th>
+                <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Assigned office</th>
+                <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">BF Date</th>
+                <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Clerk</th>
+                <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Hearing Date</th>
+            </tr>
+            </thead>
 
-        <!-- </div>
-      </div> -->
+            <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailspubliclaw?casenumberselected=3689-2642-5857-7069&caseadded=false&">3689-2642-5857-7069</a></td>
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Cardiff</td>
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+            </tr>
 
-{% endblock %}
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailspubliclaw?casenumberselected=1593-0136-4696-9976&caseadded=false&">1593-0136-4696-9976</a></td>
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">London East</td>
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+            </tr>
 
-{% block pageScripts %}
-      <script>
-        new FilterMenuButton({
-          mq: '(min-width: 40.0625em)', // this is big screens
-          toggleButton: {
-            container: $('.hmcts-filter-menu'),
-            showText: 'Show filter',
-            hideText: 'Hide filter',
-            classes: 'hmcts-button--secondary'
-          },
-          closeButton: {
-            container: $('.hmcts-filter__header-action'),
-            text: 'Close'
-          },
-          filter: {
-            container: $('.hmcts-filter')
-          }
-        });
-      </script>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailspubliclaw?casenumberselected=3827-2010-3565-3933&caseadded=false&">3827-2010-3565-3933</a></td>
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">midlands East</td>
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+        {% elseif data.caselist == 'immigration' %}
+            <table class="govuk-table ">
+                <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16">HMCTS reference</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Appellant name</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Status</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Hearing date</th>
+                </tr>
+                </thead>
+
+                <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsimmigration?casenumberselected=DRAFT&caseadded=false&">DRAFT</a></td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Anne Yang</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Appeal started</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsimmigration?casenumberselected=DRAFT&caseadded=false&">DRAFT</a></td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Ethel Williams</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Appeal started</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsimmigration?casenumberselected=3827-2010-3565-3933&caseadded=false&">3827-2010-3565-3933</a></td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Norman Jones</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Appeal submitted</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                </tr>
+
+
+                </tbody>
+            </table>
+
+        {% elseif data.caselist == 'financialremedy' %}
+            <table class="govuk-table ">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16">Case Reference</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Solicitor Reference</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Applicant Name</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Respondent Name</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Date of Last Event</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-16 ">Status</th>
+                </tr>
+            </thead>
+
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsfinancialremedy?casenumberselected=3689264258577069&caseadded=false&">3689-2642-5857-7069</a></td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">AY-34137102</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Anne</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Yang</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">24 Jun 2020, 3:47:26 PM</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Application Drafted</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsfinancialremedy?casenumberselected=1593013646969976&caseadded=false&">1593-0136-4696-9976</a></td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">AY-34137102</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Ethel</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Williams</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">5 April 2020, 9:50:28 AM</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Application Drafted</td>
+
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsfinancialremedy?casenumberselected=3827201035653933&caseadded=false&">3827-2010-3565-3933</a></td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">NJ-7982475</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Norman</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Jones</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">26 April 2019, 3:09:18 PM</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Application Drafted</td>
+                </tr>
+            </tbody>
+        </table>
+        {% else %}
+            <!--  DIVORCE -->
+            <table class="govuk-table ">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17" style="width: 100px; padding-right: 30px;">Case reference</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17" style="width: 100px; padding-right: 30px;">Case created date</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17" style="width: 70px; padding-right: 30px;">Pet. First name</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17" style="width: 70px; padding-right: 30px;">Pet. Last name</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17" style="width: 100px; padding-right: 30px;">Resp. First name</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17" style="width: 100px; padding-right: 30px;">Resp. Last name</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17" style="width: 50px; padding-right: 30px;">Due Date</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17" style="width: 100px; padding-right: 30px;">Divorce Unit</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17" style="width: 100px; padding-right: 30px;">Last Modified</th>
+                    <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17" style="width: 50px; padding-right: 30px;">Linked Cases</th>
+                </tr>
+                </thead>
+
+                <tbody class="govuk-table__body">
+                {% if data.caseadded == 'true' %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsdivorce?&newcaseselected=true&divorcename=Narran vs Beth&">{{ data.casenumber }}</a></td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">5 Apr 2020, 9:50:28 AM</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Martin</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Narran</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Beth</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">King</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Courts and Tribunals Service Centre</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16">{{ data['todaydate'] }}, {{ data.todaydatetime }}</td>
+                    <td class="govuk-table__cell govuk-body govuk-!-font-size-16"> </td>
+                </tr>
+                {% endif %}
+
+                {% if data.hideone == 'true' %}
+                {% else %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsdivorce?casenumberselected=3689264258577069&casenumberselectedccdformat=3689-2642-5857-7069&newcaseselected=false&divorcename=Smith vs Blythe&casetohide=a&clientname=James Smith&">3689-2642-5857-7069</a></td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">5 Feb 2020, 9:50:28 AM</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">James</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Smith</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Jane</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Blythe</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Courts and Tribunals Service Centre</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">24 Jun 2020, 3:47:26 PM</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"> </td>
+                    </tr>
+                {% endif %}
+
+                {% if data.hidetwo == 'true' %}
+                {% else %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsdivorce?casenumberselected=1593013646969976&casenumberselectedccdformat=1593-0136-4696-9976&newcaseselected=false&divorcename=Hoyle vs King&casetohide=b&clientname=Mary Hoyle&">1593-0136-4696-9976</a></td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 Mar 2020, 1:48:33 PM</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Mary</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Hoyle</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Daniel</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">King</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Courts and Tribunals Service Centre</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">5 April 2020, 9:50:28 AM</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"> </td>
+                    </tr>
+                {% endif %}
+
+                {% if data.hidethree == 'true' %}
+                {% else %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="casedetailsdivorce?casenumberselected=3827201035653933&casenumberselectedccdformat=3827-2010-3565-3933&newcaseselected=false&divorcename=Higham vs Higham&casetohide=c&clientname=Neil Higham&">3827-2010-3565-3933</a></td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">2 Dec 2019, 4:23:50 PM</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Neil</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Higham</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Sarah</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Higham</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"></td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Courts and Tribunals Service Centre</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16">26 April 2019, 3:09:18 PM</td>
+                        <td class="govuk-table__cell govuk-body govuk-!-font-size-16"> </td>
+                    </tr>
+                {% endif %}
+
+    </tbody>
+</table>
+
+
+        {% endif %}
+
+
+
+    </main>
+
+  </div>
+</div>
+
 {% endblock %}
