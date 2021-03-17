@@ -71,7 +71,7 @@
                         <tr class="govuk-table__row">
                           <td class="govuk-table__cell">{{ address.address }}</td>        
                           <td class="govuk-table__cell">{{ address.addressDX }}, {{ address.addressDXExchange }}</td>        
-                          <td class="govuk-table__cell"><a class="change link" href="organisation-address?changeAddress={{ loop.index0 }}">Change</a> &nbsp; <a href="remove-address?removeAddress={{ loop.index0 }}">Remove</a></td>
+                          <td class="govuk-table__cell"><a class="change link" href="organisation-address?changeAddress={{ loop.index0 }}">Change</a>{% if loop.index > 1 %} &nbsp; <a href="remove-address?removeAddress={{ loop.index0 }}">Remove</a>{% endif %}</td>
                         </tr>
                         {% endif %}
                         {% endfor %}
