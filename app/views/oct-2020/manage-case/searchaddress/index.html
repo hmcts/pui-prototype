@@ -25,78 +25,67 @@
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
     {{govukBackLink({
-    href: 'organisation-sra-pre'
+    href: 'createcase'
     })}}
 
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
 
-                <h1 class="govuk-heading-l">
-                    Consent Order Application
-                </h1>
+            <h1 class="govuk-heading-l">
+                Consent Order Application
+            </h1>   
 
 
-                  {% set addressHTML %}
-<div class="govuk-form-group" id="address_postcode-finder">
-    <label class="govuk-label govuk-label--m" for="address-postcode">
-    Enter a UK postcode
-    </label>
+            <h3 class="govuk-heading-s govuk-!-margin-top-7 govuk-!-margin-bottom-4">Your details</h3>
 
-    <input class="govuk-input govuk-input--width-10 postcode" id="address_postcode" name="postcodeFinder" type="text" value="">
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="solicitorsname" style="font-size:18px;">
+                    Your name
+                </label>
+                <input class="govuk-input " id="solicitorsname" name="solicitorsname" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
 
-    <button class="govuk-button govuk-button--secondary find-button" data-module="govuk-button" onclick="showSelectAddress( 'address' )" style="margin-bottom: 0;">
-      Find address
-    </button>
-</div>
-                  {% endset -%}
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="yourref" style="font-size:18px;">
+                    Your reference (Optional)
+                </label>
+                <input class="govuk-input " id="yourref" name="yourref" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="phone" style="font-size:18px;">
+                    Phone Number (Optional)
+                </label>
+                <input class="govuk-input " id="phone" name="phone" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="email" style="font-size:18px;">
+                    Email
+                </label>
+                <input class="govuk-input " id="email" name="email" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
 
 
-                  {% set offices = [] %}
-                  {% for address in data['addresses'] %}
-                     {% set offices = ( offices.push({ text: address.address }), offices ) %}
-                  {% endfor %}
-                  {% set offices = ( offices.push({ text: 'Other', value: 'other' }), offices ) %}
 
 
+        <div class="govuk-form-group">
+            <div  class="form-group form-group-related">
+                <form
+                        action="searchaddress/serviceaddress"
+                        name="aspnetForm"
+                        method="post"
+                        id="aspnetForm"
+                        autocomplete="off">
 
-              <div class="govuk-form-group">
-                  <div  class="form-group form-group-related">
-                      <form
-                              action="searchaddress"
-                              name="aspnetForm"
-                              method="post"
-                              id="aspnetForm"
-                              autocomplete="off">
-
-                              {% from "radios/macro.njk" import govukRadios %}
-                              {% from "input/macro.njk" import govukInput %}
-
-                              {{ govukRadios({
-                                idPrefix: "serviceAddress",
-                                name: "serviceAddress",
-                                fieldset: {
-                                  legend: {
-                                    text: "What is your service address?",
-                                    isPageHeading: true,
-                                    classes: "govuk-fieldset__legend--m"
-                                  }
-                                },
-                                items: offices
-                              }) }}
-
-                          <div class="govuk-form-group">
-                            <a  class="govuk-button govuk-button--secondary" href="fr1"   style=" font-size: 1.05rem;">Previous</a>
+                    <a  class="govuk-button govuk-button--secondary" href="createcase"   style=" font-size: 1.05rem;">Previous</a>
                             <button  class="govuk-button" type="submit" style=" font-size: 1.05rem;">Continue</button>
                           </div>
                       </form>
 
 
                   </div>
-
-                  <p class="cancel" >
-                      <a  href="/searchorgs/search/caselist">Cancel</a>
-                  </p>
 
 
             </div>
