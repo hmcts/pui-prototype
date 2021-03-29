@@ -113,19 +113,6 @@
                     name: "emailaddress"
                     }) }}
 
-          {{ govukRadios({
-                    classes: "govuk-radios",
-                    idPrefix: "changed-name",
-                    name: "changed-name",
-                    fieldset: {
-                      legend: {
-                        text: "Usual service address (optional)",
-                        isPageHeading: true,
-                        classes: "govuk-fieldset__legend--m"
-                      }
-                    },
-                    items: offices
-                  }) }}
           {{ govukCheckboxes({
                     idPrefix: "permissions",
                     name: "permissions",
