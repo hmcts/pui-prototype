@@ -1,0 +1,88 @@
+{% extends "pbas/manage-organisation/layout.html" %}
+{% set serviceName = 'Manage Cases' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Manage Cases</a>
+    </div>
+</header>
+{% endblock %}
+{% block content%}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'createcase'
+    })}}
+
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">
+                Consent Order Application
+            </h1>   
+
+
+            <h3 class="govuk-heading-s govuk-!-margin-top-7 govuk-!-margin-bottom-4">Your details</h3>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="solicitorsname" style="font-size:18px;">
+                    Your name
+                </label>
+                <input class="govuk-input " id="solicitorsname" name="solicitorsname" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="phone" style="font-size:18px;">
+                    Phone Number (Optional)
+                </label>
+                <input class="govuk-input " id="phone" name="phone" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="email" style="font-size:18px;">
+                    Email
+                </label>
+                <input class="govuk-input " id="email" name="email" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+
+
+
+        <div class="govuk-form-group">
+            <div  class="form-group form-group-related">
+                <form
+                        action="searchaddress/serviceaddress"
+                        name="aspnetForm"
+                        method="post"
+                        id="aspnetForm"
+                        autocomplete="off">
+
+                    <a  class="govuk-button govuk-button--secondary" href="createcase"   style=" font-size: 1.05rem;">Previous</a>
+                            <button  class="govuk-button" type="submit" style=" font-size: 1.05rem;">Continue</button>
+                          </div>
+                      </form>
+
+
+                  </div>
+
+
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

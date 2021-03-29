@@ -1,4 +1,4 @@
-{% extends "oct-2020/manage-organisation/layout.html" %}
+{% extends "pbas/manage-organisation/layout.html" %}
 {% set serviceName = 'Register to manage civil and family law cases' %}
 {% block header %}
 <header class="hmcts-header" role="banner">
@@ -39,29 +39,28 @@
                             {{data['org-name']}}
                         </dd>
                         <dd class="govuk-check-your-answers__change">
-                            <a href="/oct-2020/register-organisation/organisation-name">Change <span class="govuk-visually-hidden">organisation name</span></a>
+                            <a href="/pbas/register-organisation/organisation-name">Change <span class="govuk-visually-hidden">organisation name</span></a>
                         </dd>
                     </div>
                     <div class="govuk-check-your-answers__contents">
-                        <dt class="govuk-check-your-answers__question">SRA ID</dt>
+                        <dt class="govuk-check-your-answers__question">Address</dt>
                         <dd class="govuk-check-your-answers__answer">
-                            {{data['sra-number']}}
+                            {{data['address-line-1']}}<br>
+                            {{data['address-line-2']}}<br>
+                            {{data['address-town']}}<br>
+                            {{data['address-postcode']}}<br>
                         </dd>
                         <dd class="govuk-check-your-answers__change">
-                            <a href="/oct-2020/register-organisation/organisation-sra">Change <span class="govuk-visually-hidden">organistaion sra</span></a>
+                            <a href="/mvp-4/register-organisation/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
                         </dd>
                     </div>
                     <div class="govuk-check-your-answers__contents">
-                        <dt class="govuk-check-your-answers__question">Service addresses</dt>
+                        <dt class="govuk-check-your-answers__question">DX reference</dt>
                         <dd class="govuk-check-your-answers__answer">
-                          {% for address in data['addresses'] %}
-                          <p>{{ address.address }}</p>
-                          <p>DX: {{ address.addressDX }}, {{ address.addressDXExchange }}</p>
-                          <br />
-                          {% endfor %}
+                            {{data['dx-number']}}, {{data['dx-exchange']}}
                         </dd>
                         <dd class="govuk-check-your-answers__change">
-                            <a href="/oct-2020/register-organisation/organisation-address-another">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+                            <a href="/mvp-4/register-organisation/organisation-dx">Change <span class="govuk-visually-hidden">organistaion dx</span></a>
                         </dd>
                     </div>
                     <div class="govuk-check-your-answers__contents">
@@ -70,7 +69,16 @@
                             {{data['org-pba']}}
                         </dd>
                         <dd class="govuk-check-your-answers__change">
-                            <a href="/oct-2020/register-organisation/organisation-pba">Change <span class="govuk-visually-hidden">PBA number</span></a>
+                            <a href="/pbas/register-organisation/organisation-pba">Change <span class="govuk-visually-hidden">PBA number</span></a>
+                        </dd>
+                    </div>
+                    <div class="govuk-check-your-answers__contents">
+                        <dt class="govuk-check-your-answers__question">SRA ID</dt>
+                        <dd class="govuk-check-your-answers__answer">
+                            {{data['sra-number']}}
+                        </dd>
+                        <dd class="govuk-check-your-answers__change">
+                            <a href="/pbas/register-organisation/organisation-sra">Change <span class="govuk-visually-hidden">organistaion sra</span></a>
                         </dd>
                     </div>
                 </dl>
@@ -92,16 +100,7 @@
                             {{data['email-address']}}
                         </dd>
                         <dd class="govuk-check-your-answers__change">
-                            <a href="/oct-2020/register-organisation/email">Change <span class="govuk-visually-hidden">name</span></a>
-                        </dd>
-                    </div>
-                    <div class="govuk-check-your-answers__contents">
-                        <dt class="govuk-check-your-answers__question">Your usual office</dt>
-                        <dd class="govuk-check-your-answers__answer">
-                            {{data['office']}}
-                        </dd>
-                        <dd class="govuk-check-your-answers__change">
-                            <a href="/oct-2020/register-organisation/your-office">Change <span class="govuk-visually-hidden">name</span></a>
+                            <a href="/pbas/register-organisation/email">Change <span class="govuk-visually-hidden">name</span></a>
                         </dd>
                     </div>
                 </dl>
@@ -117,7 +116,7 @@
                     </ul>
                     {{ govukButton({
                     "text": "Confirm and submit",
-                    href: '/oct-2020/register-organisation/confirmation'
+                    href: '/pbas/register-organisation/confirmation'
                     }) }}
             </div>
         </div>

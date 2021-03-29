@@ -4,6 +4,7 @@ var router  = express.Router();
 router.use('/', require('./routes/mvp/manage-organisation'));
 router.use('/', require('./routes/experimental'));
 router.use('/', require('./views/oct-2020/routes'));
+router.use('/', require('./views/pbas/routes'));
 
 router.get('/', function (req, res) {
 	res.render('index.html');

@@ -24,6 +24,22 @@
         html: releaseZeroHtml
         }) }}
 
+    {% set releaseZeroHtml2 %}
+    <p class="govuk-body"></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="/pbas/register-organisation/start">Register</a><br>
+        <span class="form-hint">Registration, lastest prototype design</span><br></li>
+      <li><a href="/pbas/manage-organisation/sign-in-mo">Manage organisation</a><br>
+        <span class="form-hint">Manage organisation, lastest prototype design</span></li>
+      <li><a href="/pbas/manage-case/searchaddress">Manage cases</a><br>
+        <span class="form-hint">Organisational search component</span></li>
+    </ul>
+    {% endset %}
+    {{ govukDetails({
+        summaryHtml: "Multiple PBAs",
+        html: releaseZeroHtml2
+        }) }}
+
     <!-- HISTORICAL CONTENT -->
     <h2 class="govuk-heading-l">Historical iterations</h2>
 

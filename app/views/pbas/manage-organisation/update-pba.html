@@ -1,0 +1,256 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/pbas/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/pbas/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <!--
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/pbas/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="/pbas/manage-organisation/cases/case-list">
+                        Assigned cases
+                    </a>
+                </li>
+        -->
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/pbas/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: '../manage-organisation'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+                {% from "fieldset/macro.njk" import govukFieldset %}
+                {% from "input/macro.njk" import govukInput %}
+                {% from "textarea/macro.njk" import govukTextarea %}
+                {% from "button/macro.njk" import govukButton %}
+
+                <div class="hmcts-add-another">
+
+                <h1 class="govuk-heading-xl hmcts-add-another__heading">Add or remove PBA accounts</h1>
+
+                <p>We will need to verify any new PBA numbers before they can be used to pay for a case.</p>
+
+                <form action="../manage-organisation/update-pba-check-and-send">
+
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-two-thirds">
+                        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+                        
+                          <div id="empty-state" style="display: none;">No PBA accounts added.</div>
+
+                          <div class="govuk-check-your-answers__contents">
+                              <dt class="govuk-check-your-answers__question">PBA1234567</dt>
+                              <dd class="govuk-check-your-answers__change">
+                                  <a href="manage-organisation/update-pba" onclick="$(this).parent().parent().remove(); return checkEmpty();">Remove <span class="govuk-visually-hidden">PBA number</span></a>
+                              </dd>
+                          </div>
+                          <div class="govuk-check-your-answers__contents">
+                              <dt class="govuk-check-your-answers__question">PBA7894561</dt>
+                              <dd class="govuk-check-your-answers__change">
+                                  <a href="manage-organisation/update-pba" onclick="$(this).parent().parent().remove(); return checkEmpty();">Remove <span class="govuk-visually-hidden">PBA number</span></a>
+                              </dd>
+                          </div>
+                        </dl>
+
+                        <fieldset class="govuk-fieldset hmcts-add-another__item" id="add-another" style="display: none;">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-label--m" for="pba-1">PBA number</label>
+                                <input class="govuk-input govuk-input--width-20" id="pba-1" name="pba-1" type="text" value="" data-name="pba-[%index%]" data-id="pba-[%index%]">
+                            </div>
+                            <button type="button" class="govuk-button hmcts-button--secondary hmcts-add-another__remove-button">Remove</button>
+                        </fieldset>
+
+                        <div class="hmcts-button-action">
+                            <button type="button" class="govuk-button hmcts-button--secondary  hmcts-add-another__add-button  govuk-!-margin-bottom-4" onclick="$(this).text('Add another PBA number'); addAnother()" >
+                            Add another PBA number
+                            </button>
+                        </div>
+
+                        <button type="submit" class="govuk-button">
+                            Continue
+                        </button>
+
+
+                      </div>
+                    </div>
+
+                    <input type="hidden" name="field-updated" value="PBA numbers" />
+                </form>
+
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+
+HMCTSFrontend.AddAnother2 = function(container) {
+  console.log('there');
+  this.container = $(container);
+  this.container.on('click', '.hmcts-add-another__remove-button', $.proxy(this, 'onRemoveButtonClick'));
+  this.container.on('click', '.hmcts-add-another__add-button', $.proxy(this, 'onAddButtonClick'));
+  this.container.find('.hmcts-add-another__add-button, hmcts-add-another__remove-button').prop('type', 'button');
+};
+
+HMCTSFrontend.AddAnother2.prototype.onAddButtonClick = function(e) {
+  var item = this.getNewItem();
+  this.updateAttributes(this.getItems().length, item);
+  this.resetItem(item);
+  var firstItem = this.getItems().first();
+  if(!this.hasRemoveButton(firstItem)) {
+    this.createRemoveButton(firstItem);
+  }
+  this.getItems().last().after(item);
+  item.find('input, textarea, select').first().focus();
+};
+
+HMCTSFrontend.AddAnother2.prototype.hasRemoveButton = function(item) {
+  return item.find('.hmcts-add-another__remove-button').length;
+};
+
+HMCTSFrontend.AddAnother2.prototype.getItems = function() {
+  return this.container.find('.hmcts-add-another__item');
+};
+
+HMCTSFrontend.AddAnother2.prototype.getNewItem = function() {
+  var item = this.getItems().first().clone();
+  if(!this.hasRemoveButton(item)) {
+    this.createRemoveButton(item);
+  }
+  return item;
+};
+
+HMCTSFrontend.AddAnother2.prototype.updateAttributes = function(index, item) {
+  item.find('[data-name]').each(function(i, el) {
+    el.name = $(el).attr('data-name').replace(/%index%/, index);
+    el.id = $(el).attr('data-id').replace(/%index%/, index);
+    ($(el).prev('label')[0] || $(el).parents('label')[0]).htmlFor = el.id;
+  });
+};
+
+HMCTSFrontend.AddAnother2.prototype.createRemoveButton = function(item) {
+  item.append('<button type="button" class="govuk-button hmcts-button--secondary hmcts-add-another__remove-button">Remove</button>');
+};
+
+HMCTSFrontend.AddAnother2.prototype.resetItem = function(item) {
+  item.find('[data-name], [data-id]').each(function(index, el) {
+    if(el.type == 'checkbox' || el.type == 'radio') {
+      el.checked = false;
+    } else {
+      el.value = '';
+    }
+  });
+};
+
+HMCTSFrontend.AddAnother2.prototype.onRemoveButtonClick = function(e) {
+  $(e.currentTarget).parents('.hmcts-add-another__item').remove();
+  var items = this.getItems();
+  items.each($.proxy(function(index, el) {
+    this.updateAttributes(index, $(el));
+  }, this));
+  this.focusHeading();
+};
+
+HMCTSFrontend.AddAnother2.prototype.focusHeading = function() {
+  this.container.find('.hmcts-add-another__heading').focus();
+};
+HMCTSFrontend.FilterToggleButton = function(options) {
+  this.options = options;
+  this.container = this.options.toggleButton.container;
+  this.createToggleButton();
+  this.setupResponsiveChecks();
+  this.options.filter.container.attr('tabindex', '-1');
+  if(this.options.startHidden) {
+    this.hideMenu();
+  }
+};
+
+
+
+  function addAnother() {
+
+    if ( $('#add-another').is(":hidden") ) {
+      $('#add-another').show();
+      return false;
+    } else {
+      console.log('here')
+      new HMCTSFrontend.AddAnother2($('.hmcts-add-another'));
+      return false;
+    }
+  }
+
+  function checkEmpty() {
+
+
+    if ( $('.govuk-check-your-answers div').length === 1) {
+      $('#empty-state').show();
+      $('.hmcts-button-action button').text('Add a PBA number');
+    }
+    return false;
+  }
+
+
+
+</script>
+{% endblock %}

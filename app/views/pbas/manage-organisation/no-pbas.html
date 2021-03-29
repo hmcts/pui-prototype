@@ -1,0 +1,118 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/pbas/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/pbas/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <!--
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/pbas/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="/pbas/manage-organisation/cases/case-list">
+                        Assigned cases
+                    </a>
+                </li>
+        -->
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/pbas/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+  {% include "./includes/phase-banner.html" %}
+  <main role="main" class="govuk-main-wrapper">
+    <h1 class="govuk-heading-xl">Organisation</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+       
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Name</dt>
+              <dd class="govuk-check-your-answers__answer">{{ data['org-name'] or 'Wedlake Bell' }}</dd>
+              <dd class="govuk-check-your-answers__change">
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">SRA ID</dt>
+              <dd class="govuk-check-your-answers__answer">{{ data['sra-number'] or 'SRA3347232' }}</dd>
+              <dd class="govuk-check-your-answers__change">
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Organisation addresses</dt>
+              <dd class="govuk-check-your-answers__answer">
+
+                {% for address in data['addresses'] %}
+                <p>{{ address.address }}</p>
+                <p>DX: {{ address.addressDX }}, {{ address.addressDXExchange }}</p>
+                <br />
+                {% endfor %}
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="manage-organisation/organisation-address">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">PBA numbers</dt>
+              <dd class="govuk-check-your-answers__answer">
+                  No PBA accounts registered
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="/pbas/manage-organisation/add-pba">Change <span class="govuk-visually-hidden">PBA number</span></a>
+              </dd>
+          </div>
+        </dl>
+
+
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
