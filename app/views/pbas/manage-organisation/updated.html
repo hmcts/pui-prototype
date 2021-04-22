@@ -74,7 +74,7 @@
         {% from "hmcts-banner/macro.njk" import hmctsBanner %}
         {{ hmctsBanner({
         type: 'success',
-        text: ( data['field-updated'] or 'PBA numbers' ) + ' updated.',
+        text: ( data['field-updated'] or 'PBA accounts' ) + ' updated.',
         iconFallbackText: 'Success'
         }) }} 
 
@@ -118,12 +118,12 @@
               </dd>
           </div>
           <div class="govuk-check-your-answers__contents">
-              <dt class="govuk-check-your-answers__question">PBA numbers</dt>
+              <dt class="govuk-check-your-answers__question">PBA accounts</dt>
               <dd class="govuk-check-your-answers__answer">
                   PBA1234567
               </dd>
               <dd class="govuk-check-your-answers__change">
-                  <a href="./update-pba">Change <span class="govuk-visually-hidden">PBA number</span></a>
+                  <a href="./update-pba">Change <span class="govuk-visually-hidden">PBA accounts</span></a>
               </dd>
           </div>
         </dl>

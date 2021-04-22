@@ -38,7 +38,7 @@
 
                 <div class="hmcts-add-another">
 
-                <h1 class="govuk-heading-xl hmcts-add-another__heading">What payment by account (PBA) numbers does your organisation have?</h1>
+                <h1 class="govuk-heading-xl hmcts-add-another__heading">What PBA accounts does your organisation have?</h1>
 
                 <form action="/pbas/register-organisation/organisation-sra">
 
@@ -48,7 +48,7 @@
 
                 {{ govukInput({
                     label: {
-                    html: 'PBA number (optional)',
+                    html: 'PBA account (optional)',
                     classes: 'govuk-label--m'
                     },
                     id: "pba-1",
@@ -64,7 +64,7 @@
 
                 <div class="hmcts-button-action">
                   {{ govukButton({
-                    text: 'Add another PBA number',
+                    text: 'Add another PBA account',
                     classes: 'hmcts-button--secondary  hmcts-add-another__add-button  govuk-!-margin-bottom-4'
                   }) }}
                 </div>
