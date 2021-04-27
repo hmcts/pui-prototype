@@ -1,0 +1,93 @@
+{% extends "pbas/manage-organisation/layout.html" %}
+{% set serviceName = 'Register to manage civil and family law cases' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
+    </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'organisation-address-another'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+                {% from "fieldset/macro.njk" import govukFieldset %}
+                {% from "input/macro.njk" import govukInput %}
+                {% from "textarea/macro.njk" import govukTextarea %}
+                {% from "button/macro.njk" import govukButton %}
+
+                <div class="hmcts-add-another">
+
+                <h1 class="govuk-heading-xl hmcts-add-another__heading">What PBA accounts does your organisation have?</h1>
+
+                <form action="/pbas/register-organisation/organisation-sra">
+
+                {% call govukFieldset({
+                  classes: 'hmcts-add-another__item'
+                }) %}
+
+                {{ govukInput({
+                    label: {
+                    html: 'PBA account (optional)',
+                    classes: 'govuk-label--m'
+                    },
+                    id: "pba-1",
+                    name: "pba-1",
+                    attributes: {
+                        'data-name': 'pba-[%index%]',
+                        'data-id': 'pba-[%index%]'
+                    },
+                    classes: 'govuk-input--width-20'
+                }) }}
+
+                {% endcall %}
+
+                <div class="hmcts-button-action">
+                  {{ govukButton({
+                    text: 'Add another PBA account',
+                    classes: 'hmcts-button--secondary  hmcts-add-another__add-button  govuk-!-margin-bottom-4'
+                  }) }}
+                </div>
+
+                {{govukButton({
+                text: 'Continue'
+                })}}
+
+                </form>
+
+                </div> 
+
+
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+  new HMCTSFrontend.AddAnother($('.hmcts-add-another'));
+</script>
+{% endblock %}

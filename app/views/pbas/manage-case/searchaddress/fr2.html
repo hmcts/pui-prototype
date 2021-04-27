@@ -1,0 +1,282 @@
+{% extends "pbas/manage-organisation/layout.html" %}
+{% set serviceName = 'Manage Cases' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Manage Cases</a>
+    </div>
+</header>
+{% endblock %}
+{% block content%}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'organisation-sra-pre'
+    })}}
+
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">
+                Consent Order Application
+            </h1>   
+
+
+            <h3 class="govuk-heading-s govuk-!-margin-top-7 govuk-!-margin-bottom-4">SOLICITOR DETAILS</h3>
+
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="solicitorsname" style="font-size:18px;">
+                    Solicitor’s name
+                </label>
+                <input class="govuk-input " id="solicitorsname" name="solicitorsname" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="firmname" style="font-size:18px;">
+                    Name of your firm
+                </label>
+                <input class="govuk-input " id="firmname" name="firmname" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="yourref" style="font-size:18px;">
+                    Your reference (Optional)
+                </label>
+                <input class="govuk-input " id="yourref" name="yourref" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+            <h3 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-4">Your address</h3>
+
+            <div class="govuk-form-group" style="margin:0;">
+                <label class="govuk-label" for="postcodesearch" style="font-size:18px;">
+                    Enter a UK postcode
+                </label>
+                <div  class="form-group form-group-related">
+                    <input class="govuk-input " id="postcodesearch" name="postcodesearch" type="text" style="border: solid 1px; height:32px; font-size:18px; width:250px;">
+                    <button  class="govuk-button" type="submit" style=" font-size: 1.05rem; height:30px; " onclick="showaddressfields()">Find address</button>
+                </div>
+            </div>
+
+
+            <div id="hiddenaddress" class="govuk-form-group" style="display:none">
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="building" style="font-size:18px;">
+                        Building and Street
+                    </label>
+                    <input class="govuk-input " id="building" name="building" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="address2" style="font-size:18px;">
+                        Address Line 2
+                    </label>
+                    <input class="govuk-input " id="address2" name="address2" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="address3" style="font-size:18px;">
+                        Address Line 3
+                    </label>
+                    <input class="govuk-input " id="address3" name="address3" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="town" style="font-size:18px;">
+                        Town or City
+                    </label>
+                    <input class="govuk-input " id="town" name="town" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="county" style="font-size:18px;">
+                        County
+                    </label>
+                    <input class="govuk-input " id="county" name="county" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="postcode" style="font-size:18px;">
+                        Postcode/Zipcode
+                    </label>
+                    <input class="govuk-input " id="postcode" name="postcode" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="country" style="font-size:18px;">
+                        Country
+                    </label>
+                    <input class="govuk-input " id="country" name="country" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+                </div>
+
+            </div>
+
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="phone" style="font-size:18px;">
+                    Phone Number (Optional)
+                </label>
+                <input class="govuk-input " id="phone" name="phone" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="email" style="font-size:18px;">
+                    Email
+                </label>
+                <input class="govuk-input " id="email" name="email" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="dx" style="font-size:18px;">
+                    DX number (Optional)
+                </label>
+                <input class="govuk-input " id="dx" name="dx" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+            <div class="govuk-form-group  govuk-!-margin-bottom-8">
+                <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                    <legend class="govuk-fieldset__legend ">
+                        <p class="govuk-fieldset__heading">
+                            Future email communications
+                        </p>
+                    </legend>
+                    <div id="changed-name-hint" class="govuk-hint" style=" font-size:16px;">
+                        I confirm I am willing to accept service of all correspondence and orders by email at the email address stated above.
+                    </div>
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="changed-name" style=" font-size:18px;">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="changed-name-2" style=" font-size:18px;">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+
+
+            <hr>
+
+             <!--  <h3 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-4">Applicant Organisation Policy</h3>  -->
+
+
+
+
+
+
+
+
+
+            <h3 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-4">Search for an organisation</h3>
+
+            <div id="passport-issued-hint" class="govuk-hint">
+                You can only search for organisations already registered with MyHMCTS. For example, you can search by organisation name or address.
+            </div>
+
+
+
+            <div class="govuk-form-group ">
+                <label class="govuk-label" for="searchinput">
+                    <!-- Enter the firm's name, address or postcode </span>-->
+                </label>
+                <input class="govuk-input  "
+                       id="searchinput" name="searchinput" type="text" spellcheck="false" value=""  style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+
+            <h3 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-4">Organisation name and address</h3>
+            <hr>
+
+            <div id="resultstest" class="govuk-!-margin-top-1" style="width:650px; max-height: 600px; overflow-y: auto;">
+
+                <div id="noresults" class="govuk-!-margin-top-1"  style="display: none;">
+                    <p ><span >No results found</span></p>
+                    <!--<br>The solicitor's firm may not be registered with our online service.-->
+                    <!--<p>You can search again by entering different details or continue without selecting a firm.  This won't have an impact on your application.</p>-->
+                </div>
+
+                <div id="texterdiv"></div>
+
+            </div>
+
+
+
+
+
+
+            <details class="govuk-details govuk-!-margin-top-6" data-module="govuk-details" >
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Can’t find the organisation you are looking for?
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    If you know that the solicitor is already registered with MyHMCTS, check that you have entered
+                    their details correctly. Remember that organisations can only register one office address.
+                    This means that the details could be slightly different from what you're expecting.
+                    Contact the solicitor directly if you have any concerns.
+                </div>
+            </details>
+
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="ownrefernceagain">
+                    Reference (Optional)
+                </label>
+                <input class="govuk-input " id="ownrefernceagain" name="ownrefernceagain" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+
+
+
+
+        <div class="govuk-form-group">
+            <div  class="form-group form-group-related">
+                <form
+                        action="/searchorgs/search/fr3"
+                        name="aspnetForm"
+                        method="post"
+                        id="aspnetForm"
+                        autocomplete="off">
+
+                    <a  class="govuk-button govuk-button--secondary" href="fr1"   style=" font-size: 1.05rem;">Previous</a>
+                            <button  class="govuk-button" type="submit" style=" font-size: 1.05rem;">Continue</button>
+                          </div>
+                      </form>
+
+
+                  </div>
+
+                  <p class="cancel" >
+                      <a  href="/searchorgs/search/caselist">Cancel</a>
+                  </p>
+
+
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

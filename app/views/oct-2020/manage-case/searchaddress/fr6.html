@@ -1,0 +1,43 @@
+{% extends "oct-2020/manage-organisation/layout.html" %}
+{% set serviceName = 'Manage Cases' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Manage Cases</a>
+    </div>
+</header>
+{% endblock %}
+{% block content%}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'respondent'
+    })}}
+
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds" style="width: 620px">
+
+                <h1 class="govuk-heading-l">
+                    <a href="/oct-2020/manage-case/case-list">END OF PROTOTYPE</a>
+                </h1>
+
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

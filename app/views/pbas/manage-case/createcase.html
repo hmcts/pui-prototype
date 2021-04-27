@@ -1,0 +1,116 @@
+{% extends "./layout-mc.html" %}
+
+
+{% block content %}
+
+
+<div class="hmcts-width-container">
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+            
+
+
+
+
+<div style="width:570px;">
+
+    <div>
+        <div class="hmcts-page-heading">
+            <div class="hmcts-page-heading__title">
+                <h1 class="govuk-heading-xl">Create Case</h1>
+            </div>
+        </div>
+
+
+
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="font-size: 1.05rem">
+                Jurisdiction
+            </label>
+            <select class="govuk-select" id="sort" name="sort" style="width:617px; height:34px; font-size: 1.05rem;  border: 1px solid #0b0c0c;">
+            <option value="">--Select a value--</option>
+            <option value="DIVORCE">Family Divorce - v104-26.1</option>
+            <option value="PUBLICLAW">Public Law</option>
+            <option value="IA">Immigration &amp; Asylum</option>
+            <option value="PROBATE">Manage probate application</option>
+            </select>
+        </div>
+
+
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="font-size: 1.05rem">
+                Case type
+            </label>
+            <select class="govuk-select" id="sort" name="sort" style="width:617px; height:34px; font-size: 1.05rem;  border: 1px solid #0b0c0c;">
+                <option value="">--Select a value--</option>
+                <option value="FinancialRemedyForDAC">Financial Remedy MVP_v0.3-DAC</option>
+                <option value="FinancialRemedyMVP2Respondent">Financial Rem Consented Resp</option>
+                <option value="MyAddressBook">My Address Book</option>
+                <option value="FinancialRemedyContested">Contested Financial Remedy</option>
+                <option value="FinancialRemedyMVP2">Financial Remedy Consented</option>
+                <option value="DIVORCE_NOTICE_OF_ACTING">Notice Of Acting - v0.1</option>
+                <option value="DIVORCE">Divorce case - v115.00</option>
+
+                <!--
+                <option value="Caveat">Caveat</option>
+                <option value="GrantOfRepresentation">Grant of representation</option>
+                -->
+            </select>
+        </div>
+
+
+
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="font-size: 1.05rem">
+                Event
+            </label>
+            <select class="govuk-select" id="sort" name="sort" style="width:617px; height:34px; font-size: 1.05rem;   border: 1px solid #0b0c0c;">
+            <option value="" style="font-size: 1.05rem">--Select a value--</option>
+            <option value="Caveat" style="font-size: 1.05rem">Consent Order Application</option>
+            <!--
+            <option value="Caveat" style="font-size: 1.05rem">Apply for probate</option>
+            -->
+            </select>
+        </div>
+
+
+        <form
+                action="/pbas/manage-case/searchaddress"
+                name="aspnetForm"
+                method="get"
+                id="aspnetForm"
+                autocomplete="off">
+
+
+            <div  class="govuk-!-margin-top-4 govuk-!-margin-bottom-6">
+                <button class="govuk-button  govuk-!-margin-bottom-9" data-module="govuk-button"  style="font-size: 1.05rem">
+                    Start
+                </button>
+            </div>
+
+        </form>
+
+
+
+    </div>
+
+
+
+
+
+
+</div>
+
+
+            </div>
+
+        </div>
+    </main>
+
+
+</div>
+
+
+{% endblock %}

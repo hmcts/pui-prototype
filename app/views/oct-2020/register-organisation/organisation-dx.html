@@ -30,7 +30,9 @@
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
+
                 <form action="/oct-2020/register-organisation/organisation-address-add" method="post">
+                
                     {% call govukFieldset({
                     legend: {
                     text: "What's the DX reference for this office? (optional)",
@@ -44,11 +46,12 @@
                     classes: 'govuk-label--m'
                     },
                     hint: {
-                    text: "For example 931NR. You don't need to include 'DX'."
+                    text: "For example: 931NR. You don't need to include 'DX'."
                     },
                     id: "dx-number",
                     name: "dx-number",
-                    classes: "govuk-input--width-20"
+                    classes: "govuk-input--width-20",
+                    value: data['addresses'][ data['changeAddress'] ]['addressDX']
                     }) }}
                     {{ govukInput({
                     label: {
@@ -60,7 +63,8 @@
                     },
                     id: "dx-exchange",
                     name: "dx-exchange",
-                    classes: "govuk-input--width-20"
+                    classes: "govuk-input--width-20",
+                    value: data['addresses'][ data['changeAddress'] ]['addressDXExchange']
                     }) }}
                     {% endcall %}
                     {{govukButton({

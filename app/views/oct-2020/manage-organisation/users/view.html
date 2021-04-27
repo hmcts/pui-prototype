@@ -40,11 +40,13 @@
             Users
           </a>
         </li>
+        <!--
         <li class="hmcts-primary-navigation__item">
           <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/cases/">
             Unassigned cases
           </a>
         </li>
+        -->
         <!--  <li class="hmcts-primary-navigation__item">
                     <a class="hmcts-primary-navigation__link" href="/oct-2020/manage-organisation/payments">
                         Fee accounts
@@ -72,29 +74,32 @@
         href: '/oct-2020/manage-organisation/users/confirm-suspension'
         }]
         }) }}
+
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <table class="govuk-table">
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="row">Name</th>
-              <td class="govuk-table__cell">Joe Bloggs</td>
+              <td class="govuk-table__cell">{{ data['fullname'] or 'Peter Gold' }}</td>
               <td class="govuk-table__cell">
                 <a href="./update-name">Change</a>
               </td>
             </tr>
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="row">Email address</th>
-              <td class="govuk-table__cell">joe.bloggs@email.com</td>
+              <td class="govuk-table__cell">{{ data['email-address'] or 'Wedlake Bell' }}</td>
               <td class="govuk-table__cell">
                 <a href="./update-email">Change</a>
               </td>
             </tr>
             </tr>
             <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="row">Usual office location</th>
+              <th class="govuk-table__header" scope="row">Usual service address</th>
               <td class="govuk-table__cell">
-                Main office (London)
+                {{ data['addresses'][0]['address'] or '102 Petty France, London, SW1H 9AJ' }}
+
               </td>
               <td class="govuk-table__cell"><a href="./update-location">Change</a></td>
             </tr>

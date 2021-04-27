@@ -1,0 +1,30 @@
+{% extends "layouts/admin/base.html" %}
+
+{% block header %}
+{{hmctsHeader({
+  service: {
+    name: serviceName,
+    url: '/'
+  },
+  navigation: {
+    items: [{
+      text: 'Sign out',
+      href: '/sign-out'
+    }]
+  }
+})}}
+{{hmctsPrimaryNavigation({
+  classes: "govuk-!-margin-bottom-0",
+  items: [ {
+    text: 'Case list',
+    href: '/oct-2020/manage-case/case-list',
+    active: false
+  }, {
+    text: 'Create case',
+    href: '/oct-2020/manage-case/createcase',
+    active: false
+  }]
+})}}
+
+
+{% endblock %}

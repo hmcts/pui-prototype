@@ -32,28 +32,32 @@
             <div class="govuk-grid-column-two-thirds">
                 <form action="/oct-2020/register-organisation/organisation-address-another-check" method="post">
                     {{ govukRadios({
-                    classes: "govuk-radios--inline",
-                    idPrefix: "add-another",
-                    name: "add-another",
-                    fieldset: {
-                    legend: {
-                    text: "Do you want to add another office address?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--xl"
-                    }
-                    },
-                    items: [
-                    {
-                    value: "yes",
-                    text: "Yes"
-                    },
-                    {
-                    value: "no",
-                    text: "No"
-                    }
-                    ]
+                        classes: "govuk-radios--inline",
+                        idPrefix: "add-another",
+                        name: "add-another",
+                        fieldset: {
+                            legend: {
+                                text: "Do you have another service address?",
+                                isPageHeading: true,
+                                classes: "govuk-fieldset__legend--xl"
+                            }
+                        },
+                        hint: {
+                            text: "You should add all addresses which you or your colleagues might use."
+                        },
+                        items: [
+                            {
+                                value: "yes",
+                                text: "Yes"
+                            },
+                            {
+                                value: "no",
+                                text: "No"
+                            }
+                        ]
                     }) }}
 
+                    {% if data['addresses'].length %}
                     <h3 class="govuk-heading-m">Already added</h3>
 
                     <table class="govuk-table">
@@ -66,17 +70,20 @@
                       </thead>
 
                         {% for address in data['addresses'] %}
-
+                        {% if address != null %}
                         <tr class="govuk-table__row">
                           <td class="govuk-table__cell">{{ address.address }}</td>        
                           <td class="govuk-table__cell">{{ address.addressDX }}, {{ address.addressDXExchange }}</td>        
-                          <td class="govuk-table__cell"><a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a></td>
+                          <td class="govuk-table__cell"><a class="change link" href="organisation-address?changeAddress={{ loop.index0 }}">Change</a>{% if loop.index > 1 %} &nbsp; <a href="remove-address?removeAddress={{ loop.index0 }}">Remove</a>{% endif %}</td>
                         </tr>
+                        {% endif %}
                         {% endfor %}
 
                       </tbody>
                     </table>
+                    {% endif %}
 
+                    <inupt type="hidden" name="changeAddress" value="X" />
 
                     {{govukButton({
                     text: 'Continue'

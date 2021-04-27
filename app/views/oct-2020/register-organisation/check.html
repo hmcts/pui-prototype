@@ -31,6 +31,7 @@
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 <h1 class="govuk-heading-xl">Check your answers before you register</h1>
+                <h2 class="govuk-heading-l">Organisation details</h2>
                 <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
                     <div class="govuk-check-your-answers__contents">
                         <dt class="govuk-check-your-answers__question">Organisation name</dt>
@@ -51,53 +52,38 @@
                         </dd>
                     </div>
                     <div class="govuk-check-your-answers__contents">
-                        <dt class="govuk-check-your-answers__question">Organisation addresses</dt>
+                        <dt class="govuk-check-your-answers__question">Service addresses</dt>
                         <dd class="govuk-check-your-answers__answer">
-                            <h4 class="govuk-heading-s">Main office</h4>
-                            {{data['address-line-1'] or '102 Petty France' }}<br>
-                            {{data['address-line-2'] or 'Westminster' }}<br>
-                            {{data['address-town'] or 'London' }}<br>
-                            {{data['address-postcode'] or 'SW1H 9AJ' }}<br><br/>
-
-                            DX address: 152380 Westminster 8<br><br/>
-
-
-                            <h4 class="govuk-heading-s">Newbury office</h4>
-                            8 Market Street<br/>
-                            Newbury<br/>
-                            RG14 5BN<br><br/>
-
-                            DX address: 931NR, Hayes<br><br/>
+                          {% for address in data['addresses'] %}
+                          <p>{{ address.address }}</p>
+                          <p>DX: {{ address.addressDX }}, {{ address.addressDXExchange }}</p>
+                          <br />
+                          {% endfor %}
                         </dd>
                         <dd class="govuk-check-your-answers__change">
                             <a href="/oct-2020/register-organisation/organisation-address-another">Change <span class="govuk-visually-hidden">organistaion address</span></a>
                         </dd>
                     </div>
                     <div class="govuk-check-your-answers__contents">
-                        <dt class="govuk-check-your-answers__question">PBA numbers</dt>
+                        <dt class="govuk-check-your-answers__question">PBA accounts</dt>
                         <dd class="govuk-check-your-answers__answer">
                             {{data['org-pba']}}
                         </dd>
                         <dd class="govuk-check-your-answers__change">
-                            <a href="/oct-2020/register-organisation/organisation-pba">Change <span class="govuk-visually-hidden">PBA number</span></a>
+                            <a href="/oct-2020/register-organisation/organisation-pba">Change <span class="govuk-visually-hidden">PBA accounts</span></a>
                         </dd>
                     </div>
+                </dl>
+
+                <h2 class="govuk-heading-l">Your details</h2>
+                <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
                     <div class="govuk-check-your-answers__contents">
-                        <dt class="govuk-check-your-answers__question">First name(s)</dt>
+                        <dt class="govuk-check-your-answers__question">Name</dt>
                         <dd class="govuk-check-your-answers__answer">
-                            {{data.firstname}}
+                            {{data.firstname}} {{data.lastname}}
                         </dd>
                         <dd class="govuk-check-your-answers__change">
-                            <a href="/oct-2020/register-organisation/name">Change <span class="govuk-visually-hidden">name</span></a>
-                        </dd>
-                    </div>
-                    <div class="govuk-check-your-answers__contents">
-                        <dt class="govuk-check-your-answers__question">Last name</dt>
-                        <dd class="govuk-check-your-answers__answer">
-                            {{data.lastname}}
-                        </dd>
-                        <dd class="govuk-check-your-answers__change">
-                            <a href="/oct-2020/register-organisation/name">Change <span class="govuk-visually-hidden">name</span></a>
+                            <a href="/pbas/register-organisation/name">Change <span class="govuk-visually-hidden">name</span></a>
                         </dd>
                     </div>
                     <div class="govuk-check-your-answers__contents">
@@ -109,14 +95,25 @@
                             <a href="/oct-2020/register-organisation/email">Change <span class="govuk-visually-hidden">name</span></a>
                         </dd>
                     </div>
+                    <div class="govuk-check-your-answers__contents">
+                        <dt class="govuk-check-your-answers__question">Your usual office</dt>
+                        <dd class="govuk-check-your-answers__answer">
+                            {{data['office']}}
+                        </dd>
+                        <dd class="govuk-check-your-answers__change">
+                            <a href="/oct-2020/register-organisation/your-office">Change <span class="govuk-visually-hidden">name</span></a>
+                        </dd>
+                    </div>
                 </dl>
-                <h2 class="govuk-heading-l">Now submit your registration details</h2>
+                
+                <br />
+                <h2 class="govuk-heading-m">You confirm that:</h2>
                 <ul class="govuk-list">
                     <ul class="govuk-list govuk-list--bullet">
-                        <li>Your personal and organisation details are correct</li>
-                        <li>You are creating an account for your organisation for the first time</li>
-                        <li>You have read and understood the <a href="terms" rel="noopener noreferrer" target="_blank">terms and conditions</a> and are eligible for an account to manage your organisation and cases</li>
-                        <li>You will be asked to accept the terms and conditions again when logging into a MyHMCTS application for the first time</li>
+                        <li>your personal and organisation details are correct</li>
+                        <li>you are creating an account for your organisation for the first time</li>
+                        <li>you have read and understood the <a href="terms" rel="noopener noreferrer" target="_blank">terms and conditions</a> and are eligible for an account to manage your organisation and cases</li>
+                        <li>you will be asked to accept the terms and conditions again when logging into a MyHMCTS application for the first time</li>
                     </ul>
                     {{ govukButton({
                     "text": "Confirm and submit",

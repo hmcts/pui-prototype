@@ -33,22 +33,23 @@
                 <form action="/oct-2020/register-organisation/organisation-dx">
                     {{ govukFieldset({
                     legend: {
-                    text: "What's your organisation's address?",
+                    text: "What's your organisation's service address?",
                     classes: "govuk-fieldset__legend--xl",
                     isPageHeading: true
                     }
                     }) }}
-                    <p class="govuk-body">You'll be able to add more office addresses later.</p>
+
+                    {% if data['add-another'] != 'yes' and data['return'] != 'manage' %}
+                    <p class="govuk-body">You can add more addresses later.</p>
                     <br>
-
-
+                    {% endif %}
 
                     <div class="govuk-form-group" id="address_postcode-finder">
                         <label class="govuk-label govuk-label--m" for="address-postcode">
                         Enter a UK postcode
                         </label>
 
-                        <input class="govuk-input govuk-input--width-10 postcode" id="address_postcode" name="postcodeFinder" type="text">
+                        <input class="govuk-input govuk-input--width-10 postcode" id="address_postcode" name="postcodeFinder" type="text" value="{{ data['addresses'][ data['changeAddress'] ]['addressPostcode'] }}" />
 
                         <button class="govuk-button govuk-button--secondary find-button" data-module="govuk-button" onclick="showSelectAddress( 'address' )" style="margin-bottom: 0;">
                           Find address
@@ -233,7 +234,7 @@ function showSelectAddress( strPrefix ) {
   function updateAddress( address, strPrefix ) {
     showSelectedAddress( strPrefix );
     var addresses = $('#' + strPrefix + '_addressList').val().split(', ');
-console.log( addresses);
+    
     $('#' + strPrefix  + "_street-1").val(addresses[0]);
     $('#' + strPrefix  + "_street-2").val(addresses[1]);
     $('#' + strPrefix  + "_town").val(addresses[2]);

@@ -1,0 +1,147 @@
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "summary-list/macro.njk" import govukSummaryList %}
+{% from "button/macro.njk" import govukButton %}
+{% from "warning-text/macro.njk" import govukWarningText %}
+
+
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/pbas/manage-organisation">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/pbas/manage-organisation/users">
+            Users
+          </a>
+        </li>
+        <!--
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/pbas/manage-organisation/cases/">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="/pbas/manage-organisation/cases/case-list">
+                        Assigned cases
+                    </a>
+                </li>
+        -->
+        <!--  <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="/pbas/manage-organisation/payments">
+                        Fee accounts
+                    </a>
+                </li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'update-pba'
+    })}}
+  <main role="main" class="govuk-main-wrapper">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="updated-pba" method="post">
+
+        <h1 class="govuk-heading-l">Check your PBA accounts</h1>
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Accounts to be added
+            </dt>
+            <dd class="govuk-summary-list__value">
+              PBA1567534<br >
+              PBA5483125
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="javascript:history.go(-1);">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="border: none">
+              Accounts to be removed
+            </dt>
+            <dd class="govuk-summary-list__value" style="border: none">
+              PBA1234567
+            </dd>
+            <dd class="govuk-summary-list__actions" style="border: none">
+              <a class="govuk-link" href="javascript:history.go(-1);">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <br />
+                
+        {{ govukWarningText({
+          text: "You won't be able to use any PBA accounts that have been removed, unless they are verified again.",
+          iconFallbackText: "Warning"
+        }) }}
+
+
+        {{ govukButton({
+          text: "Submit PBA accounts"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+</main>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,577 @@
+{% extends "pbas/manage-organisation/layout.html" %}
+{% set serviceName = 'Manage Cases' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Manage Cases</a>
+    </div>
+</header>
+{% endblock %}
+
+{% block content %}
+
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'fr4'
+    })}}
+
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+
+<div style="width:610px;">
+    <div style="width:620px;">
+
+        <div class="govuk-form-group">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l  govuk-!-margin-top-5">
+                <h1 class="govuk-fieldset__heading">
+                    Consent Order Application
+                </h1>
+            </legend>
+
+            <h3 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-4">Respondent details</h3>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="names" style="font-size:18px;">
+                    Current First and Middle names
+                </label>
+                <input class="govuk-input " id="names" name="names" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="lastname" style="font-size:18px;">
+                    Current Last Name
+                </label>
+                <input class="govuk-input " id="lastname" name="lastname" type="text" style="border: solid 1px; height:32px; font-size:18px;">
+            </div>
+
+
+            <div class="govuk-form-group  govuk-!-margin-bottom-6">
+                <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                    <legend class="govuk-fieldset__legend ">
+                        <p class="govuk-fieldset__heading">
+                            Is the respondent represented ?
+
+                        </p>
+                    </legend>
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes"  onclick="showsolicitorsdetails()">
+                            <label class="govuk-label govuk-radios__label" for="changed-name" style=" font-size:18px;"  onclick="showsolicitorsdetails()">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no"  onclick="hidesolicitorsdetails()">
+                            <label class="govuk-label govuk-radios__label" for="changed-name-2" style=" font-size:18px;"  onclick="hidesolicitorsdetails()">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+
+<style>
+.govuk-summary-list__value{
+    width: 80%;
+}
+
+.govuk-summary-list__value span {
+    color: #6f777b;
+}
+
+#results-wrapper, #address-wrapper {
+    display: none;
+}
+</style>
+
+
+            <div  id="hiddensolicitorfields" class="govuk-form-group panel " style="display:none; border-left: 10px solid #bfc1c3; padding-left: 15px; ">
+
+                    <h3 class="govuk-heading-m">Search for the respondent's legal representative</h3>
+
+                        <h3 class="govuk-heading-s govuk-!-margin-top-7 govuk-!-margin-bottom-1">Enter the firm's name</h3>
+                        <div class="govuk-hint govuk-body-s">You don't need to enter the full name - results will appear as you type.</div>
+
+                        <div class="govuk-form-group">
+                            <input class="govuk-input" id="searchinput" name="searchinput" type="text" spellcheck="false" value="" style="border: solid 1px; height:32px; font-size:18px;" autocomplete="off">
+                        </div>
+
+                        <div id="results-wrapper">
+                            <h3 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-4">Select a firm</h3>
+                            <hr />
+
+                            <dl class="govuk-summary-list" id="results">
+                                <!-- results populated here -->
+                            </dl>
+
+                        
+                        </div>
+
+                        <div id="noresults" class="govuk-!-margin-top-1" style="display: none;">
+                            <p><span >No results found.</span></p>
+                        </div>
+
+                        <p style="display: none" id="not-found">
+                          Can’t find the firm you're looking for?<br />
+                          <a href="#" onclick="return enterDetails();">Enter their details manually</a>
+                        </p>
+
+                        <div id="address-wrapper">
+                            <h3 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-4">Select service address</h3>
+                            <hr />
+
+                            <dl class="govuk-summary-list" id="addresses">
+                            </dl>
+
+
+                            <p id="address-not-found">
+                              Can’t find the address you're looking for?<br />
+                              <a href="#" onclick="return enterAddressDetails();">Enter the address manually</a>
+                            </p>
+
+
+                        </div>
+
+
+                        <div class="govuk-form-group" id="manual" style="display: none;">
+                            <h3 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-4">Enter firm's details</h3>
+                            <p>If you enter the firm's details manually, the respondent will not be able to respond online. Once issued, the case will need to be handled offline.</p>
+
+                            <label class="govuk-label" for="solname">
+                                Firm's name
+                            </label>
+                            <input class="govuk-input " id="solname" name="solname" type="text" style="border: solid 1px; height:32px; font-size:18px; margin-bottom: 30px">
+
+                            <label class="govuk-label" for="solname">
+                                Their phone number
+                            </label>
+                            <input class="govuk-input " id="solname" name="solname" type="text" style="border: solid 1px; height:32px; font-size:18px; margin-bottom: 30px">
+
+
+                            <div class="govuk-form-group" id="address_postcode-finder" style="margin-bottom: 10px;">
+                                <label class="govuk-label" for="address-postcode">
+                                Enter their postcode
+                                </label>
+
+                                <input class="govuk-input govuk-input--width-10 postcode" id="address_postcode" name="postcodeFinder" type="text" value="{{ data['addresses'][ data['changeAddress'] ]['addressPostcode'] }}" style="border-width: 1px" />
+
+                                <button class="govuk-button govuk-button--secondary find-button" data-module="govuk-button" onclick="showSelectAddress( 'address' )" style="margin-bottom: 0;">
+                                  Find address
+                                </button>
+                            </div>
+
+                            <div class="govuk-form-group">
+                              <div id="address_enter-manually" class="enter-manually">
+                                <p><a class="link" href="#" onclick="return showAbroadAddress( 'address' );">Enter address manually</a></p>
+                              </div>
+                            </div>
+
+
+                            <label class="govuk-label" for="solname">
+                                Their DX number
+                            </label>
+                            <input class="govuk-input " id="solname" name="solname" type="text" style="border: solid 1px; height:32px; font-size:18px; margin-bottom: 30px">
+
+                        </div>
+
+
+
+
+                        <div class="govuk-form-group" id="address-manual" style="display: none;">
+                            <h3 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-4">Enter firm's address</h3>
+
+                            <div class="govuk-form-group" id="address_postcode-finder" style="margin-bottom: 10px;">
+                                <label class="govuk-label" for="address-postcode">
+                                Enter their postcode
+                                </label>
+
+                                <input class="govuk-input govuk-input--width-10 postcode" id="address_postcode" name="postcodeFinder" type="text" value="{{ data['addresses'][ data['changeAddress'] ]['addressPostcode'] }}" style="border-width: 1px" />
+
+                                <button class="govuk-button govuk-button--secondary find-button" data-module="govuk-button" onclick="showSelectAddress( 'address' )" style="margin-bottom: 0;">
+                                  Find address
+                                </button>
+                            </div>
+
+                            <div class="govuk-form-group">
+                              <div id="address_enter-manually" class="enter-manually">
+                                <p><a class="link" href="#" onclick="return showAbroadAddress( 'address' );">Enter address manually</a></p>
+                              </div>
+                            </div>
+
+
+                            <label class="govuk-label" for="solname">
+                                Their DX number
+                            </label>
+                            <input class="govuk-input " id="solname" name="solname" type="text" style="border: solid 1px; height:32px; font-size:18px; margin-bottom: 30px">
+
+                        </div>
+
+                        <div class="govuk-form-group" id="ref" style="display: none;">
+                            <h3 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-4">Solicitor's details</h3>
+
+                            <label class="govuk-label" for="solname">
+                                Solicitor's name (optional)
+                            </label>
+                            <input class="govuk-input " id="solname" name="solname" type="text" style="border: solid 1px; height:32px; font-size:18px; margin-bottom: 30px">
+
+                            <label class="govuk-label" for="solname">
+                                Their email address (optional)
+                            </label>
+                            <input class="govuk-input " id="solname" name="solname" type="text" style="border: solid 1px; height:32px; font-size:18px; margin-bottom: 30px">
+
+                            <label class="govuk-label" for="solname">
+                                Their phone number (optional)
+                            </label>
+                            <input class="govuk-input " id="solname" name="solname" type="text" style="border: solid 1px; height:32px; font-size:18px; margin-bottom: 30px">
+
+                            <label class="govuk-label" for="solref">
+                                Their reference (optional)
+                            </label>
+                            <input class="govuk-input " id="solref" name="solref" type="text"
+                                   style="border: solid 1px; height:32px; font-size:18px; margin-bottom: 30px">
+                        </div>
+
+
+                </div>
+                        
+
+
+        </div>
+
+
+        <div class="govuk-form-group">
+            <div  class="form-group form-group-related">
+                <form
+                    action="/pbas/manage-case/searchaddress/fr6"
+                    name="aspnetForm"
+                    method="post"
+                    id="aspnetForm"
+                    autocomplete="off">
+
+                    <a class="govuk-button govuk-button--secondary" href="fr4" style="font-size: 1.05rem;">Previous</a>
+                    <button  class="govuk-button" type="submit" style=" font-size: 1.05rem;">Continue</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+
+
+    var inputbox = document.getElementById("searchinput");
+    var allRows;
+
+    function showsomecsvdata()
+    {
+
+        var enteredtext = inputbox.value.toString().toLowerCase();
+
+        if (enteredtext.length < 3)
+        {
+            document.getElementById('results').innerHTML = '';
+        }
+        else
+        {   var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", "/public/data/mindatacsv.csv", true);
+
+            rawFile.onreadystatechange = function ()
+            {
+                if(rawFile.readyState === 4)
+                {
+                    if(rawFile.status === 200 || rawFile.status == 0)
+                    {
+                        var allText = rawFile.responseText;
+                        //alert(allText);
+
+                        allRows = allText.split(/\r?\n|\r/);
+
+                        //alert(allRows.length);
+
+                        var divonpage = document.getElementById('results');
+
+                        var resultscounter = 0;
+                        divonpage.innerHTML = '';
+
+                        for(i=0; i<allRows.length-1; i++) {
+                            // Artifical constraint of 100, this isn't in live I presume.
+                            if( resultscounter < 100 ) {
+                                var row1 =  allRows[i];
+                                var nameAddress =  row1.split('</span>');
+                                var name = nameAddress[0].toString();
+                                var templowercase = name.toLowerCase();
+
+                                // If match then build HTML to match tbe poor layout in the live service
+                                if ( templowercase.includes(enteredtext) ) {
+
+                                    if ( Math.floor(i)%3 == 0) { 
+                                        var strAddress = 'Multiple addresses found';
+                                    } else {
+                                        var strAddress = row1.substr( row1.indexOf('</span>') + 11 )  + '<br />DX: ' + ( Math.floor(Math.random()*90000) + 10000 );
+                                    }
+
+                                    divonpage.innerHTML +=
+                                          '<div class="govuk-summary-list__row" id="result'+ resultscounter +'" >' +
+                                          '  <dd class="govuk-summary-list__value">' +
+                                             name +
+                                            '<br /><span>' + strAddress + '</span></p>' +
+                                          '  </dd>' +
+                                          '  <dd class="govuk-summary-list__actions">' +
+                                          '<p id="selectbutton'+resultscounter+'" style="color:#005ea5; cursor:pointer; text-decoration:underline; margin: 0px;" data-module="govuk-button" onclick="showselectedresult('+resultscounter+', ' + i + ')">Select</p>' +
+                                          '  </dd>' +
+                                          '</div>';
+
+                                    resultscounter++;
+                                }
+                            } else {
+                                break;
+                            }
+                        }
+
+                        document.getElementById("not-found").style.display = "block";
+
+                        // if no results
+                        if(resultscounter == 0) {
+                            document.getElementById("noresults").style.display = "block";
+                            document.getElementById("results-wrapper").style.display = "none";
+                        } else {
+                            document.getElementById("noresults").style.display = "none";
+                            document.getElementById("results-wrapper").style.display = "block";
+                        }
+                        
+                        $('#address-wrapper').hide();
+
+                    }
+                }
+            }
+            rawFile.send(null);
+        }
+    }
+
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+
+        return function executedFunction() {
+            var context = this;
+            var args = arguments;
+
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+
+            var callNow = immediate && !timeout;
+
+            clearTimeout(timeout);
+
+            timeout = setTimeout(later, wait);
+
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+
+
+
+
+
+    inputbox.addEventListener('keydown', debounce(function()
+    {
+        showsomecsvdata();
+    }, 500));
+
+
+    function showselectedresult(itemnumber, rowCount ) {
+
+        var prefixaddresscontainer = 'result';
+        var buttonname = 'selectbutton';
+        var datacount = $('#results-wrapper #results .govuk-summary-list__row').length;
+
+        if (document.getElementById(buttonname + itemnumber).innerHTML != 'Change') {
+            for (i = 0; i < datacount; i++){
+                if (itemnumber != i) {
+                    document.getElementById(prefixaddresscontainer + i).style.display = "none";
+                } else {
+                    document.getElementById(buttonname + itemnumber).innerHTML = 'Change';
+                }
+            }
+
+
+            var divonpage = document.getElementById('addresses');
+            row1 = allRows[ rowCount ];
+
+            divonpage.innerHTML = '<div class="govuk-summary-list__row" id="address' + 0 + '" >' + 
+                                   '     <dd class="govuk-summary-list__value">' + 
+                                   '         <p>' + row1.substr( row1.indexOf('</span>') + 11 )  + '<br />DX: ' + ( Math.floor(Math.random()*90000) + 10000 ) + 
+                                   '         </p>' +
+                                   '     </dd>' + 
+                                   '     <dd class="govuk-summary-list__actions">' + 
+                                   '        <p id="address-button' + 0 + '" style="color:#005ea5; cursor:pointer; text-decoration:underline; margin: 0px;" data-module="govuk-button" onclick="showSelectedAddress(' + 0 + ')">Select</p>' + 
+                                   '     </dd>' + 
+                                   '   </div>';
+    
+            for (i=1; i< (  Math.floor( Math.random() * 5 )+2 ); i++) {
+                
+                row1 = allRows[ Math.floor( Math.random() * (allRows.length-2) ) ];
+
+                divonpage.innerHTML += '<div class="govuk-summary-list__row" id="address' + i + '" >' + 
+                                       '     <dd class="govuk-summary-list__value">' + 
+                                       '         <p>' + row1.substr( row1.indexOf('</span>') + 11 )  + '<br />DX: ' + ( Math.floor(Math.random()*90000) + 10000 ) + 
+                                       '         </p>' +
+                                       '     </dd>' + 
+                                       '     <dd class="govuk-summary-list__actions">' + 
+                                       '        <p id="address-button' + i + '" style="color:#005ea5; cursor:pointer; text-decoration:underline; margin: 0px;" data-module="govuk-button" onclick="showSelectedAddress(' + i + ')">Select</p>' + 
+                                       '     </dd>' + 
+                                       '   </div>';
+
+            }
+
+            document.getElementById("noresults").style.display = "none";
+
+            if ( $( '#' + buttonname + itemnumber ).parent().parent().find('span').text() == 'Multiple addresses found' ) {
+                $('#address-wrapper').show();
+            }
+            $('#results-wrapper h3').text('Selected firm');
+            $('#results-wrapper h3').removeClass('govuk-!-margin-bottom-4');
+            $('#results-wrapper h3').addClass('govuk-!-margin-bottom-0');
+            $('#results-wrapper hr').hide();
+            $('#results-wrapper details').hide();
+            $('#not-found').hide();
+            $('#ref').show();
+
+        } else {
+            // clear all the results
+            //alert("clear all resutls");
+            document.getElementById(buttonname + itemnumber).innerHTML = 'Select';
+            document.getElementById("searchinput").value = "";
+            // wipe results
+        //    document.getElementById('texterdiv').innerHTML = '';
+
+            $('#results-wrapper, #address-wrapper, #not-found').hide();
+            $( '#searchinput' ).focus();
+            $('#ref').hide();
+        }
+
+        $('#manual').hide();
+
+    }
+
+
+
+    function showSelectedAddress(itemnumber)
+    {
+
+        var prefixaddresscontainer = 'address';
+        var buttonname = 'address-button';
+        var datacount = $('#address-wrapper #addresses .govuk-summary-list__row').length;
+
+        if (document.getElementById(buttonname + itemnumber).innerHTML != 'Change') {
+            for (i = 0; i < datacount; i++) {
+                if(itemnumber != i) {
+                    document.getElementById(prefixaddresscontainer + i).style.display = "none";
+                } else {
+                    document.getElementById(buttonname + itemnumber).innerHTML = 'Change';
+                }
+            }
+
+            document.getElementById("noresults").style.display = "none";
+
+            $('#address-wrapper h3').text('Selected address');
+            $('#address-wrapper h3').removeClass('govuk-!-margin-bottom-4');
+            $('#address-wrapper h3').addClass('govuk-!-margin-bottom-0');
+            $('#address-wrapper hr').hide();
+            $('#address-wrapper details').hide();
+            $('#address-not-found').hide();
+
+        } else {
+            // clear all the results
+            //alert("clear all resutls");
+            document.getElementById(buttonname + itemnumber).innerHTML = 'Select';
+            document.getElementById("searchinput").value = "";
+            // wipe results
+ //          document.getElementById('texterdiv').innerHTML = '';
+
+            $('#address-wrapper h3').text('Select service address');
+            $('#address-wrapper h3').addClass('govuk-!-margin-bottom-4');
+            $('#address-wrapper h3').removeClass('govuk-!-margin-bottom-0');
+            $('#address-wrapper hr').show();
+            $('#address-wrapper details').show();
+            $('#address-wrapper .govuk-summary-list__row').show();
+            $('#address-not-found').show();
+
+        }
+
+        $('#address-manual').hide();
+
+
+    }
+
+
+    function enterDetails() {
+        $('#manual').show();
+        $('#ref').show();
+
+        return false;
+    }
+
+    function enterAddressDetails() {
+        $('#address-manual').show();
+        $('#ref').show();
+
+        return false;
+    }
+
+
+
+    function showaddressfields()
+    {
+        document.getElementById("hiddenaddress").style.display = "block";
+    }
+
+    function showsolicitorsdetails()
+    {
+        document.getElementById("hiddensolicitorfields").style.display = "block";
+    }
+
+    function hidesolicitorsdetails()
+    {
+        document.getElementById("hiddensolicitorfields").style.display = "none";
+    }
+
+
+
+</script>
+
+
+{% endblock %}
