@@ -34,7 +34,7 @@
     "gulp-sourcemaps": "^2.6.0",
     "gulp-util": "^3.0.7",
     "marked": "^0.8.2",
-    "minimist": "1.2.0",
+    "minimist": "1.2.3",
     "moment": "^2.22.1",
     "notifications-node-client": "^3.0.0",
     "nunjucks": "^3.0.1",
