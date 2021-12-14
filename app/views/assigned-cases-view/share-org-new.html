@@ -1,0 +1,194 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/manage-admin-i3">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/manage-admin-i3/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/manage-admin-i3/cases">
+            Unassigned cases
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/manage-admin-i3/cases/assigned-case-list">
+            Assigned cases
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/manage-admin-i3/payments">
+            Fee accounts
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: './'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl"><span class="govuk-caption-xl">Share a case</span>Add recipient </h1>
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="email">
+                        Enter email address
+                    </label>
+                    <span id="email-hint" class="govuk-hint">
+                        Search by name or email address. You can only add people from your organisation individually – but you can add as many as you like.
+                    </span>
+                    <input class="govuk-input govuk-input--width-30" id="width-30" name="width-30" type="text"> {{govukButton({
+                    text: 'Add',
+                    classes: 'hmcts-button--secondary',
+                    href: '#'
+                    })}}
+                                    <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Can’t find an email address?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+  If you can’t find your colleague’s email address, they will need to complete their registration. Contact your administrator for help.</div>
+</details>
+                </div>
+
+                <h3 class="govuk-heading-m">Selected cases </h3>
+
+             <!--      <h3 class="govuk-heading-m">Selected cases</h3>
+
+                    <select class="govuk-select" id="name" name="name">
+                        <option value="Joe Bloggs">Joe Bloggs - joe.bloggs@wedlakebell.com</option>
+                        <option value="Jill Smiths">Jill Smith - jill.smith@wedlakebell.com</option>
+ <option value="Bonita Bannister">Bonita Bannister - bonita.bannister@wedlakebell.com</option>
+                        <option value="Dominika Garner">Dominika Garner - dominika.garnerh@wedlakebell.com</option>
+                        <option value="Eryn Marriott">Eryn Marriott - eryn.marriott@wedlakebell.com</option>
+                         <option value="Ivy-Rose Ireland">Ivy-Rose Irelands - ivy-rose.ireland@wedlakebell.com</option>
+                        <option value="Jadene Harris">Jadene Harris - jadene.harris@wedlakebell.com</option>
+                        <option value="Kaya Mccullough">Kaya Mccullough - kaya.mcculloughn@wedlakebell.com</option>
+                         <option value="Kofi Bowman">Kofi Bowman - kofi.bowman@wedlakebell.com</option>
+                        <option value="Lyndsey Mora">Lyndsey Mora - lyndsey.mora@wedlakebell.com</option>
+                         <option value="Michele Serrano">Michele Serrano - michele.serrano@wedlakebell.com</option>
+                        <option value="Terence Williams">Terence Williams - terence.williams@wedlakebell.com</option>
+                    </select> -->
+            </div>
+        </div>
+        {{ govukAccordion({
+        id: "accordion-default",
+        items: [
+        {
+        heading: {
+        html: 'Paul Saddlebrook Vs Jennifer Saddlebrook<span class="govuk-caption-m govuk-!-font-size-16">4748-2828-7712-8233</span>'
+        },
+        content: {
+        html: '
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col">Name</th>
+                    <th class="govuk-table__header" scope="col">Email address</th>
+                    <th class="govuk-table__header" scope="col">Actions</th>
+                    <th class="govuk-table__header" scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Michele Serrano</td>
+                        <td class="govuk-table__cell">  michele.serrano@wedlakebell.com</td>
+                        <td class="govuk-table__cell"><a href="#">Cancel</a></td><td class="govuk-table__cell"><span class="hmcts-badge">To be added</span></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Terence Williams</td>
+                        <td class="govuk-table__cell">  terence.williams@wedlakebell.com</td>
+                        <td class="govuk-table__cell"><a href="#">Cancel</a></td>
+                        <td class="govuk-table__cell"><span class="hmcts-badge">To be added</span></td>
+                    </tr>
+            </tbody>
+        </table>'
+        }
+        },
+        {
+        heading: {
+        html: 'Neha Venkatanarasimharaj Vs Sanjet Venkatanarasimharaj<span class="govuk-caption-m govuk-!-font-size-16">9417-3739-9576-5131</span>'
+        },
+        content: {
+        html: '  <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+ <th class="govuk-table__header" scope="col">Name</th>
+                    <th class="govuk-table__header" scope="col">Email address</th>
+                    <th class="govuk-table__header" scope="col">Actions</th><td class="govuk-table__cell"></td>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">Michele Serrano</td>
+                    <td class="govuk-table__cell">  michele.serrano@wedlakebell.com</td>
+                    <td class="govuk-table__cell"><a href="#">Cancel</a></td><td class="govuk-table__cell"><span class="hmcts-badge">To be added</span></td>
+                </tr>    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">Terence Williams</td>
+                    <td class="govuk-table__cell">  terence.williams@wedlakebell.com</td>
+                    <td class="govuk-table__cell"><a href="#">Cancel</a></td>
+                    <td class="govuk-table__cell"><span class="hmcts-badge">To be added</span></td>
+                </tr>
+            </tbody>
+        </table>'
+        }
+        }
+        ]
+        }) }}
+        </form>
+        {{govukButton({
+        text: 'Continue',
+        href: './share-check'
+        })}}
+</div>
+</main>
+{% endblock %}
