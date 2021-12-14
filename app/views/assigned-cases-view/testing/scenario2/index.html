@@ -92,7 +92,7 @@
             <div class="govuk-form-group">
 
               <label class="govuk-label" for="searchRef">
-                Search your organisation's assigned cases by Core Case Data (CCD) reference
+                Search your organisation's assigned cases by name or unique case reference
               </label>
 
               <input class="govuk-input hmcts-search__input " id="searchRef" name="search-ref" type="search" aria-describedby="bill-hint">
@@ -179,40 +179,33 @@
 <!--        </nav>-->
         <div>
             <div id="jillSmithTable" style="display: none;">
-              <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-1">Cases shared with Jill Smith</h2>
-              <h3 class="govuk-heading-m" style="display: inline-block;">Displaying cases 1 to 10 of 15</h3>
+              <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-1">Cases shared with Jadene Harris</h2>
+              <h3 class="govuk-heading-m" style="display: inline-block;">Displaying 5 cases</h3>
             </div>
 
-          {% if (data['search-ref'] == 'ward') or (data['search-ref'] == 'Ward') or (data['search-ref'] == '9417-3739-9576-5131') or (data['search-ref'] == '5131') %}
-            <div id="allTable" >
-              <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-1">Search for '{{ data['search-ref'] }}' </h2>
-              <h3 class="govuk-heading-m" style="display: inline-block;">Found 1 case</h3>
-            </div>
-          {% else %}
             <div id="allTable" >
               <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-1">All cases for all solicitors</h2>
               <h3 class="govuk-heading-m" style="display: inline-block;">Displaying cases 1 to 10 of 200</h3>
             </div>
-          {% endif %}
 
 
 
           <p class="govuk-body">Select any cases you want to manage case sharing for.</p>
 
-          <div class="govuk-form-group" style="float:right;text-align: right;">
-            <label class="govuk-!-margin-right-2 govuk-label" for="sort" style="display: inline-block;">
-              Show table rows
-            </label>
-            <select class="govuk-select" id="sort" name="sort">
-              <option value="updated" selected>10 rows</option>
-              <option value="updated">25 rows</option>
-              <option value="views">50 rows</option>
-              <option value="views">100 rows</option>
-              <option value="comments">All</option>
-            </select>
-          </div>
+<!--          <div class="govuk-form-group" style="float:right;text-align: right;">-->
+<!--            <label class="govuk-!-margin-right-2 govuk-label" for="sort" style="display: inline-block;">-->
+<!--              Show table rows-->
+<!--            </label>-->
+<!--            <select class="govuk-select" id="sort" name="sort">-->
+<!--              <option value="updated" selected>10 rows</option>-->
+<!--              <option value="updated">25 rows</option>-->
+<!--              <option value="views">50 rows</option>-->
+<!--              <option value="views">100 rows</option>-->
+<!--              <option value="comments">All</option>-->
+<!--            </select>-->
+<!--          </div>-->
 
-          <br />
+<!--          <br />-->
 
           <form action="reassign-cases" method="get">
             <button  id="manageBtn" class="govuk-button govuk-button--secondary govuk-button--disabled" data-module="govuk-button" name="manage-button" value="{% if (data['search-ref'] == 'ward') or (data['search-ref'] == 'Ward') or (data['search-ref'] == '9417-3739-9576-5131') or (data['search-ref'] == '5131') %}ward{% endif %}">
@@ -229,7 +222,7 @@
 
         </div>
 
-        <table class="govuk-table">
+        <table class="govuk-table" id="table1">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
@@ -248,7 +241,6 @@
             </tr>
           </thead>
 
-          {% if (data['search-ref'] == 'ward') or (data['search-ref'] == 'Ward') or (data['search-ref'] == '9417-3739-9576-5131') or (data['search-ref'] == '5131') %}
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
@@ -266,7 +258,7 @@
               <!--                    <td class="govuk-table__cell "></td>-->
             </tr>
           </tbody>
-          {% else %}
+
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
@@ -510,8 +502,114 @@
 
 
           </tbody>
-          {% endif %}
+
         </table>
+
+        <table class="govuk-table" id="table2" style="display: none;">
+          <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">
+              <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="selectall-1-1" name="selectall" type="checkbox" value="selectall">
+              <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
+              </label>
+            </div></th>
+
+            <th class="govuk-table__header " scope="col">Case reference</th>
+            <th class="govuk-table__header " scope="col">Case created date</th>
+            <th class="govuk-table__header " scope="col">Petitioner <br />first name</th>
+            <th class="govuk-table__header " scope="col">Petitioner <br />last name</th>
+            <th class="govuk-table__header " scope="col">Respondent <br />first name</th>
+            <th class="govuk-table__header " scope="col">Respondent <br />last name</th>
+            <th class="govuk-table__header " scope="col">Case jurisdiction</th>
+            <th class="govuk-table__header " scope="col">Case due date</th>
+            <!--              <th class="govuk-table__header " scope="col">Divorce Unit</th>-->
+            <!--              <th class="govuk-table__header " scope="col">Last Modified</th>-->
+            <!--              <th class="govuk-table__header " scope="col">Linked Cases</th>-->
+          </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+            <td class="govuk-table__cell ">2877-6519-5618-9839</td>
+            <td class="govuk-table__cell ">9 Jun 2020, 08:37:12 AM</td>
+            <td class="govuk-table__cell ">Rayhan </td>
+            <td class="govuk-table__cell ">Shepherd</td>
+            <td class="govuk-table__cell ">Tanisha </td>
+            <td class="govuk-table__cell ">Shepherd</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell "></td>
+            <!--                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>-->
+            <!--                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>-->
+            <!--                    <td class="govuk-table__cell "></td>-->
+
+          </tr>
+            <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+            <td class="govuk-table__cell ">4748-2828-7712-8233</td>
+            <td class="govuk-table__cell ">16 Jun 2020, 4:51:21 PM</td>
+            <td class="govuk-table__cell ">  Maxim  </td>
+            <td class="govuk-table__cell ">Atkins </td>
+            <td class="govuk-table__cell ">Anniyah </td>
+            <td class="govuk-table__cell ">Atkins </td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell "></td>
+            <!--                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>-->
+            <!--                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>-->
+            <!--                    <td class="govuk-table__cell "></td>-->
+          </tr>
+            <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+            <td class="govuk-table__cell ">9417-3739-9576-5131</td>
+            <td class="govuk-table__cell ">22 May 2020, 11:19:44 AM</td>
+            <td class="govuk-table__cell ">Arun  </td>
+            <td class="govuk-table__cell ">Morales</td>
+            <td class="govuk-table__cell ">Lilianna </td>
+            <td class="govuk-table__cell ">Morales</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell "></td>
+            <!--                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>-->
+            <!--                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>-->
+            <!--                    <td class="govuk-table__cell "></td>-->
+          </tr>
+            <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+            <td class="govuk-table__cell ">2877-6519-5618-9839</td>
+            <td class="govuk-table__cell ">9 Jun 2020, 08:37:12 AM</td>
+            <td class="govuk-table__cell ">Tayyib  </td>
+            <td class="govuk-table__cell ">Bouvet</td>
+            <td class="govuk-table__cell ">Callie  </td>
+            <td class="govuk-table__cell ">Bouvet</td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell "></td>
+            <!--                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>-->
+            <!--                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>-->
+            <!--                    <td class="govuk-table__cell "></td>-->
+
+          </tr>
+            <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+            <td class="govuk-table__cell ">4748-2828-7712-8233</td>
+            <td class="govuk-table__cell ">16 Jun 2020, 4:51:21 PM</td>
+            <td class="govuk-table__cell ">  Maksymilian  </td>
+            <td class="govuk-table__cell ">Edwards </td>
+            <td class="govuk-table__cell ">Mehdi  </td>
+            <td class="govuk-table__cell ">Edwards </td>
+            <td class="govuk-table__cell "></td>
+            <td class="govuk-table__cell "></td>
+            <!--                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>-->
+            <!--                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>-->
+            <!--                    <td class="govuk-table__cell "></td>-->
+          </tr>
+          </tbody>
+        </table>
+
+
         <div id="pagination" style="text-align: center;">
           <p class="govuk-body">
             <a href="#" class="govuk-link govuk-!-margin-right-2">Previous</a>
@@ -532,16 +630,22 @@
 <script>
 
   $("#showSols").change(function() {
-    if (this.value == "Jill") {
+    if (this.value == "Jadene") {
       $('#jillSmithTable').show()
       $('#allTable').hide()
+      $('#table1').hide()
+      $('#table2').show()
+      $('#pagination').hide()
     } else {
       $('#allTable').show()
       $('#jillSmithTable').hide()
+      $('#table1').show()
+      $('#table2').hide()
+      $('#pagination').show()
     }
   })
 
-  $("#selectall-1").change(function() {
+  $("#selectall-1-1").change(function() {
     if(this.checked) {
       $('input:checkbox').not(this).prop('checked', this.checked)
     } else {

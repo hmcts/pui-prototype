@@ -1,0 +1,69 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <div class="hmcts-header__content">
+    </div>
+
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="hmcts-width-container">
+  <div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-phase-banner__content__tag">
+        beta
+      </strong>
+      <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+    </p>
+  </div>
+  <main role="main" class="govuk-main-wrapper">
+
+
+    <h3 class="govuk-heading-m"><strong>CAA Assigned cases view</strong></h3>
+
+    <p class="govuk-body govuk-!-margin-bottom-6"><strong>Scenarios</strong></p>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+<!--        <p>-->
+<!--          List of cases assigned to colleagues registered with your organisation who have access to manage cases.-->
+<!--        </p>-->
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="scenario1/" class="govuk-link">Scenario 1</a>
+          </li>
+          <li>
+            <a href="scenario2/" class="govuk-link">Scenario 2</a>
+          </li>
+        </ul>
+
+
+      </div>
+    </div>
+
+
+
+  </main>
+</div>
+{% endblock %}
+{% block pageScripts %}
+{{super()}}
+
+{% endblock %}
