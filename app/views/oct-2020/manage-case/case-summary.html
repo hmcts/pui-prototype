@@ -44,7 +44,11 @@
 }) }}
 {% endblock %}
 
-{% block mainContent %}
+{% block content %}
+
+<div class="hmcts-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
 
     {{hmctsSubNavigation({
       items: [ {
@@ -142,6 +146,7 @@
       </div>
     </div>
 
-
+  </main>
+</div>
 
 {% endblock %}

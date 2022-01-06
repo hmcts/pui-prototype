@@ -6,7 +6,43 @@
 
 {% block page_title %}Upload confirmation{% endblock %}
 
-{% block mainContent %}
+{% block header %}
+{{hmctsHeader({
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+items: [{
+text: 'Profile',
+href: '/oct-2020/manage-case/profile'
+},{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
+})}}
+{{hmctsPrimaryNavigation({
+classes: "govuk-!-margin-bottom-0",
+items: [ {
+text: 'Your cases',
+href: '/oct-2020/manage-case/case-list',
+active: primaryNavId == 'cases'
+}, {
+text: 'Organisation\'s cases',
+href: '/oct-2020/manage-case/organisation-case-list',
+active: primaryNavId == 'organisationCases'
+}]
+})}}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="hmcts-width-container">
+
+    <main role="main" class="govuk-main-wrapper">
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -33,5 +69,8 @@
 
     </div>
   </div>
+
+    </main>
+</div>
 
 {% endblock %}

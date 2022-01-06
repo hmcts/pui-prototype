@@ -1,10 +1,45 @@
 {% extends "./layout.html" %}
 
+{% set serviceName = 'Manage your civil and family law cases' %}
 
+{% set pageId = 'cases' %}
 
+{% block page_title %}Case summary{% endblock %}
 
+{% block header %}
+{{hmctsHeader({
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+items: [{
+text: 'Profile',
+href: '/oct-2020/manage-case/profile'
+},{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
+})}}
+{{hmctsPrimaryNavigation({
+classes: "govuk-!-margin-bottom-0",
+items: [ {
+text: 'Your cases',
+href: '/oct-2020/manage-case/case-list',
+active: primaryNavId == 'cases'
+}, {
+text: 'Organisation\'s cases',
+href: '/oct-2020/manage-case/organisation-case-list',
+active: primaryNavId == 'organisationCases'
+}]
+})}}
+{% endblock %}
+{% block content %}
 
-{% block mainContent %}
+<div class="hmcts-width-container">
+
+    <main role="main" class="govuk-main-wrapper">
 
   {{ hmctsPageHeaderWithActions({
     title: {
@@ -329,6 +364,9 @@
 
         <!-- </div>
       </div> -->
+
+    </main>
+</div>
 
 {% endblock %}
 
