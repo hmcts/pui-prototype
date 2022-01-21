@@ -506,16 +506,6 @@
     $("#conditional-search-ccd").hide()
   })
 
-  $("#showSols").change(function() {
-    if (this.value == "Jill") {
-      $('#jillSmithTable').show()
-      $('#allTable').hide()
-    } else {
-      $('#allTable').show()
-      $('#jillSmithTable').hide()
-    }
-  })
-
   $("#selectall-1").change(function() {
     if(this.checked) {
       $('input:checkbox').not(this).prop('checked', this.checked)

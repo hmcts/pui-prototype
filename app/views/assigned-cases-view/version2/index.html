@@ -556,7 +556,6 @@
     }
   })
 
-
   $("#search-ccd").change(function() {
     $("#conditional-search-ccd").show()
     $("#conditional-search-sol").hide()
@@ -564,16 +563,6 @@
   $("#search-sol").change(function() {
     $("#conditional-search-sol").show()
     $("#conditional-search-ccd").hide()
-  })
-
-  $("#showSols").change(function() {
-    if (this.value == "Jill") {
-      $('#jillSmithTable').show()
-      $('#allTable').hide()
-    } else {
-      $('#allTable').show()
-      $('#jillSmithTable').hide()
-    }
   })
 
   $("#selectall-1").change(function() {
@@ -595,7 +584,6 @@
       $('#manageBtn').prop('disabled', true);
     }
   })
-
 
 
   new HMCTSFrontend.FilterToggleButton({
