@@ -1,0 +1,544 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="">
+            Unassigned cases
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="">
+            Assigned cases
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="">
+            Fee accounts
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="hmcts-width-container">
+  <div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-phase-banner__content__tag">
+        beta
+      </strong>
+      <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+    </p>
+  </div>
+  <main role="main" class="govuk-main-wrapper">
+    <span class="govuk-caption-xl">Wedlake Bell</span>
+    <h1 class="govuk-heading-xl">Assigned cases</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <a id="filterToggleBtn" href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary">
+          Hide assigned cases filter
+        </a>
+
+        <div id="filterContainer">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half" style="background-color: #f3f2f1; padding-top: 20px; margin-left: 15px;">
+
+              <h2 class="govuk-heading-m">Filter assigned cases</h2>
+
+              <p class="govuk-body">Filter your organisation's assigned cases by either;</p>
+
+              <div class="govuk-form-group govuk-!-margin-bottom-0">
+                <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                  <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="search-ccd" name="search" type="radio" value="CCD reference" data-aria-controls="conditional-search-ccd">
+                      <label class="govuk-label govuk-radios__label" for="search-ccd">
+                        Case reference number
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional" id="conditional-search-ccd" style="display: none;">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="searchRef">
+                          Enter the 16 digit case reference number
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="searchRef" name="search-ref" type="search" spellcheck="false"></div>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="search-sol" name="search" type="radio" value="Solicitor name" data-aria-controls="conditional-search-sol">
+                      <label class="govuk-label govuk-radios__label" for="search-sol">
+                        Assignee name
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional" id="conditional-search-sol" style="display: none;">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="showSols">
+                          Select an assignee name from the list
+                        </label>
+                        <select class="govuk-select" id="showSols" name="sort" style="width: 500px;">
+                          <option value="updated" selected>All assignees</option>
+                          <option value="Bonita">Bonita Bannister	bonita.bannister@wedlakebell.com</option>
+                          <option value="Dominika">Dominika Garner	dominika.garnerh@wedlakebell.com</option>
+                          <option value="Eryn">Eryn Marriott	eryn.marriott@wedlakebell.com</option>
+                          <option value="Ivy-Rose ">Ivy-Rose Ireland	ivy-rose.ireland@wedlakebell.com</option>
+                          <option value="Jadene">Jadene Harris	jadene.harris@wedlakebell.com</option>
+                          <option value="Jill">Jill Smith	jill.smith@wedlakebell.com	</option>
+                          <option value="Joe">Joe Bloggs	joe.bloggs@wedlakebell.com	</option>
+                          <option value="Kaya">Kaya Mccullough	kaya.mcculloughn@wedlakebell.com</option>
+                          <option value="Kofi">Kofi Bowman	kofi.bowman@wedlakebell.com</option>
+                          <option value="Kaya">Kaya Mccullough	kaya.mcculloughn@wedlakebell.com</option>
+                          <option value="Lyndsey">Lyndsey Mora	lyndsey.mora@wedlakebell.com</option>
+                          <option value="Michele">Michele Serrano	michele.serrano@wedlakebell.com	</option>
+                          <option value="Terence">Terence Williams	terence.williams@wedlakebell.com	</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </fieldset>
+              </div>
+
+            </div>
+          </div>
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half  govuk-body govuk-!-margin-bottom-6" style="background-color: 	#f3f2f1; margin-left: 15px;">
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+              <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-right-3">
+                Apply filter
+              </a>
+              <a href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary">
+                Reset filter
+              </a>
+            </div>
+          </div>
+        </div>
+
+    <div class="hmcts-scrollable-pane">
+      <div class="hmcts-scrollable-pane__wrapper">
+        {% set checkbox %}
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
+          <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
+          </label>
+        </div>
+        {% endset %}
+        <nav class="hmcts-sub-navigation">
+          <ul class="hmcts-sub-navigation__list">
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="/assigned-cases-view/version2/index">
+                Caveat
+              </a>
+            </li>
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" href="/assigned-cases-view/version2/index-tab2">
+                Contested Financial Remedy
+              </a>
+            </li>
+<!--            <li class="hmcts-sub-navigation__item">-->
+<!--              <a class="hmcts-sub-navigation__link" href="/manage-admin-i3/cases/fr-contested">-->
+<!--                Financial Remedy Contested-->
+<!--              </a>-->
+<!--            </li>-->
+            <li class="hmcts-sub-navigation__item">
+              <a class="hmcts-sub-navigation__link" aria-current="page" href="/assigned-cases-view/version2/index-tab3">
+                Grant of Representation
+              </a>
+            </li>
+<!--            <li class="hmcts-sub-navigation__item">-->
+<!--              <a class="hmcts-sub-navigation__link" href="/manage-admin-i3/cases/appeal">-->
+<!--                Appeal-->
+<!--              </a>-->
+<!--            </li>-->
+<!--            <li class="hmcts-sub-navigation__item">-->
+<!--              <a class="hmcts-sub-navigation__link" href="/manage-admin-i3/cases/caresupervisionepos">-->
+<!--                Care, Supervision, and EPOs-->
+<!--              </a>-->
+<!--            </li>-->
+          </ul>
+        </nav>
+        <div>
+          <div id="allTable" >
+            <p class="govuk-body">Showing <strong>2</strong> of <strong>2</strong> cases</p>
+          </div>
+
+          <p class="govuk-body">Select any cases you want to manage case sharing for.</p>
+
+          <br />
+          <form action="reassign-cases" method="get">
+            <button  id="manageBtn" class="govuk-button govuk-button--secondary govuk-button--disabled" data-module="govuk-button" name="manage-button" value="{% if (data['search-ref'] == 'ward') or (data['search-ref'] == 'Ward') or (data['search-ref'] == '9417-3739-9576-5131') or (data['search-ref'] == '5131') %}ward{% endif %}">
+              Manage case sharing
+            </button>
+          </form>
+
+        </div>
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">{{checkbox | safe}}</th>
+
+              <th class="govuk-table__header " scope="col">Case reference</th>
+              <th class="govuk-table__header " scope="col">Case created date</th>
+              <th class="govuk-table__header " scope="col">Petitioner <br />first name</th>
+              <th class="govuk-table__header " scope="col">Petitioner <br />last name</th>
+              <th class="govuk-table__header " scope="col">Respondent <br />first name</th>
+              <th class="govuk-table__header " scope="col">Respondent <br />last name</th>
+              <th class="govuk-table__header " scope="col">Case jurisdiction</th>
+              <th class="govuk-table__header " scope="col">Case status</th>
+<!--              <th class="govuk-table__header " scope="col">Divorce Unit</th>-->
+<!--              <th class="govuk-table__header " scope="col">Last Modified</th>-->
+<!--              <th class="govuk-table__header " scope="col">Linked Cases</th>-->
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+              <td class="govuk-table__cell ">1234-2828-7712-8233</td>
+              <td class="govuk-table__cell ">16 Jun 2020, 4:51:21 PM</td>
+              <td class="govuk-table__cell ">Paul</td>
+              <td class="govuk-table__cell ">Saddlebrook</td>
+              <td class="govuk-table__cell ">Jennifer</td>
+              <td class="govuk-table__cell ">Saddlebrook</td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+              <td class="govuk-table__cell ">1234-3739-9576-5131</td>
+              <td class="govuk-table__cell ">22 May 2020, 11:19:44 AM</td>
+              <td class="govuk-table__cell ">Jeremiah</td>
+              <td class="govuk-table__cell ">Seely</td>
+              <td class="govuk-table__cell ">Amanda</td>
+              <td class="govuk-table__cell ">Seely</td>
+              <td class="govuk-table__cell "></td>
+              <td class="govuk-table__cell "></td>
+            </tr>
+
+<!--            <tr class="govuk-table__row">-->
+<!--              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>-->
+
+<!--              <td class="govuk-table__cell ">9417-3739-9576-5131</td>-->
+<!--              <td class="govuk-table__cell ">22 May 2020, 11:19:44 AM</td>-->
+<!--              <td class="govuk-table__cell ">Lesley </td>-->
+<!--              <td class="govuk-table__cell ">Ward</td>-->
+<!--              <td class="govuk-table__cell ">Jennifer</td>-->
+<!--              <td class="govuk-table__cell ">Ward</td>-->
+<!--              <td class="govuk-table__cell "></td>-->
+<!--              <td class="govuk-table__cell "></td>-->
+<!--&lt;!&ndash;                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td class="govuk-table__cell "></td>&ndash;&gt;-->
+<!--            </tr>-->
+<!--            <tr class="govuk-table__row">-->
+<!--              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>-->
+
+<!--              <td class="govuk-table__cell ">2877-6519-5618-9839</td>-->
+<!--              <td class="govuk-table__cell ">9 Jun 2020, 08:37:12 AM</td>-->
+<!--              <td class="govuk-table__cell ">Rayhan </td>-->
+<!--              <td class="govuk-table__cell ">Shepherd</td>-->
+<!--              <td class="govuk-table__cell ">Tanisha </td>-->
+<!--              <td class="govuk-table__cell ">Shepherd</td>-->
+<!--              <td class="govuk-table__cell "></td>-->
+<!--              <td class="govuk-table__cell "></td>-->
+<!--&lt;!&ndash;                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td class="govuk-table__cell "></td>&ndash;&gt;-->
+
+<!--            </tr>-->
+
+
+<!--            <tr class="govuk-table__row">-->
+<!--              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>-->
+
+<!--              <td class="govuk-table__cell ">4748-2828-7712-8233</td>-->
+<!--              <td class="govuk-table__cell ">16 Jun 2020, 4:51:21 PM</td>-->
+<!--              <td class="govuk-table__cell ">  Maxim  </td>-->
+<!--              <td class="govuk-table__cell ">Atkins </td>-->
+<!--              <td class="govuk-table__cell ">Anniyah </td>-->
+<!--              <td class="govuk-table__cell ">Atkins </td>-->
+<!--              <td class="govuk-table__cell "></td>-->
+<!--              <td class="govuk-table__cell "></td>-->
+<!--&lt;!&ndash;                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td class="govuk-table__cell "></td>&ndash;&gt;-->
+<!--            </tr>-->
+<!--            <tr class="govuk-table__row">-->
+<!--              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>-->
+
+<!--              <td class="govuk-table__cell ">9417-3739-9576-5131</td>-->
+<!--              <td class="govuk-table__cell ">22 May 2020, 11:19:44 AM</td>-->
+<!--              <td class="govuk-table__cell ">Arun  </td>-->
+<!--              <td class="govuk-table__cell ">Morales</td>-->
+<!--              <td class="govuk-table__cell ">Lilianna </td>-->
+<!--              <td class="govuk-table__cell ">Morales</td>-->
+<!--              <td class="govuk-table__cell "></td>-->
+<!--              <td class="govuk-table__cell "></td>-->
+<!--&lt;!&ndash;                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td class="govuk-table__cell "></td>&ndash;&gt;-->
+<!--            </tr>-->
+<!--            <tr class="govuk-table__row">-->
+<!--              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>-->
+
+<!--              <td class="govuk-table__cell ">2877-6519-5618-9839</td>-->
+<!--              <td class="govuk-table__cell ">9 Jun 2020, 08:37:12 AM</td>-->
+<!--              <td class="govuk-table__cell ">Tayyib  </td>-->
+<!--              <td class="govuk-table__cell ">Bouvet</td>-->
+<!--              <td class="govuk-table__cell ">Callie  </td>-->
+<!--              <td class="govuk-table__cell ">Bouvet</td>-->
+<!--              <td class="govuk-table__cell "></td>-->
+<!--              <td class="govuk-table__cell "></td>-->
+<!--&lt;!&ndash;                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td class="govuk-table__cell "></td>&ndash;&gt;-->
+
+<!--            </tr>-->
+
+
+<!--            <tr class="govuk-table__row">-->
+<!--              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>-->
+
+<!--              <td class="govuk-table__cell ">4748-2828-7712-8233</td>-->
+<!--              <td class="govuk-table__cell ">16 Jun 2020, 4:51:21 PM</td>-->
+<!--              <td class="govuk-table__cell ">  Maksymilian  </td>-->
+<!--              <td class="govuk-table__cell ">Edwards </td>-->
+<!--              <td class="govuk-table__cell ">Mehdi  </td>-->
+<!--              <td class="govuk-table__cell ">Edwards </td>-->
+<!--              <td class="govuk-table__cell "></td>-->
+<!--              <td class="govuk-table__cell "></td>-->
+<!--&lt;!&ndash;                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td class="govuk-table__cell "></td>&ndash;&gt;-->
+<!--            </tr>-->
+            <!--
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+              <td class="govuk-table__cell ">9417-3739-9576-5131</td>
+              <td class="govuk-table__cell ">22 May 2020, 11:19:44 AM</td>
+              <td class="govuk-table__cell ">Harri   </td>
+              <td class="govuk-table__cell ">Buckner</td>
+              <td class="govuk-table__cell ">Tanya  </td>
+              <td class="govuk-table__cell ">Buckner</td>
+              <td class="govuk-table__cell "></td>
+                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                    <td class="govuk-table__cell "></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+              <td class="govuk-table__cell ">2877-6519-5618-9839</td>
+              <td class="govuk-table__cell ">9 Jun 2020, 08:37:12 AM</td>
+              <td class="govuk-table__cell ">Thomas   </td>
+              <td class="govuk-table__cell ">Carson</td>
+              <td class="govuk-table__cell ">Olivia-Mae   </td>
+              <td class="govuk-table__cell ">Carson</td>
+              <td class="govuk-table__cell "></td>
+                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                    <td class="govuk-table__cell "></td>
+
+            </tr>
+
+
+
+
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+              <td class="govuk-table__cell ">4748-2828-7712-8233</td>
+              <td class="govuk-table__cell ">16 Jun 2020, 4:51:21 PM</td>
+              <td class="govuk-table__cell ">  Osman   </td>
+              <td class="govuk-table__cell ">Salas </td>
+              <td class="govuk-table__cell ">Zofia   </td>
+              <td class="govuk-table__cell ">Salas </td>
+              <td class="govuk-table__cell "></td>
+                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                    <td class="govuk-table__cell "></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+              <td class="govuk-table__cell ">9417-3739-9576-5131</td>
+              <td class="govuk-table__cell ">22 May 2020, 11:19:44 AM</td>
+              <td class="govuk-table__cell ">Floyd    </td>
+              <td class="govuk-table__cell ">Coates</td>
+              <td class="govuk-table__cell ">Anita   </td>
+              <td class="govuk-table__cell ">Coates</td>
+              <td class="govuk-table__cell "></td>
+                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                    <td class="govuk-table__cell "></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="row">{{checkbox | safe}}</th>
+
+              <td class="govuk-table__cell ">2877-6519-5618-9839</td>
+              <td class="govuk-table__cell ">9 Jun 2020, 08:37:12 AM</td>
+              <td class="govuk-table__cell ">Jarrod    </td>
+              <td class="govuk-table__cell ">Erickson</td>
+              <td class="govuk-table__cell ">Kourtney    </td>
+              <td class="govuk-table__cell ">Erickson</td>
+              <td class="govuk-table__cell "></td>
+                <td class="govuk-table__cell ">Courts and Tribunals Service Centre</td>
+                  <td class="govuk-table__cell ">24 Jul 2020, 9:14:26 AM</td>
+                    <td class="govuk-table__cell "></td>
+
+            </tr>
+            -->
+
+
+
+
+          </tbody>
+
+        </table>
+
+        <!-- PAGINATION -->
+<!--        <div id="pagination" style="text-align: center;">-->
+<!--          <p class="govuk-body">-->
+<!--            <a href="#" class="govuk-link govuk-!-margin-right-2">Previous</a>-->
+<!--            <span class="govuk-body govuk-!-margin-right-2">1</span> <a href="#" class="govuk-!-margin-right-2 govuk-link">2</a>-->
+<!--            <a href="#" class="govuk-link">Next</a>-->
+<!--          </p>-->
+<!--        </div>-->
+
+
+      </div>
+    </div>
+
+    <div class="govuk-form-group" style="position:absolute;margin-top: 80px;">
+      <p class="govuk-body-s">
+        <strong>Scenarios:</strong>
+        <strong><a href="/assigned-cases-view/version2/index" class="govuk-link">Search results found</a></strong> /
+        <a href="/assigned-cases-view/version2/no-search-results" class="govuk-link">No search results found</a>
+      </p>
+    </div>
+
+  </main>
+</div>
+{% endblock %}
+{% block pageScripts %}
+{{super()}}
+<script>
+
+  $('#filterToggleBtn').click(function() {
+    $("#filterContainer").toggle()
+    if ($("#filterContainer").is(":visible")) {
+      console.log('1')
+      $("#filterToggleBtn").text('Hide assigned cases filter')
+    } else {
+      $("#filterToggleBtn").text('Show assigned cases filter')
+    }
+  })
+
+  $("#search-ccd").change(function() {
+    $("#conditional-search-ccd").show()
+    $("#conditional-search-sol").hide()
+  })
+  $("#search-sol").change(function() {
+    $("#conditional-search-sol").show()
+    $("#conditional-search-ccd").hide()
+  })
+
+  $("#showSols").change(function() {
+    if (this.value == "Jill") {
+      $('#jillSmithTable').show()
+      $('#allTable').hide()
+    } else {
+      $('#allTable').show()
+      $('#jillSmithTable').hide()
+    }
+  })
+
+  $("#selectall-1").change(function() {
+    if(this.checked) {
+      $('input:checkbox').not(this).prop('checked', this.checked)
+    } else {
+      $('input:checkbox').not(this).prop('checked', this.checked = false)
+    }
+  });
+
+  $('#manageBtn').prop('disabled', true);
+
+  $('input:checkbox').change(function() {
+    if (this.checked) {
+      $('#manageBtn').removeClass( "govuk-button--disabled" )
+      $('#manageBtn').prop('disabled', false);
+    } else if ($('input:checkbox').prop('checked', this.checked = false)) {
+      $('#manageBtn').addClass( "govuk-button--disabled" )
+      $('#manageBtn').prop('disabled', true);
+    }
+  })
+
+
+
+  new HMCTSFrontend.FilterToggleButton({
+    bigModeMediaQuery: '(min-width: 48.063em)',
+    startHidden: true,
+    toggleButton: {
+      container: $('.hmcts-action-bar__filter'),
+      showText: 'Show filter',
+      hideText: 'Hide filter',
+      classes: 'hmcts-button--secondary'
+    },
+    closeButton: {
+      container: $('.hmcts-filter__header-action'),
+      text: 'Close'
+    },
+    filter: {
+      container: $('.hmcts-filter')
+    }
+  });
+</script>
+{% endblock %}

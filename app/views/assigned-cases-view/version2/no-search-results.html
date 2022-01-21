@@ -1,0 +1,243 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="">
+            Unassigned cases
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="">
+            Assigned cases
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="">
+            Fee accounts
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="hmcts-width-container">
+  <div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-phase-banner__content__tag">
+        beta
+      </strong>
+      <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+    </p>
+  </div>
+  <main role="main" class="govuk-main-wrapper">
+    <span class="govuk-caption-xl">Wedlake Bell</span>
+    <h1 class="govuk-heading-xl">Assigned cases</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+<!--        <p>-->
+<!--          List of cases assigned to colleagues registered with your organisation who have access to manage cases.-->
+<!--        </p>-->
+
+        <form action="" method="get">
+
+          <div class="govuk-form-group">
+
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              Search your organisation's assigned cases by either;
+            </p>
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="search-ccd" name="search" type="radio" value="CCD reference" data-aria-controls="conditional-search-ccd">
+                    <label class="govuk-label govuk-radios__label" for="search-ccd">
+                      Case reference number
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional" id="conditional-search-ccd" style="display: none;">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="searchRef">
+                        Enter the 16 digit case reference number
+                      </label>
+                      <input class="govuk-input govuk-!-width-one-third" id="searchRef" name="search-ref" type="search" spellcheck="false"></div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="search-sol" name="search" type="radio" value="Solicitor name" data-aria-controls="conditional-search-sol">
+                    <label class="govuk-label govuk-radios__label" for="search-sol">
+                      Assignee name
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional" id="conditional-search-sol" style="display: none;">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="showSols">
+                        Select an assignee name from the list
+                      </label>
+                      <select class="govuk-select" id="showSols" name="sort" style="width: 500px;">
+                        <option value="updated" selected>All assignees</option>
+                        <option value="Bonita">Bonita Bannister	bonita.bannister@wedlakebell.com</option>
+                        <option value="Dominika">Dominika Garner	dominika.garnerh@wedlakebell.com</option>
+                        <option value="Eryn">Eryn Marriott	eryn.marriott@wedlakebell.com</option>
+                        <option value="Ivy-Rose ">Ivy-Rose Ireland	ivy-rose.ireland@wedlakebell.com</option>
+                        <option value="Jadene">Jadene Harris	jadene.harris@wedlakebell.com</option>
+                        <option value="Jill">Jill Smith	jill.smith@wedlakebell.com	</option>
+                        <option value="Joe">Joe Bloggs	joe.bloggs@wedlakebell.com	</option>
+                        <option value="Kaya">Kaya Mccullough	kaya.mcculloughn@wedlakebell.com</option>
+                        <option value="Kofi">Kofi Bowman	kofi.bowman@wedlakebell.com</option>
+                        <option value="Kaya">Kaya Mccullough	kaya.mcculloughn@wedlakebell.com</option>
+                        <option value="Lyndsey">Lyndsey Mora	lyndsey.mora@wedlakebell.com</option>
+                        <option value="Michele">Michele Serrano	michele.serrano@wedlakebell.com	</option>
+                        <option value="Terence">Terence Williams	terence.williams@wedlakebell.com	</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+              </fieldset>
+            </div>
+            <br />
+            <br />
+            <br />
+
+
+            <button class="govuk-button hmcts-search__button govuk-!-margin-left-0" data-module="govuk-button">
+              Search cases
+            </button>
+            <button class="govuk-button govuk-button--secondary hmcts-search__button" data-module="govuk-button">
+              Reset search
+            </button>
+            <br /><br /><br /><br />
+        </form>
+
+        <p class="govuk-body govuk-!-font-weight-bold">There are no matching cases to display (placeholder)</p>
+        <p class="govuk-body">Try searching with some other criteria (placeholder)</p>
+
+
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="govuk-form-group" style="position:absolute;margin-top: 80px;">
+      <p class="govuk-body-s">
+        <strong>Scenarios:</strong>
+        <a href="/assigned-cases-view/version2/index" class="govuk-link">Search results found</a> /
+        <strong><a href="/assigned-cases-view/version2/no-search-results" class="govuk-link">No search results found</a></strong>
+      </p>
+    </div>
+
+  </main>
+</div>
+{% endblock %}
+{% block pageScripts %}
+{{super()}}
+<script>
+
+  $("#search-ccd").change(function() {
+    $("#conditional-search-ccd").show()
+    $("#conditional-search-sol").hide()
+  })
+  $("#search-sol").change(function() {
+    $("#conditional-search-sol").show()
+    $("#conditional-search-ccd").hide()
+  })
+
+  $("#showSols").change(function() {
+    if (this.value == "Jill") {
+      $('#jillSmithTable').show()
+      $('#allTable').hide()
+    } else {
+      $('#allTable').show()
+      $('#jillSmithTable').hide()
+    }
+  })
+
+  $("#selectall-1").change(function() {
+    if(this.checked) {
+      $('input:checkbox').not(this).prop('checked', this.checked)
+    } else {
+      $('input:checkbox').not(this).prop('checked', this.checked = false)
+    }
+  });
+
+  $('#manageBtn').prop('disabled', true);
+
+  $('input:checkbox').change(function() {
+    if (this.checked) {
+      $('#manageBtn').removeClass( "govuk-button--disabled" )
+      $('#manageBtn').prop('disabled', false);
+    } else if ($('input:checkbox').prop('checked', this.checked = false)) {
+      $('#manageBtn').addClass( "govuk-button--disabled" )
+      $('#manageBtn').prop('disabled', true);
+    }
+  })
+
+
+
+  new HMCTSFrontend.FilterToggleButton({
+    bigModeMediaQuery: '(min-width: 48.063em)',
+    startHidden: true,
+    toggleButton: {
+      container: $('.hmcts-action-bar__filter'),
+      showText: 'Show filter',
+      hideText: 'Hide filter',
+      classes: 'hmcts-button--secondary'
+    },
+    closeButton: {
+      container: $('.hmcts-filter__header-action'),
+      text: 'Close'
+    },
+    filter: {
+      container: $('.hmcts-filter')
+    }
+  });
+</script>
+{% endblock %}

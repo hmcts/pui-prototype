@@ -1,0 +1,364 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Manage organisation' %}
+{% set pageId = 'users' %}
+{% block header %}
+
+<!-- Tags CSS - currently not in this kit version! Whoopee -->
+<style>
+    .govuk-tag--red {
+        color: #942514;
+        background: #f6d7d2;
+    }
+    .govuk-tag--blue {
+        color: #144e81;
+        background: #d2e2f1;
+    }
+    .govuk-tag--green {
+        color: #005a30;
+        background: #cce2d8;
+    }
+    #solicitorNamesAutocomplete input {
+        height: 40px;
+    }
+
+    .govuk-accordion__open-all {
+        font-size: 19px !important;
+        text-decoration: underline;
+        margin-bottom: 12px;
+    }
+    }
+</style>
+
+
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/manage-admin-i3">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/manage-admin-i3/users">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/manage-admin-i3/cases">
+            Unassigned cases
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="/manage-admin-i3/cases/assigned-case-list">
+            Assigned cases
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="/manage-admin-i3/payments">
+            Fee accounts
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    <div class="govuk-phase-banner">
+        <p class="govuk-phase-banner__content">
+            <strong class="govuk-tag govuk-phase-banner__content__tag">
+                beta
+            </strong>
+            <span class="govuk-phase-banner__text">
+                This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+            </span>
+        </p>
+    </div>
+    {{govukBackLink({
+    href: './'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl">
+                    <span class="govuk-caption-xl">Manage case sharing</span>Manage shared access to a case
+                </h1>
+<!--                <form action="reassign-cases" method="get" style="display: inline-block;">-->
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="sol-autocomplete">
+                            Add people to share access to the selected cases
+                        </label>
+                        <span id="email-hint" class="govuk-hint">
+                            Search by name or email address. You can only add one person at a time, but you can share access with as many people as you need.
+                        </span>
+
+<!--                        <input class="govuk-input govuk-input&#45;&#45;width-30" id="solicitorEmail" name="solicitor-email" type="text">-->
+                        <div style="display:inline-block;width: 500px;" id="solicitorNamesAutocomplete"></div>
+
+
+                        <button id="addSolicitor" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                            Add
+                        </button>
+                        <details class="govuk-details govuk-!-margin-top-1" data-module="govuk-details">
+                          <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                              Can't find an email address?
+                            </span>
+                          </summary>
+                          <div class="govuk-details__text">
+                          If you can’t find your colleague’s email address, they will need to complete their registration. Contact your administrator for help.</div>
+                        </details>
+
+                    </div>
+<!--                </form>-->
+                <br />
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="showSols">
+                        Remove a person from all cases
+                    </label>
+                    <span id="email-hint" class="govuk-hint">
+                            Select a person to remove them from all selected cases
+                        </span>
+                    <select class="govuk-select" id="showSols" name="sort" style="width: 500px;">
+                        <option value="Select a person">Select a person	</option>
+                        <option value="Jill">Jill Smith	jill.smith@wedlakebell.com	</option>
+                        <option value="Joe">Joe Bloggs	joe.bloggs@wedlakebell.com	</option>
+                    </select>
+
+
+                    <button id="removeSolicitor" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                        Remove
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+        <h3 class="govuk-heading-m">Selected cases</h3>
+
+        {{ govukAccordion({
+        id: "accordion-default",
+        items: [
+        {
+        heading: {
+        html: 'Paul Saddlebrook Vs Jennifer Saddlebrook<br /><span class="govuk-caption-m govuk-!-font-size-16" style="display:inline-block;">4748-2828-7712-8233</span><button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0 govuk-!-margin-right-8" style="float:right; margin-top: -19px;">Deselect case</button>'
+        },
+        content: {
+        html: '
+        <table class="govuk-table govuk-!-margin-bottom-4">
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col">Name</th>
+                <th class="govuk-table__header" scope="col">Email address</th>
+                <th class="govuk-table__header" scope="col">Actions</th>
+                <th class="govuk-table__header" scope="col"></th>
+            </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" style="width:30%;">Jill Smith</td>
+                    <td class="govuk-table__cell" style="width:45%;">jill.smith@wedlakebell.com</td>
+                    <td class="govuk-table__cell" style="width:10%;">
+                        <a href="#" id="removeAccess1">Remove</a>
+                        <a href="#" id="cancelRemove1" style="display: none;">Cancel</a>
+                    </td>
+                    <td class="govuk-table__cell" style="width:15%;">
+<!--                        <strong id="status1" class="govuk-tag govuk-tag&#45;&#45;green govuk-!-margin-right-1">Has access</strong>-->
+                        <strong id="status2" class="hmcts-badge hmcts-badge--red ng-star-inserted govuk-!-margin-right-1" style="display: none;">To be removed</strong>
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Joe Bloggs</td>
+                    <td class="govuk-table__cell">joe.bloggs@wedlakebell.com</td>
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link">Remove</a></td>
+                    <td class="govuk-table__cell"></td>
+                </tr>
+                <tr id="terRow1" class="govuk-table__row" style="display: none;">
+                    <td class="govuk-table__cell">Terence Williams</td>
+                    <td class="govuk-table__cell">  terence.williams@wedlakebell.com</td>
+                    <td class="govuk-table__cell"> <a id="removeTer1" href="" class="govuk-link">Cancel</a></td>
+                    <td class="govuk-table__cell"><strong class="hmcts-badge ng-star-inserted govuk-!-margin-right-1">To be added</strong></td>
+                </tr>
+            </tbody>
+        </table><br /><br />'
+        }
+        },
+        {
+        heading: {
+        html: 'Jeremiah Seely Vs Amanda Seely<br /><span class="govuk-caption-m govuk-!-font-size-16" style="display:inline-block;">9417-3739-9576-5131</span><button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0 govuk-!-margin-right-8" style="float:right; margin-top: -19px;">Deselect case</button>'
+        },
+        content: {
+        html: '
+        <table class="govuk-table">
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Name</th>
+            <th class="govuk-table__header" scope="col">Email address</th>
+            <th class="govuk-table__header" scope="col">Status</th>
+            <th class="govuk-table__header" scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell" style="width:30%;">Jill Smith</td>
+                <td class="govuk-table__cell" style="width:45%;">jill.smith@wedlakebell.com</td>
+                <td class="govuk-table__cell" style="width:10%;">
+                    <a href="#" id="removeAccess2">Remove</a>
+                    <a href="#" id="cancelRemove2" style="display: none;">Cancel</a>
+                </td>
+                <td class="govuk-table__cell" style="width:15%;">
+                    <!--                        <strong id="status3" class="govuk-tag govuk-tag&#45;&#45;green govuk-!-margin-right-1">Has access</strong>-->
+                    <strong id="status4" class="hmcts-badge hmcts-badge--red ng-star-inserted govuk-!-margin-right-1" style="display: none;">To be removed</strong>
+                </td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Joe Bloggs</td>
+                <td class="govuk-table__cell">joe.bloggs@wedlakebell.com</td>
+                <td class="govuk-table__cell"><a href="#" class="govuk-link">Remove</a></td>
+                <td class="govuk-table__cell"></td>
+            </tr>
+            <tr id="terRow2" class="govuk-table__row" style="display: none;">
+                <td class="govuk-table__cell">Terence Williams</td>
+                <td class="govuk-table__cell">  terence.williams@wedlakebell.com</td>
+                <td class="govuk-table__cell"> <a id="removeTer2" href="" class="govuk-link">Cancel</a></td>
+                <td class="govuk-table__cell"><strong class="hmcts-badge ng-star-inserted govuk-!-margin-right-1">To be added</strong></td>
+            </tr>
+        </tbody>
+    </table>'
+        }
+        }
+        ]
+        }) }}
+
+        <form action="index" method="get" style="display: inline-block;">
+            <button class="govuk-button govuk-button--secondary govuk-!-margin-right-3" data-module="govuk-button">
+                Cancel
+            </button>
+        </form>
+        <form action="reassign-check" method="get" style="display: inline-block;">
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+        </form>
+
+
+</div>
+</main>
+
+<script>
+  window.onload = (event) => {
+
+    $('#removeSolicitor').click( function(e) {
+      e.preventDefault()
+      console.log('fdsfs')
+      var removeSol = $('#showSols option:selected').val()
+      console.log(removeSol)
+      if (removeSol === 'Jill' && $('#status2').is(":hidden") && $('#status4').is(":hidden")) {
+        toggleStatusRow1()
+        toggleStatusRow2()
+      }
+
+      return false
+    })
+
+    // Add solicitor to all cases
+    $('#addSolicitor').click( function(e) {e.preventDefault(); gofo(); return false; } );
+
+    function gofo() {
+      $('#sol-autocomplete').val('')
+      $('#terRow1').show()
+      $('#terRow2').show()
+    }
+
+    // Remove each solicitor row
+    $('#removeTer1').click( function(e) {e.preventDefault(); removeTerRow1(); return false; } );
+    $('#removeTer2').click( function(e) {e.preventDefault(); removeTerRow2(); return false; } );
+
+    function removeTerRow1() {
+      $('#terRow1').hide()
+    }
+    function removeTerRow2() {
+      $('#terRow2').hide()
+    }
+
+    // Toggle display for removing access for Jill Smith
+    $('#removeAccess1').click( function(e) {e.preventDefault(); toggleStatusRow1(); return false; } );
+    $('#cancelRemove1').click( function(e) {e.preventDefault(); toggleStatusRow1(); return false; } );
+
+    $('#removeAccess2').click( function(e) {e.preventDefault(); toggleStatusRow2(); return false; } );
+    $('#cancelRemove2').click( function(e) {e.preventDefault(); toggleStatusRow2(); return false; } );
+
+    function toggleStatusRow1() {
+      $('#status1').toggle()
+      $('#removeAccess1').toggle()
+      $('#status2').toggle()
+      $('#cancelRemove1').toggle()
+    }
+
+    function toggleStatusRow2() {
+      $('#status3').toggle()
+      $('#removeAccess2').toggle()
+      $('#status4').toggle()
+      $('#cancelRemove2').toggle()
+    }
+
+
+
+    const solicitorNamesList = [
+      'Bonita Bannister - bonita.bannister@wedlakebell.com',
+      'Dominika Garner - dominika.garnerh@wedlakebell.com',
+      'Eryn Marriott - eryn.marriott@wedlakebell.com',
+      'Jadene Harris - jadene.harris@wedlakebell.com',
+      'Kaya Mccullough - kaya.mcculloughn@wedlakebell.com',
+      'Kofi Bowman - kofi.bowman@wedlakebell.com',
+      'Kaya Mccullough - kaya.mcculloughn@wedlakebell.com',
+      'Lyndsey Mora - lyndsey.mora@wedlakebell.com',
+      'Michele Serrano - michele.serrano@wedlakebell.com',
+      'Terence Williams - terence.williams@wedlakebell.com'
+    ]
+
+    element1 = document.querySelector('#solicitorNamesAutocomplete')
+    id = 'sol-autocomplete'
+    accessibleAutocomplete({
+      element: element1,
+      id: id,
+      placeholder: 'e.g. John Smith',
+      source: solicitorNamesList,
+      name: 'name-of-solicitor'
+    })
+
+  }
+
+
+</script>
+{% endblock %}
