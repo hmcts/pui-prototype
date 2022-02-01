@@ -77,101 +77,146 @@
   </div>
   <main role="main" class="govuk-main-wrapper">
     <span class="govuk-caption-xl">Wedlake Bell</span>
-    <h1 class="govuk-heading-xl">Assigned cases</h1>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">Assigned cases</h1>
 
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-<!--        <p>-->
-<!--          List of cases assigned to colleagues registered with your organisation who have access to manage cases.-->
-<!--        </p>-->
-
-        <form action="" method="get">
-
-          <div class="govuk-form-group">
-
-            <p class="govuk-body govuk-!-margin-bottom-6">
-              Search your organisation's assigned cases by either;
-            </p>
-
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
-                <div class="govuk-radios" data-module="govuk-radios">
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="search-ccd" name="search" type="radio" value="CCD reference" data-aria-controls="conditional-search-ccd">
-                    <label class="govuk-label govuk-radios__label" for="search-ccd">
-                      Case reference number
-                    </label>
-                  </div>
-                  <div class="govuk-radios__conditional" id="conditional-search-ccd" style="display: none;">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label" for="searchRef">
-                        Enter the 16 digit case reference number
-                      </label>
-                      <input class="govuk-input govuk-!-width-one-third" id="searchRef" name="search-ref" type="search" spellcheck="false"></div>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="search-sol" name="search" type="radio" value="Solicitor name" data-aria-controls="conditional-search-sol">
-                    <label class="govuk-label govuk-radios__label" for="search-sol">
-                      Assignee name
-                    </label>
-                  </div>
-                  <div class="govuk-radios__conditional" id="conditional-search-sol" style="display: none;">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label" for="showSols">
-                        Select an assignee name from the list
-                      </label>
-                      <select class="govuk-select" id="showSols" name="sort" style="width: 500px;">
-                        <option value="updated" selected>All assignees</option>
-                        <option value="Bonita">Bonita Bannister	bonita.bannister@wedlakebell.com</option>
-                        <option value="Dominika">Dominika Garner	dominika.garnerh@wedlakebell.com</option>
-                        <option value="Eryn">Eryn Marriott	eryn.marriott@wedlakebell.com</option>
-                        <option value="Ivy-Rose ">Ivy-Rose Ireland	ivy-rose.ireland@wedlakebell.com</option>
-                        <option value="Jadene">Jadene Harris	jadene.harris@wedlakebell.com</option>
-                        <option value="Jill">Jill Smith	jill.smith@wedlakebell.com	</option>
-                        <option value="Joe">Joe Bloggs	joe.bloggs@wedlakebell.com	</option>
-                        <option value="Kaya">Kaya Mccullough	kaya.mcculloughn@wedlakebell.com</option>
-                        <option value="Kofi">Kofi Bowman	kofi.bowman@wedlakebell.com</option>
-                        <option value="Kaya">Kaya Mccullough	kaya.mcculloughn@wedlakebell.com</option>
-                        <option value="Lyndsey">Lyndsey Mora	lyndsey.mora@wedlakebell.com</option>
-                        <option value="Michele">Michele Serrano	michele.serrano@wedlakebell.com	</option>
-                        <option value="Terence">Terence Williams	terence.williams@wedlakebell.com	</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-              </fieldset>
-            </div>
-            <br />
-            <br />
-            <br />
-
-
-            <button class="govuk-button hmcts-search__button govuk-!-margin-left-0" data-module="govuk-button">
-              Search cases
-            </button>
-            <button class="govuk-button govuk-button--secondary hmcts-search__button" data-module="govuk-button">
-              Reset search
-            </button>
-            <br /><br /><br /><br />
-        </form>
-
-        <p class="govuk-body govuk-!-font-weight-bold">There are no matching cases to display (placeholder)</p>
-        <p class="govuk-body">Try searching with some other criteria (placeholder)</p>
-
-
+      <div class="govuk-grid-column-one-half govuk-body govuk-!-margin-top-0">
+        <div class="govuk-inset-text">
+          Manage case sharing for one case type at a time.
         </div>
-
-
       </div>
     </div>
 
-    <div class="govuk-form-group" style="position:absolute;margin-top: 80px;">
-      <p class="govuk-body-s">
-        <strong>Scenarios:</strong>
-        <a href="/assigned-cases-view/version2/index" class="govuk-link">Search results found</a> /
-        <strong><a href="/assigned-cases-view/version2/no-search-results" class="govuk-link">No search results found</a></strong>
-      </p>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <a id="filterToggleBtn" href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary">
+          Hide assigned cases filter
+        </a>
+
+        <div id="filterContainer">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half" style="background-color: #f3f2f1; padding-top: 20px; margin-left: 15px;">
+
+              <h2 class="govuk-heading-m">Filter assigned cases</h2>
+
+              <p class="govuk-body">Filter your organisation's assigned cases by either;</p>
+
+              <div class="govuk-form-group govuk-!-margin-bottom-0">
+                <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                  <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="search-ccd" name="search" type="radio" value="CCD reference" data-aria-controls="conditional-search-ccd">
+                      <label class="govuk-label govuk-radios__label" for="search-ccd">
+                        Case reference number
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional" id="conditional-search-ccd" style="display: none;">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="searchRef">
+                          Enter the 16 digit case reference number
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="searchRef" name="search-ref" type="search" spellcheck="false"></div>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="search-sol" name="search" type="radio" value="Solicitor name" data-aria-controls="conditional-search-sol">
+                      <label class="govuk-label govuk-radios__label" for="search-sol">
+                        Assignee name
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional" id="conditional-search-sol" style="display: none;">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="showSols">
+                          Select an assignee name from the list
+                        </label>
+                        <select class="govuk-select" id="showSols" name="sort" style="width: 500px;">
+                          <option value="updated" selected>All assignees</option>
+                          <option value="Bonita">Bonita Bannister	bonita.bannister@wedlakebell.com</option>
+                          <option value="Dominika">Dominika Garner	dominika.garnerh@wedlakebell.com</option>
+                          <option value="Eryn">Eryn Marriott	eryn.marriott@wedlakebell.com</option>
+                          <option value="Ivy-Rose ">Ivy-Rose Ireland	ivy-rose.ireland@wedlakebell.com</option>
+                          <option value="Jadene">Jadene Harris	jadene.harris@wedlakebell.com</option>
+                          <option value="Jill">Jill Smith	jill.smith@wedlakebell.com	</option>
+                          <option value="Joe">Joe Bloggs	joe.bloggs@wedlakebell.com	</option>
+                          <option value="Kaya">Kaya Mccullough	kaya.mcculloughn@wedlakebell.com</option>
+                          <option value="Kofi">Kofi Bowman	kofi.bowman@wedlakebell.com</option>
+                          <option value="Kaya">Kaya Mccullough	kaya.mcculloughn@wedlakebell.com</option>
+                          <option value="Lyndsey">Lyndsey Mora	lyndsey.mora@wedlakebell.com</option>
+                          <option value="Michele">Michele Serrano	michele.serrano@wedlakebell.com	</option>
+                          <option value="Terence">Terence Williams	terence.williams@wedlakebell.com	</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </fieldset>
+              </div>
+
+            </div>
+          </div>
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half  govuk-body govuk-!-margin-bottom-6" style="background-color: 	#f3f2f1; margin-left: 15px;">
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+              <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-right-3">
+                Apply filter
+              </a>
+              <a href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary">
+                Reset filter
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hmcts-scrollable-pane" id="searchContent">
+          <div class="hmcts-scrollable-pane__wrapper">
+            {% set checkbox %}
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="selectall-1" name="selectall" type="checkbox" value="selectall">
+              <label class="govuk-label govuk-checkboxes__label" for="selectall-1">
+              </label>
+            </div>
+            {% endset %}
+            <nav class="hmcts-sub-navigation">
+              <ul class="hmcts-sub-navigation__list">
+                <li class="hmcts-sub-navigation__item">
+                  <a class="hmcts-sub-navigation__link" aria-current="page" href="/assigned-cases-view/version2/index">
+                    Caveat
+                  </a>
+                </li>
+                <li class="hmcts-sub-navigation__item">
+                  <a class="hmcts-sub-navigation__link" href="/assigned-cases-view/version2/index-tab2">
+                    Contested Financial Remedy
+                  </a>
+                </li>
+                <li class="hmcts-sub-navigation__item">
+                  <a class="hmcts-sub-navigation__link" href="/assigned-cases-view/version2/index-tab3">
+                    Grant of Representation
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div>
+
+              <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">No cases found</p>
+              <p class="govuk-body">Try again using a different case reference or assignee.</p>
+
+              <br />
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Scenarios -->
+        <div class="govuk-form-group" style="position:fixed;margin-top: 80px;">
+          <p class="govuk-body-s">
+            <strong>Scenarios:</strong>
+            <a href="/assigned-cases-view/version2/index-tab1" class="govuk-link">Search results found</a> /
+            <strong><a href="/assigned-cases-view/version2/no-search-results" class="govuk-link">No search results found</a></strong>
+          </p>
+        </div>
+
+      </div>
     </div>
 
   </main>
@@ -181,6 +226,16 @@
 {{super()}}
 <script>
 
+  $('#filterToggleBtn').click(function() {
+    $("#filterContainer").toggle()
+    if ($("#filterContainer").is(":visible")) {
+      console.log('1')
+      $("#filterToggleBtn").text('Hide assigned cases filter')
+    } else {
+      $("#filterToggleBtn").text('Show assigned cases filter')
+    }
+  })
+
   $("#search-ccd").change(function() {
     $("#conditional-search-ccd").show()
     $("#conditional-search-sol").hide()
@@ -188,16 +243,6 @@
   $("#search-sol").change(function() {
     $("#conditional-search-sol").show()
     $("#conditional-search-ccd").hide()
-  })
-
-  $("#showSols").change(function() {
-    if (this.value == "Jill") {
-      $('#jillSmithTable').show()
-      $('#allTable').hide()
-    } else {
-      $('#allTable').show()
-      $('#jillSmithTable').hide()
-    }
   })
 
   $("#selectall-1").change(function() {
@@ -219,7 +264,6 @@
       $('#manageBtn').prop('disabled', true);
     }
   })
-
 
 
   new HMCTSFrontend.FilterToggleButton({
