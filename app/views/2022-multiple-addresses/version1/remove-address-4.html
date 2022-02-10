@@ -1,0 +1,163 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="index">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="#">
+                        Assigned cases
+                    </a>
+                </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="#">
+                        Fee accounts
+                    </a>
+                </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {% include "./includes/phase-banner.html" %}
+    {{govukBackLink({
+    href: 'remove-address-3'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <h1 class="govuk-heading-xl">Select a replacement address</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+          <p class="govuk-body">
+              <strong>All cases associated with the old address will be updated with the new address.
+          </p>
+
+          <br />
+
+          <table class="govuk-table">
+              <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Address to be removed</th>
+                  <th scope="col" class="govuk-table__header">Replacement address</th>
+              </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                      46 High street<br />
+                      Guildford<br />
+                      GU1 1AH</td>
+                  <td class="govuk-table__cell">
+                      <select id="addressSelect" class="govuk-select" name="address-select" title="Pick an address" style="margin-bottom: 20px;">
+                          <option value="">Please select...</option>
+                          <option value="123 Church Road, Swindon, SN1 7DS">123 Church Road, Swindon, SN1 7DS</option>
+                          <option value="77 Church Road, Swindon, SN1 7DS">77 London Road, Swindon, SN1 7DS</option>
+                          <option value="44 The Old Mill, Church Road, Swindon, SN1 7DS">44, The Old Mill, Church Road, Swindon, SN1 7DS</option>
+
+                      </select>
+                  </td>
+              </tr>
+              </tbody>
+          </table>
+
+
+          <br />
+          <br />
+
+            <form id="formSubmit" class="govuk-form-group" action="remove-address-5" method="post" style="display: inline-block;">
+              <button class="govuk-button govuk-!-margin-right-3" data-module="govuk-button">
+                  Continue
+              </button>
+            </form>
+          <form id="formSubmit" class="govuk-form-group" action="manage-address-1" method="post" style="display: inline-block;">
+              <button class="govuk-button govuk-button--secondary govuk-!-margin-right-3" data-module="govuk-button">
+                  Cancel
+              </button>
+          </form>
+
+
+
+      </div>
+    </div>
+    </main>
+</div>
+
+<script>
+
+  document.getElementById('findAddressBtn').addEventListener("click", showAddressSelect);
+  document.getElementById('addressSelect').addEventListener("change", showManualEntry);
+
+  var addressSelectGroup = document.getElementById('addressSelectGroup')
+  var chosenAddress = document.getElementById('addressSelect')
+
+
+  function showAddressSelect() {
+    addressSelectGroup.style.display = 'block'
+  }
+
+  function showManualEntry() {
+    if (chosenAddress.value == "123 Church Road, Swindon, SN1 7DS"){
+      document.getElementById('manualAddress').style.display = 'block'
+      document.getElementById('addressEnterManually').style.display = 'none'
+    }
+  }
+
+
+  // function validateForm() {
+  //   let x = document.getElementById('addressSelect').value
+  //   if (x == "") {
+  //     alert("Name must be filled out");
+  //     return false;
+  //   }
+  // }
+
+
+
+
+</script>
+{% endblock %}
