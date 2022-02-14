@@ -83,7 +83,7 @@
               <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                   <th scope="col" class="govuk-table__header">Address to be removed</th>
-                  <th scope="col" class="govuk-table__header">Replacement address</th>
+                  <th colspan="2" scope="col" class="govuk-table__header">Replacement address</th>
               </tr>
               </thead>
               <tbody class="govuk-table__body">
@@ -95,6 +95,10 @@
                   <td class="govuk-table__cell">
                       123 Church Road, Swindon, SN1 7DS
                   </td>
+                  <td class="govuk-table__cell">
+                      <a href="remove-address-4" class="govuk-link">Change</a>
+                  </td>
+
               </tr>
               </tbody>
           </table>
@@ -104,15 +108,17 @@
           <br />
 
             <form id="formSubmit" class="govuk-form-group" action="remove-address-confirm" method="post" style="display: inline-block;">
-              <button class="govuk-button govuk-!-margin-right-3" data-module="govuk-button">
+              <button class="govuk-button govuk-!-margin-right-3" data-module="govuk-button" style="padding">
                   Confirm
               </button>
+                <span style="display: inline-block;" class="govuk-body govuk-!-margin-top-1"><a href="index" class="govuk-link">Cancel and return to Organisation</a></span>
             </form>
-          <form id="formSubmit" class="govuk-form-group" action="manage-address-1" method="post" style="display: inline-block;">
-              <button class="govuk-button govuk-button--secondary govuk-!-margin-right-3" data-module="govuk-button">
-                  Cancel
-              </button>
-          </form>
+
+<!--          <form id="formSubmit" class="govuk-form-group" action="manage-address-1" method="post" style="display: inline-block;">-->
+<!--              <button class="govuk-button govuk-button&#45;&#45;secondary govuk-!-margin-right-3" data-module="govuk-button">-->
+<!--                  Cancel and return to manage addresses-->
+<!--              </button>-->
+<!--          </form>-->
 
 
 
