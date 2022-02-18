@@ -25,24 +25,26 @@
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
     {{govukBackLink({
-    href: 'organisation-sra'
+    href: 'organisation-address-another'
     })}}
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="/oct-2020/register-organisation/organisation-dx">
+                <form action="/oct-2020/register-organisation/organisation-dx2">
                     {{ govukFieldset({
                     legend: {
-                    text: "What's your organisation's address?",
+                    text: "Add another address",
                     classes: "govuk-fieldset__legend--xl",
                     isPageHeading: true
                     }
                     }) }}
 
-                    {% if data['add-new'] != 'true' %}
-                    <p class="govuk-body">This should be the main address for your organisation. You’ll be able to add more office addresses later.</p>
-                    <br>
-                    {% endif %}
+                    <br />
+
+<!--                    {% if data['add-new'] != 'true' %}-->
+<!--                    <p class="govuk-body">This should be the main address for your organisation. You’ll be able to add more office addresses later.</p>-->
+<!--                    <br>-->
+<!--                    {% endif %}-->
 
                     <div class="govuk-warning-text">
                         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -79,7 +81,7 @@
 
                         <select id="addressSelect" class="govuk-select" name="address-select" title="Pick an address" style="margin-bottom: 20px; width: 450px;">
                             <option value="">Please select...</option>
-                            <option value="123 Church Road, Swindon, SN1 7DS">123 Church Road, Swindon, SN1 7DS</option>
+                            <option value="46 High street, Guildford, GU1 1AH">46 High street, Guildford, GU1 1AH</option>
                         </select>
                         <br />
                         <br />
@@ -91,35 +93,35 @@
                             <label class="govuk-label" for="address_street-1">
                                 Address <span class="govuk-visually-hidden">line 1 of 3</span>
                             </label>
-                            <input class="govuk-input" id="address_street-1" name="address_Line1" type="text" value="123 Church Road"></div>
+                            <input class="govuk-input" id="address_street-1" name="address2_Line1" type="text" value="46 High street"></div>
 
                         <div class="govuk-form-group">
                             <label class="govuk-label" for="address_street-2">
                                 <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
                             </label>
-                            <input class="govuk-input" id="address_street-2" name="address_Line2" type="text"></div>
+                            <input class="govuk-input" id="address_street-2" name="address2_Line2" type="text"></div>
 
                         <div class="govuk-form-group">
                             <label class="govuk-label" for="address_street-3">
                             </label>
-                            <input class="govuk-input" id="address_street-3" name="address_Line3" type="text"></div>
+                            <input class="govuk-input" id="address_street-3" name="address2_Line3" type="text"></div>
 
                         <div class="govuk-form-group">
                             <label class="govuk-label" for="address_town">
                                 Town or city
                             </label>
-                            <input class="govuk-input govuk-!-width-two-thirds" id="address_town" name="address_city" type="text" value="Swindon"></div>
+                            <input class="govuk-input govuk-!-width-two-thirds" id="address_town" name="address2_city" type="text" value="Guildford"></div>
 
                         <div class="govuk-form-group">
                             <label class="govuk-label" for="address_postcode-full">
                                 Postcode
                             </label>
-                            <input class="govuk-input govuk-input--width-10" id="address_postcode-full" name="address_Postcode" type="text" value="SN1 7DS"></div>
+                            <input class="govuk-input govuk-input--width-10" id="address_postcode-full" name="address2_Postcode" type="text" value="GU1 1AH"></div>
 
                     </fieldset>
 
                     <div id="addressEnterManually" class="enter-manually">
-                        <p class="govuk-body"><a class="govuk-link" href="organisation-address-manual">Enter the address manually</a></p>
+                        <p class="govuk-body"><a class="govuk-link" href="organisation-address2-manual">Enter the address manually</a></p>
                     </div>
 
 <!--                    <div class="govuk-form-group" id="address_postcode-finder">-->
