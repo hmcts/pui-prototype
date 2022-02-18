@@ -1,0 +1,134 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="index">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="#">
+                        Assigned cases
+                    </a>
+                </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="#">
+                        Fee accounts
+                    </a>
+                </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {% include "./includes/phase-banner.html" %}
+    {{govukBackLink({
+    href: 'dx-reference'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">Confirm new address</h1>
+          <div class="govuk-inset-text">
+              Check the address is correct, if it needs amending after you have submitted it, you will have to contact HMCTS.
+          </div>
+          <br />
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+       
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Address</dt>
+              <dd class="govuk-check-your-answers__answer">
+                  123 Church Road <br />
+                    Swindon <br />
+                  SN7 1DS</dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="add-new-address-edit">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">DX number</dt>
+              <dd class="govuk-check-your-answers__answer">{{ data['dx-number'] }}</dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="dx-reference">Change <span class="govuk-visually-hidden">DX number</span></a>
+              </dd>
+          </div>
+            <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">DX exchange</dt>
+                <dd class="govuk-check-your-answers__answer">{{ data['dx-exchange'] }}</dd>
+                <dd class="govuk-check-your-answers__change">
+                    <a href="dx-reference">Change <span class="govuk-visually-hidden">DX exchange</span></a>
+                </dd>
+            </div>
+        </dl>
+
+          <br />
+
+          <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                  <span class="govuk-warning-text__assistive">Warning</span>
+                  The address must be your firm's office address and not a personal address.
+              </strong>
+          </div>
+
+
+          <form id="formSubmit" class="govuk-form-group" action="add-new-address-confirm" method="post" style="display: inline-block;">
+              <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+                  Confirm
+              </button>
+          </form>
+          <form id="formSubmit" class="govuk-form-group" action="index" method="post" style="display: inline-block;">
+              <button class="govuk-button govuk-button--secondary govuk-!-margin-left-2 govuk-!-margin-top-6" data-module="govuk-button">
+                  Cancel
+              </button>
+          </form>
+
+      </div>
+    </div>
+    </main>
+</div>
+{% endblock %}

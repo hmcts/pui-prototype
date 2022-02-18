@@ -1,0 +1,92 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="index">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="#">
+                        Assigned cases
+                    </a>
+                </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="#">
+                        Fee accounts
+                    </a>
+                </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {% include "./includes/phase-banner.html" %}
+    <main role="main" class="govuk-main-wrapper">
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+                <div class="govuk-panel govuk-panel--confirmation" style="background-color: #00703c;">
+                    <h1 class="govuk-panel__title">
+                        Address removal requested
+                    </h1>
+<!--                    <div class="govuk-panel__body">-->
+<!--                        Your request is being processed. If your cases have not been updated after 72 hours contact HMCTS.-->
+<!--                    </div>-->
+                </div>
+
+                <br />
+                <p class="govuk-body">Your request is being processed. If your cases have not been updated after 72 hours contact HMCTS.</p>
+                <br />
+                <p class="govuk-body"><a class="govuk-link" href="index">Return to organisation page</a>.</p>
+
+
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}
