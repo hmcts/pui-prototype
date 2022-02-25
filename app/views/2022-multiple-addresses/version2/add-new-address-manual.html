@@ -1,0 +1,127 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="index">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="#">
+                        Assigned cases
+                    </a>
+                </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="#">
+                        Fee accounts
+                    </a>
+                </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {% include "./includes/phase-banner.html" %}
+    {{govukBackLink({
+    href: 'manage-address-1'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+    <h1 class="govuk-heading-xl">What is your organisation's new address?</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+          <fieldset class="govuk-fieldset" id="manualAddress">
+
+              <div class="govuk-form-group">
+                  <label class="govuk-label" for="address_street-1">
+                      Address <span class="govuk-visually-hidden">line 1 of 3</span>
+                  </label>
+                  <input class="govuk-input" id="address_street-1" name="address_Line1" type="text" value=""></div>
+
+              <div class="govuk-form-group">
+                  <label class="govuk-label" for="address_street-2">
+                      <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+                  </label>
+                  <input class="govuk-input" id="address_street-2" name="address_Line2" type="text"></div>
+
+              <div class="govuk-form-group">
+                  <label class="govuk-label" for="address_street-3">
+                  </label>
+                  <input class="govuk-input" id="address_street-3" name="address_Line3" type="text"></div>
+
+              <div class="govuk-form-group">
+                  <label class="govuk-label" for="address_town">
+                      Town or city
+                  </label>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="address_town" name="address_city" type="text" value=""></div>
+
+              <div class="govuk-form-group">
+                  <label class="govuk-label" for="address_postcode-full">
+                      Postcode
+                  </label>
+                  <input class="govuk-input govuk-input--width-10" id="address_postcode-full" name="address_Postcode" type="text" value=""></div>
+
+          </fieldset>
+
+          <br />
+
+          <div id="addressEnterManually" class="enter-manually">
+              <p class="govuk-body"><a class="govuk-link" href="add-new-address">Search for an address using postcode</a></p>
+          </div>
+
+          <form id="formSubmit" class="govuk-form-group" action="dx-reference" method="post" style="display: inline-block;">
+              <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+                  Continue
+              </button>
+          </form>
+
+
+
+      </div>
+    </div>
+    </main>
+</div>
+{% endblock %}
