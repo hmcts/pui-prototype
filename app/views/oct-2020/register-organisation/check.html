@@ -54,11 +54,25 @@
                     <div class="govuk-check-your-answers__contents">
                         <dt class="govuk-check-your-answers__question">Organisation addresses</dt>
                         <dd class="govuk-check-your-answers__answer">
-                          {% for address in data['addresses'] %}
-                          <p>{{ address.address }}</p>
-                          <p>DX: {{ address.addressDX }}, {{ address.addressDXExchange }}</p>
-                          <br />
-                          {% endfor %}
+                            {{ data['address_Line1'] }}<br />
+                            {% if data['address_Line2'] %}{{ data['address_Line2'] }}<br />{% endif %}
+                            {% if data['address_Line3'] %}{{ data['address_Line3'] }}<br />{% endif %}
+                            {% if data['address_city'] %}{{ data['address_city'] }}<br />{% endif %}
+                            {% if data['address_Postcode'] %}{{ data['address_Postcode'] }}{% endif %}
+                            <br />
+                            DX reference: {{ data['address1-DX'] }}, {{ data['address1-DXexchange'] }}
+
+                            {% if data['address2_Line1'] %}
+                            <br />
+                            <br />
+                            {{ data['address2_Line1'] }}<br />
+                            {% if data['address2_Line2'] %}{{ data['address2_Line2'] }}<br />{% endif %}
+                            {% if data['address2_Line3'] %}{{ data['address2_Line3'] }}<br />{% endif %}
+                            {% if data['address2_city'] %}{{ data['address2_city'] }}<br />{% endif %}
+                            {% if data['address2_Postcode'] %}{{ data['address2_Postcode'] }}{% endif %}
+                            <br />
+                            DX reference: {{ data['address2-DX'] }}, {{ data['address2-DXexchange'] }}
+                            {% endif %}
                         </dd>
                         <dd class="govuk-check-your-answers__change">
                             <a href="/oct-2020/register-organisation/organisation-address-another">Change <span class="govuk-visually-hidden">organistaion address</span></a>
@@ -67,7 +81,9 @@
                     <div class="govuk-check-your-answers__contents">
                         <dt class="govuk-check-your-answers__question">PBA numbers</dt>
                         <dd class="govuk-check-your-answers__answer">
-                            {{data['org-pba']}}
+                            {{ data['pba-1'] }}<br />
+                            {{ data['pba-2'] }}<br />
+                            {{ data['pba-3'] }}
                         </dd>
                         <dd class="govuk-check-your-answers__change">
                             <a href="/oct-2020/register-organisation/organisation-pba">Change <span class="govuk-visually-hidden">PBA number</span></a>
@@ -80,7 +96,7 @@
                     <div class="govuk-check-your-answers__contents">
                         <dt class="govuk-check-your-answers__question">First name(s)</dt>
                         <dd class="govuk-check-your-answers__answer">
-                            {{data.firstname}}
+                            {{ data['first-name'] }}
                         </dd>
                         <dd class="govuk-check-your-answers__change">
                             <a href="/oct-2020/register-organisation/name">Change <span class="govuk-visually-hidden">name</span></a>
@@ -89,7 +105,7 @@
                     <div class="govuk-check-your-answers__contents">
                         <dt class="govuk-check-your-answers__question">Last name</dt>
                         <dd class="govuk-check-your-answers__answer">
-                            {{data.lastname}}
+                            {{ data['last-name'] }}
                         </dd>
                         <dd class="govuk-check-your-answers__change">
                             <a href="/oct-2020/register-organisation/name">Change <span class="govuk-visually-hidden">name</span></a>
@@ -98,26 +114,27 @@
                     <div class="govuk-check-your-answers__contents">
                         <dt class="govuk-check-your-answers__question">Email address</dt>
                         <dd class="govuk-check-your-answers__answer">
-                            {{data['email-address']}}
+                            {{ data['email-address'] }}
                         </dd>
                         <dd class="govuk-check-your-answers__change">
                             <a href="/oct-2020/register-organisation/email">Change <span class="govuk-visually-hidden">name</span></a>
                         </dd>
                     </div>
-                    <div class="govuk-check-your-answers__contents">
-                        <dt class="govuk-check-your-answers__question">Your usual office</dt>
-                        <dd class="govuk-check-your-answers__answer">
-                            {{data['office']}}
-                        </dd>
-                        <dd class="govuk-check-your-answers__change">
-                            <a href="/oct-2020/register-organisation/your-office">Change <span class="govuk-visually-hidden">name</span></a>
-                        </dd>
-                    </div>
+<!--                    <div class="govuk-check-your-answers__contents">-->
+<!--                        <dt class="govuk-check-your-answers__question">Your usual office</dt>-->
+<!--                        <dd class="govuk-check-your-answers__answer">-->
+<!--                            {{data['office']}}-->
+<!--                        </dd>-->
+<!--                        <dd class="govuk-check-your-answers__change">-->
+<!--                            <a href="/oct-2020/register-organisation/your-office">Change <span class="govuk-visually-hidden">name</span></a>-->
+<!--                        </dd>-->
+<!--                    </div>-->
                 </dl>
                 <h2 class="govuk-heading-l">Now submit your registration details</h2>
                 <ul class="govuk-list">
                     <ul class="govuk-list govuk-list--bullet">
                         <li>Your personal and organisation details are correct</li>
+                        <li>You have used your registered office address and not a personal or home address</li>
                         <li>You are creating an account for your organisation for the first time</li>
                         <li>You have read and understood the <a href="terms" rel="noopener noreferrer" target="_blank">terms and conditions</a> and are eligible for an account to manage your organisation and cases</li>
                         <li>You will be asked to accept the terms and conditions again when logging into a MyHMCTS application for the first time</li>

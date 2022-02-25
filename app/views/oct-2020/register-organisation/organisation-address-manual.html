@@ -1,0 +1,115 @@
+{% extends "oct-2020/manage-organisation/layout.html" %}
+{% set serviceName = 'Register to manage civil and family law cases' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+    <div class="hmcts-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                <span class="govuk-header__logotype">
+                    <span class="govuk-header__logotype-text">
+                        MyHMCTS
+                    </span>
+                </span>
+            </a>
+        </div>
+        <a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
+    </div>
+</header>
+{% endblock %}
+{% block content%}
+<div class="hmcts-width-container">
+    {{ govukPhaseBanner({
+    tag: {
+    text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+    {{govukBackLink({
+    href: 'organisation-sra'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <form action="/oct-2020/register-organisation/organisation-dx">
+                    {{ govukFieldset({
+                    legend: {
+                    text: "What's your organisation's address?",
+                    classes: "govuk-fieldset__legend--xl",
+                    isPageHeading: true
+                    }
+                    }) }}
+
+                    {% if data['add-new'] != 'true' %}
+                    <p class="govuk-body">This should be the main address for your organisation. You’ll be able to add more office addresses later.</p>
+                    <br>
+                    {% endif %}
+
+                    <div class="govuk-warning-text">
+                        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                        <strong class="govuk-warning-text__text">
+                            <span class="govuk-warning-text__assistive">Warning</span>
+                            You must only enter your firm's office address here, not a personal address.
+                        </strong>
+                    </div>
+
+                    <fieldset class="govuk-fieldset" id="manualAddress">
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="address_street-1">
+                                Address <span class="govuk-visually-hidden">line 1 of 3</span>
+                            </label>
+                            <input class="govuk-input" id="address_street-1" name="address_Line1" type="text" value="{{ data['address_Line1'] }}"></div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="address_street-2">
+                                <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+                            </label>
+                            <input class="govuk-input" id="address_street-2" name="address_Line2" type="text" value="{{ data['address_Line2'] }}"></div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="address_street-3">
+                            </label>
+                            <input class="govuk-input" id="address_street-3" name="address_Line3" type="text" value="{{ data['address_Line3'] }}"></div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="address_town">
+                                Town or city
+                            </label>
+                            <input class="govuk-input govuk-!-width-two-thirds" id="address_town" name="address_city" type="text" value="{{ data['address_city'] }}"></div>
+
+                        <div class="govuk-form-group govuk-!-margin-bottom-3">
+                            <label class="govuk-label" for="address_postcode-full">
+                                Postcode
+                            </label>
+                            <input class="govuk-input govuk-input--width-10" id="address_postcode-full" name="address_Postcode" type="text" value="{{ data['address_Postcode'] }}"></div>
+
+                    </fieldset>
+
+                    <br />
+
+                    <div id="addressEnterManually" class="enter-manually">
+                        <p class="govuk-body"><a class="govuk-link" href="organisation-address">Search for an address using postcode</a></p>
+                    </div>
+
+                    <br />
+                    <br />
+
+
+                  {{govukButton({
+                  text: 'Continue'
+                  })}}
+
+
+
+
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+{% endblock %}

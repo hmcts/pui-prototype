@@ -24,8 +24,10 @@ router.post( '/' + strPath + '/register-organisation/organisation-address-add', 
 	var addressNo = addresses.length + 1;
 	var addressAddress1 = (req.session.data['address_Line1']) ? req.session.data['address_Line1'] : '-'
 	var addressAddress2 = (req.session.data['address_Line2']) ? req.session.data['address_Line2'] : ''
+	var addressAddress2 = (req.session.data['address_Line3']) ? req.session.data['address_Line3'] : ''
 	var addressTown = (req.session.data['address_city']) ? req.session.data['address_city'] : ''
 	var addressPostcode = (req.session.data['address_Postcode']) ? req.session.data['address_Postcode'] : ''
+
 	var address = addressAddress1 + ', ' + addressAddress2 + ', ' + addressTown + ', ' + addressPostcode;
 
 	var addressDX = (req.session.data['dx-number']) ? req.session.data['dx-number'] : ''
@@ -39,6 +41,19 @@ router.post( '/' + strPath + '/register-organisation/organisation-address-add', 
 	} else {
 		res.redirect('/' + strPath + '/register-organisation/organisation-address-another');
 	}
+
+});
+
+router.get( '/' + strPath + '/register-organisation/delete-office', function(req, res) {
+
+	req.session.data['address2_Line1'] = ''
+	req.session.data['address2_Line2'] = ''
+	req.session.data['address2_Line3'] = ''
+	req.session.data['address2_city'] = ''
+	req.session.data['address2_Postcode'] = ''
+	req.session.data['address2-DX'] = ''
+	req.session.data['address2-DXexchange'] = ''
+	res.render( strPath + '/register-organisation/organisation-address-another',  { data: req.session.data} );
 
 });
 

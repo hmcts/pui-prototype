@@ -30,32 +30,14 @@
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="/oct-2020/register-organisation/organisation-address-another-check" method="post">
-                    {{ govukRadios({
-                        classes: "govuk-radios--inline",
-                        idPrefix: "add-another",
-                        name: "add-another",
-                        fieldset: {
-                            legend: {
-                                text: "Do you want to add another office address?",
-                                isPageHeading: true,
-                                classes: "govuk-fieldset__legend--xl"
-                            }
-                        },
-                        hint: {
-                            html : "In the future, you’ll be able to choose from these addresses when you create a case.<br />However, some services might only allow you to enter an address manually for now."
-                        },
-                        items: [
-                            {
-                                value: "yes",
-                                text: "Yes"
-                            },
-                            {
-                                value: "no",
-                                text: "No"
-                            }
-                        ]
-                    }) }}
+<!--                <form action="/oct-2020/register-organisation/organisation-address-another-check" method="post">-->
+                <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+                    Office addresses
+                </h1>
+                <p class="govuk-body">
+                    In the future, you’ll be able to choose from these addresses when you create a case. However, some services might only allow you to enter an address manually for now.
+                </p>
+                <br />
 
                     <h3 class="govuk-heading-m">Already added</h3>
 
@@ -67,27 +49,84 @@
                           <th class="govuk-table__header" scope="col"></th>
                         </tr>
                       </thead>
-
-                        {% for address in data['addresses'] %}
-
-                        <tr class="govuk-table__row">
-                          <td class="govuk-table__cell">{{ address.address }}</td>        
-                          <td class="govuk-table__cell">{{ address.addressDX }}, {{ address.addressDXExchange }}</td>        
-                          <td class="govuk-table__cell"><a class="change link" href="">Change</a> &nbsp; <a href="">Remove</a></td>
+                        <tr class="govuk-table__row" id="row-1">
+                          <td class="govuk-table__cell">
+                              {{ data['address_Line1'] }}<br />
+                              {% if data['address_Line2'] %}{{ data['address_Line2'] }}<br />{% endif %}
+                              {% if data['address_Line3'] %}{{ data['address_Line3'] }}<br />{% endif %}
+                              {% if data['address_city'] %}{{ data['address_city'] }}<br />{% endif %}
+                              {% if data['address_Postcode'] %}{{ data['address_Postcode'] }}{% endif %}
+                          </td>
+                          <td class="govuk-table__cell">{{ data['address1-DX'] }}, {{ data['address1-DXexchange'] }}</td>
+<!--                            <td class="govuk-table__cell">{{ address.addressDX }}, {{ address.addressDXExchange }}</td>-->
+                          <td class="govuk-table__cell"><a class="change link" href="organisation-address-manual">Change</a></td>
                         </tr>
-                        {% endfor %}
+
+                        {% if data['address2_Line1'] %}
+                        <tr class="govuk-table__row" id="row-2">
+                            <td class="govuk-table__cell">
+                                {{ data['address2_Line1'] }}<br />
+                                {% if data['address2_Line2'] %}{{ data['address2_Line2'] }}<br />{% endif %}
+                                {% if data['address2_Line3'] %}{{ data['address2_Line3'] }}<br />{% endif %}
+                                {% if data['address2_city'] %}{{ data['address2_city'] }}<br />{% endif %}
+                                {% if data['address2_Postcode'] %}{{ data['address2_Postcode'] }}{% endif %}
+                            </td>
+                            <td class="govuk-table__cell">{{ data['address2-DX'] }}, {{ data['address2-DXexchange'] }}</td>
+                            <td class="govuk-table__cell"><a class="change link" href="organisation-address2-manual">Change</a> &nbsp; <a class="remove-link" id="remove-link-2" href="#">Remove</a></td>
+                        </tr>
+                        {% endif %}
+
+<!--                        {% for address in data['addresses'] %}-->
+
+<!--                        <tr class="govuk-table__row" id="row-{{ loop.index }}">-->
+<!--                          <td class="govuk-table__cell">{{ address.address }}</td>        -->
+<!--                          <td class="govuk-table__cell">{{ address.addressDX }}, {{ address.addressDXExchange }}</td>        -->
+<!--                          <td class="govuk-table__cell"><a class="change link" href="organisation-address-manual">Change</a> &nbsp; <a class="remove-link" id="remove-link-{{ loop.index }}" href="#">Remove</a></td>-->
+<!--                        </tr>-->
+<!--                        {% endfor %}-->
 
                       </tbody>
                     </table>
 
+                <div class="govuk-button-group">
+                    <form action="organisation-address-another-check" method="post" style="display: inline-block;">
+                        <button class="govuk-button govuk-!-margin-right-2" data-module="govuk-button">
+                            Continue
+                        </button>
+                    </form>
+                    <form action="organisation-address-add-another" method="post" style="display: inline-block;">
+                        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                            Add another address
+                        </button>
+                    </form>
+                </div>
 
-                    {{govukButton({
-                    text: 'Continue'
-                    })}}
-                    
-                </form>
+<!--                </form>-->
             </div>
         </div>
     </main>
 </div>
+<script type="text/javascript">
+
+  window.onload = function() {
+
+    $('#remove-link-2').click(function(e) {
+      e.preventDefault()
+      $.post( "delete-office", function( data ) {
+      });
+      $('#row-2').remove()
+    })
+
+    // const collection = document.getElementsByClassName("remove-link");
+    //
+    // for (i in collection){
+    //   collection[i].onclick = function() {
+    //     var test = $(this).closest('tr').attr('id');
+    //     $('#'+test).remove()
+    //     return false
+    //   }
+    // }
+
+  }
+</script>
 {% endblock %}

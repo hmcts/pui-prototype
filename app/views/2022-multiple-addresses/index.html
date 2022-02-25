@@ -1,0 +1,87 @@
+{% extends "manage-admin/layout.html" %}
+{% set serviceName = 'Common components' %}
+{% set pageId = 'users' %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Common components</a>
+    <div class="hmcts-header__content"></div>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container ">
+  <main role="main" class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-xl">Prototypes</span>
+        <h1 class="govuk-heading-xl">Manage organisation - Multiple addresses</h1>
+
+        <h2 class="govuk-heading-l">
+            Version 2
+        </h2>
+        <p class="govuk-body">February 2022</p>
+        <p class="govuk-body">Changelog: <a href="https://tools.hmcts.net/confluence/x/X_GDX" target="_blank">UCD: Multiple addresses changelog</a></p>
+        <br />
+        <a href="version2/index" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+          Start prototype
+        </a>
+        <br />
+        <p class='govuk-body govuk-!-font-weight-bold'>Pages breakdown (all open in a new window):</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="version2/index" target="_blank">Organisation page</a></li>
+          <li><a href="version2/manage-address-1" target="_blank">Add or remove an address</a></li>
+        </ul>
+        <br />
+        <p class="govuk-body"><strong>Add a new address</strong></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="version2/add-new-address" target="_blank">Add a new address (postcode finder)</a></li>
+          <li><a href="version2/add-new-address-manual" target="_blank">Add a new address (manual input)</a></li>
+          <li><a href="version2/dx-reference" target="_blank">DX reference</a></li>
+          <li><a href="version2/add-new-address-check-answers" target="_blank">Check address</a></li>
+          <li><a href="version2/add-new-address-confirm" target="_blank">Add new address confirmation screen</a></li>
+        </ul>
+        <br />
+        <p class="govuk-body"><strong>Remove an address</strong></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="version2/remove-address-nocases-1" target="_blank">Remove an address (no active cases)</a></li>
+          <li><a href="version2/remove-address-cases-1" target="_blank">Remove and replace an address (active cases)</a></li>
+          <li><a href="version2/review-cases" target="_blank">Review active cases</a></li>
+          <li><a href="version2/case-view" target="_blank">View a case (TBC)</a></li>
+          <li><a href="version2/remove-address-cases-2" target="_blank">Confirm remove and replace address</a></li>
+          <li><a href="version2/remove-address-confirm" target="_blank">Address removal confirmation screen</a></li>
+        </ul>
+
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+        <h2 class="govuk-heading-l">
+          Version 1
+        </h2>
+        <p class="govuk-body">January 2022</p>
+        <br />
+        <a href="version1/index" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+          Start prototype
+        </a>
+
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
+{% block pageScripts %}
+{{super()}}
+{% endblock %}

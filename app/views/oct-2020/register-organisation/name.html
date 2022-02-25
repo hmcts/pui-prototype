@@ -32,27 +32,22 @@
             <div class="govuk-grid-column-two-thirds">
                 <h1 class="govuk-heading-xl">What's your name?</h1>
                 <form action="/oct-2020/register-organisation/email">
-                    {{ govukInput({
-                    label: {
-                    text: "First name",
-                    classes: 'govuk-label--m'
-                    },
-                    hint: {
-                    text: 'Include all middle names.'
-                    },
-                    id: "firstname",
-                    name: "firstname",
-                    classes: "govuk-input--width-20"
-                    }) }}
-                    {{ govukInput({
-                    label: {
-                    text: "Last name",
-                    classes: 'govuk-label--m'
-                    },
-                    id: "lastname",
-                    name: "lastname",
-                    classes: "govuk-input--width-20"
-                    }) }}
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--m" for="firstName">
+                            First name
+                        </label>
+                        <div id="first-name-hint" class="govuk-hint">
+                            Include all middle names.
+                        </div>
+                        <input class="govuk-input govuk-input--width-20" id="firstName" name="first-name" type="text" value="{{ data['first-name'] }}">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--m" for="lastName">
+                            Last name
+                        </label>
+                        <input class="govuk-input govuk-input--width-20" id="lastName" name="last-name" type="text" value="{{ data['last-name'] }}">
+                    </div>
+                    <br />
                     {{govukButton({
                     text: 'Continue'
                     })}}

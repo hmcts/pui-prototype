@@ -30,18 +30,17 @@
     <main role="main" class="govuk-main-wrapper">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <form action="/oct-2020/register-organisation/your-office">
-                    {{ govukInput({
-                    label: {
-                    text: "What's your work email address?",
-                    classes: 'govuk-label--xl',
-                    isPageHeading: true
-                    },
-                    id: "email-address",
-                    name: "email-address",
-                    classes: "govuk-input--width-30"
-                    }) }}
+                <form action="/oct-2020/register-organisation/check">
+
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--xl" for="emailAddress">
+                            What's your work email address?
+                        </label>
+                        </h1>
+                        <input class="govuk-input govuk-input--width-30" id="emailAddress" name="email-address" type="text" value="{{ data['email-address'] }}">
+                    </div>
                     <!-- <p class="govuk-body"><a href="#">Can't find your organistaion?</a></p> -->
+                    <br />
                     {{govukButton({
                     text: 'Continue'
                     })}}

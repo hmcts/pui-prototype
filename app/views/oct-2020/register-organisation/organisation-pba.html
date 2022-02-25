@@ -36,38 +36,37 @@
                 {% from "textarea/macro.njk" import govukTextarea %}
                 {% from "button/macro.njk" import govukButton %}
 
+                <form action="/oct-2020/register-organisation/name">
+
                 <div class="hmcts-add-another">
 
                 <h1 class="govuk-heading-xl hmcts-add-another__heading">What payment by account (PBA) numbers does your organisation have?</h1>
 
-                <form action="/oct-2020/register-organisation/name">
+                    <div class="govuk-form-group" id="pba-1">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label govuk-label--m" for="pbaNumber-1">
+                            PBA number (optional)
+                            </label>
+                        </h1>
+                        <input class="govuk-input" style="width: 400px;" id="pbaNumber-1" name="pba-1" type="text" value="{{ data['pba-1'] }}">
+                    </div>
 
-                {% call govukFieldset({
-                  classes: 'hmcts-add-another__item'
-                }) %}
+                    <div class="govuk-form-group" id="pba-2" style="{% if data['pba-2'] %}display: block;{% else %}display:none;{% endif %}">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label govuk-label--m" for="pbaNumber-2">
+                                PBA number (optional)
+                            </label>
+                        </h1>
+                        <input class="govuk-input" style="width: 400px;" id="pbaNumber-2" name="pba-2" type="text" value="{{ data['pba-2'] }}">
+                        <a href="#" class="govuk-!-margin-left-3 govuk-body govuk-link" id="pbaRemoveLink">Remove</a>
+                    </div>
 
-                {{ govukInput({
-                    label: {
-                    html: 'PBA number (optional)',
-                    classes: 'govuk-label--m'
-                    },
-                    id: "pba-1",
-                    name: "pba-1",
-                    attributes: {
-                        'data-name': 'pba-[%index%]',
-                        'data-id': 'pba-[%index%]'
-                    },
-                    classes: 'govuk-input--width-20'
-                }) }}
+                    <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="pbaAddBtn">
+                        Add another PBA number
+                    </button>
 
-                {% endcall %}
-
-                <div class="hmcts-button-action">
-                  {{ govukButton({
-                    text: 'Add another PBA number',
-                    classes: 'hmcts-button--secondary  hmcts-add-another__add-button  govuk-!-margin-bottom-4'
-                  }) }}
-                </div>
+                <br />
+                <br />
 
                 {{govukButton({
                 text: 'Continue'
@@ -75,10 +74,6 @@
 
                 </form>
 
-                </div> 
-
-
-                </form>
             </div>
         </div>
     </main>
@@ -88,6 +83,16 @@
 
 {% block pageScripts %}
 <script>
-  new HMCTSFrontend.AddAnother($('.hmcts-add-another'));
+  // new HMCTSFrontend.AddAnother($('.hmcts-add-another'));
+
+  $('#pbaAddBtn').click(function(e) {
+    e.preventDefault()
+    $('#pba-2').show()
+  })
+
+  $('#pbaRemoveLink').click(function() {
+    $('#pbaNumber-2').val('');
+    $('#pba-2').hide()
+  })
 </script>
 {% endblock %}
