@@ -11,7 +11,7 @@
         </span>
       </a>
     </div>
-    <a class="hmcts-header__link" href="#">Manage organisation TEST</a>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
     <div class="hmcts-header__content">
       <nav class="hmcts-header__navigation" aria-label="Account navigation">
         <ul class="hmcts-header__navigation-list">
@@ -66,56 +66,54 @@
 <div class="hmcts-width-container">
     {% include "./includes/phase-banner.html" %}
     {{govukBackLink({
-    href: 'add-new-address'
+    href: './'
     })}}
     <main role="main" class="govuk-main-wrapper">
+    <h1 class="govuk-heading-xl">Manage addresses</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-          <form id="formSubmit" class="govuk-form-group" action="add-new-address-check-answers" method="post" style="display: inline-block;">
+          <table class="govuk-table govuk-!-margin-bottom-9">
+<!--              <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Dates and amounts</caption>-->
+              <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Address</th>
+                  <th scope="col" class="govuk-table__header">DX number</th>
+                  <th scope="col" class="govuk-table__header">DX exchange</th>
+              </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                      102 Petty France<br />
+                      London<br />
+                      SW1 9AJ</td>
+                  <td class="govuk-table__cell">152738</td>
+                  <td class="govuk-table__cell">Westminster 8</td>
+              </tr>
+              <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                      46 High street<br />
+                      Guildford<br />
+                      GU1 1AH</td>
+                  <td class="govuk-table__cell">112345</td>
+                  <td class="govuk-table__cell">Guildford 14</td>
+              </tr>
+              </tbody>
+          </table>
 
-          <fieldset class="govuk-fieldset">
-
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-
-                  <h1 class="govuk-fieldset__heading">
-                      What's the DX reference for this office? (optional)
-                  </h1>
-
-              </legend>
-
-              <br />
-
-              <div class="govuk-form-group">
-                  <label class="govuk-label govuk-label--m" for="dx-number">
-                      DX number
-                  </label>
-
-                  <span id="dx-number-hint" class="govuk-hint">
-                    For example 931NR. You don't need to include 'DX'.
-                  </span>
-
-                  <input class="govuk-input govuk-input--width-20" id="dx-number" name="dx-number" type="text" aria-describedby="dx-number-hint" value="{{ data['dx-number'] }}">
-              </div>
-
-              <div class="govuk-form-group">
-                  <label class="govuk-label govuk-label--m" for="dx-exchange">
-                      DX exchange
-                  </label>
-
-                  <span id="dx-exchange-hint" class="govuk-hint">
-                    For example: HAYES (MIDDLESEX).
-                    </span>
-                  <input class="govuk-input govuk-input--width-20" id="dx-exchange" name="dx-exchange" type="text" aria-describedby="dx-exchange-hint" value="{{ data['dx-exchange'] }}">
-              </div>
-
-          </fieldset>
-
-            <br />
-              <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
-                  Continue
-              </button>
-          </form>
+          <div class="govuk-button-group">
+              <form class="govuk-form-group" action="add-new-address" method="get" style="display: inline-block;">
+                  <button class="govuk-button govuk-button--secondary govuk-!-margin-right-2" data-module="govuk-button">
+                      Add a new address
+                  </button>
+              </form>
+              <form class="govuk-form-group" action="remove-address-1" method="get" style="display: inline-block;">
+                  <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                      Remove an address
+                  </button>
+              </form>
+          </div>
 
       </div>
     </div>

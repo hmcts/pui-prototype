@@ -66,11 +66,19 @@
 <div class="hmcts-width-container">
     {% include "./includes/phase-banner.html" %}
     <main role="main" class="govuk-main-wrapper">
-    <h1 class="govuk-heading-xl">Organisation TEST</h1>
+    <h1 class="govuk-heading-xl" style="margin-bottom:30px;">Organisation</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+        
         <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+
+          <h2 class="govuk-heading-m" style="margin-bottom:0px;">Details</h2>
        
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question"></dt>
+              <dd class="govuk-check-your-answers__answer"></dd>
+              <dd class="govuk-check-your-answers__change"></dd>
+          </div>
           <div class="govuk-check-your-answers__contents">
               <dt class="govuk-check-your-answers__question">Name</dt>
               <dd class="govuk-check-your-answers__answer">{{ data['org-name'] or 'Wedlake Bell' }}</dd>
@@ -82,6 +90,73 @@
               <dd class="govuk-check-your-answers__answer">{{ data['sra-number'] or 'SRA3347232' }}</dd>
               <dd class="govuk-check-your-answers__change">
               </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">PBA numbers</dt>
+              <dd class="govuk-check-your-answers__answer">
+                  PBA1234567<br>
+                  PBA7894561
+              </dd>
+              <dd class="govuk-check-your-answers__change" style="text-align: right;">
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">PBA number</span></a>
+              </dd>
+          </div>
+        </dl>
+
+        <br>
+        <br>
+
+        <h2 class="govuk-heading-m" style="margin-bottom:10px;">Addresses</h2>
+
+        <table class="govuk-table govuk-!-margin-bottom-9" style="margin-bottom:30px!important;">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header" width="300">Address</th>
+                  <th scope="col" class="govuk-table__header" width="100">DX number</th>
+                  <th scope="col" class="govuk-table__header" width="100">DX exchange</th>
+                  <th scope="col" class="govuk-table__header" width="100"></th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                      46 High street, Guildford, GU1 1AH
+                  </td>
+                  <td class="govuk-table__cell">112345</td>
+                  <td class="govuk-table__cell">Guildford 14</td>
+                  <td class="govuk-table__cell" style="text-align: right;"><a href="remove-address-6" class="govuk-link govuk-link--no-visited-state">Remove</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                      102 Petty France, London, SW1 9AJ
+                  </td>
+                  <td class="govuk-table__cell">152738</td>
+                  <td class="govuk-table__cell">Westminster 8</td>
+                  <td class="govuk-table__cell" style="text-align: right;"><a href="remove-address-9" class="govuk-link govuk-link--no-visited-state">Remove</a></td>
+              </tr>
+            </tbody>
+        </table>
+
+        <a href="add-new-address-1"><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add new address</button></a>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+
+        <!--
+
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+
+          <h2 class="govuk-heading-m" style="margin-bottom:0px;">Addresses</h2>
+       
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question"></dt>
+              <dd class="govuk-check-your-answers__answer"></dd>
+              <dd class="govuk-check-your-answers__change"></dd>
           </div>
           <div class="govuk-check-your-answers__contents">
               <dt class="govuk-check-your-answers__question">Organisation addresses</dt>
@@ -98,13 +173,7 @@
                       Guildford<br />
                       GU1 1AH</p>
                   <p class="govuk-body govuk-!-margin-bottom-1">DX: 112345, Guildford 14</p>
-
-<!--                {% for address in data['addresses'] %}-->
-<!--                <p>{{ address.address }}</p>-->
-<!--                <p>DX: {{ address.addressDX }}, {{ address.addressDXExchange }}</p>-->
-<!--                <br />-->
-<!--                {% endfor %}-->
-
+                  
               </dd>
               <dd class="govuk-check-your-answers__change">
                   <a href="manage-address-1">Change <span class="govuk-visually-hidden">organistaion address</span></a>
@@ -122,6 +191,7 @@
           </div>
         </dl>
 
+        -->
 
       </div>
     </div>

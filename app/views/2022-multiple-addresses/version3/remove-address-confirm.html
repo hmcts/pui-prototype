@@ -11,7 +11,7 @@
         </span>
       </a>
     </div>
-    <a class="hmcts-header__link" href="#">Manage organisation TEST</a>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
     <div class="hmcts-header__content">
       <nav class="hmcts-header__navigation" aria-label="Account navigation">
         <ul class="hmcts-header__navigation-list">
@@ -65,60 +65,29 @@
 {% block content %}
 <div class="hmcts-width-container">
     {% include "./includes/phase-banner.html" %}
-    {{govukBackLink({
-    href: 'add-new-address'
-    })}}
     <main role="main" class="govuk-main-wrapper">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
 
-          <form id="formSubmit" class="govuk-form-group" action="add-new-address-check-answers" method="post" style="display: inline-block;">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
 
-          <fieldset class="govuk-fieldset">
+                <div class="govuk-panel govuk-panel--confirmation" style="background-color: #00703c;">
+                    <h1 class="govuk-panel__title">
+                        Completed
+                    </h1>
+                    <div class="govuk-panel__body">
+                        Address change request submitted
+                    </div>
+                </div>
 
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <br />
+                <p class="govuk-body">Your request will now be processed. Check back later to view its progress.</p>
+                <br />
+                <p class="govuk-body"><a class="govuk-link" href="index">Manage organisation</a></p>
+                <p class="govuk-body"><a class="govuk-link" href="manage-address-1">Manage addresses</a></p>
 
-                  <h1 class="govuk-fieldset__heading">
-                      What's the DX reference for this office? (optional)
-                  </h1>
 
-              </legend>
-
-              <br />
-
-              <div class="govuk-form-group">
-                  <label class="govuk-label govuk-label--m" for="dx-number">
-                      DX number
-                  </label>
-
-                  <span id="dx-number-hint" class="govuk-hint">
-                    For example 931NR. You don't need to include 'DX'.
-                  </span>
-
-                  <input class="govuk-input govuk-input--width-20" id="dx-number" name="dx-number" type="text" aria-describedby="dx-number-hint" value="{{ data['dx-number'] }}">
-              </div>
-
-              <div class="govuk-form-group">
-                  <label class="govuk-label govuk-label--m" for="dx-exchange">
-                      DX exchange
-                  </label>
-
-                  <span id="dx-exchange-hint" class="govuk-hint">
-                    For example: HAYES (MIDDLESEX).
-                    </span>
-                  <input class="govuk-input govuk-input--width-20" id="dx-exchange" name="dx-exchange" type="text" aria-describedby="dx-exchange-hint" value="{{ data['dx-exchange'] }}">
-              </div>
-
-          </fieldset>
-
-            <br />
-              <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
-                  Continue
-              </button>
-          </form>
-
-      </div>
-    </div>
+            </div>
+        </div>
     </main>
 </div>
 {% endblock %}

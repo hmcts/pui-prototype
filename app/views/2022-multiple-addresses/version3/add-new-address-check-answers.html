@@ -65,63 +65,62 @@
 {% block content %}
 <div class="hmcts-width-container">
     {% include "./includes/phase-banner.html" %}
+    {{govukBackLink({
+    href: 'dx-reference'
+    })}}
     <main role="main" class="govuk-main-wrapper">
-    <h1 class="govuk-heading-xl">Organisation TEST</h1>
+    <h1 class="govuk-heading-xl">Confirm new address</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
        
           <div class="govuk-check-your-answers__contents">
-              <dt class="govuk-check-your-answers__question">Name</dt>
-              <dd class="govuk-check-your-answers__answer">{{ data['org-name'] or 'Wedlake Bell' }}</dd>
-              <dd class="govuk-check-your-answers__change">
-              </dd>
-          </div>
-          <div class="govuk-check-your-answers__contents">
-              <dt class="govuk-check-your-answers__question">SRA ID</dt>
-              <dd class="govuk-check-your-answers__answer">{{ data['sra-number'] or 'SRA3347232' }}</dd>
-              <dd class="govuk-check-your-answers__change">
-              </dd>
-          </div>
-          <div class="govuk-check-your-answers__contents">
-              <dt class="govuk-check-your-answers__question">Organisation addresses</dt>
+              <dt class="govuk-check-your-answers__question">Address</dt>
               <dd class="govuk-check-your-answers__answer">
-
-                  <p class="govuk-body govuk-!-margin-bottom-1">
-                      102 Petty France<br />
-                      London<br />
-                      SW1h 9AJ</p>
-                  <p class="govuk-body govuk-!-margin-bottom-1">DX: 152738, Westminster 8</p>
-                  <br />
-                  <p class="govuk-body govuk-!-margin-bottom-1">
-                      46 High street<br />
-                      Guildford<br />
-                      GU1 1AH</p>
-                  <p class="govuk-body govuk-!-margin-bottom-1">DX: 112345, Guildford 14</p>
-
-<!--                {% for address in data['addresses'] %}-->
-<!--                <p>{{ address.address }}</p>-->
-<!--                <p>DX: {{ address.addressDX }}, {{ address.addressDXExchange }}</p>-->
-<!--                <br />-->
-<!--                {% endfor %}-->
-
-              </dd>
+                  123 Church Road <br />
+                    Swindon <br />
+                  SN7 1DS</dd>
               <dd class="govuk-check-your-answers__change">
-                  <a href="manage-address-1">Change <span class="govuk-visually-hidden">organistaion address</span></a>
+                  <a href="add-new-address-edit">Change <span class="govuk-visually-hidden">organistaion address</span></a>
               </dd>
           </div>
           <div class="govuk-check-your-answers__contents">
-              <dt class="govuk-check-your-answers__question">PBA numbers</dt>
-              <dd class="govuk-check-your-answers__answer">
-                  PBA1234567<br />
-                  PBA7894561
-              </dd>
+              <dt class="govuk-check-your-answers__question">DX number</dt>
+              <dd class="govuk-check-your-answers__answer">{{ data['dx-number'] }}</dd>
               <dd class="govuk-check-your-answers__change">
-                  <a href="#">Change <span class="govuk-visually-hidden">PBA number</span></a>
+                  <a href="dx-reference">Change <span class="govuk-visually-hidden">DX number</span></a>
               </dd>
           </div>
+            <div class="govuk-check-your-answers__contents">
+                <dt class="govuk-check-your-answers__question">DX exchange</dt>
+                <dd class="govuk-check-your-answers__answer">{{ data['dx-exchange'] }}</dd>
+                <dd class="govuk-check-your-answers__change">
+                    <a href="dx-reference">Change <span class="govuk-visually-hidden">DX exchange</span></a>
+                </dd>
+            </div>
         </dl>
 
+          <br />
+
+          <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                  <span class="govuk-warning-text__assistive">Warning</span>
+                  Once confirmed, this new address will be visible to other users, including users outside your organisation.
+              </strong>
+          </div>
+
+
+          <form id="formSubmit" class="govuk-form-group" action="add-new-address-confirm" method="post" style="display: inline-block;">
+              <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+                  Confirm
+              </button>
+          </form>
+          <form id="formSubmit" class="govuk-form-group" action="index" method="post" style="display: inline-block;">
+              <button class="govuk-button govuk-button--secondary govuk-!-margin-left-2 govuk-!-margin-top-6" data-module="govuk-button">
+                  Cancel
+              </button>
+          </form>
 
       </div>
     </div>

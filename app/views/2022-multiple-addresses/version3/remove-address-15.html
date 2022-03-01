@@ -72,8 +72,6 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-          <form id="formSubmit" class="govuk-form-group" action="add-new-address-check-answers" method="post" style="display: inline-block;">
-
           <fieldset class="govuk-fieldset">
 
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
@@ -111,11 +109,14 @@
 
           </fieldset>
 
-            <br />
-              <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+            <br>
+
+            <form id="formSubmit" class="govuk-form-group" action="remove-address-16" method="post" style="display: inline-block;">
+              <button class="govuk-button govuk-!-margin-right-3" data-module="govuk-button">
                   Continue
               </button>
-          </form>
+                <span style="display: inline-block;" class="govuk-body govuk-!-margin-top-1"><a href="index" class="govuk-link govuk-link--no-visited-state">Cancel and return to organisation</a></span>
+            </form>
 
       </div>
     </div>

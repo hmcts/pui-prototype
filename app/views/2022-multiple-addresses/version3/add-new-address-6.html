@@ -11,7 +11,7 @@
         </span>
       </a>
     </div>
-    <a class="hmcts-header__link" href="#">Manage organisation TEST</a>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
     <div class="hmcts-header__content">
       <nav class="hmcts-header__navigation" aria-label="Account navigation">
         <ul class="hmcts-header__navigation-list">
@@ -66,56 +66,65 @@
 <div class="hmcts-width-container">
     {% include "./includes/phase-banner.html" %}
     {{govukBackLink({
-    href: 'add-new-address'
+    href: 'manage-address-1'
     })}}
     <main role="main" class="govuk-main-wrapper">
+    <h1 class="govuk-heading-xl">What is your organisation's new address?</h1>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-          <form id="formSubmit" class="govuk-form-group" action="add-new-address-check-answers" method="post" style="display: inline-block;">
-
-          <fieldset class="govuk-fieldset">
-
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-
-                  <h1 class="govuk-fieldset__heading">
-                      What's the DX reference for this office? (optional)
-                  </h1>
-
-              </legend>
-
-              <br />
+          <fieldset class="govuk-fieldset" id="manualAddress">
 
               <div class="govuk-form-group">
-                  <label class="govuk-label govuk-label--m" for="dx-number">
-                      DX number
+                  <label class="govuk-label" for="address_street-1">
+                      Address <span class="govuk-visually-hidden">line 1 of 3</span>
                   </label>
-
-                  <span id="dx-number-hint" class="govuk-hint">
-                    For example 931NR. You don't need to include 'DX'.
-                  </span>
-
-                  <input class="govuk-input govuk-input--width-20" id="dx-number" name="dx-number" type="text" aria-describedby="dx-number-hint" value="{{ data['dx-number'] }}">
-              </div>
+                  <input class="govuk-input" id="address_street-1" name="address_Line1" type="text" value=""></div>
 
               <div class="govuk-form-group">
-                  <label class="govuk-label govuk-label--m" for="dx-exchange">
-                      DX exchange
+                  <label class="govuk-label" for="address_street-2">
+                      <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
                   </label>
+                  <input class="govuk-input" id="address_street-2" name="address_Line2" type="text"></div>
 
-                  <span id="dx-exchange-hint" class="govuk-hint">
-                    For example: HAYES (MIDDLESEX).
-                    </span>
-                  <input class="govuk-input govuk-input--width-20" id="dx-exchange" name="dx-exchange" type="text" aria-describedby="dx-exchange-hint" value="{{ data['dx-exchange'] }}">
-              </div>
+              <div class="govuk-form-group">
+                  <label class="govuk-label" for="address_street-3">
+                  </label>
+                  <input class="govuk-input" id="address_street-3" name="address_Line3" type="text"></div>
+
+              <div class="govuk-form-group">
+                  <label class="govuk-label" for="address_town">
+                      Town or city
+                  </label>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="address_town" name="address_city" type="text" value=""></div>
+
+              <div class="govuk-form-group">
+                  <label class="govuk-label" for="address_postcode-full">
+                      Postcode
+                  </label>
+                  <input class="govuk-input govuk-input--width-10" id="address_postcode-full" name="address_Postcode" type="text" value=""></div>
 
           </fieldset>
 
-            <br />
-              <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+          <br>
+
+          <!--
+
+          <div id="addressEnterManually" class="enter-manually">
+              <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="add-new-address-1">Search for an address using postcode</a></p>
+          </div>
+
+          -->
+
+          <br>
+
+          <form id="formSubmit" class="govuk-form-group" action="add-new-address-2" method="post" style="display: inline-block;">
+              <button class="govuk-button govuk-!-margin-right-3" data-module="govuk-button">
                   Continue
               </button>
-          </form>
+                <span style="display: inline-block;" class="govuk-body govuk-!-margin-top-1"><a href="index" class="govuk-link govuk-link--no-visited-state">Cancel and return to organisation</a></span>
+            </form>
+
 
       </div>
     </div>
