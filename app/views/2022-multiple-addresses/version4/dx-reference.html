@@ -1,0 +1,128 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#1">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="index">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="#">
+                        Assigned cases
+                    </a>
+                </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="#">
+                        Fee accounts
+                    </a>
+                </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {% include "./includes/phase-banner.html" %}
+    {{govukBackLink({
+    href: 'add-new-address'
+    })}}
+    <main role="main" class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+          <form id="formSubmit" class="govuk-form-group" action="add-new-address-check-answers" method="post" style="display: inline-block;">
+
+          <fieldset class="govuk-fieldset">
+
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+
+                  <h1 class="govuk-fieldset__heading">
+                      What's the DX reference for this office? (optional)
+                  </h1>
+
+              </legend>
+
+              <br />
+
+              <div class="govuk-form-group">
+                  <label class="govuk-label govuk-label--m" for="dx-number">
+                      DX number
+                  </label>
+
+                  <span id="dx-number-hint" class="govuk-hint">
+                    For example 931NR. You do not need to include 'DX'.
+                  </span>
+
+                  <input class="govuk-input govuk-input--width-20" id="dx-number" name="dx-number" type="text" aria-describedby="dx-number-hint" value="{{ data['dx-number'] }}">
+              </div>
+
+              <div class="govuk-form-group">
+                  <label class="govuk-label govuk-label--m" for="dx-exchange">
+                      DX exchange
+                  </label>
+
+                  <span id="dx-exchange-hint" class="govuk-hint">
+                    For example: HAYES (MIDDLESEX).
+                    </span>
+                  <input class="govuk-input govuk-input--width-20" id="dx-exchange" name="dx-exchange" type="text" aria-describedby="dx-exchange-hint" value="{{ data['dx-exchange'] }}">
+              </div>
+
+          </fieldset>
+
+            <br>
+            <br>
+
+              <button class="govuk-button govuk-!-margin-right-3" data-module="govuk-button" style="padding">
+                  Continue
+              </button>
+              <span style="display: inline-block;" class="govuk-body govuk-!-margin-top-1"><a href="index" class="govuk-link govuk-link--no-visited-state">Cancel and return to organisation page</a>
+              </span>
+          </form>
+
+      </div>
+    </div>
+    </main>
+</div>
+{% endblock %}
