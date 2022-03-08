@@ -72,12 +72,12 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-          <h1 class="govuk-heading-xl">Remove an address</h1>
+          <h1 class="govuk-heading-xl">Add or remove an address</h1>
           <div class="govuk-inset-text">
               If there are active cases associated with the address you are removing, you will be asked to select a replacement address for the cases.
           </div>
 
-          <table class="govuk-table govuk-!-margin-bottom-9">
+          <table class="govuk-table govuk-!-margin-bottom-9" style="margin-bottom: 30px!important;">
               <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                   <th scope="col" class="govuk-table__header">Address</th>
@@ -107,6 +107,14 @@
               </tr>
               </tbody>
           </table>
+
+          <div class="govuk-button-group" style="margin-bottom: 0px!important;">
+              <form class="govuk-form-group" action="add-new-address" method="get" style="display: inline-block;">
+                  <button class="govuk-button govuk-button--secondary govuk-!-margin-right-2" data-module="govuk-button">
+                      Add a new address
+                  </button>
+              </form>
+          </div>
 
           <form id="formSubmit" class="govuk-form-group" action="dx-reference" method="post" style="display: inline-block;">
               <span style="display: inline-block;" class="govuk-body govuk-!-margin-top-1"><a href="index" class="govuk-link govuk-link--no-visited-state">Cancel and return to organisation page</a>
