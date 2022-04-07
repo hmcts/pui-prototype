@@ -1,0 +1,135 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="#">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="#">
+                        Assigned cases
+                    </a>
+                </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="#">
+                        Fee accounts
+                    </a>
+                </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {% include "./includes/phase-banner.html" %}
+    <main role="main" class="govuk-main-wrapper" style="padding-top: 5px;">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <a href="change-name-and-sra-3.html" class="govuk-back-link" style="margin-bottom: 40px;">Back</a>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom: 30px;">Check and confirm changes</h1>
+
+        <!--
+        <div class="govuk-inset-text">
+              After you confirm the organisation changes, they will be reviewed by HMCTS who will approve or reject your changes.
+        </div>
+        -->
+
+        <br>
+
+        <h2 class="govuk-heading-m">Change name</h2>
+
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Current name</dt>
+              <dd class="govuk-check-your-answers__answer">Wedlake Bell</dd>
+              <dd class="govuk-check-your-answers__change"></dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">New name</dt>
+              <dd class="govuk-check-your-answers__answer">Wedlake Bell Corporation</dd>
+              <dd class="govuk-check-your-answers__change"><a href="change-name-and-sra-2.html">Change <span class="govuk-visually-hidden">New name</span></a></dd>
+          </div>
+        </dl>
+
+        <br>
+
+        <h2 class="govuk-heading-m">Change SRA ID</h2>
+
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Current SRA ID</dt>
+              <dd class="govuk-check-your-answers__answer">SRA3347232</dd>
+              <dd class="govuk-check-your-answers__change"></dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">New SRA ID</dt>
+              <dd class="govuk-check-your-answers__answer">SRA1234567</dd>
+              <dd class="govuk-check-your-answers__change"><a href="change-name-and-sra-3.html">Change <span class="govuk-visually-hidden">New SRA ID</span></a></dd>
+          </div>
+        </dl>
+
+        <br>
+
+        <form id="formSubmit" class="govuk-form-group" action="change-name-and-sra-6" method="post" style="display: inline-block;">
+            <button class="govuk-button govuk-!-margin-right-3" data-module="govuk-button">
+                Confirm
+            </button>
+        </form>
+        
+        <span style="position: relative; top: 10px; display: inline-block;" class="govuk-body"><a href="change-name-and-sra-1.html" class="govuk-link">Cancel and return to organisation page</a></span>
+        
+
+        <br><br>
+
+
+      </div>
+    </div>
+    </main>
+</div>
+{% endblock %}

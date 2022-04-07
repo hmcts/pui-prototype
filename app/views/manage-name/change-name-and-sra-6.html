@@ -1,0 +1,93 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="#">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="#">
+                        Assigned cases
+                    </a>
+                </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="#">
+                        Fee accounts
+                    </a>
+                </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {% include "./includes/phase-banner.html" %}
+    <main role="main" class="govuk-main-wrapper" style="padding-top: 60px;">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-panel govuk-panel--confirmation" style="background-color: #00703c;">
+
+          <h1 class="govuk-panel__title">Organisation changes request submitted</h1>
+
+        </div>
+
+        <br>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+        
+        <p class="govuk-body">Your changes request will be review by HMCTS. <br>The new details will appear on your organisation page once they have been verified.</p>
+        
+        <p class="govuk-body"><a class="govuk-link" href="change-name-and-sra-7.html">Return to organisation page</a></p>
+
+        <br><br>
+
+      </div>
+    </div>
+    </main>
+</div>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="#">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="#">
+                        Assigned cases
+                    </a>
+                </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="#">
+                        Fee accounts
+                    </a>
+                </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {% include "./includes/phase-banner.html" %}
+    <main role="main" class="govuk-main-wrapper" style="padding-top: 5px;">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <a href="change-name-and-sra-1.html" class="govuk-back-link" style="margin-bottom: 40px;">Back</a>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom: 30px;">Change organisation name</h1>
+
+        <p style="background-color:#d2e2f1;">
+          <br>
+          <span style="padding-left: 20px;"><strong>Current name:</strong> &nbsp; Wedlake Bell</span>
+          <br>
+          <br>
+        </p>
+
+        <br>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="event-name"><strong>What is the new name of the organisation?</strong></label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="event-name" name="event-name" type="text">
+        </div>
+
+        <!--
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <label class="govuk-label" for="event-name"><strong>Do you want to change the SRA as well?</strong></label>
+            <div id="changed-name-hint" class="govuk-hint">
+              Changing the SRA now is optional and it can change later.
+            </div>
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="changed-name">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        -->
+
+        <br>
+
+        <form id="formSubmit" class="govuk-form-group" action="change-name-and-sra-3" method="post" style="display: inline-block;">
+            <button class="govuk-button govuk-!-margin-right-3" data-module="govuk-button">
+                Continue
+            </button>
+        </form>
+        
+        <span style="position: relative; top: 10px; display: inline-block;" class="govuk-body"><a href="change-name-and-sra-1.html" class="govuk-link">Cancel and return to organisation page</a></span>
+        
+
+        <br><br>
+
+
+      </div>
+    </div>
+    </main>
+</div>
+{% endblock %}

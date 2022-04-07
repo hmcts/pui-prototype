@@ -2,11 +2,48 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Professional user interface prototypes TEST</h1>
+    <h1 class="govuk-heading-xl">Professional user interface prototypes </h1>
     <p class="govuk-body">This prototype shows a number of experiments and iterations for professional users including registering an organisation, managing and organisation and managing cases and applications on behalf of citizens.</p>
 
-
     <h2 class="govuk-heading-m">Latest wireframe additions</h2>
+
+
+
+
+    {% set releaseZeroHtml %}
+    <p class="govuk-body"></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="/oct-2020/register-organisation/start">Register</a><br>
+        <span class="form-hint">Registration, lastest prototype design</span><br></li>
+      <li><a href="/oct-2020/manage-organisation/sign-in-mo">Manage organisation</a><br>
+        <span class="form-hint">Manage organisation, lastest prototype design</span></li>
+    </ul>
+    {% endset %}
+
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          April 2022 (Manage organisation - Name and SRA)
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <ul class="govuk-list">
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="manage-name/change-name-1.html" target="_blank">Change name</a></li>
+            <li><a href="manage-name/change-sra-1" target="_blank">Change SRA</a></li>
+            <li><a href="manage-name/change-name-and-sra-1" target="_blank">Change name and SRA </a></li>
+            <li><a href="manage-name/approve-change-name-1" target="_blank">Approve change name (in progress)</a></li>
+            <li><a href="#" target="_blank">Approve change SRA (TBD)</a></li>
+            <li><a href="#" target="_blank">Approve change name and SRA (TBD)</a></li>
+            <li><a href="#" target="_blank">Reject change name and SRA (TBD)</a></li>
+          </ul>
+        </ul>
+      </div>
+    </details>
+
+
+
 
     {% set releaseZeroHtml %}
     <p class="govuk-body"></p>
