@@ -79,6 +79,7 @@
     <span class="govuk-caption-xl">Wedlake Bell</span>
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">Assigned cases</h1>
 
+    <!--
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-half govuk-body govuk-!-margin-top-0">
         <div class="govuk-inset-text">
@@ -86,6 +87,7 @@
         </div>
       </div>
     </div>
+    -->
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
@@ -104,20 +106,59 @@
 
                 <div class="govuk-form-group govuk-!-margin-bottom-0">
                   <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+
                     <div class="govuk-radios" data-module="govuk-radios">
+
                       <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="search-ccd" name="search" type="radio" value="CCD reference" data-aria-controls="conditional-search-ccd">
-                        <label class="govuk-label govuk-radios__label" for="search-ccd">
-                          Case reference number
+                        <input class="govuk-radios__input" id="search-all" name="search" type="radio" value="all" data-aria-controls="conditional-search-all" checked="checked">
+                        <label class="govuk-label govuk-radios__label" for="search-all">
+                          All assignees
                         </label>
                       </div>
-                      <div class="govuk-radios__conditional" id="conditional-search-ccd" style="display: none;">
-                        <div class="govuk-form-group">
-                          <label class="govuk-label" for="searchRef">
-                            Enter the 16 digit case reference number
-                          </label>
-                          <input class="govuk-input govuk-!-width-two-thirds" id="searchRef" name="search-ref" type="search" spellcheck="false"></div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="search-sol" name="search" type="radio" value="Solicitor name" data-aria-controls="conditional-search-sol">
+                        <label class="govuk-label govuk-radios__label" for="search-sol">
+                          Assignee name
+                        </label>
                       </div>
+                      <div class="govuk-radios__conditional" id="conditional-search-sol" style="display: none;">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="showSols">
+                            Type the name and select an available match option
+                          </label>
+                          <input class="govuk-input govuk-!-width-two-thirds" id="autocomplete" name="search-ref" type="search" spellcheck="false"></div>
+                        </div>
+                      </div>
+
+
+                      <!--
+                      <form class="form" action="hearing-panel" method="post">
+                      <div class="govuk-form-group" id="excludejudgeContainer">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-!-font-weight-bold" for="exclude-judgename">
+                                Exclude a judge (optional)
+                            </label>
+                            <div style="width: 70%; display: inline-block;" id="exclude-judgename-container" class="govuk-!-margin-right-2"></div>
+                            <div style="display: inline-block;" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="excludeJudge" >Exclude judge</div>
+                        </div>
+
+                        <ul class="hmcts-filter-tags" id="filterTags" style="display: none;">
+                            <li>
+                                <a id="filterTagClose" class="hmcts-filter__tag" href="#">
+                                    <span class="govuk-visually-hidden">
+                                      Remove this venue
+                                    </span>
+                                    <span id="exJudge1"></span>
+                                </a>
+                            </li>
+                        </ul>
+                      </div>
+                      </form>
+                      -->
+
+
+                      <!--
                       <div class="govuk-radios__item">
                         <input class="govuk-radios__input" id="search-sol" name="search" type="radio" value="Solicitor name" data-aria-controls="conditional-search-sol">
                         <label class="govuk-label govuk-radios__label" for="search-sol">
@@ -147,6 +188,22 @@
                           </select>
                         </div>
                       </div>
+                      -->
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="search-ccd" name="search" type="radio" value="CCD reference" data-aria-controls="conditional-search-ccd">
+                        <label class="govuk-label govuk-radios__label" for="search-ccd">
+                          Case reference number
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional" id="conditional-search-ccd" style="display: none;">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="searchRef">
+                            Enter the 16 digit case reference number
+                          </label>
+                          <input class="govuk-input govuk-!-width-two-thirds" id="searchRef" name="search-ref" type="search" spellcheck="false"></div>
+                      </div>
+
                     </div>
 
                   </fieldset>
@@ -160,9 +217,11 @@
                 <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-right-3">
                   Apply filter
                 </a>
+                <!--
                 <a href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary">
                   Reset filter
                 </a>
+                -->
               </div>
             </div>
           </div>
@@ -404,6 +463,8 @@
 {% endblock %}
 {% block pageScripts %}
 {{super()}}
+
+
 <script>
 
   $('#filterToggleBtn').click(function() {
@@ -419,9 +480,16 @@
   $("#search-ccd").change(function() {
     $("#conditional-search-ccd").show()
     $("#conditional-search-sol").hide()
+    $("#conditional-search-all").hide()
   })
   $("#search-sol").change(function() {
     $("#conditional-search-sol").show()
+    $("#conditional-search-ccd").hide()
+    $("#conditional-search-all").hide()
+  })
+  $("#search-all").change(function() {
+    $("#conditional-search-all").show()
+    $("#conditional-search-sol").hide()
     $("#conditional-search-ccd").hide()
   })
 
@@ -464,4 +532,78 @@
     }
   });
 </script>
+
+
+
+<!--
+<script>
+
+    // function excludejudge()
+    // {
+    //     document.getElementById("exludejudgefield").style.display = "flex";
+    //     document.getElementById("exludeanotherjudge").style.display = "inline-block";
+    //     document.getElementById("exludenewjudge").style.display = "none";
+    // }
+
+    window.onload = (event) => {
+
+        const judgeNames = [
+            'Jane Smith (jane.smith@justice.gov.uk)',
+            'John Smith (john.smith@justice.gov.uk)',
+            'John Snow (john.snow@justice.gov.uk)',
+            'John H Snow (jharoldsnow@justice.gov.uk)'
+        ]
+
+        element1 = document.querySelector('#judgename-container')
+            id = 'judgename'
+            accessibleAutocomplete({
+            element: element1,
+            id: id,
+            placeholder: 'e.g. John Smith',
+            source: judgeNames,
+            name: 'name-of-judge'
+        })
+
+        element2 = document.querySelector('#exclude-judgename-container')
+            id = 'exclude-judgename'
+            accessibleAutocomplete({
+            element: element2,
+            id: id,
+            placeholder: 'e.g. John Smith',
+            source: judgeNames
+        })
+
+
+        document.getElementById("excludeJudge").addEventListener("click", function() {
+          // Get excluded judges name
+          var excludeJudgeName = document.getElementById("exclude-judgename").value
+          // Get filter tag display value
+          var filterTag = document.getElementById("filterTags")
+
+          // Show tag and add name to tag
+          if (excludeJudgeName != '' && filterTag.style.display == 'none') {
+            console.log(excludeJudgeName)
+            filterTag.style.display = 'inline-block'
+            document.getElementById("exJudge1").innerHTML = excludeJudgeName
+            document.getElementById("exclude-judgename").value = ''
+          }
+        })
+
+      document.getElementById("filterTagClose").addEventListener("click", function() {
+        // Get filter tag display value
+        var filterTag = document.getElementById("filterTags")
+        filterTag.style.display = 'none'
+      })
+
+    }
+
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+-->
+
+
+
 {% endblock %}
