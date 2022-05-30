@@ -2,6 +2,41 @@
 {% set serviceName = 'Manage organisation' %}
 {% set pageId = 'users' %}
 {% block header %}
+
+<style>
+    .govuk-tag--red {
+        color: #942514;
+        background: #f6d7d2;
+    }
+    .govuk-tag--blue {
+        color: #144e81;
+        background: #d2e2f1;
+    }
+    .govuk-tag--green {
+        color: #005a30;
+        background: #cce2d8;
+    }
+    #solicitorNamesAutocomplete input {
+        height: 40px;
+        background: #ffffff;
+    }
+
+    .govuk-accordion__open-all {
+        font-size: 19px !important;
+        text-decoration: underline;
+        margin-bottom: 12px;
+    }
+    .hmcts-badge--red {
+        color: #d4351c;
+        border-color: #d4351c;
+    }
+    a:focus, a:active, span:focus, span:active, summary:active, summary:focus {
+        background-color: #fd0 !important;
+        outline-color: #fd0 !important;
+    }
+</style>
+
+
 <header class="hmcts-header" role="banner">
   <div class="hmcts-header__container">
     <div class="govuk-header__logo">
@@ -122,12 +157,16 @@
                           Assignee name
                         </label>
                       </div>
-                      <div class="govuk-radios__conditional" id="conditional-search-sol" style="display: none;">
-                        <div class="govuk-form-group">
-                          <label class="govuk-label" for="showSols">
-                            Type the name and select an available match option
-                          </label>
-                          <input class="govuk-input govuk-!-width-two-thirds" id="autocomplete" name="search-ref" type="search" spellcheck="false"></div>
+
+                          <div class="govuk-radios__conditional" id="conditional-search-sol" style="display: none;">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label" for="showSols">
+                                Type the name and select an available match option
+                              </label>
+                              <!--<input class="govuk-input govuk-!-width-two-thirds" id="autocomplete" name="search-ref" type="search" spellcheck="false">-->
+                              <div style="display:inline-block;width: 500px;" id="solicitorNamesAutocomplete" style="color: #ffffff;"></div>
+                            </div>
+
                         </div>
                       </div>
 
@@ -607,6 +646,90 @@
 </script>
 -->
 
+<script>
+
+  window.onload = (event) => {
+
+    $('#removeSolicitor').click( function(e) {
+      e.preventDefault()
+      console.log('fdsfs')
+      var removeSol = $('#showSols option:selected').val()
+      console.log(removeSol)
+      if (removeSol === 'Jill' && $('#status2').is(":hidden") && $('#status4').is(":hidden")) {
+        toggleStatusRow1()
+        toggleStatusRow2()
+      }
+
+      return false
+    })
+
+    // Add solicitor to all cases
+    $('#addSolicitor').click( function(e) {e.preventDefault(); gofo(); return false; } );
+
+    function gofo() {
+      $('#sol-autocomplete').val('')
+      $('#terRow1').show()
+      $('#terRow2').show()
+    }
+
+    // Remove each solicitor row
+    $('#removeTer1').click( function(e) {e.preventDefault(); removeTerRow1(); return false; } );
+    $('#removeTer2').click( function(e) {e.preventDefault(); removeTerRow2(); return false; } );
+
+    function removeTerRow1() {
+      $('#terRow1').hide()
+    }
+    function removeTerRow2() {
+      $('#terRow2').hide()
+    }
+
+    // Toggle display for removing access for Jill Smith
+    $('#removeAccess1').click( function(e) {e.preventDefault(); toggleStatusRow1(); return false; } );
+    $('#cancelRemove1').click( function(e) {e.preventDefault(); toggleStatusRow1(); return false; } );
+
+    $('#removeAccess2').click( function(e) {e.preventDefault(); toggleStatusRow2(); return false; } );
+    $('#cancelRemove2').click( function(e) {e.preventDefault(); toggleStatusRow2(); return false; } );
+
+    function toggleStatusRow1() {
+      $('#status1').toggle()
+      $('#removeAccess1').toggle()
+      $('#status2').toggle()
+      $('#cancelRemove1').toggle()
+    }
+
+    function toggleStatusRow2() {
+      $('#status3').toggle()
+      $('#removeAccess2').toggle()
+      $('#status4').toggle()
+      $('#cancelRemove2').toggle()
+    }
+
+    const solicitorNamesList = [
+      'Bonita Bannister - bonita.bannister@wedlakebell.com',
+      'Dominika Garner - dominika.garnerh@wedlakebell.com',
+      'Eryn Marriott - eryn.marriott@wedlakebell.com',
+      'Jadene Harris - jadene.harris@wedlakebell.com',
+      'Kaya Mccullough - kaya.mcculloughn@wedlakebell.com',
+      'Kofi Bowman - kofi.bowman@wedlakebell.com',
+      'Kaya Mccullough - kaya.mcculloughn@wedlakebell.com',
+      'Lyndsey Mora - lyndsey.mora@wedlakebell.com',
+      'Michele Serrano - michele.serrano@wedlakebell.com',
+      'Terence Williams - terence.williams@wedlakebell.com'
+    ]
+
+    element1 = document.querySelector('#solicitorNamesAutocomplete')
+    id = 'sol-autocomplete'
+    accessibleAutocomplete({
+      element: element1,
+      id: id,
+      placeholder: 'e.g. John Smith',
+      source: solicitorNamesList,
+      name: 'name-of-solicitor'
+    })
+
+  }
+
+</script>
 
 
 {% endblock %}
