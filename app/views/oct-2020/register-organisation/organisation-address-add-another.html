@@ -9,7 +9,7 @@
                     <span class="govuk-header__logotype-text">
                         MyHMCTS
                     </span>
-                </span>
+                </span> 
             </a>
         </div>
         <a class="hmcts-header__link" href="/">Register to manage civil and family law cases</a>
@@ -33,13 +33,14 @@
                 <form action="/oct-2020/register-organisation/organisation-dx2">
                     {{ govukFieldset({
                     legend: {
-                    text: "Add another address",
+                    text: "Add an address for your organisation",
                     classes: "govuk-fieldset__legend--xl",
                     isPageHeading: true
                     }
                     }) }}
 
-                    <br />
+                    <p class="govuk-body">You’ll be able to add more addresses later.</p>
+                    <br>
 
 <!--                    {% if data['add-new'] != 'true' %}-->
 <!--                    <p class="govuk-body">This should be the main address for your organisation. You’ll be able to add more office addresses later.</p>-->

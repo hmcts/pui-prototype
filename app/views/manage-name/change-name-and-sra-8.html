@@ -1,0 +1,142 @@
+{% extends "./layout.html" %}
+{% block header %}
+<header class="hmcts-header" role="banner">
+  <div class="hmcts-header__container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            MyHMCTS
+          </span>
+        </span>
+      </a>
+    </div>
+    <a class="hmcts-header__link" href="#">Manage organisation</a>
+    <div class="hmcts-header__content">
+      <nav class="hmcts-header__navigation" aria-label="Account navigation">
+        <ul class="hmcts-header__navigation-list">
+          <!-- <li class="hmcts-header__navigation-item">
+                        <a class="hmcts-header__navigation-link" href="#1">
+                            Profile
+                        </a>
+                    </li> -->
+          <li class="hmcts-header__navigation-item">
+            <a class="hmcts-header__navigation-link" href="#">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hmcts-primary-navigation">
+      <ul class="hmcts-primary-navigation__list">
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" aria-current="page" href="#">
+            Organisation
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Users
+          </a>
+        </li>
+        <li class="hmcts-primary-navigation__item">
+          <a class="hmcts-primary-navigation__link" href="#">
+            Unassigned cases
+          </a>
+        </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link"  href="#">
+                        Assigned cases
+                    </a>
+                </li>
+
+        <li class="hmcts-primary-navigation__item">
+                    <a class="hmcts-primary-navigation__link" href="#">
+                        Fee accounts
+                    </a>
+                </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="hmcts-width-container">
+    {% include "./includes/phase-banner.html" %}
+    <main role="main" class="govuk-main-wrapper">
+    <h1 class="govuk-heading-xl">Organisation</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <dl class="govuk-check-your-answers  govuk-check-your-answers--short  govuk-!-margin-bottom-6">
+       
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Name</dt>
+              <dd class="govuk-check-your-answers__answer">Wedlake Bell Corporation</dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="change-name-and-sra-2">Change <span class="govuk-visually-hidden">Name</span></a>
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">SRA ID</dt>
+              <dd class="govuk-check-your-answers__answer">SRA1234567</dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="#">Change <span class="govuk-visually-hidden">SRA</span></a>
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Organisation addresses</dt>
+              <dd class="govuk-check-your-answers__answer">
+
+                  <p class="govuk-body govuk-!-margin-bottom-1">
+                      102 Petty France<br />
+                      London<br />
+                      SW1h 9AJ</p>
+                  <p class="govuk-body govuk-!-margin-bottom-1">DX: 152738, Westminster 8</p>
+                  <br />
+                  <p class="govuk-body govuk-!-margin-bottom-1">
+                      46 High street<br />
+                      Guildford<br />
+                      GU1 1AH</p>
+                  <p class="govuk-body govuk-!-margin-bottom-1">DX: 112345, Guildford 14</p>
+
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="#">Add or remove an address</a> 
+                  <!--
+                  <br>
+                  <a href="manage-address-1">Remove an address</a>
+                  -->
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">PBA numbers</dt>
+              <dd class="govuk-check-your-answers__answer">
+                  PBA1234567<br />
+                  PBA7894561
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                  <a href="#">Change <span class="govuk-visually-hidden">PBA number</span></a>
+              </dd>
+          </div>
+          <div class="govuk-check-your-answers__contents">
+              <dt class="govuk-check-your-answers__question">Administrator</dt>
+              <dd class="govuk-check-your-answers__answer">
+                  Luke Wilson<br>
+                  <span class="govuk-body govuk-!-font-size-16" style="color: #505a5f">luke.wilson@email.com</span>
+              </dd>
+              <dd class="govuk-check-your-answers__change">
+                  <!--<a href="#">Change <span class="govuk-visually-hidden">Administrator</span></a>-->
+              </dd>
+          </div>
+        </dl>
+
+        <br>
+        <br>
+
+      </div>
+    </div>
+    </main>
+</div>
+{% endblock %}

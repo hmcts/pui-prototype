@@ -33,14 +33,14 @@
                 <form action="/oct-2020/register-organisation/organisation-dx">
                     {{ govukFieldset({
                     legend: {
-                    text: "What's your organisation's address?",
+                    text: "Add an address for your organisation",
                     classes: "govuk-fieldset__legend--xl",
                     isPageHeading: true
-                    }
+                    } 
                     }) }}
 
                     {% if data['add-new'] != 'true' %}
-                    <p class="govuk-body">This should be the main address for your organisation. You’ll be able to add more office addresses later.</p>
+                    <p class="govuk-body">You’ll be able to add more addresses later.</p>
                     <br>
                     {% endif %}
 

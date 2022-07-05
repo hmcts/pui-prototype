@@ -2,6 +2,41 @@
 {% set serviceName = 'Manage organisation' %}
 {% set pageId = 'users' %}
 {% block header %}
+
+<style>
+    .govuk-tag--red {
+        color: #942514;
+        background: #f6d7d2;
+    }
+    .govuk-tag--blue {
+        color: #144e81;
+        background: #d2e2f1;
+    }
+    .govuk-tag--green {
+        color: #005a30;
+        background: #cce2d8;
+    }
+    #solicitorNamesAutocomplete input {
+        height: 40px;
+        background: #ffffff;
+    }
+
+    .govuk-accordion__open-all {
+        font-size: 19px !important;
+        text-decoration: underline;
+        margin-bottom: 12px;
+    }
+    .hmcts-badge--red {
+        color: #d4351c;
+        border-color: #d4351c;
+    }
+    a:focus, a:active, span:focus, span:active, summary:active, summary:focus {
+        background-color: #fd0 !important;
+        outline-color: #fd0 !important;
+    }
+</style>
+
+
 <header class="hmcts-header" role="banner">
   <div class="hmcts-header__container">
     <div class="govuk-header__logo">
@@ -79,6 +114,7 @@
     <span class="govuk-caption-xl">Wedlake Bell</span>
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">Assigned cases</h1>
 
+    <!--
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-half govuk-body govuk-!-margin-top-0">
         <div class="govuk-inset-text">
@@ -86,6 +122,7 @@
         </div>
       </div>
     </div>
+    -->
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
@@ -104,20 +141,63 @@
 
                 <div class="govuk-form-group govuk-!-margin-bottom-0">
                   <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+
                     <div class="govuk-radios" data-module="govuk-radios">
+
                       <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="search-ccd" name="search" type="radio" value="CCD reference" data-aria-controls="conditional-search-ccd">
-                        <label class="govuk-label govuk-radios__label" for="search-ccd">
-                          Case reference number
+                        <input class="govuk-radios__input" id="search-all" name="search" type="radio" value="all" data-aria-controls="conditional-search-all" checked="checked">
+                        <label class="govuk-label govuk-radios__label" for="search-all">
+                          All assignees
                         </label>
                       </div>
-                      <div class="govuk-radios__conditional" id="conditional-search-ccd" style="display: none;">
-                        <div class="govuk-form-group">
-                          <label class="govuk-label" for="searchRef">
-                            Enter the 16 digit case reference number
-                          </label>
-                          <input class="govuk-input govuk-!-width-two-thirds" id="searchRef" name="search-ref" type="search" spellcheck="false"></div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="search-sol" name="search" type="radio" value="Solicitor name" data-aria-controls="conditional-search-sol">
+                        <label class="govuk-label govuk-radios__label" for="search-sol">
+                          Assignee name
+                        </label>
                       </div>
+
+                          <div class="govuk-radios__conditional" id="conditional-search-sol" style="display: none;">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label" for="showSols">
+                                Type the name and select an available match option
+                              </label>
+                              <!--<input class="govuk-input govuk-!-width-two-thirds" id="autocomplete" name="search-ref" type="search" spellcheck="false">-->
+                              <div style="display:inline-block;width: 500px;" id="solicitorNamesAutocomplete" style="color: #ffffff;"></div>
+                            </div>
+
+                        </div>
+                      </div>
+
+
+                      <!--
+                      <form class="form" action="hearing-panel" method="post">
+                      <div class="govuk-form-group" id="excludejudgeContainer">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-!-font-weight-bold" for="exclude-judgename">
+                                Exclude a judge (optional)
+                            </label>
+                            <div style="width: 70%; display: inline-block;" id="exclude-judgename-container" class="govuk-!-margin-right-2"></div>
+                            <div style="display: inline-block;" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="excludeJudge" >Exclude judge</div>
+                        </div>
+
+                        <ul class="hmcts-filter-tags" id="filterTags" style="display: none;">
+                            <li>
+                                <a id="filterTagClose" class="hmcts-filter__tag" href="#">
+                                    <span class="govuk-visually-hidden">
+                                      Remove this venue
+                                    </span>
+                                    <span id="exJudge1"></span>
+                                </a>
+                            </li>
+                        </ul>
+                      </div>
+                      </form>
+                      -->
+
+
+                      <!--
                       <div class="govuk-radios__item">
                         <input class="govuk-radios__input" id="search-sol" name="search" type="radio" value="Solicitor name" data-aria-controls="conditional-search-sol">
                         <label class="govuk-label govuk-radios__label" for="search-sol">
@@ -147,27 +227,48 @@
                           </select>
                         </div>
                       </div>
+                      -->
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="search-ccd" name="search" type="radio" value="CCD reference" data-aria-controls="conditional-search-ccd">
+                        <label class="govuk-label govuk-radios__label" for="search-ccd">
+                          Case reference number
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional" id="conditional-search-ccd" style="display: none;">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="searchRef">
+                            Enter the 16 digit case reference number
+                          </label>
+                          <input class="govuk-input govuk-!-width-two-thirds" id="searchRef" name="search-ref" type="search" spellcheck="false"></div>
+                      </div>
+
                     </div>
 
                   </fieldset>
                 </div>
 
               </div>
-            </div>
-            <div class="govuk-grid-row">
-              <div class="govuk-grid-column-one-half  govuk-body govuk-!-margin-bottom-6" style="background-color: 	#f3f2f1; margin-left: 15px;">
-                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-                <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-right-3">
-                  Apply filter
-                </a>
-                <a href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary">
-                  Reset filter
-                </a>
+
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half  govuk-body govuk-!-margin-bottom-6" style="background-color: 	#f3f2f1; margin-left: 15px;">
+                  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                  <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-right-3">
+                    Apply filter
+                  </a>
+                  <!--
+                  <a href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary">
+                    Reset filter
+                  </a>
+                  -->
+                </div>
               </div>
+
             </div>
           </div>
 
-            <div class="hmcts-scrollable-pane" id="searchContent">
+
+          <div class="hmcts-scrollable-pane" id="searchContent">
               <div class="hmcts-scrollable-pane__wrapper">
                 {% set checkbox %}
                 <div class="govuk-checkboxes__item">
@@ -404,6 +505,8 @@
 {% endblock %}
 {% block pageScripts %}
 {{super()}}
+
+
 <script>
 
   $('#filterToggleBtn').click(function() {
@@ -419,9 +522,16 @@
   $("#search-ccd").change(function() {
     $("#conditional-search-ccd").show()
     $("#conditional-search-sol").hide()
+    $("#conditional-search-all").hide()
   })
   $("#search-sol").change(function() {
     $("#conditional-search-sol").show()
+    $("#conditional-search-ccd").hide()
+    $("#conditional-search-all").hide()
+  })
+  $("#search-all").change(function() {
+    $("#conditional-search-all").show()
+    $("#conditional-search-sol").hide()
     $("#conditional-search-ccd").hide()
   })
 
@@ -464,4 +574,162 @@
     }
   });
 </script>
+
+
+
+<!--
+<script>
+
+    // function excludejudge()
+    // {
+    //     document.getElementById("exludejudgefield").style.display = "flex";
+    //     document.getElementById("exludeanotherjudge").style.display = "inline-block";
+    //     document.getElementById("exludenewjudge").style.display = "none";
+    // }
+
+    window.onload = (event) => {
+
+        const judgeNames = [
+            'Jane Smith (jane.smith@justice.gov.uk)',
+            'John Smith (john.smith@justice.gov.uk)',
+            'John Snow (john.snow@justice.gov.uk)',
+            'John H Snow (jharoldsnow@justice.gov.uk)'
+        ]
+
+        element1 = document.querySelector('#judgename-container')
+            id = 'judgename'
+            accessibleAutocomplete({
+            element: element1,
+            id: id,
+            placeholder: 'e.g. John Smith',
+            source: judgeNames,
+            name: 'name-of-judge'
+        })
+
+        element2 = document.querySelector('#exclude-judgename-container')
+            id = 'exclude-judgename'
+            accessibleAutocomplete({
+            element: element2,
+            id: id,
+            placeholder: 'e.g. John Smith',
+            source: judgeNames
+        })
+
+
+        document.getElementById("excludeJudge").addEventListener("click", function() {
+          // Get excluded judges name
+          var excludeJudgeName = document.getElementById("exclude-judgename").value
+          // Get filter tag display value
+          var filterTag = document.getElementById("filterTags")
+
+          // Show tag and add name to tag
+          if (excludeJudgeName != '' && filterTag.style.display == 'none') {
+            console.log(excludeJudgeName)
+            filterTag.style.display = 'inline-block'
+            document.getElementById("exJudge1").innerHTML = excludeJudgeName
+            document.getElementById("exclude-judgename").value = ''
+          }
+        })
+
+      document.getElementById("filterTagClose").addEventListener("click", function() {
+        // Get filter tag display value
+        var filterTag = document.getElementById("filterTags")
+        filterTag.style.display = 'none'
+      })
+
+    }
+
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+-->
+
+<script>
+
+  window.onload = (event) => {
+
+    $('#removeSolicitor').click( function(e) {
+      e.preventDefault()
+      console.log('fdsfs')
+      var removeSol = $('#showSols option:selected').val()
+      console.log(removeSol)
+      if (removeSol === 'Jill' && $('#status2').is(":hidden") && $('#status4').is(":hidden")) {
+        toggleStatusRow1()
+        toggleStatusRow2()
+      }
+
+      return false
+    })
+
+    // Add solicitor to all cases
+    $('#addSolicitor').click( function(e) {e.preventDefault(); gofo(); return false; } );
+
+    function gofo() {
+      $('#sol-autocomplete').val('')
+      $('#terRow1').show()
+      $('#terRow2').show()
+    }
+
+    // Remove each solicitor row
+    $('#removeTer1').click( function(e) {e.preventDefault(); removeTerRow1(); return false; } );
+    $('#removeTer2').click( function(e) {e.preventDefault(); removeTerRow2(); return false; } );
+
+    function removeTerRow1() {
+      $('#terRow1').hide()
+    }
+    function removeTerRow2() {
+      $('#terRow2').hide()
+    }
+
+    // Toggle display for removing access for Jill Smith
+    $('#removeAccess1').click( function(e) {e.preventDefault(); toggleStatusRow1(); return false; } );
+    $('#cancelRemove1').click( function(e) {e.preventDefault(); toggleStatusRow1(); return false; } );
+
+    $('#removeAccess2').click( function(e) {e.preventDefault(); toggleStatusRow2(); return false; } );
+    $('#cancelRemove2').click( function(e) {e.preventDefault(); toggleStatusRow2(); return false; } );
+
+    function toggleStatusRow1() {
+      $('#status1').toggle()
+      $('#removeAccess1').toggle()
+      $('#status2').toggle()
+      $('#cancelRemove1').toggle()
+    }
+
+    function toggleStatusRow2() {
+      $('#status3').toggle()
+      $('#removeAccess2').toggle()
+      $('#status4').toggle()
+      $('#cancelRemove2').toggle()
+    }
+
+    const solicitorNamesList = [
+      'Bonita Bannister - bonita.bannister@wedlakebell.com',
+      'Dominika Garner - dominika.garnerh@wedlakebell.com',
+      'Eryn Marriott - eryn.marriott@wedlakebell.com',
+      'Jadene Harris - jadene.harris@wedlakebell.com',
+      'Kaya Mccullough - kaya.mcculloughn@wedlakebell.com',
+      'Kofi Bowman - kofi.bowman@wedlakebell.com',
+      'Kaya Mccullough - kaya.mcculloughn@wedlakebell.com',
+      'Lyndsey Mora - lyndsey.mora@wedlakebell.com',
+      'Michele Serrano - michele.serrano@wedlakebell.com',
+      'Terence Williams - terence.williams@wedlakebell.com'
+    ]
+
+    element1 = document.querySelector('#solicitorNamesAutocomplete')
+    id = 'sol-autocomplete'
+    accessibleAutocomplete({
+      element: element1,
+      id: id,
+      placeholder: 'e.g. John Smith',
+      source: solicitorNamesList,
+      name: 'name-of-solicitor'
+    })
+
+  }
+
+</script>
+
+
 {% endblock %}
